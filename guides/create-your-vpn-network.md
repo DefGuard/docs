@@ -12,18 +12,18 @@ description: Create your vpn network after deploying your instance
 
 ## Network creation wizard
 
-After deploying your defguard instance first screen you'll see will look like this&#x20;
+After successful deployment of your defguard instance first screen you'll see will look like this\\
 
-![First screen after deploying your instance](../.gitbook/assets/Wizard.png)
+![First screen after logging to your freshly installed instance](../.gitbook/assets/Wizard.png)
 
 ### Network name and type
 
-Nothing fancy in this step yet just pick your network name and type
+Nothing fancy in this step just pick your network name and type
 
 ![First step on network creation wizard](<../.gitbook/assets/wizardstep1 (1).png>)
 
 {% hint style="info" %}
-Currently only supported network type is regular  but we hope it'll change in short future&#x20;
+Currently only supported network type is regular but we hope it'll change in a short future&#x20;
 {% endhint %}
 
 ### Network configuration
@@ -42,7 +42,7 @@ The IP address for a WireGuard interface is defined with a network prefix, which
 
 ### Network port
 
-It's a port on which Wireguard listens on the gateway
+Port on which Wireguard listens on the gateway
 
 ### Gateway endpoint
 
@@ -56,7 +56,7 @@ Network port and gateway endpoint port can be different if gateway is behind NAT
 
 ### Allowed IPs
 
-is the set of IP addresses the local host should route to the remote peer through the WireGuard tunnel. This setting tells the localhost what goes in a tunnel.
+is the set of IP addresses the localhost should route to the remote peer through the WireGuard tunnel. This setting tells the localhost what goes in a tunnel.
 
 ### DNS&#x20;
 
