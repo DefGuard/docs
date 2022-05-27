@@ -2,7 +2,7 @@
 description: Create your vpn network after deploying your instance
 ---
 
-# Setting up your network
+# Create your VPN network
 
 ## Before we start
 
@@ -10,7 +10,7 @@ description: Create your vpn network after deploying your instance
 * Make sure you downloaded our [Wireguard Gateway](https://github.com/DefGuard/wireguard-gateway)
 * Make sure you know what [Wireguard](https://www.wireguard.com/) is and have basic understanding of how it works
 
-## Network creation
+## Network creation wizard
 
 After deploying your defguard instance first screen you'll see will look like this&#x20;
 

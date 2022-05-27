@@ -5,7 +5,7 @@
 ## Guides
 
 * [Setting up your instance](guides/setting-up-your-instance.md)
-* [Setting up your network](guides/setting-up-your-network.md)
+* [Create your VPN network](guides/create-your-vpn-network.md)
 * [LDAP synchronization setup](guides/ldap-synchronization-setup.md)
 * [Webhooks](guides/webhooks.md)
 

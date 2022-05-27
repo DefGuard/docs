@@ -32,8 +32,8 @@ layout: landing
 
 Follow our handy guides to get started on the basics as quickly as possible:
 
-{% content-ref url="guides/setting-up-your-network.md" %}
-[setting-up-your-network.md](guides/setting-up-your-network.md)
+{% content-ref url="guides/create-your-vpn-network.md" %}
+[create-your-vpn-network.md](guides/create-your-vpn-network.md)
 {% endcontent-ref %}
 
 {% content-ref url="guides/ldap-synchronization-setup.md" %}
