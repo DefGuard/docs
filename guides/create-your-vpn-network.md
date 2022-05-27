@@ -28,7 +28,7 @@ Currently only supported network type is regular  but we hope it'll change in sh
 
 ## Network configuration
 
-After choosing a name for your network you"ll be on to the next step which is network configuration this is where things might feel a little bit complicated but no worries it be is painless as possible.
+After choosing a name for your network you"ll be on to the next step which is network configuration this is where things might feel a little bit complicated but no worries it be as painless as possible.
 
 ![Network configuration setup](../.gitbook/assets/wizardstep2.png)
 
@@ -36,21 +36,25 @@ After choosing a name for your network you"ll be on to the next step which is ne
 
 ### **Address**&#x20;
 
-is the virtual address of the local WireGuard peer. It’s the IP address of the virtual network interface that WireGuard sets up for the peer, and as such, you can set it to whatever you want (whatever makes sense for the virtual WireGuard network you’re building).
+&#x20;It’s the IP address of the  network interface that WireGuard sets up for the peer.
 
-Like with other network interfaces, the IP address for a WireGuard interface is defined with a network prefix, which tells the local host what other IP addresses are available on the same virtual subnet as the interface. In the above example, this prefix is /32 (which generally is a safe default for a WireGuard interface). If we set it to /24, that would indicate to the localhost that other addresses in the same /24 block as the address itself (10.0.0.0 to 10.0.0.255) are routable through the interface.
+The IP address for a WireGuard interface is defined with a network prefix, which tells the local host what other IP addresses are available on the same virtual subnet as the interface. In the above example, this prefix is /24. That indicate to the localhost that other addresses in the same /24 block as the address itself (10.1.1.0 to 10.1.1.255) are routable through the interface.
 
 ### Network port
 
-bla bla bla bla bla placeholder
+It's a port on which Wireguard listens on the gateway
 
 ### Gateway endpoint
 
-It's ip address of your [gateway](https://github.com/DefGuard/wireguard-gateway) in wireguard words Endpoint is the remote peer's "real" IP address and port, outside of the WireGuard VPN. This setting tells the localhost how to connect to the remote peer in order to set up a WireGuard tunnel.
+It's IP address of your [gateway](https://github.com/DefGuard/wireguard-gateway) in Wireguard words Endpoint is the remote peer's "real" IP address and port, outside of the WireGuard VPN. This setting tells the localhost how to connect to the remote peer in order to set up a WireGuard tunnel.
+
+{% hint style="info" %}
+Network port and gateway endpoint port can be different in gateway is behind NAT/Firewall
+{% endhint %}
 
 ## Optional settings:
 
-### &#x20; Allowed IPs
+### Allowed IPs
 
 is the set of IP addresses the local host should route to the remote peer through the WireGuard tunnel. This setting tells the localhost what goes in a tunnel.
 
@@ -69,3 +73,6 @@ No worries if you get something wrong you can always change it later
 After completing all steps from above you will be redirected to Network overview page which detect if your gateway is connected or not if your gateway  never connected to defguard you'll see modal looking like this
 
 ![Modal with docker command to copy to start your gateway server](../.gitbook/assets/rungatewaymodal.png)
+
+### Wireguard Gateway setup
+
