@@ -12,7 +12,7 @@ layout: landing
 
 * &#x20;**Wireguard VPN managment**&#x20;
 * &#x20;**LDAP synchronization**&#x20;
-* #### Webhooks
+* &#x20;**Webhooks**&#x20;
 
 ![Network overview page which shows statistics of network usage and info about conencted users](.gitbook/assets/screen.png)
 
