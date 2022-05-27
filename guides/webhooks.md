@@ -18,19 +18,21 @@ On above form you'll se inputs like url description token and triggers
 
 **Secret token** is a token sent with request in header as authorization note if receiver didn't   implement any token check it'll do nothing&#x20;
 
-&#x20;**Triggers** are events which will trigger the webhook
+**Triggers** are events which will trigger the webhook
 
 
 
 ## Sample request
 
+&#x20;**Note** all requests are using `GET` method and sends data in body of request in JSON format.
+
 ### New user created&#x20;
 
 Webhook will be triggered on new user creation sample request:&#x20;
 
-Header with action named&#x20;
+Header with name of trigger&#x20;
 
-&#x20;`X-Defguard-Event: user_created`
+`X-Defguard-Event: user_created`
 
 Body example:
 
