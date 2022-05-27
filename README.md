@@ -6,31 +6,31 @@ layout: landing
 
 # Intro to Defguard
 
+## What is Defguard?
+
 ### Defguard is an open-source identity managment website made with thought to make company managment as easy as possible. On this page you will find short description of three key features
 
 * &#x20;**Wireguard VPN managment**&#x20;
 * &#x20;**LDAP synchronization**&#x20;
 * #### Webhooks
 
-![Network overview and statistics of network usage and info about conencted users](.gitbook/assets/screen.png)
+![Network overview page which shows statistics of network usage and info about conencted users](.gitbook/assets/screen.png)
 
 ## Problems that defguard adresses and solves&#x20;
 
 * Your company have self hosted services for example: Git/Jira/Slack etc. and want easy to use central logging system with simple and nice UI
 * Fast and easy to setup VPN (Remote access to company resources as above)
-* Webhooks after taking actions on user which allows you to automate stuff like creating mail or slack account
+* Webhooks triggered after taking specified actions on user sending user data to provided url which allows you to automate stuff like sending welcome mail or creating accounts in different services
 
 
-
-## Getting Started
-
-**Got 2 minutes?** Check out a video overview of our product:
-
-{% embed url="https://www.loom.com/share/3bfa83acc9fd41b7b98b803ba9197d90" %}
 
 ### Guides: Jump right in
 
 Follow our handy guides to get started on the basics as quickly as possible:
+
+{% content-ref url="guides/setting-up-your-instance.md" %}
+[setting-up-your-instance.md](guides/setting-up-your-instance.md)
+{% endcontent-ref %}
 
 {% content-ref url="guides/create-your-vpn-network.md" %}
 [create-your-vpn-network.md](guides/create-your-vpn-network.md)
