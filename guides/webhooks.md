@@ -12,25 +12,18 @@ On the left side of defguard navigation you'll find webhooks page
 
 On above form you'll se inputs like url description token and triggers
 
-**Url** is an url on which data will be sent after certain triggers
-
-**Description** short description of your webhook in case you&#x20;
-
-**Secret token** is a token sent with request in header as authorization note if receiver didn't   implement any token check it'll do nothing&#x20;
-
-**Triggers** are events which will trigger the webhook
-
-
+* **Url** is an url on which data will be sent after certain triggers
+* **Description** short description of your webhook to remember it's use case
+* **Secret token** is a token sent with request in authorization header **Note** if receiver didn't implement any token check it'll do nothing
+* **Triggers** are events which will trigger the webhook
 
 ## Sample request
 
-&#x20;**Note** all requests are using `GET` method and sends data in body of request in JSON format.
+**Note** all requests are using `GET` method and sends data in body of request in JSON format.
 
-### New user created&#x20;
+### New user created
 
-Webhook will be triggered on new user creation sample request:&#x20;
-
-Header with name of trigger&#x20;
+Header with name of trigger
 
 `X-Defguard-Event: user_created`
 
@@ -40,9 +33,9 @@ Body example:
 {
 "email":"janedoe@email.pl",
 "first_name":"jane",
+"last_name":"doe",
 "groups":[],
 "is_admin":false,
-"last_name":"doe",
 "pgp_cert_id":"",
 "pgp_key":"",
 "phone":"123456789",
@@ -50,4 +43,16 @@ Body example:
 "username":"jdoe"
 }
 ```
+
+### User deleted
+
+Webhook will be triggered on new user deletion sample request:
+
+Header&#x20;
+
+`X-Defguard-Event: user_deleted`
+
+Body example:
+
+
 

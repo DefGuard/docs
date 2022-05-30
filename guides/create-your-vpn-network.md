@@ -1,7 +1,3 @@
----
-description: Create your vpn network after deploying your instance
----
-
 # Create your VPN network
 
 ## Before we start
@@ -23,7 +19,7 @@ Nothing fancy in this step just pick your network name and type
 ![First step on network creation wizard](<../.gitbook/assets/wizardstep1 (1).png>)
 
 {% hint style="info" %}
-Currently only supported network type is regular but we hope it'll change in a short future&#x20;
+Currently only supported network type is regular but we hope it'll change in a short future
 {% endhint %}
 
 ### Network configuration
@@ -34,9 +30,9 @@ After choosing a name for your network you"ll be on to the next step which is ne
 
 ### Let's briefly discuss all of these weird inputs
 
-### **Address**&#x20;
+### **Address**
 
-&#x20;It’s the IP address of the network interface that WireGuard sets up for the peer.
+It’s the IP address of the network interface that WireGuard sets up for the peer.
 
 The IP address for a WireGuard interface is defined with a network prefix, which tells the local host what other IP addresses are available on the same virtual subnet as the interface. In the above example, this prefix is /24. That indicate to the localhost that other addresses in the same /24 block as the address itself (10.1.1.0 to 10.1.1.255) are routable through the interface.
 
@@ -49,7 +45,7 @@ Port on which Wireguard listens on the gateway
 It's IP address of your [gateway](https://github.com/DefGuard/wireguard-gateway) in Wireguard words Endpoint is the remote peer's "real" IP address and port, outside of the WireGuard VPN. This setting tells the localhost how to connect to the remote peer in order to set up a WireGuard tunnel.
 
 {% hint style="warning" %}
-Network port and gateway endpoint port can be different if gateway is behind NAT/Firewall
+Network port and gateway endpoint port can be different if Wireguard server is behind NAT/Firewall
 {% endhint %}
 
 ### Optional settings:
@@ -58,11 +54,9 @@ Network port and gateway endpoint port can be different if gateway is behind NAT
 
 is the set of IP addresses the localhost should route to the remote peer through the WireGuard tunnel. This setting tells the localhost what goes in a tunnel.
 
-### DNS&#x20;
+### DNS
 
 DNS specifies DNS resolvers to query when the Wireguard interface is up and domains to search for unqualified hostnames.
-
-
 
 {% hint style="info" %}
 No worries if you get something wrong you can always change it later
@@ -70,9 +64,33 @@ No worries if you get something wrong you can always change it later
 
 ## What to do after wizard completion?
 
-After completing all steps from above you will be redirected to Network overview page which detect if your gateway is connected or not if your gateway  never connected to defguard you'll see modal looking like this
+After completing all steps from above you will be redirected to Network overview page which detect if your gateway is connected or not if your gateway never connected to defguard you'll see modal looking like this
 
 ![Modal with docker command to copy to start your gateway server](../.gitbook/assets/rungatewaymodal.png)
 
 ### Wireguard Gateway setup
+
+Wireguard Gateway is core feature which allows for easy Wireguard server setup it comunnicates with defguard through GRPC. And receives all necessary information to setup your network.
+
+#### First run
+
+After creating your network on defguard you'll se modal windows as above with docker run command to start your gateway server but there are other options to start your server.
+
+&#x20;**Note** if you want to use above command make sure you have installed [docker](https://www.docker.com/) \
+
+
+Second option is downloading source code from this [repo](https://github.com/DefGuard/wireguard-gateway) and building it using\
+`cargo build --release` command then you'll find binary file named `wireguard-gateway` at `target/release` directory
+
+#### Environmental variables / Arguments
+
+If you're using docker image you can pass this value as environmental variables on binary you can pass them as arguments
+
+`DEFGUARD_USERSPACE` , `-u` - Use userspace wireguard implementation, useful on systems without native wireguard support&#x20;
+
+`DEFGUARD_GRPC_URL` , `-g` - Defguard server GRPC endpoint URL default is https://localhost:50055
+
+`DEFGUARD_STATS_PERIOD` ,`-p` - Defines how often (seconds) should interface statistics be sent to Defguard server
+
+`DEFGUARD_TOKEN` ,`-t` - Token received on Defguard after completing network wizard
 

@@ -24,7 +24,7 @@ layout: landing
 
 ## VPN managment&#x20;
 
-Defguard allows you for easy Wireguard VPN setup and creating devices configuration file for users
+Defguard allows you for creating Wireguard VPn server in few simple steps. After that you can monitor your network by seeing overall usage and per user and create configuration files for new devices.
 
 ## LDAP synchronization
 
@@ -60,14 +60,14 @@ Follow our handy guides to get started on the basics as quickly as possible:
 
 Learn the fundamentals of Defguard to get a deeper understanding of our main features:
 
-{% content-ref url="fundamentals/architecture.md" %}
-[architecture.md](fundamentals/architecture.md)
+{% content-ref url="in-depth/architecture.md" %}
+[architecture.md](in-depth/architecture.md)
 {% endcontent-ref %}
 
-{% content-ref url="fundamentals/wireguard-vpn.md" %}
-[wireguard-vpn.md](fundamentals/wireguard-vpn.md)
+{% content-ref url="in-depth/wireguard-vpn.md" %}
+[wireguard-vpn.md](in-depth/wireguard-vpn.md)
 {% endcontent-ref %}
 
-{% content-ref url="fundamentals/ldap-synchronization.md" %}
-[ldap-synchronization.md](fundamentals/ldap-synchronization.md)
+{% content-ref url="in-depth/ldap-synchronization.md" %}
+[ldap-synchronization.md](in-depth/ldap-synchronization.md)
 {% endcontent-ref %}

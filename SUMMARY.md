@@ -9,13 +9,13 @@
 * [LDAP synchronization setup](guides/ldap-synchronization-setup.md)
 * [Webhooks](guides/webhooks.md)
 
-## Fundamentals
+## In depth
 
-* [Architecture](fundamentals/architecture.md)
-* [Wireguard VPN](fundamentals/wireguard-vpn.md)
-* [LDAP synchronization](fundamentals/ldap-synchronization.md)
-* [Adding Wireguard devices](fundamentals/adding-wireguard-devices.md)
-* [Webhooks](fundamentals/webhooks.md)
+* [Architecture](in-depth/architecture.md)
+* [Wireguard VPN](in-depth/wireguard-vpn.md)
+* [LDAP synchronization](in-depth/ldap-synchronization.md)
+* [Adding Wireguard devices](in-depth/adding-wireguard-devices.md)
+* [Webhooks](in-depth/webhooks.md)
 
 ## Use Cases
 
