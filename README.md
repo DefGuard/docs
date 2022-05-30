@@ -33,6 +33,7 @@ In a few simple steps you can synchronize your LDAP data for example import your
 * Handle users priviliges
 * Create new users&#x20;
 * Modify existing users
+* Manage groups
 
 ## Webhooks
 
