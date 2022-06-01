@@ -8,7 +8,7 @@
 
 ## Network creation wizard
 
-After successful deployment of your defguard instance first screen you'll see will look like this\\
+After successful deployment of your defguard instance first screen you'll see will look like this
 
 ![First screen after logging to your freshly installed instance](../.gitbook/assets/Wizard.png)
 
@@ -74,7 +74,7 @@ Wireguard Gateway is client program which conencts with defguard in order to set
 
 #### First run
 
-After creating your network on defguard you'll se modal windows as above with docker run command to start your gateway server but there are other options to start your server.
+After creating your network on defguard you'll se modal pop-up as in picture above with docker run command to start your gateway server but there are other options to start your server.
 
 &#x20;**Note** if you want to use above command make sure you have installed [docker](https://www.docker.com/) \
 
@@ -93,4 +93,10 @@ If you're using docker image you can pass this value as environmental variables 
 `DEFGUARD_STATS_PERIOD` ,`-p` - Defines how often (seconds) should interface statistics be sent to Defguard server
 
 `DEFGUARD_TOKEN` ,`-t` - Token received on Defguard after completing network wizard
+
+## VPN feature in depth
+
+If you think something above is complicated or unclear you might want to take a look at our [in depth Wireguard VPN explaination](../in-depth/wireguard-vpn.md).
+
+
 

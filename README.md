@@ -37,7 +37,9 @@ In a few simple steps you can synchronize your LDAP data for example import your
 
 ## Webhooks
 
-### Guides: Jump right in
+Easy to use and configure outgoing webhooks to help you automate certain tasks.
+
+## Guides: Jump right in
 
 Follow our handy guides to get started on the basics as quickly as possible:
 
@@ -57,7 +59,7 @@ Follow our handy guides to get started on the basics as quickly as possible:
 [webhooks.md](guides/webhooks.md)
 {% endcontent-ref %}
 
-### Fundamentals: Dive a little deeper
+## Fundamentals: Dive a little deeper
 
 Learn the fundamentals of Defguard to get a deeper understanding of our main features:
 

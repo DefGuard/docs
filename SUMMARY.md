@@ -15,15 +15,10 @@
 * [Architecture](in-depth/architecture.md)
 * [Wireguard VPN](in-depth/wireguard-vpn.md)
 
-## Use Cases
-
-* [For Developers](use-cases/for-developers/README.md)
-  * [GitHub Integration](use-cases/for-developers/github-integration.md)
-* [For Support](use-cases/for-support/README.md)
-  * [Intercom Integration](use-cases/for-support/intercom-integration.md)
-
 ## Extras
 
+* [Contributing](extras/contributing.md)
 * [Support](extras/support.md)
 * [Troubelshooting](extras/troubelshooting.md)
 * [FAQ](extras/faq.md)
+* [Other resources](extras/other-resources.md)
