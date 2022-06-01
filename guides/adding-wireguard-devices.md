@@ -7,4 +7,4 @@
 
 ### Creating new device
 
-After configuring your network you can go to arny
+After configuring your network you can go in your user profile or if you are admin you can add modify download configuration or delete device.
