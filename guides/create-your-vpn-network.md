@@ -34,7 +34,7 @@ After choosing a name for your network you"ll be on to the next step which is ne
 
 It’s the IP address of the network interface that WireGuard sets up for the peer.
 
-The IP address for a WireGuard interface is defined with a network prefix, which tells the local host what other IP addresses are available on the same virtual subnet as the interface. In the above example, this prefix is /24. That indicate to the localhost that other addresses in the same /24 block as the address itself (10.1.1.0 to 10.1.1.255) are routable through the interface.
+The IP address for a WireGuard interface is defined with a network prefix, which tells the local host what other IP addresses are available on the same virtual subnet as the interface. In the above placeholder, this prefix is /24. That indicate to the localhost that other addresses in the same /24 block as the address itself (10.1.1.0 to 10.1.1.255) are routable through the interface.
 
 ### Network port
 
@@ -70,7 +70,7 @@ After completing all steps from above you will be redirected to Network overview
 
 ### Wireguard Gateway setup
 
-Wireguard Gateway is client program which conencts with defguard in order to setup edit and retrieve all informations about your network. You can think about it like&#x20;
+Wireguard Gateway is client program which conencts with defguard in order to setup edit and retrieve all informations about your network. You can think about it like waiter which delivers food(data eg. stats, configuration) between kitchen(defguard server) and client(wireguard server)
 
 #### First run
 
