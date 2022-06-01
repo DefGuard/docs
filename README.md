@@ -8,7 +8,7 @@ layout: landing
 
 ## What is Defguard?
 
-### Defguard is an open-source identity managment website made with the aim to make company managment as easy as possible. On this page you will find short description of three key features
+Defguard is an open-source identity managment website made with the aim to make company managment as easy as possible. On this page you will find short description of three key features
 
 * **Wireguard VPN managment**
 * **LDAP synchronization**
