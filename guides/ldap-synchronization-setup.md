@@ -8,16 +8,16 @@ If you provide environmental variables related to ldap Defguard will synchronize
 
 ### Environmental variables
 
-* `DG_LDAP_URL` - Your LDAP url to read users and groups data (e.g. `http://localhost:389`)
-* `DG_LDAP_GROUP_SEARCH_BASE` : group search base, default: `ou=groups,dc=example,dc=org`
-* `DG_LDAP_USER_SEARCH_BASE` : user  search base, default: `dc=example,dc=org`
-* `DG_LDAP_USER_OBJ_CLASS` :  user object class, default: `inetOrgPerson`
-* `DG_LDAP_GROUP_OBJ_CLASS` : group object class, default: `groupOfUniqueNames`
-* `DG_LDAP_ADMIN_GROUPNAME` : group name with administrator privileges, default: `admin`
-* `DG_LDAP_USERNAME_ATTR` : naming attribute for users, should be `cn` or `uid` , default: `cn`&#x20;
-* `DG_LDAP_GROUPNAME_ATTR` : naming attribute for groups, default: `cn`
-* `DG_LDAP_MEMBER_ATTR` : naming attribute for group membership, default: `memberOf`&#x20;
-* `DG_LDAP_GROUP_MEMBER_ATTR` :  group attribute for members, default: `uniqueMember`
+* `DEFGUARD_LDAP_URL` - Your LDAP url to read users and groups data (e.g. `http://localhost:389`)
+* `DEFGUARD_LDAP_GROUP_SEARCH_BASE` : group search base, default: `ou=groups,dc=example,dc=org`
+* `DEFGUARD_LDAP_USER_SEARCH_BASE` : user  search base, default: `dc=example,dc=org`
+* `DEFGUARD_LDAP_USER_OBJ_CLASS` :  user object class, default: `inetOrgPerson`
+* `DEFGUARD_LDAP_GROUP_OBJ_CLASS` : group object class, default: `groupOfUniqueNames`
+* `DEFGUARD_LDAP_ADMIN_GROUPNAME` : group name with administrator privileges, default: `admin`
+* `DEFGUARD_LDAP_USERNAME_ATTR` : naming attribute for users, should be `cn` or `uid` , default: `cn`&#x20;
+* `DEFGUARD_LDAP_GROUPNAME_ATTR` : naming attribute for groups, default: `cn`
+* `DEFGUARD_LDAP_MEMBER_ATTR` : naming attribute for group membership, default: `memberOf`&#x20;
+* `DEFGUARD_LDAP_GROUP_MEMBER_ATTR` :  group attribute for members, default: `uniqueMember`
 
 {% hint style="info" %}
 **Good to know:** your product docs aren't just a reference of all your features! use them to encourage folks to perform certain actions and discover the value in your product.
