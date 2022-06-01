@@ -70,7 +70,7 @@ After completing all steps from above you will be redirected to Network overview
 
 ### Wireguard Gateway setup
 
-Wireguard Gateway is core feature which allows for easy Wireguard server setup it comunnicates with defguard through GRPC. And receives all necessary information to setup your network.
+Wireguard Gateway is client program which conencts with defguard in order to setup edit and retrieve all informations about your network. You can think about it like&#x20;
 
 #### First run
 

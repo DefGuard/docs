@@ -69,6 +69,6 @@ Learn the fundamentals of Defguard to get a deeper understanding of our main fea
 [wireguard-vpn.md](in-depth/wireguard-vpn.md)
 {% endcontent-ref %}
 
-{% content-ref url="in-depth/ldap-synchronization.md" %}
-[ldap-synchronization.md](in-depth/ldap-synchronization.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}

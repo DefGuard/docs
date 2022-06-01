@@ -2,7 +2,7 @@
 
 ## Basic idea
 
-Basic idea of webhooks is to send user data to external systems in order to automate certain tasks like for example sending welcome email to newly created user
+Basic idea of webhooks is to send user data to external systems in order to automate certain tasks like for example sending welcome email to newly created user.
 
 ## Setup
 
