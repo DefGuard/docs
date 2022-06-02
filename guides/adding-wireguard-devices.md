@@ -10,11 +10,9 @@ First make sure you have installed wireguard on this [site](https://www.wireguar
 
 ### Creating new device
 
-After you installed wireguard client and configured your network you can go to your profile which you''ll find on nav on the left side of the screen where you can add modify delete or download configuration file for your device.
+After you installed wireguard client and configured your network you can go to your profile which you''ll find on the navigation on the left side of the screen where you can add modify delete or download configuration file for your device.
 
 ![Profile page](../.gitbook/assets/profile.png)
-
-
 
 
 
@@ -44,7 +42,7 @@ Endpoint = 10.1.1.0:7400
 PersistentKeepalive = 25
 ```
 
-After downloading config which look like this above you need to replace with `YOUR_PRIVATE_KEY` with contents of created before privatekey file and move it to `/etc/wireguard` directory on  unix-like systems and on windows copy it contents run wireguard program and paste into new tunnel option.
+After downloading config which look like this above you need to replace `YOUR_PRIVATE_KEY` with contents of created before privatekey file and move config file to `/etc/wireguard` directory on  unix-like systems and on windows copy it contents run wireguard program and paste into new tunnel option.
 
 After doing this you can run to start your vpn connection.
 
