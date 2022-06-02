@@ -6,7 +6,7 @@
 * Download it's config
 * Start your vpn connection
 
-First make sure you have installed wireguard on this [site](https://www.wireguard.com/install/) you can find detailed info how to download wireguard for any operating system.
+First make sure you have installed wireguard on this [site](https://www.wireguard.com/install/) you can find information how to download wireguard for any operating system.
 
 ### Creating new device
 
