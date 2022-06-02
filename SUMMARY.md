@@ -17,7 +17,7 @@
 
 ## For Developers
 
-* [Contributing](for-developers/contributing.md)
+* [Contributing](extras/contributing.md)
 * [Technologies](for-developers/technologies.md)
 * [Detail docs](for-developers/detail-docs.md)
 

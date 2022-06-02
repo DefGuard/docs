@@ -20,8 +20,9 @@ All pull requests should be done against master branch of any repository from ab
 
 Good pull request should have:
 
-* Description why you changed it and why you think it's good solution
-* passing CI test
+* Description about changes made&#x20;
+* New tests if possible
+* Passing CI test
 
 
 
