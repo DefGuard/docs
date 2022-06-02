@@ -15,9 +15,14 @@
 * [Architecture](in-depth/architecture.md)
 * [Wireguard VPN](in-depth/wireguard-vpn.md)
 
+## For Developers
+
+* [Contributing](for-developers/contributing.md)
+* [Technologies](for-developers/technologies.md)
+* [Detail docs](for-developers/detail-docs.md)
+
 ## Extras
 
-* [Contributing](extras/contributing.md)
 * [Support](extras/support.md)
 * [Troubelshooting](extras/troubelshooting.md)
 * [FAQ](extras/faq.md)
