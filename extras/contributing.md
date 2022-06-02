@@ -2,9 +2,9 @@
 
 All source code of our app is located in three repositories
 
-* &#x20;**Core** backend and server for our app
-* &#x20;**Frontend** our main webcode with frontend client
-* &#x20;**Gateway** VPN client which connects core with wireguard interface
+* &#x20;**** [**Core**](https://github.com/DefGuard/core) **** backend and server for our app
+* &#x20;**** [**Frontend**](https://github.com/DefGuard/frontend) **** our main webcode with frontend client
+* &#x20;**** [**Gateway**](https://github.com/DefGuard/wireguard-gateway) **** VPN client which connects core with wireguard interface
 
 You can find how to setup your development environment here or in README.md of all repositories
 
@@ -21,8 +21,8 @@ All pull requests should be done against master branch of any repository from ab
 Good pull request should have:
 
 * Description about changes made&#x20;
-* New tests if possible
-* Passing CI test
+* New tests if or necessary
+* Passing CI&#x20;
 
 
 
