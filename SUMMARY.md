@@ -19,11 +19,10 @@
 
 * [Contributing](extras/contributing.md)
 * [Technologies](for-developers/technologies.md)
-* [Detail docs](for-developers/detail-docs.md)
+* [Other resources](for-developers/other-resources.md)
 
 ## Extras
 
 * [Support](extras/support.md)
 * [Troubelshooting](extras/troubelshooting.md)
 * [FAQ](extras/faq.md)
-* [Other resources](extras/other-resources.md)
