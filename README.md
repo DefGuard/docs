@@ -24,7 +24,7 @@ Defguard is an open-source identity managment website made with the aim to make 
 
 ## VPN managment&#x20;
 
-Defguard allows you for creating Wireguard VPN server in few simple steps. After that you can monitor your network by seeing overall usage and per user stats with information about all of their devices and download configuration files for new devices.
+Defguard allows you for creating Wireguard VPn server in few simple steps. After that you can monitor your network by seeing overall usage and per user and create configuration files for new devices.
 
 ## LDAP synchronization
 
