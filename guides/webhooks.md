@@ -44,15 +44,38 @@ Body example:
 }
 ```
 
-### User deleted
+### User modified
 
 Webhook will be triggered on new user deletion sample request:
 
 Header&#x20;
 
+`X-Defguard-Event: user_modified`
+
+Request body example:
+
+```json
+{
+"email":"janedoe@email.pl",
+"first_name":"jane",
+"last_name":"doe",
+"groups":[],
+"is_admin":false,
+"pgp_cert_id":"",
+"pgp_key":"",
+"phone":"123456789",
+"ssh_key":"",
+"username":"jdoe"
+}
+```
+
+### User Deleted&#x20;
+
+Header&#x20;
+
 `X-Defguard-Event: user_deleted`
 
-Body example:
+Request body example:
 
-
+`{ username: "jdoe"}`
 
