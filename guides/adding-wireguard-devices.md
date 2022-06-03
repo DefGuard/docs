@@ -18,7 +18,7 @@ After you installed wireguard client and configured your network you can go to y
 
 Before creating new device make you sure generated your public and private keys which are necessary for vpn connection setup.
 
-You can easly create keys by running command:
+You can easly create new keys by running below command:
 
 ```
 wg genkey | tee privatekey | wg pubkey > publickey

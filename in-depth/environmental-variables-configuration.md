@@ -1,14 +1,11 @@
-# LDAP synchronization setup
+# Environmental variables configuration
 
-Ldap synchronization is done by providing necessary environmental variables which allows to connect to your LDAP server and perform certain actions. You can easily synchronize users and groups with almost no time investment.
+Here you can find list of all configurable environmental variables in Defguard core server.
 
-If you provide environmental variables related to ldap Defguard will automatically synchronize data from your ldap server on start then all your users can login with the same credentials, also all newly created users will be added to your ldap server.
-
-
-
-### Ldap Environmental variables
+### Ldap
 
 * `DEFGUARD_LDAP_URL` - Your LDAP url to read users and groups data (e.g. `http://localhost:389`)
+* `DEFGUARD_LDAP_GROUP_MEMBER_ATTR` :  group attribute for members, default: `uniqueMember`
 * `DEFGUARD_LDAP_GROUP_SEARCH_BASE` : group search base, default: `ou=groups,dc=example,dc=org`
 * `DEFGUARD_LDAP_USER_SEARCH_BASE` : user  search base, default: `dc=example,dc=org`
 * `DEFGUARD_LDAP_USER_OBJ_CLASS` :  user object class, default: `inetOrgPerson`
@@ -19,6 +16,13 @@ If you provide environmental variables related to ldap Defguard will automatical
 * `DEFGUARD_LDAP_MEMBER_ATTR` : naming attribute for group membership, default: `memberOf`&#x20;
 * `DEFGUARD_LDAP_GROUP_MEMBER_ATTR` :  group attribute for members, default: `uniqueMember`
 
-{% hint style="info" %}
-**Good to know:** your product docs aren't just a reference of all your features! use them to encourage folks to perform certain actions and discover the value in your product.
-{% endhint %}
+### Core&#x20;
+
+* `DEFGUARD_DATABASE_URL` : Your database url, default: `sqlite::memory`&#x20;
+* `DEFGUARD_HTTP_PORT` : Core server port, default: `8000`&#x20;
+* `DEFGUARD_JWT_SECRET` : JWT secret key for encrypting tokens, default: `secret`
+* `ORI_WG_SERVICE_URL` : WireGuard service instance to connect to, default: `http://wireguard:50051`
+
+### GRPC
+
+* `DEFGUARD_GRPC_PORT` : GRPC server port, default `50055`

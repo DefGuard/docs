@@ -12,13 +12,13 @@
 
 ## In depth
 
-* [Architecture](in-depth/architecture.md)
+* [Architecture  Overview](in-depth/architecture.md)
 * [Wireguard VPN](in-depth/wireguard-vpn.md)
+* [Environmental variables configuration](in-depth/environmental-variables-configuration.md)
 
 ## For Developers
 
 * [Contributing](extras/contributing.md)
-* [Technologies](for-developers/technologies.md)
 * [Other resources](for-developers/other-resources.md)
 
 ## Extras
