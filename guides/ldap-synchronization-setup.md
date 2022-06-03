@@ -1,12 +1,12 @@
 # LDAP synchronization setup
 
-Ldap synchronization is done by providing necessary environmental variables which allows to connect to your LDAP server and perform certain actions. You can easily synchronize users and groups with almost no time investment.
+Ldap synchronization is done by providing necessary environmental variables which allows to connect to your LDAP server and perform certain actions. You can easily synchronize users, groups with almost no time investment.
 
-If you provide environmental variables related to ldap Defguard will automatically synchronize data from your ldap server on start then all your users can login with the same credentials, also all newly created users will be added to your ldap server.
+If you provide environmental variables related to ldap Defguard will automatically synchronize data from your ldap server on start then all your users can login with same credentials also all newly created users will be added to your ldap server.
 
 
 
-### Ldap Environmental variables
+### Environmental variables
 
 * `DEFGUARD_LDAP_URL` - Your LDAP url to read users and groups data (e.g. `http://localhost:389`)
 * `DEFGUARD_LDAP_GROUP_SEARCH_BASE` : group search base, default: `ou=groups,dc=example,dc=org`
