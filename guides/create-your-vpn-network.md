@@ -70,7 +70,7 @@ After completing all steps from above you will be redirected to Network overview
 
 ### Wireguard Gateway setup
 
-Wireguard Gateway is a client program which connects to defguard in order to setup your network and send all informations about your network and it's users. You can think about it like waiter which delivers food(data eg. stats, configuration) between client(defguard server) and server(wireguard server) and takes orders from defguard server to setup your network.
+Wireguard Gateway is client program which conencts with defguard in order to setup edit and retrieve all informations about your network. You can think about it like waiter which delivers food(data eg. stats, configuration) between kitchen(defguard server) and client(wireguard server)
 
 #### First run
 
