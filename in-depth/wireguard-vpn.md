@@ -1,5 +1,5 @@
 # Wireguard VPN
 
-{% hint style="info" %}
-**Good to know:** Splitting your product into fundamental concepts, objects, or areas can be a great way to let readers deep dive into the concepts that matter most to them.
-{% endhint %}
+Here you find in depth explanation of how wireguard server setup and communication works.
+
+After creating your network in our network creation [wizard](../guides/create-your-vpn-network.md). You need to start your gateway which is essential to make it work it enables&#x20;

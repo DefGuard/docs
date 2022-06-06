@@ -10,7 +10,7 @@ First make sure you have installed wireguard on this [site](https://www.wireguar
 
 ### Creating new device
 
-After you installed wireguard client and configured your network you can go to your profile which you''ll find on the navigation on the left side of the screen where you can add modify and delete your device or download configuration file for it.
+After you installed wireguard client and configured your network you can go to your profile which you''ll find on the navigation on the left side of the screen where you can add modify delete or download configuration file for your device.
 
 ![Profile page](../.gitbook/assets/profile.png)
 
@@ -18,7 +18,7 @@ After you installed wireguard client and configured your network you can go to y
 
 Before creating new device make you sure generated your public and private keys which are necessary for vpn connection setup.
 
-You can easly create new keys by running below command:
+You can easly create keys by running command:
 
 ```
 wg genkey | tee privatekey | wg pubkey > publickey
