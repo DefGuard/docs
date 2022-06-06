@@ -12,7 +12,7 @@ You can find how to setup your development environment in README.md of all repos
 
 If you found a bug you can submit issue with description on appropiate repository or submit a Pull Requests with fix.
 
-**Note** If you are adding bug issue please add description with your environment and steps to reproduce
+**Note** If you are adding bug issue please add description with your environment and steps to reproduce if possible
 
 ### Pull requests&#x20;
 
