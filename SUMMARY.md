@@ -14,7 +14,7 @@
 
 * [Architecture Overview](in-depth/architecture.md)
 * [Wireguard VPN](in-depth/wireguard-vpn.md)
-* [Environmental variables configuration](in-depth/environmental-variables-configuration.md)
+* [Configuration](in-depth/configuration.md)
 
 ## For Developers
 
