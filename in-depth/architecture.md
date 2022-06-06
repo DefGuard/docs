@@ -6,7 +6,7 @@ Here you can see high level view of Defguard architecture with all it dependenci
 
 ### Basics
 
-Core is a Rust web server which is exposed as REST Api, and GRPC server it handles connection to database, ldap server and gateway. Gateway is a small CLI Rust GRPC client which sends network statistics to Core server and apply network configuration changes on message from core.\
+Core is a Rust web server which is exposed as REST Api, and GRPC server it handles connection to database, ldap server and gateway. Gateway is a small CLI GRPC client written in Rust which sends network statistics to Core server and apply network configuration changes on message from core.\
 Our frontend is React app written in Typescript.
 
 See detailed REST api docs [here](https://google.com)\

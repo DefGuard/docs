@@ -12,7 +12,7 @@
 
 ## In depth
 
-* [Architecture  Overview](in-depth/architecture.md)
+* [Architecture Overview](in-depth/architecture.md)
 * [Wireguard VPN](in-depth/wireguard-vpn.md)
 * [Environmental variables configuration](in-depth/environmental-variables-configuration.md)
 
@@ -24,5 +24,5 @@
 ## Extras
 
 * [Support](extras/support.md)
-* [Troubelshooting](extras/troubelshooting.md)
+* [Troubleshooting](extras/troubelshooting.md)
 * [FAQ](extras/faq.md)
