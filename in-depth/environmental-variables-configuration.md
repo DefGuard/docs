@@ -1,8 +1,8 @@
 # Environmental variables configuration
 
-Here you can find list of all configurable environmental variables in Defguard core server.
+Here you can find list of all configurable things through environmental variables in Defguard core server.
 
-### Ldap
+### LDAP configuration
 
 * `DEFGUARD_LDAP_URL` - Your LDAP url to read users and groups data (e.g. `http://localhost:389`)
 * `DEFGUARD_LDAP_GROUP_MEMBER_ATTR` :  group attribute for members, default: `uniqueMember`
@@ -16,13 +16,13 @@ Here you can find list of all configurable environmental variables in Defguard c
 * `DEFGUARD_LDAP_MEMBER_ATTR` : naming attribute for group membership, default: `memberOf`&#x20;
 * `DEFGUARD_LDAP_GROUP_MEMBER_ATTR` :  group attribute for members, default: `uniqueMember`
 
-### Core&#x20;
+### Core configuration
 
 * `DEFGUARD_DATABASE_URL` : Your database url, default: `sqlite::memory`&#x20;
 * `DEFGUARD_HTTP_PORT` : Core server port, default: `8000`&#x20;
 * `DEFGUARD_JWT_SECRET` : JWT secret key for encrypting tokens, default: `secret`
 * `ORI_WG_SERVICE_URL` : WireGuard service instance to connect to, default: `http://wireguard:50051`
 
-### GRPC
+### GRPC configuration
 
 * `DEFGUARD_GRPC_PORT` : GRPC server port, default `50055`
