@@ -10,7 +10,7 @@ First make sure you have installed wireguard on this [site](https://www.wireguar
 
 ### Creating new device
 
-After you installed wireguard client and configured your network you can go to your profile which you''ll find on the navigation on the left side of the screen where you can add modify delete or download configuration file for your device.
+After you installed wireguard client and configured your network you can go to your profile which you''ll find on the navigation on the left side of the screen where you can add modify and delete your device or download configuration file for it.
 
 ![Profile page](../.gitbook/assets/profile.png)
 
@@ -18,7 +18,7 @@ After you installed wireguard client and configured your network you can go to y
 
 Before creating new device make you sure generated your public and private keys which are necessary for vpn connection setup.
 
-You can easly create keys by running command:
+You can easly create new keys by running below command:
 
 ```
 wg genkey | tee privatekey | wg pubkey > publickey
@@ -42,10 +42,10 @@ Endpoint = 10.1.1.0:7400
 PersistentKeepalive = 25
 ```
 
-After downloading config which look like this above you need to replace `YOUR_PRIVATE_KEY` with contents of created before privatekey file and move config file to `/etc/wireguard` directory on  unix-like systems and on windows copy it contents run wireguard program and paste into new tunnel option.
+Defguard will dynamically create device config and assign it's own unique ip address. After downloading config which look like this above you need to replace `YOUR_PRIVATE_KEY` with contents of created before privatekey file and move config file to `/etc/wireguard` directory on  unix-like systems and on windows copy it contents run wireguard program and paste into new tunnel option.
 
 After doing this you can run to start your vpn connection.
 
 `wg-quick up <device_name>`&#x20;
 
-&#x20;**Note** device\_name is default downloaded config file name without .conf extension in our case its macbook but if you rename your file remember it no more will be name of device.
+**Note** `<device_name>` is default downloaded config file name without .conf extension in our case it's `Macbook` but if you rename your file remember it no more will be name of device.
