@@ -1,4 +1,4 @@
-# Environmental variables configuration
+# Configuration
 
 Here you can find list of all configurable things through environmental variables in Defguard core server.
 

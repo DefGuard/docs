@@ -16,7 +16,7 @@ Defguard is an open-source identity managment website made with the aim to make 
 
 ![Network overview page which shows statistics of network usage and info about conencted users](.gitbook/assets/screen.png)
 
-## Problems that defguard adresses and solves
+## Problems that Defguard adresses and solves
 
 * Your company have self hosted services for example: Git/Jira/Slack etc. and want easy to use central logging system with simple and nice UI
 * Fast and easy to setup VPN (Remote access to company resources as above)
