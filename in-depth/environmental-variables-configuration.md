@@ -31,7 +31,7 @@ Here you can find list of all configurable things through environmental variable
 
 ## YubiBridge
 
-Environmental variables:
+### Environmental variables:
 
 * `LOG_LEVEL` : Log messages level, default: `INFO` available levels: `CRITICAL`, `ERROR`, `WARNIG` ,  `INFO` , `DEBUG` ,
 * `WORKER_ID` : Name of your YubiBridge displayed on Defguard website, default: `YubiBridge`&#x20;
@@ -39,4 +39,28 @@ Environmental variables:
 * `JOB_INTERVAL` : Defines how often(seconds) YubiBridge checks Defguard for new jobs, default: `2`&#x20;
 * `SMARTCARD_RETRY_INTERVAL` : Defines number of seconds between trying to provision YubiKey again, default `15`&#x20;
 
-CLI arguments:
+### CLI arguments:
+
+* `-h` , `--help` : Display help message
+* `-g <URL>`, `--grpc <URL>` : Connect to GRPC server at given URL
+* `-i <ID>` , `--id <ID>` : WorkerID, default `YubiBridge`   &#x20;
+* `-d` , `--debug` : Enable debug mode
+* `-t <TMPDIR>` , `--tmpdir <TMPDIR>` : GnuPG home directory, default: `tmp`&#x20;
+* `-p <first_name> <last_name> <email>` , `--provision <first_name> <last_name> <email>` : Provision YubiKey with following data  &#x20;
+* `-w <token>` , `--worker-token <token>` : Secret worker token to secure gRPC communication
+* `-c <command>` , `--command <command>` : Run command after provisioning and pass created keys as arguments
+
+## Gateway Configuration
+
+### Environmental variables / Arguments
+
+If you're using docker image you can pass this value as environmental variables or on binary you can pass them as arguments
+
+`DEFGUARD_USERSPACE` , `-u` - Use userspace wireguard implementation, useful on systems without native wireguard support&#x20;
+
+`DEFGUARD_GRPC_URL` , `-g <URL>` - Defguard server GRPC endpoint URL default is https://localhost:50055
+
+`DEFGUARD_STATS_PERIOD` ,`-p <SECONDS>` - Defines how often (seconds) should interface statistics be sent to Defguard server
+
+`DEFGUARD_TOKEN` ,`-t <TOKEN>` - Token received on Defguard after completing network wizard
+

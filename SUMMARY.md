@@ -17,7 +17,7 @@
 
 * [LDAP synchronization setup](enterprise-features/ldap-synchronization-setup.md)
 * [OpenID Connect](enterprise-features/openid-connect.md)
-* [Yubikey Provisioning](enterprise-features/yubikey-provisioning.md)
+* [YubiKey Provisioning](enterprise-features/yubikey-provisioning.md)
 
 ## In depth
 
