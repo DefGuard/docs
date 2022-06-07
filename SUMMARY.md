@@ -5,10 +5,11 @@
 ## Guides
 
 * [Setting up your instance](guides/setting-up-your-instance.md)
-* [LDAP synchronization setup](guides/ldap-synchronization-setup.md)
-* [Adding Wireguard devices](guides/adding-wireguard-devices.md)
 * [Webhooks](guides/webhooks.md)
+* [LDAP synchronization setup](guides/ldap-synchronization-setup.md)
 * [Create your VPN network](guides/create-your-vpn-network.md)
+* [Adding Wireguard devices](guides/adding-wireguard-devices.md)
+* [Wireguard](guides/wireguard.md)
 
 ## In depth
 
@@ -26,3 +27,7 @@
 * [Support](extras/support.md)
 * [Troubleshooting](extras/troubelshooting.md)
 * [FAQ](extras/faq.md)
+
+## Group 1
+
+* [Page 2](group-1/page-2.md)
