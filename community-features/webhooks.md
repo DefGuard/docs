@@ -17,9 +17,9 @@ On above form you'll se inputs like url description token and triggers
 * **Secret token** is a token sent with request in authorization header **Note** if receiver didn't implement any token check it'll do nothing
 * **Triggers** are events which will trigger the webhook
 
-## Sample request
+## Sample requests
 
-Below is list of all triggers with their request header and sample json body which will be sent on url given at webhook creation.
+Below is list of all triggering actions with their request header and sample JSON body which will be sent on url given at webhook creation.
 
 **Note** all requests are using `GET` method and sends data in body of request in JSON format.
 
@@ -109,7 +109,7 @@ request body example:&#x20;
 "phone":"123456789",
 "ssh_key":"",
 "username":"jdoe"
-T}
+}
 ```
 
 **Note**&#x20;
