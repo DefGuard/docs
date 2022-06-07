@@ -2,6 +2,8 @@
 
 Here you can find list of all configurable things through environmental variables in Defguard core server, YubiBridge client and Gateway client.
 
+## Core server
+
 ### LDAP configuration
 
 * `DEFGUARD_LDAP_URL` - Your LDAP url to read users and groups data (e.g. `http://localhost:389`)
@@ -27,6 +29,6 @@ Here you can find list of all configurable things through environmental variable
 
 * `DEFGUARD_GRPC_PORT` : GRPC server port, default `50055`
 
-### YubiBridge
+## YubiBridge
 
 *

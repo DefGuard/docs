@@ -17,3 +17,24 @@ You can use it in two ways as a standalone cli program where you plugin your Yub
 
 ### As a Defguard client
 
+On your left sidebar you'll see a provisioner tabs after clicking it you'll see provisioners page with all available provisioners if no provisioners was ever connected.
+
+To start your provisioner you'll need to download our program and run it with docker-compose or as cli app.
+
+#### Using docker-compose:
+
+```yaml
+version: "3.9"
+services:
+  ykdev:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    privileged: true
+    environment: 
+      - URL=defguard.company.net
+      - WORKER_ID=JaneLaptop
+      - LOG_LEVEL=DEBUG
+```
+
+Here is sample docker-compose you can run it using `docker-compose up`&#x20;
