@@ -2,21 +2,28 @@
 
 * [Intro to Defguard](README.md)
 
-## Guides
+## Community features
 
-* [Setting up your instance](guides/setting-up-your-instance.md)
-* [Webhooks](guides/webhooks.md)
-* [LDAP synchronization setup](guides/ldap-synchronization-setup.md)
-* [Wireguard](guides/wireguard/README.md)
-  * [Create your VPN network](guides/wireguard/create-your-vpn-network.md)
-  * [Adding Wireguard devices](guides/wireguard/adding-wireguard-devices.md)
-  * [Wireguard VPN](guides/wireguard/wireguard-vpn.md)
-* [Yubikey Provision](guides/yubikey-provision.md)
+* [Deploying your instance](community-features/setting-up-your-instance/README.md)
+  * [Docker setup](community-features/setting-up-your-instance/docker-setup.md)
+  * [Kubernetes using Helm](community-features/setting-up-your-instance/kubernetes-using-helm.md)
+* [Webhooks](community-features/webhooks.md)
+* [Wireguard](community-features/wireguard/README.md)
+  * [Create your VPN network](community-features/wireguard/create-your-vpn-network.md)
+  * [Adding Wireguard devices](community-features/wireguard/adding-wireguard-devices.md)
+  * [Network overview](community-features/wireguard/network-overview.md)
+
+## Enterprise features
+
+* [LDAP synchronization setup](enterprise-features/ldap-synchronization-setup.md)
+* [OpenID Connect](enterprise-features/openid-connect.md)
+* [Yubikey Provisioning](enterprise-features/yubikey-provisioning.md)
 
 ## In depth
 
 * [Architecture Overview](in-depth/architecture.md)
 * [Configuration](in-depth/environmental-variables-configuration.md)
+* [Wireguard VPN](in-depth/wireguard-vpn.md)
 
 ## For Developers
 
@@ -28,7 +35,4 @@
 * [Support](extras/support.md)
 * [Troubleshooting](extras/troubelshooting.md)
 * [FAQ](extras/faq.md)
-
-## Group 1
-
-* [Page 2](group-1/page-2.md)
+* [Roadmap](extras/roadmap.md)

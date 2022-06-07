@@ -19,9 +19,13 @@ On above form you'll se inputs like url description token and triggers
 
 ## Sample request
 
+Below is list of all triggers with their request header and sample json body which will be sent on url given at webhook creation.
+
 **Note** all requests are using `GET` method and sends data in body of request in JSON format.
 
 ### New user created
+
+Triggered after creating user
 
 Header with name of trigger
 
@@ -46,6 +50,8 @@ Body example:
 
 ### User modified
 
+Triggered after modifying user
+
 Webhook will be triggered on new user deletion sample request:
 
 Header&#x20;
@@ -69,7 +75,9 @@ Request body example:
 }
 ```
 
-### User Deleted&#x20;
+### User Deleted
+
+Triggered on deleting user&#x20;
 
 Header&#x20;
 
@@ -79,5 +87,29 @@ Request body example:
 
 `{ username: "jdoe"}`
 
-``
+### User YubiKey Provision
 
+Triggered after successfully provisioning YubiKey
+
+Header&#x20;
+
+`X-Defguard-Event: user_keys`&#x20;
+
+request body example:&#x20;
+
+```json
+{
+"email":"janedoe@email.pl",
+"first_name":"jane",
+"last_name":"doe",
+"groups":[],
+"is_admin":false,
+"pgp_cert_id":"",
+"pgp_key":"",
+"phone":"123456789",
+"ssh_key":"",
+"username":"jdoe"
+T}
+```
+
+**Note**&#x20;

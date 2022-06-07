@@ -1,6 +1,6 @@
 # Configuration
 
-Here you can find list of all configurable things through environmental variables in Defguard core server.
+Here you can find list of all configurable things through environmental variables in Defguard core server, YubiBridge client and Gateway client.
 
 ### LDAP configuration
 
@@ -26,3 +26,7 @@ Here you can find list of all configurable things through environmental variable
 ### GRPC configuration
 
 * `DEFGUARD_GRPC_PORT` : GRPC server port, default `50055`
+
+### YubiBridge
+
+*

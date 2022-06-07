@@ -2,7 +2,7 @@
 
 ## Before we start
 
-* Make sure your defguard instance is [deployed](../setting-up-your-instance.md) and running
+* Make sure your defguard instance is [deployed](../setting-up-your-instance/) and running
 * Make sure you downloaded our [Wireguard Gateway](https://github.com/DefGuard/wireguard-gateway)
 * Make sure you know what [Wireguard](https://www.wireguard.com/) is and have basic understanding of how it works
 
@@ -96,7 +96,7 @@ If you're using docker image you can pass this value as environmental variables 
 
 ## VPN feature in depth
 
-If you think something above is complicated or unclear you might want to take a look at our [in depth Wireguard VPN explaination](wireguard-vpn.md).
+If you think something above is complicated or unclear you might want to take a look at our [in depth Wireguard VPN explaination](../../in-depth/wireguard-vpn.md).
 
 
 
