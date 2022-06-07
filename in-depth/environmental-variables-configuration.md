@@ -31,4 +31,12 @@ Here you can find list of all configurable things through environmental variable
 
 ## YubiBridge
 
-*
+Environmental variables:
+
+* `LOG_LEVEL` : Log messages level, default: `INFO` available levels: `CRITICAL`, `ERROR`, `WARNIG` ,  `INFO` , `DEBUG` ,
+* `WORKER_ID` : Name of your YubiBridge displayed on Defguard website, default: `YubiBridge`&#x20;
+* `SMARTCARD_RETRIES` : Number of retries in case provisioning failed, default: `1`&#x20;
+* `JOB_INTERVAL` : Defines how often(seconds) YubiBridge checks Defguard for new jobs, default: `2`&#x20;
+* `SMARTCARD_RETRY_INTERVAL` : Defines number of seconds between trying to provision YubiKey again, default `15`&#x20;
+
+CLI arguments:
