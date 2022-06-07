@@ -8,7 +8,7 @@ layout: landing
 
 ## What is Defguard?
 
-Defguard is an open-source identity managment website made with the aim to make company managment as easy as possible. On this page you will find short description of our key features
+Defguard is an open-source identity managment website made with the aim to make company managment as easy as possible. On this page you will find short description of our key features divided by enterprise and community edition.
 
 * **Wireguard VPN managment**
 * **LDAP synchronization**
@@ -32,7 +32,6 @@ Defguard allows you for creating Wireguard VPN server in few simple steps. After
 
 In a few simple steps you can synchronize your LDAP data for example import your ldap data to defguard and:&#x20;
 
-* Handle users priviliges
 * Create new users&#x20;
 * Modify existing users
 * Manage groups
@@ -49,8 +48,8 @@ Follow our handy guides to get started on the basics as quickly as possible:
 [setting-up-your-instance.md](guides/setting-up-your-instance.md)
 {% endcontent-ref %}
 
-{% content-ref url="guides/create-your-vpn-network.md" %}
-[create-your-vpn-network.md](guides/create-your-vpn-network.md)
+{% content-ref url="guides/wireguard/create-your-vpn-network.md" %}
+[create-your-vpn-network.md](guides/wireguard/create-your-vpn-network.md)
 {% endcontent-ref %}
 
 {% content-ref url="guides/ldap-synchronization-setup.md" %}
@@ -69,6 +68,6 @@ Learn the fundamentals of Defguard to get a deeper understanding of our main fea
 [architecture.md](in-depth/architecture.md)
 {% endcontent-ref %}
 
-{% content-ref url="in-depth/wireguard-vpn.md" %}
-[wireguard-vpn.md](in-depth/wireguard-vpn.md)
+{% content-ref url="guides/wireguard/wireguard-vpn.md" %}
+[wireguard-vpn.md](guides/wireguard/wireguard-vpn.md)
 {% endcontent-ref %}

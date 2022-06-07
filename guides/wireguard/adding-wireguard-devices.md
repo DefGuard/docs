@@ -12,7 +12,7 @@ First make sure you have installed wireguard on this [site](https://www.wireguar
 
 After you installed wireguard client and configured your network you can go to your profile which you''ll find on the navigation on the left side of the screen where you can add modify and delete your device or download configuration file for it.
 
-![Profile page](../.gitbook/assets/profile.png)
+![Profile page](../../.gitbook/assets/profile.png)
 
 
 
@@ -26,7 +26,7 @@ wg genkey | tee privatekey | wg pubkey > publickey
 
 Click on add new device button then add contents of publickey file to form and pick a name for your newly created device.
 
-![New device Form](../.gitbook/assets/adddevice.png)
+![New device Form](../../.gitbook/assets/adddevice.png)
 
 After you created new device you will see it in your profile if you hover on it the settings button will pop up after you click on it you'll se option to download config.
 

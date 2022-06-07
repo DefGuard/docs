@@ -2,7 +2,7 @@
 
 ## Before we start
 
-* Make sure your defguard instance is [deployed](setting-up-your-instance.md) and running
+* Make sure your defguard instance is [deployed](../setting-up-your-instance.md) and running
 * Make sure you downloaded our [Wireguard Gateway](https://github.com/DefGuard/wireguard-gateway)
 * Make sure you know what [Wireguard](https://www.wireguard.com/) is and have basic understanding of how it works
 
@@ -10,13 +10,13 @@
 
 After successful deployment of your defguard instance first screen you'll see will look like this
 
-![First screen after logging to your freshly installed instance](../.gitbook/assets/Wizard.png)
+![First screen after logging to your freshly installed instance](../../.gitbook/assets/Wizard.png)
 
 ### Network name and type
 
 Nothing fancy in this step just pick your network name and type
 
-![First step on network creation wizard](<../.gitbook/assets/wizardstep1 (1).png>)
+![First step on network creation wizard](<../../.gitbook/assets/wizardstep1 (1).png>)
 
 {% hint style="info" %}
 Currently only supported network type is regular but we hope it'll change in a short future
@@ -26,7 +26,7 @@ Currently only supported network type is regular but we hope it'll change in a s
 
 After choosing a name for your network you"ll be on to the next step which is network configuration this is where things might feel a little bit complicated but no worries it be as painless as possible.
 
-![Network configuration setup](../.gitbook/assets/wizardstep2.png)
+![Network configuration setup](../../.gitbook/assets/wizardstep2.png)
 
 ### Let's briefly discuss all of these weird inputs
 
@@ -66,7 +66,7 @@ No worries if you get something wrong you can always change it later
 
 After completing all steps from above you will be redirected to Network overview page which detect if your gateway is connected or not if your gateway never connected to defguard you'll see modal looking like this
 
-![Modal with docker command to copy to start your gateway server](../.gitbook/assets/rungatewaymodal.png)
+![Modal with docker command to copy to start your gateway server](../../.gitbook/assets/rungatewaymodal.png)
 
 ### Wireguard Gateway setup
 
@@ -96,7 +96,7 @@ If you're using docker image you can pass this value as environmental variables 
 
 ## VPN feature in depth
 
-If you think something above is complicated or unclear you might want to take a look at our [in depth Wireguard VPN explaination](../in-depth/wireguard-vpn.md).
+If you think something above is complicated or unclear you might want to take a look at our [in depth Wireguard VPN explaination](wireguard-vpn.md).
 
 
 

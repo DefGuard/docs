@@ -7,14 +7,15 @@
 * [Setting up your instance](guides/setting-up-your-instance.md)
 * [Webhooks](guides/webhooks.md)
 * [LDAP synchronization setup](guides/ldap-synchronization-setup.md)
-* [Create your VPN network](guides/create-your-vpn-network.md)
-* [Adding Wireguard devices](guides/adding-wireguard-devices.md)
-* [Wireguard](guides/wireguard.md)
+* [Wireguard](guides/wireguard/README.md)
+  * [Create your VPN network](guides/wireguard/create-your-vpn-network.md)
+  * [Adding Wireguard devices](guides/wireguard/adding-wireguard-devices.md)
+  * [Wireguard VPN](guides/wireguard/wireguard-vpn.md)
+* [Yubikey Provision](guides/yubikey-provision.md)
 
 ## In depth
 
 * [Architecture Overview](in-depth/architecture.md)
-* [Wireguard VPN](in-depth/wireguard-vpn.md)
 * [Configuration](in-depth/environmental-variables-configuration.md)
 
 ## For Developers
