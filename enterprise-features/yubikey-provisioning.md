@@ -60,3 +60,11 @@ After selecting your button and provisioning YubiKey Job will be send to your wo
 After quick moment Defguard will receive your public PGP key and SSH key here you can download your keys or copy them to clipboard. No worries if you lost your public keys they will be still available in your user profile.
 
 ![Successful provision modal](../.gitbook/assets/ProvisioningModalKeys.png)
+
+### As a CLI app&#x20;
+
+Simply download source app code and run&#x20;
+
+`docker-compose run ykdev -p <first_name> <last_name> <email>`&#x20;
+
+Then your keys will be created and transfered to YubiKey
