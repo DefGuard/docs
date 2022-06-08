@@ -10,7 +10,7 @@ OpenPGP is very popular asymmetric cryptograhy protocol that uses two keys publi
 
 ## What is YubiBridge?
 
-Idea of creating YubiBridge was that creating GPG keys for YubiKey  maybe a little complicated process for not technical people. That's why we created a python script which allows you to provision your YubiKey with automatically generated GPG keys. In a few simple steps.\
+Idea of creating YubiBridge was that creating GPG keys for YubiKey may be a little complicated process for not technical people. That's why we created a python script which allows you to provision your YubiKey with automatically generated GPG keys in a few simple steps. It's completely safe we are not storing private keys they are completely wiped after provisioning, only public SSH and PGP keys are sent to Defguard so you can download them  any time.\
 You can use it in two ways as a standalone cli program where you plugin your YubiKey then pass your name and email as arguments or Defguard client program and provision YubiKey from Defguard web app.
 
 ## How to use YubiBridge?
@@ -63,8 +63,13 @@ After quick moment Defguard will receive your public PGP key and SSH key here yo
 
 ### As a CLI app&#x20;
 
-Simply download source app code and run&#x20;
+Simply download source app code and run
 
 `docker-compose run ykdev -p <first_name> <last_name> <email>`&#x20;
 
-Then your keys will be created and transfered to YubiKey
+Then your keys will be created and transfered to YubiKey.
+
+If you want to know more about possible arguments or environmental variables take a look [here](../in-depth/environmental-variables-configuration.md).
+
+
+
