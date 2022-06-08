@@ -31,6 +31,8 @@ Here you can find list of all configurable things through environmental variable
 
 ## YubiBridge
 
+* `LOG_LEVEL` : Logging message level default: `DEBUG` , availables
+
 ### Environmental variables:
 
 * `LOG_LEVEL` : Log messages level, default: `INFO` available levels: `CRITICAL`, `ERROR`, `WARNIG` ,  `INFO` , `DEBUG` ,

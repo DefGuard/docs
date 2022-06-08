@@ -10,8 +10,8 @@
 * [Webhooks](community-features/webhooks.md)
 * [Wireguard](community-features/wireguard/README.md)
   * [Create your VPN network](community-features/wireguard/create-your-vpn-network.md)
-  * [Adding Wireguard devices](community-features/wireguard/adding-wireguard-devices.md)
   * [Network overview](community-features/wireguard/network-overview.md)
+  * [Adding Wireguard devices](community-features/wireguard/adding-wireguard-devices.md)
 
 ## Enterprise features
 
