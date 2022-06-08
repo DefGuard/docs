@@ -15,7 +15,7 @@
 
 ## Enterprise features
 
-* [LDAP synchronization setup](enterprise-features/ldap-synchronization-setup.md)
+* [LDAP synchronization](enterprise-features/ldap-synchronization-setup.md)
 * [OpenID Connect](enterprise-features/openid-connect.md)
 * [YubiKey Provisioning](enterprise-features/yubikey-provisioning.md)
 

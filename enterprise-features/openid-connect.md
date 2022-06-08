@@ -10,3 +10,7 @@ As an identity provider one of our core features is Login with Defguard which al
 
 ## How to add OpenID client app?
 
+Navigate to OpenID Apps on the left side navigation then click Add new button.
+
+
+
