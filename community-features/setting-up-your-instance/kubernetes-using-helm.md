@@ -125,3 +125,155 @@ kubectl apply -n defguard -f frontend/k8s
 ```
 ## Core server k8s setup
 
+First step is to k8s folder in core repository in this folder create file named **deployment.yaml**
+
+**core/k8s/deployment.yaml**
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: core
+  labels:
+    app: orion
+    service: core
+spec:
+  strategy:
+    type: Recreate
+  replicas: 2
+  selector:
+    matchLabels:
+      app: defguard
+      service: core
+  template:
+    metadata:
+      labels:
+        app: defguard
+        service: core
+    spec:
+      containers:
+        - name: core
+          image: registry.teonite.net/defguard/core:latest
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: web
+            - secretRef:
+                name: web
+          ports:
+            - name: http
+              containerPort: 8000
+            - name: grpc
+              containerPort: 50055
+          volumeMounts:
+            - name: data
+              mountPath: /storage
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: core-data
+```
+
+Next we need to create [**ingress.yaml**]("https://kubernetes.io/docs/concepts/services-networking/ingress/") to handle our GRPC client 
+
+**core/k8s/ingress.yaml**
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/protocol: h2c
+  name: defguard-grpc-ingress
+spec:
+  rules:
+    - host: defguard-grpc.example.net
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: core
+                port:
+                  name: grpc
+```
+
+Next create our service file and name it **service.yaml** here we bind our ports
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: core
+  labels:
+    app: defguard
+    service: core
+spec:
+  ports:
+    - name: http
+      port: 8000
+      targetPort: "http"
+      protocol: TCP
+    - name: grpc
+      port: 50055
+      targetPort: "grpc"
+      protocol: TCP
+  selector:
+    app: defguard
+    service: core
+
+```
+
+Next step create persistent volume claim to store our Sqlite database file let's name it **storage.yaml**
+
+**core/k8s/storage.yaml**	
+
+```
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: core-data
+  labels:
+    app: defguard
+    service: core
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 128Mi
+```
+
+Next create **config.env** file where we put our configuration 
+
+**core/k8s/config.env**
+
+You can find all configurable thing [here]("https://github.com/DefGuard/docs/blob/docs/in-depth/environmental-variables-configuration.md")
+
+```
+DEFGUARD_DATABASE_URL=sqlite:/storage/defguard.db
+DEFGUARD_LDAP_URL=ldap://oldap:389
+DEFGUARD_WG_SERVICE_URL=http://wireguard:50051
+```
+
+Last step is to create our **kustomization.yaml** to point all our files
+
+```
+resources:
+  - storage.yaml
+  - service.yaml
+  - deployment.yaml
+  - ingress.yaml
+configMapGenerator:
+  - name: web
+    envs:
+      - config.env
+```
+then apply our changes
+
+```
+kubectl apply -n defguard -f core/k8s
+```
