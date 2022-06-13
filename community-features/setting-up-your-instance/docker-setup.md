@@ -32,9 +32,9 @@ git clone git@github.com:DefGuard/wireguard-gateway.git
 ```
 
 In cloned Core server repository create directory named .volumes inside volumes directory create sqlite directory we need
-it to store our Sqlite mount our database in locally.
+it to store our Sqlite database in locally.
 
-next in created Defguard root repository create docker-compose.yaml this file will run core server, frontend, frontend docs services and gateway.
+Next in created Defguard root repository create docker-compose.yaml this file will run core server, frontend, frontend docs services and gateway.
 
 ```yaml
 version: "3"
@@ -59,19 +59,19 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - "4200:80"
+      - "4200:5000"
   ladle:
     build:
       context: ./frontend
       dockerfile: Dockerfile.ladle
     ports:
-      - "4201:80"
+      - "4201:5000"
   docs:
     build:
       context: .
       dockerfile: ./frontend/Dockerfile.docs
     ports:
-      - "4202:80"
+      - "4202:5000"
   gateway:
     image: registry.teonite.net/defguard/wireguard:latest
     environment:
@@ -92,7 +92,7 @@ To start frontend and core server run
 
 `docker-compose up -d`
 
-To access your Defguard deployment go to `http://localhost:80/` in your web browser then setup your Nginx server to redirect your domain to localhost:80
+To access your Defguard deployment go to `http://localhost:5000/` in your web browser then setup your Nginx server to redirect your domain to `localhost:5000`
 
 
 If you want to update changes made in repository and rebuild your container go to repository run
@@ -102,3 +102,27 @@ then
 
 `docker-compose down && docker-compose up -d --build`
 
+
+If on your wireguard server you don't want to run Gateway in docker container you can find pre-build binaries [here]("example.com")
+
+**Note** As you need Token created on Defguard nafter network creation to start your gateway we recommend it to run it in separate
+service using docker-compose or as a binary. Other possible option is to first run Frontend and Core create token then add gateway
+service to our docker-compose.yaml
+
+**docker-compose.yaml** For gateway
+```yaml
+version: "3"
+services:
+  gateway:
+    image: registry.teonite.net/defguard/wireguard:latest
+    environment:
+      DEFGUARD_GRPC_URL: <URL_OF_YOUR_DEFGUARD_GRPC_SERVICE> # If it's on the same machine it's localhost:50055
+      DEFGUARD_STATS_PERIOD: 60
+      DEFGUARD_TOKEN: <DEFGUARD_TOKEN>
+      RUST_LOG: debug
+    ports:
+      # wireguard endpoint
+      - "50051:50051/udp"
+    cap_add:
+      - NET_ADMIN
+```
