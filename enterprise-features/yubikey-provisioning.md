@@ -71,5 +71,12 @@ Then your keys will be created and transfered to YubiKey.
 
 If you want to know more about possible arguments or environmental variables take a look [here](../in-depth/environmental-variables-configuration.md).
 
+### Common errors
+In case you got `ERROR: Can't connect to smartcard` in your log messsages or on defguard panel try these steps:
+1.  Stop worker docker or native
+2. Run `gpg --card-edit` then follow on screen instructions to reset your yubikey
+3. Unplug yubikey
+4. Plugin your yubikey again
+5. Start worker service
 
 
