@@ -10,11 +10,11 @@ layout: landing
 
 ## What is Defguard?
 
-Defguard is an open-source identity managment website made with the aim to make company managment as easy as possible. On this page you will find short description of our key features divided by enterprise and community edition.
+Defguard is an open-source identity management system made with the aim to make company management as easy as possible. On this page you will find short description of our key features divided by enterprise and community edition.
 
 ### Community features:
 
-* **Wireguard VPN managment**
+* **Wireguard VPN management**
 * **Webhooks**
 
 ### **Enterprise features:**
@@ -25,13 +25,13 @@ Defguard is an open-source identity managment website made with the aim to make 
 
 ## Problems that Defguard adresses and solves
 
-* Your company have self hosted services for example: Git/Jira/Slack etc. and want easy to use central logging system with simple and nice UI
+* Your company has self hosted services such as: Git/Jira/Slack etc. and wants an easy to use central logging system with simple and nice UI
 * Fast and easy to setup VPN (Remote access to company resources as above)
-* Webhooks triggered after taking specified actions on user sending user data to provided url which allows you to automate stuff like sending welcome mail or creating accounts in different services
+* Webhooks triggered after taking specified actions on user sending user data to provided url which allows you to automate stuff like sending welcome e-mail or creating accounts in different services
 
-## VPN managment&#x20;
+## VPN management&#x20;
 
-Defguard allows you for creating Wireguard VPN server in few simple steps. After that you can monitor your network by seeing overall usage and per user stats with information about all of their devices and download configuration files for new devices.
+Defguard allows you to setup a Wireguard VPN server in few simple steps. After that you can monitor your network by seeing overall usage and per user stats with information about all of their devices and download configuration files for new devices.
 
 ## Webhooks
 
