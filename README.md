@@ -6,7 +6,7 @@ layout: landing
 
 # Intro to Defguard
 
-![Network overview page which shows statistics of network usage and info about connected users](.gitbook/assets/screen.png)
+![Network overview page displaying network usage statistics and info about connected users](.gitbook/assets/screen.png)
 
 ## What is Defguard?
 
