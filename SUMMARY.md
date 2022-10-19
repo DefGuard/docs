@@ -27,8 +27,8 @@
 
 ## For Developers
 
-* [Environment setup](extras/dev-env-setup.md)
-* [Contributing](extras/contributing.md)
+* [Environment setup](for-developers/dev-env-setup.md)
+* [Contributing](for-developers/contributing.md)
 * [Other resources](for-developers/other-resources.md)
 
 ## Extras
