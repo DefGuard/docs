@@ -39,9 +39,9 @@ services:
 
 **Note** you can find list of all environmental variables and arguments with explanation [here](../in-depth/environmental-variables-configuration.md).\
 Here is sample docker-compose you can run it using `docker-compose up` or if you want to specify some cli arguments you can run it like: \
-`docker-compose run ykdev -g defguard.company.net -s -i JanePC`&#x20;
+`docker-compose run ykdev -g defguard.company.net -s -i JanePC`
 
-Command above will start GRPC connection to `defguard.company.net` url with TLS enabled and your worker named `JanePC` after your worker connected you can see it on your Defguard instance after clicking on left side navigation and clicking provisioners. On this page you can only see list of workers with their status of connection and their IP address here you can also remove unused workers after clicking on settings button placed on right of worker.&#x20;
+Command above will start GRPC connection to `defguard.company.net` url with TLS enabled and your worker named `JanePC` after your worker connected you can see it on your Defguard instance after clicking on left side navigation and clicking provisioners. On this page you can only see list of workers with their status of connection and their IP address here you can also remove unused workers after clicking on settings button placed on right of worker.
 
 To create provision YubiKey for a user make sure your worker is connected and you plugged clean YubiKey with no keys on it. No worries if by mistake you plug wrong YubiKey with keys YubiBridge will not override existing keys.
 
@@ -61,11 +61,11 @@ After quick moment Defguard will receive your public PGP key and SSH key here yo
 
 ![Successful provision modal](../.gitbook/assets/ProvisioningModalKeys.png)
 
-### As a CLI app&#x20;
+### As a CLI app
 
 Simply download source app code and run
 
-`docker-compose run ykdev -p <first_name> <last_name> <email>`&#x20;
+`docker-compose run ykdev -p <first_name> <last_name> <email>`
 
 Then your keys will be created and transfered to YubiKey.
 

@@ -29,7 +29,7 @@ Defguard is an open-source identity management system made with the aim to make 
 * Fast and easy to setup VPN (Remote access to company resources as above)
 * Webhooks triggered after taking specified actions on user sending user data to provided url which allows you to automate stuff like sending welcome e-mail or creating accounts in different services
 
-## VPN management&#x20;
+## VPN management
 
 Defguard allows you to setup a Wireguard VPN server in few simple steps. After that you can monitor your network by seeing overall usage and per user stats with information about all of their devices and download configuration files for new devices.
 
@@ -39,9 +39,9 @@ Easy to use and configure outgoing webhooks triggered on actions taken on certai
 
 ## LDAP synchronization
 
-In a few simple steps you can synchronize your LDAP data for example import your ldap data to defguard and:&#x20;
+In a few simple steps you can synchronize your LDAP data for example import your ldap data to defguard and:
 
-* Create new users&#x20;
+* Create new users
 * Modify existing users
 * Manage groups
 

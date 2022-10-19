@@ -54,7 +54,7 @@ Triggered after modifying user
 
 Webhook will be triggered on new user deletion sample request:
 
-Header&#x20;
+Header
 
 `X-Defguard-Event: user_modified`
 
@@ -77,9 +77,9 @@ Request body example:
 
 ### User Deleted
 
-Triggered on deleting user&#x20;
+Triggered on deleting user
 
-Header&#x20;
+Header
 
 `X-Defguard-Event: user_deleted`
 
@@ -91,11 +91,11 @@ Request body example:
 
 Triggered after successfully provisioning YubiKey
 
-Header&#x20;
+Header
 
-`X-Defguard-Event: user_keys`&#x20;
+`X-Defguard-Event: user_keys`
 
-request body example:&#x20;
+request body example:
 
 ```json
 {
@@ -112,4 +112,4 @@ request body example:&#x20;
 }
 ```
 
-**Note**&#x20;
+**Note**

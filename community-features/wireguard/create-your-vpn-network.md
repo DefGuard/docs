@@ -76,7 +76,7 @@ Wireguard Gateway is a client program which connects to defguard in order to set
 
 After creating your network on defguard you'll se modal pop-up as in picture above with docker run command to start your gateway server but there are other options to start your server.
 
-&#x20;**Note** if you want to use above command make sure you have installed [docker](https://www.docker.com/) \
+**Note** if you want to use above command make sure you have installed [docker](https://www.docker.com/) \
 
 
 Second option is downloading source code from this [repo](https://github.com/DefGuard/wireguard-gateway) and building it using\
@@ -86,7 +86,7 @@ Second option is downloading source code from this [repo](https://github.com/Def
 
 If you're using docker image you can pass this value as environmental variables on binary you can pass them as arguments
 
-`DEFGUARD_USERSPACE` , `-u` - Use userspace wireguard implementation, useful on systems without native wireguard support&#x20;
+`DEFGUARD_USERSPACE` , `-u` - Use userspace wireguard implementation, useful on systems without native wireguard support
 
 `DEFGUARD_GRPC_URL` , `-g` - Defguard server GRPC endpoint URL default is https://localhost:50055
 

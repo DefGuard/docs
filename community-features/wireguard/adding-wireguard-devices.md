@@ -46,6 +46,6 @@ Defguard will dynamically create device config and assign it's own unique ip add
 
 After doing this you can run to start your vpn connection.
 
-`wg-quick up <device_name>`&#x20;
+`wg-quick up <device_name>`
 
 **Note** `<device_name>` is default downloaded config file name without .conf extension in our case it's `Macbook` but if you rename your file remember it no more will be name of device.
