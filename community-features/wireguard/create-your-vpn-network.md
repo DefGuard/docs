@@ -16,7 +16,7 @@ After successful deployment of your defguard instance first screen you'll see wi
 
 Nothing fancy in this step just pick your network name and type
 
-![First step on network creation wizard](<../../.gitbook/assets/wizardstep1.png>)
+![First step on network creation wizard](../../.gitbook/assets/wizardstep1.png)
 
 {% hint style="info" %}
 Currently only supported network type is regular but we hope it'll change in a short future

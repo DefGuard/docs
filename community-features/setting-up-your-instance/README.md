@@ -2,14 +2,14 @@
 
 Defguard comes with two main components:
 
-- Core service: webapp with database
+- Core service: webapp database
 - VPN gateway server: retrieves configuration from core and configures VPN interfaces on the gateway server
 - TODO: provisioning station (optional)
 
 Use your prefered method to deploy Defguard core service
 
 - [Docker Compose](docker-compose.md)
-- [Kubernetes](kubernentes.md)
+- [Kubernetes](kubernetes.md)
 
 And gateway server
 

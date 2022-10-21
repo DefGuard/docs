@@ -5,8 +5,8 @@
 ## Community features
 
 * [Deploying your instance](community-features/setting-up-your-instance/README.md)
-  * [Docker setup](community-features/setting-up-your-instance/docker-setup.md)
-  * [Kubernetes using Helm](community-features/setting-up-your-instance/kubernetes-using-helm.md)
+  * [Docker Compose](community-features/setting-up-your-instance/docker-compose.md)
+  * [Kubernetes](community-features/setting-up-your-instance/kubernetes.md)
 * [Webhooks](community-features/webhooks.md)
 * [Wireguard](community-features/wireguard/README.md)
   * [Create your VPN network](community-features/wireguard/create-your-vpn-network.md)
