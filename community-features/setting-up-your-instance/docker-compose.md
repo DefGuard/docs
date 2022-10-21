@@ -1,14 +1,15 @@
 # Deploy Defguard with docker compose
 
-We prepared a [git repository](https://github.com/DefGuard/docker-compose) with docker-compose configuration, clone it:
+We prepared a [git repository](https://github.com/DefGuard/deployment) with docker-compose configuration, clone it:
 
 ```
-git clone git@github.com:DefGuard/docker-compose.git
+git clone git@github.com:DefGuard/deployment.git
 ```
 
-You'll find a template env file called `.env.template`. Copy it:
+In docker-compose directory you'll find a template env file called `.env.template`. Copy it:
 
 ```
+cd docker-compose
 cp .env.template .env
 ```
 
