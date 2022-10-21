@@ -2,9 +2,8 @@
 
 All source code of our app is located in three repositories
 
-* **** [**Core**](https://github.com/DefGuard/core) **** backend and server for our app
-* **** [**Frontend**](https://github.com/DefGuard/frontend) **** our main webcode with frontend client
-* **** [**Gateway**](https://github.com/DefGuard/wireguard-gateway) **** VPN client which connects core with wireguard interface
+* [Core:](https://github.com/DefGuard/defguard) backend and server for our app
+* [Gateway:](https://github.com/DefGuard/wireguard-gateway) VPN client which connects core with wireguard interface
 
 You can find how to setup your development environment in README.md of all repositories
 
