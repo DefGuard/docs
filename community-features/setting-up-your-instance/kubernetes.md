@@ -1,5 +1,7 @@
 # Kubernetes using Helm
 
+TODO: this should be much simpler
+
 To deploy and use Defguard on your cluster you'll need a [Kubernetes cluster](https://kubernetes.io/docs/setup/),
 Kubernetes CLI [kubectl](https://kubernetes.io/docs/reference/kubectl/) installed on your machine
 
