@@ -11,11 +11,11 @@ Core is a Rust web server which is exposed as REST API and GRPC web server with 
 See detailed API docs [here](https://google.com).
 
 Gateway is a small CLI GRPC client written in Rust which sends network statistics to Core server and apply network configuration changes on message from core.\
-Our frontend is React app written in Typescript which allows handling all api calls via Web UI.\
+Our frontend is React app written in Typescript which allows handling all API calls via Web UI.\
 See detailed GRPC docs [here](https://google.com)\
 
 
 ### Sample setup flow
 
-After creating your network in our wizard and running our gateway program core will message it with network data. Gateway after receiving data will setup your network using wireguard commands you can think of it like a wrapper on wireguard commands which also sends network information through GRPC. After successfully setting up your network gateway will start sending your networks stats in period given as argument on gateway program start or if not provided at default which is 60 seconds. You can see all of your network statistics, connected users, bandwith, user devices on the overview page.
+After creating your network in our wizard and running our gateway program core will message it with network data. Gateway after receiving data will setup your network using wireguard commands you can think of it like a wrapper on wireguard commands which also sends network information through GRPC. After successfully setting up your network gateway will start sending your networks stats in period given as argument on gateway program start or if not provided at default which is 60 seconds. You can see all of your network statistics, connected users, bandwidth, user devices on the overview page.
 

@@ -6,7 +6,7 @@ Here you can find list of all configurable things through environmental variable
 
 ### LDAP configuration
 
-* `DEFGUARD_LDAP_URL` - Your LDAP url to read users and groups data (e.g. `http://localhost:389`)
+* `DEFGUARD_LDAP_URL` - Your LDAP URL to read users and groups data (e.g. `http://localhost:389`)
 * `DEFGUARD_LDAP_GROUP_MEMBER_ATTR` :  group attribute for members, default: `uniqueMember`
 * `DEFGUARD_LDAP_GROUP_SEARCH_BASE` : group search base, default: `ou=groups,dc=example,dc=org`
 * `DEFGUARD_LDAP_USER_SEARCH_BASE` : user  search base, default: `dc=example,dc=org`
@@ -20,7 +20,7 @@ Here you can find list of all configurable things through environmental variable
 
 ### Core configuration
 
-* `DEFGUARD_DATABASE_URL` : Your database url, default: `sqlite::memory`
+* `DEFGUARD_DATABASE_URL` : Your database URL, default: `sqlite::memory`
 * `DEFGUARD_HTTP_PORT` : Core server port, default: `8000`
 * `DEFGUARD_JWT_SECRET` : JWT secret key for encrypting tokens, default: `secret`
 * `ORI_WG_SERVICE_URL` : WireGuard service instance to connect to, default: `http://wireguard:50051`

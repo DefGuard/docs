@@ -23,11 +23,11 @@ Defguard is an open-source identity management system made with the aim to make 
 * Yubikey Provisioning
 * OpenID connect provider
 
-## Problems that Defguard adresses and solves
+## Problems that Defguard addresses and solves
 
 * Your company has self hosted services such as: Git/Jira/Slack etc. and wants an easy to use central logging system with simple and nice UI
 * Fast and easy to setup VPN (Remote access to company resources as above)
-* Webhooks triggered after taking specified actions on user sending user data to provided url which allows you to automate stuff like sending welcome e-mail or creating accounts in different services
+* Webhooks triggered after taking specified actions on user sending user data to provided URL which allows you to automate stuff like sending welcome e-mail or creating accounts in different services
 
 ## VPN management
 
@@ -35,11 +35,11 @@ Defguard allows you to setup a Wireguard VPN server in few simple steps. After t
 
 ## Webhooks
 
-Easy to use and configure outgoing webhooks triggered on actions taken on certain user to help you automate monotonious tasks.
+Easy to use and configure outgoing webhooks triggered on actions taken on certain user to help you automate monotonous tasks.
 
 ## LDAP synchronization
 
-In a few simple steps you can synchronize your LDAP data for example import your ldap data to defguard and:
+In a few simple steps you can synchronize your LDAP data for example import your LDAP data to Defguard and:
 
 * Create new users
 * Modify existing users

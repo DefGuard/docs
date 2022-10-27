@@ -10,16 +10,16 @@ On the left side of defguard navigation you'll find webhooks page
 
 ![New webhook form](../.gitbook/assets/webhookform.png)
 
-On above form you'll se inputs like url description token and triggers
+On above form you'll see inputs like URL description token and triggers
 
-* **Url** is an url on which data will be sent after certain triggers
+* **URL** is an URL on which data will be sent after certain triggers
 * **Description** short description of your webhook to remember it's use case
 * **Secret token** is a token sent with request in authorization header **Note** if receiver didn't implement any token check it'll do nothing
 * **Triggers** are events which will trigger the webhook
 
 ## Sample requests
 
-Below is list of all triggering actions with their request header and sample JSON body which will be sent on url given at webhook creation.
+Below is list of all triggering actions with their request header and sample JSON body which will be sent on URL given at webhook creation.
 
 **Note** all requests are using `GET` method and sends data in body of request in JSON format.
 

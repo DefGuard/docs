@@ -32,7 +32,7 @@ After choosing a name for your network you"ll be on to the next step which is ne
 
 ### **Address**
 
-It’s the IP address of the network interface that WireGuard sets up for the peer.
+It’s the IP address of the network interface that Wireguard sets up for the peer.
 
 The IP address for a WireGuard interface is defined with a network prefix, which tells the local host what other IP addresses are available on the same virtual subnet as the interface. In the above placeholder, this prefix is /24. That indicate to the localhost that other addresses in the same /24 block as the address itself (10.1.1.0 to 10.1.1.255) are routable through the interface.
 
@@ -70,11 +70,11 @@ After completing all steps from above you will be redirected to Network overview
 
 ### Wireguard Gateway setup
 
-Wireguard Gateway is a client program which connects to defguard in order to setup your network and send all informations about your network and it's users. You can think about it like waiter which delivers food(data eg. stats, configuration) between client(defguard server) and server(wireguard server) and takes orders from defguard server to setup your network.
+Wireguard Gateway is a client program which connects to defguard in order to setup your network and send all information about your network and it's users. You can think about it like waiter which delivers food(data eg. stats, configuration) between client(defguard server) and server(wireguard server) and takes orders from defguard server to setup your network.
 
 #### First run
 
-After creating your network on defguard you'll se modal pop-up as in picture above with docker run command to start your gateway server but there are other options to start your server.
+After creating your network on defguard you'll see modal pop-up as in picture above with docker run command to start your gateway server but there are other options to start your server.
 
 **Note** if you want to use above command make sure you have installed [docker](https://www.docker.com/) \
 
@@ -96,7 +96,7 @@ If you're using docker image you can pass this value as environmental variables 
 
 ## VPN feature in depth
 
-If you think something above is complicated or unclear you might want to take a look at our [in depth Wireguard VPN explaination](../../in-depth/wireguard-vpn.md).
+If you think something above is complicated or unclear you might want to take a look at our [in depth Wireguard VPN explanation](../../in-depth/wireguard-vpn.md).
 
 
 

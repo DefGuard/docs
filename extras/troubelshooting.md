@@ -1,2 +1,2 @@
-# Troubelshooting
+# Troubleshooting
 

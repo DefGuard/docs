@@ -2,7 +2,7 @@ TODO
 
 If on your wireguard server you don't want to run Gateway in docker container you can find pre-build binaries [here]("example.com")
 
-**Note** As you need Token created on Defguard nafter network creation to start your gateway we recommend it to run it in separate
+**Note** As you need Token created on Defguard after network creation to start your gateway we recommend it to run it in separate
 service using docker-compose or as a binary. Other possible option is to first run Frontend and Core create token then add gateway
 service to our docker-compose.yaml
 
