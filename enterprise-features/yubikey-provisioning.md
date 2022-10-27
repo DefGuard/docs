@@ -39,7 +39,7 @@ cp .env.template .env
 
 Variables to set:
 
-* `DEFGUARD_URL`: your defguard instance, e.g.: `defguard.mycompany.com`
+* `DEFGUARD_URL`: your Defguard instance, e.g.: `defguard.mycompany.com`
 * `WORKER_ID`: your machine id, this is the name you'll see in Defguard "provisioners" tab, e.g.: `Jane-Laptop`
 
 > You can find list of all environment variables and arguments with explanation [here](../in-depth/environmental-variables-configuration.md).
@@ -56,7 +56,7 @@ To provision the key:
 1. select the user from "Users" page in Defguard web-application (or go to "My Profile" if you're provisioning a key for
 yourself)
 2. insert a clean YubiKey (YubiBridge won't override existing keys)
-3. click the "Provision Yubikey" button
+3. click the "Provision YubiKey" button
 4. select your provisioner and click the "Provision YubiKey" button
 
 ![Provisioning modal first step](../.gitbook/assets/ProvisioningModal.png)

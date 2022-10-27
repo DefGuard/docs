@@ -20,7 +20,7 @@ Defguard is an open-source identity management system made with the aim to make 
 ### **Enterprise features:**
 
 * LDAP synchronization
-* Yubikey Provisioning
+* YubiKey Provisioning
 * OpenID connect provider
 
 ## Problems that Defguard addresses and solves

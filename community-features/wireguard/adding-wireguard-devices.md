@@ -4,7 +4,7 @@
 
 * Add new wireguard device
 * Download it's config
-* Start your vpn connection
+* Start your VPN connection
 
 First make sure you have installed wireguard on this [site](https://www.wireguard.com/install/) you can find information how to download wireguard for any operating system.
 
@@ -16,7 +16,7 @@ After you installed wireguard client and configured your network you can go to y
 
 
 
-Before creating new device make you sure generated your public and private keys which are necessary for vpn connection setup.
+Before creating new device make you sure generated your public and private keys which are necessary for VPN connection setup.
 
 You can easily create new keys by running below command:
 
@@ -44,7 +44,7 @@ PersistentKeepalive = 25
 
 Defguard will dynamically create device config and assign it's own unique IP address. After downloading config which look like this above you need to replace `YOUR_PRIVATE_KEY` with contents of created before privatekey file and move config file to `/etc/wireguard` directory on  unix-like systems and on windows copy it contents run wireguard program and paste into new tunnel option.
 
-After doing this you can run to start your vpn connection.
+After doing this you can run to start your VPN connection.
 
 `wg-quick up <device_name>`
 

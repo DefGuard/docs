@@ -6,7 +6,7 @@ Basic idea of webhooks is to send user data to external systems in order to auto
 
 ## Setup
 
-On the left side of defguard navigation you'll find webhooks page
+On the left side of Defguard navigation you'll find webhooks page
 
 ![New webhook form](../.gitbook/assets/webhookform.png)
 

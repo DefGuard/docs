@@ -1,6 +1,6 @@
 # Development environment setup
 
-Remember to clone defguard repository recursively (with protos):
+Remember to clone Defguard repository recursively (with protos):
 
 ```
 git clone --recursive git@git.teonite.net:orion/core.git
@@ -12,7 +12,7 @@ Using docker-compose you can setup a simple stack with:
 
 * backend
 * database (postgres)
-* vpn gateway
+* VPN gateway
 * device connected to the gateway
 
 This way you'll have some live stats data to work with.

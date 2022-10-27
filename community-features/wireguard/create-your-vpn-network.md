@@ -2,13 +2,13 @@
 
 ## Before we start
 
-* Make sure your defguard instance is [deployed](../setting-up-your-instance/) and running
+* Make sure your Defguard instance is [deployed](../setting-up-your-instance/) and running
 * Make sure you downloaded our [Wireguard Gateway](https://github.com/DefGuard/wireguard-gateway)
 * Make sure you know what [Wireguard](https://www.wireguard.com/) is and have basic understanding of how it works
 
 ## Network creation wizard
 
-After successful deployment of your defguard instance first screen you'll see will look like this
+After successful deployment of your Defguard instance first screen you'll see will look like this
 
 ![First screen after logging to your freshly installed instance](../../.gitbook/assets/Wizard.png)
 
@@ -64,22 +64,22 @@ No worries if you get something wrong you can always change it later
 
 ## What to do after wizard completion?
 
-After completing all steps from above you will be redirected to Network overview page which detect if your gateway is connected or not if your gateway never connected to defguard you'll see modal looking like this
+After completing all steps from above you will be redirected to Network overview page which detect if your gateway is connected or not if your gateway never connected to Defguard you'll see modal looking like this
 
 ![Modal with docker command to copy to start your gateway server](../../.gitbook/assets/rungatewaymodal.png)
 
 ### Wireguard Gateway setup
 
-Wireguard Gateway is a client program which connects to defguard in order to setup your network and send all information about your network and it's users. You can think about it like waiter which delivers food(data eg. stats, configuration) between client(defguard server) and server(wireguard server) and takes orders from defguard server to setup your network.
+Wireguard Gateway is a client program which connects to Defguard in order to setup your network and send all information about your network and it's users. You can think about it like waiter which delivers food(data eg. stats, configuration) between client(Defguard server) and server(wireguard server) and takes orders from Defguard server to setup your network.
 
 #### First run
 
-After creating your network on defguard you'll see modal pop-up as in picture above with docker run command to start your gateway server but there are other options to start your server.
+After creating your network on Defguard you'll see modal pop-up as in picture above with docker run command to start your gateway server but there are other options to start your server.
 
 **Note** if you want to use above command make sure you have installed [docker](https://www.docker.com/) \
 
 
-Second option is downloading source code from this [repo](https://github.com/DefGuard/wireguard-gateway) and building it using\
+Second option is downloading source code from this [repository](https://github.com/DefGuard/wireguard-gateway) and building it using\
 `cargo build --release` command then you'll find binary file named `wireguard-gateway` at `target/release` directory
 
 #### Environmental variables / Arguments

@@ -6,7 +6,7 @@ Here you can see high level view of Defguard architecture with all it dependenci
 
 ### Basics
 
-Core is a Rust web server which is exposed as REST API and GRPC web server with typescript and rust clients, it handles connection to database, ldap server and gateway core also handles user authorization via ldap account. It's configurable using Environmental Variables which you can find [here](environmental-variables-configuration.md).
+Core is a Rust web server which is exposed as REST API and GRPC web server with typescript and rust clients, it handles connection to database, LDAP server and gateway core also handles user authorization via LDAP account. It's configurable using Environmental Variables which you can find [here](environmental-variables-configuration.md).
 
 See detailed API docs [here](https://google.com).
 
