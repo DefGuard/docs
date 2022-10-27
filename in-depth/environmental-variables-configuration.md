@@ -31,11 +31,11 @@ Here you can find list of all configurable things through environmental variable
 
 ## YubiBridge
 
-* `LOG_LEVEL` : Logging message level default: `DEBUG` , availables
+* `LOG_LEVEL` : Logging message level default: `DEBUG`, levels: `CRITICAL`, `ERROR`, `WARNIG`, `INFO`, `DEBUG`
 
 ### Environmental variables:
 
-* `LOG_LEVEL` : Log messages level, default: `INFO` available levels: `CRITICAL`, `ERROR`, `WARNIG` ,  `INFO` , `DEBUG` ,
+* `LOG_LEVEL` : Log messages level, default: `INFO`, available levels: `CRITICAL`, `ERROR`, `WARNIG`, `INFO`, `DEBUG`
 * `WORKER_ID` : Name of your YubiBridge displayed on Defguard website, default: `YubiBridge`
 * `SMARTCARD_RETRIES` : Number of retries in case provisioning failed, default: `1`
 * `JOB_INTERVAL` : Defines how often(seconds) YubiBridge checks Defguard for new jobs, default: `2`
