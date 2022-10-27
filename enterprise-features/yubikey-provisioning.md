@@ -67,20 +67,31 @@ The service will take a minute to prepare and provision your keys. Once that's d
 
 ### As a CLI app
 
-Simply download source app code and run
+1. Clone YubiBridge repository:
 
-`docker-compose run ykdev -p <first_name> <last_name> <email>`
+```
+git clone --recursive git@github.com:DefGuard/yubi-bridge.git && cd yubi-bridge
+```
 
-Then your keys will be created and transferred to YubiKey.
+2. Run with docker-compose:
 
-If you want to know more about possible arguments or environmental variables take a look [here](../in-depth/environmental-variables-configuration.md).
+```
+docker-compose run ykdev -p <first_name> <last_name> <email>
+```
+
+Your keys will be created and transferred to YubiKey.
+
+If you want to know more about possible arguments or environment variables take a look [here](../in-depth/environmental-variables-configuration.md).
 
 ### Common errors
+
 In case you got `ERROR: Can't connect to smartcard` in your log messages or on Defguard panel try these steps:
-1.  Stop worker docker or native
+
+1. Stop worker docker or native
 2. Run `gpg --card-edit` then follow on screen instructions to reset your YubiKey
 3. Unplug YubiKey
 4. Plugin your YubiKey again
 5. Start worker service
 
+You may also have to stop gpg-agent and pcscd services on your system if you're running Linux.
 
