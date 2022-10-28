@@ -25,7 +25,6 @@ Here you can find list of all configurable things through environmental variable
 * `DEFGUARD_AUTH_SECRET` : JWT secret key for encrypting user tokens, default: `DEFGUARD_AUTH_SECRET`
 * `DEFGUARD_YUBIBRIDGE_SECRET` : JWT secret key for encrypting YubiBridge tokens, default: `DEFGUARD_YUBIBRIDGE_SECRET`
 * `DEFGUARD_GATEWAY_SECRET` : JWT secret key for encrypting Gateway tokens, default: `DEFGUARD_GATEWAY_SECRET`
-* `DEFGUARD_AUTH_SECRET` : WireGuard service instance to connect to, default: `http://wireguard:50051`
 * `ORI_WG_SERVICE_URL` : WireGuard service instance to connect to, default: `http://wireguard:50051`
 
 ### GRPC configuration
