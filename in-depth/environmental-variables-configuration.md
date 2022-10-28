@@ -22,7 +22,10 @@ Here you can find list of all configurable things through environmental variable
 
 * `DEFGUARD_DATABASE_URL` : Your database URL, default: `sqlite::memory`
 * `DEFGUARD_HTTP_PORT` : Core server port, default: `8000`
-* `DEFGUARD_JWT_SECRET` : JWT secret key for encrypting tokens, default: `secret`
+* `DEFGUARD_AUTH_SECRET` : JWT secret key for encrypting user tokens, default: `DEFGUARD_AUTH_SECRET`
+* `DEFGUARD_YUBIBRIDGE_SECRET` : JWT secret key for encrypting YubiBridge tokens, default: `DEFGUARD_YUBIBRIDGE_SECRET`
+* `DEFGUARD_GATEWAY_SECRET` : JWT secret key for encrypting Gateway tokens, default: `DEFGUARD_GATEWAY_SECRET`
+* `DEFGUARD_AUTH_SECRET` : WireGuard service instance to connect to, default: `http://wireguard:50051`
 * `ORI_WG_SERVICE_URL` : WireGuard service instance to connect to, default: `http://wireguard:50051`
 
 ### GRPC configuration
@@ -37,6 +40,7 @@ Here you can find list of all configurable things through environmental variable
 
 * `LOG_LEVEL` : Log messages level, default: `INFO`, available levels: `CRITICAL`, `ERROR`, `WARNIG`, `INFO`, `DEBUG`
 * `WORKER_ID` : Name of your YubiBridge displayed on Defguard website, default: `YubiBridge`
+* `DEFGUARD_TOKEN` : - Secret worker token to secure gRPC communication, available on provisioners page
 * `SMARTCARD_RETRIES` : Number of retries in case provisioning failed, default: `1`
 * `JOB_INTERVAL` : Defines how often(seconds) YubiBridge checks Defguard for new jobs, default: `2`
 * `SMARTCARD_RETRY_INTERVAL` : Defines number of seconds between trying to provision YubiKey again, default `15`
@@ -49,7 +53,7 @@ Here you can find list of all configurable things through environmental variable
 * `-d` , `--debug` : Enable debug mode
 * `-t <TMPDIR>` , `--tmpdir <TMPDIR>` : GnuPG home directory, default: `tmp`
 * `-p <first_name> <last_name> <email>` , `--provision <first_name> <last_name> <email>` : Provision YubiKey with following data  
-* `-w <token>` , `--worker-token <token>` : Secret worker token to secure gRPC communication
+* `-w <token>` , `--worker-token <token>` : Secret worker token to secure gRPC communication, available on provisioners page
 * `-c <command>` , `--command <command>` : Run command after provisioning and pass created keys as arguments
 
 ## Gateway Configuration
