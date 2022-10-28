@@ -41,7 +41,7 @@ Variables to set:
 
 * `DEFGUARD_URL`: your Defguard instance, e.g.: `defguard.mycompany.com`
 * `WORKER_ID`: your machine id, this is the name you'll see in Defguard "provisioners" tab, e.g.: `Jane-Laptop`
-* `DEFGUARD_TOKEN`: Token from Defguard app to secure GRPC connection.
+* `DEFGUARD_TOKEN`: Token from Defguard app to secure GRPC connection available on provisioners page.
 
 > You can find list of all environment variables and arguments with explanation [here](../in-depth/environmental-variables-configuration.md).
 
