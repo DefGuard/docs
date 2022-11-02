@@ -48,4 +48,4 @@ After doing this you can run to start your VPN connection.
 
 `wg-quick up <device_name>`
 
-**Note** `<device_name>` is default downloaded config file name without .conf extension in our case it's `Macbook` but if you rename your file remember it no more will be name of device.
+**Note** `<device_name>` is downloaded config file name without .conf extension.

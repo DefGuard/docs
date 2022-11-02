@@ -1,25 +1,55 @@
-TODO
+# Gateway setup
 
-If on your wireguard server you don't want to run Gateway in docker container you can find pre-build binaries [here]("example.com")
+## Binary Install
 
-**Note** As you need Token created on Defguard after network creation to start your gateway we recommend it to run it in separate
-service using docker-compose or as a binary. Other possible option is to first run Frontend and Core create token then add gateway
-service to our docker-compose.yaml
+1. Checkout Gateway releases [here]("example.com") and download your binary from Github page.
+2. Decompress and move to bin directory
 
-**docker-compose.yaml** For gateway
-```yaml
-version: "3"
-services:
-  gateway:
-    image: registry.teonite.net/defguard/wireguard:latest
-    environment:
-      DEFGUARD_GRPC_URL: <URL_OF_YOUR_DEFGUARD_GRPC_SERVICE> # If it's on the same machine it's localhost:50055
-      DEFGUARD_STATS_PERIOD: 60
-      DEFGUARD_TOKEN: <DEFGUARD_TOKEN>
-      RUST_LOG: debug
-    ports:
-      # wireguard endpoint
-      - "50051:50051/udp"
-    cap_add:
-      - NET_ADMIN
+```sh
+tar xcf ./gateway.tar.gz
+sudo chmod +x gateway
+sudo mv gateway /usr/bin/
 ```
+3. Start gateway
+`gateway -g defguard.com:50055 -t <DEFGUARD_TOKEN>`
+
+**Note** Don't forget to copy DEFGUARD_TOKEN necessary to start gateway connection from modal available on overview page under `Docker run command`
+
+
+##  Docker-compose
+
+To start your gateway using docker-compose:
+
+1. Clone Gateway repository:
+
+```
+git clone --recursive https://github.com/DefGuard/gateway.git && cd gateway
+```
+
+2. Copy and fill in the .env file:
+
+```
+cp .env.template .env
+```
+
+Variables to set:
+
+* `DEFGUARD_USERSPACE` , `-u` - Use userspace wireguard implementation, useful on systems without native wireguard support
+
+* `DEFGUARD_GRPC_URL` , `-g <URL>` - Defguard server GRPC endpoint URL default is https://localhost:50055
+
+* `DEFGUARD_STATS_PERIOD` ,`-p <SECONDS>` - Defines how often (seconds) should interface statistics be sent to Defguard server
+
+* `DEFGUARD_TOKEN` ,`-t <TOKEN>` - Token received on Defguard after completing network wizard
+
+> You can find list of all environment variables and arguments with explanation [here](../in-depth/environmental-variables-configuration.md).
+
+
+3. Finally, run the service with docker-compose:
+
+```
+docker-compose up
+```
+
+If everything went well, your Gateway should be connected to Defguard and you can start [adding new devices to your network](community-features/wireguard/adding-wireguard-devices.md).
+
