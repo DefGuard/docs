@@ -82,7 +82,7 @@ After creating your network on Defguard you'll see modal pop-up as in picture ab
 Second option is downloading source code from this [repository](https://github.com/DefGuard/wireguard-gateway) and building it using\
 `cargo build --release` command then you'll find binary file named `wireguard-gateway` at `target/release` directory
 
-Or if you don't want to build it yourself, you can find prebuild binaries [here](link.to.release.gateway.com)
+Or if you don't want to build it yourself, you can find prebuild binaries [here](https://github.com/DefGuard/gateway/releases).
 
 #### Environmental variables / Arguments
 

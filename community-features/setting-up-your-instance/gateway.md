@@ -2,7 +2,7 @@
 
 ## Binary Install
 
-1. Checkout Gateway releases [here]("example.com") and download your binary from Github page.
+1. Checkout Gateway releases [here](https://github.com/DefGuard/gateway/releases) and download compatible binary from Github page.
 2. Decompress and move to bin directory
 
 ```sh
