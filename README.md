@@ -1,7 +1,6 @@
 ---
 cover: .gitbook/assets/BG.png
 coverY: 0
-layout: landing
 ---
 
 # Intro to Defguard
