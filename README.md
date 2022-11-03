@@ -1,8 +1,3 @@
----
-cover: .gitbook/assets/BG.png
-coverY: 0
----
-
 # Intro to Defguard
 
 ![Network overview page displaying network usage statistics and info about connected users](.gitbook/assets/screen.png)
