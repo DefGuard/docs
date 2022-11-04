@@ -1,14 +1,18 @@
 # Architecture Overview
 
-Here you can see high level view of Defguard architecture with all it dependencies and their role.
+Below you can see Defguard architecture with it's core components.
 
-![High level look at Defguard architecture ](../.gitbook/assets/architecture.png)
+## Containers
+![Container look at Defguard architecture ](puml/architecture-containers.svg)
+
+## Context 
+![Context look at Defguard architecture ](puml/architecture-context.svg)
 
 ### Basics
 
 Core is a Rust web server which is exposed as REST API and GRPC web server with typescript and rust clients, it handles connection to database, LDAP server and gateway core also handles user authorization via LDAP account. It's configurable using Environmental Variables which you can find [here](environmental-variables-configuration.md).
 
-See detailed API docs [here](https://google.com).
+See Rustdocs [core](https://google.com) [gateway](https://google.com).
 
 Gateway is a small CLI GRPC client written in Rust which sends network statistics to Core server and apply network configuration changes on message from core.\
 Our frontend is React app written in Typescript which allows handling all API calls via Web UI.\

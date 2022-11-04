@@ -7,6 +7,7 @@
 * [Deploying your instance](community-features/setting-up-your-instance/README.md)
   * [Docker Compose](community-features/setting-up-your-instance/docker-compose.md)
   * [Kubernetes](community-features/setting-up-your-instance/kubernetes.md)
+  * [Gateway](community-features/setting-up-your-instance/Gateway.md)
 * [Webhooks](community-features/webhooks.md)
 * [Wireguard](community-features/wireguard/README.md)
   * [Create your VPN network](community-features/wireguard/create-your-vpn-network.md)

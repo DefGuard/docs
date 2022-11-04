@@ -20,7 +20,7 @@ sudo mv gateway /usr/bin/
 
 To start your gateway using docker-compose:
 
-1. Clone Gateway repository:
+1. We prepared a [git repository](https://github.com/DefGuard/deployment) with docker-compose configuration, clone it:
 
 ```
 git clone --recursive https://github.com/DefGuard/gateway.git && cd gateway

@@ -1,0 +1,23 @@
+@startuml 
+title Defguard architecture - containers
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(user, "User", "Defguard user")
+Container(wireguard, "Wireguard server", "Provides VPN functionality")
+System_Boundary(c1, "Defguard web platform") {
+    Container(mfa, "MFA login", "React, Typescript", "Provides UI for MFA login solution")
+    Container(core_server, "Core server", "Rust", "Provides REST API for MFA, network managment, users, etc.")
+    Container(gateway, "Gateway client", "Rust", "Allows to manage wireguard server from defguard")
+    Container(web_app, "Defguard web application", "React, Typescript", "Provides UI for user")
+    ContainerDb(db, "Database", "PostgreSQL", "Stores all platform data")
+    Container(yubibridge, "Yubi-Bridge", "Python", "Allows to create PGP keys based on user data from defguard and transfer them to YubiKey")
+}
+Rel(user, mfa, "Uses", "HTTPS", $tags="firewall")
+Rel(user, web_app, "Uses", "HTTPS", $tags="firewall")
+Rel(web_app, core_server, "Uses", "REST")
+Rel(mfa, core_server, "Uses", "REST")
+Rel(gateway, core_server, "Uses", "GRPC","")
+Rel(gateway, wireguard, "Uses", "", "Send network udpates, add peers, read stats")
+Rel(core_server, db, "Uses", "SQL", "Reads from and writes to")
+Rel(yubibridge, core_server, "Uses", "GRPC", "Reads user data to provision YubiKey")
+@enduml
