@@ -1,5 +1,9 @@
 name: generate plantuml files
-on: push
+on:
+  push:
+  pull_request:
+    branches:
+      - main
 jobs:
   generate_plantuml:
     runs-on: ubuntu-latest
