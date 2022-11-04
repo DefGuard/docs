@@ -23,7 +23,7 @@ See Rustdocs [core](https://google.com) [gateway](https://google.com).
 
 Gateway is a small CLI gRPC client written in Rust which sends network statistics to Core server and apply network configuration changes on message from core.\
 Our frontend is React app written in Typescript which allows handling all API calls via Web UI.\
-See detailed gRPC docs [here](https://google.com)\
+See detailed gRPC docs [here](https://google.com)
 
 
 ### Example setup flow
