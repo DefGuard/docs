@@ -1,6 +1,6 @@
 # Architecture Overview
 
-Below you can see Defguard architecture made in C4 containers and context with all dependencies and their role.
+Below you can see Defguard architecture with it's core components.
 
 ## Containers
 ![Container look at Defguard architecture ](puml/architecture-containers.svg)
