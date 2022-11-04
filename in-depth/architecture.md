@@ -1,6 +1,6 @@
 # Architecture Overview
 
-Below you can see Defguard architecture in [C4 model](https://c4model.com/) divided into context, containers, components and code.
+Below you can see Defguard architecture in [C4 model](https://c4model.com/) divided into context, containers and components.
 
 
 ## Context 
