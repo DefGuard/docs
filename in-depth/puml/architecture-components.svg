@@ -1,0 +1,999 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="1217px" preserveAspectRatio="none" style="width:2397px;height:1217px;background:#FFFFFF;" version="1.1" viewBox="0 0 2397 1217" width="2397px" zoomAndPan="magnify"><defs/><g><rect fill="none" height="26.2969" id="_title" style="stroke:none;stroke-width:1.0;" width="306" x="1038.5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="296" x="1043.5" y="22.9951">Defguard architecture - components</text><!--MD5=[84dda40acb3410cad7262261daba2aaf]
+cluster c1--><g id="cluster_c1"><rect fill="none" height="830.5" rx="2.5" ry="2.5" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="1194" x="1197" y="237.2969"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="104" x="1742" y="284.1484">Community</text><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="64" x="1762" y="299.0605">[System]</text></g><!--MD5=[a79645e74fdddf168a098e501fbfe8e0]
+cluster c2--><g id="cluster_c2"><rect fill="none" height="290" rx="2.5" ry="2.5" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="940" x="7" y="794.2969"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="94" x="430" y="831.1484">Enterprise</text><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="64" x="445" y="846.0605">[System]</text></g><!--MD5=[8cdc723d0cb58b5cabb5a4ea0cfcfa87]
+entity mfa--><g id="elem_mfa"><rect fill="#438DD5" height="115.4531" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="200" x="1687" y="383.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="71" x="1751.5" y="404.4355">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="119" x="1727.5" y="422.1172">MFA web app</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="115" x="1729.5" y="437.0293">[React, Typescript]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1785" y="452.8545"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="176" x="1697" y="469.1514">Provides UI for MFA login</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="1758.5" y="485.4482">solution</text></g><!--MD5=[7069e93b73414e93f78e0a2c96fb2073]
+entity core_server--><g id="elem_core_server"><rect fill="#438DD5" height="131.75" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="214" x="1561" y="587.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="71" x="1632.5" y="608.4355">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="113" x="1611.5" y="626.1172">API gateway</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="37" x="1649.5" y="641.0293">[Rust]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1666" y="656.8545"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="176" x="1578" y="673.1514">Performs authentication</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="190" x="1571" y="689.4482">and caching, load balances</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="138" x="1599" y="705.7451">to specific services</text></g><!--MD5=[7b30460008fc71f9986330c33ee2d290]
+entity gateway--><g id="elem_gateway"><rect fill="#438DD5" height="115.4531" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="220" x="1275" y="595.7969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="71" x="1349.5" y="616.9355">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="137" x="1316.5" y="634.6172">Gateway client</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="37" x="1366.5" y="649.5293">[Rust]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1383" y="665.3545"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="200" x="1285" y="681.6514">Allows to manage wireguard</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="152" x="1309" y="697.9482">server from defguard</text></g><!--MD5=[b0477f5457adcd28cf10ad3fbae138d7]
+entity webhooks--><g id="elem_webhooks"><rect fill="#438DD5" height="115.4531" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="179" x="1693.5" y="936.7969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="71" x="1747.5" y="957.9355">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="95" x="1735.5" y="975.6172">Webhooks</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="37" x="1764.5" y="990.5293">[Rust]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1781" y="1006.3545"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="129" x="1716.5" y="1022.6514">Provides outgoing</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="159" x="1703.5" y="1038.9482">webhooks mechanism</text></g><!--MD5=[f06e2f3939a9a9c75998745245a735aa]
+entity web3--><g id="elem_web3"><rect fill="#438DD5" height="80.5313" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="220" x="2155" y="953.7969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="71" x="2229.5" y="974.9355">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="51" x="2239.5" y="992.6172">Web3</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="196" x="2165" y="1007.5293">[Provides integration with web 3</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="89" x="2220.5" y="1021.498">functionalities]</text></g><!--MD5=[d76445b9480c82043476595a28be39d6]
+entity mfa_backend--><g id="elem_mfa_backend"><rect fill="#438DD5" height="115.4531" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="212" x="1908" y="936.7969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="71" x="1978.5" y="957.9355">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="118" x="1955" y="975.6172">MFA backend</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="37" x="1995.5" y="990.5293">[Rust]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="2012" y="1006.3545"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="188" x="1918" y="1022.6514">Provides REST API for MFA</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62" x="1983" y="1038.9482">web app</text></g><!--MD5=[31ebc471ab11ce59718c458ce4feb17c]
+entity grpc_server--><g id="elem_grpc_server"><rect fill="#438DD5" height="115.4531" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="219" x="1439.5" y="936.7969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="71" x="1513.5" y="957.9355">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="113" x="1492.5" y="975.6172">GRPC server</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="37" x="1530.5" y="990.5293">[Rust]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1547" y="1006.3545"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="190" x="1452" y="1022.6514">Provides GRPC connection</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="199" x="1449.5" y="1038.9482">for Gateway and YubiBridge</text></g><!--MD5=[7468467f3b6b392f1d176d828c753b77]
+entity db--><g id="elem_db"><path d="M1213.5,950.2969 C1213.5,940.2969 1309,940.2969 1309,940.2969 C1309,940.2969 1404.5,940.2969 1404.5,950.2969 L1404.5,1038.4531 C1404.5,1048.4531 1309,1048.4531 1309,1048.4531 C1309,1048.4531 1213.5,1048.4531 1213.5,1038.4531 L1213.5,950.2969 " fill="#438DD5" style="stroke:#3C7FC0;stroke-width:0.5;"/><path d="M1213.5,950.2969 C1213.5,960.2969 1309,960.2969 1309,960.2969 C1309,960.2969 1404.5,960.2969 1404.5,950.2969 " fill="none" style="stroke:#3C7FC0;stroke-width:0.5;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="71" x="1273.5" y="975.4355">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="87" x="1265.5" y="993.1172">Database</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="79" x="1269.5" y="1008.0293">[PostgreSQL]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1307" y="1023.8545"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="171" x="1223.5" y="1040.1514">Stores all platform data</text></g><!--MD5=[320c68b0c193a02b39d9d44c4f98e4c7]
+entity openid--><g id="elem_openid"><rect fill="#438DD5" height="131.75" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="202" x="23" y="928.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="71" x="88.5" y="949.4355">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="147" x="50.5" y="967.1172">OpenID provider</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="37" x="105.5" y="982.0293">[Rust]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="122" y="997.8545"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="139" x="52.5" y="1014.1514">Provides Login with</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="178" x="33" y="1030.4482">Defguard functionality in</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="78" y="1046.7451">trusted apps</text></g><!--MD5=[bb4ed7efa051d2d7f1641f0337ed72ae]
+entity yubibridge--><g id="elem_yubibridge"><rect fill="#438DD5" height="148.0469" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="219" x="711.5" y="920.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="71" x="785.5" y="941.4355">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="103" x="769.5" y="959.1172">Yubi-Bridge</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="52" x="795" y="974.0293">[Python]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="819" y="989.8545"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="186" x="726" y="1006.1514">Allows to create PGP keys</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="174" x="732" y="1022.4482">based on user data from</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="199" x="721.5" y="1038.7451">defguard and transfer them</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="782" y="1055.042">to YubiKey</text></g><!--MD5=[1be1e8e9c1fa15d6e082466842209191]
+entity ldap--><g id="elem_ldap"><rect fill="#438DD5" height="99.1563" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="172" x="260" y="944.7969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="71" x="310.5" y="965.9355">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="94" x="296" y="983.6172">OpenLDAP</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="146" x="273" y="1002.2422">synchronization</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="148" x="270" y="1017.1543">[Provide OpenLDAP sync</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="80" x="306" y="1031.123">functionality]</text></g><!--MD5=[8429d322a871ee75399e33a4267bd899]
+entity oauth2--><g id="elem_oauth2"><rect fill="#438DD5" height="66.5625" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="209" x="467.5" y="960.7969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="71" x="536.5" y="981.9355">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="67" x="538.5" y="999.6172">OAuth2</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="189" x="477.5" y="1014.5293">[Provides OAuth2 functionality]</text></g><!--MD5=[95df15c9986abd5331918dfeb5736b43]
+entity wireguard--><g id="elem_wireguard"><rect fill="#999999" height="85.1875" rx="2.5" ry="2.5" style="stroke:#8A8A8A;stroke-width:0.5;" width="213" x="965.5" y="951.7969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="112" x="1016" y="972.9355">«external_system»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="158" x="993" y="990.6172">Wireguard server</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1070" y="1007.3857"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="189" x="979.5" y="1023.6826">Provides VPN functionality</text></g><!--MD5=[d40ecb68fd03c4f349b7481a726a4cee]
+entity web_app--><g id="elem_web_app"><rect fill="#438DD5" height="117.7813" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="157" x="1878.5" y="44.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="71" x="1921.5" y="65.4355">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="127" x="1890.5" y="83.1172">Defguard web</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="101" x="1906.5" y="101.7422">application</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="115" x="1899.5" y="116.6543">[React, Typescript]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1955" y="132.4795"> </text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="137" x="1888.5" y="148.7764">Provides UI for user</text></g><!--MD5=[dcb6d21719f225a55bcaa6a673ddc41a]
+entity ldap_server--><g id="elem_ldap_server"><rect fill="#999999" height="52.5938" rx="2.5" ry="2.5" style="stroke:#8A8A8A;stroke-width:0.5;" width="178" x="257" y="1159.2969"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="112" x="290" y="1180.4355">«external_system»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="158" x="267" y="1198.1172">OpenLDAP server</text></g><!--MD5=[894a8ccf37726c4557868f6b06624e8c]
+link core_server to ldap--><g id="link_core_server_ldap"><path d="M1560.95,704.7459 C1544.84,710.6129 1528.19,715.7569 1512,719.2969 C1396.49,744.5479 545.149,716.1109 450,786.2969 C400.793,822.5949 373.352,888.7889 359.179,936.5669 " fill="none" id="core_server-to-ldap" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="356.934,944.3659,362.03,937.508,356.2641,935.8482,356.934,944.3659" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="34" x="630" y="768.4355">Uses</text></g><!--MD5=[5869de46113ce19f46bd49db2d8baffe]
+link web_app to mfa--><g id="link_web_app_mfa"><path d="M1907.88,162.3469 C1900.75,172.0369 1893.85,182.2269 1888,192.2969 C1853.75,251.2709 1825.54,324.0959 1807.72,375.4359 " fill="none" id="web_app-to-mfa" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1805.06,383.1679,1810.4989,376.5787,1804.8252,374.6271,1805.06,383.1679" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="34" x="1892.5" y="204.4355">Uses</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="41" x="1889" y="218.4043">[REST]</text></g><!--MD5=[22c3413952d56bcdddb7b50d574ccf5b]
+link web_app to web3--><g id="link_web_app_web3"><path d="M1986.88,162.3969 C1997.05,183.2269 2008.1,207.0569 2017,229.2969 C2123.12,494.4399 2218.16,824.2989 2251.94,945.6489 " fill="none" id="web_app-to-web3" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="2254.17,953.6799,2254.9209,945.1689,2249.1395,946.7738,2254.17,953.6799" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="34" x="2138.5" y="540.4355">Uses</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="41" x="2135" y="554.4043">[REST]</text></g><!--MD5=[5cf32937cb73fc3f8634f7bc343b78f3]
+link core_server to web3--><g id="link_core_server_web3"><path d="M1775.23,704.1769 C1789.12,709.7169 1803.29,714.9259 1817,719.2969 C1955.86,763.5569 2018.81,702.4329 2138,786.2969 C2193.97,825.6769 2230.02,898.3369 2248.91,946.2429 " fill="none" id="core_server-to-web3" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="2251.8,953.7099,2251.7135,945.1663,2246.1172,947.3298,2251.8,953.7099" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="34" x="2124" y="768.4355">Uses</text></g><!--MD5=[8c382e7c88dedf7b80f13e384332d18d]
+link web_app to core_server--><g id="link_web_app_core_server"><path d="M1963.69,162.4669 C1970.08,244.0999 1970.63,394.2869 1905,498.2969 C1876.04,544.1879 1827.88,579.1679 1782.51,604.0999 " fill="none" id="web_app-to-core_server" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1775.25,608.0149,1783.7149,606.8549,1780.8649,601.575,1775.25,608.0149" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="34" x="1970.5" y="438.4355">Uses</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="41" x="1967" y="452.4043">[REST]</text></g><!--MD5=[c64f9beeb06a105c07902042dff73c11]
+link mfa to core_server--><g id="link_mfa_core_server"><path d="M1754.95,498.4839 C1740.8,523.5229 1723.99,553.2589 1708.94,579.8809 " fill="none" id="mfa-to-core_server" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1704.95,586.9369,1711.501,581.452,1706.2792,578.4969,1704.95,586.9369" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="34" x="1738.5" y="540.4355">Uses</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="41" x="1735" y="554.4043">[REST]</text></g><!--MD5=[a09131b8bb1f6346c95a5f8ad8b67da4]
+link mfa to mfa_backend--><g id="link_mfa_mfa_backend"><path d="M1810.33,498.4819 C1852.87,601.8269 1942.76,820.2169 1987.52,928.9629 " fill="none" id="mfa-to-mfa_backend" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1990.66,936.5999,1990.3894,928.0602,1984.8409,930.3438,1990.66,936.5999" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="34" x="1904.5" y="650.9355">Uses</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="41" x="1901" y="664.9043">[REST]</text></g><!--MD5=[61ee5bb71d55bbf92279ff3a875b4943]
+link core_server to mfa_backend--><g id="link_core_server_mfa_backend"><path d="M1728.51,719.4359 C1753.11,741.8629 1783.22,764.7289 1815,778.2969 C1845.83,791.4589 1861.75,768.2449 1890,786.2969 C1941.26,819.0599 1974.27,881.2699 1993.24,928.9719 " fill="none" id="core_server-to-mfa_backend" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1996.16,936.4959,1996.0579,927.9525,1990.4655,930.1262,1996.16,936.4959" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="34" x="1816" y="768.4355">Uses</text></g><!--MD5=[4fea8c1b5673e4c8fd2631ff9c1e79a5]
+link core_server to webhooks--><g id="link_core_server_webhooks"><path d="M1690.17,719.6599 C1710.6,779.8709 1740.74,868.7079 1761.08,928.6819 " fill="none" id="core_server-to-webhooks" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1763.76,936.5799,1764.0294,928.0401,1758.3478,929.9687,1763.76,936.5799" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="34" x="1709" y="768.4355">Uses</text></g><!--MD5=[035ae312e06fb26bd83a7acf8c7febe0]
+link core_server to grpc_server--><g id="link_core_server_grpc_server"><path d="M1645.06,719.6599 C1623.92,779.8709 1592.73,868.7079 1571.68,928.6819 " fill="none" id="core_server-to-grpc_server" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1568.91,936.5799,1574.3921,930.0265,1568.7313,928.0377,1568.91,936.5799" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="34" x="1634" y="768.4355">Uses</text></g><!--MD5=[60e625bf42cd3668928ba46f0dd21f11]
+link core_server to oauth2--><g id="link_core_server_oauth2"><path d="M1560.84,704.2549 C1544.74,710.1929 1528.13,715.4869 1512,719.2969 C1334.5,761.2149 847.832,688.3149 694,786.2969 C633.842,824.6139 599.62,904.0869 583.525,952.6479 " fill="none" id="core_server-to-oauth2" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="581.004,960.4579,586.3162,953.7661,580.6063,951.9231,581.004,960.4579" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="34" x="792" y="768.4355">Uses</text></g><!--MD5=[7d77d83ea16de3602dd8a3df0dffde3f]
+link core_server to openid--><g id="link_core_server_openid"><path d="M1560.97,704.8629 C1544.86,710.7129 1528.21,715.8209 1512,719.2969 C1277.03,769.6909 669.848,722.7879 431,749.2969 C345.928,758.7389 311.514,736.3539 242,786.2969 C196.493,818.9919 166.106,875.0439 147.58,920.5799 " fill="none" id="core_server-to-openid" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="144.596,928.0819,150.3415,921.7581,144.7667,919.5396,144.596,928.0819" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="34" x="432" y="768.4355">Uses</text></g><!--MD5=[5a1022cecb5b61b05203779d5b68471b]
+link ldap to ldap_server--><g id="link_ldap_ldap_server"><path d="M346,1044.0979 C346,1077.5339 346,1121.044 346,1150.7716 " fill="none" id="ldap-to-ldap_server" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="346,1159.1493,349,1151.1493,343,1151.1493,346,1159.1493" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="34" x="354" y="1112.4355">Uses</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="48" x="347" y="1126.4043">[HTTPS]</text></g><!--MD5=[20e9b7e3280a8a11beb2668315734c95]
+link gateway to grpc_server--><g id="link_gateway_grpc_server"><path d="M1412.45,711.0379 C1441.58,771.2619 1487.53,866.2419 1517.97,929.1459 " fill="none" id="gateway-to-grpc_server" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1521.6,936.6539,1520.8156,928.146,1515.4148,930.7596,1521.6,936.6539" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="34" x="1448" y="761.4355">Uses</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="42" x="1444" y="775.4043">[GRPC]</text></g><!--MD5=[4e593ce83ef2fc84addb22dc1f81e389]
+link gateway to wireguard--><g id="link_gateway_wireguard"><path d="M1274.81,674.5939 C1228.08,688.4089 1176.54,711.3709 1142,749.2969 C1092.89,803.2199 1078.02,889.4039 1073.65,943.5969 " fill="none" id="gateway-to-wireguard" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1073.05,951.6809,1076.6296,943.9229,1070.6458,943.4821,1073.05,951.6809" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="34" x="1143" y="768.4355">Uses</text></g><!--MD5=[1085a62fb667fbf0e46bca2d1694760f]
+link core_server to db--><g id="link_core_server_db"><path d="M1560.98,701.4189 C1544.72,707.8389 1528.03,714.0229 1512,719.2969 C1458.96,736.7529 1431.02,711.4119 1390,749.2969 C1338.9,796.4899 1320,876.6429 1313.03,932.1399 " fill="none" id="core_server-to-db" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1312.09,940.1429,1316.0067,932.5495,1310.048,931.8465,1312.09,940.1429" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="34" x="1391" y="761.4355">Uses</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="34" x="1391" y="775.4043">[SQL]</text></g><!--MD5=[f787456681004c67fa6a7c36196d2ab1]
+link yubibridge to grpc_server--><g id="link_yubibridge_grpc_server"><path d="M849.813,920.0559 C870.357,878.1969 902.47,829.5569 948,805.2969 C1040.96,755.7639 1329.04,755.7639 1422,805.2969 C1470.81,831.3049 1504.2,885.3349 1524.45,928.9899 " fill="none" id="yubibridge-to-grpc_server" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="1527.83,936.4549,1527.2606,927.9299,1521.7955,930.4063,1527.83,936.4549" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="34" x="1191" y="761.4355">Uses</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="42" x="1187" y="775.4043">[GRPC]</text></g><!--MD5=[eb5953a9c63f7052cc78eadca032d0d8]
+@startuml
+title Defguard architecture - components
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+System_Ext(wireguard, "Wireguard server", "Provides VPN functionality")
+Container(web_app, "Defguard web application", "React, Typescript", "Provides UI for user")
+System_Boundary(c1, "Community", "Core server") {
+    Container(mfa, "MFA web app", "React, Typescript", "Provides UI for MFA login solution")
+    Container(core_server, "API gateway", "Rust", "Performs authentication and caching, load balances to specific services")
+    Container(gateway, "Gateway client", "Rust", "Allows to manage wireguard server from defguard")
+    Container(webhooks, "Webhooks","Rust", "Provides outgoing webhooks mechanism")
+    Container(web3, "Web3", "Provides integration with web 3 functionalities")
+    Container(mfa_backend, "MFA backend", "Rust", "Provides REST API for MFA web app")
+    Container(grpc_server, "GRPC server", "Rust", "Provides GRPC connection for Gateway and YubiBridge")
+    ContainerDb(db, "Database", "PostgreSQL", "Stores all platform data")
+}
+System_Boundary(c2, "Enterprise",) {
+    Container(openid, "OpenID provider", "Rust", "Provides Login with Defguard functionality in trusted apps")
+    Container(yubibridge, "Yubi-Bridge", "Python", "Allows to create PGP keys based on user data from defguard and transfer them to YubiKey")
+    Container(ldap, "OpenLDAP synchronization", "Provide OpenLDAP sync functionality")
+    Container(oauth2, "OAuth2", "Provides OAuth2 functionality")
+}
+System_Ext(ldap_server, "OpenLDAP server", "")
+Rel(core_server, ldap, "Uses", "", "")
+Rel(web_app, mfa, "Uses", "REST")
+Rel(web_app, web3, "Uses", "REST")
+Rel(core_server, web3, "Uses", "", "")
+Rel(web_app, core_server, "Uses", "REST")
+Rel(mfa, core_server, "Uses", "REST")
+Rel(mfa, mfa_backend, "Uses", "REST")
+Rel(core_server, mfa_backend, "Uses", "")
+Rel(core_server, webhooks, "Uses", "")
+Rel(core_server, grpc_server, "Uses", "")
+Rel(core_server, oauth2, "Uses", "")
+Rel(core_server, openid, "Uses", "")
+Rel(ldap, ldap_server, "Uses", "HTTPS")
+Rel(gateway, grpc_server, "Uses", "GRPC","")
+Rel(gateway, wireguard, "Uses", "", "")
+Rel(core_server, db, "Uses", "SQL", "")
+Rel(yubibridge, grpc_server, "Uses", "GRPC", "")
+@enduml
+
+@startuml
+title Defguard architecture - components
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+skinparam LegendBorderColor transparent
+skinparam LegendBackgroundColor transparent
+skinparam LegendFontColor #FFFFFF
+
+skinparam shadowing<<legendArea>> false
+skinparam rectangle<<legendArea>> {
+    backgroundcolor #00000000
+    bordercolor #00000000
+}
+
+skinparam rectangle {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam database {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam queue {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam arrow {
+    Color #666666
+    FontColor #666666
+    FontSize 12
+}
+
+skinparam actor {
+    StereotypeFontSize 12
+    shadowing false
+    style awesome
+}
+
+skinparam person {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam rectangle<<boundary>> {
+    Shadowing false
+    StereotypeFontSize 6
+    StereotypeFontColor transparent
+    BorderStyle dashed
+}
+
+skinparam package {
+    StereotypeFontSize 6
+    StereotypeFontColor transparent
+    FontStyle plain
+    BackgroundColor transparent
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam database<<boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam queue<<boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam actor<<boundary>> {
+    FontColor transparent
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam person<<boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam package<<boundary>>StereotypeFontColor transparent
+skinparam rectangle<<boundary>>StereotypeFontColor transparent
+
+
+skinparam rectangle<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam database<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam queue<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam actor<<enterprise_boundary>> {
+    FontColor transparent
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam person<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam package<<enterprise_boundary>>StereotypeFontColor transparent
+skinparam rectangle<<enterprise_boundary>>StereotypeFontColor transparent
+
+
+
+skinparam rectangle<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam database<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam queue<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam actor<<system_boundary>> {
+    FontColor transparent
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam person<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam package<<system_boundary>>StereotypeFontColor transparent
+skinparam rectangle<<system_boundary>>StereotypeFontColor transparent
+
+
+
+skinparam rectangle<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam database<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam queue<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam actor<<container_boundary>> {
+    FontColor transparent
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam person<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam package<<container_boundary>>StereotypeFontColor transparent
+skinparam rectangle<<container_boundary>>StereotypeFontColor transparent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam database<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam queue<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam actor<<person>> {
+    StereotypeFontColor #08427B
+    FontColor #08427B
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam person<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+
+
+skinparam rectangle<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam database<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam queue<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam actor<<external_person>> {
+    StereotypeFontColor #686868
+    FontColor #686868
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam person<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+
+
+skinparam rectangle<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam database<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam queue<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam actor<<system>> {
+    StereotypeFontColor #1168BD
+    FontColor #1168BD
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam person<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+
+skinparam rectangle<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam database<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam queue<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam actor<<external_system>> {
+    StereotypeFontColor #999999
+    FontColor #999999
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam person<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+
+
+skinparam rectangle<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam database<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam queue<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam actor<<enterprise_boundary>> {
+    FontColor transparent
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam person<<enterprise_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam package<<enterprise_boundary>>StereotypeFontColor transparent
+skinparam rectangle<<enterprise_boundary>>StereotypeFontColor transparent
+
+
+
+skinparam rectangle<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam database<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam queue<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam actor<<system_boundary>> {
+    FontColor transparent
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam person<<system_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam package<<system_boundary>>StereotypeFontColor transparent
+skinparam rectangle<<system_boundary>>StereotypeFontColor transparent
+
+
+
+
+
+
+
+sprite $person [48x48/16] {
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+0000000000000000000049BCCA7200000000000000000000
+0000000000000000006EFFFFFFFFB3000000000000000000
+00000000000000001CFFFFFFFFFFFF700000000000000000
+0000000000000001EFFFFFFFFFFFFFF80000000000000000
+000000000000000CFFFFFFFFFFFFFFFF6000000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+00000000000001FFFFFFFFFFFFFFFFFFF900000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFF00000000000000
+0000000000000BFFFFFFFFFFFFFFFFFFFF40000000000000
+0000000000000EFFFFFFFFFFFFFFFFFFFF70000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000DFFFFFFFFFFFFFFFFFFFF60000000000000
+0000000000000AFFFFFFFFFFFFFFFFFFFF40000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFE00000000000000
+00000000000000EFFFFFFFFFFFFFFFFFF800000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+000000000000000BFFFFFFFFFFFFFFFF5000000000000000
+0000000000000001DFFFFFFFFFFFFFF70000000000000000
+00000000000000000BFFFFFFFFFFFF500000000000000000
+0000000000000000005DFFFFFFFFA1000000000000000000
+0000000000000000000037ABB96100000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000025788300000000005886410000000000000
+000000000007DFFFFFFD9643347BFFFFFFFB400000000000
+0000000004EFFFFFFFFFFFFFFFFFFFFFFFFFFB1000000000
+000000007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFD200000000
+00000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE10000000
+0000003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB0000000
+000000BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5000000
+000003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD000000
+000009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF200000
+00000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF600000
+00000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF800000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA00000
+00000EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF700000
+000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE100000
+0000008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD3000000
+000000014555555555555555555555555555555300000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+}
+
+sprite $person2 [48x48/16] {
+0000000000000000000049BCCA7200000000000000000000
+0000000000000000006EFFFFFFFFB3000000000000000000
+00000000000000001CFFFFFFFFFFFF700000000000000000
+0000000000000001EFFFFFFFFFFFFFF80000000000000000
+000000000000000CFFFFFFFFFFFFFFFF6000000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+00000000000001FFFFFFFFFFFFFFFFFFF900000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFF00000000000000
+0000000000000BFFFFFFFFFFFFFFFFFFFF40000000000000
+0000000000000EFFFFFFFFFFFFFFFFFFFF70000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000DFFFFFFFFFFFFFFFFFFFF60000000000000
+0000000000000AFFFFFFFFFFFFFFFFFFFF40000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFE00000000000000
+00000000000000EFFFFFFFFFFFFFFFFFF800000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+000000000000000BFFFFFFFFFFFFFFFF5000000000000000
+0000000000000001DFFFFFFFFFFFFFF70000000000000000
+00000000000000000BFFFFFFFFFFFF500000000000000000
+0000000000000000005DFFFFFFFFA1000000000000000000
+0000000000000000000037ABB96100000000000000000000
+000000000002578888300000000005888864100000000000
+0000000007DFFFFFFFFD9643347BFFFFFFFFFB4000000000
+00000004EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB10000000
+0000007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD2000000
+000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE100000
+00003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+0000BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF50000
+0003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD0000
+0009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF2000
+000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6000
+000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA000
+000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6000
+0009FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFF2000
+0003FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFD0000
+0000BFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFF50000
+00003FFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFB00000
+000006FFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFE100000
+0000007FFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFD2000000
+00000004EFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFB10000000
+0000000007DF8FFFFFFFFFFFFFFFFFFFFFF8FB4000000000
+000000000002578888888888888888888864100000000000
+}
+
+sprite $robot [48x48/16] {
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000005BFFFFFFFFFFFFFFFFFFFFFE9100000000000
+0000000000AFFFFFFFFFFFFFFFFFFFFFFFFFE30000000000
+0000000007FFFFFFFFFFFFFFFFFFFFFFFFFFFE1000000000
+000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000000000
+000000004FFFFFFFFFFFFFFFFFFFFFFFFFFFFFC000000000
+000000005FFFFFFFFFFFFFFFFFFFFFFFFFFFFFD000000000
+000000005FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE000000000
+000000005FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE000000000
+000699405FFFFFFC427FFFFFFFFFC427FFFFFFE009982000
+008FFF705FFFFFE10006FFFFFFFE00007FFFFFE00FFFF100
+00CFFF705FFFFFA00001FFFFFFF900002FFFFFE00FFFF500
+00DFFF705FFFFFB00002FFFFFFFA00003FFFFFE00FFFF500
+00DFFF705FFFFFF4000AFFFFFFFF3000BFFFFFE00FFFF500
+00DFFF705FFFFFFFA8DFFFFFFFFFFA8DFFFFFFE00FFFF500
+00DFFF705FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE00FFFF500
+00DFFF705FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE00FFFF500
+00DFFF705FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE00FFFF500
+00DFFF705FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE00FFFF500
+00DFFF705FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE00FFFF500
+00CFFF705FFFFFF87777777777777777CFFFFFE00FFFF500
+008FFF705FFFFFF100000000000000009FFFFFE00FFFF100
+000699405FFFFFF76666666666666666CFFFFFE009982000
+000000005FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE000000000
+000000005FFFFFFFFFFFFFFFFFFFFFFFFFFFFFE000000000
+000000004FFFFFFFFFFFFFFFFFFFFFFFFFFFFFC000000000
+000000000EFFFFFFFFFFFFFFFFFFFFFFFFFFFF7000000000
+0000000005FFFFFFFFFFFFFFFFFFFFFFFFFFFD0000000000
+00000000004CFFFFFFFFFFFFFFFFFFFFFFFF910000000000
+000000000000011111111111111111111110000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+}
+
+sprite $robot2 [48x48/16] {
+000000000000000088888888888888880000000000000000
+000000000000000AFFFFFFFFFFFFFFFFA000000000000000
+00000000000000CFFFFFFFFFFFFFFFFFFC00000000000000
+00000000000004EFFFFFFFFFFFFFFFFFFE40000000000000
+0000000000000AFFFFFFFFFFFFFFFFFFFFA0000000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000888FFFFFFFFFFFFFFFFFFFF88800000000000
+00000000008FF8FFFFFFFFFFFFFFFFFFFF8FF80000000000
+00000000008FF8FFFFFFFFFFFFFFFFFFFF8FF80000000000
+00000000008FF8FFFFFFFFFFFFFFFFFFFF8FF80000000000
+00000000008FF8FFFFFFFFFFFFFFFFFFFF8FF80000000000
+00000000008FF8FFFFFFFFFFFFFFFFFFFF8FF80000000000
+00000000008FF8FFFFFFFFFFFFFFFFFFFF8FF80000000000
+00000000000888FFFFFFFFFFFFFFFFFFFF88800000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000008FFFFFFFFFFFFFFFFFFFF80000000000000
+00000000000004CFFFFFFFFFFFFFFFFFFC40000000000000
+000000488888848CFFFFFFFFFFFFFFFFC848888884000000
+00000CFFFFFFFFC888888888888888888CFFFFFFFFC00000
+00008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF80000
+0000CFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC0000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+0008FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFF8000
+0008FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFF8000
+0008FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFF8000
+0008FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFF8000
+0000CFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFC0000
+00008FFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFF80000
+00000CFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFC00000
+000000488887578888888888888888888864688884000000
+000000000000000000000000000000000000000000000000
+}
+
+
+
+
+skinparam rectangle<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam database<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam queue<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam actor<<person>> {
+    StereotypeFontColor #08427B
+    FontColor #08427B
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam person<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam database<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam queue<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam actor<<container>> {
+    StereotypeFontColor #438DD5
+    FontColor #438DD5
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam person<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+
+skinparam rectangle<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam database<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam queue<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam actor<<external_container>> {
+    StereotypeFontColor #B3B3B3
+    FontColor #B3B3B3
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam person<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+
+
+
+skinparam rectangle<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam database<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam queue<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam actor<<container_boundary>> {
+    FontColor transparent
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam person<<container_boundary>> {
+    FontColor #444444
+    BackgroundColor transparent
+    BorderColor #444444
+}
+skinparam package<<container_boundary>>StereotypeFontColor transparent
+skinparam rectangle<<container_boundary>>StereotypeFontColor transparent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+rectangle "==Wireguard server\n\n Provides VPN functionality" <<external_system>> as wireguard 
+rectangle "==Defguard web application\n//<size:12>[React, Typescript]</size>//\n\nProvides UI for user" <<container>> as web_app 
+  rectangle "==Community\n<size:12>[System]</size>" <<Core server_boundary>><<system_boundary>><<boundary>> as c1  {
+    rectangle "==MFA web app\n//<size:12>[React, Typescript]</size>//\n\nProvides UI for MFA login solution" <<container>> as mfa 
+    rectangle "==API gateway\n//<size:12>[Rust]</size>//\n\nPerforms authentication and caching, load balances to specific services" <<container>> as core_server 
+    rectangle "==Gateway client\n//<size:12>[Rust]</size>//\n\nAllows to manage wireguard server from defguard" <<container>> as gateway 
+    rectangle "==Webhooks\n//<size:12>[Rust]</size>//\n\nProvides outgoing webhooks mechanism" <<container>> as webhooks 
+    rectangle "==Web3\n//<size:12>[Provides integration with web 3 functionalities]</size>//" <<container>> as web3 
+    rectangle "==MFA backend\n//<size:12>[Rust]</size>//\n\nProvides REST API for MFA web app" <<container>> as mfa_backend 
+    rectangle "==GRPC server\n//<size:12>[Rust]</size>//\n\nProvides GRPC connection for Gateway and YubiBridge" <<container>> as grpc_server 
+    database "==Database\n//<size:12>[PostgreSQL]</size>//\n\nStores all platform data" <<container>> as db 
+}
+  rectangle "==Enterprise\n<size:12>[System]</size>" <<system_boundary>><<boundary>> as c2  {
+    rectangle "==OpenID provider\n//<size:12>[Rust]</size>//\n\nProvides Login with Defguard functionality in trusted apps" <<container>> as openid 
+    rectangle "==Yubi-Bridge\n//<size:12>[Python]</size>//\n\nAllows to create PGP keys based on user data from defguard and transfer them to YubiKey" <<container>> as yubibridge 
+    rectangle "==OpenLDAP synchronization\n//<size:12>[Provide OpenLDAP sync functionality]</size>//" <<container>> as ldap 
+    rectangle "==OAuth2\n//<size:12>[Provides OAuth2 functionality]</size>//" <<container>> as oauth2 
+}
+rectangle "==OpenLDAP server" <<external_system>> as ldap_server 
+core_server - ->> ldap : **Uses**
+web_app - ->> mfa : **Uses**\n//<size:12>[REST]</size>//
+web_app - ->> web3 : **Uses**\n//<size:12>[REST]</size>//
+core_server - ->> web3 : **Uses**
+web_app - ->> core_server : **Uses**\n//<size:12>[REST]</size>//
+mfa - ->> core_server : **Uses**\n//<size:12>[REST]</size>//
+mfa - ->> mfa_backend : **Uses**\n//<size:12>[REST]</size>//
+core_server - ->> mfa_backend : **Uses**
+core_server - ->> webhooks : **Uses**
+core_server - ->> grpc_server : **Uses**
+core_server - ->> oauth2 : **Uses**
+core_server - ->> openid : **Uses**
+ldap - ->> ldap_server : **Uses**\n//<size:12>[HTTPS]</size>//
+gateway - ->> grpc_server : **Uses**\n//<size:12>[GRPC]</size>//
+gateway - ->> wireguard : **Uses**
+core_server - ->> db : **Uses**\n//<size:12>[SQL]</size>//
+yubibridge - ->> grpc_server : **Uses**\n//<size:12>[GRPC]</size>//
+@enduml
+
+PlantUML version 1.2022.13beta2(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
