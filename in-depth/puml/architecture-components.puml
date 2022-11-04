@@ -20,7 +20,7 @@ System_Boundary(c2, "Enterprise",) {
     Container(ldap, "OpenLDAP synchronization", "Provide OpenLDAP sync functionality")
     Container(oauth2, "OAuth2", "Provides OAuth2 functionality")
 }
-System_Ext(ldap_server, "OpenLDAP server", "Provides VPN functionality")
+System_Ext(ldap_server, "OpenLDAP server", "")
 Rel(core_server, ldap, "Uses", "", "")
 Rel(web_app, mfa, "Uses", "REST")
 Rel(web_app, web3, "Uses", "REST")

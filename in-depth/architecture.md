@@ -14,6 +14,7 @@ Below you can see Defguard architecture in [C4 model](https://c4model.com/) divi
 ![Components look at Defguard architecture ](puml/architecture-components.svg)
 
 
+
 ### Basics
 
 Core is a Rust web server which is exposed as REST API and GRPC web server with typescript and rust clients, it handles connection to database, LDAP server and gateway. Core also handles user authorization via LDAP account. It's configurable using Environmental Variables which you can find [here](environmental-variables-configuration.md).
