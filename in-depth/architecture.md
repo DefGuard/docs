@@ -1,6 +1,6 @@
 # Architecture Overview
 
-Here you can see high level view of Defguard architecture with all it dependencies and their role.
+Below you can see Defguard architecture made in C4 containers and context with all systems and their role.
 
 ![High level look at Defguard architecture ](../.gitbook/assets/architecture.png)
 

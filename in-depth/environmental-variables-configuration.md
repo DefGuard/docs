@@ -31,11 +31,9 @@ Here you can find list of all configurable things through environmental variable
 
 * `DEFGUARD_GRPC_PORT` : GRPC server port, default `50055`
 
-## YubiBridge
+## YubiBridge configuration
 
-* `LOG_LEVEL` : Logging message level default: `DEBUG`, levels: `CRITICAL`, `ERROR`, `WARNIG`, `INFO`, `DEBUG`
-
-### Environmental variables:
+### Environmental variables
 
 * `LOG_LEVEL` : Log messages level, default: `INFO`, available levels: `CRITICAL`, `ERROR`, `WARNIG`, `INFO`, `DEBUG`
 * `WORKER_ID` : Name of your YubiBridge displayed on Defguard website, default: `YubiBridge`

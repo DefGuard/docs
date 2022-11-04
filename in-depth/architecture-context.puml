@@ -1,0 +1,22 @@
+@startuml
+title Defguard architecture - context
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+Person(user, "User", "Defguard user")
+Person(admin, "Administrator", "Manages users and network have access to network overview and network usage by user")
+System(web, "Defguard Web app", "Allows interacting with core server")
+System(mfa, "MFA login", "Allows signing-in to defguard")
+System(wireguard, "Wireguard server", "Provides VPN functionality")
+System(ldap, "LDAP server", "Provides LDAP sync functionality")
+System(yubibridge, "YubiBridge", "Provides YubiKey provision functionality")
+SystemDb(database, "PostgreSQL")
+
+Rel(admin, web, "Uses", "HTTPS", $tags="firewall")
+Rel(admin, mfa, "Uses", "HTTPS", $tags="firewall")
+Rel(user, web, "Uses", "HTTPS", $tags="firewall")
+Rel(user, mfa, "Uses", "HTTPS", $tags="firewall")
+Rel(web, ldap, "Uses", "HTTPS", "Authenticate using current session user and manage data")
+Rel(web, wireguard, "Uses", "REST")
+Rel(web, mfa, "Uses", "REST", "Confirm multi-factor authentication")
+Rel(web, database, "Uses", "SQL")
+Rel(yubibridge, web, "Uses", "GRPC", "Authenticate using JWT and fetch job with user data")
+@enduml
