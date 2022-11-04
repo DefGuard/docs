@@ -36,7 +36,7 @@ Variables to set:
 
 * `DEFGUARD_USERSPACE` , `-u` - Use userspace wireguard implementation, useful on systems without native wireguard support
 
-* `DEFGUARD_GRPC_URL` , `-g <URL>` - Defguard server GRPC endpoint URL default is https://localhost:50055
+* `DEFGUARD_GRPC_URL` , `-g <URL>` - Defguard server gRPC endpoint URL default is https://localhost:50055
 
 * `DEFGUARD_STATS_PERIOD` ,`-p <SECONDS>` - Defines how often (seconds) should interface statistics be sent to Defguard server
 

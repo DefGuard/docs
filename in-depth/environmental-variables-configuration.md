@@ -27,9 +27,9 @@ Here you can find list of all configurable things through environmental variable
 * `DEFGUARD_GATEWAY_SECRET` : JWT secret key for encrypting Gateway tokens, default: `DEFGUARD_GATEWAY_SECRET`
 * `ORI_WG_SERVICE_URL` : WireGuard service instance to connect to, default: `http://wireguard:50051`
 
-### GRPC configuration
+### gRPC configuration
 
-* `DEFGUARD_GRPC_PORT` : GRPC server port, default `50055`
+* `DEFGUARD_GRPC_PORT` : gRPC server port, default `50055`
 
 ## YubiBridge configuration
 
@@ -45,7 +45,7 @@ Here you can find list of all configurable things through environmental variable
 ### CLI arguments:
 
 * `-h` , `--help` : Display help message
-* `-g <URL>`, `--grpc <URL>` : Connect to GRPC server at given URL
+* `-g <URL>`, `--grpc <URL>` : Connect to gRPC server at given URL
 * `-i <ID>` , `--id <ID>` : WorkerID, default `YubiBridge`   
 * `-d` , `--debug` : Enable debug mode
 * `-t <TMPDIR>` , `--tmpdir <TMPDIR>` : GnuPG home directory, default: `tmp`
@@ -61,7 +61,7 @@ If you're using docker image you can pass this value as environmental variables 
 
 `DEFGUARD_USERSPACE` , `-u` - Use userspace wireguard implementation, useful on systems without native wireguard support
 
-`DEFGUARD_GRPC_URL` , `-g <URL>` - Defguard server GRPC endpoint URL default is https://localhost:50055
+`DEFGUARD_GRPC_URL` , `-g <URL>` - Defguard server gRPC endpoint URL default is https://localhost:50055
 
 `DEFGUARD_STATS_PERIOD` ,`-p <SECONDS>` - Defines how often (seconds) should interface statistics be sent to Defguard server
 

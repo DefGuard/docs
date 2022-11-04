@@ -22,6 +22,3 @@ Good pull request should have:
 * Description about changes made
 * New tests if or necessary
 * Passing CI
-
-
-

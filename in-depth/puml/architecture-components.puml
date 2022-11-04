@@ -1,0 +1,41 @@
+@startuml 
+title Defguard architecture - components
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+System_Ext(wireguard, "Wireguard server", "Provides VPN functionality")
+Container(web_app, "Defguard web application", "React, Typescript", "Provides UI for user")
+System_Boundary(c1, "Community", "Core server") {
+    Container(mfa, "MFA web app", "React, Typescript", "Provides UI for MFA login solution")
+    Container(core_server, "API gateway", "Rust", "Performs authentication and caching, load balances to specific services")
+    Container(gateway, "Gateway client", "Rust", "Allows to manage wireguard server from defguard")
+    Container(webhooks, "Webhooks","Rust", "Provides outgoing webhooks mechanism")
+    Container(web3, "Web3", "Provides integration with web 3 functionalities")
+    Container(mfa_backend, "MFA backend", "Rust", "Provides REST API for MFA web app")
+    Container(grpc_server, "GRPC server", "Rust", "Provides GRPC connection for Gateway and YubiBridge")
+    ContainerDb(db, "Database", "PostgreSQL", "Stores all platform data")
+}
+System_Boundary(c2, "Enterprise",) {
+    Container(openid, "OpenID provider", "Rust", "Provides Login with Defguard functionality in trusted apps")
+    Container(yubibridge, "Yubi-Bridge", "Python", "Allows to create PGP keys based on user data from defguard and transfer them to YubiKey")
+    Container(ldap, "OpenLDAP synchronization", "Provide OpenLDAP sync functionality")
+    Container(oauth2, "OAuth2", "Provides OAuth2 functionality")
+}
+System_Ext(ldap_server, "OpenLDAP server", "")
+Rel(core_server, ldap, "Uses", "", "")
+Rel(web_app, mfa, "Uses", "REST")
+Rel(web_app, web3, "Uses", "REST")
+Rel(core_server, web3, "Uses", "", "")
+Rel(web_app, core_server, "Uses", "REST")
+Rel(mfa, core_server, "Uses", "REST")
+Rel(mfa, mfa_backend, "Uses", "REST")
+Rel(core_server, mfa_backend, "Uses", "")
+Rel(core_server, webhooks, "Uses", "")
+Rel(core_server, grpc_server, "Uses", "")
+Rel(core_server, oauth2, "Uses", "")
+Rel(core_server, openid, "Uses", "")
+Rel(ldap, ldap_server, "Uses", "HTTPS")
+Rel(gateway, grpc_server, "Uses", "GRPC","")
+Rel(gateway, wireguard, "Uses", "", "")
+Rel(core_server, db, "Uses", "SQL", "")
+Rel(yubibridge, grpc_server, "Uses", "GRPC", "")
+@enduml
