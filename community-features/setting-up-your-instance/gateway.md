@@ -23,7 +23,7 @@ To start your gateway using docker-compose:
 1. We prepared a [git repository](https://github.com/DefGuard/deployment) with docker-compose configuration, clone it:
 
 ```
-git clone git@github.com:DefGuard/deployment.git && cd deployment
+git clone git@github.com:DefGuard/deployment.git && cd gateway
 ```
 
 2. Copy and fill in the .env file:
