@@ -90,7 +90,7 @@ If you're using docker image you can pass this value as environmental variables 
 
 `DEFGUARD_USERSPACE` , `-u` - Use userspace wireguard implementation, useful on systems without native wireguard support
 
-`DEFGUARD_GRPC_URL` , `-g` - Defguard server GRPC endpoint URL default is https://localhost:50055
+`DEFGUARD_GRPC_URL` , `-g` - Defguard server gRPC endpoint URL default is https://localhost:50055
 
 `DEFGUARD_STATS_PERIOD` ,`-p` - Defines how often (seconds) should interface statistics be sent to Defguard server
 
