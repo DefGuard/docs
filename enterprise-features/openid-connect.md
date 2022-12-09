@@ -20,9 +20,8 @@ To do it navigate to OpenID Apps on the left side navigation then click Add new 
 Here are explained inputs
 
 **Name** Name of your client
-**URL** Main URL of your website to verify it's URL
-**Description** Short description
 **Redirect URI** URL on which user will be redirected with generated PKCE code example("https://myapp.com/redirect_uri")
+**Scopes** Scopes which your client will be using
 
 After creating your client you can click on it on list and be redirected to detailed client page with it unique Client ID and Client secret codes.
 
@@ -118,5 +117,91 @@ grant_type=authorization_code
 
 #### Authorized apps:
 
-Every user that used Login with Defguard option can see in his profile name of every authorized app with date of first login. 
+Every user that used Login with Defguard option can see in his profile name of every authorized app. 
 If you revoke app then you will have to click allow on form with permissions again.
+
+
+# OpenID clients
+Below you can find tutorials how to configure login with defguard in popular clients.
+
+
+## Grafana
+
+### Add grafana app on defguard
+
+First, go to the defguard OpenID tab and click add new app button.
+
+1. Add the name Grafana
+2. Redirect Url add `https://<grafana domain>/login/generic_oauth`
+where <grafana domain> is the address of your grafana instance.
+3. Select the below scopes 
+* OpenID 
+* Profile
+* Email
+Then add your app.
+After successfully adding your app you can see it in the OpenID apps list. When you click on it you will be redirected to the client details page.
+From this page copy Client ID and Client secret values for later.
+
+### Grafana setup
+
+1. Open your [grafana config](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#config-file-locations) 
+which is located in `/etc/grafana/grafana.ini` if you're using linux if you're using other operating system see link above.
+
+2. In auth section of your configuration file append the template from below and fill it with corresponding values.
+
+
+```
+#################################### Auth Defguard ##########################
+[auth.generic_oauth]
+name = Defguard
+icon = signin
+enabled = true
+client_id = <YOUR_APP_CLIENT_ID>  # from defguard page
+client_secret = <YOUR_APP_CLIENT_SECRET> # from defguard page
+scopes = openid profile email
+empty_scopes = false
+auth_url = https://<your_defguard_instance>/consent
+token_url = https://<your_defguard_instance>/api/v1/oauth/token
+api_url = https://<your_defguard_instance>/oauth/userinfo
+allow_sign_up = true
+```
+
+3. Restart your grafana server using `systemctl restart grafana-server`
+4. Then on login, you'll see the `Sign-in defguard button`
+
+## Portainer
+
+### Add Portainer app on defguard
+
+First, go to the defguard OpenID tab and click add new app button.
+
+1. Add the name Portainer
+2. Redirect Url add `https://yourportainer.com`
+where yourpotainer.com is the address of your portainer instance.
+3. Select the below scopes 
+* OpenID 
+* Profile
+* Email
+Then add your app.
+After successfully adding your app you can see it in the OpenID apps list. When you click on it you will be redirected to the client details page.
+From this page copy Client ID and Client secret values for later.
+
+### Portainer configuration
+When you login to portainer go to **Settings -> Authentication**
+
+On this page select:
+Authentication method:  OAuth
+
+#### Provider
+Select **Custom**
+
+#### OAuth Configuration
+
+- **Client ID** -> Client ID from defguard available on client details page.
+- **Client secret** -> Client secret from defguard available on client details page.
+- **Authorization URL** -> https://<YOUR_DEFGUARD_INSTANCE>/consent
+- **Access token URL** -> https://<YOUR_DEFGUARD_INSTANCE>/api/v1/oauth/token
+- **Resource URL** -> https://<YOUR_DEFGUARD_INSTANCE>/api/v1/oauth/userinfo
+- **Redirect URL** -> https://<YOUR_PORTAINER_URL>
+- **User identifier** -> sub
+- **Scopes** -> `openid email profile` **Note** must be spaces separated as in this example
