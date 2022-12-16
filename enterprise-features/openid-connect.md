@@ -2,7 +2,7 @@
 
 ## What is OpenID Connect?
 
-OpenID Connect is identity layer built on top of OAuth2 it allows third party applications to get basic information about your profile and verify your identity. It's purpose is to give you one login for multiple sites. You're probably familiar with it if you used **Login with Google**. For example if you click Login with Google you'll be redirected to Google page with verify form that you allow some website to get information from your profile for example: email, name, etc.
+OpenID Connect is an identity layer built on top of OAuth2 it allows third-party applications to get basic information about your profile and verify your identity. Its purpose is to give you one login for multiple sites. You're probably familiar with it if you used **Login with Google**. For example, if you click Login with Google you'll be redirected to the Google page with verify form that you allow some website to get information from your profile for example email, name, etc.
 
 ## How Defguard implements OpenID?
 
@@ -117,13 +117,12 @@ grant_type=authorization_code
 
 #### Authorized apps:
 
-Every user that used Login with Defguard option can see in his profile name of every authorized app. 
+Every user that used Login with Defguard option can see in his profile name of every authorized app.
 If you revoke app then you will have to click allow on form with permissions again.
 
-
 # OpenID clients
-Below you can find tutorials how to configure login with defguard in popular clients.
 
+Below you can find tutorials how to configure login with defguard in popular clients.
 
 ## Grafana
 
@@ -133,22 +132,23 @@ First, go to the defguard OpenID tab and click add new app button.
 
 1. Add the name Grafana
 2. Redirect Url add `https://<grafana domain>/login/generic_oauth`
-where <grafana domain> is the address of your grafana instance.
-3. Select the below scopes 
-* OpenID 
-* Profile
-* Email
+   where <grafana domain> is the address of your grafana instance.
+3. Select the below scopes
+
+-   OpenID
+-   Profile
+-   Email
 Then add your app.
-After successfully adding your app you can see it in the OpenID apps list. When you click on it you will be redirected to the client details page.
+After successfully adding your app you can see it in the OpenID apps list. When you click on it you will be redirected to the client 
+details page.
 From this page copy Client ID and Client secret values for later.
 
 ### Grafana setup
 
-1. Open your [grafana config](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#config-file-locations) 
+1. Open your [grafana config](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#config-file-locations)
 which is located in `/etc/grafana/grafana.ini` if you're using linux if you're using other operating system see link above.
 
 2. In auth section of your configuration file append the template from below and fill it with corresponding values.
-
 
 ```
 #################################### Auth Defguard ##########################
@@ -160,7 +160,7 @@ client_id = <YOUR_APP_CLIENT_ID>  # from defguard page
 client_secret = <YOUR_APP_CLIENT_SECRET> # from defguard page
 scopes = openid profile email
 empty_scopes = false
-auth_url = https://<your_defguard_instance>/consent
+auth_url = https://<your_defguards_instance>/api/v1/oauth/authorize
 token_url = https://<your_defguard_instance>/api/v1/oauth/token
 api_url = https://<your_defguard_instance>/oauth/userinfo
 allow_sign_up = true
@@ -177,31 +177,179 @@ First, go to the defguard OpenID tab and click add new app button.
 
 1. Add the name Portainer
 2. Redirect Url add `https://yourportainer.com`
-where yourpotainer.com is the address of your portainer instance.
-3. Select the below scopes 
-* OpenID 
-* Profile
-* Email
-Then add your app.
-After successfully adding your app you can see it in the OpenID apps list. When you click on it you will be redirected to the client details page.
-From this page copy Client ID and Client secret values for later.
+   where yourpotainer.com is the address of your portainer instance.
+3. Select the below scopes
+
+-   OpenID
+-   Profile
+-   Email
+    Then add your app.
+    After successfully adding your app you can see it in the OpenID apps list. When you click on it you will be redirected to the client details page.
+    From this page copy Client ID and Client secret values for later.
 
 ### Portainer configuration
+
 When you login to portainer go to **Settings -> Authentication**
 
 On this page select:
-Authentication method:  OAuth
+Authentication method: OAuth
 
 #### Provider
+
 Select **Custom**
 
 #### OAuth Configuration
 
-- **Client ID** -> Client ID from defguard available on client details page.
-- **Client secret** -> Client secret from defguard available on client details page.
-- **Authorization URL** -> https://<YOUR_DEFGUARD_INSTANCE>/consent
-- **Access token URL** -> https://<YOUR_DEFGUARD_INSTANCE>/api/v1/oauth/token
-- **Resource URL** -> https://<YOUR_DEFGUARD_INSTANCE>/api/v1/oauth/userinfo
-- **Redirect URL** -> https://<YOUR_PORTAINER_URL>
-- **User identifier** -> sub
-- **Scopes** -> `openid email profile` **Note** must be spaces separated as in this example
+-   **Client ID** -> Client ID from defguard available on client details page.
+-   **Client secret** -> Client secret from defguard available on client details page.
+-   **Authorization URL** -> https://<YOUR_DEFGUARD_INSTANCE>/api/v1/oauth/authorize
+-   **Access token URL** -> https://<YOUR_DEFGUARD_INSTANCE>/api/v1/oauth/token
+-   **Resource URL** -> https://<YOUR_DEFGUARD_INSTANCE>/api/v1/oauth/userinfo
+-   **Redirect URL** -> https://<YOUR_PORTAINER_URL>
+-   **User identifier** -> sub
+-   **Scopes** -> `openid email profile` **Note** must be spaces separated as in this example
+
+## Django Rest Framework React app
+
+In this example we show you how to get user data from Defguard to create user session in your django app.
+
+### Configuring client
+
+As in all of the steps above first step is to add your app in Defguard OpenID apps.
+
+### Django setup
+
+1. Install [Authlib](https://docs.authlib.org/en/latest/)
+2. Create new app and name it oauth using
+   `python3 manage.py createapp oauth`
+3. In newly created oauth app go to views.py file
+
+First step is to create our defguard client configuration
+
+```
+# Create defguard oauth client
+oauth = OAuth()
+defguard = oauth.register(
+    name="defguard",
+    client_id=os.getenv("DEFGUARD_CLIENT_ID", "DEFGUARD_CLIENT_ID"),
+    client_secret=os.getenv("DEFGUARD_CLIENT_SECRET", "DEFGUARD_CLIENT_SECRET"),
+    access_token_url=os.getenv("DEFGUARD_ACCESS_TOKEN_URL", "http://defguard.com/api/v1/oauth/token"),
+    access_token_params=None,
+    authorize_url=os.getenv("DEFGUARD_AUTHORIZE_URL", "http://defguard.com/v1/oauth/authorize"),
+    api_base_url=os.getenv("DEFGUARD_API_BASE_URL", "http://defguard.com/api/v1/oauth/userinfo"),
+    client_kwargs={"scope": os.getenv("DEFGUARD_SCOPE", "openid email profile")},
+    server_metadata_url=os.getenv("DEFGUARD_METADATA_URL", "http://defguard.com/.well-known/openid-configuration"),
+)
+```
+
+Remember to add appropriate values to match your defguard instance.
+
+In the next step we have to create login endpoint which will redirect users from our app to Defguard consent page.
+
+```
+def defguard_login(request):
+    """Build a full authorize callback uri."""
+    redirect_uri = request.build_absolute_uri(MONITOR_DEFGUARD_REDIRECT_URL)
+    return oauth.defguard.authorize_redirect(request, redirect_uri)
+```
+
+**Note** `MONITOR_DEFGUARD_REDIRECT_URL` is url for our authorize endpoint which we discuss in the next step.
+We recommend to add it to `settings.py` file like this:
+
+```
+# Our app url to consume defguard token
+MONITOR_DEFGUARD_REDIRECT_URL = os.getenv('MONITOR_DEFGUARD_REDIRECT_URL', 'http://localhost:3000/api/oauth/redirect')
+```
+
+our endpoint to consume tokens will look like this
+as our app uses [Django Rest token authentication](https://www.django-rest-framework.org/api-guide/authentication/#tokenauthentication), we need to extract user data from the token received from defguard
+and transform it to a Django Rest token.
+at the end of the function, we add our token to a session so we can get it later from our react app and at the end, we returns
+redirect to the frontend main page..
+
+```
+def defguard_authorize(request):
+    """Exchange authorization code for token."""
+    token = oauth.defguard.authorize_access_token(request)
+    resp = oauth.defguard.get("userinfo", token=token)
+    resp.raise_for_status()
+    profile = resp.json()
+    user = User.objects.filter(username=profile["sub"])[0]
+    if not user:
+        user = User.objects.create_user(
+            is_active=True,
+            username=profile["sub"],
+            email=profile["email"],
+            first_name=profile["given_name"],
+            last_name=profile["family_name"],
+        )
+    # Create django rest token and add it to request session
+    token, _ = Token.objects.get_or_create(user=user)
+    request.user = user
+    request.session["token"] = token.key
+    # return redirect too frontend with token
+    return redirect("/")
+```
+
+Our session endpoint from which our React app can receive token.
+
+```
+@api_view(["GET"])
+@authentication_classes([SessionAuthentication])
+def get_me(request):
+    if request.session.get("token"):
+        token = request.session["token"]
+        return Response({"token": token}, status=status.HTTP_200_OK)
+    else:
+        return Response({"msg": "unauthorized"}, status=status.HTTP_401_UNAUTHORIZED)
+```
+
+and our logout endpoint where we remove token from session
+
+```
+@api_view(["GET"])
+@authentication_classes([SessionAuthentication])
+def logout(request):
+    request.user.auth_token.delete()
+    if request.session.get("token"):
+        del request.session["token"]
+    data = {
+        "message": "You have successfully logged out.",
+    }
+    return Response(data, status=status.HTTP_200_OK)
+```
+
+Then we need to add our views to `oauth/urls.py` file.
+
+```
+from django.urls import path
+
+from apps.oauth.views import defguard_authorize, defguard_login, get_me, logout
+
+urlpatterns = [
+    path('defguard-login/', defguard_login),
+    path('redirect/', defguard_authorize),
+    path('me/', get_me),
+    path('logout/', logout),
+]
+```
+
+Thats it on the backend site if we don't want to hold users in our database and only create session for them.
+But if you want to create users you need to call `user.save()` in `defguard_authorize` function we recommend to set
+some strong password for this users like uuid or base64 they won't need it anyway because they login through defguard.
+
+### React app
+
+On your login page add login with defguard button which `onClick` will redirect to our `defguard-login/` endpoint.
+
+```
+<button onClick={() => (window.location.href = `${API_URL}/oauth/defguard-login/`)}>
+  Login with Defguard
+</button>
+```
+
+**Note** `API_URL`is url of your django backend api
+When the user clicks on button he will be redirected to the defguard page where he has to login with his defguard account
+and permit our app to collect his profile data.
+
+After redirect you can call `me/` endpoint in your react app to receive auth token.
