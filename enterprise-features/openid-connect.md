@@ -249,16 +249,16 @@ In the next step we have to create login endpoint which will redirect users from
 ```
 def defguard_login(request):
     """Build a full authorize callback uri."""
-    redirect_uri = request.build_absolute_uri(MONITOR_DEFGUARD_REDIRECT_URL)
+    redirect_uri = request.build_absolute_uri(EXAMPLE_DEFGUARD_REDIRECT_URL)
     return oauth.defguard.authorize_redirect(request, redirect_uri)
 ```
 
-**Note** `MONITOR_DEFGUARD_REDIRECT_URL` is url for our authorize endpoint which we discuss in the next step.
+**Note** `EXAMPLE_DEFGUARD_REDIRECT_URL` is url for our authorize endpoint which we discuss in the next step.
 We recommend to add it to `settings.py` file like this:
 
 ```
 # Our app url to consume defguard token
-MONITOR_DEFGUARD_REDIRECT_URL = os.getenv('MONITOR_DEFGUARD_REDIRECT_URL', 'http://localhost:3000/api/oauth/redirect')
+EXAMPLE_DEFGUARD_REDIRECT_URL = os.getenv('EXAMPLE_DEFGUARD_REDIRECT_URL', 'http://localhost:3000/api/oauth/redirect')
 ```
 
 our endpoint to consume tokens will look like this
