@@ -228,9 +228,22 @@ As in all of the steps above first step is to add your app in Defguard OpenID ap
    `python3 manage.py createapp oauth`
 3. In newly created oauth app go to views.py file
 
-First step is to create our defguard client configuration
+First step is to create our defguard client configuration and import all necessary functions
+
 
 ```
+import os
+
+from authlib.integrations.django_client import OAuth
+from django.contrib import auth
+from django.shortcuts import redirect
+from rest_framework import status
+from rest_framework.authentication import SessionAuthentication
+from rest_framework.authtoken.admin import User
+from rest_framework.authtoken.models import Token
+from rest_framework.decorators import api_view, authentication_classes
+from rest_framework.response import Response
+
 # Create defguard oauth client
 oauth = OAuth()
 defguard = oauth.register(
@@ -268,8 +281,8 @@ EXAMPLE_DEFGUARD_REDIRECT_URL = os.getenv('EXAMPLE_DEFGUARD_REDIRECT_URL', 'http
 our endpoint to consume tokens will look like this
 as our app uses [Django Rest token authentication](https://www.django-rest-framework.org/api-guide/authentication/#tokenauthentication), we need to extract user data from the token received from defguard
 and transform it to a Django Rest token.
-at the end of the function, we add our token to a session so we can get it later from our react app and at the end, we returns
-redirect to the frontend main page..
+at the end of the function, we login user to a session so we can get it later from our react app and at the end, we returns
+redirect to the frontend main page.
 
 ```
 def defguard_authorize(request):
@@ -287,11 +300,8 @@ def defguard_authorize(request):
             first_name=profile["given_name"],
             last_name=profile["family_name"],
         )
-    # Create django rest token and add it to request session
-    token, _ = Token.objects.get_or_create(user=user)
-    request.user = user
-    request.session["token"] = token.key
-    # return redirect too frontend with token
+    auth.login(request, user)
+    # return redirect to frontend
     return redirect("/")
 ```
 
@@ -301,22 +311,19 @@ Our session endpoint from which our React app can receive token.
 @api_view(["GET"])
 @authentication_classes([SessionAuthentication])
 def get_me(request):
-    if request.session.get("token"):
-        token = request.session["token"]
-        return Response({"token": token}, status=status.HTTP_200_OK)
-    else:
-        return Response({"msg": "unauthorized"}, status=status.HTTP_401_UNAUTHORIZED)
+    """Return token based on user in session."""
+    user = request.user
+    token, _ = Token.objects.get_or_create(user=user)
+    return Response({"token": token.key}, status=status.HTTP_200_OK)
 ```
 
 and our logout endpoint where we remove token from session
 
 ```
 @api_view(["GET"])
-@authentication_classes([SessionAuthentication])
 def logout(request):
-    request.user.auth_token.delete()
-    if request.session.get("token"):
-        del request.session["token"]
+    """Logout user."""
+    auth.logout(request)
     data = {
         "message": "You have successfully logged out.",
     }
