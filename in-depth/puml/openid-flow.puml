@@ -1,0 +1,23 @@
+@startuml openid flow
+title Openid Flow
+actor Actor as actor
+actor -> Client: Sign in with defguard
+Client -> DG_BACKEND: Redirect on /authorize url with client parameters
+DG_BACKEND -> DG_BACKEND:  Check if user is authorized
+alt user unauthorized
+DG_BACKEND -> DG_FRONTEND: Redirect to login page
+DG_FRONTEND -> DG_BACKEND: Authorize user /login
+DG_BACKEND -> DG_BACKEND: Check if MFA enabled for user
+alt user mfa enabled
+DG_BACKEND -> DG_FRONTEND: MFA with 201 status code
+DG_FRONTEND -> DG_BACKEND: MFA request
+DG_BACKEND -> DG_BACKEND: Validate MFA
+end
+end
+DG_BACKEND -> actor: 302 Redirect to consent
+actor ->  DG_BACKEND:  Authorization and consent /authorize 
+DG_BACKEND -> DG_BACKEND: Validate client id, scopes and redirect url
+DG_BACKEND -> Client: 302 Redirect with authorization code on client specified redirect url
+Client -> DG_BACKEND: Send authorization code and state using POST method to /token
+DG_BACKEND -> Client: ID Token, Access token and refresh token
+@enduml

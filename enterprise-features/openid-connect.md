@@ -8,6 +8,10 @@ OpenID Connect is an identity layer built on top of OAuth2 it allows third-party
 
 As an identity provider one of our core features is Login with Defguard which allows you to log into other websites using your Defguard account so you don't have to care about multiple passwords and leaks. At this point you may have concern and ask is it safe? Yes, it's completely safe cause all information third party app will receive is the information that you allowed on redirect page. These information then are sent to third party app as IDToken which is basically JSON Web Token with additional claims like first name or email. Your password isn't send in any step of this.
 
+## Defguard OpenID flow
+
+![OpenID flow](../in-depth/puml/openid-flow.svg)
+
 ## How to enable login with Defguard using OpenID?
 
 ### Client creation
