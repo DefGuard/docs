@@ -228,9 +228,22 @@ As in all of the steps above first step is to add your app in Defguard OpenID ap
    `python3 manage.py createapp oauth`
 3. In newly created oauth app go to views.py file
 
-First step is to create our defguard client configuration
+First step is to create our defguard client configuration and import all necessary functions
+
 
 ```
+import os
+
+from authlib.integrations.django_client import OAuth
+from django.contrib import auth
+from django.shortcuts import redirect
+from rest_framework import status
+from rest_framework.authentication import SessionAuthentication
+from rest_framework.authtoken.admin import User
+from rest_framework.authtoken.models import Token
+from rest_framework.decorators import api_view, authentication_classes
+from rest_framework.response import Response
+
 # Create defguard oauth client
 oauth = OAuth()
 defguard = oauth.register(
