@@ -17,7 +17,10 @@
 ## Enterprise features
 
 * [LDAP synchronization](enterprise-features/ldap-synchronization-setup.md)
-* [OpenID Connect](enterprise-features/openid-connect.md)
+* [OpenID Connect](enterprise-features/openid-connect/README.md)
+  * [Portainer](enterprise-features/openid-connect/portainer.md)
+  * [Grafana setup](enterprise-features/openid-connect/grafana-setup.md)
+  * [Django Rest React App](enterprise-features/openid-connect/django-rest-react-app.md)
 * [YubiKey Provisioning](enterprise-features/yubikey-provisioning.md)
 
 ## In depth
