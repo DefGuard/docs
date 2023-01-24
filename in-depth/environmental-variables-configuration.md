@@ -27,8 +27,9 @@ Here you can find list of all configurable things through environmental variable
 * `DEFGUARD_GATEWAY_SECRET` : JWT secret key for encrypting Gateway tokens, default: `DEFGUARD_GATEWAY_SECRET`
 * `DEFGUARD_WG_SERVICE_URL` : WireGuard service instance to connect to, default: `http://wireguard:50051`
 * `DEFGUARD_WEBAUTHN_RP_ID` : Relying party id and relying party origin for WebAuthn used for MFA, default `localhost`
-* `DEFGUARD_URL` : Url of your server instance, default `localhost:8000`
+* `DEFGUARD_URL` : Url of your server instance, default `localhost:8000`, Needed for OpenID discovery endpoint to work correctly.
 * `DEFGUARD_OPENID_KEY` : Path to private key file used for OAuth2/OpenID. 
+* `DEFGUARD_LICENSE` : Your license 
 
 ### gRPC configuration
 

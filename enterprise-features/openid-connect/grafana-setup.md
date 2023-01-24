@@ -29,7 +29,7 @@ scopes = openid profile email
 empty_scopes = false
 auth_url = https://<your_defguards_instance>/api/v1/oauth/authorize
 token_url = https://<your_defguard_instance>/api/v1/oauth/token
-api_url = https://<your_defguard_instance>/oauth/userinfo
+api_url = https://<your_defguard_instance>/api/v1/oauth/userinfo
 allow_sign_up = true
 ```
 
