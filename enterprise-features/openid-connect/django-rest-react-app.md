@@ -69,15 +69,17 @@ def defguard_authorize(request):
     resp = oauth.defguard.get("userinfo", token=token)
     resp.raise_for_status()
     profile = resp.json()
-    user = User.objects.filter(username=profile["sub"])[0]
+    user = User.objects.filter(username=profile["sub"]).exists()
     if not user:
-        user = User.objects.create_user(
+        user = User(
             is_active=True,
             username=profile["sub"],
             email=profile["email"],
             first_name=profile["given_name"],
             last_name=profile["family_name"],
         )
+    else:
+        user = User.objects.get(username=profile["sub"])
     auth.login(request, user)
     # return redirect to frontend
     return redirect("/")
@@ -137,4 +139,4 @@ On your login page add login with defguard button which `onClick` will redirect 
 
 **Note** `API_URL`is url of your django backend api When the user clicks on button he will be redirected to the defguard page where he has to login with his defguard account and permit our app to collect his profile data.
 
-After redirect you can call `me/` endpoint in your react app to receive auth token.
+After redirect you can call `me/` endpoint in your react app to receive auth token and add it to your app sate.
