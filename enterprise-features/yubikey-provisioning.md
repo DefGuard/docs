@@ -1,16 +1,11 @@
-# YubiKey Provisioning
+# YubiBridge
 
-## What is YubiKey?
+[Documentation](https://defguard.gitbook.io/defguard/enterprise-features/yubikey-provisioning)
 
-YubiKey is a hardware based authentication key, which allows you to store your secret keys safely and enable two-factor-authentication. Once your keys are written to YubiKey they can't be restored, it's a great alternative to holding your private keys on your computer's hard drive where malicious apps can access them. If you want to read more about YubiKey take a look at the [official site](https://www.yubico.com/products/). YubiKey supports many protocols but we will focus on OpenPGP.
-
-## Why use OpenPGP?
-
-OpenPGP is very popular asymmetric cryptography protocol that uses two keys - public and private - for signing. For example if you want to sign your email message you can encrypt it with your private key and receiver can decrypt it using your publicly available public key.
-
-## What is YubiBridge?
-
-We created YubiBridge to make creating and provisioning of GPG keys for YubiKey easy. That's why we created a python script which allows you to provision your YubiKey with automatically generated GPG keys in a few simple steps. It's completely safe, we are not storing private keys, they are completely wiped after provisioning. Only public SSH and PGP keys are sent to Defguard - you can download them at any time.
+We created YubiBridge to make creating and provisioning of [GPG](https://gnupg.org/) keys for [YubiKey](https://www.yubico.com/products/) easy.
+YubiBridge allows you to provision your YubiKey with automatically generated GPG keys in a few simple steps.
+It's completely safe, we are not storing private keys, they are completely wiped after provisioning.
+Only public SSH and PGP keys are sent to Defguard - you can download them at any time.
 
 ## How to use YubiBridge?
 
@@ -39,16 +34,14 @@ cp .env.template .env
 
 Variables to set:
 
-* `DEFGUARD_URL`: your Defguard instance, e.g.: `defguard.mycompany.com`
-* `WORKER_ID`: your machine id, this is the name you'll see in Defguard "provisioners" tab, e.g.: `Jane-Laptop`
-* `DEFGUARD_TOKEN`: Token from Defguard app to secure gRPC connection available on provisioners page.
-
-> You can find list of all environment variables and arguments with explanation [here](../in-depth/environmental-variables-configuration.md).
+* `DEFGUARD_URL`: Defguard GRPC URL, e.g.: `defguard-grpc.mycompany.com`
+* `WORKER_ID`: Your machine id, this is the name you'll see in Defguard "provisioners" tab, e.g.: `Jane-Laptop`
+* `DEFGUARD_TOKEN`: Token securing gRPC connection, available on Defguard provisioners page.
 
 3. Finally, run the service with docker-compose:
 
 ```
-docker-compose up
+docker compose up
 ```
 
 If everything went well, your machine (with worker id you just set) should be visible in Defguard provisioners tab.
@@ -77,7 +70,7 @@ git clone --recursive git@github.com:DefGuard/yubi-bridge.git && cd yubi-bridge
 2. Run with docker-compose:
 
 ```
-docker-compose run ykdev -p <first_name> <last_name> <email>
+docker-compose run yubi-bridge --provision <first_name> <last_name> <email>
 ```
 
 Your keys will be created and transferred to YubiKey.
