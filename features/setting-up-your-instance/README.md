@@ -1,11 +1,9 @@
 # Setting up your instance
 
-Defguard comes with two main components:
+Defguard comes with three main components:
 
 - Core service: webapp database
 - VPN gateway server: retrieves configuration from core and configures VPN interfaces on the gateway server
-
-and optional enterprise feature:
 - Provisioning station: client application which can be started on any pc to auto generate PGP keys for YubiKey
 
 Use your preferred method to deploy Defguard core service

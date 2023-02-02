@@ -38,5 +38,5 @@ cp .env.template .env
 docker-compose up
 ```
 
-If everything went well, your Gateway should be connected to Defguard and you can start [adding new devices to your network](community-features/wireguard/adding-wireguard-devices.md).
+If everything went well, your Gateway should be connected to Defguard and you can start [adding new devices to your network](features/wireguard/adding-wireguard-devices.md).
 

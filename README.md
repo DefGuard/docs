@@ -4,17 +4,15 @@
 
 ## What is Defguard?
 
-Defguard is an open-source identity management system made with the aim to make company management as easy as possible. On this page you will find short description of our key features divided by enterprise and community edition.
+Defguard is an open-source identity management system made with the aim to make company management as easy as possible.
+On this page you will find short description of our key features.
 
-### Community features:
+### Features:
 
 * Wireguard VPN management
 * Webhooks
 * MFA
 * Web3
-
-### Enterprise features:
-
 * OpenLDAP synchronization
 * YubiKey Provisioning
 * OpenID connect provider
@@ -53,7 +51,9 @@ In a few simple steps you can synchronize your OpenLDAP server and get following
 With few simple steps you can add your self-hosted service to trusted OpenID client apps by Defguard and get Login with Defguard button on it.
 
 ## Web3
-Web3 - community - integration with Web3/blockchain functionalities. Since defguard secures the whole user journey/connection, from secure communication using VPN, then authentication based on company identity and Multi-Factor Authentication (supporting crypto wallets),  it’s a perfect web2 -> web3 gateway for your organization.
+Web3 - integration with Web3/blockchain functionalities. Since defguard secures the whole user journey/connection,
+from secure communication using VPN, then authentication based on company identity and Multi-Factor Authentication (supporting crypto wallets),
+it’s a perfect web2 -> web3 gateway for your organization.
 
 * Wallet management - with Metamask and Wallet Connect - an easy way for users to validate the ownership of wallets - no need to send wallet addresses through slack/email anymore
 * Organizational self-custody wallets (in development) - create a self-custody, multi-sig company wallet
@@ -65,20 +65,20 @@ wallet, the next step is to enable transactions on blockchain
 
 Follow our handy guides to get started on the basics as quickly as possible:
 
-{% content-ref url="community-features/setting-up-your-instance/" %}
-[setting-up-your-instance](community-features/setting-up-your-instance/)
+{% content-ref url="features/setting-up-your-instance/" %}
+[setting-up-your-instance](features/setting-up-your-instance/)
 {% endcontent-ref %}
 
-{% content-ref url="community-features/wireguard/create-your-vpn-network.md" %}
-[create-your-vpn-network.md](community-features/wireguard/create-your-vpn-network.md)
+{% content-ref url="features/wireguard/create-your-vpn-network.md" %}
+[create-your-vpn-network.md](features/wireguard/create-your-vpn-network.md)
 {% endcontent-ref %}
 
-{% content-ref url="enterprise-features/ldap-synchronization-setup.md" %}
-[ldap-synchronization-setup.md](enterprise-features/ldap-synchronization-setup.md)
+{% content-ref url="features/ldap-synchronization-setup.md" %}
+[ldap-synchronization-setup.md](features/ldap-synchronization-setup.md)
 {% endcontent-ref %}
 
-{% content-ref url="community-features/webhooks.md" %}
-[webhooks.md](community-features/webhooks.md)
+{% content-ref url="features/webhooks.md" %}
+[webhooks.md](features/webhooks.md)
 {% endcontent-ref %}
 
 ## Fundamentals: Dive a little deeper

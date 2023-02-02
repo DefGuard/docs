@@ -2,26 +2,23 @@
 
 * [Intro to Defguard](README.md)
 
-## Community features
+## Features
 
-* [Deploying your instance](community-features/setting-up-your-instance/README.md)
-  * [Docker Compose](community-features/setting-up-your-instance/docker-compose.md)
-  * [Kubernetes](community-features/setting-up-your-instance/kubernetes.md)
-  * [Gateway](community-features/setting-up-your-instance/gateway.md)
-* [Webhooks](community-features/webhooks.md)
-* [Wireguard](community-features/wireguard/README.md)
-  * [Create your VPN network](community-features/wireguard/create-your-vpn-network.md)
-  * [Network overview](community-features/wireguard/network-overview.md)
-  * [Adding Wireguard devices](community-features/wireguard/adding-wireguard-devices.md)
-
-## Enterprise features
-
-* [LDAP synchronization](enterprise-features/ldap-synchronization-setup.md)
-* [OpenID Connect](enterprise-features/openid-connect/README.md)
-  * [Portainer](enterprise-features/openid-connect/portainer.md)
-  * [Grafana setup](enterprise-features/openid-connect/grafana-setup.md)
-  * [Django Rest React App](enterprise-features/openid-connect/django-rest-react-app.md)
-* [YubiKey Provisioning](enterprise-features/yubikey-provisioning.md)
+* [Deploying your instance](features/setting-up-your-instance/README.md)
+  * [Docker Compose](features/setting-up-your-instance/docker-compose.md)
+  * [Kubernetes](features/setting-up-your-instance/kubernetes.md)
+  * [Gateway](features/setting-up-your-instance/gateway.md)
+* [Webhooks](features/webhooks.md)
+* [Wireguard](features/wireguard/README.md)
+  * [Create your VPN network](features/wireguard/create-your-vpn-network.md)
+  * [Network overview](features/wireguard/network-overview.md)
+  * [Adding Wireguard devices](features/wireguard/adding-wireguard-devices.md)
+* [LDAP synchronization](features/ldap-synchronization-setup.md)
+* [OpenID Connect](features/openid-connect/README.md)
+  * [Portainer](features/openid-connect/portainer.md)
+  * [Grafana setup](features/openid-connect/grafana-setup.md)
+  * [Django Rest React App](features/openid-connect/django-rest-react-app.md)
+* [YubiKey Provisioning](features/yubikey-provisioning.md)
 
 ## In depth
 
