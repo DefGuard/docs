@@ -3,7 +3,7 @@
 ## Before we start
 
 * Make sure your Defguard instance is [deployed](../setting-up-your-instance/) and running
-* Make sure you downloaded our [Wireguard Gateway](https://github.com/DefGuard/wireguard-gateway)
+* Make sure you downloaded our [Wireguard Gateway](https://github.com/DefGuard/gateway)
 * Make sure you know what [Wireguard](https://www.wireguard.com/) is and have basic understanding of how it works
 
 ## Network creation wizard
@@ -42,7 +42,7 @@ Port on which Wireguard listens on the gateway
 
 ### Gateway endpoint
 
-It's IP address of your [gateway](https://github.com/DefGuard/wireguard-gateway) in Wireguard words Endpoint is the remote peer's "real" IP address and port, outside of the WireGuard VPN. This setting tells the localhost how to connect to the remote peer in order to set up a WireGuard tunnel.
+It's IP address of your [gateway](https://github.com/DefGuard/gateway) in Wireguard words Endpoint is the remote peer's "real" IP address and port, outside of the WireGuard VPN. This setting tells the localhost how to connect to the remote peer in order to set up a WireGuard tunnel.
 
 {% hint style="warning" %}
 Network port and gateway endpoint port can be different if Wireguard server is behind NAT/Firewall
@@ -79,8 +79,8 @@ After creating your network on Defguard you'll see modal pop-up as in picture ab
 **Note** if you want to use above command make sure you have installed [docker](https://www.docker.com/) \
 
 
-Second option is downloading source code from this [repository](https://github.com/DefGuard/wireguard-gateway) and building it using\
-`cargo build --release` command then you'll find binary file named `wireguard-gateway` at `target/release` directory
+Second option is downloading source code from this [repository](https://github.com/DefGuard/gateway) and building it using\
+`cargo build --release` command then you'll find binary file named `gateway` at `target/release` directory
 
 Or if you don't want to build it yourself, you can find prebuild binaries [here](https://github.com/DefGuard/gateway/releases).
 
