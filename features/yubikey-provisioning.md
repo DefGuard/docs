@@ -1,7 +1,5 @@
 # YubiBridge
 
-[Documentation](https://defguard.gitbook.io/defguard/features/yubikey-provisioning)
-
 We created YubiBridge to make creating and provisioning of [GPG](https://gnupg.org/) keys for [YubiKey](https://www.yubico.com/products/) easy.
 YubiBridge allows you to provision your YubiKey with automatically generated GPG keys in a few simple steps.
 It's completely safe, we are not storing private keys, they are completely wiped after provisioning.
