@@ -14,10 +14,10 @@ Use your preferred method to deploy Defguard core service
 Client services
 
 - [Gateway](gateway.md)
-- [YubiBridge](enteprise-features/yubikey-provisioning.md)
+- [YubiBridge](../yubikey-provisioning.md)
 
 --- 
 
 ### Tips
-See our [Configuration](in-depth/environmental-variables-configuration.md) document to check all configurable things before you start.\
-And learn about our Architecture [**here**](in-depth/architecture.md) to see how it works.
+See our [Configuration](../../in-depth/environmental-variables-configuration.md) document to check all configurable things before you start.
+And learn about our Architecture [here](../../in-depth/architecture.md) to see how it works.
