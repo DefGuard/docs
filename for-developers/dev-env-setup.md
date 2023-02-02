@@ -3,7 +3,7 @@
 Remember to clone Defguard repository recursively (with protos):
 
 ```
-git clone --recursive git@git.teonite.net:orion/core.git
+git clone --recursive git@github.com:DefGuard/defguard.git
 ```
 
 ## With docker-compose
