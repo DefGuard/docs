@@ -32,12 +32,6 @@ git clone --recursive git@github.com:DefGuard/yubi-bridge.git && cd yubi-bridge
 cp .env.template .env
 ```
 
-Variables to set:
-
-* `DEFGUARD_URL`: Defguard GRPC URL, e.g.: `defguard-grpc.mycompany.com`
-* `WORKER_ID`: Your machine id, this is the name you'll see in Defguard "provisioners" tab, e.g.: `Jane-Laptop`
-* `DEFGUARD_TOKEN`: Token securing gRPC connection, available on Defguard provisioners page.
-
 3. Finally, run the service with docker-compose:
 
 ```
