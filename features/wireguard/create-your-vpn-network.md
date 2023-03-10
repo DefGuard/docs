@@ -76,7 +76,9 @@ Wireguard Gateway is a client program which connects to Defguard in order to set
 
 After creating your network on Defguard you'll see modal pop-up as in picture above with docker run command to start your gateway server but there are other options to start your server.
 
-> If you want to use above command make sure you have installed [docker](https://www.docker.com/).
+{% hint style="info" %}
+If you want to use above command make sure you have [docker](https://www.docker.com/) installed.
+{% endhint %}
 
 Second option is downloading source code from this [repository](https://github.com/DefGuard/gateway) and building it using\
 `cargo build --release` command then you'll find binary file named `gateway` at `target/release` directory

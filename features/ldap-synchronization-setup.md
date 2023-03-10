@@ -1,20 +1,26 @@
-# LDAP synchronization setup
+# LDAP synchronization
 
-LDAP synchronization is done by providing necessary environmental variables which allows to connect to your LDAP server and perform certain actions. You can easily synchronize users and groups with almost no time investment.
+Defguard can be configured to apply all user changes to an LDAP instance.
 
-If you provide environmental variables related to LDAP Defguard will automatically synchronize data from your LDAP server on start then all your users can login with the same credentials, also all newly created users will be added to your LDAP server.
+{% hint style="warning" %}
+The integration between Defguard and LDAP is designed to reflect changes made within Defguard in LDAP.
+However, changes made directly in LDAP will not be automatically imported into Defguard. 
+{% endhint %}
 
+LDAP integration setup is done by providing necessary environment variables.
+At minimum you'll have to provide:
 
+* `DEFGUARD_LDAP_URL` - Your LDAP URL to read users and groups data (e.g. `ldap://localhost:389`)
+* `DEFGUARD_LDAP_BIND_USERNAME` - Your LDAP admin user (e.g. `cn=admin,dc=example,dc=org`)
+* `DEFGUARD_LDAP_BIND_PASSWORD` - Your LDAP admin password
 
-### LDAP Environmental variables
+Other LDAP variables:
 
-* `DEFGUARD_LDAP_URL` - Your LDAP URL to read users and groups data (e.g. `http://localhost:389`)
-* `DEFGUARD_LDAP_GROUP_SEARCH_BASE` : group search base, default: `ou=groups,dc=example,dc=org`
-* `DEFGUARD_LDAP_USER_SEARCH_BASE` : user  search base, default: `dc=example,dc=org`
-* `DEFGUARD_LDAP_USER_OBJ_CLASS` :  user object class, default: `inetOrgPerson`
-* `DEFGUARD_LDAP_GROUP_OBJ_CLASS` : group object class, default: `groupOfUniqueNames`
-* `DEFGUARD_LDAP_ADMIN_GROUPNAME` : group name with administrator privileges, default: `admin`
-* `DEFGUARD_LDAP_USERNAME_ATTR` : naming attribute for users, should be `cn` or `uid` , default: `cn`
-* `DEFGUARD_LDAP_GROUPNAME_ATTR` : naming attribute for groups, default: `cn`
-* `DEFGUARD_LDAP_MEMBER_ATTR` : naming attribute for group membership, default: `memberOf`
-* `DEFGUARD_LDAP_GROUP_MEMBER_ATTR` :  group attribute for members, default: `uniqueMember`
+* `DEFGUARD_LDAP_USER_SEARCH_BASE`: Relative Distinguished Name (RDN) of your user entries, default: `ou=users,dc=example,dc=org`
+* `DEFGUARD_LDAP_GROUP_SEARCH_BASE`: Relative Distinguished Name (RDN) of your group entries, default: `ou=groups,dc=example,dc=org`
+* `DEFGUARD_LDAP_USER_OBJ_CLASS`: Object class used for user entries, default: `inetOrgPerson`
+* `DEFGUARD_LDAP_GROUP_OBJ_CLASS`: Object class used for group entries, default: `groupOfUniqueNames`
+* `DEFGUARD_LDAP_USERNAME_ATTR`: Naming attribute for users, should be `cn` or `uid` , default: `cn`
+* `DEFGUARD_LDAP_GROUPNAME_ATTR`: Naming attribute for groups, default: `cn`
+* `DEFGUARD_LDAP_MEMBER_ATTR`: Naming attribute for group membership, default: `memberOf`
+* `DEFGUARD_LDAP_GROUP_MEMBER_ATTR`:  Group attribute for members, default: `uniqueMember`

@@ -15,7 +15,9 @@ cp .env.template .env
 
 And then edit the values in `.env` file to setup your secrets. Those should be kept... well, secret.
 
-> You can generate random strings for secrets with e.g.: `openssl rand -base64 30`
+{% hint style="info" %}
+You can generate random strings for secrets with e.g.: `openssl rand -base64 30`
+{% endhint %}
 
 Once that's done you can start the stack with:
 
@@ -23,7 +25,9 @@ Once that's done you can start the stack with:
 docker-compose up
 ```
 
-> Make sure you have [Docker](https://www.docker.com/get-started/) and [Docker Compose](https://docs.docker.com/compose/install/) installed.
+{% hint style="info" %}
+Make sure you have [Docker](https://www.docker.com/get-started/) and [Docker Compose](https://docs.docker.com/compose/install/) installed.
+{% endhint %}
 
 That's it, Defguard should be running on port 80 of your server ([http://localhost](http://localhost) if you're running locally).
 
@@ -56,3 +60,8 @@ core:
   volumes:
     - ./.volumes/core/rsakey.pem:/keys/rsakey.pem
 ```
+
+## LDAP
+
+To setup LDAP integration, you'll have to configure environment variables for core service.
+You'll find more info on how to do this [here](../ldap-synchronization-setup.md).
