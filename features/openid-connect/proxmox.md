@@ -35,11 +35,7 @@ From this page copy Client ID and Client secret values for later.
 4. Select `Add -> OpenID Connect Server`
 5. Fill in the form:
 
-* Issuer URL: Your Defguard instance URL (e.g. https://defguard.mycompany.com/)
-
-{% hint style="warning" %}
-Proxmox requires trailing slash at the end of the URL. Make sure you include it.
-{% endhint %}
+* Issuer URL: Your Defguard instance URL (e.g. https://defguard.mycompany.com)
 
 * Realm: Name for the realm, internal for Proxmox, (e.g. `Defguard`)
 * Client ID: Client ID you copied after creating Defguard OpenID app
