@@ -40,3 +40,7 @@ docker-compose up
 
 If everything went well, your Gateway should be connected to Defguard and you can start [adding new devices to your network](features/wireguard/adding-wireguard-devices.md).
 
+## SSL
+
+You'll need a valid CA certificate to connect Gateway to Defguard.
+See [SSL instructions](https://defguard.gitbook.io/defguard/features/setting-up-your-instance/docker-compose#ssl-setup).
