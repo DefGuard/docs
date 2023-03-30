@@ -21,11 +21,15 @@ You can generate random strings for secrets with e.g.: `openssl rand -base64 30`
 
 ## SSL setup
 
-Defguard requires valid SSL certificates to ensure safe communication with gateway service.
-You'll need valid:
-* CA certificate (*.pem) - used by Gateway to verify Defguard identity & encryption
-* Certificate for Defguard signed by CA (*.crt) - used by Defguard to serve gateway gRPC
-* Private key for Defguard (*.key) - used by Defguard for encryption
+{% hint style="warning" %}
+It's crytically important to ensure SSL encryption between Defguard and Gateway services.
+You should only skip this step if you plan to have a reverse proxy in between that adds encryption itself.
+{% endhint %}
+
+You'll need a valid:
+* CA certificate (defguard-ca.pem) - used by Gateway for Defguard identity verification & encryption
+* Certificate for Defguard signed by CA (defguard.crt) - used by Defguard to serve gateway gRPC
+* Private key for Defguard (defguard.key) - used by Defguard for encryption
 
 [Here](https://deliciousbrains.com/ssl-certificate-authority-for-local-https-development/) is a good tutorial on how to
 generate a self-signed certificate.
