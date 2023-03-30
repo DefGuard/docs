@@ -19,6 +19,19 @@ And then edit the values in `.env` file to setup your secrets. Those should be k
 You can generate random strings for secrets with e.g.: `openssl rand -base64 30`
 {% endhint %}
 
+## SSL setup
+
+Defguard requires valid SSL certificates to ensure safe communication with gateway service.
+You'll need valid:
+* CA certificate (*.pem) - used by Gateway to verify Defguard identity & encryption
+* Certificate for Defguard signed by CA (*.crt) - used by Defguard to serve gateway gRPC
+* Private key for Defguard (*.key) - used by Defguard for encryption
+
+[Here](https://deliciousbrains.com/ssl-certificate-authority-for-local-https-development/) is a good tutorial on how to
+generate a self-signed certificate.
+
+Put the certificates in .volumes/ssl directory.
+
 Once that's done you can start the stack with:
 
 ```
