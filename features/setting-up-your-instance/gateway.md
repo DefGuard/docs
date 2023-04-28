@@ -1,4 +1,8 @@
-# Gateway setup
+# Gateway
+
+{% hint style="info" %}
+Don't forget to copy DEFGUARD\_TOKEN necessary to start gateway connection from modal available on overview page under `Docker run command`
+{% endhint %}
 
 ## Binary Install
 
@@ -10,13 +14,41 @@ tar xcf ./gateway.tar.gz
 sudo chmod +x gateway
 sudo mv gateway /usr/bin/
 ```
-3. Start gateway
-`gateway -g defguard.com:50055 -t <DEFGUARD_TOKEN>`
 
-**Note** Don't forget to copy DEFGUARD_TOKEN necessary to start gateway connection from modal available on overview page under `Docker run command`
+3. Start gateway `gateway -g defguard.com:50055 -t <DEFGUARD_TOKEN>`
 
+## Package Install
 
-##  Docker-compose
+1. On the [release page](https://github.com/DefGuard/gateway/releases) find and download a correct software package for your system (currently DEB, RPM and TXZ are available).
+2.  Install the package using relevant system tools:\
+    **Ubuntu/Debian:**
+
+    ```bash
+    sudo dpkg -i <path_to_deb_package>
+    ```
+
+    \
+    **Fedora/Red Hat Linux/SUSE:**
+
+    ```bash
+    sudo rpm -i <path_to_rpm_package>
+    ```
+
+    \
+    **FreeBSD:**
+
+    ```bash
+    pkg add <path_to_txz_package>
+    ```
+3. Fill in the default configuration file (`/etc/defguard/gateway.toml`) with values corresponding to your Defguard installation (token and gRPC enpoint URL).
+4.  Enable and start the systemd service.
+
+    ```bash
+    sudo systemctl enable defguard-gateway.service
+    sudo systemctl start defguard-gateway.service
+    ```
+
+## Docker-compose
 
 To start your gateway using docker-compose:
 
@@ -42,5 +74,4 @@ If everything went well, your Gateway should be connected to Defguard and you ca
 
 ## SSL
 
-You'll need a valid CA certificate to connect Gateway to Defguard.
-See [SSL instructions](https://defguard.gitbook.io/defguard/features/setting-up-your-instance/docker-compose#ssl-setup).
+You'll need a valid CA certificate to connect Gateway to Defguard. See [SSL instructions](https://defguard.gitbook.io/defguard/features/setting-up-your-instance/docker-compose#ssl-setup).
