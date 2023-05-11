@@ -6,13 +6,13 @@
 
 * [Deploying your instance](features/setting-up-your-instance/README.md)
   * [Docker Compose](features/setting-up-your-instance/docker-compose.md)
-  * [Kubernetes](features/setting-up-your-instance/kubernetes.md)
+  * [Kubernetes](community-features/setting-up-your-instance/kubernetes.md)
   * [Gateway](features/setting-up-your-instance/gateway.md)
-* [Webhooks](features/webhooks.md)
+* [Webhooks](community-features/webhooks.md)
 * [Wireguard](features/wireguard/README.md)
   * [Create your VPN network](features/wireguard/create-your-vpn-network.md)
-  * [Network overview](features/wireguard/network-overview.md)
-  * [Adding Wireguard devices](features/wireguard/adding-wireguard-devices.md)
+  * [Network overview](community-features/wireguard/network-overview.md)
+  * [Adding Wireguard devices](community-features/wireguard/adding-wireguard-devices.md)
 * [LDAP synchronization](features/ldap-synchronization-setup.md)
 * [OpenID Connect](features/openid-connect/README.md)
   * [Portainer](features/openid-connect/portainer.md)
@@ -29,6 +29,9 @@
 
 ## For Developers
 
+* [Translations ( web )](for-developers/translations-web/README.md)
+  * [Switching language](for-developers/translations-web/switching-language.md)
+  * [Adding translations](for-developers/translations-web/adding-translations.md)
 * [Environment setup](for-developers/dev-env-setup.md)
 * [Contributing](for-developers/contributing.md)
 * [Other resources](for-developers/other-resources.md)

@@ -1,4 +1,4 @@
-# Deploy Defguard with Kubernetes using Helm
+# Kubernetes
 
 ## Prerequisites
 

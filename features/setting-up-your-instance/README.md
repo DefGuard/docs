@@ -9,7 +9,7 @@ Defguard comes with three main components:
 Use your preferred method to deploy Defguard core service
 
 * [Docker Compose](docker-compose.md)
-* [Kubernetes](kubernetes.md)
+* [Kubernetes](../../community-features/setting-up-your-instance/kubernetes.md)
 
 Client services
 

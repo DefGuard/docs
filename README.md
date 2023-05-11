@@ -4,8 +4,7 @@
 
 ## What is Defguard?
 
-Defguard is an open-source identity management system made with the aim to make company management as easy as possible.
-On this page you will find short description of our key features.
+Defguard is an open-source identity management system made with the aim to make company management as easy as possible. On this page you will find short description of our key features.
 
 ### Features:
 
@@ -32,7 +31,9 @@ Defguard allows you to setup a Wireguard VPN server in few simple steps. After t
 Easy to use and configure outgoing webhooks triggered on actions taken on certain user to help you automate monotonous tasks.
 
 ## MFA
+
 Multi-factor authentication is currently supported with the following methods:
+
 * Time-based One-time Password Algorithm (TOTP - eg. Google Authenticator)
 * WebAuthn/FIDO2 - for hardware key authentication support
 * Web3 - authentication with software and hardware crypto wallets using Metamask and Wallet Connect
@@ -48,17 +49,16 @@ In a few simple steps you can synchronize your OpenLDAP server and get following
 * Manage groups
 
 ## OpenID connect provider
+
 With few simple steps you can add your self-hosted service to trusted OpenID client apps by Defguard and get Login with Defguard button on it.
 
 ## Web3
-Web3 - integration with Web3/blockchain functionalities. Since defguard secures the whole user journey/connection,
-from secure communication using VPN, then authentication based on company identity and Multi-Factor Authentication (supporting crypto wallets),
-it’s a perfect web2 -> web3 gateway for your organization.
+
+Web3 - integration with Web3/blockchain functionalities. Since defguard secures the whole user journey/connection, from secure communication using VPN, then authentication based on company identity and Multi-Factor Authentication (supporting crypto wallets), it’s a perfect web2 -> web3 gateway for your organization.
 
 * Wallet management - with Metamask and Wallet Connect - an easy way for users to validate the ownership of wallets - no need to send wallet addresses through slack/email anymore
 * Organizational self-custody wallets (in development) - create a self-custody, multi-sig company wallet
-* Blockchain transactions for organizations (in development) - since company members can securely connect/expose their wallets and the organization has a self-custody multi-signature 
-wallet, the next step is to enable transactions on blockchain
+* Blockchain transactions for organizations (in development) - since company members can securely connect/expose their wallets and the organization has a self-custody multi-signature wallet, the next step is to enable transactions on blockchain
 * Blockchain node management (in development) - connect, monitor and manage your own blockchain nodes
 
 ## Guides: Jump right in
@@ -77,8 +77,8 @@ Follow our handy guides to get started on the basics as quickly as possible:
 [ldap-synchronization-setup.md](features/ldap-synchronization-setup.md)
 {% endcontent-ref %}
 
-{% content-ref url="features/webhooks.md" %}
-[webhooks.md](features/webhooks.md)
+{% content-ref url="community-features/webhooks.md" %}
+[webhooks.md](community-features/webhooks.md)
 {% endcontent-ref %}
 
 ## Fundamentals: Dive a little deeper
