@@ -36,9 +36,6 @@
 * [Contributing](for-developers/contributing.md)
 * [Other resources](for-developers/other-resources.md)
 
-## Extras
+## Contact us
 
-* [Support](extras/support.md)
-* [Troubleshooting](extras/troubelshooting.md)
-* [FAQ](extras/faq.md)
-* [Roadmap](extras/roadmap.md)
+* [Community & Support](contact-us/support.md)
