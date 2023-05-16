@@ -19,6 +19,7 @@
   * [Grafana setup](features/openid-connect/grafana-setup.md)
   * [Django Rest React App](features/openid-connect/django-rest-react-app.md)
   * [Proxmox](features/openid-connect/proxmox.md)
+  * [Matrix / Synapse](features/openid-connect/proxmox-1.md)
 * [YubiKey Provisioning](features/yubikey-provisioning.md)
 
 ## In depth
