@@ -1,4 +1,4 @@
-# Deploy Defguard with docker compose
+# Docker Compose
 
 We prepared a [git repository](https://github.com/DefGuard/deployment) with docker-compose configuration, clone it:
 
@@ -16,23 +16,22 @@ cp .env.template .env
 And then edit the values in `.env` file to setup your secrets. Those should be kept... well, secret.
 
 {% hint style="info" %}
-You can generate random strings for secrets with e.g.: `openssl rand -base64 30`
+You can generate random strings for secrets with e.g.: `openssl rand -base64 48`
 {% endhint %}
 
 ## SSL setup
 
 {% hint style="warning" %}
-It's crytically important to ensure SSL encryption between Defguard and Gateway services.
-You should only skip this step if you plan to have a reverse proxy in between that adds encryption itself.
+It's crytically important to ensure SSL encryption between Defguard and Gateway services. You should only skip this step if you plan to have a reverse proxy in between that adds encryption itself.
 {% endhint %}
 
 You'll need a valid:
+
 * CA certificate (defguard-ca.pem) - used by Gateway for Defguard identity verification & encryption
 * Certificate for Defguard signed by CA (defguard.crt) - used by Defguard to serve gateway gRPC
 * Private key for Defguard (defguard.key) - used by Defguard for encryption
 
-[Here](https://deliciousbrains.com/ssl-certificate-authority-for-local-https-development/) is a good tutorial on how to
-generate a self-signed certificate.
+[Here](https://deliciousbrains.com/ssl-certificate-authority-for-local-https-development/) is a good tutorial on how to generate a self-signed certificate.
 
 Put the certificates in .volumes/ssl directory.
 
@@ -50,8 +49,7 @@ That's it, Defguard should be running on port 80 of your server ([http://localho
 
 ## OpenID RSA setup
 
-By default Defguard uses [HMAC](https://en.wikipedia.org/wiki/HMAC) algorithm for OIDC token validation.
-If you want to use [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)), you'll have to:
+By default Defguard uses [HMAC](https://en.wikipedia.org/wiki/HMAC) algorithm for OIDC token validation. If you want to use [RSA](https://en.wikipedia.org/wiki/RSA\_\(cryptosystem\)), you'll have to:
 
 1. Create volume directory:
 
@@ -80,5 +78,4 @@ core:
 
 ## LDAP
 
-To setup LDAP integration, you'll have to configure environment variables for core service.
-You'll find more info on how to do this [here](../ldap-synchronization-setup.md).
+To setup LDAP integration, you'll have to configure environment variables for core service. You'll find more info on how to do this [here](../ldap-synchronization-setup.md).
