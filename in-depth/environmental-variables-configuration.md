@@ -90,6 +90,8 @@ If you're using docker image you can pass this value as environmental variables 
 
 `DEFGUARD_TOKEN` ,`-t <TOKEN>` - Token received on Defguard after completing network wizard
 
+DEFGUARD\_GATEWAY\_NAME, --name \<NAME> - (optional) human-readable gateway name that will be displayed in Defguard webapp&#x20;
+
 ### Config file
 
 Gateway configuration can also be read from a file by using a `--config` CLI option. Example file contents:
@@ -104,6 +106,8 @@ token = "<your_gateway_token>"
 # Required: Defguard server gRPC endpoint URL
 # NOTE: must replace default with actual value
 grpc_url = "<defguard_grpc_url>"
+# Optional: gateway name which will be displayed in Defguard web UI
+name = "Gateway A"
 # Required: use userspace Wireguard implementation (e.g. wireguard-go)
 userspace = false
 # Optional: path to TLS cert file
