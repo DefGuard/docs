@@ -21,7 +21,7 @@ To start your own provisioner:
 1. Clone YubiBridge repository:
 
 ```
-git clone --recursive git@github.com:DefGuard/yubi-bridge.git && cd yubi-bridge
+git clone --recursive https://github.com/DefGuard/yubi-bridge.git && cd yubi-bridge
 ```
 
 2. Copy and fill in the .env file:
