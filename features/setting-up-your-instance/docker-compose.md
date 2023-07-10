@@ -3,7 +3,7 @@
 We prepared a [git repository](https://github.com/DefGuard/deployment) with docker-compose configuration, clone it:
 
 ```
-git clone git@github.com:DefGuard/deployment.git && cd deployment
+git clone https://github.com/DefGuard/deployment.git && cd deployment
 ```
 
 In docker-compose directory you'll find a template env file called `.env.template`. Copy it:
