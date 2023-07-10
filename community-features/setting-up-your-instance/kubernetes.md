@@ -13,7 +13,7 @@ To deploy and use Defguard on your cluster you'll need:
 We prepared a [git repository](https://github.com/DefGuard/deployment) with Kubernetes configuration, clone it:
 
 ```
-git clone git@github.com:DefGuard/deployment.git && cd deployment/charts
+git clone https://github.com/DefGuard/deployment.git && cd deployment/charts
 ```
 
 Then create namespace for Defguard on your cluster:
