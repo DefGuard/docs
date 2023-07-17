@@ -1,6 +1,6 @@
-# Introduction
+# Defguard introduction
 
-![](https://github.com/DefGuard/docs/blob/docs/screencasts/defguard.gif?raw=true)
+![](screencasts/defguard.gif)
 
 Better quality video can [be found here to download](https://github.com/DefGuard/docs/raw/docs/screencasts/defguard-screencast.mkv)
 
@@ -10,7 +10,7 @@ Defguard is an open-source security army knife: OpenID Identity & Wireguard VPN 
 
 Building a secure organization has always been difficult and costly. Defguard provides a beautiful, easy-to-use (business users) and deploy (admin/DevOps) fundament to make your organization secure.
 
-**Features:**
+### **Features (implemented & production tested):**
 
 * OpenID Connect Provider with easy UI for configuring OIDC apps
   * OpenLDAP synchronization
@@ -22,6 +22,10 @@ Building a secure organization has always been difficult and costly. Defguard pr
 * [Yubikey hardware keys](https://www.yubico.com/) provisioning
 * Webhooks
 * Web3 wallet validation
+
+### Features in development / planned
+
+Go to product [**ROADMAP**](features/roadmap.md)**.**
 
 ## Guides: Jump right in
 
