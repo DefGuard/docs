@@ -90,7 +90,13 @@ If you're using docker image you can pass this value as environmental variables 
 
 `DEFGUARD_TOKEN` ,`-t <TOKEN>` - Token received on Defguard after completing network wizard
 
-DEFGUARD\_GATEWAY\_NAME, --name \<NAME> - (optional) human-readable gateway name that will be displayed in Defguard webapp&#x20;
+`DEFGUARD_GATEWAY_NAME`, `--name <NAME>` - (optional) human-readable gateway name that will be displayed in Defguard webapp
+
+`-s, --use-syslog` - enable logging to syslog
+
+{% hint style="info" %}
+If logging to syslog please remember to configure your syslog deamon accordingly, so that a dedicated logfile is created or the messages are included in the main system log.
+{% endhint %}
 
 ### Config file
 
