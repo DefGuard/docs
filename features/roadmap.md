@@ -94,10 +94,11 @@ We need to implement a proper group and ACL management functionality, that will 
 
 ## Further functionalities planned
 
-* SAML SSO Provider
-* Mobile clients
-* Secure SSH authentication based on OpenID Connect & Multi-Factor Authentication with Defguard
-* Simple DNS provider
+* **Prometheus exporter** - all activities handled by defguard will be exported to Prometheus so that you can create custom analytics and dashboards in your favorite tool from the Prometheus ecosystem
+* Secure **SSH authentication based on OpenID Connect & Multi-Factor Authentication** with Defguard
+* **SAML SSO Provider** - most _Old School_ enterprise systems implement SSO based on SAML v2 - so to provide our users with full range of features this should be implemented
+* **Mobile clients**
+* **Simple DNS provider**
 
 
 
