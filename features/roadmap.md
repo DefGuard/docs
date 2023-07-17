@@ -38,11 +38,11 @@ defguard has a secure/microservice[ architecture](../in-depth/architecture.md) -
 Implement a secure onboarding/enrollment service - [design for preview available on Figma](https://www.figma.com/file/uoFcgpOuVWa6g7tvKwB52o/defguard?type=design\&node-id=2138-5395\&mode=design\&t=fWyd8Cvl054jB4h4-0)
 
 * that can be exposed to the Internet&#x20;
-* available only from a secure link/with a one-time token
+* available only from a secure link/with a one-time token - send **by email / printed**
 * with functionalities:
-  * setup initial user password
-  * add initial/first VPN device to allow accessing internal/corporate network
-  * password reset functionality
+  * **setup initial user password**
+  * **add initial/first VPN device** to allow accessing internal/corporate network
+  * **password reset** functionality
 
 [Milestone implementation progress](https://github.com/defguard/defguard/milestones/2)
 
@@ -96,7 +96,9 @@ We need to implement a proper group and ACL management functionality, that will 
 
 * **Prometheus exporter** - all activities handled by defguard will be exported to Prometheus so that you can create custom analytics and dashboards in your favorite tool from the Prometheus ecosystem
 * Secure **SSH authentication based on OpenID Connect & Multi-Factor Authentication** with Defguard
-* **SAML SSO Provider** - most _Old School_ enterprise systems implement SSO based on SAML v2 - so to provide our users with full range of features this should be implemented
+* **SAML SSO Provider** - most _Old School_ enterprise systems implement SSO based on SAML v2 - so to provide our users with a full range of features this should be implemented
+* 2FA/MFA functionality with **phone/SMS codes**
+* **Password reset secured by MFA** (SMS/TOTP/Webauthn/...)
 * **Mobile clients**
 * **Simple DNS provider**
 
