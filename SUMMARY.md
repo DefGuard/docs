@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Intro to Defguard](README.md)
+* [Defguard introduction](README.md)
 
 ## Features
 
