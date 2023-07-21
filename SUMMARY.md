@@ -13,7 +13,7 @@
 * [Wireguard](features/wireguard/README.md)
   * [Create your VPN network](features/wireguard/create-your-vpn-network.md)
   * [Network overview](community-features/wireguard/network-overview.md)
-  * [Adding Wireguard devices](community-features/wireguard/adding-wireguard-devices.md)
+  * [Adding a device (connecting to VPN)](community-features/wireguard/adding-wireguard-devices.md)
 * [LDAP synchronization](features/ldap-synchronization-setup.md)
 * [OpenID Connect](features/openid-connect/README.md)
   * [Portainer](features/openid-connect/portainer.md)

@@ -1,49 +1,45 @@
-# Adding Wireguard devices
+# Adding a device (connecting to VPN)
 
-### On this site you learn how to:
+## Installing Wireguard/VPN client
 
-* Add new wireguard device
-* Download it's config
-* Start your VPN connection
+First, you have to install Wireguard application. On this [site](https://www.wireguard.com/install/) you can find information on how to download Wireguard for any operating system.
 
-First make sure you have installed wireguard on this [site](https://www.wireguard.com/install/) you can find information how to download wireguard for any operating system.
+## Adding a device to connect to VPN
 
-### Creating new device
+1. Go to **your profile** (_My Profile -_ which you'll find on the navigation on the left side of the screen)&#x20;
+2. Click on _Add new device_
 
-After you installed wireguard client and configured your network you can go to your profile which you''ll find on the navigation on the left side of the screen where you can add modify and delete your device or download configuration file for it.
+<figure><img src="../../.gitbook/assets/add-device1.png" alt=""><figcaption></figcaption></figure>
 
-![Profile page](../../.gitbook/assets/profile.png)
+3. Now you can **name your device (like Laptop, Phone, whatever you like)** and then you have two options:
 
-Before creating new device make you sure generated your public and private keys which are necessary for VPN connection setup.
+<figure><img src="../../.gitbook/assets/add-device2.png" alt=""><figcaption></figcaption></figure>
 
-You can easily create new keys by running below command:
-
-```
-wg genkey | tee privatekey | wg pubkey > publickey
-```
-
-Click on add new device button then add contents of publickey file to form and pick a name for your newly created device.
-
-![New device Form](../../.gitbook/assets/adddevice.png)
-
-After you created new device you will see it in your profile if you hover on it the settings button will pop up after you click on it you'll see option to download config.
-
-```
-[Interface]
-PrivateKey = YOUR_PRIVATE_KEY
-Address = 10.10.1.202
+a. **Generate key pair** - if you are a new user, just select this option - it will generate a secure key pair (private and public key) - **securly in you browser (defguard doesn't store user private keys)**
 
 
-[Peer]
-PublicKey = yKNQWaynkiZad6NJDycTm0tgLzKxI6r6yvq++QYncmA=
-Endpoint = 10.1.1.0:7400
-PersistentKeepalive = 25
-```
 
-Defguard will dynamically create device config and assign it's own unique IP address. After downloading config which look like this above you need to replace `YOUR_PRIVATE_KEY` with contents of created before privatekey file and move config file to `/etc/wireguard` directory on unix-like systems and on windows copy it contents run wireguard program and paste into new tunnel option.
+{% hint style="info" %}
+Choosing this option - when you download your configuration (or use QR Code to configure Wireguard on your mobile device) - **the private key will be included in your configuration and there will be noting else you need to do**
+{% endhint %}
 
-After doing this you can run to start your VPN connection.
+b. **Use my own public key** - if you are an advanced user and know how to generate a key pair yourself - you can choose this option and enter **your own public key (keeping your private key to yourself)**
 
-`wg-quick up <device_name>`
+{% hint style="warning" %}
+Choosing this option - **you will need to change PrivateKey (insert the private key you hold)** in the configuration file you download&#x20;
+{% endhint %}
 
-**Note** `<device_name>` is downloaded config file name without .conf extension.
+4. Now you can **download/configure your Wireguard/VPN client by:**
+   1. **downloading** the configuration
+   2. **Copy** configuration to Clipboard
+   3. Use Wireguard feature to configure by scanning the **QR Code**
+
+
+
+<figure><img src="../../.gitbook/assets/add-device3.png" alt=""><figcaption></figcaption></figure>
+
+
+
+{% hint style="info" %}
+If you have **multiple VPN locations** - you can choose to download configuration for **each of the location - by selecting the location as shown**
+{% endhint %}
