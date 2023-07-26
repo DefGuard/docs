@@ -35,6 +35,7 @@ docker-compose up
 To run backend without docker, you'll need:
 
 * postgres database
+* protobuf compiler (`protoc`)
 * environment variables set
 
 Run postgres with:
