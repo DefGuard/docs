@@ -32,11 +32,11 @@
 
 ## For Developers
 
+* [Contributing](for-developers/contributing.md)
 * [Translations ( web )](for-developers/translations-web/README.md)
   * [Switching language](for-developers/translations-web/switching-language.md)
   * [Adding translations](for-developers/translations-web/adding-translations.md)
 * [Environment setup](for-developers/dev-env-setup.md)
-* [Contributing](for-developers/contributing.md)
 * [Other resources](for-developers/other-resources.md)
 
 ## Contact us
