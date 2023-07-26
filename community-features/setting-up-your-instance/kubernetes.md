@@ -33,7 +33,6 @@ Required values (the rest should work if left as-is):
 * `ingress.hosts.grpc`: GRPC ingress address - grpc clients like defguard-gateway, youbi-bridge etc. will connect here.
 * `ingress.hosts.web`: Web ingress address - Defguard webapp will be available here.
 * `publicUrl`: Public URL your Defguard will be available under. Usually the same as ingress.hosts.web, but differ depending on your loadbalancer and/or reverse-proxy setup.
-* `license`: Your license string, if you have one.
 
 And finally install the Helm chart in the namespace:
 
