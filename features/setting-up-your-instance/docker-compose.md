@@ -16,7 +16,9 @@ cp .env.template .env
 And then edit the values in `.env` file to setup your secrets. Those should be kept... well, secret.
 
 {% hint style="info" %}
-You can generate random strings for secrets with e.g.: `openssl rand -hex 64`
+You can generate random strings for secrets with e.g.:
+
+`openssl rand -base64 55 | tr -d "=+/" | tr -d '\n' | cut -c1-63`
 {% endhint %}
 
 ## SSL setup
