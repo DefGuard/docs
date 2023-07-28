@@ -4,7 +4,7 @@ description: This is a high-level project roadmap of planned features.
 
 # Roadmap
 
-Find out the current milestone status on the [GitHub Milestone page](https://github.com/DefGuard/defguard/milestones).
+For already implemented features go to [Changelog](../in-depth/changelog.md) (or [GitHub release page](https://github.com/DefGuard/defguard/releases) for more details).
 
 ## v0.7.0 - Remote user enrollment & on-boarding - end of Aug 2023
 
