@@ -5,6 +5,7 @@
 ## User documentation (help) <a href="#help" id="help"></a>
 
 * [Changing your password](help/changing-your-password.md)
+* [Setting up 2FA/MFA](help/setting-up-2fa-mfa.md)
 
 ## Features
 
