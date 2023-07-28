@@ -2,6 +2,10 @@
 
 * [Defguard introduction](README.md)
 
+## User documentation (help) <a href="#help" id="help"></a>
+
+* [Changing your password](help/changing-your-password.md)
+
 ## Features
 
 * [Roadmap](features/roadmap.md)
