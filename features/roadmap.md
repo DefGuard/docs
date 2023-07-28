@@ -10,7 +10,7 @@ Find out the current milestone status on the [GitHub Milestone page](https://git
 
 ### Problem
 
-defguard has a secure/microservice[ architecture](architecture.md) - and the best way to deploy defguard is to have the _core server_ inside the internal network (not exposed to the internet) or available for the user via VPN. This approach raises a significant problem in onboarding new remote users: _how can a user access defguard and add their devices to access VPN or change their password if they can't access defguard?_ Also, there is currently no mechanism to share for the user their login/password**.**&#x20;
+defguard has a secure/microservice[ architecture](../in-depth/architecture.md) - and the best way to deploy defguard is to have the _core server_ inside the internal network (not exposed to the internet) or available for the user via VPN. This approach raises a significant problem in onboarding new remote users: _how can a user access defguard and add their devices to access VPN or change their password if they can't access defguard?_ Also, there is currently no mechanism to share for the user their login/password**.**&#x20;
 
 ### **Solution**
 

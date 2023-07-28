@@ -30,7 +30,7 @@
 
 ## In depth
 
-* [Roadmap](in-depth/roadmap.md)
+* [Roadmap](features/roadmap.md)
 * [Changelog](in-depth/changelog.md)
 * [Architecture Overview](in-depth/architecture.md)
 * [Configuration](in-depth/environmental-variables-configuration.md)

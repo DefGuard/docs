@@ -1,12 +1,20 @@
 ---
 description: >-
-  Here you can track of changes made in more detail then on our GitHub release
-  page.
+  Here you can track changes made in more detail than on our GitHub release
+  page: https://github.com/DefGuard/defguard/releases
 ---
 
 # Changelog
 
-## v0.6.0 - released 2023.07.24
+## v0.6.1 - released 2023.07.26
+
+### ✨ Purge Wireguard VPN old stats
+
+For now, we support only 24h window into stats (more detailed stats we plan to do using OpenTelemetry and Prometheus exporter for devops/admins to configure their dashboards and all events stats according to their needs).
+
+So a lot of stats data is gathered, not used. We need to purge them.&#x20;
+
+## v0.6.0 - released 2023.07.25
 
 ### ✨ Multiple VPN locations
 
