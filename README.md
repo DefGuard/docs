@@ -55,6 +55,6 @@ Learn the fundamentals of Defguard to get a deeper understanding of our main fea
 [architecture.md](in-depth/architecture.md)
 {% endcontent-ref %}
 
-{% content-ref url="in-depth/wireguard-vpn.md" %}
-[wireguard-vpn.md](in-depth/wireguard-vpn.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}

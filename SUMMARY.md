@@ -12,29 +12,28 @@
 ## Features
 
 * [Deploying your instance](features/setting-up-your-instance/README.md)
-  * [Configuration](features/setting-up-your-instance/environmental-variables-configuration.md)
+  * [Configuration](in-depth/environmental-variables-configuration.md)
   * [Docker Compose](features/setting-up-your-instance/docker-compose.md)
   * [Kubernetes](community-features/setting-up-your-instance/kubernetes.md)
   * [Gateway](features/setting-up-your-instance/gateway.md)
-* [Webhooks](community-features/webhooks.md)
-* [Wireguard](features/wireguard/README.md)
-  * [Create your VPN network](features/wireguard/create-your-vpn-network.md)
-  * [Network overview](community-features/wireguard/network-overview.md)
-* [LDAP synchronization](features/ldap-synchronization-setup.md)
 * [OpenID Connect](features/openid-connect/README.md)
   * [Portainer](features/openid-connect/portainer.md)
   * [Grafana setup](features/openid-connect/grafana-setup.md)
   * [Django Rest React App](features/openid-connect/django-rest-react-app.md)
   * [Proxmox](features/openid-connect/proxmox.md)
   * [Matrix / Synapse](features/openid-connect/proxmox-1.md)
+* [LDAP synchronization](features/ldap-synchronization-setup.md)
+* [Wireguard](features/wireguard/README.md)
+  * [Create your VPN network](features/wireguard/create-your-vpn-network.md)
+  * [Network overview](community-features/wireguard/network-overview.md)
 * [YubiKey Provisioning](features/yubikey-provisioning.md)
+* [Webhooks](community-features/webhooks.md)
 
 ## In depth
 
 * [Roadmap](features/roadmap.md)
 * [Changelog](in-depth/changelog.md)
 * [Architecture Overview](in-depth/architecture.md)
-* [Wireguard VPN](in-depth/wireguard-vpn.md)
 
 ## For Developers
 

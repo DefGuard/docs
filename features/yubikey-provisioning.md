@@ -62,7 +62,7 @@ docker-compose run yubi-bridge --provision <first_name> <last_name> <email>
 
 Your keys will be created and transferred to YubiKey.
 
-If you want to know more about possible arguments or environment variables take a look [here](setting-up-your-instance/environmental-variables-configuration.md).
+If you want to know more about possible arguments or environment variables take a look [here](../in-depth/environmental-variables-configuration.md).
 
 ### Common errors
 

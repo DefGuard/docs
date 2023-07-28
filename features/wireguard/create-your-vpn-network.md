@@ -99,7 +99,4 @@ If you're using docker image you can pass this value as environmental variables 
 
 ## VPN feature in depth
 
-If you think something above is complicated or unclear you might want to take a look at our [in depth Wireguard VPN explanation](../../in-depth/wireguard-vpn.md).
-
-
-
+If you think something above is complicated or unclear you might want to take a look at our [in depth Wireguard VPN explanation](broken-reference).

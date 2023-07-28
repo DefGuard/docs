@@ -22,4 +22,4 @@ On initial startup a new `admin` user will be created with a password which can 
 
 ### Tips
 
-See our [Configuration](environmental-variables-configuration.md) document to check all configurable things before you start. And learn about our Architecture [here](../../in-depth/architecture.md) to see how it works.
+See our [Configuration](../../in-depth/environmental-variables-configuration.md) document to check all configurable things before you start. And learn about our Architecture [here](../../in-depth/architecture.md) to see how it works.
