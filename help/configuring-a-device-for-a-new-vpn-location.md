@@ -5,7 +5,7 @@ If you (or your defguard administrator) have added a new VPN Location and you wo
 1. Go to **your profile** (_My Profile -_ which you'll find on the navigation on the left side of the screen)&#x20;
 2. Click on the **gear icon on the device you want to download Location configuration** - a menu for that device will apear:
 
-<figure><img src="../../.gitbook/assets/device-newlocation.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/device-newlocation.png" alt=""><figcaption></figcaption></figure>
 
 3. Choose **Show configuration**
 
@@ -13,9 +13,9 @@ The same configuration screen will popup as you were adding this device, but now
 
 
 
-<figure><img src="../../.gitbook/assets/device-newlocation2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/device-newlocation2.png" alt=""><figcaption></figcaption></figure>
 
-4. **Download and configure your Wireguard VPN** exactly the same way you did it during the [adding device process](../../community-features/wireguard/adding-wireguard-devices.md).&#x20;
+4. **Download and configure your Wireguard VPN** exactly the same way you did it during the [adding device process](adding-wireguard-devices.md).&#x20;
 
 The configuration will be named **LocationName-device.conf** - just add a new configuration to Wireguard client.
 

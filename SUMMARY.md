@@ -6,6 +6,8 @@
 
 * [Changing your password](help/changing-your-password.md)
 * [Setting up 2FA/MFA](help/setting-up-2fa-mfa.md)
+* [Adding a device (connecting to VPN)](help/adding-wireguard-devices.md)
+* [Configuring a device for a new VPN Location](help/configuring-a-device-for-a-new-vpn-location.md)
 
 ## Features
 
@@ -18,8 +20,6 @@
 * [Wireguard](features/wireguard/README.md)
   * [Create your VPN network](features/wireguard/create-your-vpn-network.md)
   * [Network overview](community-features/wireguard/network-overview.md)
-  * [Adding a device (connecting to VPN)](community-features/wireguard/adding-wireguard-devices.md)
-  * [Configuring a device for a new VPN Location](features/wireguard/configuring-a-device-for-a-new-vpn-location.md)
 * [LDAP synchronization](features/ldap-synchronization-setup.md)
 * [OpenID Connect](features/openid-connect/README.md)
   * [Portainer](features/openid-connect/portainer.md)
