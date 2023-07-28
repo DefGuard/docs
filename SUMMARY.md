@@ -12,6 +12,7 @@
 ## Features
 
 * [Deploying your instance](features/setting-up-your-instance/README.md)
+  * [Configuration](features/setting-up-your-instance/environmental-variables-configuration.md)
   * [Docker Compose](features/setting-up-your-instance/docker-compose.md)
   * [Kubernetes](community-features/setting-up-your-instance/kubernetes.md)
   * [Gateway](features/setting-up-your-instance/gateway.md)
@@ -33,7 +34,6 @@
 * [Roadmap](features/roadmap.md)
 * [Changelog](in-depth/changelog.md)
 * [Architecture Overview](in-depth/architecture.md)
-* [Configuration](in-depth/environmental-variables-configuration.md)
 * [Wireguard VPN](in-depth/wireguard-vpn.md)
 
 ## For Developers

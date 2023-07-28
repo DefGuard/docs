@@ -1,16 +1,13 @@
-# YubiBridge
+# YubiKey Provisioning
 
-We created YubiBridge to make creating and provisioning of [GPG](https://gnupg.org/) keys for [YubiKey](https://www.yubico.com/products/) easy.
-YubiBridge allows you to provision your YubiKey with automatically generated GPG keys in a few simple steps.
-It's completely safe, we are not storing private keys, they are completely wiped after provisioning.
-Only public SSH and PGP keys are sent to Defguard - you can download them at any time.
+We created YubiBridge to make creating and provisioning of [GPG](https://gnupg.org/) keys for [YubiKey](https://www.yubico.com/products/) easy. YubiBridge allows you to provision your YubiKey with automatically generated GPG keys in a few simple steps. It's completely safe, we are not storing private keys, they are completely wiped after provisioning. Only public SSH and PGP keys are sent to Defguard - you can download them at any time.
 
 ## How to use YubiBridge?
 
 You can use YubiBridge in two ways:
 
-* [as a Defguard client service](#as-a-defguard-client) - run the service and then provision YubiKey from Defguard web app
-* [as a standalone command-line application](#as-a-cli-app) - insert your YubiKey then run the app providing your name and email as arguments
+* [as a Defguard client service](yubikey-provisioning.md#as-a-defguard-client) - run the service and then provision YubiKey from Defguard web app
+* [as a standalone command-line application](yubikey-provisioning.md#as-a-cli-app) - insert your YubiKey then run the app providing your name and email as arguments
 
 ### As a Defguard client
 
@@ -36,11 +33,9 @@ cp .env.template .env
 docker compose up
 ```
 
-If everything went well, your machine (with worker id you just set) should be visible in Defguard provisioners tab.
-To provision the key:
+If everything went well, your machine (with worker id you just set) should be visible in Defguard provisioners tab. To provision the key:
 
-1. select the user from "Users" page in Defguard web-application (or go to "My Profile" if you're provisioning a key for
-yourself)
+1. select the user from "Users" page in Defguard web-application (or go to "My Profile" if you're provisioning a key for yourself)
 2. insert a clean YubiKey (YubiBridge won't override existing keys, if there are any existing keys provisioning will fail)
 3. click the "Provision YubiKey" button
 4. select your provisioner and click the "Provision YubiKey" button
@@ -67,7 +62,7 @@ docker-compose run yubi-bridge --provision <first_name> <last_name> <email>
 
 Your keys will be created and transferred to YubiKey.
 
-If you want to know more about possible arguments or environment variables take a look [here](../in-depth/environmental-variables-configuration.md).
+If you want to know more about possible arguments or environment variables take a look [here](setting-up-your-instance/environmental-variables-configuration.md).
 
 ### Common errors
 
@@ -80,4 +75,3 @@ In case you got `ERROR: Can't connect to smartcard` in your log messages or on D
 5. Start worker service
 
 You may also have to stop gpg-agent and pcscd services on your system if you're running Linux.
-

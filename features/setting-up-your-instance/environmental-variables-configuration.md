@@ -118,7 +118,7 @@ token = "<your_gateway_token>"
 # NOTE: must replace default with actual value
 grpc_url = "<defguard_grpc_url>"
 # Optional: gateway name which will be displayed in Defguard web UI
-name = "Gateway A"
+name = "Gateway on server X"
 # Required: use userspace Wireguard implementation (e.g. wireguard-go)
 userspace = false
 # Optional: path to TLS cert file
