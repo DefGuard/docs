@@ -6,32 +6,11 @@ description: This is a high-level project roadmap of planned features.
 
 Find out the current milestone status on the [GitHub Milestone page](https://github.com/DefGuard/defguard/milestones).
 
-## v0.6.0 - Multiple VPN locations - planned: end of July 2023
-
-### Problem
-
-defguard right now only supports one VPN network/location and one gateway ([Wireguard VPN configuration microservice](../in-depth/architecture.md)) instance for that location.
-
-### **Solution**
-
-* Implement supporting multiple VPN networks/locations
-  * configuring/editing/deleting
-  * **allow only selected groups/users (currently we support two: All users & Admin) to connect to selected Location/VPN**
-  * displaying detailed statistics for each VPN/Location
-  * allowing users to download the configuration for each device for any Location/VPN network&#x20;
-*   Support multiple instances of gateway service in order to provide **high availability/failover**
-
-    * displaying the status of each gateway
-
-    ![](../.gitbook/assets/gw.png)
-
-[Milestone implementation progress](https://github.com/DefGuard/defguard/milestone/1)
-
 ## v0.7.0 - Remote user enrollment & on-boarding - end of Aug 2023
 
 ### Problem
 
-defguard has a secure/microservice[ architecture](../in-depth/architecture.md) - and the best way to deploy defguard is to have the _core server_ inside the internal network (not exposed to the internet) or available for the user via VPN. This approach raises a significant problem in onboarding new remote users: _how can a user access defguard and add their devices to access VPN or change their password if they can't access defguard?_ Also, there is currently no mechanism to share for the user their login/password**.**&#x20;
+defguard has a secure/microservice[ architecture](architecture.md) - and the best way to deploy defguard is to have the _core server_ inside the internal network (not exposed to the internet) or available for the user via VPN. This approach raises a significant problem in onboarding new remote users: _how can a user access defguard and add their devices to access VPN or change their password if they can't access defguard?_ Also, there is currently no mechanism to share for the user their login/password**.**&#x20;
 
 ### **Solution**
 

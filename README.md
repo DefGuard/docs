@@ -25,7 +25,7 @@ Building a secure organization has always been difficult and costly. Defguard pr
 
 ### Features in development / planned
 
-Go to product [**ROADMAP**](features/roadmap.md)**.**
+Go to product [**ROADMAP**](in-depth/roadmap.md)**.**
 
 ## Guides: Jump right in
 
