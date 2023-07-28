@@ -14,6 +14,10 @@ For now, we support only 24h window into stats (more detailed stats we plan to d
 
 So a lot of stats data is gathered, not used. We need to purge them.&#x20;
 
+#### Other changes
+
+Please visit the [GithHub release page](https://github.com/DefGuard/defguard/releases/tag/v0.6.1).
+
 ## v0.6.0 - released 2023.07.25
 
 ### ✨ Multiple VPN locations
