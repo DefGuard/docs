@@ -39,7 +39,7 @@ After doing that, a new screen will show on the _Authenticator_ app, that will g
 
 
 
-<figure><img src="../.gitbook/assets/authenticator.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/authenticator.png" alt="" width="188"><figcaption></figcaption></figure>
 
 **Enter the code you see on the mobile app**, to confirm, that the process has been done correctly (defguard will now validate the code).
 
