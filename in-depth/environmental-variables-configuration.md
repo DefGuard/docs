@@ -52,6 +52,18 @@ You can generate random strings for secrets with e.g.:
 * `DEFGUARD_ADMIN_GROUPNAME`: Name of the administrator group, default: `admin`
 * `DEFGUARD_DEFAULT_ADMIN_PASSWORD`: Password for the default `admin` user, default: `pass123`
 
+### Stats cleanup configuration
+
+* `DEFGUARD_DISABLE_STATS_PURGE` : disable periodic cleanup of old Wireguard stats
+* `DEFGUARD_STATS_PURGE_FREQUENCY` : how often should the cleanup process be performed, default `24h`
+* `DEFGUARD_STATS_PURGE_THRESHOLD` : age treshold for stats removal, default `30d`
+
+### Enrollment configuration
+
+* `DEFGUARD_ENROLLMENT_URL`: external URL of the enrollment proxy server, default `http://localhost:8080`
+* `DEFGUARD_ENROLLMENT_TOKEN_TIMEOUT` : how long is the enrollment token valid for use, default: `24h`
+* `DEFGUARD_ENROLLMENT_SESSION_TIMEOUT` : how long in the enrollment session valid after user uses the token to start the enrollment process, default: `10m`
+
 ### gRPC configuration
 
 * `DEFGUARD_GRPC_PORT` : gRPC server port, default `50055`
