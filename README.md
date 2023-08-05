@@ -14,7 +14,7 @@ On a broader aspect, it's a **security platform** for building **secure** **orga
 
 You may not, you can just use defguard selected modules (and disable others in UI and not even see them) and be happy with a **really nice UI to manage users, apps, networks, devices, and hardware security keys.**
 
-Or use another dedicated system just for that functionality (there are a lot OpenID/Identity, Wireguard VPN providers - commercial or open-source), but what typically happens is you start with one selected functionality/system  - over time what happens (when your user base, network, and apps grow) - is that you need another functionality. Then, you need to deploy another and another system - and **integrate them.** Most of the time it's really **hard** (and sometimes impossible) to integrate those systems. Even if you can, it's **costly.** But what is most important: **it takes time** to integrate various systems into one platform, and even if you do it - most likely it will **not be easy to use by users** and **hard to maintain by developers and administrators.**
+Or use another dedicated system just for that functionality (there are a lot OpenID/Identity, Wireguard VPN providers - commercial or open-source), but what typically happens is you start with one selected functionality/system  - and over time (when your user base, network, and apps grow) - is that you need another functionality. Then, you need to deploy another and another system - and **integrate them.** Most of the time it's really **hard** (and sometimes impossible) to integrate those systems - even if you can, it's **costly.** But what is most important: **it takes time** to integrate various systems into one platform, and even if you do it - most likely it will **not be easy to use by users** and **hard to maintain by developers and administrators.**
 
 That's why defguard came to be, being a company that:
 
@@ -23,7 +23,11 @@ That's why defguard came to be, being a company that:
 
 ### What does it mean to build a secure "organization" (or even a small network like a homelab)?
 
-It means having a setup (systems, networks), that will cover all **fundamental processes, like**:
+First of all, It means implementing a **secure architecture** for your network and systems. In the age of "cloud," all systems (and data) are **public.** But that should be **for you to decide!**
+
+That's why defguard architecture (and implementation) is secure (and thoroughly and comprehensively audited by one of the best security researchers). If you want full privacy, defguard only exposes its VPN gateway (to provide a secure channel to all internal systems that should be behind the firewall) and the public proxy (for the remote user enrollment process).
+
+It also means having an architecture (systems, networks), that will cover all **fundamental processes,** like:
 
 * secure remote user enrollment (self-service)
 * user self-service to manage their own data, change passwords, add/remove VPN devices, connect securely to networks
