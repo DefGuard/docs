@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Defguard introduction](README.md)
+* [Introduction](README.md)
 
 ## User documentation (help) <a href="#help" id="help"></a>
 
