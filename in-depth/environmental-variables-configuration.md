@@ -111,6 +111,14 @@ If you're using docker image you can pass this value as environmental variables 
 
 `-s, --use-syslog` - enable logging to syslog
 
+`PRE_UP` , `--pre-up`, - Command to run before bringing up the interface. If you want to run a shell script, you should pass it's path to your shell, for example: `/bin/sh -c /path/to/script`
+
+`POST_UP` , `--post-up`, - Command to run after bringing up the interface.
+
+`PRE_DOWN` , `--pre-down`, - Command to run before bringing down the interface.
+
+`POST_DOWN` , `--post-down`, - Command to run after bringing down the interface. &#x20;
+
 {% hint style="info" %}
 If logging to syslog please remember to configure your syslog deamon accordingly, so that a dedicated logfile is created or the messages are included in the main system log.
 {% endhint %}
