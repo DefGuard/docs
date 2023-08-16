@@ -71,6 +71,14 @@ You can generate random strings for secrets with e.g.:
 * `DEFGUARD_GRPC_KEY`(optional): path to TLS key file
 * `DEFGUARD_GRPC_URL` : external URL of your instance's gRPC server, default `http://localhost:50055`; used for generating example VPN gateway startup command in Web UI.
 
+## Enrollment service
+
+### Environmental variables
+
+* `DEFGUARD_PROXY_HTTP_PORT` : port the API server will listen on, default `8080`
+* `DEFGUARD_PROXY_UPSTREAM_GRPC_URL` : core server gRPC endpoint URL, default `http://localhost:50055/`
+* `DEFGUARD_PROXY_GRPC_CA` (optional): path to TLS certificate file, required if connecting to core gRPC service with HTTPS
+
 ## YubiBridge configuration
 
 ### Environmental variables

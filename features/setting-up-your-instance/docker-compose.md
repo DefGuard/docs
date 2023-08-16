@@ -24,13 +24,13 @@ You can generate random strings for secrets with e.g.:
 ## SSL setup
 
 {% hint style="warning" %}
-It's crytically important to ensure SSL encryption between Defguard and Gateway services. You should only skip this step if you plan to have a reverse proxy in between that adds encryption itself.
+It's crytically important to ensure SSL encryption between Defguard and gRPC client services (e.g. Gateway and Enrollment services). You should only skip this step if you plan to have a reverse proxy in between that adds encryption itself.
 {% endhint %}
 
 You'll need a valid:
 
-* CA certificate (defguard-ca.pem) - used by Gateway for Defguard identity verification & encryption
-* Certificate for Defguard signed by CA (defguard.crt) - used by Defguard to serve gateway gRPC
+* CA certificate (defguard-ca.pem) - used by gRPC clients for Defguard identity verification & encryption
+* Certificate for Defguard signed by CA (defguard.crt) - used by Defguard to serve gRPC services
 * Private key for Defguard (defguard.key) - used by Defguard for encryption
 
 [Here](https://deliciousbrains.com/ssl-certificate-authority-for-local-https-development/) is a good tutorial on how to generate a self-signed certificate.
