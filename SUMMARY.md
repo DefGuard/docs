@@ -28,6 +28,7 @@
   * [Network overview](community-features/wireguard/network-overview.md)
 * [YubiKey Provisioning](features/yubikey-provisioning.md)
 * [Webhooks](community-features/webhooks.md)
+* [Forward auth](features/forward-auth.md)
 
 ## In depth
 

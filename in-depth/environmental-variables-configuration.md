@@ -52,6 +52,11 @@ You can generate random strings for secrets with e.g.:
 * `DEFGUARD_ADMIN_GROUPNAME`: Name of the administrator group, default: `admin`
 * `DEFGUARD_DEFAULT_ADMIN_PASSWORD`: Password for the default `admin` user, default: `pass123`
 
+### Auth cookies configuration
+
+* `DEFGUARD_COOKIE_INSECURE` : set cookies without the `Secure` flag; use only in dev environments when serving defguard without HTTPS
+* `DEFGUARD_COOKIE_DOMAIN` (optional): set the domain for auth cookies. By default it's the domain from `DEFGUARD_URL`. Must be changed to base URL if you want to use [forward auth](../features/forward-auth.md).
+
 ### Stats cleanup configuration
 
 * `DEFGUARD_DISABLE_STATS_PURGE` : disable periodic cleanup of old Wireguard stats
