@@ -1,6 +1,6 @@
 # Docker Compose
 
-We prepared a [git repository](https://github.com/DefGuard/deployment) with docker-compose configuration, clone it:
+securelyWe prepared a [git repository](https://github.com/DefGuard/deployment) with docker-compose configuration, clone it:
 
 ```
 git clone https://github.com/DefGuard/deployment.git && cd deployment
