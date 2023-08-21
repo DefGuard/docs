@@ -10,6 +10,7 @@
 * [Configuring a device for a new VPN Location](help/configuring-a-device-for-a-new-vpn-location.md)
 * [Remote user enrollment](help/remote-user-enrollment.md)
 * [Setting up SMTP for email notifications](help/setting-up-smtp-for-email-notifications.md)
+* [Sending support information](help/sending-support-info.md)
 
 ## Features
 
