@@ -27,7 +27,7 @@ Environment variables that are **not already set** are loaded from .env files by
 {% hint style="info" %}
 You can generate random strings for secrets with e.g.:
 
-`openssl rand -base64 55 | tr -d "=+/" | tr -d '\n' | cut -c1-63`
+`openssl rand -base64 55 | tr -d "=+/" | tr -d '\n' | cut -c1-64`
 {% endhint %}
 
 * `DEFGUARD_LOG_LEVEL` - [Logger](https://crates.io/crates/log) log level, default: `info`
