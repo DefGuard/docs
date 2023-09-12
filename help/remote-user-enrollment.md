@@ -9,34 +9,34 @@ To avoid this issue you can deploy a **public** [defguard proxy](https://github.
 <figure><img src="https://raw.githubusercontent.com/DefGuard/docs/docs/releases/0.7/enrollment.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-The proxy is included when using the default [deployment instructions](../../features/setting-up-your-instance/).&#x20;
+The proxy is included when using the default [deployment instructions](../features/setting-up-your-instance/).&#x20;
 
-Please also see the relevant configuration options for [core](../../in-depth/environmental-variables-configuration.md#enrollment-configuration) and the [proxy itself](../../in-depth/environmental-variables-configuration.md#enrollment-service).&#x20;
+Please also see the relevant configuration options for [core](../in-depth/environmental-variables-configuration.md#enrollment-configuration) and the [proxy itself](../in-depth/environmental-variables-configuration.md#enrollment-service).&#x20;
 {% endhint %}
 
 ## Enrollment settings
 
 {% hint style="warning" %}
-In order for the enrollment process to function correctly you must also [set up an SMTP server](../setting-up-smtp-for-email-notifications.md) for delivering email notifications.
+In order for the enrollment process to function correctly you must also [set up an SMTP server](setting-up-smtp-for-email-notifications.md) for delivering email notifications.
 {% endhint %}
 
 As an admin, you can configure enrollment-related settings on the **Enrollment** page. This includes:
 
 * Making the VPN device step optional or mandatory in the enrollment wizard
-* Customizing the user [onboarding messages](user-onboarding-after-enrollment.md).
+* Customizing the user [onboarding messages](remote-user-enrollment/user-onboarding-after-enrollment.md).
 
 #### Message template tags
 
 There are several **template tags** (similar to [Jinja2](https://jinja.palletsprojects.com/en/3.1.x/) tags) that you can use in the onboarding messages to insert some dynamic content:
 
-* `{{ first_name }}`
-* `{{ last_name }}`
-* `{{ username }}`
-* `{{ admin_first_name }}`
-* `{{ admin_last_name }}`
-* `{{ admin_phone }}`
-* `{{ admin_email }}`
-* `{{ defguard_url }}`
+* `{{ first_name }}` - newly created user first name
+* `{{ last_name }}` - newly created user last name
+* `{{ username }}` - newly created user username/login
+* `{{ admin_first_name }}` - first name of the administrator who initiated the enrollment process
+* `{{ admin_last_name }}` - last name of the administrator who initiated the enrollment process
+* `{{ admin_phone }}`- phone number of the administrator who initiated the enrollment process
+* `{{ admin_email }}`- email of the administrator who initiated the enrollment process
+* `{{ defguard_url }}`- internal defguard URL (your defguard instance address)
 * `{{ defguard_version }}`
 
 ## Remote enrollment process
