@@ -8,7 +8,8 @@
 * [Setting up 2FA/MFA](help/setting-up-2fa-mfa.md)
 * [Adding a device (connecting to VPN)](help/adding-wireguard-devices.md)
 * [Configuring a device for a new VPN Location](help/configuring-a-device-for-a-new-vpn-location.md)
-* [Remote user enrollment](help/remote-user-enrollment.md)
+* [Remote user enrollment](help/remote-user-enrollment/README.md)
+  * [User onboarding after enrollment](help/remote-user-enrollment/user-onboarding-after-enrollment.md)
 * [Setting up SMTP for email notifications](help/setting-up-smtp-for-email-notifications.md)
 * [Sending support information](help/sending-support-info.md)
 
