@@ -8,7 +8,9 @@ Better quality video can [be found here to download](https://github.com/DefGuard
 
 In a nutshell, from a **functionality** point defguard is an **OpenID Identity Provider** (SSO for your apps) and **Wireguard VPN  Service** for building secure private networks (roadwarrior, mesh/peer-to-peer, site-to-site).
 
-On a broader aspect, it's a **security platform** for building **secure** **organizations**, addressing the most critical pain points and requirements to build a privacy-aware, secure fundament for your users and systems.
+On a broader aspect, it's a **security platform** for building **secure** and **privacy-aware organizations (with its secure architecture).**
+
+By design **defguard core is meant to be deployed in your secure network segments** (available only from an internal network or by VPN) and operations that require public access (like user onboarding, enrollment, password reset, etc.) **are done using a secure proxy**.
 
 ### Why should I care for a secure platform and not just functionalities (i just want VPN/OpenID...)?
 
@@ -42,12 +44,13 @@ It also means having an architecture (systems, networks), that will cover all **
 
 ## Features
 
-[OpenID Connect provider](https://openid.net/developers/how-connect-works/)
+[OpenID Connect provider](https://openid.net/developers/how-connect-works/) with some **unique features:**
 
+* Secure remote (over the internet) [user enrollment](https://defguard.gitbook.io/defguard/help/remote-user-enrollment)
+* User [onboarding after enrollment](https://defguard.gitbook.io/defguard/help/remote-user-enrollment/user-onboarding-after-enrollment)
 * LDAP (tested on [OpenLDAP](https://www.openldap.org/)) synchronization
 * nice UI to manage users
-* users can revoke access to granted apps
-* OAuth2 of course...
+* Users **self-service** (besides typical data management, users can revoke access to granted apps, MFA, Wireguard, etc.)
 
 [Wireguard](https://www.wireguard.com/) VPN management with:
 
