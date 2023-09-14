@@ -10,9 +10,13 @@ In a nutshell, from a **functionality** point defguard is an **OpenID Identity P
 
 On a broader aspect, it's a **security platform** for building **secure** and **privacy-aware organizations (with its secure architecture).**
 
-By design **defguard core is meant to be deployed in your secure network segments** (available only from an internal network or by VPN) and operations that require public access (like user onboarding, enrollment, password reset, etc.) **are done using a secure proxy**.
+By design **defguard core is meant to be deployed in your secure network segments** (available only from an internal network or by VPN) and operations that require public access (like user onboarding, enrollment, password reset, etc.) **are done using a secure proxy:**
 
-<figure><img src=".gitbook/assets/defguard.png" alt=""><figcaption><p>Example defguard architecture</p></figcaption></figure>
+<figure><img src=".gitbook/assets/defguard.png" alt=""><figcaption><p>Secure architecture</p></figcaption></figure>
+
+This architecture and approach gives you options - **either you secure your systems (with VPN\&Proxy),** or you can deploy typical architecture **without VPN/Gateway\&Proxy - and defguard as an OIDC provider** and your apps can be available from the Internet:
+
+<figure><img src=".gitbook/assets/defguard-simple.png" alt=""><figcaption><p>Simple Cloud architecture secured only with HTTPS</p></figcaption></figure>
 
 ### Why should I care for a secure platform and not just functionalities (i just want VPN/OpenID...)?
 
