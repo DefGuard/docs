@@ -12,6 +12,8 @@ On a broader aspect, it's a **security platform** for building **secure** and **
 
 By design **defguard core is meant to be deployed in your secure network segments** (available only from an internal network or by VPN) and operations that require public access (like user onboarding, enrollment, password reset, etc.) **are done using a secure proxy**.
 
+<figure><img src=".gitbook/assets/defguard.png" alt=""><figcaption><p>Example defguard architecture</p></figcaption></figure>
+
 ### Why should I care for a secure platform and not just functionalities (i just want VPN/OpenID...)?
 
 You may not, you can just use defguard selected modules (and disable others in UI and not even see them) and be happy with a **really nice UI to manage users, apps, networks, devices, and hardware security keys.**
