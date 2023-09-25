@@ -1,7 +1,7 @@
 # Matrix / Synapse
 
 {% hint style="warning" %}
-For Synapse OIDC to work you'll have to run Defguard with [RSA signing key](../setting-up-your-instance/docker-compose.md#openid-rsa-setup).
+For Synapse OIDC to work you'll have to run Defguard with [RSA signing key](../setting-up-your-instance/docker-compose-1.md#openid-rsa-setup).
 {% endhint %}
 
 ## Add Synapse app to Defguard

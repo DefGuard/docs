@@ -1,14 +1,29 @@
 # Deploying your instance
 
-Defguard comes with three main components:
+defguard comes with four main components:
 
-* Core service: webapp database
-* VPN gateway server: retrieves configuration from core and configures VPN interfaces on the gateway server
-* Provisioning station: client application which can be started on any pc to auto generate PGP keys for YubiKey
+* **Core service** - main web UI and database
+* **Proxy service** - used to safely expose a subset of public functionalities
+* **VPN gateway server** - retrieves configuration from core and configures VPN interfaces on the gateway server
+* **Provisioning station** - client application which can be started on any pc to auto generate PGP keys for YubiKey
 
-Use your preferred method to deploy Defguard core service
+## Quick start
 
-* [Docker Compose](docker-compose.md)
+The easiest way to run your own defguard instance is to use Docker and our [one-line install script](docker-compose.md).
+
+Just run the command below in your shell and follow the prompts:
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh -O && bash setup.sh
+```
+
+To learn more about the script and available options please see the [documentation](docker-compose.md).
+
+## Manual deployment
+
+If you prefer to configure and deploy defguard manually see the examples below:
+
+* [Docker Compose](docker-compose-1.md)
 * [Kubernetes](../../community-features/setting-up-your-instance/kubernetes.md)
 
 Client services

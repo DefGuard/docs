@@ -16,8 +16,9 @@
 ## Features
 
 * [Deploying your instance](features/setting-up-your-instance/README.md)
+  * [One-line install script](features/setting-up-your-instance/docker-compose.md)
   * [Configuration](in-depth/environmental-variables-configuration.md)
-  * [Docker Compose](features/setting-up-your-instance/docker-compose.md)
+  * [Docker Compose](features/setting-up-your-instance/docker-compose-1.md)
   * [Kubernetes](community-features/setting-up-your-instance/kubernetes.md)
   * [Gateway](features/setting-up-your-instance/gateway.md)
 * [OpenID Connect](features/openid-connect/README.md)
