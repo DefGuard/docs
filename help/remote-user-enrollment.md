@@ -11,7 +11,7 @@ To avoid this issue you can deploy a **public** [defguard proxy](https://github.
 {% hint style="info" %}
 The proxy is included when using the default [deployment instructions](../features/setting-up-your-instance/).&#x20;
 
-Please also see the relevant configuration options for [core](../in-depth/environmental-variables-configuration.md#enrollment-configuration) and the [proxy itself](../in-depth/environmental-variables-configuration.md#enrollment-service).&#x20;
+Please also see the relevant configuration options for [core](../features/setting-up-your-instance/configuration.md#enrollment-configuration) and the [proxy itself](../features/setting-up-your-instance/configuration.md#enrollment-service).&#x20;
 {% endhint %}
 
 ## Enrollment settings

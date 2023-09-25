@@ -7,7 +7,7 @@ In order for forward auth to work the services you are trying to protect must be
 
 For example if you are serving your defguard UI at `id.yourdomain.com`, then your services must use other subdomains of `yourdomain.com`, e.g. ``app1.yourdomain.com, `service.yourdomain.com` etc``.
 
-Additionally you have to update your [defguard config](../in-depth/environmental-variables-configuration.md#auth-cookies-configuration) to set the cookies domain to `yourdomain.com`.
+Additionally you have to update your [defguard config](setting-up-your-instance/configuration.md#auth-cookies-configuration) to set the cookies domain to `yourdomain.com`.
 {% endhint %}
 
 ## Example configurations

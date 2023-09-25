@@ -9,7 +9,7 @@ defguard comes with four main components:
 
 ## Quick start
 
-The easiest way to run your own defguard instance is to use Docker and our [one-line install script](docker-compose.md).
+The easiest way to run your own defguard instance is to use Docker and our [one-line install script](one-line-install.md).
 
 Just run the command below in your shell and follow the prompts:
 
@@ -17,13 +17,13 @@ Just run the command below in your shell and follow the prompts:
 curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh -O && bash setup.sh
 ```
 
-To learn more about the script and available options please see the [documentation](docker-compose.md).
+To learn more about the script and available options please see the [documentation](one-line-install.md).
 
 ## Manual deployment
 
 If you prefer to configure and deploy defguard manually see the examples below:
 
-* [Docker Compose](docker-compose-1.md)
+* [Docker Compose](docker-compose.md)
 * [Kubernetes](../../community-features/setting-up-your-instance/kubernetes.md)
 
 Client services
@@ -37,4 +37,4 @@ On initial startup a new `admin` user will be created with a password which can 
 
 ### Tips
 
-See our [Configuration](../../in-depth/environmental-variables-configuration.md) document to check all configurable things before you start. And learn about our Architecture [here](../../in-depth/architecture.md) to see how it works.
+See our [Configuration](configuration.md) document to check all configurable things before you start. And learn about our Architecture [here](../../in-depth/architecture.md) to see how it works.

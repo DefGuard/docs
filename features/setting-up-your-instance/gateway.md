@@ -105,7 +105,7 @@ opnsense-patch
 
 
 {% hint style="info" %}
-You can find detailed description of all fields [here](../../in-depth/environmental-variables-configuration.md#gateway-configuration).
+You can find detailed description of all fields [here](configuration.md#gateway-configuration).
 {% endhint %}
 
 If everything went well, your Gateway should be connected to Defguard and you can start [adding new devices to your network](features/wireguard/adding-wireguard-devices.md).

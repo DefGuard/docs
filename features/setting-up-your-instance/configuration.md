@@ -55,7 +55,7 @@ You can generate random strings for secrets with e.g.:
 ### Auth cookies configuration
 
 * `DEFGUARD_COOKIE_INSECURE` : set cookies without the `Secure` flag; use only in dev environments when serving defguard without HTTPS
-* `DEFGUARD_COOKIE_DOMAIN` (optional): set the domain for auth cookies. By default it's the domain from `DEFGUARD_URL`. Must be changed to base URL if you want to use [forward auth](../features/forward-auth.md).
+* `DEFGUARD_COOKIE_DOMAIN` (optional): set the domain for auth cookies. By default it's the domain from `DEFGUARD_URL`. Must be changed to base URL if you want to use [forward auth](../forward-auth.md).
 
 ### Stats cleanup configuration
 
