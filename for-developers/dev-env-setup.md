@@ -1,4 +1,4 @@
-# Development environment setup
+# Environment setup
 
 Remember to clone Defguard repository recursively (with protos):
 
@@ -26,6 +26,7 @@ docker-compose run core init-dev-env
 ```
 
 2. Run the application:
+
 ```
 docker-compose up
 ```
@@ -44,9 +45,21 @@ Run postgres with:
 docker-compose up -d db
 ```
 
-You'll find environment variables in .env file. Source them however you like (we recommend https://direnv.net/).
-Once that's done, you can run backend with:
+You'll find environment variables in .env file. Source them however you like (we recommend https://direnv.net/). Once that's done, you can run backend with:
 
 ```
 cargo run
 ```
+
+## Frontend
+
+{% hint style="info" %}
+The domain used to access the frontend instance has to match with the cookie domain address (which can be set using DEFGUARD\_COOKIE\_DOMAIN).
+
+For example, if the cookie domain is set to the default value of localhost, you should access frontend using localhost domain.
+{% endhint %}
+
+
+
+
+
