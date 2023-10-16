@@ -1,77 +1,67 @@
+---
+description: https://github.com/DefGuard/YubiKey-Provision
+---
+
 # YubiKey Provisioning
 
-We created YubiBridge to make creating and provisioning of [GPG](https://gnupg.org/) keys for [YubiKey](https://www.yubico.com/products/) easy. YubiBridge allows you to provision your YubiKey with automatically generated GPG keys in a few simple steps. It's completely safe, we are not storing private keys, they are completely wiped after provisioning. Only public SSH and PGP keys are sent to Defguard - you can download them at any time.
+## Overview
 
-## How to use YubiBridge?
+Our provisioning client allows you to easily populate the OpenPGP application on a YubiKey, and share its public information inside Defguard.
 
-You can use YubiBridge in two ways:
+It's completely safe, we are not storing private keys. Every key is provisioned inside an encapsulated session so any gpg related files are deleted right after the process ends successfully or not. Only public PGP and SSH keys are sent to Defguard so you can access them at any time.
 
-* [as a Defguard client service](yubikey-provisioning.md#as-a-defguard-client) - run the service and then provision YubiKey from Defguard web app
-* [as a standalone command-line application](yubikey-provisioning.md#as-a-cli-app) - insert your YubiKey then run the app providing your name and email as arguments
+## Installation
 
-### As a Defguard client
+Currently, we provide Linux .rpm and .deb packages alongside Docker image, but provisioning clients can also be compiled and run under Windows and MacOS.
 
-You can see available provisioners in Defguard web-application under "provisioners" tab.
+Note that if you decide to use Docker make sure your container has access to host machine devices, otherwise, you will encounter `No keys detected` error.
 
-To start your own provisioner:
+## Configuration
 
-1. Clone YubiBridge repository:
+All of the available options are described in help:
 
-```
-git clone --recursive https://github.com/DefGuard/yubi-bridge.git && cd yubi-bridge
-```
-
-2. Copy and fill in the .env file:
-
-```
-cp .env.template .env
+```bash
+yubikey-provision -h
 ```
 
-3. Finally, run the service with docker-compose:
+### CLI options and configuration
 
-```
-docker compose up
-```
+Configuration can be provided in CLI with options, in environment variables, or via `.env` file. &#x20;
 
-If everything went well, your machine (with worker id you just set) should be visible in Defguard provisioners tab. To provision the key:
+<table><thead><tr><th>Name</th><th>Description</th><th data-type="checkbox">Required</th><th>CLI option</th><th>Environment variable</th><th>Default value</th></tr></thead><tbody><tr><td>Provisioner ID</td><td>Shown in Defguard UI</td><td>true</td><td>--id</td><td>WORKER_ID</td><td>YubikeyProvisioner</td></tr><tr><td>Log level</td><td>Sets logging level</td><td>false</td><td>--log-level</td><td>LOG_LEVEL</td><td>info</td></tr><tr><td>GRPC Endpoint</td><td>Url of your Defguard instance GRPC endpoint</td><td>true</td><td>--grpc</td><td>GRPC_URL</td><td><a href="http://127.0.0.1:50055">http://127.0.0.1:50055</a></td></tr><tr><td>Authorization Token</td><td>Authorization Token found in Defguard UI on Provisioners page.</td><td>true</td><td>--token</td><td>DEFGUARD_TOKEN</td><td></td></tr><tr><td>Detection retries</td><td>How many times provisioner will check for YubiKey presence in system before abandoning the process.</td><td>false</td><td>--smartcard-retries</td><td>YUBIKEY_RETRIES</td><td>1</td></tr><tr><td>Retry interval</td><td>How long between retries provisioner will wait ( in seconds )</td><td>false</td><td>--smartcard-retry-interval</td><td>YUBIKEY_RETRY_INTERVAL</td><td>15</td></tr><tr><td>GPG debug level</td><td>Sets debug level for gpg command during gpg operations</td><td>false</td><td>--gpg-debug-level</td><td>GPG_DEBUG_LEVEL</td><td>none</td></tr></tbody></table>
 
-1. select the user from "Users" page in Defguard web-application (or go to "My Profile" if you're provisioning a key for yourself)
-2. insert a clean YubiKey (YubiBridge won't override existing keys, if there are any existing keys provisioning will fail)
-3. click the "Provision YubiKey" button
-4. select your provisioner and click the "Provision YubiKey" button
+## Client access token
 
-![Provisioning modal first step](../.gitbook/assets/ProvisioningModal.png)
+To register a new provisioning client you will need an access token provided by your instance. You can find it in the info card on the "Provisioners" page.\
 
-The service will take a minute to prepare and provision your keys. Once that's done you'll see a modal with your public keys that are now stored in Defguard.
 
-![Successful provision modal](../.gitbook/assets/ProvisioningModalKeys.png)
+## Example of use
 
-### As a CLI app
+You can see available clients in Defguard web-application under "provisioners" tab.
 
-1. Clone YubiBridge repository:
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-```
-git clone --recursive git@github.com:DefGuard/yubi-bridge.git && cd yubi-bridge
-```
+To provision the key:
 
-2. Run with docker-compose:
+1. select the user from "Users" page in Defguard web application (or go to "My Profile" if you're provisioning a key for yourself)\
 
-```
-docker-compose run yubi-bridge --provision <first_name> <last_name> <email>
-```
+2. insert a YubiKey to machine that is running the provisioner client.
+3.  select "Provision YubiKey" from the actions menu for a User in list.\
 
-Your keys will be created and transferred to YubiKey.
 
-If you want to know more about possible arguments or environment variables take a look [here](setting-up-your-instance/configuration.md).
+    <figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+4.  select your provisioner and click the "Provision YubiKey" button\
 
-### Common errors
 
-In case you got `ERROR: Can't connect to smartcard` in your log messages or on Defguard panel try these steps:
+    <figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
-1. Stop worker docker or native
-2. Run `gpg --card-edit` then follow on screen instructions to reset your YubiKey
-3. Unplug YubiKey
-4. Plugin your YubiKey again
-5. Start worker service
+The service will take a short moment to prepare and provision your keys. Once that's done you'll see a modal with your public keys that are now stored in Defguard. If the process fails for some reason you will see a short error reason returned by the provisioner.\
 
-You may also have to stop gpg-agent and pcscd services on your system if you're running Linux.
+
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+## Common problems
+
+#### YubiKey is not detected by the client
+
+If the client will not detect your YubiKey, it may work if you unplug and plug it back into your machine. If you are running on Linux, try to restart the pcscd service. If you are using docker image, make sure the container has access to your host devices.
