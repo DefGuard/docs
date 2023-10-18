@@ -34,21 +34,23 @@ Setup on authorization app if you want to login with Defguard.
 
 ### OpenID endpoints
 
-#### Discovery endpoint 
-OpenID Connect defines a discovery mechanism, called OpenID Connect Discovery, where an OpenID server publishes its metadata at a well-known URL, typically. This URL returns a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. The clients can use this information to construct a request to the OpenID server.
-**Note** For this endpoint to work correctly you have to set env variable named `DEFGUARD_URL` with URL of your defguard instance.
+#### Discovery endpoint
+
+OpenID Connect defines a discovery mechanism, called OpenID Connect Discovery, where an OpenID server publishes its metadata at a well-known URL, typically. This URL returns a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. The clients can use this information to construct a request to the OpenID server. **Note** For this endpoint to work correctly you have to set env variable named `DEFGUARD_URL` with URL of your defguard instance.
 
 `https://defguard.company.net/.well-known/openid-configuration`
 
-#### Authorization 
+#### Authorization
+
 `https://defguard.company.net/api/v1/oauth/authorize`
 
 #### Token
+
 `https://defguard.company.net/api/v1/oauth/token`
 
 #### Userinfo
-`https://defguard.company.net/api/v1/oauth/userinfo`
 
+`https://defguard.company.net/api/v1/oauth/userinfo`
 
 #### Authentication request
 
@@ -141,8 +143,22 @@ Every user that used Login with Defguard option can see in his profile name of e
 
 On the sidebar or by clicking links below you can find tutorials how to configure OpenID for:
 
-[grafana-setup.md](grafana-setup.md "mention")
+{% content-ref url="portainer.md" %}
+[portainer.md](portainer.md)
+{% endcontent-ref %}
 
-[portainer.md](portainer.md "mention")
+{% content-ref url="grafana-setup.md" %}
+[grafana-setup.md](grafana-setup.md)
+{% endcontent-ref %}
 
-[django-rest-react-app.md](django-rest-react-app.md "mention")
+{% content-ref url="proxmox.md" %}
+[proxmox.md](proxmox.md)
+{% endcontent-ref %}
+
+{% content-ref url="django.md" %}
+[django.md](django.md)
+{% endcontent-ref %}
+
+{% content-ref url="proxmox-1.md" %}
+[proxmox-1.md](proxmox-1.md)
+{% endcontent-ref %}
