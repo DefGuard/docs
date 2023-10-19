@@ -162,3 +162,7 @@ On the sidebar or by clicking links below you can find tutorials how to configur
 {% content-ref url="proxmox-1.md" %}
 [proxmox-1.md](proxmox-1.md)
 {% endcontent-ref %}
+
+{% content-ref url="minio.md" %}
+[minio.md](minio.md)
+{% endcontent-ref %}

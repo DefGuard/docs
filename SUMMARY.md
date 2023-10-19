@@ -27,6 +27,7 @@
   * [Proxmox](features/openid-connect/proxmox.md)
   * [Matrix / Synapse](features/openid-connect/proxmox-1.md)
   * [Django](features/openid-connect/django.md)
+  * [MinIO](features/openid-connect/minio.md)
 * [LDAP synchronization](features/ldap-synchronization-setup.md)
 * [Wireguard](features/wireguard/README.md)
   * [Create your VPN network](features/wireguard/create-your-vpn-network.md)
