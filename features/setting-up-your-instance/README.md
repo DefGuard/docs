@@ -43,7 +43,7 @@ See our [Configuration](configuration.md) document to check all configurable thi
 
 ## Updates
 
-All services within the Defguard architecture can be updated independently although it's recommended to use always newest version of services and update them all together to avoid situtations like core expecting some not existing feature in gateway.  \
+All services within the Defguard architecture can be updated independently although it's recommended to always use newest version of services and update them all together to avoid situtations like core expecting some not existing feature in gateway.  \
 Check the GitHub repositories for each service to find their newest releases and release notes.\
 
 
