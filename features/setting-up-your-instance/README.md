@@ -38,3 +38,25 @@ On initial startup a new `admin` user will be created with a password which can 
 ### Tips
 
 See our [Configuration](configuration.md) document to check all configurable things before you start. And learn about our Architecture [here](../../in-depth/architecture.md) to see how it works.
+
+
+
+## Updates
+
+All services within the Defguard architecture can be updated independently although it's recommended to use always newest version of services and update them all together to avoid situtations like core expecting some not existing feature in gateway.  \
+Check the GitHub repositories for each service to find their newest releases and release notes.\
+
+
+* Docker - For Docker and Kubernetes based setup just change docker image version for service you want to update.
+* Packages(DEB, RPM, etc.) - Currently we don't have any package repository so if you want to update your service installed as package you have to download new version from service repository.\
+  \
+  [Core service](https://github.com/DefGuard/defguard) is the only service which uses persisting data storage which is PostgreSQL database. Every SQL migration is applied automatically while bringing up core server and we try our best not to break anything in the process. It's recommended to do database and your configuration backup before every update in case of some unexpected failure.
+* **GitHub Repositories:**
+  * [Defguard Core](https://github.com/DefGuard/defguard/releases)
+  * [Defguard Proxy](https://github.com/DefGuard/proxy/releases)
+  * [Defguard Gateway](https://github.com/DefGuard/gateway/releases)
+  * [Defguard YubiBridge](https://github.com/DefGuard/YubiKey-Provision/releases)
+
+## Failover/HA/Clustering
+
+For now the [Gateway](gateway.md) can be deployed on multiple servers/firewall/routers for failover and HA - even if the connection to the Core will be lost, gateways will operate with their local cache/data and the VPN will be working.  Same works the other way around if gateway don't work or is not available other features from Core like OpenID will be working.&#x20;

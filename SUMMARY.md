@@ -21,6 +21,7 @@
   * [Docker Compose](features/setting-up-your-instance/docker-compose.md)
   * [Kubernetes](community-features/setting-up-your-instance/kubernetes.md)
   * [Gateway](features/setting-up-your-instance/gateway.md)
+  * [Health check](features/setting-up-your-instance/health-check.md)
 * [OpenID Connect](features/openid-connect/README.md)
   * [Portainer](features/openid-connect/portainer.md)
   * [Grafana setup](features/openid-connect/grafana-setup.md)
