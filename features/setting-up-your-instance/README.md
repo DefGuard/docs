@@ -43,19 +43,29 @@ See our [Configuration](configuration.md) document to check all configurable thi
 
 ## Updates
 
-All services within the Defguard architecture can be updated independently although it's recommended to always use newest version of services and update them all together to avoid situtations like core expecting some not existing feature in gateway.  \
-Check the GitHub repositories for each service to find their newest releases and release notes.\
-
+All services within the Defguard architecture can be updated independently although it's recommended to always use newest version of services and update them all together to avoid situtations like Core expecting some not existing feature in Gateway.  \
+Check the GitHub repositories for each service to find their newest releases and release notes.
 
 * Docker - For Docker and Kubernetes based setup just change docker image version for service you want to update.
-* Packages(DEB, RPM, etc.) - Currently we don't have any package repository so if you want to update your service installed as package you have to download new version from service repository.\
-  \
-  [Core service](https://github.com/DefGuard/defguard) is the only service which uses persisting data storage which is PostgreSQL database. Every SQL migration is applied automatically while bringing up core server and we try our best not to break anything in the process. It's recommended to do database and your configuration backup before every update in case of some unexpected failure.
-* **GitHub Repositories:**
-  * [Defguard Core](https://github.com/DefGuard/defguard/releases)
-  * [Defguard Proxy](https://github.com/DefGuard/proxy/releases)
-  * [Defguard Gateway](https://github.com/DefGuard/gateway/releases)
-  * [Defguard YubiBridge](https://github.com/DefGuard/YubiKey-Provision/releases)
+* Packages(DEB, RPM, etc.) - Currently we don't have any package repository so if you want to update your service installed as package you have to download new version from service repository.
+
+**GitHub Repositories:**
+
+* [Defguard Core](https://github.com/DefGuard/defguard/releases)
+* [Defguard Proxy](https://github.com/DefGuard/proxy/releases)
+* [Defguard Gateway](https://github.com/DefGuard/gateway/releases)
+* [Defguard YubiBridge](https://github.com/DefGuard/YubiKey-Provision/releases)
+
+## Backup&#x20;
+
+[Core service](https://github.com/DefGuard/defguard) is the only service which uses persistent data storage which is PostgreSQL database. Every SQL migration is applied automatically while bringing up core server and we try our best not to break anything in the process. It's recommended to do database and your configuration backup before every update in case of some unexpected failure.\
+For example:
+
+```bash
+docker exec {container_name} pg_dump -U {user_name} > {backup_file_name}
+```
+
+
 
 ## Failover/HA/Clustering
 
