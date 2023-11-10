@@ -58,7 +58,7 @@ Check the GitHub repositories for each service to find their newest releases and
 
 ## Backup&#x20;
 
-[Core service](https://github.com/DefGuard/defguard) is the only service which uses persistent data storage which is PostgreSQL database. Every SQL migration is applied automatically while bringing up core server and we try our best not to break anything in the process. It's recommended to do database and your configuration backup before every update in case of some unexpected failure.\
+[Core service](https://github.com/DefGuard/defguard) is the only service which uses persistent data storage which is PostgreSQL database. Every SQL migration is applied automatically while bringing up core server and we try our best not to break anything in the process. It's recommended to do database,  configuration and Settings(SMTP, Branding) backup before every update in case of some unexpected failure.\
 For example:
 
 ```bash
