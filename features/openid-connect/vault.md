@@ -74,7 +74,7 @@ Create root token using `docker exec -it vault vault operator init -n 1 -t 1`, w
 ```bash
 docker exec -it vault vault write auth/oidc/role/reader \
     bound_audiences="<YOUR_CLIENT_ID>" \
-    allowed_redirect_uris="https://127.0.0.1:8200/ui/vault/auth/oidc/oidc/callback" \
+    allowed_redirect_uris="http://127.0.0.1:8200/ui/vault/auth/oidc/oidc/callback" \
     user_claim="sub" \
     token_policies="default"
 ```
