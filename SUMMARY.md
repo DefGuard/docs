@@ -36,6 +36,7 @@
 * [YubiKey Provisioning](features/yubikey-provisioning.md)
 * [Webhooks](community-features/webhooks.md)
 * [Forward auth](features/forward-auth.md)
+* [SSH Authentication](features/ssh-authentication.md)
 
 ## In depth
 

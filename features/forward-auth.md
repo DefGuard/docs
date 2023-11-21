@@ -1,6 +1,6 @@
 # Forward auth
 
-Defguard supports [forward auth](https://app.gitbook.com/o/Z3mGSAbEj9iLdZ7cNFlL/s/hM5HQk0xXl585Dm4YMUV/\~/changes/48/features/forward-auth) integration with popular reverse proxies (tested with [traefik](https://doc.traefik.io/traefik/) and [caddy](https://caddyserver.com/)). This allows you to use defguard to secure services which don't provide their own authorization or OAuth integration.
+defguard supports [forward auth](https://app.gitbook.com/o/Z3mGSAbEj9iLdZ7cNFlL/s/hM5HQk0xXl585Dm4YMUV/\~/changes/48/features/forward-auth) integration with popular reverse proxies (tested with [traefik](https://doc.traefik.io/traefik/) and [caddy](https://caddyserver.com/)). This allows you to use defguard to secure services which don't provide their own authorization or OAuth integration.
 
 {% hint style="warning" %}
 In order for forward auth to work the services you are trying to protect must be available at URLs within the same base domain as your defguard instance.
