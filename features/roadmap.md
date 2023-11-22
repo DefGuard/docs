@@ -6,23 +6,6 @@ description: This is a high-level project roadmap of planned features.
 
 For already implemented features go to [Changelog](../in-depth/changelog.md) (or [GitHub release page](https://github.com/DefGuard/defguard/releases) for more details).
 
-## v0.7.0 - Remote user enrollment & on-boarding - end of Aug 2023
-
-### Problem
-
-defguard has a secure/microservice[ architecture](../in-depth/architecture.md) - and the best way to deploy defguard is to have the _core server_ inside the internal network (not exposed to the internet) or available for the user via VPN. This approach raises a significant problem in onboarding new remote users: _how can a user access defguard and add their devices to access VPN or change their password if they can't access defguard?_ Also, there is currently no mechanism to share for the user their login/password**.**&#x20;
-
-### **Solution**
-
-Implement a secure onboarding/enrollment service - [design for preview available on Figma](https://www.figma.com/file/uoFcgpOuVWa6g7tvKwB52o/defguard?type=design\&node-id=2138-5395\&mode=design\&t=fWyd8Cvl054jB4h4-0)
-
-* that can be exposed to the Internet&#x20;
-* available only from a secure link/with a one-time token - send **by email / printed**
-* with functionalities:
-  * **setup initial user password**
-  * **add initial/first VPN device** to allow accessing internal/corporate network
-  * **password reset** functionality
-
 [Milestone implementation progress](https://github.com/defguard/defguard/milestones/2)
 
 ## v0.8.0 - on-demand NAT traversal/mesh & desktop clients - \~Sep 2023&#x20;
