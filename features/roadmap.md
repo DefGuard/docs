@@ -8,7 +8,7 @@ For already implemented features go to [Changelog](../in-depth/changelog.md) (or
 
 [Milestone implementation progress](https://github.com/defguard/defguard/milestones/2)
 
-## v0.8.0 - on-demand NAT traversal/mesh & desktop clients - \~Sep 2023&#x20;
+## v0.8.0 - Desktop clients \~end of November 2023
 
 ### Problem: desktop clients (linux/mac/windows)
 
@@ -25,23 +25,11 @@ We need to implement a [Tauri](https://tauri.app/)-based desktop app (for all pl
 3. Provide a list of locations to which the client can connect
 4. Display statistics of the connection
 
-### Problem: on-demand NAT traversal/mesh networks
-
-Currently deploying defguard requires to a) have a public IP address and b) open a Wireguard VPN port on your firewall server (for our gateway microservice).
-
-A lot of people/companies do not have the luxury of a Public IP or do not want to open **any ports** on their firewalls/routers.
-
-The most popular service implementing this type of solution is [Talescale](https://tailscale.com/) - the goal of this milestone is to implement an open-source Tailescale and provide relays to ensure client connectivity in adverse network conditions, such as networks with blocked UDP, NAT, etc.
-
-### Solution
-
-We already have a PoC (_proof of concept)_ of secure peer-to-peer communication without the central gateway. In order to provide this functionality we need first to implement our[ own desktop clients](roadmap.md#problem-desktop-clients-linux-mac-windows) in order to incorporate this feature.
-
-## v0.9.0 - groups & ACLs -  Oct/Nov 2023
+## v0.9.0 - groups & ACLs, Site-to-Site Wireguard VPN -  \~Jan 2024
 
 ### Problem
 
-Currently, defguard has only two groups: All users & Admins that have limited Access Control:
+Currently, defguard has only two groups: All users and admins that have limited Access Control:
 
 * admins can manage defguard/users
 * from [v0.6.0](roadmap.md#v0.6.0-multiple-vpn-locations-planned-end-of-july-2023) a VPN Location can be configured to allow access restriction based on this two groups
@@ -53,6 +41,20 @@ We need to implement a proper group and ACL management functionality, that will 
 * fine-grained control over VPN/Location network management&#x20;
 * fine-grained control of defguard functionalities based on ACLs
 * add a Groups claim to OpenID tokens for any combination of groups/ACLs
+
+## v1.0.0 - Wireguard mesh, on-demand NAT traversal \~Feb 2024
+
+### Problem: on-demand NAT traversal/mesh networks
+
+Currently deploying defguard requires to a) have a public IP address and b) open a Wireguard VPN port on your firewall server (for our gateway microservice).
+
+A lot of people/companies do not have the luxury of a Public IP or do not want to open **any ports** on their firewalls/routers.
+
+The most popular service implementing this type of solution is [Talescale](https://tailscale.com/) - the goal of this milestone is to implement an open-source Tailescale and provide relays to ensure client connectivity in adverse network conditions, such as networks with blocked UDP, NAT, etc.
+
+### Solution
+
+We already have a PoC (_proof of concept)_ of secure peer-to-peer communication without the central gateway. In order to provide this functionality we need first to implement our[ own desktop clients](roadmap.md#problem-desktop-clients-linux-mac-windows) in order to incorporate this feature.
 
 ## Further functionalities planned
 
