@@ -74,6 +74,7 @@ We already have a PoC (_proof of concept)_ of secure peer-to-peer communication 
 
 ### Other features planned
 
+* **Events** history for users and admins (as dedicated module) with ability to **end/close** selected or all current login sessions
 * **SAML SSO** - most _Old School_ enterprise systems implement SSO based on SAML v2 - so to provide our users with a full range of features this should be implemented.
 * **Prometheus exporter** - all activities handled by defguard will be exported to Prometheus so that you can create custom analytics and dashboards in your favorite tool from the Prometheus ecosystem
 * Secure **SSH authentication based on OpenID Connect & Multi-Factor Authentication** with Defguard
