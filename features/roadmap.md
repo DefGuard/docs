@@ -4,9 +4,9 @@ description: This is a high-level project roadmap of planned features.
 
 # Roadmap
 
-For already implemented features go to [Changelog](../in-depth/changelog.md) (or [GitHub release page](https://github.com/DefGuard/defguard/releases) for more details).
+A detailed [Roadmap with **all functionalities**  is on GitHub](https://github.com/orgs/DefGuard/projects/5/views/1) - here is a high level roadmap with major features planed.
 
-[Milestone implementation progress](https://github.com/defguard/defguard/milestones/2)
+For already implemented features go to [Changelog](../in-depth/changelog.md) (or [GitHub release page](https://github.com/DefGuard/defguard/releases) for more details).
 
 ## v0.8.0 - Desktop clients \~end of November 2023
 
@@ -42,7 +42,22 @@ We need to implement a proper group and ACL management functionality, that will 
 * fine-grained control of defguard functionalities based on ACLs
 * add a Groups claim to OpenID tokens for any combination of groups/ACLs
 
-## v1.0.0 - Wireguard mesh, on-demand NAT traversal \~Feb 2024
+### Problem
+
+Currently, defguard has MFA configuration per user, there is no way to **globally** define by admin if MFA is required for users.
+
+### Solution
+
+Enable global MFA requirement.
+
+### Other features planned
+
+* Command line client that will have functionalities:
+  * Import & creat users in bulk from JSON/CSV
+  * Show VPN status for all locations in human-readable way (person-device and not public keys like Wireguard/wg does)
+* Password reset
+
+## v1.0.0 - Wireguard mesh, on-demand NAT traversal, SAML SSO \~Feb 2024
 
 ### Problem: on-demand NAT traversal/mesh networks
 
@@ -56,11 +71,14 @@ The most popular service implementing this type of solution is [Talescale](https
 
 We already have a PoC (_proof of concept)_ of secure peer-to-peer communication without the central gateway. In order to provide this functionality we need first to implement our[ own desktop clients](roadmap.md#problem-desktop-clients-linux-mac-windows) in order to incorporate this feature.
 
-## Further functionalities planned
+### Other features planned
 
+* **SAML SSO** - most _Old School_ enterprise systems implement SSO based on SAML v2 - so to provide our users with a full range of features this should be implemented.
 * **Prometheus exporter** - all activities handled by defguard will be exported to Prometheus so that you can create custom analytics and dashboards in your favorite tool from the Prometheus ecosystem
 * Secure **SSH authentication based on OpenID Connect & Multi-Factor Authentication** with Defguard
-* **SAML SSO Provider** - most _Old School_ enterprise systems implement SSO based on SAML v2 - so to provide our users with a full range of features this should be implemented
+
+## Further functionalities planned
+
 * 2FA/MFA functionality with **phone/SMS codes**
 * **Password reset secured by MFA** (SMS/TOTP/Webauthn/...)
 * **Mobile clients**
