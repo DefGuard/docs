@@ -52,6 +52,7 @@ Enable global MFA requirement.
 
 ### Other features planned
 
+* Passkey support
 * Command line client that will have functionalities:
   * Import & creat users in bulk from JSON/CSV
   * Show VPN status for all locations in human-readable way (person-device and not public keys like Wireguard/wg does)
