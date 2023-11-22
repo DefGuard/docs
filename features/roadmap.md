@@ -27,7 +27,7 @@ We need to implement a [Tauri](https://tauri.app/)-based desktop app (for all pl
 
 ## v0.9.0 - groups & ACLs, Site-to-Site Wireguard VPN -  \~Jan 2024
 
-### Problem
+### Problem: Groups & ACLs
 
 Currently, defguard has only two groups: All users and admins that have limited Access Control:
 
@@ -42,7 +42,7 @@ We need to implement a proper group and ACL management functionality, that will 
 * fine-grained control of defguard functionalities based on ACLs
 * add a Groups claim to OpenID tokens for any combination of groups/ACLs
 
-### Problem
+### Problem: Global MFA
 
 Currently, defguard has MFA configuration per user, there is no way to **globally** define by admin if MFA is required for users.
 
@@ -52,11 +52,12 @@ Enable global MFA requirement.
 
 ### Other features planned
 
-* Passkey support
-* Command line client that will have functionalities:
+* **Site-to-Site Wireguard VPN**  - a uniqe way to configure a site-to-site VPN setup using defguard gateways with amazing UI and statistics for the s2s tunnel
+* **Passkey** support
+* **Command line client** that will have functionalities:
   * Import & creat users in bulk from JSON/CSV
   * Show VPN status for all locations in human-readable way (person-device and not public keys like Wireguard/wg does)
-* Password reset
+* **Password reset**
 
 ## v1.0.0 - Wireguard mesh, on-demand NAT traversal, SAML SSO \~Feb 2024
 
