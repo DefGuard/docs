@@ -8,20 +8,6 @@ Here you can find a list of all configurable things through environmental variab
 
 Environment variables that are **not already set** are loaded from .env files by [`dotenvy`](https://crates.io/crates/dotenvy) crate. Default `.env` file can be overwritten by creating `.env.local` which is not tracked by git.
 
-### LDAP configuration
-
-* `DEFGUARD_LDAP_URL` - Your LDAP URL to read user's and group's data (e.g. `http://localhost:389`)
-* `DEFGUARD_LDAP_GROUP_MEMBER_ATTR` : group attribute for members, default: `uniqueMember`
-* `DEFGUARD_LDAP_GROUP_SEARCH_BASE` : group search base, default: `ou=groups,dc=example,dc=org`
-* `DEFGUARD_LDAP_USER_SEARCH_BASE` : user search base, default: `dc=example,dc=org`
-* `DEFGUARD_LDAP_USER_OBJ_CLASS` : user object class, default: `inetOrgPerson`
-* `DEFGUARD_LDAP_GROUP_OBJ_CLASS` : group object class, default: `groupOfUniqueNames`
-* `DEFGUARD_LDAP_ADMIN_GROUPNAME` : group name with administrator privileges, default: `admin`
-* `DEFGUARD_LDAP_USERNAME_ATTR` : naming attribute for users, should be `cn` or `uid` , default: `cn`
-* `DEFGUARD_LDAP_GROUPNAME_ATTR` : naming attribute for groups, default: `cn`
-* `DEFGUARD_LDAP_MEMBER_ATTR` : naming attribute for group membership, default: `memberOf`
-* `DEFGUARD_LDAP_GROUP_MEMBER_ATTR` : group attribute for members, default: `uniqueMember`
-
 ### Core configuration
 
 {% hint style="info" %}

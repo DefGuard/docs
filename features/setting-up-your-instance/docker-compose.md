@@ -80,4 +80,4 @@ core:
 
 ## LDAP
 
-To setup LDAP integration, you'll have to configure environment variables for core service. You'll find more info on how to do this [here](../ldap-synchronization-setup.md).
+To setup LDAP integration, you'll have to configure environment variables for core service. You'll find more info on how to do this [here](../ldap-synchronization-setup/).
