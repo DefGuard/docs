@@ -45,17 +45,17 @@ There are several **template tags** (similar to [Jinja2](https://jinja.palletspr
 
 * Go to **Users** page
 * Click **Add new** user button
-* Within the modal that appears fill in new user's data as usual, but instead of entering a password check the **Use remote enrollment** checkbox
+* Within the modal that appears fill in the new user's data as usual, but instead of entering a password check the **Use remote enrollment** checkbox
 * Click the **Add user** button
 * In the next modal choose whether you want to **Send token by email** or **Deliver token yourself**
-* If you chose to deliver the enrollment token by email provide an email address to which a notification will be sent
+* If you choose to deliver the enrollment token by email provide an email address to which a notification will be sent
 
 {% hint style="info" %}
 The email address you specify for delivering the enrollment token can be any email available to the user. It **does not** have to be the same one used when creating an account as we assume that a new user does not yet have access to their official company email account.
 {% endhint %}
 
 * Click **Start enrollment**
-* If you chose to deliver the token yourself you'll be shown a URL and token that you can copy and pass to the user
+* If you choose to deliver the token yourself you'll be shown a URL and token that you can copy and pass to the user
 
 ### Restarting enrollment manually
 
@@ -68,17 +68,17 @@ If there are any issues with the enrollment process (failed notification deliver
 
 ### Performing remote enrollment (as a user)
 
-As a new user after an admin starts the enrollment process you will receive your enrollment token.
+As a new user after an admin starts the enrollment process, you will receive your enrollment token.
 
 If you receive an **email notification** just click the link and you'll be redirected the the enrollment wizard.
 
-If the admin decided to deliver your token through some other secure means you'll have to go the the specified enrollment page and enter the token **manually**.
+If the admin decides to deliver your token through some other secure means you'll have to go the the specified enrollment page and enter the token **manually**.
 
 By following the **enrollment wizard** you'll be able to do the following:
 
 * verify that your data is correct
 * activate your user account
-* choose your own password
-* add initial device for VPN access
+* choose your password
+* add an initial device for VPN access
 
 After completing the wizard you should be able to connect to the VPN and access the main defguard web UI.

@@ -75,7 +75,9 @@ It also means having an architecture (systems, networks), that will cover all **
 * WebAuthn / FIDO2 - for hardware key authentication support (eg. YubiKey, FaceID, TouchID, ...)
 * Web3 - authentication with crypto software and hardware wallets using Metamask, Ledger Extension
 
-[Yubikey hardware keys](https://www.yubico.com/) provisioning for users by _one click_
+[Yubikey hardware keys](https://www.yubico.com/) provisioning for users with _one click_
+
+[Desktop client](features/desktop-client/) allowing for easy VPN setup and management.
 
 Webhooks & REST API
 
@@ -117,14 +119,14 @@ Follow our handy guides to get started on the basics as quickly as possible:
 [webhooks.md](community-features/webhooks.md)
 {% endcontent-ref %}
 
+{% content-ref url="features/desktop-client/" %}
+[desktop-client](features/desktop-client/)
+{% endcontent-ref %}
+
 ## Fundamentals: Dive a little deeper
 
 Learn the fundamentals of Defguard to get a deeper understanding of our main features:
 
 {% content-ref url="in-depth/architecture.md" %}
 [architecture.md](in-depth/architecture.md)
-{% endcontent-ref %}
-
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
 {% endcontent-ref %}

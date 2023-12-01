@@ -40,6 +40,12 @@
 * [Webhooks](community-features/webhooks.md)
 * [Forward auth](features/forward-auth.md)
 * [SSH Authentication](features/ssh-authentication.md)
+* [Desktop Client](features/desktop-client/README.md)
+  * [Add new instance](features/desktop-client/add-new-instance.md)
+  * [Update instance](features/desktop-client/update-instance.md)
+  * [Remote desktop activation](features/desktop-client/remote-desktop-activation.md)
+  * [Enrollment](features/desktop-client/enrollment.md)
+  * [Architecture](features/desktop-client/architecture.md)
 
 ## In depth
 
@@ -54,7 +60,6 @@
 * [Translations ( web )](for-developers/translations-web/README.md)
   * [Switching language](for-developers/translations-web/switching-language.md)
   * [Adding translations](for-developers/translations-web/adding-translations.md)
-* [Other resources](for-developers/other-resources.md)
 
 ## Contact us
 

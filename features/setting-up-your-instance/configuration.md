@@ -41,19 +41,19 @@ You can generate random strings for secrets with e.g.:
 ### Auth cookies configuration
 
 * `DEFGUARD_COOKIE_INSECURE` : set cookies without the `Secure` flag; use only in dev environments when serving defguard without HTTPS
-* `DEFGUARD_COOKIE_DOMAIN` (optional): set the domain for auth cookies. By default it's the domain from `DEFGUARD_URL`. Must be changed to base URL if you want to use [forward auth](../forward-auth.md).
+* `DEFGUARD_COOKIE_DOMAIN` (optional): set the domain for auth cookies. By default, it's the domain from `DEFGUARD_URL`. Must be changed to base URL if you want to use [forward auth](../forward-auth.md).
 
 ### Stats cleanup configuration
 
 * `DEFGUARD_DISABLE_STATS_PURGE` : disable periodic cleanup of old Wireguard stats
 * `DEFGUARD_STATS_PURGE_FREQUENCY` : how often should the cleanup process be performed, default `24h`
-* `DEFGUARD_STATS_PURGE_THRESHOLD` : age treshold for stats removal, default `30d`
+* `DEFGUARD_STATS_PURGE_THRESHOLD` : age threshold for stats removal, default `30d`
 
 ### Enrollment configuration
 
 * `DEFGUARD_ENROLLMENT_URL`: external URL of the enrollment proxy server, default `http://localhost:8080`
 * `DEFGUARD_ENROLLMENT_TOKEN_TIMEOUT` : how long is the enrollment token valid for use, default: `24h`
-* `DEFGUARD_ENROLLMENT_SESSION_TIMEOUT` : how long in the enrollment session valid after user uses the token to start the enrollment process, default: `10m`
+* `DEFGUARD_ENROLLMENT_SESSION_TIMEOUT` : how long in the enrollment session valid after a user uses the token to start the enrollment process, default: `10m`
 
 ### gRPC configuration
 
