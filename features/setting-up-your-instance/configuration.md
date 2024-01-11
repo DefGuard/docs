@@ -40,6 +40,12 @@ You can generate random strings for secrets with e.g.:
 
 ### Auth cookies configuration
 
+{% hint style="warning" %}
+If you want to access your defguard instance without TLS (using an `http://` URL)  you MUST enable insecure cookies by setting `DEFGUARD_COOKIE_INSECURE` to `true`.&#x20;
+
+This is of course not recommended in production but can be useful when testing without a full reverse proxy setup.
+{% endhint %}
+
 * `DEFGUARD_COOKIE_INSECURE` : set cookies without the `Secure` flag; use only in dev environments when serving defguard without HTTPS
 * `DEFGUARD_COOKIE_DOMAIN` (optional): set the domain for auth cookies. By default, it's the domain from `DEFGUARD_URL`. Must be changed to base URL if you want to use [forward auth](../forward-auth.md).
 

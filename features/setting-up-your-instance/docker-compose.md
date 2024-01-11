@@ -13,7 +13,7 @@ cd docker-compose
 cp .env.template .env
 ```
 
-And then edit the values in `.env` file to setup your secrets. Those should be kept... well, secret.
+And then edit the values in `.env` file to setup your secrets. Those should be kept... well, secret. For more info on available configuration options see [configuration.md](configuration.md "mention").
 
 {% hint style="info" %}
 You can generate random strings for secrets with e.g.:
@@ -21,7 +21,7 @@ You can generate random strings for secrets with e.g.:
 `openssl rand -base64 55 | tr -d "=+/" | tr -d '\n' | cut -c1-63`
 {% endhint %}
 
-## SSL setup
+## gRPC SSL setup
 
 {% hint style="warning" %}
 It's crytically important to ensure SSL encryption between Defguard and gRPC client services (e.g. Gateway and Enrollment services). You should only skip this step if you plan to have a reverse proxy in between that adds encryption itself.
