@@ -4,6 +4,8 @@
 
 This tutorial aims to show how quick and easy is to deploy your VPN server using defguard.
 
+<figure><img src="https://defguard.net/images/decap/hero-image.png" alt=""><figcaption><p>defguard VPN dashboard</p></figcaption></figure>
+
 We assume you have:
 
 * a **server with a public IP** (and you know what that IP address is and to which interface it's assigned) - in this example it's: _185.33.37.51_
