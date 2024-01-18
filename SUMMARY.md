@@ -1,6 +1,8 @@
 # Table of contents
 
 * [Introduction](README.md)
+* [Tutorials](tutorials/README.md)
+  * [Step by step setting up a VPN server](tutorials/step-by-step-setting-up-a-vpn-server.md)
 
 ## User documentation (help) <a href="#help" id="help"></a>
 
