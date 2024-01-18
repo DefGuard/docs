@@ -104,6 +104,10 @@ Now let's test if the VPN network is accessible. To do so, let's ping the VPN ga
 
 <figure><img src="../.gitbook/assets/SCR-20240118-siml.png" alt=""><figcaption><p>VPN gateway responding to ping after connecting to VPN</p></figcaption></figure>
 
+As an administrator, you will probably be happy to see this - defguard VPN dashboard:
+
+<figure><img src="../.gitbook/assets/SCR-20240118-sthz.png" alt=""><figcaption><p>defguard VPN dashboard</p></figcaption></figure>
+
 {% hint style="info" %}
 This completes your VPN setup - both server and client.
 
