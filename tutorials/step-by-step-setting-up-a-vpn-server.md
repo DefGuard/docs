@@ -165,7 +165,7 @@ root@server:~# ip a | grep 185.33.37.51
 
 So, our public interface is: **ens18**
 
-No just add the following to /etc/ufw/before.rules **just before the filter rules**:
+Now just add the following to /etc/ufw/before.rules **just before the filter rules**:
 
 ```
 # NAT table rules
