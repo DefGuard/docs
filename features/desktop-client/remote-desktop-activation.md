@@ -23,3 +23,5 @@ You will be presented with a choice to send an activation token via email or you
 <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 After receiving the token, the user will need to follow the activation process in the client. You can find out more about it in [add-new-instance.md](add-new-instance.md "mention").
+
+This token also allows for updating information, read more about it in [update-instance.md](update-instance.md "mention").
