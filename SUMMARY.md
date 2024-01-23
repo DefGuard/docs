@@ -46,9 +46,9 @@
   * [Add new instance](features/desktop-client/add-new-instance.md)
   * [Update instance](features/desktop-client/update-instance.md)
   * [Remote desktop activation](features/desktop-client/remote-desktop-activation.md)
+  * [Multi-Factor Authentication (MFA/2FA)](features/desktop-client/multi-factor-authentication.md)
   * [Enrollment](features/desktop-client/enrollment.md)
   * [Architecture](features/desktop-client/architecture.md)
-  * [Multi-Factor Authentication (MFA/2FA)](features/desktop-client/multi-factor-authentication-mfa-2fa.md)
 
 ## In depth
 
