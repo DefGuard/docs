@@ -1,5 +1,9 @@
 # Multi-Factor Authentication (MFA/2FA)
 
+{% hint style="warning" %}
+Functionality available from versions: Desktop Client **0.2.0**, Defguard Core **0.9.0** and Proxy **0.3.0**.
+{% endhint %}
+
 Defguard supports Multi-Factor Authentication for WireGuard with TOTP & Email codes and after that with **session keys based on Wireguard Pre-Shared Keys** (PSK). For more details about this please refer to the [architecture section](architecture.md).
 
 {% hint style="info" %}
