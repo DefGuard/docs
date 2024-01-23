@@ -13,6 +13,13 @@
 * [Remote user enrollment](help/remote-user-enrollment.md)
   * [User onboarding after enrollment](help/remote-user-enrollment/user-onboarding-after-enrollment.md)
 * [Setting up SMTP for email notifications](help/setting-up-smtp-for-email-notifications.md)
+* [Desktop Client](help/desktop-client/README.md)
+  * [Add new instance](help/desktop-client/add-new-instance.md)
+  * [Update instance](help/desktop-client/update-instance.md)
+  * [Remote desktop activation](help/desktop-client/remote-desktop-activation.md)
+  * [Multi-Factor Authentication (MFA/2FA)](help/desktop-client/multi-factor-authentication-mfa-2fa.md)
+  * [Enrollment](help/desktop-client/enrollment.md)
+  * [Architecture](help/desktop-client/architecture.md)
 * [Sending support information](help/sending-support-info.md)
 
 ## Features
@@ -42,13 +49,6 @@
 * [Webhooks](community-features/webhooks.md)
 * [Forward auth](features/forward-auth.md)
 * [SSH Authentication](features/ssh-authentication.md)
-* [Desktop Client](features/desktop-client/README.md)
-  * [Add new instance](features/desktop-client/add-new-instance.md)
-  * [Update instance](features/desktop-client/update-instance.md)
-  * [Remote desktop activation](features/desktop-client/remote-desktop-activation.md)
-  * [Multi-Factor Authentication (MFA/2FA)](features/desktop-client/multi-factor-authentication.md)
-  * [Enrollment](features/desktop-client/enrollment.md)
-  * [Architecture](features/desktop-client/architecture.md)
 
 ## In depth
 

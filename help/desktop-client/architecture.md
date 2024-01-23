@@ -15,5 +15,5 @@ stateDiagram
 Temporary access to proxy endpoints is granted via token authorization.
 
 {% hint style="info" %}
-Token lifespan can be configured via environment variables. You can learn more in[#enrollment-configuration](../setting-up-your-instance/configuration.md#enrollment-configuration "mention")
+Token lifespan can be configured via environment variables. You can learn more in[#enrollment-configuration](../../features/setting-up-your-instance/configuration.md#enrollment-configuration "mention")
 {% endhint %}
