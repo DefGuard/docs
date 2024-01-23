@@ -48,6 +48,7 @@
   * [Remote desktop activation](features/desktop-client/remote-desktop-activation.md)
   * [Enrollment](features/desktop-client/enrollment.md)
   * [Architecture](features/desktop-client/architecture.md)
+  * [Multi-factor authentication](features/desktop-client/multi-factor-authentication.md)
 
 ## In depth
 
