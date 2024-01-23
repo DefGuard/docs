@@ -2,6 +2,14 @@
 
 Defguard supports Multi-Factor Authentication for WireGuard with TOTP & Email codes and after that with **session keys based on Wireguard Pre-Shared Keys** (PSK). For more details about this please refer to the [architecture section](architecture.md).
 
+{% hint style="info" %}
+MFA requires:
+
+* defguard core >= v0.9.0
+* defguard proxy >= v0.3.0
+* desktop client >= 0.2.0
+{% endhint %}
+
 ### Enabling MFA for a selected VPN/Location
 
 It can be enabled for a desired VPN by going to **VPN Overview**, selecting the VPN from the dropdown list, and pressing the **Edit Location** button in the top right corner of the page. Next, check the "**Require MFA for this Location**" checkbox under the Location Configuration section and **save changes**.
