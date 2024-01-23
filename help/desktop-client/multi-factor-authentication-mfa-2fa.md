@@ -16,7 +16,11 @@ MFA requires:
 
 ### Enabling MFA for a selected VPN/Location
 
-It can be enabled for a desired VPN by going to **VPN Overview**, selecting the VPN from the dropdown list, and pressing the **Edit Location** button in the top right corner of the page. Next, check the "**Require MFA for this Location**" checkbox under the Location Configuration section and **save changes**.
+Enabling MFA for a desired VPN Location is done by:
+
+1. going into defguard to **VPN Overview**
+2. selecting the VPN Location from the dropdown list, and pressing the **Edit Location** button in the top right corner of the page
+3. check the "**Require MFA for this Location**" checkbox under the Location Configuration section and **save changes**.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-01-22 at 15.10.27.png" alt=""><figcaption><p>Checkbox enabling MFA for selected VPN/Location</p></figcaption></figure>
 
@@ -24,13 +28,13 @@ It can be enabled for a desired VPN by going to **VPN Overview**, selecting the 
 When MFA configuration is changed, all clients must do an [Instance Update](update-instance.md).
 {% endhint %}
 
-If a VPN has MFA enabled before connecting you will be asked to complete the authentication step first:
+If a VPN has MFA enabled, before connecting you will be asked to complete the authentication step first:&#x20;
 
-![](../../.gitbook/assets/defguard-client-mfa-modal.png)&#x20;
+<figure><img src="../../.gitbook/assets/defguard-client-mfa-modal.png" alt=""><figcaption><p>MFA in defguard desktop client</p></figcaption></figure>
 
 ### Supported MFA methods
 
-For now, MFA is only available for:
+For now, MFA is only available with the following methods:
 
 * TOTP - Time-based one-time password
 * Email - requires [SMTP to be configured](../setting-up-smtp-for-email-notifications.md)
