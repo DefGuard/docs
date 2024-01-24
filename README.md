@@ -77,7 +77,7 @@ It also means having an architecture (systems, networks), that will cover all **
 
 [Yubikey hardware keys](https://www.yubico.com/) provisioning for users with _one click_
 
-[Desktop client](help/desktop-client/) allowing for easy VPN setup and management.
+[Desktop client](features/desktop-client/) allowing for easy VPN setup and management.
 
 Webhooks & REST API
 
@@ -119,8 +119,8 @@ Follow our handy guides to get started on the basics as quickly as possible:
 [webhooks.md](community-features/webhooks.md)
 {% endcontent-ref %}
 
-{% content-ref url="help/desktop-client/" %}
-[desktop-client](help/desktop-client/)
+{% content-ref url="features/desktop-client/" %}
+[desktop-client](features/desktop-client/)
 {% endcontent-ref %}
 
 ## Fundamentals: Dive a little deeper

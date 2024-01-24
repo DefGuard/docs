@@ -13,7 +13,7 @@
 * [Remote user enrollment](help/remote-user-enrollment.md)
   * [User onboarding after enrollment](help/remote-user-enrollment/user-onboarding-after-enrollment.md)
 * [Setting up SMTP for email notifications](help/setting-up-smtp-for-email-notifications.md)
-* [Desktop Client](help/desktop-client/README.md)
+* [Desktop Client](features/desktop-client/README.md)
   * [Add new instance](help/desktop-client/add-new-instance.md)
   * [Update instance](help/desktop-client/update-instance.md)
   * [Remote desktop activation](help/desktop-client/remote-desktop-activation.md)
