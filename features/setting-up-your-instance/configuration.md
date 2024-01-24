@@ -61,20 +61,26 @@ This is of course not recommended in production but can be useful when testing w
 * `DEFGUARD_ENROLLMENT_TOKEN_TIMEOUT` : how long is the enrollment token valid for use, default: `24h`
 * `DEFGUARD_ENROLLMENT_SESSION_TIMEOUT` : how long in the enrollment session valid after a user uses the token to start the enrollment process, default: `10m`
 
-### gRPC configuration
+### gRPC server configuration
 
 * `DEFGUARD_GRPC_PORT` : gRPC server port, default `50055`
 * `DEFGUARD_GRPC_CERT` (optional): path to TLS certificate file
 * `DEFGUARD_GRPC_KEY`(optional): path to TLS key file
-* `DEFGUARD_GRPC_URL` : external URL of your instance's gRPC server, default `http://localhost:50055`; used for generating example VPN gateway startup command in Web UI.
+* `DEFGUARD_GRPC_URL` : external URL of your instance's gRPC server, default `http://localhost:50055`; used for generating example VPN gateway startup command in Web UI
 
-## Enrollment service
+### Proxy connection configuration
+
+* `DEFGUARD_PROXY_URL` (optional): proxy service gRPC endpoint URL
+* `DEFGUARD_PROXY_GRPC_CA`(optional): path to TLS root certificate file, required if connecting to proxy gRPC service with HTTPS
+
+## Proxy service
 
 ### Environmental variables
 
 * `DEFGUARD_PROXY_HTTP_PORT` : port the API server will listen on, default `8080`
-* `DEFGUARD_PROXY_UPSTREAM_GRPC_URL` : core server gRPC endpoint URL, default `http://localhost:50055/`
-* `DEFGUARD_PROXY_GRPC_CA` (optional): path to TLS certificate file, required if connecting to core gRPC service with HTTPS
+* `DEFGUARD_PROXY_GRPC_PORT` : port the gRPCS server will listen on, default `50051`
+* `DEFGUARD_PROXY_GRPC_CERT` (optional): path to TLS certificate file
+* `DEFGUARD_PROXY_GRPC_KEY`(optional): path to TLS key file
 
 ## YubiBridge configuration
 
@@ -106,13 +112,13 @@ If you're using docker image you can pass this value as environmental variables 
 
 `DEFGUARD_USERSPACE` , `-u` - Use userspace wireguard implementation, useful on systems without native wireguard support
 
-`DEFGUARD_GRPC_URL` , `-g <URL>` - Defguard server gRPC endpoint URL default is https://localhost:50055
+`DEFGUARD_GRPC_URL` , `-g <URL>` - defguard server gRPC endpoint URL default is https://localhost:50055
 
-`DEFGUARD_STATS_PERIOD` ,`-p <SECONDS>` - Defines how often (seconds) should interface statistics be sent to the Defguard server
+`DEFGUARD_STATS_PERIOD` ,`-p <SECONDS>` - Defines how often (seconds) should interface statistics be sent to the defguard server
 
-`DEFGUARD_TOKEN` ,`-t <TOKEN>` - Token received on Defguard after completing network wizard
+`DEFGUARD_TOKEN` ,`-t <TOKEN>` - Token received on defguard after completing network wizard
 
-`DEFGUARD_GATEWAY_NAME`, `--name <NAME>` - (optional) human-readable gateway name that will be displayed in Defguard webapp
+`DEFGUARD_GATEWAY_NAME`, `--name <NAME>` - (optional) human-readable gateway name that will be displayed in defguard webapp
 
 `-s, --use-syslog` - enable logging to syslog
 
