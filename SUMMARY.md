@@ -19,7 +19,7 @@
   * [Remote desktop activation](help/desktop-client/remote-desktop-activation.md)
   * [Multi-Factor Authentication (MFA/2FA)](help/desktop-client/multi-factor-authentication-mfa-2fa.md)
   * [Enrollment](help/desktop-client/enrollment.md)
-  * [Architecture](help/desktop-client/architecture.md)
+  * [MFA Architecture](help/desktop-client/architecture.md)
 * [Sending support information](help/sending-support-info.md)
 
 ## Features
