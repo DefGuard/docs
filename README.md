@@ -12,7 +12,7 @@ On a broader aspect, it's a **security platform** for building **secure** and **
 
 By design **defguard core is meant to be deployed in your secure network segments** (available only from an internal network or by VPN) and operations that require public access (like user onboarding, enrollment, password reset, etc.) **are done using a secure proxy:**
 
-<figure><img src=".gitbook/assets/defguard.png" alt=""><figcaption><p>Secure architecture</p></figcaption></figure>
+<figure><img src=".gitbook/assets/defguard-architecture.png" alt=""><figcaption></figcaption></figure>
 
 This architecture and approach gives you options - **either you secure your systems (with VPN\&Proxy),** or you can deploy typical architecture **without VPN/Gateway\&Proxy - and defguard as an OIDC provider** and your apps can be available from the Internet:
 
