@@ -2,6 +2,10 @@
 
 ### Gateway
 
+#### MFA on OPNSense disconnects users after random time
+
+[https://github.com/DefGuard/gateway/issues/80](https://github.com/DefGuard/gateway/issues/80)
+
 #### Error installing package on FreeBSD/OPNSense
 
 We need a FreeBSD Runner in order to build correctly FreeBSD/OPNSense packages, since FPM makse incorrect packages.
