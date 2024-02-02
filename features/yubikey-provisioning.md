@@ -18,7 +18,7 @@ Note that if you decide to use Docker make sure your container has access to hos
 
 ## Configuration
 
-All of the available options are described in help:
+All of the available options are described in the help:
 
 ```bash
 yubikey-provision -h
@@ -28,7 +28,7 @@ yubikey-provision -h
 
 Configuration can be provided in CLI with options, in environment variables, or via `.env` file. &#x20;
 
-<table><thead><tr><th>Name</th><th>Description</th><th data-type="checkbox">Required</th><th>CLI option</th><th>Environment variable</th><th>Default value</th></tr></thead><tbody><tr><td>Provisioner ID</td><td>Shown in Defguard UI</td><td>true</td><td>--id</td><td>WORKER_ID</td><td>YubikeyProvisioner</td></tr><tr><td>Log level</td><td>Sets logging level</td><td>false</td><td>--log-level</td><td>LOG_LEVEL</td><td>info</td></tr><tr><td>GRPC Endpoint</td><td>Url of your Defguard instance GRPC endpoint</td><td>true</td><td>--grpc</td><td>GRPC_URL</td><td><a href="http://127.0.0.1:50055">http://127.0.0.1:50055</a></td></tr><tr><td>Authorization Token</td><td>Authorization Token found in Defguard UI on Provisioners page.</td><td>true</td><td>--token</td><td>DEFGUARD_TOKEN</td><td></td></tr><tr><td>Detection retries</td><td>How many times provisioner will check for YubiKey presence in system before abandoning the process.</td><td>false</td><td>--smartcard-retries</td><td>YUBIKEY_RETRIES</td><td>1</td></tr><tr><td>Retry interval</td><td>How long between retries provisioner will wait ( in seconds )</td><td>false</td><td>--smartcard-retry-interval</td><td>YUBIKEY_RETRY_INTERVAL</td><td>15</td></tr><tr><td>GPG debug level</td><td>Sets debug level for gpg command during gpg operations</td><td>false</td><td>--gpg-debug-level</td><td>GPG_DEBUG_LEVEL</td><td>none</td></tr></tbody></table>
+<table><thead><tr><th>Name</th><th>Description</th><th data-type="checkbox">Required</th><th>CLI option</th><th>Environment variable</th><th>Default value</th></tr></thead><tbody><tr><td>Provisioner ID</td><td>Shown in Defguard UI</td><td>true</td><td>--id</td><td>WORKER_ID</td><td>YubikeyProvisioner</td></tr><tr><td>Log level</td><td>Sets logging level</td><td>false</td><td>--log-level</td><td>LOG_LEVEL</td><td>info</td></tr><tr><td>GRPC Endpoint</td><td>Url of your Defguard instance GRPC endpoint. Make sure you include <strong><code>http</code></strong> or <strong><code>https</code></strong>  !</td><td>true</td><td>--grpc</td><td>GRPC_URL</td><td><a href="http://127.0.0.1:50055">http://127.0.0.1:50055</a></td></tr><tr><td>GRPC CA File</td><td>Path to CA file. Needed if you want GRPC to use TLS. <br><br>You don't need to change http in endpoint if this is present.</td><td>false</td><td>--ca-file</td><td>GRPC_CA</td><td></td></tr><tr><td>Authorization Token</td><td>Authorization Token found in Defguard UI on Provisioners page.</td><td>true</td><td>--token</td><td>DEFGUARD_TOKEN</td><td></td></tr><tr><td>Detection retries</td><td>How many times provisioner will check for YubiKey presence in system before abandoning the process.</td><td>false</td><td>--smartcard-retries</td><td>YUBIKEY_RETRIES</td><td>1</td></tr><tr><td>Retry interval</td><td>How long between retries provisioner will wait ( in seconds )</td><td>false</td><td>--smartcard-retry-interval</td><td>YUBIKEY_RETRY_INTERVAL</td><td>15</td></tr><tr><td>GPG debug level</td><td>Sets debug level for gpg command during gpg operations</td><td>false</td><td>--gpg-debug-level</td><td>GPG_DEBUG_LEVEL</td><td>none</td></tr></tbody></table>
 
 ## Client access token
 
@@ -64,4 +64,12 @@ The service will take a short moment to prepare and provision your keys. Once th
 
 #### YubiKey is not detected by the client
 
-If the client will not detect your YubiKey, it may work if you unplug and plug it back into your machine. If you are running on Linux, try to restart the pcscd service. If you are using docker image, make sure the container has access to your host devices.
+If the client will not detect your YubiKey, it may work if you unplug and plug it back into your machine. If you are running on Linux, try to restart the pcscd service. If you are using a docker image, make sure the container has access to your host devices.
+
+#### Failed to register worker
+
+This error is most commonly caused by your provisioner having problems making a connection to the defguard GRPC endpoint. Make sure to:
+
+* Include `http://` in your GRPC URL.
+* Run docker on the host network with the `--privileged` option. If you are using a docker container.
+* The host that runs the provisioner can connect to the defguard GRPC endpoint.
