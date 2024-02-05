@@ -17,8 +17,8 @@ You can generate random strings for secrets with e.g.:
 {% endhint %}
 
 * `DEFGUARD_LOG_LEVEL` - [Logger](https://crates.io/crates/log) log level, default: `info`
-* `DEFGUARD_SECRET_KEY -` [Rocket](https://rocket.rs/) [_**secret\_key**_](https://api.rocket.rs/v0.4/rocket/config/struct.ConfigBuilder.html#method.secret\_key)_**.**_
-* `DEFGUARD_DATABASE_URL` : Your database URL, default: `sqlite::memory`
+* `DEFGUARD_SECRET_KEY`[ ](https://rocket.rs/) - Secret key used for session cookies encryption
+* `DEFGUARD_DATABASE_URL` - Your database URL, default: `sqlite::memory`
 * `DEFGUARD_HTTP_PORT` : Core server port, default: `8000`
 * `DEFGUARD_AUTH_SECRET` : JWT secret key for encrypting user tokens, default: `DEFGUARD_AUTH_SECRET`
 * `DEFGUARD_YUBIBRIDGE_SECRET` : JWT secret key for encrypting YubiBridge tokens, default: `DEFGUARD_YUBIBRIDGE_SECRET`
