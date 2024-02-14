@@ -1,10 +1,6 @@
----
-description: Desktop client can also enroll new users.
----
-
 # Enrollment & Onboarding
 
-Defguard provides **secure remote enrollment process**, during which the user can:
+Defguard provides **secure remote enrollment process (remote registration/activation)**, during which the user can:
 
 * double-check their data
 * setup their password

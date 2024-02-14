@@ -6,13 +6,13 @@
 ## User documentation (help) <a href="#help" id="help"></a>
 
 * [Enrollment & Onboarding](help/enrollment.md)
-* [Password change / Reset](help/changing-your-password.md)
-* [Setting up 2FA/MFA](help/setting-up-2fa-mfa.md)
 * [Configuring VPN](help/configuring-vpn/README.md)
   * [Adding instance to defguard client](help/configuring-vpn/add-new-instance/README.md)
     * [Update instance](help/configuring-vpn/add-new-instance/update-instance.md)
   * [Adding a device manually](help/configuring-vpn/adding-wireguard-devices/README.md)
     * [Configuring manually a device for a new VPN Location](help/configuring-vpn/adding-wireguard-devices/configuring-a-device-for-a-new-vpn-location.md)
+* [Password change / Reset](help/changing-your-password.md)
+* [Setting up 2FA/MFA](help/setting-up-2fa-mfa.md)
 * [Remote desktop client activation](help/remote-desktop-activation.md)
 * [Desktop Client](help/desktop-client.md)
 
