@@ -103,20 +103,20 @@ Go to product [**ROADMAP**](features/roadmap.md)**.**
 
 Follow our handy guides to get started on the basics as quickly as possible:
 
-{% content-ref url="features/setting-up-your-instance/" %}
-[setting-up-your-instance](features/setting-up-your-instance/)
+{% content-ref url="admin-and-features/setting-up-your-instance/" %}
+[setting-up-your-instance](admin-and-features/setting-up-your-instance/)
 {% endcontent-ref %}
 
-{% content-ref url="features/wireguard/create-your-vpn-network.md" %}
-[create-your-vpn-network.md](features/wireguard/create-your-vpn-network.md)
+{% content-ref url="admin-and-features/wireguard/create-your-vpn-network.md" %}
+[create-your-vpn-network.md](admin-and-features/wireguard/create-your-vpn-network.md)
 {% endcontent-ref %}
 
-{% content-ref url="features/ldap-synchronization-setup/" %}
-[ldap-synchronization-setup](features/ldap-synchronization-setup/)
+{% content-ref url="admin-and-features/ldap-synchronization-setup/" %}
+[ldap-synchronization-setup](admin-and-features/ldap-synchronization-setup/)
 {% endcontent-ref %}
 
-{% content-ref url="community-features/webhooks.md" %}
-[webhooks.md](community-features/webhooks.md)
+{% content-ref url="admin-and-features/webhooks.md" %}
+[webhooks.md](admin-and-features/webhooks.md)
 {% endcontent-ref %}
 
 {% content-ref url="help/desktop-client.md" %}

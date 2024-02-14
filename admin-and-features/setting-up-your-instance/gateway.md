@@ -70,7 +70,7 @@ cp .env.template .env
 docker-compose up
 ```
 
-If everything went well, your Gateway should be connected to Defguard and you can start [adding new devices to your network](features/wireguard/adding-wireguard-devices.md).
+If everything went well, your Gateway should be connected to Defguard and you can start [adding new devices to your network](../../features/setting-up-your-instance/features/wireguard/adding-wireguard-devices.md).
 
 ## SSL
 
@@ -108,4 +108,4 @@ opnsense-patch
 You can find detailed description of all fields [here](configuration.md#gateway-configuration).
 {% endhint %}
 
-If everything went well, your Gateway should be connected to Defguard and you can start [adding new devices to your network](features/wireguard/adding-wireguard-devices.md).
+If everything went well, your Gateway should be connected to Defguard and you can start [adding new devices to your network](../../features/setting-up-your-instance/features/wireguard/adding-wireguard-devices.md).
