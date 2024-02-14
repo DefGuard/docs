@@ -1,7 +1,6 @@
 # Table of contents
 
 * [Introduction](README.md)
-* [Well known bugs](well-known-bugs.md)
 
 ## User documentation (help) <a href="#help" id="help"></a>
 
