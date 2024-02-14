@@ -2,11 +2,7 @@
 
 ## Overview
 
-Desktop client provides an easy way to access VPN locations of multiple Defguard instances via user-friendly UIA.
-
-{% hint style="danger" %}
-This feature requires Defguard [proxy ](https://github.com/DefGuard/proxy)service.
-{% endhint %}
+Desktop client provides an easy way to access VPN locations of multiple Defguard instances via user-friendly UI.
 
 ## Support Platforms
 
@@ -15,15 +11,6 @@ This feature requires Defguard [proxy ](https://github.com/DefGuard/proxy)servic
 * Windows
 
 ## Installation
-
-### Prerequisites
-
-To avoid potential issues, please update:
-
-* Safari on MacOS
-* #### webkit2gtk on Linux
-
-### Install the latest release
 
 #### Debian packages, macOS, and Windows packages
 
