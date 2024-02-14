@@ -1,4 +1,4 @@
-# Architecture
+# MFA Architecture
 
 WireGuard by itself does not have a concept of MFA or any additional authorization aside from validating peers cryptographically by their public and pre-shared keys.&#x20;
 

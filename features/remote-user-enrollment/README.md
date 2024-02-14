@@ -17,7 +17,7 @@ Please also see the relevant configuration options for [core](../setting-up-your
 ## Enrollment settings
 
 {% hint style="warning" %}
-In order for the enrollment process to function correctly you must also [set up an SMTP server](../setting-up-smtp-for-email-notifications.md) for delivering email notifications.
+In order for the enrollment process to function correctly you must also [set up an SMTP server](../../help/setting-up-smtp-for-email-notifications.md) for delivering email notifications.
 {% endhint %}
 
 As an admin, you can configure enrollment-related settings on the **Enrollment** page. This includes:

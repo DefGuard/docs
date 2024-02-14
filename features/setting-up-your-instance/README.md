@@ -24,7 +24,7 @@ To learn more about the script and available options please see the [documentati
 If you prefer to configure and deploy defguard manually see the examples below:
 
 * [Docker Compose](docker-compose.md)
-* [Kubernetes](kubernetes.md)
+* [Kubernetes](../../community-features/setting-up-your-instance/kubernetes.md)
 
 Client services
 

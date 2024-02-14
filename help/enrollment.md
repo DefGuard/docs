@@ -11,26 +11,36 @@ Defguard provides **secure remote enrollment process**, during which the user ca
 * add their initial device to access VPN as a nice wizard!
 * see admin (that has added this user) **contact data**
 
-[![defguard enrollment](https://github.com/DefGuard/docs/raw/docs/releases/0.7/enrollment.png?raw=true)](../releases/0.7/enrollment.png)
+All done by a nice wizzard:
 
+<figure><img src="https://github.com/DefGuard/docs/raw/docs/releases/0.7/enrollment.png?raw=true" alt=""><figcaption></figcaption></figure>
 
-
-### User onboarding after enrollment
-
-Now you can easily share with new users **any relevant company information, links to company systems, security guidelines**, etc. In the enrollment module, you can write **custom messages** using [markdown](https://spec.commonmark.org/0.30/) that will be shown on the last step of the enrollment process and sent to the user via email:
-
-[![defguard enrollment](https://github.com/DefGuard/docs/raw/docs/releases/0.7/enrollment\_msg.png?raw=true)](../releases/0.7/enrollment\_msg.png)
-
-\
-\
-Desktop client also can enroll new users for an even more automated process that doesn't require them to set up their VPN manually.
+This can be done in **two ways** - either in the **browser** (web based) or by using a **defguard desktop client**. For both ways, there is an email that is sent to the user with explanation and relevant URLs/tokens.
 
 {% hint style="warning" %}
-This approach is only recommended when your Defguard instance has at least one location added. Otherwise, we advise you to use the [proxy ](https://github.com/DefGuard/proxy)frontend for enrolling new users.
+When starting the enrollment process - a user will have only **10minutes** to complete the process.
+
+The **enrollment token is valid for 24 hours.**
 {% endhint %}
 
-For enrolling though the client user just needs to enter the enrollment token in [add-new-instance](configuring-vpn/add-new-instance/ "mention") process.
+### Enrollment using desktop client
+
+In the desktop client **when adding an instance** - the enrollment & onboarding process takes place.
+
+What is great about this is that after the enrollment process is done - the desktop client is **automatically configured with all available VPN locations for the user.**
+
+### **Web/browser based enrollment**
+
+When accessing the enrollment service in the browser the process is extended with the possibility to configure the **initial VPN device/access manually.**
 
 {% hint style="info" %}
-You can learn more about enrollment in [remote-user-enrollment](../admin-and-features/remote-user-enrollment/ "mention").
+Even if the user will do enrollment in the browser - the desktop client can be configured later by using: [Remote desktop client activation.](remote-desktop-activation.md)
 {% endhint %}
+
+## User onboarding after enrollment
+
+After the enrollment proces new users are shared with **any relevant company information, links to company systems, security guidelines**, etc.
+
+The onboarding messages will be shown on the **last step of the enrollment process and sent to the user via email**:
+
+<figure><img src="https://github.com/DefGuard/docs/raw/docs/releases/0.7/enrollment_msg.png?raw=true" alt=""><figcaption><p>Onboarding process</p></figcaption></figure>
