@@ -7,7 +7,7 @@ description: How to update already registered instance.
 {% hint style="info" %}
 If you are looking for how to generate tokens for your users as an Administrator, look here:
 
-[remote-desktop-activation.md](remote-desktop-activation.md "mention")
+[remote-desktop-activation.md](../../remote-desktop-activation.md "mention")
 {% endhint %}
 
 ## Why do instances need updates?
@@ -18,9 +18,9 @@ Desktop stores all information locally and doesn't communicate with Defguard out
 
 Open defguard instance that you want to update, and click the "Edit Instance" button in the top right corner.
 
-<figure><img src="../../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
 
 Now you need to ask your administrator to make you a new token.
 
@@ -28,7 +28,7 @@ Now you need to ask your administrator to make you a new token.
 Only tokens issued from that specific instance will work in that modal.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
 
 After receiving the token and entering it into the form, click "Update Instance" and the modal should close.  Now your local configuration for that instance is up to date.
 

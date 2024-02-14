@@ -21,7 +21,7 @@ Enabling MFA for a desired VPN Location is done by:
 <figure><img src="../../.gitbook/assets/Screenshot 2024-01-22 at 15.10.27.png" alt=""><figcaption><p>Checkbox enabling MFA for selected VPN/Location</p></figcaption></figure>
 
 {% hint style="warning" %}
-When MFA configuration is changed, all clients must do an [Instance Update](update-instance.md).
+When MFA configuration is changed, all clients must do an [Instance Update](../../help/configuring-vpn/add-new-instance/update-instance.md).
 {% endhint %}
 
 If a VPN has MFA enabled, before connecting you will be asked to complete the authentication step first:&#x20;
@@ -33,11 +33,11 @@ If a VPN has MFA enabled, before connecting you will be asked to complete the au
 For now, MFA is only available with the following methods:
 
 * TOTP - Time-based one-time password
-* Email - requires [SMTP to be configured](../setting-up-smtp-for-email-notifications.md)
+* Email - requires [SMTP to be configured](../../help/setting-up-smtp-for-email-notifications.md)
 
 ### User MFA setup
 
-After enabling MFA for a given VPN, users will need to enable MFA for their accounts to be able to connect. This process is described in [setting-up-2fa-mfa.md](../setting-up-2fa-mfa.md "mention"). For simplicity & security, the desktop client uses the same MFA methods as the defguard server.
+After enabling MFA for a given VPN, users will need to enable MFA for their accounts to be able to connect. This process is described in [setting-up-2fa-mfa.md](../../help/setting-up-2fa-mfa.md "mention"). For simplicity & security, the desktop client uses the same MFA methods as the defguard server.
 
 An error message will be shown if users attempt to select a MFA method that has not been enabled for their accounts:
 

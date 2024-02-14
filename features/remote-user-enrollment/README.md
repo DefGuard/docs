@@ -9,21 +9,21 @@ To avoid this issue you can deploy a **public** [defguard proxy](https://github.
 <figure><img src="https://raw.githubusercontent.com/DefGuard/docs/docs/releases/0.7/enrollment.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-The proxy is included when using the default [deployment instructions](../features/setting-up-your-instance/).&#x20;
+The proxy is included when using the default [deployment instructions](../setting-up-your-instance/).&#x20;
 
-Please also see the relevant configuration options for [core](../features/setting-up-your-instance/configuration.md#enrollment-configuration) and the [proxy itself](../features/setting-up-your-instance/configuration.md#enrollment-service).&#x20;
+Please also see the relevant configuration options for [core](../setting-up-your-instance/configuration.md#enrollment-configuration) and the [proxy itself](../setting-up-your-instance/configuration.md#enrollment-service).&#x20;
 {% endhint %}
 
 ## Enrollment settings
 
 {% hint style="warning" %}
-In order for the enrollment process to function correctly you must also [set up an SMTP server](setting-up-smtp-for-email-notifications.md) for delivering email notifications.
+In order for the enrollment process to function correctly you must also [set up an SMTP server](../../help/setting-up-smtp-for-email-notifications.md) for delivering email notifications.
 {% endhint %}
 
 As an admin, you can configure enrollment-related settings on the **Enrollment** page. This includes:
 
 * Making the VPN device step optional or mandatory in the enrollment wizard
-* Customizing the user [onboarding messages](remote-user-enrollment/user-onboarding-after-enrollment.md).
+* Customizing the user [onboarding messages](user-onboarding-after-enrollment.md).
 
 #### Message template tags
 
