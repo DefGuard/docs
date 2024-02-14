@@ -15,7 +15,6 @@
     * [Configuring manually a device for a new VPN Location](help/configuring-vpn/adding-wireguard-devices/configuring-a-device-for-a-new-vpn-location.md)
 * [Remote desktop client activation](help/remote-desktop-activation.md)
 * [Desktop Client](help/desktop-client.md)
-* [Sending support information](help/sending-support-info.md)
 
 ## Admin & features
 
@@ -50,6 +49,7 @@
 * [Webhooks](community-features/webhooks.md)
 * [Forward auth](features/forward-auth.md)
 * [SSH Authentication](features/ssh-authentication.md)
+* [Sending support information](admin-and-features/sending-support-info.md)
 
 ## In depth
 
