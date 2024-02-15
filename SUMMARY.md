@@ -53,7 +53,6 @@
 ## In depth
 
 * [Roadmap](features/roadmap.md)
-* [Changelog](in-depth/changelog.md)
 * [Architecture Overview](in-depth/architecture.md)
 
 ## For Developers
