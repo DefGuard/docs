@@ -166,3 +166,7 @@ On the sidebar or by clicking links below you can find tutorials how to configur
 {% content-ref url="minio.md" %}
 [minio.md](minio.md)
 {% endcontent-ref %}
+
+{% content-ref url="vault.md" %}
+[vault.md](vault.md)
+{% endcontent-ref %}
