@@ -7,6 +7,19 @@ defguard comes with four main components:
 * **VPN gateway server** - retrieves configuration from core and configures VPN interfaces on the gateway server
 * **Provisioning station** - client application which can be started on any pc to auto generate PGP keys for YubiKey
 
+There is one external component required: PostgreSQL database.
+
+## Hardware requirements
+
+All defguard components are **very low resource-consuming**. All of them are written in [Rust](https://www.rust-lang.org) and are single binaries. As minimum setup as follows should be more then enough:
+
+| Resource     | Minimum requirements         |
+| ------------ | ---------------------------- |
+| CPU          | 1 GHz                        |
+| RAM          | 2 GB (mostly for PostgreSQL) |
+| Disk         | 2 GB                         |
+| Architecture | x86\_64, ARM64               |
+
 ## Quick start
 
 The easiest way to run your own defguard instance is to use Docker and our [one-line install script](one-line-install.md).

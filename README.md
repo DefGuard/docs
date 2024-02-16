@@ -12,7 +12,7 @@ On a broader aspect, it's a **security platform** for building **secure** and **
 
 By design **defguard core is meant to be deployed in your secure network segments** (available only from an internal network or by VPN) and operations that require public access (like user onboarding, enrollment, password reset, etc.) **are done using a secure proxy:**
 
-<figure><img src=".gitbook/assets/defguard.png" alt=""><figcaption><p>Secure architecture</p></figcaption></figure>
+<figure><img src=".gitbook/assets/defguard-architecture.png" alt=""><figcaption></figcaption></figure>
 
 This architecture and approach gives you options - **either you secure your systems (with VPN\&Proxy),** or you can deploy typical architecture **without VPN/Gateway\&Proxy - and defguard as an OIDC provider** and your apps can be available from the Internet:
 
@@ -50,7 +50,7 @@ It also means having an architecture (systems, networks), that will cover all **
 
 ## Features
 
-[OpenID Connect provider](https://openid.net/developers/how-connect-works/) with some **unique features:**
+### SSO - [OpenID Connect provider](https://openid.net/developers/how-connect-works/)
 
 * Secure remote (over the internet) [user enrollment](https://defguard.gitbook.io/defguard/help/remote-user-enrollment)
 * User [onboarding after enrollment](https://defguard.gitbook.io/defguard/help/remote-user-enrollment/user-onboarding-after-enrollment)
@@ -58,44 +58,40 @@ It also means having an architecture (systems, networks), that will cover all **
 * nice UI to manage users
 * Users **self-service** (besides typical data management, users can revoke access to granted apps, MFA, Wireguard, etc.)
 
-[Wireguard](https://www.wireguard.com/) VPN management with:
+#### [Multi-Factor/2FA](https://en.wikipedia.org/wiki/Multi-factor\_authentication) Authentication
 
-* multiple VPN Locations (networks/sites) - with defined access (all users or only Admin group)
+* [Time-based One-Time Password Algorithm](https://en.wikipedia.org/wiki/Time-based\_one-time\_password) (TOTP - e.g. Google Authenticator)
+* WebAuthn / FIDO2 - for hardware key authentication support (eg. YubiKey, FaceID, TouchID, ...)
+* Web3 - authentication with crypto software and hardware wallets using Metamask, Ledger Extension
+
+### [WireGuard](https://www.wireguard.com/) VPN
+
+* [**Multi-Factor Authentication**](features/wireguard/multi-factor-authentication-mfa-2fa.md) using our [desktop client](https://defguard.net/client)
+* **multiple VPN Locations** (networks/sites) - with defined access (all users or only Admin group)
 * multiple [Gateways](https://github.com/DefGuard/gateway) for each VPN Location (**high availability/failover**) - supported on a cluster of routers/firewalls for Linux, FreeBSD/PFSense/OPNSense
 * import your current WireGuard server configuration (with a wizard!)
 * _easy_ device setup by users themselves (self-service)
 * automatic IP allocation
 * kernel (Linux, FreeBSD/OPNSense/PFSense) & userspace WireGuard support
 * dashboard and statistics overview of connected users/devices for admins
-* _defguard is not an official WireGuard project, and WireGuard is a registered trademark of Jason A. Donenfeld._
 
-[Multi-Factor/2FA](https://en.wikipedia.org/wiki/Multi-factor\_authentication) Authentication:
+_defguard is not an official WireGuard project, and WireGuard is a registered trademark of Jason A. Donenfeld._
 
-* [Time-based One-Time Password Algorithm](https://en.wikipedia.org/wiki/Time-based\_one-time\_password) (TOTP - e.g. Google Authenticator)
-* WebAuthn / FIDO2 - for hardware key authentication support (eg. YubiKey, FaceID, TouchID, ...)
-* Web3 - authentication with crypto software and hardware wallets using Metamask, Ledger Extension
+### Yubikey Provisioning
 
-[Yubikey hardware keys](https://www.yubico.com/) provisioning for users by _one click_
+[Yubikey hardware keys](https://www.yubico.com/) provisioning for users with _one click_
+
+### Integrations
 
 Webhooks & REST API
 
-Web3 wallet validation
-
 Build with [Rust](https://www.rust-lang.org/) for portability, security, and speed
 
-Fronted in TypeScript with:
-
-* a set of custom and beautiful components for the layout
-* Responsive Web Design (supporting mobile phones, tablets, etc..)
-* [iOS Web App](https://www.macrumors.com/how-to/use-web-apps-iphone-ipad/)
+### Pentested!
 
 **Checked by professional security researchers** (see [comprehensive security report](https://defguard.net/images/decap/isec-defguard.pdf))
 
-End2End tests
 
-### Features in development / planned
-
-Go to product [**ROADMAP**](features/roadmap.md)**.**
 
 ## Guides: Jump right in
 
@@ -109,12 +105,16 @@ Follow our handy guides to get started on the basics as quickly as possible:
 [create-your-vpn-network.md](features/wireguard/create-your-vpn-network.md)
 {% endcontent-ref %}
 
-{% content-ref url="features/ldap-synchronization-setup.md" %}
-[ldap-synchronization-setup.md](features/ldap-synchronization-setup.md)
+{% content-ref url="features/ldap-synchronization-setup/" %}
+[ldap-synchronization-setup](features/ldap-synchronization-setup/)
 {% endcontent-ref %}
 
 {% content-ref url="community-features/webhooks.md" %}
 [webhooks.md](community-features/webhooks.md)
+{% endcontent-ref %}
+
+{% content-ref url="help/desktop-client.md" %}
+[desktop-client.md](help/desktop-client.md)
 {% endcontent-ref %}
 
 ## Fundamentals: Dive a little deeper
@@ -123,8 +123,4 @@ Learn the fundamentals of Defguard to get a deeper understanding of our main fea
 
 {% content-ref url="in-depth/architecture.md" %}
 [architecture.md](in-depth/architecture.md)
-{% endcontent-ref %}
-
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
 {% endcontent-ref %}

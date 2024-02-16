@@ -32,7 +32,7 @@ oidc_providers:
   - idp_id: Defguard
     idp_name: "Defguard"
     discover: false
-    issuer: "https://yourdefguard.com"
+    issuer: "https://yourdefguard.com/"
     client_id: "CLIENT_ID_FROM_DEFGUARD"  
     client_secret: "CLIENT_SECRET_FROM_DEFGUARD"  
     scopes: ["openid", "profile", "email", "phone"]

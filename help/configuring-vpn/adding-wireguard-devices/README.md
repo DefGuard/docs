@@ -1,4 +1,4 @@
-# Adding a device (connecting to VPN)
+# Adding a device manually
 
 ## Installing Wireguard/VPN client
 
@@ -9,11 +9,11 @@ First, you have to install Wireguard application. On this [site](https://www.wir
 1. Go to **your profile** (_My Profile -_ which you'll find on the navigation on the left side of the screen)&#x20;
 2. Click on _Add new device_
 
-<figure><img src="../../.gitbook/assets/add-device1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/add-device1.png" alt=""><figcaption></figcaption></figure>
 
 3. Now you can **name your device (like Laptop, Phone, whatever you like)** and then you have two options:
 
-<figure><img src="../../.gitbook/assets/add-device2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/add-device2.png" alt=""><figcaption></figcaption></figure>
 
 a. **Generate key pair** - if you are a new user, just select this option - it will generate a secure key pair (private and public key) - **securly in you browser (defguard doesn't store user private keys)**
 
@@ -36,10 +36,9 @@ Choosing this option - **you will need to change PrivateKey (insert the private 
 
 
 
-<figure><img src="../../.gitbook/assets/add-device3.png" alt=""><figcaption></figcaption></figure>
-
-
+<figure><img src="../../../.gitbook/assets/add-device3.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 If you have **multiple VPN locations** - you can choose to download configuration for **each of the location - by selecting the location as shown**
 {% endhint %}
+

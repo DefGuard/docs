@@ -121,9 +121,9 @@ We need to register our Django application as an OpenID client in Defguard.
 
 To do that, navigate to OpenID panel and add new client as shown below.
 
-<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
 
 Redirect URL should point to **http://localhost:9000/oauth/redirect**
 
@@ -209,7 +209,7 @@ Either provide them as environment variables or modify the views file and pass t
 
 Both Client **ID** and **Secret** can be found on OpenID apps page in Defguard, **click** our Django app **row** on the list and you will be able to copy needed values from the opened modal.
 
-<figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### URLS
 
@@ -411,10 +411,10 @@ After accessing _http://localhost:9000/admin we should see our custom login page
 
 Button "_Login with Defguard_" should redirect us to our Defguard instance. Depending on if Defguard session is active or not we should be able to see app authorization page or login page.
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 When we authorize Django App to our Defguard account we are redirected back to our Django admin and logged in with a user from Defguard.
