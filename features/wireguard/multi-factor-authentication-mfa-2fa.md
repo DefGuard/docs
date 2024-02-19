@@ -18,7 +18,11 @@ Enabling MFA for a desired VPN Location is done by:
 2. selecting the VPN Location from the dropdown list, and pressing the **Edit Location** button in the top right corner of the page
 3. check the "**Require MFA for this Location**" checkbox under the Location Configuration section and **save changes**.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-01-22 at 15.10.27.png" alt=""><figcaption><p>Checkbox enabling MFA for selected VPN/Location</p></figcaption></figure>
+{% hint style="danger" %}
+Due to a bug in release 0.9 when setting up MFA **Peer disconnect threshold needs to be min 300**
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-02-19 at 11.59.23.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 When MFA configuration is changed, all clients must do an [Instance Update](../../help/configuring-vpn/add-new-instance/update-instance.md).
