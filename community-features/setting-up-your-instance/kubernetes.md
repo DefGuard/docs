@@ -9,9 +9,7 @@ To deploy and use Defguard on your cluster you'll need:
 * helm binary https://github.com/helm/helm/releases/latest
 
 {% hint style="warning" %}
-Our helm charts currently support only **Traefik ingress.**
-
-**This only affects exposing GRPC services.**
+Our helm charts currently support only **Traefik ingress - which is relevant and affects exposing GRPC services (see below** `ingress.hosts.grpc`**`).`**
 {% endhint %}
 
 ## Deployment

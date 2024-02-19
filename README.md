@@ -66,7 +66,7 @@ It also means having an architecture (systems, networks), that will cover all **
 
 ### [WireGuard](https://www.wireguard.com/) VPN
 
-* [**Multi-Factor Authentication**](features/wireguard/multi-factor-authentication-mfa-2fa.md) using our [desktop client](https://defguard.net/client)
+* [**Multi-Factor Authentication**](admin-and-features/wireguard/multi-factor-authentication-mfa-2fa/) using our [desktop client](https://defguard.net/client)
 * **multiple VPN Locations** (networks/sites) - with defined access (all users or only Admin group)
 * multiple [Gateways](https://github.com/DefGuard/gateway) for each VPN Location (**high availability/failover**) - supported on a cluster of routers/firewalls for Linux, FreeBSD/PFSense/OPNSense
 * import your current WireGuard server configuration (with a wizard!)

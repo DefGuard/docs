@@ -18,7 +18,7 @@ In typical REST API terms the pre-shared key can be thought of as an analogue to
 
 To enable MFA functionality Desktop Client uses the [proxy ](https://github.com/DefGuard/proxy)to bridge communication between itself and defguard Core. Below is a diagram of the authorization process that is performed each time the Client initiates a connection to an MFA-enabled location:
 
-<figure><img src="../../.gitbook/assets/mfa.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/mfa.png" alt=""><figcaption></figcaption></figure>
 
 ## Disconnecting peers
 
