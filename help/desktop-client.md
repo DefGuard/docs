@@ -10,6 +10,10 @@ Desktop client provides an easy way to access VPN locations of multiple Defguard
 * Linux
 * Windows
 
+{% hint style="warning" %}
+On Linux the desktop client uses  **`resolvconf`**` ``(part of` systemd-resolved) to configure DNS. Be sure to have it installed.
+{% endhint %}
+
 ## Installation
 
 #### Debian packages, macOS, and Windows packages
