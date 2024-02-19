@@ -6,12 +6,22 @@ Desktop client provides an easy way to access VPN locations of multiple Defguard
 
 ## Support Platforms
 
-* MacOS
-* Linux
-* Windows
+### MacOS
+
+Has no external requirements and we have wireguard-go bundled.
+
+### Linux
 
 {% hint style="warning" %}
 On Linux the desktop client uses  **`resolvconf`**` ``(part of` systemd-resolved) to configure DNS. Be sure to have it installed.
+{% endhint %}
+
+### Windows
+
+Our desktop client has **bundled** official WireGuard client - as we use **wg.exe** to manage the WireGuard tunnels.
+
+{% hint style="warning" %}
+If you have the official WireGuard client installed - defguard client installation may fail.
 {% endhint %}
 
 ## Installation
