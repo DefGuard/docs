@@ -8,6 +8,12 @@ To deploy and use Defguard on your cluster you'll need:
 * Kubernetes CLI [kubectl](https://kubernetes.io/docs/reference/kubectl/) installed on your machine
 * helm binary https://github.com/helm/helm/releases/latest
 
+{% hint style="warning" %}
+Our helm charts currently support only **Traefik ingress.**
+
+**This only affects exposing GRPC services.**
+{% endhint %}
+
 ## Deployment
 
 We prepared a [git repository](https://github.com/DefGuard/deployment) with Kubernetes configuration, clone it:
@@ -30,7 +36,14 @@ cp defguard/values.yaml ./
 
 Required values (the rest should work if left as-is):
 
-* `ingress.hosts.grpc`: GRPC ingress address - grpc clients like defguard-gateway, youbi-bridge etc. will connect here.
+* `ingress.hosts.grpc`: GRPC ingress address - GRPC clients like defguard **gateway**, yubi-bridge
+
+{% hint style="warning" %}
+If you are configuring your gateway or yubi-bridge - please use this GRPC URL for communication.
+
+If you have other ingress controller than traefik - you need to configure GRPC ingress manualy with corresponding to your setup.
+{% endhint %}
+
 * `ingress.hosts.web`: Web ingress address - Defguard webapp will be available here.
 * `publicUrl`: Public URL your Defguard will be available under. Usually the same as ingress.hosts.web, but differ depending on your loadbalancer and/or reverse-proxy setup.
 
