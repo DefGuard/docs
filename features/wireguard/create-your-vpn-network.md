@@ -56,10 +56,12 @@ is the set of IP addresses the localhost should route to the remote peer through
 
 ### DNS
 
-DNS specifies DNS resolvers to query when the Wireguard interface is up and domains to search for unqualified hostnames.
+DNS specifies DNS resolver to query when the WireGuard interface is up.
 
-{% hint style="info" %}
-No worries if you get something wrong you can always change it later
+{% hint style="danger" %}
+For now defguard (and defguard client) **only supports a single DNS server** (single IP) and doesn't support DNS search domains.
+
+So dns server should be one IP, like: 10.10.10.1
 {% endhint %}
 
 ## What to do after wizard completion?
