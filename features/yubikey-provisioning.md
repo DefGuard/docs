@@ -76,6 +76,10 @@ The service will take a short moment to prepare and provision your keys. Once th
 
 If the client will not detect your YubiKey, it may work if you unplug and plug it back into your machine. If you are running on Linux, try to restart the pcscd service. If you are using a docker image, make sure the container has access to your host devices.
 
+#### Provisioning failed / IO Error in logs
+
+This is very similar to Yubikey not detected issue. If run under VM with no direct access to host USB devices, the provisioner or rather gpg program itself can have trouble with sending proper commands to YubiKey smartcard. In this case, ensure that gpg can access the smartcard and write into it from VM without problems, for testing this, follow this [guide](https://support.yubico.com/hc/en-us/articles/360013790259-Using-Your-YubiKey-with-OpenPGP) from yubico.
+
 #### Failed to register worker
 
 This error is most commonly caused by your provisioner having problems making a connection to the defguard GRPC endpoint. Make sure to:
