@@ -46,8 +46,8 @@ Defguard Client regularly checks for updates and in order to do so operating sys
 
 This functionality can be turned off in the Client settings under Updates section so that no data is sent.
 
-<figure><img src="../.gitbook/assets/defguard-client-settings-updates.png" alt=""><figcaption><p>"Check for updates" setting</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/defguard-client-settings-updates.png" alt=""><figcaption><p>"Check for updates" setting</p></figcaption></figure>
 
 If a new version is available, a notification with a download button will be shown near the bottom of the menu.
 
-<figure><img src="../.gitbook/assets/defguard-client-new-release-available.png" alt=""><figcaption><p>New Desktop Client version available for download</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/defguard-client-new-release-available.png" alt=""><figcaption><p>New Desktop Client version available for download</p></figcaption></figure>

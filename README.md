@@ -113,8 +113,8 @@ Follow our handy guides to get started on the basics as quickly as possible:
 [webhooks.md](community-features/webhooks.md)
 {% endcontent-ref %}
 
-{% content-ref url="help/desktop-client.md" %}
-[desktop-client.md](help/desktop-client.md)
+{% content-ref url="help/desktop-client/" %}
+[desktop-client](help/desktop-client/)
 {% endcontent-ref %}
 
 ## Fundamentals: Dive a little deeper
