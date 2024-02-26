@@ -47,6 +47,10 @@ To register a new provisioning client you will need an access token provided by 
 
 ## Example of use
 
+{% hint style="info" %}
+This path describes how the admin can provision a key for a user, but the same provisioning modal is also available to the users on the user profile if any workers are available on the instance.
+{% endhint %}
+
 You can see available clients in Defguard web-application under "provisioners" tab.
 
 <figure><img src="../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
@@ -56,19 +60,16 @@ To provision the key:
 1. select the user from "Users" page in Defguard web application (or go to "My Profile" if you're provisioning a key for yourself)\
 
 2. insert a YubiKey to machine that is running the provisioner client.
-3.  select "Provision YubiKey" from the actions menu for a User in list.\
+3.  select "Add YubiKey" from the actions menu for a User in the list.\
 
 
-    <figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
-4.  select your provisioner and click the "Provision YubiKey" button\
+    <figure><img src="../.gitbook/assets/image (25).png" alt="" width="301"><figcaption></figcaption></figure>
+4.  select your provisioner and click the "Provision YubiKey" button.\
 
 
-    <figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
 
-The service will take a short moment to prepare and provision your keys. Once that's done you'll see a modal with your public keys that are now stored in Defguard. If the process fails for some reason you will see a short error reason returned by the provisioner.\
-
-
-<figure><img src="../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
+The service will take a short moment to prepare and provision your keys. Once the process is done, the modal will close and you will see a notification in the corner of the screen.
 
 ## Common problems
 
