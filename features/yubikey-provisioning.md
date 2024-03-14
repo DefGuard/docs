@@ -6,11 +6,27 @@ description: https://github.com/DefGuard/YubiKey-Provision
 
 ## Overview
 
-Our provisioning client allows you to easily populate the OpenPGP application on a YubiKey, and share its public information inside Defguard.
+Our provisioning service (installed on a computer that has USB access and securely communicating with defguard) allows you to easily create and populate the **SSH and GPG/OpenPGP** keys on a YubiKey hardware key, and share its public information inside defguard - which can be [used for example to authenticate to servers using defguard](ssh-authentication.md).
 
-It's completely safe, we are not storing private keys. Every key is provisioned inside an encapsulated session so any gpg related files are deleted right after the process ends successfully or not. Only public PGP and SSH keys are sent to Defguard so you can access them at any time.
+It's completely safe, defguard does not store private keys. Every key is provisioned inside an encapsulated session so any **gpg-related files are deleted right after the process ends successfully or not**. Only public PGP and SSH keys are sent to defguard so you can access them at any time.
 
-## Installation
+{% hint style="warning" %}
+**GPG keys warning!**
+
+
+
+That also means that the **master key** is deleted and only sub-keys are stored - so you will not be able for example to edit the GPG key and add additional emails, etc - as that requires the **master key** to be imported to GPG.
+
+As we do not want to store any private keys for security reasons, we have some ideas and plans for **optional master-key** storage based on **HSM encryption**, but we want to see if any actual companies/users need that, as there is always a way just to overwrite the existing YK and provision with new data.&#x20;
+{% endhint %}
+
+## Installation of provisioning service
+
+{% hint style="info" %}
+The provisioning service is required as we need physical access to the USB and to the YK device.
+
+It's good for example to prepare a _provisioning station_ in your organization that will be available for just plugging in new YK's and provisioning them with ease..
+{% endhint %}
 
 Currently, we provide Linux .rpm and .deb packages alongside Docker image, but provisioning clients can also be compiled and run under Windows and MacOS.
 
@@ -51,7 +67,7 @@ To register a new provisioning client you will need an access token provided by 
 This path describes how the admin can provision a key for a user, but the same provisioning modal is also available to the users on the user profile if any workers are available on the instance.
 {% endhint %}
 
-You can see available clients in Defguard web-application under "provisioners" tab.
+web applicationYou can see available clients in Defguard web-application under "provisioners" tab.
 
 <figure><img src="../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -79,7 +95,7 @@ If the client will not detect your YubiKey, it may work if you unplug and plug i
 
 #### Provisioning failed / IO Error in logs
 
-This is very similar to Yubikey not detected issue. If run under VM with no direct access to host USB devices, the provisioner or rather gpg program itself can have trouble with sending proper commands to YubiKey smartcard. In this case, ensure that gpg can access the smartcard and write into it from VM without problems, for testing this, follow this [guide](https://support.yubico.com/hc/en-us/articles/360013790259-Using-Your-YubiKey-with-OpenPGP) from yubico.
+This is very similar to Yubikey not detected issue. If run under VM with no direct access to host USB devices, the provisioner or rather gpg program itself can have trouble with sending proper commands to YubiKey smartcard. In this case, ensure that gpg can access the smartcard and write into it from VM without problems, for testing this, follow this [guide](https://support.yubico.com/hc/en-us/articles/360013790259-Using-Your-YubiKey-with-OpenPGP) from Yubico.
 
 #### Failed to register worker
 
