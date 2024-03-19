@@ -1,5 +1,9 @@
 # Contributing
 
+#### ⛑️ Want to help? ⛑️
+
+Here is a [dedicated view for **good first bugs**](https://github.com/orgs/DefGuard/projects/5/views/5)
+
 All source code of our app is located in three repositories
 
 * [Core:](https://github.com/DefGuard/defguard) backend and server for our app
@@ -17,8 +21,8 @@ If you found a bug you [can submit it here](https://github.com/DefGuard/defguard
 
 All pull requests should be done against the master branch of any repository from above.
 
-Good pull request should have:
+A good pull request should have:
 
 * Description of changes made
-* New tests if or necessary
+* New tests if necessary
 * Passing CI
