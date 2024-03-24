@@ -60,3 +60,8 @@ In order to get help on a not working VPN setup to figure out what is actually w
 1. **Routing table** of the **server** and **clien**t
 2. **Firewall rules** of the server and client
 3. Detailed information about your VPN setup - all fields (besides the keys) from the VPN configuration.
+4. Logs
+   1. **core** and **gateway** logs - from journalctl
+   2. defguard client service log
+      1. Mac & Linux: /var/log/defguard-service
+      2. Windows: C:\Logs\defguard-service (will be changed soon)
