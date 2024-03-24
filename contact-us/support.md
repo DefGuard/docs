@@ -70,7 +70,7 @@ In order to get help on a not working VPN setup to figure out what is actually w
 
 1. **Routing table** of the **server** and **clien**t
 2. **Firewall rules** of the server and client
-3. Detailed information about your VPN setup - all fields (besides the keys) from the VPN configuration.
+3. Detailed information about your VPN setup - all fields (besides the keys) from the VPN configuration - [can be downloaded with support information feature.](../admin-and-features/sending-support-info.md)
 4. Logs - before submitting logs, please:
    1. Change in Desktop Client settings _Logging threshold_ to **DEBUG - **<mark style="color:yellow;">**you need to restart the desktop client after changing logging threshold.**</mark>
    2. Connect once more, and then gather logs:
