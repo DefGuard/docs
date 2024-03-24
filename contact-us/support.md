@@ -5,8 +5,18 @@ If you have any questions about Defguard or found an issue take look at these re
 * Report:
   * a [Bug](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=bug\&projects=\&template=bug\_report.md\&title=)
   * [Feature request](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=feature\&projects=\&template=feature\_request.md\&title=)
-* Community Support is also on [Matrix](https://matrix.to/#/#defguard:teonite.com)
-* If you would like to have our direct / enterprise support, [you can buy it from our website - there are two options: premium & enterprise.](https://defguard.net/pricing/)
+
+### Community Support
+
+Community support is done - by the community as well as us (defguard authors) on our [Matrix](https://matrix.to/#/#defguard:teonite.com) - **Support** channel.
+
+{% hint style="info" %}
+Since this a community support please remember that it may take some time to get a response, as there is no-one _assigned_ for the support 24/h - especially during the weekends, when people are just off.
+{% endhint %}
+
+### Premium & Enterprise&#x20;
+
+If you have an actuail production setup that requires proper support, please  [please gp to our support page, where you can buy  premium or enterprise](https://defguard.net/pricing/) support.
 
 ## Things don't work, please help
 
