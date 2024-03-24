@@ -71,8 +71,11 @@ In order to get help on a not working VPN setup to figure out what is actually w
 1. **Routing table** of the **server** and **clien**t
 2. **Firewall rules** of the server and client
 3. Detailed information about your VPN setup - all fields (besides the keys) from the VPN configuration.
-4. Logs
-   1. **core, proxy** and **gateway** logs - from journalctl
-   2. defguard client service log - that are located in folders:
-      1. Mac & Linux: /var/log/defguard-service/
-      2. Windows: C:\Logs\defguard-service (will be changed soon)
+4. Logs - before submitting logs, please:
+   1. Change in Desktop Client settings _Logging threshold_ to **DEBUG**
+   2. Connect once more, and then gather logs:
+      * **core, proxy** and **gateway** logs - from journalctl
+      * defguard client service log - that are located in folders:
+        * Mac & Linux: /var/log/defguard-service/
+        * Windows: C:\Logs\defguard-service (will be changed soon)
+
