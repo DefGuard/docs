@@ -48,6 +48,17 @@ Because of the main routing 10.0.0.0/8 the VPN server routing the network 10.1.1
 {% endhint %}
 
 3. Another common problem is that your server on which the gateway is working, has some firewall rules that interfere with VPN network. Please examine carefully  `ufw` and `iptables` (even if ufw is disabled there may be `iptables` rules).
+4. A user has no access to the VPN location - sometimes admins forget that they **change the VPN settings and change a group that is allowed to access the VPN location**. If the user is not a part of that group which VPN location is configured to access:
+
+<figure><img src="../.gitbook/assets/Screenshot 2024-03-24 at 19.44.57.png" alt=""><figcaption></figcaption></figure>
+
+will not be able to connect.
+
+{% hint style="danger" %}
+In this scenario the user **has VPN Location** in the client since previously were able to connect to this location, but after changing the settings the user needs to [Update their client configuration.](../help/configuring-vpn/add-new-instance/update-instance.md)
+
+It's not done automatically now - since for security reasons there is a token required for obtaining the configuration by the desktop client.
+{% endhint %}
 
 ### Still not working, help
 
