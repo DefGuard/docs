@@ -1,12 +1,6 @@
 # Community & Support
 
-If you have any questions about Defguard or found an issue take look at these resources:
-
-* Report:
-  * a [Bug](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=bug\&projects=\&template=bug\_report.md\&title=)
-  * [Feature request](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=feature\&projects=\&template=feature\_request.md\&title=)
-
-### Community Support
+## Community Support
 
 Community support is done - by the community as well as us (defguard authors) on our [Matrix](https://matrix.to/#/#defguard:teonite.com) - **Support** channel.
 
@@ -14,9 +8,14 @@ Community support is done - by the community as well as us (defguard authors) on
 Since this a community support please remember that it may take some time to get a response, as there is no-one _assigned_ for the support 24/h - especially during the weekends, when people are just off.
 {% endhint %}
 
-### Premium & Enterprise&#x20;
+## Premium & Enterprise&#x20;
 
-If you have an actuail production setup that requires proper support, please  [please gp to our support page, where you can buy  premium or enterprise](https://defguard.net/pricing/) support.
+If you have an actuail production setup that requires proper support, please  [please go to our support page, where you can buy  premium or enterprise](https://defguard.net/pricing/) support.
+
+## Found a bug? Need a feature?
+
+* Here you can submit [a bug](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=bug\&projects=\&template=bug\_report.md\&title=)
+* And here you can submit [a feature request](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=feature\&projects=\&template=feature\_request.md\&title=)
 
 ## Things don't work, please help
 
@@ -51,6 +50,10 @@ Because of the main routing 10.0.0.0/8 the VPN server routing the network 10.1.1
 3. Another common problem is that your server on which the gateway is working, has some firewall rules that interfere with VPN network. Please examine carefully  `ufw` and `iptables` (even if ufw is disabled there may be `iptables` rules).
 
 ### Still not working, help
+
+{% hint style="info" %}
+Please remember that defguard is absolutly free, and the only way for now we have any support is that when someone just buys the [support on our website](https://defguard.net/pricing/). Please consider it...
+{% endhint %}
 
 In order to get help on a not working VPN setup to figure out what is actually wrong, please prepare the following things:
 
