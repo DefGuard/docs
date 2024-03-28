@@ -4,10 +4,12 @@
 
 defguard allows you to configure SSH authentication on your servers to use public SSH keys stored in your instance's database. This is possible by using the [AuthorizedKeysCommand option](http://man.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man5/sshd\_config.5#AuthorizedKeysCommand) in OpenSSH daemon configuration file.
 
-{% hint style="warning" %}
-For the time being each user can only have one SSH key added. It can be done by [provisioning a YubiKey](yubikey-provisioning.md).&#x20;
+{% hint style="info" %}
+Each user can manage their public SSH (and GPG keys) in their user profile.
 
-Allowing users to add arbitrary pubkeys to their account is already on the roadmap. Once implemented the changes should not impact the guide below. &#x20;
+Also, when provisioning YubiKeys - those keys are also available in user profile (with info on which YK they are stored):
+
+![](../.gitbook/assets/yk.png)
 {% endhint %}
 
 The specific API endpoint used for this is `/api/v1/ssh_authorized_keys`. It returns a list of public keys, each in a new line. It allows you to filter you query by specifying a username, a group or a combination of both.
