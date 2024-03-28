@@ -68,14 +68,20 @@ Please remember that defguard is absolutly free, and the only way for now we hav
 
 In order to get help on a not working VPN setup to figure out what is actually wrong, please prepare the following things:
 
-1. **Routing table** of the **server** and **clien**t
+1. **itsthe the Routing table** of the **server** and **clien**t
 2. **Firewall rules** of the server and client
 3. Detailed information about your VPN setup - all fields (besides the keys) from the VPN configuration - [can be downloaded with support information feature](../admin-and-features/sending-support-info.md) - if you don't want to attach this to the isse/Matrix chat -  you can send it to us directly (there is a button to send).
-4. Logs - before submitting logs, please:
-   1. Change in Desktop Client settings _Logging threshold_ to **DEBUG - **<mark style="color:yellow;">**you need to restart the desktop client after changing logging threshold.**</mark>
-   2. Connect once more, and then gather logs:
-      * **core, proxy** and **gateway** logs - from journalctl
-      * defguard client service log - that are located in folders:
-        * Mac & Linux: /var/log/defguard-service/
-        * Windows: C:\Logs\defguard-service (will be changed soon)
+4.  Logs - before submitting logs, please:
 
+    1. Desktop Client
+       1. Change in Desktop Client settings _Logging threshold_ to **DEBUG - **<mark style="color:yellow;">**you need to restart the desktop client after changing logging threshold.**</mark>
+       2. Launch the client from the command line, so that you have more logs (the desktop client has it's own logs and there is a vpn service that is gathering logs just for the VPN connections and not the desktop client itself) - so in the terminal you will have desktop client logs:
+
+    <figure><img src="../.gitbook/assets/Screenshot 2024-03-28 at 10.27.02.png" alt=""><figcaption></figcaption></figure>
+
+    1. Gather desktop client **service log** (responsible for the connections) - that are located in folders:
+       1. Mac & Linux: /var/log/defguard-service/
+       2. Windows: C:\Logs\defguard-service (will be changed soon)
+5. **After connecting and gathering Desktop Client and client Service logs,** gather logs: **core, proxy** and **gateway** logs - from `journalctl` from your servers.
+
+Prepare a package of all this and submit it to the #Support channel.
