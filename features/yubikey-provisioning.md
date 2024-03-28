@@ -1,5 +1,5 @@
 ---
-description: https://github.com/DefGuard/YubiKey-Provision
+description: 'Provisioner repository: https://github.com/DefGuard/YubiKey-Provision'
 ---
 
 # YubiKey Provisioning
@@ -7,6 +7,10 @@ description: https://github.com/DefGuard/YubiKey-Provision
 ## Overview
 
 Our provisioning service (installed on a computer that has USB access and securely communicating with defguard) allows you to easily create and populate the **SSH and GPG/OpenPGP** keys on a YubiKey hardware key, and share its public information inside defguard - which can be [used for example to authenticate to servers using defguard](ssh-authentication.md).
+
+{% hint style="info" %}
+Defguard allows also of uploading/managing any GPG/SSH keys in the user profile.
+{% endhint %}
 
 It's completely safe, defguard does not store private keys. Every key is provisioned inside an encapsulated session so any **gpg-related files are deleted right after the process ends successfully or not**. Only public PGP and SSH keys are sent to defguard so you can access them at any time.
 
@@ -86,6 +90,10 @@ To provision the key:
     <figure><img src="../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
 
 The service will take a short moment to prepare and provision your keys. Once the process is done, the modal will close and you will see a notification in the corner of the screen.
+
+After provisioning a YK with serial number and all keys details will be visible in yousr profile:
+
+<figure><img src="../.gitbook/assets/yk.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ## Common problems
 
