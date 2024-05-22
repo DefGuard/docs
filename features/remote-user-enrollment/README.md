@@ -45,7 +45,7 @@ There are several **template tags** (similar to [Jinja2](https://jinja.palletspr
 
 * Go to **Users** page
 * Click **Add new** user button
-* Within the modal that appears fill in the new user's data as usual, but instead of entering a password check the **Use remote enrollment** checkbox
+* Within the modal that appears fill in the new user's data as usual, but instead of entering a password check the **Use enrollment process** checkbox
 * Click the **Add user** button
 * In the next modal choose whether you want to **Send token by email** or **Deliver token yourself**
 * If you choose to deliver the enrollment token by email provide an email address to which a notification will be sent

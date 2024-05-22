@@ -5,9 +5,9 @@ Defguard provides **secure remote enrollment process (remote registration/activa
 * double-check their data
 * setup their password
 * add their initial device to access VPN as a nice wizard!
-* see admin (that has added this user) **contact data**
+* see admin (that has added this user) **contact details**
 
-All done by a nice wizzard:
+All done by a nice wizard:
 
 <figure><img src="https://github.com/DefGuard/docs/raw/docs/releases/0.7/enrollment.png?raw=true" alt=""><figcaption></figcaption></figure>
 
@@ -35,7 +35,7 @@ Even if the user will do enrollment in the browser - the desktop client can be c
 
 ## User onboarding after enrollment
 
-After the enrollment proces new users are shared with **any relevant company information, links to company systems, security guidelines**, etc.
+After the enrollment proces new users are provided with **any relevant company information, links to company systems, security guidelines**, etc.
 
 The onboarding messages will be shown on the **last step of the enrollment process and sent to the user via email**:
 
