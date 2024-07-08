@@ -15,6 +15,7 @@
 * [Remote desktop client activation](help/remote-desktop-activation.md)
 * [Desktop Client](help/desktop-client/README.md)
   * [Windows installer exit codes](help/desktop-client/windows-installer-exit-codes.md)
+  * [Upgrading](help/desktop-client/upgrading.md)
 
 ## Admin & features
 
