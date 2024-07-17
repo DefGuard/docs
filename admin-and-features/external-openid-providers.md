@@ -45,7 +45,7 @@ You may have also noticed the checkbox option on the right. By default, when a n
 [Full Google documentation](https://developers.google.com/identity/openid-connect/openid-connect)
 
 1. The Google OpenID connect can be configured in the [Google Cloud Console](https://console.cloud.google.com)
-2.  If you don't have any project setup already, create it by clicking the dropdown menu here:
+2.  If you don't have any project setup already (or you want to create a new one for this purpose), create it by clicking the dropdown menu here:
 
     <figure><img src="../.gitbook/assets/image (31).png" alt="" width="312"><figcaption></figcaption></figure>
 
