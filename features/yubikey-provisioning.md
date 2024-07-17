@@ -4,6 +4,14 @@ description: 'Provisioner repository: https://github.com/DefGuard/YubiKey-Provis
 
 # YubiKey Provisioning
 
+{% hint style="danger" %}
+We only support (and tested) Yubikey 5.
+
+Yubikey 4 should work - we have not tested.
+
+Other Yubikeys - especially NEO (which has slots for RSA GPG/PGP keys) will not work, as YK NEO has only 2048 key length slot, which is commonly treated as unsecure for RSA key length.
+{% endhint %}
+
 ## Overview
 
 Our provisioning service (installed on a computer that has USB access and securely communicating with defguard) allows you to easily create and populate the **SSH and GPG/OpenPGP** keys on a YubiKey hardware key, and share its public information inside defguard - which can be [used for example to authenticate to servers using defguard](ssh-authentication.md).
