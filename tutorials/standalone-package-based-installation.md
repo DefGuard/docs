@@ -354,3 +354,5 @@ Now realod your .env file and reload **core service** again. You should get addi
 ```
 
 You can now create on defguard admin panel new users and create for them an enrollment process. [Remote desktop activation](https://defguard.gitbook.io/defguard/help/remote-desktop-activation)
+
+Enrollment process page in the example above should be on `http://localhost:8080`.
