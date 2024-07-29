@@ -2,15 +2,22 @@
 
 ## Introduction
 
-This guide will walk you through the process of installing and running Debian packages (.deb) for **core, gateway, proxy** services. We will cover system requirements, additional dependencies, installation steps, and examples of running the installed packages with configuration. (this guide will not cover all possible configurable things, the list of all environmental variables for packages you can find in [Configuraion](https://defguard.gitbook.io/defguard/admin-and-features/setting-up-your-instance/configuration))
+This guide will walk you through the process of installing and running Debian packages (.deb) for **core, gateway, proxy** services. We will cover system requirements, additional dependencies, installation steps, and examples of running the installed packages with configuration files.
 
-If you want to read more about those packages, please go to [Introduction](https://defguard.gitbook.io/defguard).
 
 Examples will be made by using **[Debian 12](https://www.debian.org/releases/stable/releasenotes)**.
 
 ### Hardware Requirements
 
-To run defguard components you should meet these expectations of your hardware - [Hardware requirements](https://defguard.gitbook.io/defguard/admin-and-features/setting-up-your-instance).
+All defguard components are **very low resource-consuming**. All of them are written in [Rust](https://www.rust-lang.org) and are single binaries. As minimum setup as follows should be more then enough:
+
+| Resource     | Minimum requirements         |
+| ------------ | ---------------------------- |
+| CPU          | 1 GHz                        |
+| RAM          | 2 GB (mostly for PostgreSQL) |
+| Disk         | 2 GB                         |
+| Architecture | x86\_64, ARM64               |
+
 
 ### System Requirements
 
@@ -24,8 +31,35 @@ Before proeeding with the installation, ensure your system meets the following r
 
 #### PostgreSQL
 
-Defguard services utilitize postgresql so if you do not have installed and configured yet, you can do it with this [guide](https://wiki.debian.org/PostgreSql). For this tutorial we need to create **a user with superuser priviliges and database**. Remember database configuration, because we will need it during [Run Core](#run-core) section. 
-* [Database configuration variables](https://defguard.gitbook.io/defguard/admin-and-features/setting-up-your-instance/configuration#database-configuration)
+Defguard services utilitize postgresql so if you do not have installed and configured yet, you can do it in this section. For this tutorial we need to create **a user with superuser priviliges and database**. 
+
+First of all, install postgresql
+```
+# apt install postgresql 
+```
+
+Now you can launch a default user and create a new superuser for your database
+```
+# su -c /usr/bin/psql postgres
+postgres=# CREATE USER <username> WITH SUPERUSER PASSWORD '<password>';
+postgres=# CREATE DATABASE <database>;
+```
+
+After creating a user and database we can connect our new user to this database. To make it easier to connect now and then, we could try to add auth file
+```
+# echo `<hostname>:<port>:<database>:<user>:<password>` >> <path_to_your_auth_file>/.pgpass
+# chmod 600 <path_to_your_auth_file>/.pgpass
+# psql -d <database> -h <hostname> -U <username>
+```
+
+Exapmle:
+```
+# echo 'localhost:5432:defguard:defguard:defguard' >> ~/.pgpass
+# chmod 600 ~/.pgpass
+# psql -d defguard -h localhost -U defguard
+defguard=# exit     # for now we can leave it, the purpose to connect is to verify that you are able to connect to your database by your user
+```
+
 
 ### Additional dependencies
 
@@ -51,7 +85,7 @@ Example:
 ```
 You can also download directly from the Github realse page, but please note that you should know the path where this could be storead after downloading. Once the package is downloaded, install it using dpkg: 
 ```
-# dpkg -i defguard-<version>-x86_64-unknown-linux-gnu.deb
+# dpkg -i <path_to_package>/defguard-<version>-x86_64-unknown-linux-gnu.deb
 ```
 
 Example:
@@ -78,7 +112,7 @@ Example:
 ```
 You can also download directly from the Github realse page, but please note that you should know the path where this could be storead after downloading. Once the package is downloaded, install it using dpkg: 
 ```
-# dpkg -i defguard-gateway_<version>_x86_64-unknown-linux-gnu.deb
+# dpkg -i <path_to_package>/defguard-gateway_<version>_x86_64-unknown-linux-gnu.deb
 ```
 
 Example:
@@ -106,7 +140,7 @@ Example:
 ```
 You can also download directly from the Github realse page, but please note that you should know the path where this could be storead after downloading. Once the package is downloaded, install it using dpkg: 
 ```
-# dpkg -i defguard-proxy-<version>-x86_64-unknown-linux-gnu.deb
+# dpkg -i <path_to_package>/defguard-proxy-<version>-x86_64-unknown-linux-gnu.deb
 ```
 
 Example:
@@ -355,4 +389,4 @@ Now realod your .env file and reload **core service** again. You should get addi
 
 You can now create on defguard admin panel new users and create for them an enrollment process. [Remote desktop activation](https://defguard.gitbook.io/defguard/help/remote-desktop-activation)
 
-Enrollment process page in the example above should be on `http://localhost:8080`. You can modify enrollment configuration by changing those variables [Enrollment configuration](https://defguard.gitbook.io/defguard/admin-and-features/setting-up-your-instance/configuration#enrollment-configuration).
+Enrollment process page in the example above should be on `http://localhost:8080`. You can modify enrollment configuration by changing those variables in your env file - [Enrollment configuration](https://defguard.gitbook.io/defguard/admin-and-features/setting-up-your-instance/configuration#enrollment-configuration).
