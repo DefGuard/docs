@@ -27,7 +27,9 @@ Before proeeding with the installation, ensure your system meets the following r
 * Administrative (sudo) privileges
 * Internet connection for downloading packages
 
-### Prequesities
+TODO: ip and domains
+
+### Prequesities 
 
 #### PostgreSQL
 
@@ -38,26 +40,19 @@ First of all, install postgresql
 # apt install postgresql 
 ```
 
-Now you can launch a default user and create a new superuser for your database
+Now you can launch a default user and create a new superuser for your database. We create user, password and database with name `defguard`, beacuse this is by default in `/etc/defguard/core.conf`, you can change whatever you want.
 ```
 # su -c /usr/bin/psql postgres
-postgres=# CREATE USER <username> WITH SUPERUSER PASSWORD '<password>';
-postgres=# CREATE DATABASE <database>;
+postgres=# CREATE USER defgaurd WITH SUPERUSER PASSWORD defguad;
+postgres=# CREATE DATABASE defguard;
 ```
 
 After creating a user and database we can connect our new user to this database. To make it easier to connect now and then, we could try to add auth file
 ```
-# echo `<hostname>:<port>:<database>:<user>:<password>` >> <path_to_your_auth_file>/.pgpass
-# chmod 600 <path_to_your_auth_file>/.pgpass
-# psql -d <database> -h <hostname> -U <username>
-```
-
-Exapmle:
-```
-# echo 'localhost:5432:defguard:defguard:defguard' >> ~/.pgpass
+# echo 'localhost:5432:defguard:defguard:defguard' >> ~/.pgpass # <hostname>:<port>:<database>:<user>:<password>
 # chmod 600 ~/.pgpass
 # psql -d defguard -h localhost -U defguard
-defguard=# exit     # for now we can leave it, the purpose to connect is to verify that you are able to connect to your database by your user
+defguard=# exit     # for now we can leave it, the purpose of this connection is to verify your user is able to communicate with database
 ```
 
 
@@ -158,53 +153,48 @@ defguard-proxy 0.5.0
 
 ### Run core
 
-To run basic core service we need to configure few env variables. We recommend to create a new env file where you can save [Database configuration](https://defguard.gitbook.io/defguard/admin-and-features/setting-up-your-instance/configuration#database-configuration) and few of [Core configuration](https://defguard.gitbook.io/defguard/admin-and-features/setting-up-your-instance/configuration#core-configuration).
-
-First version of the config file for core should look like this:
+To run core service we need to configure `/etc/defguard/core.conf` file. **If you configure your postgres with different names than in [PostgreSQL guide](#postgresql), you can change it right here DB configuration part**.
 ```
-# Database configuartion
+### Core configuration ###
+DEFGUARD_AUTH_SECRET=defguard-auth-secret
+DEFGUARD_GATEWAY_SECRET=defguard-gateway-secret
+DEFGUARD_YUBIBRIDGE_SECRET=defguard-yubibridge-secret
+DEFGUARD_SECRET_KEY=defguard-secret-key
+DEFGUARD_URL=http://localhost:8000
+# How long auth session lives in seconds
+DEFGUARD_AUTH_SESSION_LIFETIME=604800
+# Optional. Generated based on DEFGUARD_URL if not provided.
+# DEFGUARD_WEBAUTHN_RP_ID=localhost
+DEFGUARD_ADMIN_GROUPNAME=admin
+DEFGUARD_DEFAULT_ADMIN_PASSWORD=pass123
 
-export DEFGUARD_DB_HOST=<your_database_host>
-export DEFGUARD_DB_PORT=<your_database_port>
-export DEFGUARD_DB_NAME=<your_database_name>
-export DEFGAURD_DB_USER=<your_username>
-export DEFGUARD_DB_PASSWORD=<your_user_password>
+### Proxy configuration ###
+# Optional. URL of proxy gRPC server
+# DEFGUARD_PROXY_URL=http://localhost:50051
 
+### LDAP configuration ###
+DEFGUARD_LDAP_URL=ldap://localhost:389
+DEFGUARD_LDAP_SERVICE_PASSWORD=adminpassword
+DEFGUARD_LDAP_USER_SEARCH_BASE="ou=users,dc=example,dc=org"
+DEFGUARD_LDAP_GROUP_SEARCH_BASE="ou=groups,dc=example,dc=org"
+DEFGUARD_LDAP_DEVICE_SEARCH_BASE="ou=devices,dc=example,dc=org"
 
-# Core configuration 
-
-export DEFGUARD_SECRET_KEY=<your_secret_key>
-# by default http://localhost:8000, if you want use this value please comment the line below
-export DEFGUARD_URL=<your_url>
+### DB configuration ###
+DEFGUARD_DB_HOST="localhost"
+DEFGUARD_DB_PORT=5432
+DEFGUARD_DB_NAME="defguard"
+DEFGUARD_DB_USER="defguard"
+DEFGUARD_DB_PASSWORD="defguard"
+# for SQLX CLI
+DATABASE_URL="postgresql://defguard:defguard@localhost/defguard"
 ```
+
 
 {% hint style="info" %}
 You can generate random strings for secrets with e.g.:
 
 `openssl rand -base64 55 | tr -d "=+/" | tr -d '\n' | cut -c1-64`
 {% endhint %}
-
-Example:
-```
-# Database configuartion
-
-export DEFGUARD_DB_HOST=localhost
-export DEFGUARD_DB_PORT=5432
-export DEFGUARD_DB_NAME=defguard
-export DEFGAURD_DB_USER=defguard
-export DEFGUARD_DB_PASSWORD=defguard
-
-
-# Core configuration 
-
-export DEFGUARD_SECRET_KEY=h3wEFdTfTK9aVDulRt9TMPknLY9oVmz13k7tx5Azpj5Y9E9C7hoT11OtiPfzSRBw
-export DEFGUARD_URL=http://localhost:8000
-```
-
-Remember to source your env variables:
-```
-source <path_to_your_defguard_env>
-```
 
 After creating a config file now we can launch core service for the first time!
 ```
