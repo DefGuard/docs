@@ -153,14 +153,18 @@ defguard-proxy 0.5.0
 
 ### Run core
 
-To run core service we need to configure `/etc/defguard/core.conf` file. **If you configure your postgres with different names than in [PostgreSQL guide](#postgresql), you can change it right here DB configuration part**.
+To run core service we need to configure `/etc/defguard/core.conf` file, we could start by simply adding values for `DEFGUARD_SECRET_KEY` and `DEFGUARD_URL`
+* for generating secret key use commnad - `openssl rand -base64 55 | tr -d "=+/" | tr -d '\n' | cut -c1-64`
+* in this tutorial we wil use server domain `my-server.defguard.ent`.
+
+Example `/etc/defguard/core.conf`:
 ```
 ### Core configuration ###
 DEFGUARD_AUTH_SECRET=defguard-auth-secret
 DEFGUARD_GATEWAY_SECRET=defguard-gateway-secret
 DEFGUARD_YUBIBRIDGE_SECRET=defguard-yubibridge-secret
-DEFGUARD_SECRET_KEY=defguard-secret-key
-DEFGUARD_URL=http://localhost:8000
+DEFGUARD_SECRET_KEY=9oZqdHRCN0TWIyMhjYOAYwgzVz9IfOqz62PzUvjvyMzqLICGSM3b0pRMdDH300CQ
+DEFGUARD_URL=my-server.defguard.net
 # How long auth session lives in seconds
 DEFGUARD_AUTH_SESSION_LIFETIME=604800
 # Optional. Generated based on DEFGUARD_URL if not provided.
@@ -189,29 +193,30 @@ DEFGUARD_DB_PASSWORD="defguard"
 DATABASE_URL="postgresql://defguard:defguard@localhost/defguard"
 ```
 
+**If you have configured your postgres with different names than in [PostgreSQL guide](#postgresql), you can change it in DB configuration part**.
 
-{% hint style="info" %}
-You can generate random strings for secrets with e.g.:
-
-`openssl rand -base64 55 | tr -d "=+/" | tr -d '\n' | cut -c1-64`
-{% endhint %}
-
-After creating a config file now we can launch core service for the first time!
+After changes, you can simply enable and start your defguard core service:
 ```
-# defguard
-2024-07-27T11:47:21.796847Z  INFO defguard: Starting defguard
-2024-07-27T11:47:21.796881Z  INFO defguard::db: Initializing DB pool
-2024-07-27T11:47:21.848475Z  INFO defguard: Using HMAC OpenID signing key
-2024-07-27T11:47:22.509151Z  INFO defguard::db::models::user: Initializing admin user
-2024-07-27T11:47:22.535824Z  INFO defguard::db::models::settings: Initializing default settings
-2024-07-27T11:47:22.580647Z  INFO defguard::wireguard_peer_disconnect: Starting periodic disconnect of inactive devices in MFA-protected locations
-2024-07-27T11:47:22.580729Z  INFO defguard::wireguard_stats_purge: Starting periodic purge of stats older than 30days every 1day
-2024-07-27T11:47:22.583353Z  INFO defguard: Started web services
+# systemctl enable defguard.service
+# systemctl start defguard.service
+```
+
+To see logs, type journalctl command:
+```
+# journalctl -u defguard.service
+Jul 29 13:57:15 defguard-testing systemd[1]: Started defguard.service - defguard core service.
+Jul 29 13:57:15 defguard-testing defguard[2776504]: 2024-07-29T11:57:15.738420Z  INFO defguard: Starting defguard
+Jul 29 13:57:15 defguard-testing defguard[2776504]: 2024-07-29T11:57:15.743079Z  INFO defguard::db: Initializing DB pool
+Jul 29 13:57:16 defguard-testing defguard[2776504]: 2024-07-29T11:57:16.297407Z  INFO defguard: Using HMAC OpenID signing key
+Jul 29 13:57:19 defguard-testing defguard[2776504]: 2024-07-29T11:57:19.156559Z  INFO defguard::db::models::user: Initializing admin user
+Jul 29 13:57:19 defguard-testing defguard[2776504]: 2024-07-29T11:57:19.595218Z  INFO defguard::db::models::user: New admin user has been created, adding to Admin group...
+Jul 29 13:57:19 defguard-testing defguard[2776504]: 2024-07-29T11:57:19.747717Z  INFO defguard::db::models::settings: Initializing default settings
+Jul 29 13:57:19 defguard-testing defguard[2776504]: 2024-07-29T11:57:19.780563Z  INFO defguard: Started web services
 ```
 
 We can also test it on another terminal tab:
 ```
-$ curl http://localhost:8000/api/v1/health
+$ curl http://my-server.defguard.net/api/v1/health
 alive
 ```
 Success! We can move on to the next service.
@@ -219,20 +224,22 @@ Success! We can move on to the next service.
 ### Run gateway
 
 To run gateway, we should do two things:
-* setup our first location on core service that you create earlier to get `token` and `grpc_url` variables,
-* create a new config.toml file. 
+* setup our first location on core service that you create earlier to get `token` and `grpc_url` variables in `/etc/defguard/`
 
 #### Setup location for gateway
 
-Now, after setting up core service you should go to the website that you set on `DEFGUARD_URL` (if this variable was not set by you, go to page: `http://localhost:8000`). The link should redirect you to login page, if you not set your [own password](https://defguard.gitbook.io/defguard/admin-and-features/setting-up-your-instance/configuration#core-configuration) for admin the data should look like this:
+Now, after setting up core service you should go to the website that you set on `DEFGUARD_URL`. The link should redirect you to login page. To log in type this credentials from `/etc/defguard/core.conf`
 * login: admin
-* password: pass123
+* password: `DEFGUARD_DEFAULT_ADMIN_PASSWORD` (by default: pass123)
 
 Now we can configure our first location. Depends on what is more convenient fo you, choose configuration from Wireguard file or do it manualy.
 <figure><img src="../.gitbook/assets/choose_location_setup.png" alt=""><figcaption><p>Location setup</p></figcaption></figure>
 
-You can find an example manual configuration if you choose localhost for core service
-<figure><img src="../.gitbook/assets/configure_location_manually.png" alt=""><figcaption><p>Manual configuration</p></figcaption></figure>
+You can find below an example manual configuration
+
+* Location name: Szczecin
+* Gateway VPN IP address and netmask: 10.22.33.1/24
+* Gateway address: 185.33.37.51
 
 After saving configuration for location you should be redirect to Location overview page, where at the top right corner is `Edit Locations Settings` button, click on it.
 <figure><img src="../.gitbook/assets/edit_locations_settings.png" alt=""><figcaption><p>Manual configuration</p></figcaption></figure>
@@ -301,12 +308,13 @@ syslog_socket = "/var/run/log"
 
 Now we can run gateway service with configuration above:
 ```
-# defguard-gateway --config <path_to_your_config.toml>
+# systemctl enable defguard-gateway.service
+# systemctl start defgaurd-gateway.service
+# journalctl -u defguard-gateway.service
 [2024-07-27T16:37:56Z INFO  defguard_gateway::gateway] Starting defguard gateway version 0.7.0 with configuration: Config { token: "***", name: Some("Gateway on server X"), grpc_url: "http://localhost:50055/", userspace: false, grpc_ca: None, stats_period: 60, ifname: "wg0", pidfile: None, use_syslog: false, syslog_facility: "LOG_USER", syslog_socket: "/var/run/log", config_path: None, pre_up: None, post_up: None, pre_down: None, post_down: None, health_port: Some(55003) }
-[2024-07-27T16:37:56Z INFO  defguard_gateway::server] Health check listening on 0.0.0.0:55003
 [2024-07-27T16:37:56Z INFO  defguard_gateway::gateway] gRPC server connection setup done.
 [2024-07-27T16:37:56Z INFO  defguard_wireguard_rs::wgapi_linux] Creating interface wg0
-[2024-07-27T16:37:56Z INFO  defguard_wireguard_rs::wgapi_linux] Configuring interface wg0 with config: InterfaceConfiguration { name: "Szczecin", address: "10.0.0.1/24", port: 50051, peers: [], mtu: None, .. }
+[2024-07-27T16:37:56Z INFO  defguard_wireguard_rs::wgapi_linux] Configuring interface wg0 with config: InterfaceConfiguration { name: "Szczecin", address: "10.22.33.1/24", port: 50051, peers: [], mtu: None, .. }
 [2024-07-27T16:37:56Z WARN  netlink_packet_route::link::buffer_tool] Specified IFLA_INET6_STATS NLA attribute holds more(most likely new kernel) data which is unknown to netlink-packet-route crate, expecting 288, got 296
 [2024-07-27T16:37:56Z WARN  netlink_packet_route::link::buffer_tool] Specified IFLA_INET6_STATS NLA attribute holds more(most likely new kernel) data which is unknown to netlink-packet-route crate, expecting 288, got 296
 [2024-07-27T16:37:56Z INFO  defguard_gateway::gateway] Reconfigured WireGuard interface Szczecin (address: 10.0.0.1/24)
@@ -353,7 +361,9 @@ Alive
 
 To run proxy service, we can do it by:
 ```
-# defguard-proxy
+# systemctl enable defguard-proxy.service
+# systemctl start defguard-proxy.service
+# journalctl -u defguard-proxy.service
 2024-07-27T16:53:58.584154Z INFO defguard_proxy::tracing: Tracing initialized
 2024-07-27T16:53:58.584233Z INFO defguard_proxy::http: Starting Defguard proxy server
 2024-07-27T16:53:58.584371Z INFO defguard_proxy::http: Skipping rate limiter setup
@@ -361,22 +371,10 @@ To run proxy service, we can do it by:
 2024-07-27T16:53:58.585125Z INFO defguard_proxy::http: Defguard proxy server initialization complete
 2024-07-27T16:53:58.585262Z INFO defguard_proxy::http: API web server is listening on 0.0.0.0:8080
 ```
-As you can see our proxy service works, copy `gRPC url` and paste it to **core configuration**. 
+As you can see our proxy service works, we can update our **core configuration** in `/etc/defguard/core.conf`. 
 
 Example:
 ```
 # Proxy connection configuration
-export DEFGUARD_PROXY_URL=http://localhost:50051
+DEFGUARD_PROXY_URL=http://localhost:50051
 ```
-
-You can find all possible configruation proxy variables in the [Proxy connection configuration](https://defguard.gitbook.io/defguard/admin-and-features/setting-up-your-instance/configuration#proxy-connection-configuration).
-
-Now realod your .env file and reload **core service** again. You should get additional information besides gateway info.
-
-```
-2024-07-27T16:57:19.158521Z  INFO defguard::grpc: Connected to proxy at http://localhost:50051/
-```
-
-You can now create on defguard admin panel new users and create for them an enrollment process. [Remote desktop activation](https://defguard.gitbook.io/defguard/help/remote-desktop-activation)
-
-Enrollment process page in the example above should be on `http://localhost:8080`. You can modify enrollment configuration by changing those variables in your env file - [Enrollment configuration](https://defguard.gitbook.io/defguard/admin-and-features/setting-up-your-instance/configuration#enrollment-configuration).
