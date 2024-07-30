@@ -30,7 +30,7 @@ Before proeeding with the installation, ensure your system meets the following r
 * You have a domain name and know how to assign IP and manage subdomains, in our example:
 defguard main url will be <i>my-server.defguard.net</i> (and the subdomain is pointed to 185.33.37.51)
 * defguard enrollment service that will enable to easy configure Desktop Clients just with one token is: <i>enroll.defguard.net</i> (this subdomain also points to 185.33.37.51)
-* If you have a **firewall**, we asume you have **open port 443 and 444** in order to expose both defguard and enrollment service, but also to automatically issue for these doamins SSL Certificates 
+* If you have a **firewall**, we asume you have **open ports 443 and 444** in order to expose both defguard and enrollment service, but also to automatically issue for these doamins SSL Certificates 
 
 ### Prequesities 
 
@@ -60,8 +60,13 @@ defguard=# exit     # for now we can leave it, the purpose of this connection is
 
 #### NGINX
 
-TODO: configure my-server & enroll
-TODO: describe certbot
+To expose our services in the server we need to configure a reverse proxy server. For this we will use nginx web server with ssl certificates for enabling https protocol.
+
+To get started, we need to install:
+```
+# apt install nginx
+# apt install certbot # service that generate for us certificates
+```
 
 ### Additional dependencies
 
