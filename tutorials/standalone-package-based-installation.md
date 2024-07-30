@@ -26,8 +26,11 @@ Before proeeding with the installation, ensure your system meets the following r
 * Debian-based operating system (Debian, Ubuntu, etc.)
 * Administrative (sudo) privileges
 * Internet connection for downloading packages
-
-TODO: ip and domains
+* A server with a public IP (and you know what that IP address is and to which interface it's assigned) - in this example it's: 185.33.37.51
+* You have a domain name and know how to assign IP and manage subdomains, in our example:
+defguard main url will be <i>my-server.defguard.net</i> (and the subdomain is pointed to 185.33.37.51)
+* defguard enrollment service that will enable to easy configure Desktop Clients just with one token is: <i>enroll.defguard.net</i> (this subdomain also points to 185.33.37.51)
+* If you have a **firewall**, we asume you have **open port 443 and 444** in order to expose both defguard and enrollment service, but also to automatically issue for these doamins SSL Certificates 
 
 ### Prequesities 
 
@@ -55,6 +58,10 @@ After creating a user and database we can connect our new user to this database.
 defguard=# exit     # for now we can leave it, the purpose of this connection is to verify your user is able to communicate with database
 ```
 
+#### NGINX
+
+TODO: configure my-server & enroll
+TODO: describe certbot
 
 ### Additional dependencies
 
@@ -164,7 +171,7 @@ DEFGUARD_AUTH_SECRET=defguard-auth-secret
 DEFGUARD_GATEWAY_SECRET=defguard-gateway-secret
 DEFGUARD_YUBIBRIDGE_SECRET=defguard-yubibridge-secret
 DEFGUARD_SECRET_KEY=9oZqdHRCN0TWIyMhjYOAYwgzVz9IfOqz62PzUvjvyMzqLICGSM3b0pRMdDH300CQ
-DEFGUARD_URL=my-server.defguard.net
+DEFGUARD_URL=https://my-server.defguard.net
 # How long auth session lives in seconds
 DEFGUARD_AUTH_SESSION_LIFETIME=604800
 # Optional. Generated based on DEFGUARD_URL if not provided.
