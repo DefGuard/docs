@@ -190,6 +190,8 @@ DEFGUARD_AUTH_SESSION_LIFETIME=604800
 DEFGUARD_ADMIN_GROUPNAME=admin
 DEFGUARD_DEFAULT_ADMIN_PASSWORD=pass123
 
+DEFGUARD_GRPC_ULR=https://my-server.defguard.net # add this line to your config file
+
 ### Proxy configuration ###
 # Optional. URL of proxy gRPC server
 # DEFGUARD_PROXY_URL=http://localhost:50051
@@ -237,7 +239,7 @@ Now, we are able to create our first nginx config for defguard core service with
 # unlink /etc/ngins/sites-enabled-default
 ```
 
-Create config file in `/etc/nginx/site-available/`, example config file for <i>my-server.defguard.ent</i> should look like this
+Create config file `/etc/nginx/site-available/my-server.defguard.conf`, example config file for <i>my-server.defguard.ent</i> should look like this
 ```
 upstream defguard {
 	server 127.0.0.1:8000;
@@ -497,10 +499,176 @@ To run proxy service, we can do it by:
 2024-07-27T16:53:58.585125Z INFO defguard_proxy::http: Defguard proxy server initialization complete
 2024-07-27T16:53:58.585262Z INFO defguard_proxy::http: API web server is listening on 0.0.0.0:8080
 ```
-As you can see our proxy service works, we can update our **core configuration** in `/etc/defguard/core.conf`. 
 
-Example:
+Create config file `/etc/nginx/site-available/enroll.defguard.conf`, example config file for <i>enroll.defguard.ent</i> should look like this
+```
+upstream defguard-proxy {
+	server 127.0.0.1:8080;
+}
+
+upstream proxy-grpc {
+	server 127.0.0.1:50051;
+}
+
+server {
+	listen 443 http2;
+	server_name enroll.defguard.net;
+	access_log /var/log/nginx/enroll.log;
+	error_log /var/log/nginx/enroll.e.log;
+
+	client_max_body_size 200m;
+
+	location / {
+		proxy_pass 		http://defguard-proxy;
+		proxy_set_header	Host		$host;
+		proxy_set_header	X-Real-IP	$remote_addr;
+		proxy_set_header	X-Forwarded-For	$proxy_add_x_forwarded_for;
+	}
+}
+
+server {
+	listen 444 http2;
+	server_name enroll.defguard.net;
+	access_log /var/log/nginx/enroll.log;
+	error_log /var/log/nginx/enroll.e.log;
+
+	client_max_body_size 200m;
+
+	location / {
+		grpc_pass grpc://proxy-grpc;
+		grpc_socket_keepalive on;
+		grpc_read_timeout 3000s;
+		grpc_send_timeout 3000s;
+		grpc_next_upstream_timeout 0;
+
+		proxy_request_buffering off;
+		proxy_buffering off;
+		proxy_connect_timeout 3000s;
+		proxy_send_timeout 3000s;
+		proxy_read_timeout 3000s;
+		proxy_socket_keepalive on;
+
+		keepalive_timeout 90s;
+		send_timeout 90s;
+
+		client_body_timeout 3000s;
+	}
+}
+```
+
+Link configuration, generate certicates and add ssl certificates just like in [Run core section](#run-core).
+
+```
+ln -s /etc/nginx/sites-available/enroll.defguard.conf /etc/nginx/sites-enabled/enroll.defguard.conf
+# systemctl restart nginx.service
+# certbot certonly --non-interactive --agree-tos --standalone --email admin@teonite.com -d enroll.defguard.net
+```
+
+Full example enroll.defguard.conf:
+```
+upstream defguard-proxy {
+	server 127.0.0.1:8080;
+}
+
+upstream proxy-grpc {
+	server 127.0.0.1:50051;
+}
+
+server {
+	listen 443 ssl http2;
+	server_name enroll.defguard.net;
+	access_log /var/log/nginx/enroll.log;
+	error_log /var/log/nginx/enroll.e.log;
+
+	ssl_certificate /etc/letsencrypt/live/enroll.defguard.net/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/enroll.defguard.net/privkey.pem;
+
+	client_max_body_size 200m;
+
+	location / {
+		proxy_pass 		http://defguard-proxy;
+		proxy_set_header	Host		$host;
+		proxy_set_header	X-Real-IP	$remote_addr;
+		proxy_set_header	X-Forwarded-For	$proxy_add_x_forwarded_for;
+	}
+}
+
+server {
+	listen 444 ssl http2;
+	server_name enroll.defguard.net;
+	access_log /var/log/nginx/enroll.log;
+	error_log /var/log/nginx/enroll.e.log;
+
+	ssl on;
+	ssl_certificate /etc/letsencrypt/live/enroll.defguard.net/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/enroll.defguard.net/privkey.pem;
+
+	client_max_body_size 200m;
+
+	location / {
+		grpc_pass grpc://proxy-grpc;
+		grpc_socket_keepalive on;
+		grpc_read_timeout 3000s;
+		grpc_send_timeout 3000s;
+		grpc_next_upstream_timeout 0;
+
+		proxy_request_buffering off;
+		proxy_buffering off;
+		proxy_connect_timeout 3000s;
+		proxy_send_timeout 3000s;
+		proxy_read_timeout 3000s;
+		proxy_socket_keepalive on;
+
+		keepalive_timeout 90s;
+		send_timeout 90s;
+
+		client_body_timeout 3000s;
+	}
+}
+```
+
+Now, we can update our **core configuration** in `/etc/defguard/core.conf`. 
 ```
 # Proxy connection configuration
-DEFGUARD_PROXY_URL=http://localhost:50051
+DEFGUARD_PROXY_URL=https://enroll.defguard.net
 ```
+
+Full `/etc/defguard/core.conf`:
+```
+### Core configuration ###
+DEFGUARD_AUTH_SECRET=defguard-auth-secret
+DEFGUARD_GATEWAY_SECRET=defguard-gateway-secret
+DEFGUARD_YUBIBRIDGE_SECRET=defguard-yubibridge-secret
+DEFGUARD_SECRET_KEY=9oZqdHRCN0TWIyMhjYOAYwgzVz9IfOqz62PzUvjvyMzqLICGSM3b0pRMdDH300CQ
+DEFGUARD_URL=https://my-server.defguard.net
+# How long auth session lives in seconds
+DEFGUARD_AUTH_SESSION_LIFETIME=604800
+# Optional. Generated based on DEFGUARD_URL if not provided.
+# DEFGUARD_WEBAUTHN_RP_ID=localhost
+DEFGUARD_ADMIN_GROUPNAME=admin
+DEFGUARD_DEFAULT_ADMIN_PASSWORD=pass123
+
+DEFGUARD_GRPC_ULR=https://my-server.defguard.net # add this line to your config file
+
+### Proxy configuration ###
+# Optional. URL of proxy gRPC server
+DEFGUARD_PROXY_URL=https://enroll.defguard.net
+
+### LDAP configuration ###
+DEFGUARD_LDAP_URL=ldap://localhost:389
+DEFGUARD_LDAP_SERVICE_PASSWORD=adminpassword
+DEFGUARD_LDAP_USER_SEARCH_BASE="ou=users,dc=example,dc=org"
+DEFGUARD_LDAP_GROUP_SEARCH_BASE="ou=groups,dc=example,dc=org"
+DEFGUARD_LDAP_DEVICE_SEARCH_BASE="ou=devices,dc=example,dc=org"
+
+### DB configuration ###
+DEFGUARD_DB_HOST="localhost"
+DEFGUARD_DB_PORT=5432
+DEFGUARD_DB_NAME="defguard"
+DEFGUARD_DB_USER="defguard"
+DEFGUARD_DB_PASSWORD="defguard"
+# for SQLX CLI
+DATABASE_URL="postgresql://defguard:defguard@localhost/defguard"
+```
+
+After doing this, you have full working defguard services with admin panel and enrollment wizard page!
