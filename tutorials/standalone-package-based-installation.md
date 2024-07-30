@@ -459,32 +459,6 @@ On the other side, core service should print those informations:
 2024-07-27T16:37:56.388810Z  INFO defguard::grpc::gateway: Starting update stream to gateway: user, network [ID 3] Szczecin
 ```
 
-Great! We can also verify gateway health check by uncommenting last line of your config.toml file
-```
-# A HTTP port that will expose the REST HTTP gateway health status
-# STATUS CODES:
-# 200 - Gateway is working and is connected to CORE
-# 503 - gateway works but is not connected to CORE
-health_port = 55003
-```
-Now after reloading again `gateway` service, you can try type a command below:
-```
-# curl -v http://localhost:55003/health
-*   Trying 127.0.0.1:55003...
-* Connected to localhost (127.0.0.1) port 55003 (#0)
-> GET /health HTTP/1.1
-> Host: localhost:55003
-> User-Agent: curl/7.88.1
-> Accept: */*
-> 
-< HTTP/1.1 200 OK
-< content-type: text/plain; charset=utf-8
-< content-length: 5
-< date: Sat, 27 Jul 2024 16:51:35 GMT
-< 
-* Connection #0 to host localhost left intact
-Alive
-```
 ### Run proxy
 
 To run proxy service, we can do it by:
