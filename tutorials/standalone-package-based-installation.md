@@ -2,8 +2,7 @@
 
 ## Introduction
 
-This guide will walk you through the process of installing and running Debian packages (.deb) for **core, gateway, proxy** services. We will cover system requirements, additional dependencies, installation steps, and examples of running the installed packages with configuration files.
-
+This guide will walk you through the process of installing and running Debian packages (.deb) for **core, gateway, proxy** services. We will cover system requirements, additional dependencies, installation steps, and examples of configuration files and step by step running all services. We utilitize nginx for a web server to connect the internet with defguard services in the server.
 
 Examples will be made by using **[Debian 12](https://www.debian.org/releases/stable/releasenotes)**.
 
@@ -23,14 +22,15 @@ All defguard components are **very low resource-consuming**. All of them are wri
 
 Before proeeding with the installation, ensure your system meets the following requirements:
 
-* Debian-based operating system (Debian, Ubuntu, etc.)
-* Administrative (sudo) privileges
-* Internet connection for downloading packages
-* A server with a public IP (and you know what that IP address is and to which interface it's assigned) - in this example it's: 185.33.37.51
+* Debian-based operating system (Debian, Ubuntu, etc.).
+* Administrative (sudo) privileges.
+* Internet connection for downloading packages.
+* A server with a public IP (and you know what that IP address is and to which interface it's assigned) - in this example it's: 185.33.37.51.
 * You have a domain name and know how to assign IP and manage subdomains, in our example:
-defguard main url will be <i>my-server.defguard.net</i> (and the subdomain is pointed to 185.33.37.51)
-* defguard enrollment service that will enable to easy configure Desktop Clients just with one token is: <i>enroll.defguard.net</i> (this subdomain also points to 185.33.37.51)
-* If you have a **firewall**, we asume you have **open ports 443 and 444** in order to expose both defguard and enrollment service, but also to automatically issue for these doamins SSL Certificates 
+defguard main url will be <i>my-server.defguard.net</i> (and the subdomain is pointed to 185.33.37.51).
+* defguard enrollment service that will enable to easy configure Desktop Clients just with one token is: <i>enroll.defguard.net</i> (this subdomain also points to 185.33.37.51).
+* If you have a **firewall**, we asume you have **open ports 443 and 444** in order to expose both defguard and enrollment service, but also to automatically issue for these doamins SSL Certificates.
+* To make changes to configuration files you also need some text editor like vim, emacs, etc., that could run on your server. You can also connect your local IDE by ssh with your server if it is easier for you. 
 
 ### Prequesities 
 
@@ -66,6 +66,12 @@ To get started, we need to install:
 ```
 # apt install nginx
 # apt install certbot # service that generate for us certificates
+```
+
+Enable nginx service
+```
+# systemctl enable nginx.service
+# systemctl start nginx.service
 ```
 
 ### Additional dependencies
@@ -166,8 +172,8 @@ defguard-proxy 0.5.0
 ### Run core
 
 To run core service we need to configure `/etc/defguard/core.conf` file, we could start by simply adding values for `DEFGUARD_SECRET_KEY` and `DEFGUARD_URL`
-* for generating secret key use commnad - `openssl rand -base64 55 | tr -d "=+/" | tr -d '\n' | cut -c1-64`
-* in this tutorial we wil use server domain `my-server.defguard.ent`.
+* generate secret key by commnad: `openssl rand -base64 55 | tr -d "=+/" | tr -d '\n' | cut -c1-64`
+* in this tutorial we wil use server domain `my-server.defguard.net`.
 
 Example `/etc/defguard/core.conf`:
 ```
@@ -226,9 +232,120 @@ Jul 29 13:57:19 defguard-testing defguard[2776504]: 2024-07-29T11:57:19.747717Z 
 Jul 29 13:57:19 defguard-testing defguard[2776504]: 2024-07-29T11:57:19.780563Z  INFO defguard: Started web services
 ```
 
-We can also test it on another terminal tab:
+Now, we are able to create our first nginx config for defguard core service with <i>my-server.defguard.net</i>. First of all, disable all default domains:
 ```
-$ curl http://my-server.defguard.net/api/v1/health
+# unlink /etc/ngins/sites-enabled-default
+```
+
+Create config file in `/etc/nginx/site-available/`, example config file for <i>my-server.defguard.ent</i> should look like this
+```
+upstream defguard {
+	server 127.0.0.1:8000;
+}
+
+upstream defguard-grpc {
+	server 127.0.0.1:50055;
+}
+
+server {
+	listen 443 http2;
+	server_name my-server.defguard.net;
+	access_log /var/log/nginx/defguard.log;
+	error_log /var/log/nginx/defguard.e.log;
+
+	client_max_body_size 128M;
+
+	location / {
+		proxy_pass		http://defguard;
+		proxy_set_header	Host		$host;
+		proxy_set_header	X-Real-IP	$remote_addr;
+		proxy_set_header	X-Forwarded-For	$proxy_add_x_forwarded_for;
+		proxy_http_version	1.1;
+		proxy_set_header	Upgrade		$http_upgrade;
+		proxy_set_header	Connection	"upgrade";
+	}
+}
+
+server {
+	listen 444 http2;
+	server_name my-server.defguard.net;
+	access_log /var/log/nginx/defguard-grpc.log;
+	error_log /var/log/nginx/defguard-grpc.e.log;
+
+	client_max_body_size 200m;
+
+	location / {
+		grpc_pass grpc://defguard-grpc;
+	}
+}
+```
+
+Link it to `/etc/nginx/site-available/`
+```
+ln -s /etc/nginx/sites-available/my-server.defguard.conf /etc/nginx/sites-enabled/my-server.defguard.conf
+```
+
+Restart nginx.service and we can start generate certificates for ssl purpose
+```
+# systemctl restart nginx.service
+# certbot certonly --non-interactive --agree-tos --standalone --email admin@teonite.com -d my-server.defguard.net
+```
+
+Certbot have generated for us fullchain.pem and privkey.pem in path `/etc/letsencrypt/live/my-server.defguard.net`, add this file to `/etc/nginx/sites-available/my-server.defguard.conf`. 
+
+Full example config file for defguard core service:
+```
+upstream defguard {
+	server 127.0.0.1:8000;
+}
+
+upstream defguard-grpc {
+	server 127.0.0.1:50055;
+}
+
+server {
+	listen 443 ssl http2;
+	server_name my-server.defguard.net;
+	access_log /var/log/nginx/defguard.log;
+	error_log /var/log/nginx/defguard.e.log;
+
+	ssl_certificate /etc/letsencrypt/live/my-server.defguard.net/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/my-server.defguard.net/privkey.pem;
+	ssl_trusted_certificate /etc/letsencrypt/live/my-server.defguard.net/fullchain.pem;
+
+	client_max_body_size 128M;
+
+	location / {
+		proxy_pass		http://defguard;
+		proxy_set_header	Host		$host;
+		proxy_set_header	X-Real-IP	$remote_addr;
+		proxy_set_header	X-Forwarded-For	$proxy_add_x_forwarded_for;
+		proxy_http_version	1.1;
+		proxy_set_header	Upgrade		$http_upgrade;
+		proxy_set_header	Connection	"upgrade";
+	}
+}
+
+server {
+	listen 444 ssl http2;
+	server_name my-server.defguard.net;
+	access_log /var/log/nginx/defguard-grpc.log;
+	error_log /var/log/nginx/defguard-grpc.e.log;
+
+	ssl_certificate /etc/letsencrypt/live/my-server.defguard.net/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/my-server.defguard.net/privkey.pem;
+
+	client_max_body_size 200m;
+
+	location / {
+		grpc_pass grpc://defguard-grpc;
+	}
+}
+```
+
+Test your domain on another terminal tab:
+```
+$ curl https://my-server.defguard.net/api/v1/health
 alive
 ```
 Success! We can move on to the next service.
@@ -236,7 +353,8 @@ Success! We can move on to the next service.
 ### Run gateway
 
 To run gateway, we should do two things:
-* setup our first location on core service that you create earlier to get `token` and `grpc_url` variables in `/etc/defguard/`
+* setup our first location on https://my-server.defguard.net page to get `token` and `grpc_url` for gateway service,
+* configure `/etc/defguard/gateway.toml`.
 
 #### Setup location for gateway
 
@@ -245,13 +363,9 @@ Now, after setting up core service you should go to the website that you set on 
 * password: `DEFGUARD_DEFAULT_ADMIN_PASSWORD` (by default: pass123)
 
 Now we can configure our first location. Depends on what is more convenient fo you, choose configuration from Wireguard file or do it manualy.
-<figure><img src="../.gitbook/assets/choose_location_setup.png" alt=""><figcaption><p>Location setup</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/choose_location_setup.png" alt=""><figcaption><p>Location wizard</p></figcaption></figure>
 
-You can find below an example manual configuration
-
-* Location name: Szczecin
-* Gateway VPN IP address and netmask: 10.22.33.1/24
-* Gateway address: 185.33.37.51
+<figure><img src="../.gitbook/assets/location_configuration.png" alt=""><figcaption><p>Location configuration</p></figcaption></figure>
 
 After saving configuration for location you should be redirect to Location overview page, where at the top right corner is `Edit Locations Settings` button, click on it.
 <figure><img src="../.gitbook/assets/edit_locations_settings.png" alt=""><figcaption><p>Manual configuration</p></figcaption></figure>
@@ -351,7 +465,7 @@ Great! We can also verify gateway health check by uncommenting last line of your
 # 503 - gateway works but is not connected to CORE
 health_port = 55003
 ```
-Now after reloading again `gateway` service, you can try on another terminal command below:
+Now after reloading again `gateway` service, you can try type a command below:
 ```
 # curl -v http://localhost:55003/health
 *   Trying 127.0.0.1:55003...
