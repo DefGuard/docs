@@ -2,7 +2,17 @@
 
 ## Introduction
 
-This guide will walk you through the process of installing and running Debian packages (.deb) for **core, gateway, proxy** services. We will cover system requirements, additional dependencies, installation steps, and examples of configuration files and step by step running all services. We utilitize nginx for a web server to connect the internet with defguard services in the server.
+This guide will walk you through the process of installing and running Debian packages (.deb) for **core, gateway, proxy** services on one server - as a **simple example**.
+
+{% hint style="warning" %}
+For production deployment we would recommend to divide services to multiple servers, eg.:
+
+* proxy (used for remote enrollment, onboarding and configuring desktop clients) should be on a DMZ node that is exposed in the Internet
+* gateway should be on your firewall/router
+* core (the main control plain pannel) - should be in internal network (intranet) and available only by intranet or VPN itself.
+{% endhint %}
+
+We will cover system requirements, additional dependencies, installation steps, and examples of configuration files and step by step running all services. We utilitize nginx for a web server to connect the internet with defguard services in the server.
 
 Examples will be made by using [**Debian 12**](https://www.debian.org/releases/stable/releasenotes).
 
@@ -27,7 +37,7 @@ Before proeeding with the installation, ensure your system meets the following r
 * A server with a public IP (and you know what that IP address is and to which interface it's assigned) - in this example it's: 185.33.37.51.
 * You have a domain name and know how to assign IP and manage subdomains, in our example: defguard main url will be _my-server.defguard.net_ (and the subdomain is pointed to 185.33.37.51).
 * defguard enrollment service that will enable to easy configure Desktop Clients just with one token is: _enroll.defguard.net_ (this subdomain also points to 185.33.37.51).
-* If you have a **firewall**, we asume you have **open ports 443 and 444** in order to expose both defguard and enrollment service, but also to automatically issue for these doamins SSL Certificates.
+* If you have a **firewall**, we asume you have **open port 443** in order to expose both defguard and enrollment service, but also to automatically issue for these doamins SSL Certificates. Port 444 (used for internal GRPC communication) **should not be exposed!**
 * To make changes to configuration files you also need some text editor like vim, emacs, etc., that could run on your server. You can also connect your local IDE by ssh with your server if it is easier for you.
 
 ### Prequesities
