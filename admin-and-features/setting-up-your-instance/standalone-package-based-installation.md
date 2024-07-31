@@ -39,17 +39,16 @@ Before proceeding with the installation, ensure your system meets the following 
 * Administrative (sudo) privileges.
 * A server with a public IP (and you know what that IP address is and to which interface it's assigned) - in this example we use: 185.33.37.51.
 * You have a domain name and know how to assign IP and manage subdomains, in our example: defguard main url will be _my-server.defguard.net_ (and the subdomain is pointed to 185.33.37.51).
-* defguard enrollment service (run by proxy) that will enable to easy configure Desktop Clients just with one token is: _enroll.defguard.net_ (this subdomain also points to 185.33.37.51).
-* If you have a **firewall**, we assume you have **open port 443** in order to expose both defguard and enrollment service, but also to automatically issue for these domains SSL Certificates. Port 444 (used for internal GRPC communication) **should not be exposed!**
-* To make changes to configuration files you also need some text editor like vim, emacs, etc., that could run on your server. You can also connect your local IDE by ssh with your server if it is easier for you.
+* defguard [enrollment service](https://defguard.gitbook.io/defguard/help/enrollment) (run by proxy) that will enable [remote onboarding, enrollment](https://defguard.gitbook.io/defguard/help/enrollment) and  [easy configuration for our Desktop Clients (by adding defguard instances)](https://defguard.gitbook.io/defguard/help/configuring-vpn/add-new-instance)  with instance URL and one simple token - in this tutorial we use: _enroll.defguard.net_ (this subdomain also points to 185.33.37.51).
+* If you have a **firewall**, we assume you have **open port 443** in order to expose both defguard and enrollment service, but also to automatically issue for these domains SSL Certificates. Port 444 (used for internal GRPC communication) **should not be exposed public.**
 
 ### Prequesities
 
 #### PostgreSQL
 
-Defguard services utilitize postgresql so if you do not have installed and configured yet, you can do it in this section. For this tutorial we need to create **a user with superuser priviliges and database**.
+Defguard core uses PostgreSQL database, so if you do not have installed and configured yet, you can do it in this section. For this tutorial we need to create **a user with superuser privileges and database**.
 
-First of all, install postgresql
+First of all, install postgresql:
 
 ```
 # apt install postgresql 
@@ -95,7 +94,7 @@ Disable all default domains:
 # unlink /etc/ngins/sites-enabled/default
 ```
 
-## Installation
+## Installing packages
 
 ### Core service
 
@@ -200,31 +199,49 @@ defguard-proxy 0.5.0
 
 ### Run core
 
-To run core service we need to configure `/etc/defguard/core.conf` file, we could start by simply adding values for `DEFGUARD_SECRET_KEY` and `DEFGUARD_URL`
+To run core service we need to configure `/etc/defguard/core.conf`.&#x20;
 
-* generate secret key by commnad: `openssl rand -base64 55 | tr -d "=+/" | tr -d '\n' | cut -c1-64`
-* in this tutorial we wil use server domain `my-server.defguard.net`.
+{% hint style="info" %}
+To generate any secret (which **we recommend to be 64 chars)**, use the following command:
+
+`openssl rand -base64 55 | tr -d "=+/" | tr -d '\n' | cut -c1-64`
+{% endhint %}
+
+As previously mentioned, in this tutorial we wil use server domain `my-server.defguard.net`.
 
 Example `/etc/defguard/core.conf`:
 
 ```
 ### Core configuration ###
+
+#
+# Generate secrets
+# 
 DEFGUARD_AUTH_SECRET=defguard-auth-secret
 DEFGUARD_GATEWAY_SECRET=defguard-gateway-secret
 DEFGUARD_YUBIBRIDGE_SECRET=defguard-yubibridge-secret
 DEFGUARD_SECRET_KEY=9oZqdHRCN0TWIyMhjYOAYwgzVz9IfOqz62PzUvjvyMzqLICGSM3b0pRMdDH300CQ
+
+# Define the URL under which defguard is running:
 DEFGUARD_URL=https://my-server.defguard.net
+
 # How long auth session lives in seconds
 DEFGUARD_AUTH_SESSION_LIFETIME=604800
+
 # Optional. Generated based on DEFGUARD_URL if not provided.
 # DEFGUARD_WEBAUTHN_RP_ID=localhost
+
 DEFGUARD_ADMIN_GROUPNAME=admin
 DEFGUARD_DEFAULT_ADMIN_PASSWORD=pass123
 
+# This will be displayed in the network settings when editing/adding a new location:
 DEFGUARD_GRPC_URL=https://my-server.defguard.net:444
 
 ### Proxy configuration ###
-# Optional. URL of proxy gRPC server
+# Proxy is optional - if you would like to use the remote enrollment
+# and onboarding service, as well as easy desktop client configuration
+# proxy must be enabled.
+# For now we leave it uncofigured, will configure it in next step.
 # DEFGUARD_PROXY_URL=http://localhost:50051
 
 ### LDAP configuration ###
@@ -271,7 +288,7 @@ Jul 29 13:57:19 defguard-testing defguard[2776504]: 2024-07-29T11:57:19.780563Z 
 
 Now, we are able to create our first nginx config for defguard core service with _my-server.defguard.net_.
 
-Create config file `/etc/nginx/site-available/my-server.defguard.conf`, example config file for _my-server.defguard.ent_ should look like this
+Create config file `/etc/nginx/site-available/my-server.defguard.net.conf`, example config file for _my-server.defguard.ent_ should look like this:
 
 ```
 upstream defguard {
@@ -318,7 +335,7 @@ server {
 Link it to `/etc/nginx/site-available/`
 
 ```
-ln -s /etc/nginx/sites-available/my-server.defguard.conf /etc/nginx/sites-enabled/my-server.defguard.conf
+ln -s /etc/nginx/sites-available/my-server.defguard.net.conf /etc/nginx/sites-enabled/my-server.defguard.net.conf
 ```
 
 Restart nginx.service and we can start generate certificates for ssl purpose
