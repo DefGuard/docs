@@ -209,7 +209,7 @@ Certbot will generate certificate in fullchain.pem and privkey.pem in path:
 
 &#x20;`/etc/letsencrypt/live/my-server.defguard.net.`
 
-### Run core
+### Core - the control plain
 
 To run core service we need to configure `/etc/defguard/core.conf`.&#x20;
 
@@ -298,6 +298,8 @@ Jul 29 13:57:19 defguard-testing defguard[2776504]: 2024-07-29T11:57:19.747717Z 
 Jul 29 13:57:19 defguard-testing defguard[2776504]: 2024-07-29T11:57:19.780563Z  INFO defguard: Started web services
 ```
 
+#### Configuring NGINX reverse proxy with SSL
+
 Now, we are able to create our first nginx config for defguard core service with _my-server.defguard.net_.
 
 Create config file `/etc/nginx/site-available/my-server.defguard.net.conf`, example config file for _my-server.defguard.ent_ should look like this:
@@ -376,7 +378,7 @@ Success! We can move on to the next service.
 If you will use this simple setup and run all services on one server, you can use [NGINX access restrictions](https://docs.nginx.com/nginx/admin-guide/security-controls/controlling-access-proxied-tcp/) for securing core and allowing to access the _my-server.defguard.net_ only to selected networks - blocking the direct access from the Internet.
 {% endhint %}
 
-### Run gateway
+### Gateway - the WireGuard VPN service
 
 To run gateway, we should do two things:
 
@@ -492,7 +494,7 @@ On the other side, core service should print those informations:
 2024-07-27T16:37:56.388810Z  INFO defguard::grpc::gateway: Starting update stream to gateway: user, network [ID 1] Szczecin
 ```
 
-### Run proxy
+### Proxy - enrollment, onboardin and desktop configuration service
 
 To run proxy service (for [remote onboarding & enrollment](../../help/enrollment.md)), we can do it by:
 
@@ -508,72 +510,7 @@ To run proxy service (for [remote onboarding & enrollment](../../help/enrollment
 2024-07-27T16:53:58.585262Z INFO defguard_proxy::http: API web server is listening on 0.0.0.0:8080
 ```
 
-Create config file `/etc/nginx/site-available/enroll.defguard.conf`, example config file for _enroll.defguard.ent_ should look like this
-
-```
-upstream defguard-proxy {
-	server 127.0.0.1:8080;
-}
-
-upstream proxy-grpc {
-	server 127.0.0.1:50051;
-}
-
-server {
-	listen 443 http2;
-	server_name enroll.defguard.net;
-	access_log /var/log/nginx/enroll.log;
-	error_log /var/log/nginx/enroll.e.log;
-
-	client_max_body_size 200m;
-
-	location / {
-		proxy_pass 		http://defguard-proxy;
-		proxy_set_header	Host		$host;
-		proxy_set_header	X-Real-IP	$remote_addr;
-		proxy_set_header	X-Forwarded-For	$proxy_add_x_forwarded_for;
-	}
-}
-
-server {
-	listen 444 http2;
-	server_name enroll.defguard.net;
-	access_log /var/log/nginx/enroll.log;
-	error_log /var/log/nginx/enroll.e.log;
-
-	client_max_body_size 200m;
-
-	location / {
-		grpc_pass grpc://proxy-grpc;
-		grpc_socket_keepalive on;
-		grpc_read_timeout 3000s;
-		grpc_send_timeout 3000s;
-		grpc_next_upstream_timeout 0;
-
-		proxy_request_buffering off;
-		proxy_buffering off;
-		proxy_connect_timeout 3000s;
-		proxy_send_timeout 3000s;
-		proxy_read_timeout 3000s;
-		proxy_socket_keepalive on;
-
-		keepalive_timeout 90s;
-		send_timeout 90s;
-
-		client_body_timeout 3000s;
-	}
-}
-```
-
-Link configuration, generate certicates and add ssl certificates just like in [Run core section](standalone-package-based-installation.md#run-core).
-
-```
-# ln -s /etc/nginx/sites-available/enroll.defguard.conf /etc/nginx/sites-enabled/enroll.defguard.conf
-# systemctl restart nginx.service
-# certbot certonly --non-interactive --agree-tos --standalone --email admin@teonite.com -d enroll.defguard.net
-```
-
-Full example enroll.defguard.conf:
+Create config file `/etc/nginx/site-available/enroll.defguard.net.conf`, example config file for _enroll.defguard.net_ should look like this:
 
 ```
 upstream defguard-proxy {
@@ -590,8 +527,8 @@ server {
 	access_log /var/log/nginx/enroll.log;
 	error_log /var/log/nginx/enroll.e.log;
 
-	ssl_certificate /etc/letsencrypt/live/enroll.defguard.net/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/enroll.defguard.net/privkey.pem;
+	ssl_certificate /etc/letsencrypt/live/my-server.defguard.net/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/my-server.defguard.net/privkey.pem;
 
 	client_max_body_size 200m;
 
@@ -609,8 +546,8 @@ server {
 	access_log /var/log/nginx/enroll.log;
 	error_log /var/log/nginx/enroll.e.log;
 
-	ssl_certificate /etc/letsencrypt/live/enroll.defguard.net/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/enroll.defguard.net/privkey.pem;
+	ssl_certificate /etc/letsencrypt/live/my-server.defguard.net/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/my-server.defguard.net/privkey.pem;
 
 	client_max_body_size 200m;
 
@@ -636,9 +573,10 @@ server {
 }
 ```
 
-Reload changes in `/etc/nginx/sites-available/enroll.defguard.conf`
+Enable configuration:
 
 ```
+# ln -s /etc/nginx/sites-available/enroll.defguard.conf /etc/nginx/sites-enabled/enroll.defguard.conf
 # systemctl restart nginx.service
 ```
 
