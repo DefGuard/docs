@@ -1,10 +1,10 @@
-# Standalone Debian package based instalation
+# Standalone package based installation
 
 ## Introduction
 
 This guide will walk you through the process of installing and running Debian packages (.deb) for **core, gateway, proxy** services. We will cover system requirements, additional dependencies, installation steps, and examples of configuration files and step by step running all services. We utilitize nginx for a web server to connect the internet with defguard services in the server.
 
-Examples will be made by using **[Debian 12](https://www.debian.org/releases/stable/releasenotes)**.
+Examples will be made by using [**Debian 12**](https://www.debian.org/releases/stable/releasenotes).
 
 ### Hardware Requirements
 
@@ -17,7 +17,6 @@ All defguard components are **very low resource-consuming**. All of them are wri
 | Disk         | 2 GB                         |
 | Architecture | x86\_64, ARM64               |
 
-
 ### System Requirements
 
 Before proeeding with the installation, ensure your system meets the following requirements:
@@ -26,24 +25,25 @@ Before proeeding with the installation, ensure your system meets the following r
 * Administrative (sudo) privileges.
 * Internet connection for downloading packages.
 * A server with a public IP (and you know what that IP address is and to which interface it's assigned) - in this example it's: 185.33.37.51.
-* You have a domain name and know how to assign IP and manage subdomains, in our example:
-defguard main url will be <i>my-server.defguard.net</i> (and the subdomain is pointed to 185.33.37.51).
-* defguard enrollment service that will enable to easy configure Desktop Clients just with one token is: <i>enroll.defguard.net</i> (this subdomain also points to 185.33.37.51).
+* You have a domain name and know how to assign IP and manage subdomains, in our example: defguard main url will be _my-server.defguard.net_ (and the subdomain is pointed to 185.33.37.51).
+* defguard enrollment service that will enable to easy configure Desktop Clients just with one token is: _enroll.defguard.net_ (this subdomain also points to 185.33.37.51).
 * If you have a **firewall**, we asume you have **open ports 443 and 444** in order to expose both defguard and enrollment service, but also to automatically issue for these doamins SSL Certificates.
-* To make changes to configuration files you also need some text editor like vim, emacs, etc., that could run on your server. You can also connect your local IDE by ssh with your server if it is easier for you. 
+* To make changes to configuration files you also need some text editor like vim, emacs, etc., that could run on your server. You can also connect your local IDE by ssh with your server if it is easier for you.
 
-### Prequesities 
+### Prequesities
 
 #### PostgreSQL
 
-Defguard services utilitize postgresql so if you do not have installed and configured yet, you can do it in this section. For this tutorial we need to create **a user with superuser priviliges and database**. 
+Defguard services utilitize postgresql so if you do not have installed and configured yet, you can do it in this section. For this tutorial we need to create **a user with superuser priviliges and database**.
 
 First of all, install postgresql
+
 ```
 # apt install postgresql 
 ```
 
 Now you can launch a default user and create a new superuser for your database. We create user, password and database with name `defguard`, beacuse this is by default in `/etc/defguard/core.conf`, you can change whatever you want.
+
 ```
 # su -c /usr/bin/psql postgres
 postgres=# CREATE USER defgaurd WITH SUPERUSER PASSWORD 'defguad';
@@ -51,6 +51,7 @@ postgres=# CREATE DATABASE defguard;
 ```
 
 After creating a user and database we can connect our new user to this database. To make it easier to connect now and then, we could try to add auth file
+
 ```
 # echo 'localhost:5432:defguard:defguard:defguard' >> ~/.pgpass # <hostname>:<port>:<database>:<user>:<password>
 # chmod 600 ~/.pgpass
@@ -63,22 +64,25 @@ defguard=# exit     # for now we can leave it, the purpose of this connection is
 To expose our services in the server we need to configure a reverse proxy server. For this we will use nginx web server with ssl certificates for enabling https protocol.
 
 To get started, we need to install:
+
 ```
 # apt install nginx certbot
 ```
 
 Enable nginx service
+
 ```
 # systemctl enable nginx.service
 # systemctl start nginx.service
 ```
 
 Disable all default domains:
+
 ```
 # unlink /etc/ngins/sites-enabled/default
 ```
 
-## Installation 
+## Installation
 
 ### Core service
 
@@ -88,25 +92,31 @@ Navigate to [core repository release](https://github.com/DefGuard/defguard/relea
 # wget https://github.com/DefGuard/defguard/releases/download/<version>/defguard-<version>-x86_64-unknown-linux-gnu.deb
 ```
 
-Example: 
+Example:
+
 ```
 # wget https://github.com/DefGuard/defguard/releases/download/v0.11.0/defguard-0.11.0-x86_64-unknown-linux-gnu.deb
 ```
-You can also download directly from the Github realse page, but please note that you should know the path where this could be storead after downloading. Once the package is downloaded, install it using dpkg: 
+
+You can also download directly from the Github realse page, but please note that you should know the path where this could be storead after downloading. Once the package is downloaded, install it using dpkg:
+
 ```
 # dpkg -i <path_to_package>/defguard-<version>-x86_64-unknown-linux-gnu.deb
 ```
 
 Example:
+
 ```
 # dpkg -i defguard-0.11.0-x86_64-unknown-linux-gnu.deb
 ```
 
 You can check is core installed properly:
+
 ```
 # defguard -V
 defguard 0.11.0
 ```
+
 ### Gateway service
 
 Navigate to [gateway repository release](https://github.com/DefGuard/gateway/releases) and choose version of core package that you want to obtain that has debian package and then swap `<version>` in the following command:
@@ -115,21 +125,26 @@ Navigate to [gateway repository release](https://github.com/DefGuard/gateway/rel
 # wget https://github.com/DefGuard/gateway/releases/download/<version>/defguard-gateway_<version>_x86_64-unknown-linux-gnu.deb
 ```
 
-Example: 
+Example:
+
 ```
 # wget https://github.com/DefGuard/gateway/releases/download/v0.7.0/defguard-gateway_0.7.0_x86_64-unknown-linux-gnu.deb
 ```
-You can also download directly from the Github realse page, but please note that you should know the path where this could be storead after downloading. Once the package is downloaded, install it using dpkg: 
+
+You can also download directly from the Github realse page, but please note that you should know the path where this could be storead after downloading. Once the package is downloaded, install it using dpkg:
+
 ```
 # dpkg -i <path_to_package>/defguard-gateway_<version>_x86_64-unknown-linux-gnu.deb
 ```
 
 Example:
+
 ```
 # dpkg -i defguard-gateway_0.7.0_x86_64-unknown-linux-gnu.deb
 ```
 
 You can check is core installed properly:
+
 ```
 # defguard-gateway -V
 defguard-gateway 0.7.0
@@ -143,21 +158,26 @@ Navigate to [proxy repository release](https://github.com/DefGuard/proxy/release
 # wget https://github.com/DefGuard/proxy/releases/download/<version>>/defguard-proxy-<version>-x86_64-unknown-linux-gnu.deb
 ```
 
-Example: 
+Example:
+
 ```
 # wget https://github.com/DefGuard/proxy/releases/download/v0.5.0/defguard-proxy-0.5.0-x86_64-unknown-linux-gnu.deb
 ```
-You can also download directly from the Github realse page, but please note that you should know the path where this could be storead after downloading. Once the package is downloaded, install it using dpkg: 
+
+You can also download directly from the Github realse page, but please note that you should know the path where this could be storead after downloading. Once the package is downloaded, install it using dpkg:
+
 ```
 # dpkg -i <path_to_package>/defguard-proxy-<version>-x86_64-unknown-linux-gnu.deb
 ```
 
 Example:
+
 ```
 # dpkg -i defguard-proxy-0.5.0-x86_64-unknown-linux-gnu.deb
 ```
 
 You can check is core installed properly:
+
 ```
 # defguard-proxy -V
 defguard-proxy 0.5.0
@@ -168,10 +188,12 @@ defguard-proxy 0.5.0
 ### Run core
 
 To run core service we need to configure `/etc/defguard/core.conf` file, we could start by simply adding values for `DEFGUARD_SECRET_KEY` and `DEFGUARD_URL`
+
 * generate secret key by commnad: `openssl rand -base64 55 | tr -d "=+/" | tr -d '\n' | cut -c1-64`
 * in this tutorial we wil use server domain `my-server.defguard.net`.
 
 Example `/etc/defguard/core.conf`:
+
 ```
 ### Core configuration ###
 DEFGUARD_AUTH_SECRET=defguard-auth-secret
@@ -209,17 +231,19 @@ DEFGUARD_DB_PASSWORD="defguard"
 DATABASE_URL="postgresql://defguard:defguard@localhost/defguard"
 ```
 
-**If you have configured your postgres with different names than in [PostgreSQL guide](#postgresql), you can change it in DB configuration part. LDAP configuration is not part of this tutorial, you can also commented those lines.**
+**If you have configured your postgres with different names than in** [**PostgreSQL guide**](standalone-package-based-installation.md#postgresql)**, you can change it in DB configuration part. LDAP configuration is not part of this tutorial, you can also commented those lines.**
 
-**We will back to this configuration to connect defguard core with proxy in the [Run proxy](#run-proxy) section. For now `DEFGUARD_PROXY_URL` is commented.**
+**We will back to this configuration to connect defguard core with proxy in the** [**Run proxy**](standalone-package-based-installation.md#run-proxy) **section. For now `DEFGUARD_PROXY_URL` is commented.**
 
 After changes, you can simply enable and start your defguard core service:
+
 ```
 # systemctl enable defguard.service
 # systemctl start defguard.service
 ```
 
 To see logs, type journalctl command:
+
 ```
 # journalctl -u defguard.service
 Jul 29 13:57:15 defguard-testing systemd[1]: Started defguard.service - defguard core service.
@@ -232,9 +256,10 @@ Jul 29 13:57:19 defguard-testing defguard[2776504]: 2024-07-29T11:57:19.747717Z 
 Jul 29 13:57:19 defguard-testing defguard[2776504]: 2024-07-29T11:57:19.780563Z  INFO defguard: Started web services
 ```
 
-Now, we are able to create our first nginx config for defguard core service with <i>my-server.defguard.net</i>.
+Now, we are able to create our first nginx config for defguard core service with _my-server.defguard.net_.
 
-Create config file `/etc/nginx/site-available/my-server.defguard.conf`, example config file for <i>my-server.defguard.ent</i> should look like this
+Create config file `/etc/nginx/site-available/my-server.defguard.conf`, example config file for _my-server.defguard.ent_ should look like this
+
 ```
 upstream defguard {
 	server 127.0.0.1:8000;
@@ -278,19 +303,22 @@ server {
 ```
 
 Link it to `/etc/nginx/site-available/`
+
 ```
 ln -s /etc/nginx/sites-available/my-server.defguard.conf /etc/nginx/sites-enabled/my-server.defguard.conf
 ```
 
 Restart nginx.service and we can start generate certificates for ssl purpose
+
 ```
 # systemctl reload nginx.service
 # certbot certonly --non-interactive --agree-tos --standalone --email admin@teonite.com -d my-server.defguard.net
 ```
 
-Certbot have generated for us fullchain.pem and privkey.pem in path `/etc/letsencrypt/live/my-server.defguard.net`, add this file to `/etc/nginx/sites-available/my-server.defguard.conf`. 
+Certbot have generated for us fullchain.pem and privkey.pem in path `/etc/letsencrypt/live/my-server.defguard.net`, add this file to `/etc/nginx/sites-available/my-server.defguard.conf`.
 
 Full example config file for defguard core service:
+
 ```
 upstream defguard {
 	server 127.0.0.1:8000;
@@ -341,44 +369,54 @@ server {
 ```
 
 Reload changes in `/etc/nginx/sites-available/my-server.defguard.conf`
+
 ```
 # systemctl reload nginx.service
 ```
 
 Test your domain on another terminal tab
+
 ```
 $ curl https://my-server.defguard.net/api/v1/health
 alive
 ```
+
 Success! We can move on to the next service.
 
 ### Run gateway
 
 To run gateway, we should do two things:
+
 * setup our first location on https://my-server.defguard.net page to get `token` and `grpc_url` for gateway service,
 * configure `/etc/defguard/gateway.toml`.
 
 #### Setup location for gateway
 
 Now, after setting up core service you should go to the website that you set on `DEFGUARD_URL`. The link should redirect you to login page. To log in type this credentials from `/etc/defguard/core.conf`
+
 * login: admin
 * password: `DEFGUARD_DEFAULT_ADMIN_PASSWORD` (by default: pass123)
 
 Now we can configure our first location. Depends on what is more convenient fo you, choose configuration from Wireguard file or do it manualy.
-<figure><img src="../.gitbook/assets/choose_location_setup.png" alt=""><figcaption><p>Location wizard</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/location_configuration.png" alt=""><figcaption><p>Location configuration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/choose_location_setup.png" alt=""><figcaption><p>Location wizard</p></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/location_configuration.png" alt=""><figcaption><p>Location configuration</p></figcaption></figure>
 
 After saving configuration for location you should be redirect to Location overview page, where at the top right corner is `Edit Locations Settings` button, click on it.
-<figure><img src="../.gitbook/assets/edit_locations_settings.png" alt=""><figcaption><p>Manual configuration</p></figcaption></figure>
 
-In `Gateway server setup` copy two variables: `DEFGUARD_TOKEN` and `DEFGUARD_GRPC_URL` 
-<figure><img src="../.gitbook/assets/gateway_server_setup.png" alt=""><figcaption><p>Gateway server setup</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/edit_locations_settings.png" alt=""><figcaption><p>Manual configuration</p></figcaption></figure>
+
+In `Gateway server setup` copy two variables: `DEFGUARD_TOKEN` and `DEFGUARD_GRPC_URL`
+
+<figure><img src="../../.gitbook/assets/gateway_server_setup.png" alt=""><figcaption><p>Gateway server setup</p></figcaption></figure>
 
 #### Create config file
+
 After getting `DEFGUARD_TOKEN` and `DEFGUARD_GRPC_URL` variables, we can configure our gateway service. Create config.toml file and swap `<your_gateway_token>` and `<defguard_grpc_url>` with your values that you copied.
 
 Template for configure gateway service looks like below:
+
 ```
 # This is an example config file for defguard VPN gateway
 # To use it fill in actual values for your deployment below
@@ -435,6 +473,7 @@ syslog_socket = "/var/run/log"
 ```
 
 Now we can run gateway service with configuration above:
+
 ```
 # systemctl enable defguard-gateway.service
 # systemctl start defgaurd-gateway.service
@@ -451,6 +490,7 @@ Now we can run gateway service with configuration above:
 ```
 
 On the other side, core service should print those informations:
+
 ```
 2024-07-27T16:37:56.379227Z  INFO defguard::grpc: Adding gateway user with to gateway map for network 1
 2024-07-27T16:37:56.385951Z  INFO defguard::grpc::gateway: Configuration sent to gateway client, network [ID 1] Szczecin.
@@ -461,7 +501,8 @@ On the other side, core service should print those informations:
 
 ### Run proxy
 
-To run proxy service, we can do it by:
+To run proxy service (for [remote onboarding & enrollment](../../help/enrollment.md)), we can do it by:
+
 ```
 # systemctl enable defguard-proxy.service
 # systemctl start defguard-proxy.service
@@ -474,7 +515,8 @@ To run proxy service, we can do it by:
 2024-07-27T16:53:58.585262Z INFO defguard_proxy::http: API web server is listening on 0.0.0.0:8080
 ```
 
-Create config file `/etc/nginx/site-available/enroll.defguard.conf`, example config file for <i>enroll.defguard.ent</i> should look like this
+Create config file `/etc/nginx/site-available/enroll.defguard.conf`, example config file for _enroll.defguard.ent_ should look like this
+
 ```
 upstream defguard-proxy {
 	server 127.0.0.1:8080;
@@ -530,7 +572,7 @@ server {
 }
 ```
 
-Link configuration, generate certicates and add ssl certificates just like in [Run core section](#run-core).
+Link configuration, generate certicates and add ssl certificates just like in [Run core section](standalone-package-based-installation.md#run-core).
 
 ```
 # ln -s /etc/nginx/sites-available/enroll.defguard.conf /etc/nginx/sites-enabled/enroll.defguard.conf
@@ -539,6 +581,7 @@ Link configuration, generate certicates and add ssl certificates just like in [R
 ```
 
 Full example enroll.defguard.conf:
+
 ```
 upstream defguard-proxy {
 	server 127.0.0.1:8080;
@@ -601,17 +644,20 @@ server {
 ```
 
 Reload changes in `/etc/nginx/sites-available/enroll.defguard.conf`
+
 ```
 # systemctl restart nginx.service
 ```
 
 Now, we can update our **core configuration** in `/etc/defguard/core.conf` by uncommenting `DEFGUARD_PROXY_URL`
+
 ```
 # Proxy connection configuration
 DEFGUARD_PROXY_URL=https://enroll.defguard.net:444
 ```
 
 Full `/etc/defguard/core.conf`:
+
 ```
 ### Core configuration ###
 DEFGUARD_AUTH_SECRET=defguard-auth-secret
@@ -650,6 +696,7 @@ DATABASE_URL="postgresql://defguard:defguard@localhost/defguard"
 ```
 
 Reload changes in `/etc/defguarc/core.conf`
+
 ```
 # systemctl restart defguard.service
 ```

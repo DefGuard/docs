@@ -21,6 +21,7 @@
 
 * [Deploying your instance](features/setting-up-your-instance/README.md)
   * [One-line install script](features/setting-up-your-instance/one-line-install.md)
+  * [Standalone package based installation](admin-and-features/setting-up-your-instance/standalone-package-based-installation.md)
   * [Configuration](features/setting-up-your-instance/configuration.md)
   * [Docker Compose](features/setting-up-your-instance/docker-compose.md)
   * [Kubernetes](community-features/setting-up-your-instance/kubernetes.md)
@@ -74,4 +75,3 @@
 ## Tutorials
 
 * [Step by step setting up a VPN server](tutorials/step-by-step-setting-up-a-vpn-server.md)
-* [Standalone package based installation](tutorials/standalone-package-based-installation.md)
