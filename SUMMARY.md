@@ -74,3 +74,4 @@
 ## Tutorials
 
 * [Step by step setting up a VPN server](tutorials/step-by-step-setting-up-a-vpn-server.md)
+* [Standalone package based installation](tutorials/standalone-package-based-installation.md)
