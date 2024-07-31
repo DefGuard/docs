@@ -29,15 +29,15 @@ All defguard components are **very low resource-consuming**. All of them are wri
 
 ### System Requirements
 
-Before proeeding with the installation, ensure your system meets the following requirements:
+Before proceding with the installation, ensure your system meets the following requirements:
 
 * Debian-based operating system (Debian, Ubuntu, etc.).
 * Administrative (sudo) privileges.
 * Internet connection for downloading packages.
 * A server with a public IP (and you know what that IP address is and to which interface it's assigned) - in this example it's: 185.33.37.51.
 * You have a domain name and know how to assign IP and manage subdomains, in our example: defguard main url will be _my-server.defguard.net_ (and the subdomain is pointed to 185.33.37.51).
-* defguard enrollment service that will enable to easy configure Desktop Clients just with one token is: _enroll.defguard.net_ (this subdomain also points to 185.33.37.51).
-* If you have a **firewall**, we asume you have **open port 443** in order to expose both defguard and enrollment service, but also to automatically issue for these doamins SSL Certificates. Port 444 (used for internal GRPC communication) **should not be exposed!**
+* defguard enrollment service (run by proxy) that will enable to easy configure Desktop Clients just with one token is: _enroll.defguard.net_ (this subdomain also points to 185.33.37.51).
+* If you have a **firewall**, we assume you have **open port 443** in order to expose both defguard and enrollment service, but also to automatically issue for these domains SSL Certificates. Port 444 (used for internal GRPC communication) **should not be exposed!**
 * To make changes to configuration files you also need some text editor like vim, emacs, etc., that could run on your server. You can also connect your local IDE by ssh with your server if it is easier for you.
 
 ### Prequesities
@@ -392,6 +392,10 @@ alive
 ```
 
 Success! We can move on to the next service.
+
+{% hint style="danger" %}
+You can use [NGINX access restrictions](https://docs.nginx.com/nginx/admin-guide/security-controls/controlling-access-proxied-tcp/) for securing core and only exposing only publicly the proxy.
+{% endhint %}
 
 ### Run gateway
 
