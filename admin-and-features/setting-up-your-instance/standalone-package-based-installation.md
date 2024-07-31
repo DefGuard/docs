@@ -394,7 +394,7 @@ alive
 Success! We can move on to the next service.
 
 {% hint style="danger" %}
-You can use [NGINX access restrictions](https://docs.nginx.com/nginx/admin-guide/security-controls/controlling-access-proxied-tcp/) for securing core and only exposing only publicly the proxy.
+If you will use this simple setup and run all services on one server, you can use [NGINX access restrictions](https://docs.nginx.com/nginx/admin-guide/security-controls/controlling-access-proxied-tcp/) for securing core and allowing to access the _my-server.defguard.net_ only to selected networks - blocking the direct access from the Internet.
 {% endhint %}
 
 ### Run gateway
