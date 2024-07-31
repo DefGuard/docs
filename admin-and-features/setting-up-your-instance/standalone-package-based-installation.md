@@ -197,6 +197,18 @@ defguard-proxy 0.5.0
 
 ## Running defguard
 
+### Generating SSL Certificates
+
+Before we run defguard and configure the reverse proxy, first let's prepare SSL certificates that will be used by the NGINX service. We will generate a certificate for two domains we use in this example: _my-service.defguard.net_ and _enroll.defguard.net_:
+
+```
+# certbot certonly --non-interactive --agree-tos --standalone --email admin@teonite.com -d my-server.defguard.net -d enroll.defgurd.net
+```
+
+Certbot will generate certificate in fullchain.pem and privkey.pem in path:
+
+&#x20;`/etc/letsencrypt/live/my-server.defguard.net.`
+
 ### Run core
 
 To run core service we need to configure `/etc/defguard/core.conf`.&#x20;
@@ -300,65 +312,6 @@ upstream defguard-grpc {
 }
 
 server {
-	listen 443 http2;
-	server_name my-server.defguard.net;
-	access_log /var/log/nginx/defguard.log;
-	error_log /var/log/nginx/defguard.e.log;
-
-	client_max_body_size 128M;
-
-	location / {
-		proxy_pass		http://defguard;
-		proxy_set_header	Host		$host;
-		proxy_set_header	X-Real-IP	$remote_addr;
-		proxy_set_header	X-Forwarded-For	$proxy_add_x_forwarded_for;
-		proxy_http_version	1.1;
-		proxy_set_header	Upgrade		$http_upgrade;
-		proxy_set_header	Connection	"upgrade";
-	}
-}
-
-server {
-	listen 444 http2;
-	server_name my-server.defguard.net;
-	access_log /var/log/nginx/defguard-grpc.log;
-	error_log /var/log/nginx/defguard-grpc.e.log;
-
-	client_max_body_size 200m;
-
-	location / {
-		grpc_pass grpc://defguard-grpc;
-	}
-}
-```
-
-Link it to `/etc/nginx/site-available/`
-
-```
-ln -s /etc/nginx/sites-available/my-server.defguard.net.conf /etc/nginx/sites-enabled/my-server.defguard.net.conf
-```
-
-Restart nginx.service and we can start generate certificates for ssl purpose
-
-```
-# systemctl reload nginx.service
-# certbot certonly --non-interactive --agree-tos --standalone --email admin@teonite.com -d my-server.defguard.net
-```
-
-Certbot have generated for us fullchain.pem and privkey.pem in path `/etc/letsencrypt/live/my-server.defguard.net`, add this file to `/etc/nginx/sites-available/my-server.defguard.conf`.
-
-Full example config file for defguard core service:
-
-```
-upstream defguard {
-	server 127.0.0.1:8000;
-}
-
-upstream defguard-grpc {
-	server 127.0.0.1:50055;
-}
-
-server {
 	listen 443 ssl http2;
 	server_name my-server.defguard.net;
 	access_log /var/log/nginx/defguard.log;
@@ -398,7 +351,13 @@ server {
 }
 ```
 
-Reload changes in `/etc/nginx/sites-available/my-server.defguard.conf`
+Link it to `/etc/nginx/site-available/`
+
+```
+ln -s /etc/nginx/sites-available/my-server.defguard.net.conf /etc/nginx/sites-enabled/my-server.defguard.net.conf
+```
+
+Restart nginx.service to activated changes:
 
 ```
 # systemctl reload nginx.service
