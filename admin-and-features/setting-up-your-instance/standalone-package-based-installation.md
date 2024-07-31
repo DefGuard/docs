@@ -9,10 +9,10 @@ For production deployment we would recommend to divide services to multiple serv
 
 * proxy (used for remote enrollment, onboarding and configuring desktop clients) should be on a DMZ node that is exposed in the Internet
 * gateway should be on your firewall/router
-* core (the main control plain pannel) - should be in internal network (intranet) and available only by intranet or VPN itself.
+* core (the main control plain panel) - should be in internal network (intranet) and available only by intranet or VPN itself.
 {% endhint %}
 
-We will cover system requirements, additional dependencies, installation steps, and examples of configuration files and step by step running all services. We utilitize nginx for a web server to connect the internet with defguard services in the server.
+We will cover system requirements, additional dependencies, installation steps, and examples of configuration files and step by step running all services. In this example we will use nginx for a web server (proxy) exposing and securing web based services.
 
 Examples will be made by using [**Debian 12**](https://www.debian.org/releases/stable/releasenotes).
 
