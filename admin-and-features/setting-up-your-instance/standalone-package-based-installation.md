@@ -629,7 +629,7 @@ DEFGUARD_GRPC_URL=https://my-server.defguard.net:444
 # proxy must be enabled.
 
 # PROXY configuration:
-DEFGUARD_GRPC_ULR=https://my-server.defguard.net:444 # add this line to your config file
+DEFGUARD_GRPC_ULR=https://enroll.defguard.net:444 # add this line to your config file
 
 ### LDAP configuration ###
 # DEFGUARD_LDAP_URL=ldap://localhost:389
