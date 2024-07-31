@@ -14,7 +14,11 @@ For production deployment we would recommend to divide services to multiple serv
 
 We will cover system requirements, additional dependencies, installation steps, and examples of configuration files and step by step running all services. In this example we will use nginx for a web server (proxy) exposing and securing web based services.
 
-Examples will be made by using [**Debian 12**](https://www.debian.org/releases/stable/releasenotes).
+Examples will be made by using [**Debian 12**](https://www.debian.org/releases/stable/releasenotes) **and Ubuntu based system.**
+
+{% hint style="info" %}
+We also provide **RPM packages** -the procedure is similar to the one for installing DEB packages. If you need help installing RPM packages[ this guide offers help.](https://phoenixnap.com/kb/how-to-install-rpm-file-centos-linux)
+{% endhint %}
 
 ### Hardware Requirements
 
@@ -29,12 +33,11 @@ All defguard components are **very low resource-consuming**. All of them are wri
 
 ### System Requirements
 
-Before proceding with the installation, ensure your system meets the following requirements:
+Before proceeding with the installation, ensure your system meets the following requirements:
 
 * Debian-based operating system (Debian, Ubuntu, etc.).
 * Administrative (sudo) privileges.
-* Internet connection for downloading packages.
-* A server with a public IP (and you know what that IP address is and to which interface it's assigned) - in this example it's: 185.33.37.51.
+* A server with a public IP (and you know what that IP address is and to which interface it's assigned) - in this example we use: 185.33.37.51.
 * You have a domain name and know how to assign IP and manage subdomains, in our example: defguard main url will be _my-server.defguard.net_ (and the subdomain is pointed to 185.33.37.51).
 * defguard enrollment service (run by proxy) that will enable to easy configure Desktop Clients just with one token is: _enroll.defguard.net_ (this subdomain also points to 185.33.37.51).
 * If you have a **firewall**, we assume you have **open port 443** in order to expose both defguard and enrollment service, but also to automatically issue for these domains SSL Certificates. Port 444 (used for internal GRPC communication) **should not be exposed!**
