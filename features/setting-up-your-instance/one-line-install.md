@@ -35,17 +35,21 @@ In order to work the script requires some specific tools to be available and als
 * `curl`
 * `sed`
 * `grep`
-* `docker`
+* `docker` - **we recommend official** [**docker engine packages**](https://docs.docker.com/engine/install/) (not packages shiped with distros)
 * `docker-compose` - not necessary if using newer Docker versions (20.10+) which include the `docker compose` command
 
 ### Environment setup
+
+{% hint style="danger" %}
+This setup should be deployed on a bare-metal or a virtual (VM) server - it will **not run on a LXC container.**
+{% endhint %}
 
 * server has a public IP address
 * public DNS records for your chosen domain
 * allow Docker to bind on host ports 80 and 443; sometimes this requires setting the `net.ipv4.ip_unprivileged_port_start` sysctl variable to 80
 * enable IP forwarding (`sysctl -w net.ipv4.ip_forward=1`)
 * firewall rules
-  * allow incoming traffic on chosen Wireguard port and port 443
+  * allow incoming traffic on chosen WireGuard port and port 443
   * enable `MASQUERADE` for VPN traffic (for example `iptables -t nat -I POSTROUTING 1 -s {vpn_subnet} -o {internet_interface} -j MASQUERADE`)
 
 ## Configuration
