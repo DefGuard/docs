@@ -510,6 +510,12 @@ To run proxy service (for [remote onboarding & enrollment](../../help/enrollment
 2024-07-27T16:53:58.585262Z INFO defguard_proxy::http: API web server is listening on 0.0.0.0:8080
 ```
 
+#### Configuring NGiNX reverse proxy for enrollment
+
+{% hint style="info" %}
+Please note that [we already have issued the enrollemnt domain SSL certificate](standalone-package-based-installation.md#generating-ssl-certificates).
+{% endhint %}
+
 Create config file `/etc/nginx/site-available/enroll.defguard.net.conf`, example config file for _enroll.defguard.net_ should look like this:
 
 ```
@@ -573,12 +579,14 @@ server {
 }
 ```
 
-Enable configuration:
+Enable configuration and restart nginx:
 
 ```
 # ln -s /etc/nginx/sites-available/enroll.defguard.conf /etc/nginx/sites-enabled/enroll.defguard.conf
 # systemctl restart nginx.service
 ```
+
+#### Enabling Proxy service in the Core
 
 Now, we can update our **core configuration** in `/etc/defguard/core.conf` by uncommenting `DEFGUARD_PROXY_URL`
 
@@ -591,30 +599,44 @@ Full `/etc/defguard/core.conf`:
 
 ```
 ### Core configuration ###
+
+#
+# Generate secrets
+# 
 DEFGUARD_AUTH_SECRET=defguard-auth-secret
 DEFGUARD_GATEWAY_SECRET=defguard-gateway-secret
 DEFGUARD_YUBIBRIDGE_SECRET=defguard-yubibridge-secret
 DEFGUARD_SECRET_KEY=9oZqdHRCN0TWIyMhjYOAYwgzVz9IfOqz62PzUvjvyMzqLICGSM3b0pRMdDH300CQ
+
+# Define the URL under which defguard is running:
 DEFGUARD_URL=https://my-server.defguard.net
+
 # How long auth session lives in seconds
 DEFGUARD_AUTH_SESSION_LIFETIME=604800
+
 # Optional. Generated based on DEFGUARD_URL if not provided.
 # DEFGUARD_WEBAUTHN_RP_ID=localhost
+
 DEFGUARD_ADMIN_GROUPNAME=admin
 DEFGUARD_DEFAULT_ADMIN_PASSWORD=pass123
 
-DEFGUARD_GRPC_ULR=https://my-server.defguard.net:444 # add this line to your config file
+# This will be displayed in the network settings when editing/adding a new location:
+DEFGUARD_GRPC_URL=https://my-server.defguard.net:444
 
 ### Proxy configuration ###
-# Optional. URL of proxy gRPC server
-DEFGUARD_PROXY_URL=https://enroll.defguard.net:444
+# Proxy is optional - if you would like to use the remote enrollment
+# and onboarding service, as well as easy desktop client configuration
+# proxy must be enabled.
+
+# PROXY configuration:
+DEFGUARD_GRPC_ULR=https://my-server.defguard.net:444 # add this line to your config file
 
 ### LDAP configuration ###
-DEFGUARD_LDAP_URL=ldap://localhost:389
-DEFGUARD_LDAP_SERVICE_PASSWORD=adminpassword
-DEFGUARD_LDAP_USER_SEARCH_BASE="ou=users,dc=example,dc=org"
-DEFGUARD_LDAP_GROUP_SEARCH_BASE="ou=groups,dc=example,dc=org"
-DEFGUARD_LDAP_DEVICE_SEARCH_BASE="ou=devices,dc=example,dc=org"
+# DEFGUARD_LDAP_URL=ldap://localhost:389
+# DEFGUARD_LDAP_SERVICE_PASSWORD=adminpassword
+# DEFGUARD_LDAP_USER_SEARCH_BASE="ou=users,dc=example,dc=org"
+# DEFGUARD_LDAP_GROUP_SEARCH_BASE="ou=groups,dc=example,dc=org"
+# DEFGUARD_LDAP_DEVICE_SEARCH_BASE="ou=devices,dc=example,dc=org"
 
 ### DB configuration ###
 DEFGUARD_DB_HOST="localhost"
@@ -632,4 +654,6 @@ Reload changes in `/etc/defguarc/core.conf`
 # systemctl restart defguard.service
 ```
 
-After doing this, you have full working defguard services with admin panel and enrollment wizard page!
+{% hint style="success" %}
+Now you have full working defguard services 🥳
+{% endhint %}
