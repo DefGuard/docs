@@ -657,3 +657,7 @@ Reload changes in `/etc/defguarc/core.conf`
 {% hint style="success" %}
 Now you have full working defguard services 🥳
 {% endhint %}
+
+You can [configure your desktop client using the enrollment](../../help/configuring-vpn/add-new-instance/) service and use your VPN.
+
+If you would like to use the feature in the desktop client to route **All traffic** through the VPN please configure your firewall to enable Internet access through your VPN - [here you can find exaples how to do it](https://defguard.gitbook.io/defguard/tutorials/step-by-step-setting-up-a-vpn-server#enabling-to-access-internet-through-your-vpn).
