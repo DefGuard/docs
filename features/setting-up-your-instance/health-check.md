@@ -20,7 +20,7 @@ alive
 
 ### gRPC status health
 
-#### Proxy (avaialbe from 0.6.0)
+#### Proxy (available from v0.6.0)
 
 To verify gRPC services for **Proxy** are alive, there is endpoint at `GET /api/v1/health-grpc` that verify it.
 
@@ -37,7 +37,7 @@ Possible responses:
 503 - Proxy works but is not connected to CORE
 ```
 
-#### Core (available from 1.0.0)
+#### Core (available from v1.0.0)
 
 To check if core gRCP service is alive, we recommend to use community tools like [grpc\_health\_probe](https://github.com/grpc-ecosystem/grpc-health-probe).
 
