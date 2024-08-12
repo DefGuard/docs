@@ -4,7 +4,9 @@
 
 This tutorial aims to show how quick and easy is to deploy your VPN server using defguard.
 
-<figure><img src="https://defguard.net/images/decap/hero-image.png" alt=""><figcaption><p>defguard VPN dashboard</p></figcaption></figure>
+This tutorial is also availabe as a video:
+
+{% embed url="https://www.youtube.com/watch?v=MqlE6ZTn0bg" %}
 
 We assume you have:
 
@@ -13,7 +15,7 @@ We assume you have:
   * defguard main url will be _my-server.defguard.net_ (and the subdomain is pointed to _185.33.37.51_)
   * defguard enrollment service that will enable to easy configure Desktop Clients just with one token is: _enroll.defguard.net_ (this subdomain also points to _185.33.37.51_)
 * server is Debian/Ubuntu-based
-* have installed the [official Docker Engine](https://docs.docker.com/engine/install/debian/#install-using-the-repository) and [docker-compose](https://docs.docker.com/compose/install/standalone/#on-linux) (from our experience it's better to use the official Docker Engine then docker shipped with distro packages - but this should also work with distro packages) and have&#x20;
+* have installed the [official Docker Engine](https://docs.docker.com/engine/install/debian/#install-using-the-repository) and [docker-compose](https://docs.docker.com/compose/install/standalone/#on-linux) (from our experience it's better to use the official Docker Engine then docker shipped with distro packages - but this should also work with distro packages) and have
 * VPN network will be: 10.22.33.0/24 - but you can assign [any private network address](https://en.wikipedia.org/wiki/Private\_network) and use it in this tutorial - we will name it _Example_
 * If you have a **firewall**, we assume you have **open ports** (if not below we will show you how to enable and secure your server):
   * 443 - in order to expose both defguard & enrollemnt service - but also to automatically issue for these domains SSL Certificates (which the installer script does)
@@ -82,7 +84,7 @@ Defguard will show what **URL** (which is - as you see - your enrollment service
 
 You can easily copy those with buttons provided in defguard, and paste to your desktop client.
 
-In desktop client click on _**+ Add instance** _ and provide the URL and token:
+In desktop client click on \_**+ Add instance** \_ and provide the URL and token:
 
 <figure><img src="../.gitbook/assets/SCR-20240118-sfnm.png" alt=""><figcaption><p>Configuring the client with a new instance</p></figcaption></figure>
 
@@ -132,7 +134,7 @@ root@server# apt install ufw
 
 Now let's enable on the firewall rules that provide packet forwarding (from your VPN to the Internet and vice-versa).
 
-Edit the /etc/default/ufw file to enable default policies for packet forwarding to ACCEPT&#x20;
+Edit the /etc/default/ufw file to enable default policies for packet forwarding to ACCEPT
 
 ```
 root@server:~# vi /etc/default/ufw
@@ -154,7 +156,7 @@ net.ipv4.ip_forward=1
 root@server:~# sysctl -p
 ```
 
-Now we need to configure firewall [NAT](https://en.wikipedia.org/wiki/Network\_address\_translation), so that the server will "_translate/masq_" VPN traffic behind its  public IP.  In order to do that, we need to add rules to MASQUERADE VPN network behind the public interface of the sever.
+Now we need to configure firewall [NAT](https://en.wikipedia.org/wiki/Network\_address\_translation), so that the server will "_translate/masq_" VPN traffic behind its public IP. In order to do that, we need to add rules to MASQUERADE VPN network behind the public interface of the sever.
 
 We know that VPN network is 10.22.33.0/24 now we need to be sure what interface has the public IP (in our case: 185.33.37.51) - let's figure it out with this command:
 
@@ -233,7 +235,7 @@ Defguard is the only (known to us) WireGuard client, that enables to choose duri
 
 This is very usefull, since some of the times you just want to be connected to your VPN to have the server/vpn networks accessible, and sometimes (like in the scenarious mentioned before) you want to hide and encrypt your traffic.
 
-In order to check if everything works, let's  visit a website [https://ifconfig.co](https://ifconfig.co) - that will show our public IP. If everything went smootly, you should see **your VPN server public IP** (which in our example is: _185.33.37.51_):
+In order to check if everything works, let's visit a website [https://ifconfig.co](https://ifconfig.co) - that will show our public IP. If everything went smootly, you should see **your VPN server public IP** (which in our example is: _185.33.37.51_):
 
 <figure><img src="../.gitbook/assets/SCR-20240118-smsu.png" alt=""><figcaption><p>Success! Defguard is AWESOME!</p></figcaption></figure>
 
