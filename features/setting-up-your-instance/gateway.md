@@ -80,33 +80,10 @@ You'll need a valid CA certificate to connect Gateway to Defguard. See [SSL inst
 
 ## OPNsense plugin
 
-{% hint style="danger" %}
-GitHub doesn't support FreeBSD runners - because of that it's hard to automate building/releasing the plugin (which is on freebsd).
-
-Thus we have an issue that packages gateway are build with wrong architecture:
-
-```
-pkg: wrong architecture: Linux:6:x86:64 instead of FreeBSD:13:amd64
-Failed to install the following 1 package(s)
-```
-
-There is a workarond for that:
-
-```
-mkdir -p pp zz
-tar Jxf defguard-gateway.pkg -C zz
-sed -e 's,Linux:5,FreeBSD:13,' zz/+MANIFEST > MANIFEST
-rm zz/+COMPACT_MANIFEST zz/+MANIFEST
-pkg create -M MANIFEST -o pp -r zz
-```
-{% endhint %}
-
-
-
 To start your gateway as OPNsense plugin:
 
 1. On the [release page](https://github.com/DefGuard/gateway/releases) find and download OPNsense package which will be named: \
-   `defguard-gateway_VERSION_x86_64-unknown-opnsense.txz` .
+   `defguard-gateway_VERSION_x86_64-unknown-opnsense.pkg`
 2. Install the package
 
 ```bash
@@ -124,8 +101,6 @@ opnsense-patch
 <figure><img src="../../.gitbook/assets/OPNSense Plugin.png" alt=""><figcaption></figcaption></figure>
 
 5. Fill form with appropriate values click `Save` then `Start/Restart`&#x20;
-
-
 
 {% hint style="info" %}
 You can find detailed description of all fields [here](configuration.md#gateway-configuration).
