@@ -64,7 +64,7 @@ You can log into the UI using the default admin user:
 
 When you log in to your instance with user admin and the password that was generated for you, you should see that the VPN gateway is connected:
 
-<figure><img src="../.gitbook/assets/SCR-20240118-ralh.png" alt=""><figcaption><p>defguard live status of WireGuard VPN gateway</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/SCR-20240118-ralh.png" alt=""><figcaption><p>defguard live status of WireGuard VPN gateway</p></figcaption></figure>
 
 ### Connecting to your VPN using defguard desktop client
 
@@ -72,45 +72,45 @@ Download the latest client from: [https://github.com/DefGuard/client/releases](h
 
 No go to **defguard** Web UI (in this example: _https://my-server.defguard.net_) and go to _My Profile_ and click on _Add Device:_
 
-<figure><img src="../.gitbook/assets/SCR-20240118-rzqf.png" alt=""><figcaption><p>Adding a new device/desktop client in defguard user profile</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/SCR-20240118-rzqf.png" alt=""><figcaption><p>Adding a new device/desktop client in defguard user profile</p></figcaption></figure>
 
 Then choose _Defguard Client Remote Desktop Activation_ - which will easly configure your Desktop client:
 
-<figure><img src="../.gitbook/assets/SCR-20240118-sajv.png" alt=""><figcaption><p>Defguard supports both it's desktop client and configuring any Wireguard Client</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/SCR-20240118-sajv.png" alt=""><figcaption><p>Defguard supports both it's desktop client and configuring any Wireguard Client</p></figcaption></figure>
 
 Defguard will show what **URL** (which is - as you see - your enrollment service URL) and **token** to paste to your desktop client:
 
-<figure><img src="../.gitbook/assets/SCR-20240118-sfkc.png" alt=""><figcaption><p>Just by simply providing URL &#x26; token your client will be automatically configured</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/SCR-20240118-sfkc.png" alt=""><figcaption><p>Just by simply providing URL &#x26; token your client will be automatically configured</p></figcaption></figure>
 
 You can easily copy those with buttons provided in defguard, and paste to your desktop client.
 
 In desktop client click on \_**+ Add instance** \_ and provide the URL and token:
 
-<figure><img src="../.gitbook/assets/SCR-20240118-sfnm.png" alt=""><figcaption><p>Configuring the client with a new instance</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/SCR-20240118-sfnm.png" alt=""><figcaption><p>Configuring the client with a new instance</p></figcaption></figure>
 
 After that, the client will ask you to name your device (however you like), after that click finish:
 
-<figure><img src="../.gitbook/assets/SCR-20240118-sfsj.png" alt=""><figcaption><p>Naming your device</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/SCR-20240118-sfsj.png" alt=""><figcaption><p>Naming your device</p></figcaption></figure>
 
 The client will instantly show your defguard instance and the VPN (we named _Example):_
 
-<figure><img src="../.gitbook/assets/SCR-20240118-sfuz.png" alt=""><figcaption><p>Client after succesfully adding a new instance</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/SCR-20240118-sfuz.png" alt=""><figcaption><p>Client after succesfully adding a new instance</p></figcaption></figure>
 
 Also, in defguard you should see in your profle, that the client is configured and visible (for now - no details of IPs, etc - will automaticaly show details when you connect with your client):
 
-<figure><img src="../.gitbook/assets/SCR-20240118-sfyi.png" alt=""><figcaption><p>Defguard showing the newly configured client in user profile</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/SCR-20240118-sfyi.png" alt=""><figcaption><p>Defguard showing the newly configured client in user profile</p></figcaption></figure>
 
 Now let's click _**Connect**_ and see if the VPN works, the best way to do so, is to open a terminal app and **ping** the VPN server address. Also to see nice statistics, choose in the client menu from _Grid view_ (which is nice if you have multiple VPNs) the option _Detailed view:_
 
-<figure><img src="../.gitbook/assets/SCR-20240118-sjkg.png" alt=""><figcaption><p>Nice statistics in defguard client</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/SCR-20240118-sjkg.png" alt=""><figcaption><p>Nice statistics in defguard client</p></figcaption></figure>
 
 Now let's test if the VPN network is accessible. To do so, let's ping the VPN gateway internal IP: _10.22.33.1_
 
-<figure><img src="../.gitbook/assets/SCR-20240118-siml.png" alt=""><figcaption><p>VPN gateway responding to ping after connecting to VPN</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/SCR-20240118-siml.png" alt=""><figcaption><p>VPN gateway responding to ping after connecting to VPN</p></figcaption></figure>
 
 As an administrator, you will probably be happy to see this - defguard VPN dashboard:
 
-<figure><img src="../.gitbook/assets/SCR-20240118-sthz.png" alt=""><figcaption><p>defguard VPN dashboard</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/SCR-20240118-sthz.png" alt=""><figcaption><p>defguard VPN dashboard</p></figcaption></figure>
 
 {% hint style="info" %}
 This completes your VPN setup - both server and client.
@@ -231,13 +231,13 @@ To                         Action      From
 
 Defguard is the only (known to us) WireGuard client, that enables to choose during connetion if you would like to **route all your traffic through the VPN.** Just (before connecting) choose the option: **Allow all traffic** and click connect!
 
-<figure><img src="../.gitbook/assets/SCR-20240118-smil.png" alt=""><figcaption><p>Choosing to forward all traffic through VPN</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/SCR-20240118-smil.png" alt=""><figcaption><p>Choosing to forward all traffic through VPN</p></figcaption></figure>
 
 This is very usefull, since some of the times you just want to be connected to your VPN to have the server/vpn networks accessible, and sometimes (like in the scenarious mentioned before) you want to hide and encrypt your traffic.
 
 In order to check if everything works, let's visit a website [https://ifconfig.co](https://ifconfig.co) - that will show our public IP. If everything went smootly, you should see **your VPN server public IP** (which in our example is: _185.33.37.51_):
 
-<figure><img src="../.gitbook/assets/SCR-20240118-smsu.png" alt=""><figcaption><p>Success! Defguard is AWESOME!</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/SCR-20240118-smsu.png" alt=""><figcaption><p>Success! Defguard is AWESOME!</p></figcaption></figure>
 
 ## Final thoughts
 

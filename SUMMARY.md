@@ -76,4 +76,5 @@
 
 ## Tutorials
 
-* [Step by step setting up a VPN server](tutorials/step-by-step-setting-up-a-vpn-server.md)
+* [Step by step setting up a VPN server](tutorials/step-by-step-setting-up-a-vpn-server/README.md)
+  * [Adding additional VPN locations](tutorials/step-by-step-setting-up-a-vpn-server/adding-additional-vpn-locations.md)
