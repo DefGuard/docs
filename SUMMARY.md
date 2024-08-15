@@ -26,6 +26,8 @@
   * [Docker Compose](features/setting-up-your-instance/docker-compose.md)
   * [Kubernetes](community-features/setting-up-your-instance/kubernetes.md)
   * [Gateway](features/setting-up-your-instance/gateway.md)
+  * [gRPC SSL communication](admin-and-features/setting-up-your-instance/grpc-ssl-communication.md)
+  * [OpenID RSA Certificates](admin-and-features/setting-up-your-instance/openid-rsa-certificates.md)
   * [Upgrading](features/setting-up-your-instance/upgrading.md)
   * [Health check](features/setting-up-your-instance/health-check.md)
 * [Remote user enrollment](features/remote-user-enrollment/README.md)

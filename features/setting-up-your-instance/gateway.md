@@ -4,19 +4,6 @@
 Don't forget to copy DEFGUARD\_TOKEN necessary to start gateway connection from modal available on overview page under `Docker run command`
 {% endhint %}
 
-## Binary Install
-
-1. Checkout Gateway releases [here](https://github.com/DefGuard/gateway/releases) and download compatible binary from Github page.
-2. Decompress and move to bin directory
-
-```sh
-tar xcf ./gateway.tar.gz
-sudo chmod +x gateway
-sudo mv gateway /usr/bin/
-```
-
-3. Start gateway `gateway -g defguard.com:50055 -t <DEFGUARD_TOKEN>`
-
 ## Package Install
 
 1. On the [release page](https://github.com/DefGuard/gateway/releases) find and download a correct software package for your system (currently DEB, RPM and TXZ are available).
@@ -76,8 +63,6 @@ If everything went well, your Gateway should be connected to Defguard and you ca
 
 You'll need a valid CA certificate to connect Gateway to Defguard. See [SSL instructions](https://defguard.gitbook.io/defguard/features/setting-up-your-instance/docker-compose#ssl-setup).
 
-
-
 ## OPNsense plugin
 
 To start your gateway as OPNsense plugin:
@@ -107,3 +92,16 @@ You can find detailed description of all fields [here](configuration.md#gateway-
 {% endhint %}
 
 If everything went well, your Gateway should be connected to Defguard and you can start [adding new devices to your network](features/wireguard/adding-wireguard-devices.md).
+
+## Binary Install
+
+1. Checkout Gateway releases [here](https://github.com/DefGuard/gateway/releases) and download compatible binary from Github page.
+2. Decompress and move to bin directory
+
+```sh
+tar xcf ./gateway.tar.gz
+sudo chmod +x gateway
+sudo mv gateway /usr/bin/
+```
+
+3. Start gateway `gateway -g <CORE_GRPC_URL:GRPC_PORT> -t <DEFGUARD_TOKEN>`
