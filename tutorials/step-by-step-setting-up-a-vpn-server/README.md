@@ -118,6 +118,10 @@ This completes your VPN setup - both server and client.
 But if you would like to configure your VPN server to allow accessing Internet through the VPN gateway, please read the chaptare below.
 {% endhint %}
 
+### Adding new location
+
+If you would like to have multiple VPN locations - [please read this tutorial how to add another location in this setup.](adding-additional-vpn-locations.md)
+
 ### Enabling to access Internet through your VPN
 
 The most common purpose to setup your own VPN is to provide you (and your users - defguard supports multiple users!) **anonimity and privacy** when accessing public internet.
