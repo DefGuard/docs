@@ -25,7 +25,7 @@ Rember that the:
 
 * VPN IP address needs to be different then in the first location
 * Gateway address should be the same (same public IP)
-* Gateway port **must be different**
+* Gateway port **must be different - and** remember that gateway port **must be open on firewall** (this is the new VPN location WireGuard port)
 {% endhint %}
 
 After configuring the location, please:
