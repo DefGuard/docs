@@ -1,9 +1,3 @@
----
-description: >-
-  If you have used our one-line install setup (for example described in this
-  tutorial)
----
-
 # Adding additional VPN locations
 
 If you have used our one-line install setup (for example [described in this tutorial](./)) one VPN location (one gateway instance) is done automatically.
