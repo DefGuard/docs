@@ -93,5 +93,7 @@ In order to get the `Client ID` and `Client Secret` values, refer to the documen
 
 When configuring your external OpenID provider, at some point you will need to provide a callback URL, which will redirect the user back to Defguard. This URL is in form of `<DEFGUARD_DASHBOARD_URL>/api/v1/openid/callback`. Replace `<DEFGUARD_DASHBOARD_URL>` with the URL under which your dashboard is accessible, e.g. `https://defguard.example.com`.
 
+**Keycloak**
 
+A basic guide about securing applications using Keycloack can be found [here](https://www.keycloak.org/getting-started/getting-started-docker#\_secure\_the\_first\_application).&#x20;
 
