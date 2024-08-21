@@ -17,7 +17,7 @@ We will cover system requirements, additional dependencies, installation steps, 
 Examples will be made by using [**Debian 12**](https://www.debian.org/releases/stable/releasenotes) **and Ubuntu based system.**
 
 {% hint style="info" %}
-We also provide **RPM packages** -the procedure is similar to the one for installing DEB packages. If you need help installing RPM packages[ this guide offers help.](https://phoenixnap.com/kb/how-to-install-rpm-file-centos-linux)
+We also provide **RPM packages** - the procedure is similar to the one for installing DEB packages. If you need help installing RPM packages[ this guide offers help.](https://phoenixnap.com/kb/how-to-install-rpm-file-centos-linux)
 {% endhint %}
 
 ### Hardware Requirements
@@ -51,7 +51,7 @@ Defguard core uses PostgreSQL database, so if you do not have installed and conf
 First of all, install postgresql:
 
 ```
-# apt install postgresql 
+apt install postgresql 
 ```
 
 Now you can launch a default user and create a new superuser for your database. We create user, password and database with name `defguard`, beacuse this is by default in `/etc/defguard/core.conf`, you can change whatever you want.
@@ -65,11 +65,14 @@ postgres=# CREATE DATABASE defguard;
 After creating a user and database we can connect our new user to this database. To make it easier to connect now and then, we could try to add auth file
 
 ```
-# echo 'localhost:5432:defguard:defguard:defguard' >> ~/.pgpass # <hostname>:<port>:<database>:<user>:<password>
+# echo 'localhost:5432:defguard:defguard:defguard' >> ~/.pgpass
 # chmod 600 ~/.pgpass
 # psql -d defguard -h localhost -U defguard
-defguard=# exit     # for now we can leave it, the purpose of this connection is to verify your user is able to communicate with database
+defguard=# exit
 ```
+
+- we created `.pgpass` file that consist of `<hostname>:<port>:<database>:<user>:<password>`
+- we connected into the `defguard` database to verify `defguard` user can communicate with the database
 
 #### NGINX
 
@@ -78,20 +81,20 @@ To expose our services in the server we need to configure a reverse proxy server
 To get started, we need to install:
 
 ```
-# apt install nginx certbot
+apt install nginx certbot
 ```
 
 Enable nginx service
 
 ```
-# systemctl enable nginx.service
-# systemctl start nginx.service
+systemctl enable nginx.service
+systemctl start nginx.service
 ```
 
 Disable all default domains:
 
 ```
-# unlink /etc/ngins/sites-enabled/default
+unlink /etc/nginx/sites-enabled/default
 ```
 
 ## Installing packages
@@ -101,25 +104,25 @@ Disable all default domains:
 Navigate to [core repository release](https://github.com/DefGuard/defguard/releases) and choose version of core package that you want to obtain that has debian package and then swap `<version>` in the following command:
 
 ```
-# wget https://github.com/DefGuard/defguard/releases/download/<version>/defguard-<version>-x86_64-unknown-linux-gnu.deb
+wget https://github.com/DefGuard/defguard/releases/download/<version>/defguard-<version>-x86_64-unknown-linux-gnu.deb
 ```
 
 Example:
 
 ```
-# wget https://github.com/DefGuard/defguard/releases/download/v0.11.0/defguard-0.11.0-x86_64-unknown-linux-gnu.deb
+wget https://github.com/DefGuard/defguard/releases/download/v0.11.0/defguard-0.11.0-x86_64-unknown-linux-gnu.deb
 ```
 
 You can also download directly from the Github realse page, but please note that you should know the path where this could be storead after downloading. Once the package is downloaded, install it using dpkg:
 
 ```
-# dpkg -i <path_to_package>/defguard-<version>-x86_64-unknown-linux-gnu.deb
+dpkg -i <path_to_package>/defguard-<version>-x86_64-unknown-linux-gnu.deb
 ```
 
 Example:
 
 ```
-# dpkg -i defguard-0.11.0-x86_64-unknown-linux-gnu.deb
+dpkg -i defguard-0.11.0-x86_64-unknown-linux-gnu.deb
 ```
 
 You can check is core installed properly:
@@ -146,13 +149,13 @@ Example:
 You can also download directly from the Github realse page, but please note that you should know the path where this could be storead after downloading. Once the package is downloaded, install it using dpkg:
 
 ```
-# dpkg -i <path_to_package>/defguard-gateway_<version>_x86_64-unknown-linux-gnu.deb
+dpkg -i <path_to_package>/defguard-gateway_<version>_x86_64-unknown-linux-gnu.deb
 ```
 
 Example:
 
 ```
-# dpkg -i defguard-gateway_0.7.0_x86_64-unknown-linux-gnu.deb
+dpkg -i defguard-gateway_0.7.0_x86_64-unknown-linux-gnu.deb
 ```
 
 You can check is core installed properly:
@@ -167,25 +170,25 @@ defguard-gateway 0.7.0
 Navigate to [proxy repository release](https://github.com/DefGuard/proxy/releases) and choose version of core package that you want to obtain that has debian package and then swap `<version>` in the following command:
 
 ```
-# wget https://github.com/DefGuard/proxy/releases/download/<version>>/defguard-proxy-<version>-x86_64-unknown-linux-gnu.deb
+wget https://github.com/DefGuard/proxy/releases/download/<version>>/defguard-proxy-<version>-x86_64-unknown-linux-gnu.deb
 ```
 
 Example:
 
 ```
-# wget https://github.com/DefGuard/proxy/releases/download/v0.5.0/defguard-proxy-0.5.0-x86_64-unknown-linux-gnu.deb
+wget https://github.com/DefGuard/proxy/releases/download/v0.5.0/defguard-proxy-0.5.0-x86_64-unknown-linux-gnu.deb
 ```
 
 You can also download directly from the Github realse page, but please note that you should know the path where this could be storead after downloading. Once the package is downloaded, install it using dpkg:
 
 ```
-# dpkg -i <path_to_package>/defguard-proxy-<version>-x86_64-unknown-linux-gnu.deb
+dpkg -i <path_to_package>/defguard-proxy-<version>-x86_64-unknown-linux-gnu.deb
 ```
 
 Example:
 
 ```
-# dpkg -i defguard-proxy-0.5.0-x86_64-unknown-linux-gnu.deb
+dpkg -i defguard-proxy-0.5.0-x86_64-unknown-linux-gnu.deb
 ```
 
 You can check is core installed properly:
@@ -202,12 +205,14 @@ defguard-proxy 0.5.0
 Before we run defguard and configure the reverse proxy, first let's prepare SSL certificates that will be used by the NGINX service. We will generate a certificate for two domains we use in this example: _my-service.defguard.net_ and _enroll.defguard.net_:
 
 ```
-# certbot certonly --non-interactive --agree-tos --standalone --email admin@teonite.com -d my-server.defguard.net -d enroll.defgurd.net
+certbot certonly --non-interactive --agree-tos --standalone --email admin@teonite.com -d my-server.defguard.net -d enroll.defgurd.net
 ```
 
 Certbot will generate certificate in fullchain.pem and privkey.pem in path:
 
-&#x20;`/etc/letsencrypt/live/my-server.defguard.net.`
+&#x20;`/etc/letsencrypt/live/my-server.defguard.net`
+
+&#x20;`/etc/letsencrypt/live/enrolldefguard.net`
 
 ### Core - the control plain
 
@@ -280,14 +285,14 @@ DATABASE_URL="postgresql://defguard:defguard@localhost/defguard"
 After changes, you can simply enable and start your defguard core service:
 
 ```
-# systemctl enable defguard.service
-# systemctl start defguard.service
+systemctl enable defguard.service
+systemctl start defguard.service
 ```
 
 To see logs, type journalctl command:
 
 ```
-# journalctl -u defguard.service
+# journalctl -u defguard.service | tail -n 50
 Jul 29 13:57:15 defguard-testing systemd[1]: Started defguard.service - defguard core service.
 Jul 29 13:57:15 defguard-testing defguard[2776504]: 2024-07-29T11:57:15.738420Z  INFO defguard: Starting defguard
 Jul 29 13:57:15 defguard-testing defguard[2776504]: 2024-07-29T11:57:15.743079Z  INFO defguard::db: Initializing DB pool
@@ -362,7 +367,7 @@ ln -s /etc/nginx/sites-available/my-server.defguard.net.conf /etc/nginx/sites-en
 Restart nginx.service to activated changes:
 
 ```
-# systemctl reload nginx.service
+systemctl reload nginx.service
 ```
 
 Test your domain on another terminal tab
@@ -471,8 +476,8 @@ Now we can run gateway service with configuration above:
 
 ```
 # systemctl enable defguard-gateway.service
-# systemctl start defgaurd-gateway.service
-# journalctl -u defguard-gateway.service
+# systemctl start defguard-gateway.service
+# journalctl -u defguard-gateway.service | tail -n 50
 [2024-07-27T16:37:56Z INFO  defguard_gateway::gateway] Starting defguard gateway version 0.7.0 with configuration: Config { token: "***", name: Some("Gateway on server X"), grpc_url: "https://my-server.defguard.net:444/", userspace: false, grpc_ca: None, stats_period: 60, ifname: "wg0", pidfile: None, use_syslog: false, syslog_facility: "LOG_USER", syslog_socket: "/var/run/log", config_path: None, pre_up: None, post_up: None, pre_down: None, post_down: None, health_port: None }
 [2024-07-27T16:37:56Z INFO  defguard_gateway::gateway] gRPC server connection setup done.
 [2024-07-27T16:37:56Z INFO  defguard_wireguard_rs::wgapi_linux] Creating interface wg0
@@ -501,7 +506,7 @@ To run proxy service (for [remote onboarding & enrollment](../../help/enrollment
 ```
 # systemctl enable defguard-proxy.service
 # systemctl start defguard-proxy.service
-# journalctl -u defguard-proxy.service
+# journalctl -u defguard-proxy.service | tail -n 50
 2024-07-27T16:53:58.584154Z INFO defguard_proxy::tracing: Tracing initialized
 2024-07-27T16:53:58.584233Z INFO defguard_proxy::http: Starting Defguard proxy server
 2024-07-27T16:53:58.584371Z INFO defguard_proxy::http: Skipping rate limiter setup
@@ -516,7 +521,7 @@ To run proxy service (for [remote onboarding & enrollment](../../help/enrollment
 Please note that [we already have issued the enrollemnt domain SSL certificate](standalone-package-based-installation.md#generating-ssl-certificates).
 {% endhint %}
 
-Create config file `/etc/nginx/site-available/enroll.defguard.net.conf`, example config file for _enroll.defguard.net_ should look like this:
+Create config file `/etc/nginx/sites-available/enroll.defguard.net.conf`, example config file for _enroll.defguard.net_ should look like this:
 
 ```
 upstream defguard-proxy {
@@ -582,8 +587,8 @@ server {
 Enable configuration and restart nginx:
 
 ```
-# ln -s /etc/nginx/sites-available/enroll.defguard.conf /etc/nginx/sites-enabled/enroll.defguard.conf
-# systemctl restart nginx.service
+ln -s /etc/nginx/sites-available/enroll.defguard.conf /etc/nginx/sites-enabled/enroll.defguard.conf
+systemctl restart nginx.service
 ```
 
 #### Enabling Proxy service in the Core
@@ -651,7 +656,7 @@ DATABASE_URL="postgresql://defguard:defguard@localhost/defguard"
 Reload changes in `/etc/defguarc/core.conf`
 
 ```
-# systemctl restart defguard.service
+systemctl restart defguard.service
 ```
 
 {% hint style="success" %}
