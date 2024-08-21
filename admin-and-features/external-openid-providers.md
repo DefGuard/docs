@@ -23,6 +23,7 @@ The base URL is used to discover all the necessary provider's endpoints which wi
 
 * `https://accounts.google.com`
 * `https:://login.microsoftonline.com/<TENANT_ID>/v2.0`
+* `http://<KEYCLOAK_ADDRESS>/realms/<REALM>` (in the case of Keycloak)
 
 #### Tenant ID
 
@@ -88,7 +89,9 @@ You can also configure a custom OpenID provider. The key thing here is setting u
 
 The easiest way of obtaining the Base URL is finding out what is the OpenID `.well-known` URL of your provider. For example, for Google it's `https://accounts.google.com/.well-known/openid-configuration`, in this case, the Base URL would be `https://accounts.google.com` (note the lack of a trailing slash). The part starting with `/.well-known` is added automatically, so it should be omitted from the Base URL. This is explained in more detail in the [Base URL](external-openid-providers.md#base-url) section.
 
-In order to get the `Client ID` and `Client Secret` values, refer to the documentation of your custom provider of choice.
+In order to get the `Client ID` and `Client Secret` values, refer to the documentation of your custom provider of choice.&#x20;
+
+When configuring your external OpenID provider, at some point you will need to provide a callback URL, which will redirect the user back to Defguard. This URL is in form of `<DEFGUARD_DASHBOARD_URL>/api/v1/openid/callback`. Replace `<DEFGUARD_DASHBOARD_URL>` with the URL under which your dashboard is accessible, e.g. `https://defguard.example.com`.
 
 
 
