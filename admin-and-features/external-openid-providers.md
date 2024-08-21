@@ -26,7 +26,7 @@ The base URL is used to discover all the necessary provider's endpoints which wi
 
 #### Tenant ID
 
-This is an optional value required only if you are using Microsoft as your provider. Insert it in the `BASE_URL` field by replacing the `<TENANT_ID>` placeholder. See [Microsoft](external-openid-providers.md#microsoft) to find out how to get it.
+This is an optional value required only if you are using Microsoft as your provider. Insert it in the `BASE_URL` field by replacing the `<TENANT_ID>` placeholder.
 
 ### Configuration and setup
 
@@ -78,5 +78,17 @@ You may have also noticed the checkbox option on the right. By default, when a n
 
     <figure><img src="../.gitbook/assets/settings.png" alt=""><figcaption></figcaption></figure>
 
-#### Microsoft
+#### Custom OpenID provider
+
+{% hint style="warning" %}
+We currently only support custom providers that allow a `id_token` response type. This may change in the future.
+{% endhint %}
+
+You can also configure a custom OpenID provider. The key thing here is setting up the **Base URL** correctly. This URL is used to discover all the endpoints required for the authorization flow.
+
+The easiest way of obtaining the Base URL is finding out what is the OpenID `.well-known` URL of your provider. For example, for Google it's `https://accounts.google.com/.well-known/openid-configuration`, in this case, the Base URL would be `https://accounts.google.com` (note the lack of a trailing slash). The part starting with `/.well-known` is added automatically, so it should be omitted from the Base URL. This is explained in more detail in the [Base URL](external-openid-providers.md#base-url) section.
+
+In order to get the `Client ID` and `Client Secret` values, refer to the documentation of your custom provider of choice.
+
+
 
