@@ -1,12 +1,10 @@
 # Introduction
 
-![](screencasts/defguard.gif)
-
-Better quality video can [be found here to download](https://github.com/DefGuard/docs/raw/docs/screencasts/defguard-screencast.mkv)
+{% embed url="https://www.youtube.com/watch?v=4PF7edMGBwk" %}
 
 ## What is Defguard?
 
-In a nutshell, from a **functionality** point defguard is an **OpenID Identity Provider** (SSO for your apps) and **Wireguard VPN  Service** for building secure private networks (roadwarrior, mesh/peer-to-peer, site-to-site).
+In a nutshell, from a **functionality** point defguard is an **OpenID Identity Provider** (SSO for your apps) and **Wireguard VPN Service** for building secure private networks (roadwarrior, mesh/peer-to-peer, site-to-site).
 
 On a broader aspect, it's a **security platform** for building **secure** and **privacy-aware organizations (with its secure architecture).**
 
@@ -22,7 +20,7 @@ This architecture and approach gives you options - **either you secure your syst
 
 You may not, you can just use defguard selected modules (and disable others in UI and not even see them) and be happy with a **really nice UI to manage users, apps, networks, devices, and hardware security keys.**
 
-Or use another dedicated system just for that functionality (there are a lot OpenID/Identity, Wireguard VPN providers - commercial or open-source), but what typically happens is you start with one selected functionality/system  - and over time (when your user base, network, and apps grow) - you need another functionality. Then, you need to deploy another and another system - and **integrate them.** Most of the time it's really **hard** (and sometimes impossible) to integrate those systems - even if you can, it's **costly.** But what is most important: **it takes time** to integrate various systems into one platform, and even if you do it - most likely it will **not be easy to use by users** and **hard to maintain by developers and administrators.**
+Or use another dedicated system just for that functionality (there are a lot OpenID/Identity, Wireguard VPN providers - commercial or open-source), but what typically happens is you start with one selected functionality/system - and over time (when your user base, network, and apps grow) - you need another functionality. Then, you need to deploy another and another system - and **integrate them.** Most of the time it's really **hard** (and sometimes impossible) to integrate those systems - even if you can, it's **costly.** But what is most important: **it takes time** to integrate various systems into one platform, and even if you do it - most likely it will **not be easy to use by users** and **hard to maintain by developers and administrators.**
 
 That's why defguard came to be, being a company that:
 
@@ -90,8 +88,6 @@ Build with [Rust](https://www.rust-lang.org/) for portability, security, and spe
 ### Pentested!
 
 **Checked by professional security researchers** (see [comprehensive security report](https://defguard.net/images/decap/isec-defguard.pdf))
-
-
 
 ## Guides: Jump right in
 
