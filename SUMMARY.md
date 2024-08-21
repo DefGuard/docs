@@ -56,6 +56,7 @@
 * [Forward auth](features/forward-auth.md)
 * [SSH Authentication](features/ssh-authentication.md)
 * [Sending support information](admin-and-features/sending-support-info.md)
+* [Behavior customization](admin-and-features/behavior-customization.md)
 
 ## In depth
 
