@@ -45,6 +45,7 @@
 * [Wireguard](features/wireguard/README.md)
   * [Create your VPN network](features/wireguard/create-your-vpn-network.md)
   * [Network overview](community-features/wireguard/network-overview.md)
+  * [Executing custom gateway commands](admin-and-features/wireguard/executing-custom-gateway-commands.md)
   * [Multi-Factor Authentication (MFA/2FA)](admin-and-features/wireguard/multi-factor-authentication-mfa-2fa/README.md)
     * [MFA Architecture](admin-and-features/wireguard/multi-factor-authentication-mfa-2fa/architecture.md)
 * [SMTP for email notifications](help/setting-up-smtp-for-email-notifications.md)
