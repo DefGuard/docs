@@ -38,9 +38,20 @@ Now go to the server and open the docker-compose.yml file, and scroll to the gat
 Now copy the **whole gateway section and:**
 
 * **name it in a uniqe way,** eg. _gateway-customer2_&#x20;
-* in the enviroment variable `DEFGUARD_TOKEN`: add the token you have copied from the new location, like so:
+* in the enviroment variable `DEFGUARD_TOKEN`: add the token you have copied from the new location
+* **add the following line below the **_**image**_** -** to change the second gateway WireGuard interface:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-08-15 at 21.52.19.png" alt=""><figcaption></figcaption></figure>
+```yaml
+    command: ["-i", "wg1"]
+```
+
+{% hint style="danger" %}
+**If you will not add the command line, both gateways will use by default the wg0 and both will not work.**
+{% endhint %}
+
+The configuration should like so:
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-09-02 at 21.17.14.png" alt=""><figcaption></figcaption></figure>
 
 Now you need to launch the new gateway, just by the following command:
 
