@@ -45,7 +45,7 @@ If you have other ingress controller than traefik - you need to configure GRPC i
 * `ingress.hosts.web`: Web ingress address - Defguard webapp will be available here.
 * `publicUrl`: Public URL your Defguard will be available under. Usually the same as ingress.hosts.web, but differ depending on your loadbalancer and/or reverse-proxy setup.
 
-If you want to deploy the enrollment service along with your Defguard instance you also need to configure values related to the `defguard-prox`subchart:&#x20;
+If you want to deploy the enrollment service along with your Defguard instance you also need to configure values related to the `defguard-proxy`subchart:&#x20;
 
 * `defguard-proxy.enabled`: enable the enrollment service
 * `defguard-proxy.upstreamGrpcUrl`: defguard server gRPC endpoint URL
