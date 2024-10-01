@@ -14,6 +14,7 @@
 * [Setting up 2FA/MFA](help/setting-up-2fa-mfa.md)
 * [Remote desktop client activation](help/remote-desktop-activation.md)
 * [Desktop Client](help/desktop-client/README.md)
+  * [General troubleshooting](help/desktop-client/general-troubleshooting.md)
   * [Windows installer exit codes](help/desktop-client/windows-installer-exit-codes.md)
   * [Upgrading](help/desktop-client/upgrading.md)
 

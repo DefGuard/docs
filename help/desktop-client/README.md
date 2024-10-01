@@ -4,7 +4,7 @@
 
 Desktop client provides an easy way to access VPN locations of multiple Defguard instances via user-friendly UI.
 
-## Support Platforms
+## Supported Platforms
 
 ### MacOS
 
@@ -13,7 +13,7 @@ Has no external requirements and we have wireguard-go bundled.
 ### Linux
 
 {% hint style="warning" %}
-On Linux the desktop client uses  **`resolvconf`**` ``(part of` systemd-resolved) to configure DNS. Be sure to have it installed.
+On Linux the desktop client uses `resolvconf` to manage DNS servers. On newer distributions it should be a symbolic link to `resolvectl`, more details can be found on the [troubleshooting](general-troubleshooting.md) page.
 {% endhint %}
 
 ### Windows
