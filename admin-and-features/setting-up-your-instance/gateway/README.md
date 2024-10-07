@@ -57,7 +57,7 @@ cp .env.template .env
 docker-compose up
 ```
 
-If everything went well, your Gateway should be connected to Defguard and you can start [adding new devices to your network](features/wireguard/adding-wireguard-devices.md).
+If everything went well, your Gateway should be connected to Defguard and you can start [adding new devices to your network](../../../features/setting-up-your-instance/features/wireguard/adding-wireguard-devices.md).
 
 ## SSL
 
@@ -83,15 +83,15 @@ opnsense-patch
 
 4. Go to you OPNsense UI and navigate `VPN` -> `Defguard Gateway` .
 
-<figure><img src="../../.gitbook/assets/OPNSense Plugin.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/OPNSense Plugin.png" alt=""><figcaption></figcaption></figure>
 
 5. Fill form with appropriate values click `Save` then `Start/Restart`&#x20;
 
 {% hint style="info" %}
-You can find detailed description of all fields [here](configuration.md#gateway-configuration).
+You can find detailed description of all fields [here](../../../features/setting-up-your-instance/configuration.md#gateway-configuration).
 {% endhint %}
 
-If everything went well, your Gateway should be connected to Defguard and you can start [adding new devices to your network](features/wireguard/adding-wireguard-devices.md).
+If everything went well, your Gateway should be connected to Defguard and you can start [adding new devices to your network](../../../features/setting-up-your-instance/features/wireguard/adding-wireguard-devices.md).
 
 ## Binary Install
 

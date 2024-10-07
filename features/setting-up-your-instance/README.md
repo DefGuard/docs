@@ -41,7 +41,7 @@ If you prefer to configure and deploy defguard manually see the examples below:
 
 Client services
 
-* [Gateway](gateway.md)
+* [Gateway](../../admin-and-features/setting-up-your-instance/gateway/)
 * [YubiBridge](../yubikey-provisioning.md)
 
 {% hint style="info" %}
@@ -84,4 +84,4 @@ docker exec {container_name} pg_dump -U {user_name} > {backup_file_name}
 
 ## Failover/HA/Clustering
 
-For now the [Gateway](gateway.md) can be deployed on multiple servers/firewall/routers for failover and HA - even if the connection to the Core will be lost, gateways will operate with their local cache/data and the VPN will be working.  Same works the other way around if gateway don't work or is not available other features from Core like OpenID will be working.&#x20;
+For now the [Gateway](../../admin-and-features/setting-up-your-instance/gateway/) can be deployed on multiple servers/firewall/routers for failover and HA - even if the connection to the Core will be lost, gateways will operate with their local cache/data and the VPN will be working.  Same works the other way around if gateway don't work or is not available other features from Core like OpenID will be working.&#x20;
