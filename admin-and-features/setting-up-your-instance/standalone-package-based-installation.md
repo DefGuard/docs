@@ -39,7 +39,7 @@ Before proceeding with the installation, ensure your system meets the following 
 * Administrative (sudo) privileges.
 * A server with a public IP (and you know what that IP address is and to which interface it's assigned) - in this example we use: 185.33.37.51.
 * You have a domain name and know how to assign IP and manage subdomains, in our example: defguard main url will be _my-server.defguard.net_ (and the subdomain is pointed to 185.33.37.51).
-* defguard [enrollment service](https://defguard.gitbook.io/defguard/help/enrollment) (run by proxy) that will enable [remote onboarding, enrollment](https://defguard.gitbook.io/defguard/help/enrollment) and  [easy configuration for our Desktop Clients (by adding defguard instances)](https://defguard.gitbook.io/defguard/help/configuring-vpn/add-new-instance)  with instance URL and one simple token - in this tutorial we use: _enroll.defguard.net_ (this subdomain also points to 185.33.37.51).
+* defguard [enrollment service](https://defguard.gitbook.io/defguard/help/enrollment) (run by proxy) that will enable [remote onboarding, enrollment](https://defguard.gitbook.io/defguard/help/enrollment) and [easy configuration for our Desktop Clients (by adding defguard instances)](https://defguard.gitbook.io/defguard/help/configuring-vpn/add-new-instance) with instance URL and one simple token - in this tutorial we use: _enroll.defguard.net_ (this subdomain also points to 185.33.37.51).
 * If you have a **firewall**, we assume you have **open port 443** in order to expose both defguard and enrollment service, but also to automatically issue for these domains SSL Certificates. Port 444 (used for internal GRPC communication) **should not be exposed public.**
 
 ### Prequesities
@@ -58,7 +58,7 @@ Now you can launch a default user and create a new superuser for your database. 
 
 ```
 # su -c /usr/bin/psql postgres
-postgres=# CREATE USER defgaurd WITH SUPERUSER PASSWORD 'defguad';
+postgres=# CREATE USER defgaurd WITH SUPERUSER PASSWORD 'defgaurd';
 postgres=# CREATE DATABASE defguard;
 ```
 
@@ -71,8 +71,8 @@ After creating a user and database we can connect our new user to this database.
 defguard=# exit
 ```
 
-- we created `.pgpass` file that consist of `<hostname>:<port>:<database>:<user>:<password>`
-- we connected into the `defguard` database to verify `defguard` user can communicate with the database
+* we created `.pgpass` file that consist of `<hostname>:<port>:<database>:<user>:<password>`
+* we connected into the `defguard` database to verify `defguard` user can communicate with the database
 
 #### NGINX
 
@@ -210,13 +210,13 @@ certbot certonly --non-interactive --agree-tos --standalone --email admin@teonit
 
 Certbot will generate certificate in fullchain.pem and privkey.pem in path:
 
-&#x20;`/etc/letsencrypt/live/my-server.defguard.net`
+`/etc/letsencrypt/live/my-server.defguard.net`
 
-&#x20;`/etc/letsencrypt/live/enrolldefguard.net`
+`/etc/letsencrypt/live/enrolldefguard.net`
 
 ### Core - the control plain
 
-To run core service we need to configure `/etc/defguard/core.conf`.&#x20;
+To run core service we need to configure `/etc/defguard/core.conf`.
 
 {% hint style="info" %}
 To generate any secret (which **we recommend to be 64 chars)**, use the following command:
