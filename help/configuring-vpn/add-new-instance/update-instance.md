@@ -7,7 +7,7 @@ description: How to update already registered instance.
 {% hint style="info" %}
 If you are looking for how to generate tokens for your users as an Administrator, look here:
 
-[remote-desktop-activation.md](../../remote-desktop-activation.md "mention")
+[remote-desktop-activation.md](../../../admin-and-features/wireguard/remote-desktop-activation.md "mention")
 {% endhint %}
 
 ## Why do instances need updates?

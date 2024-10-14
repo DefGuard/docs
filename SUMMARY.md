@@ -12,7 +12,6 @@
     * [Configuring manually a device for a new VPN Location](help/configuring-vpn/adding-wireguard-devices/configuring-a-device-for-a-new-vpn-location.md)
 * [Password change / Reset](help/changing-your-password.md)
 * [Setting up 2FA/MFA](help/setting-up-2fa-mfa.md)
-* [Remote desktop client activation](help/remote-desktop-activation.md)
 * [Desktop Client](help/desktop-client/README.md)
   * [General troubleshooting](help/desktop-client/general-troubleshooting.md)
   * [Windows installer exit codes](help/desktop-client/windows-installer-exit-codes.md)
@@ -42,7 +41,6 @@
   * [Django](features/openid-connect/django.md)
   * [MinIO](features/openid-connect/minio.md)
   * [Vault](features/openid-connect/vault.md)
-* [External OpenID providers](admin-and-features/external-openid-providers.md)
 * [LDAP synchronization](admin-and-features/ldap-synchronization.md)
 * [Wireguard](features/wireguard/README.md)
   * [Create your VPN network](features/wireguard/create-your-vpn-network.md)
@@ -50,6 +48,7 @@
   * [Executing custom gateway commands](admin-and-features/wireguard/executing-custom-gateway-commands.md)
   * [Multi-Factor Authentication (MFA/2FA)](admin-and-features/wireguard/multi-factor-authentication-mfa-2fa/README.md)
     * [MFA Architecture](admin-and-features/wireguard/multi-factor-authentication-mfa-2fa/architecture.md)
+  * [Remote desktop client configuration](admin-and-features/wireguard/remote-desktop-activation.md)
 * [SMTP for email notifications](help/setting-up-smtp-for-email-notifications.md)
 * [LDAP synchronization](features/ldap-synchronization-setup/README.md)
   * [Configuration](features/ldap-synchronization-setup/configuration.md)
@@ -59,7 +58,19 @@
 * [Forward auth](features/forward-auth.md)
 * [SSH Authentication](features/ssh-authentication.md)
 * [Sending support information](admin-and-features/sending-support-info.md)
-* [Behavior customization](admin-and-features/behavior-customization.md)
+
+## Enterprise Features <a href="#enterprise" id="enterprise"></a>
+
+* [License](enterprise/license.md)
+* [All enteprise features](enterprise/all-enteprise-features.md)
+* [Automatic (real time) desktop client configuration](enterprise/automatic-real-time-desktop-client-configuration.md)
+* [External OpenID providers](enterprise/external-openid-providers.md)
+* [VPN & Client behavior customization](enterprise/behavior-customization.md)
+
+## Tutorials
+
+* [Step by step setting up a VPN server](tutorials/step-by-step-setting-up-a-vpn-server/README.md)
+  * [Adding additional VPN locations](tutorials/step-by-step-setting-up-a-vpn-server/adding-additional-vpn-locations.md)
 
 ## In depth
 
@@ -77,8 +88,3 @@
 ## Contact us
 
 * [Community & Support](contact-us/support.md)
-
-## Tutorials
-
-* [Step by step setting up a VPN server](tutorials/step-by-step-setting-up-a-vpn-server/README.md)
-  * [Adding additional VPN locations](tutorials/step-by-step-setting-up-a-vpn-server/adding-additional-vpn-locations.md)

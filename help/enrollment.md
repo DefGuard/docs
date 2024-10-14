@@ -30,7 +30,7 @@ What is great about this is that after the enrollment process is done - the desk
 When accessing the enrollment service in the browser the process is extended with the possibility to configure the **initial VPN device/access manually.**
 
 {% hint style="info" %}
-Even if the user will do enrollment in the browser - the desktop client can be configured later by using: [Remote desktop client activation.](remote-desktop-activation.md)
+Even if the user will do enrollment in the browser - the desktop client can be configured later by using: [Remote desktop client activation.](../admin-and-features/wireguard/remote-desktop-activation.md)
 {% endhint %}
 
 ## User onboarding after enrollment

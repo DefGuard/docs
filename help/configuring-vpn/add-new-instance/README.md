@@ -33,7 +33,7 @@ In this scenario, you are a fresh user and require enrollment or can't access De
 First, you should receive an **instance URL** (the public enrollment service address) and **token** from your administrator, either by email or other means.
 
 {% hint style="info" %}
-If you are an administrator and want to find out how to generate tokens[ you read more here](../../remote-desktop-activation.md).
+If you are an administrator and want to find out how to generate tokens[ you read more here](../../../admin-and-features/wireguard/remote-desktop-activation.md).
 {% endhint %}
 
 Click "Add Instance" and fill the form with the received token and URL.
