@@ -23,7 +23,7 @@ GATEWAY_IMAGE_TAG=pre-release
 ```
 
 {% hint style="warning" %}
-Downgrading to the production release may not be trivial afterwards.
+Downgrading to the production release may not be trivial afterwards because of the changes made to the database during the upgrade.
 {% endhint %}
 
 ### **Latest development builds**
@@ -41,7 +41,7 @@ GATEWAY_IMAGE_TAG=dev
 ```
 
 {% hint style="warning" %}
-Downgrading to the production release may not be trivial afterwards.
+Downgrading to the production release may not be trivial afterwards because of the changes made to the database during the upgrade.
 {% endhint %}
 
 
