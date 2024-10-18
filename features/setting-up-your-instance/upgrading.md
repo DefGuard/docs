@@ -10,6 +10,10 @@ Before doing any updates please remember to **backup your database.**
 
 ## Core & Proxy
 
+### Core 0.11.0 -> 1.0.0
+
+When upgrading core to 1.0.0 (even to a 1.0.0 pre-release) make sure that your users have unique email addresses as we've introduced a constraint requiring email addresses to be unique among users. If you have duplicate emails in your database, the migrations during the upgrade process will simply fail. You will need to change a duplicate email address before the upgrade by hand via the Defguard dashboard or by accessing the database.
+
 ### Core 0.8.x -> 0.9.x with Proxy 0.2.x -> 0.3.x
 
 In this release, we have **hardened the security architecture**, and since the Proxy component is open for HTTP commands and is frequently communicating with Core we have reversed the communication and now **Core is connecting to Proxy (Proxy is a gRPC server and Core is the client).**
