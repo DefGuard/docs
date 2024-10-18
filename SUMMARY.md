@@ -28,6 +28,7 @@
   * [Kubernetes](community-features/setting-up-your-instance/kubernetes.md)
   * [Gateway](admin-and-features/setting-up-your-instance/gateway/README.md)
     * [Running gateway on MikroTik routers](admin-and-features/setting-up-your-instance/gateway/running-gateway-on-mikrotik-routers.md)
+  * [Pre-production and development releases](admin-and-features/setting-up-your-instance/pre-production-and-development-releases.md)
   * [gRPC SSL communication](admin-and-features/setting-up-your-instance/grpc-ssl-communication.md)
   * [OpenID RSA Certificates](admin-and-features/setting-up-your-instance/openid-rsa-certificates.md)
   * [Upgrading](features/setting-up-your-instance/upgrading.md)
