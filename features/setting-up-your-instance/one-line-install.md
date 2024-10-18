@@ -14,11 +14,37 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGua
 curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh -O && bash setup.sh --pre-release
 ```
 
+If you used the install script before and would like to upgrade to the pre-release version, you can update your `.env` file (it should be located next to the docker-compose.yml file created by the script) like this:
+
+```
+CORE_IMAGE_TAG=pre-release
+PROXY_IMAGE_TAG=pre-release
+GATEWAY_IMAGE_TAG=pre-release
+```
+
+{% hint style="warning" %}
+Downgrading to the production release may not be trivial afterwards.
+{% endhint %}
+
 ### **Latest development builds**
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh -O && bash setup.sh --dev
 ```
+
+If you used the install script before and would like to upgrade to the development version, you can update your `.env` file (it should be located next to the docker-compose.yml file created by the script) like this:
+
+```
+CORE_IMAGE_TAG=dev
+PROXY_IMAGE_TAG=dev
+GATEWAY_IMAGE_TAG=dev
+```
+
+{% hint style="warning" %}
+Downgrading to the production release may not be trivial afterwards.
+{% endhint %}
+
+
 
 If you provide all required configuration options after the script finishes you should have a fully functional defguard instance with an enrollment proxy and VPN gateway to connect wireguard clients to.
 
