@@ -58,7 +58,7 @@ Now you can launch a default user and create a new superuser for your database. 
 
 ```
 # su -c /usr/bin/psql postgres
-postgres=# CREATE USER defgaurd WITH SUPERUSER PASSWORD 'defgaurd';
+postgres=# CREATE USER defguard WITH SUPERUSER PASSWORD 'defguard';
 postgres=# CREATE DATABASE defguard;
 ```
 
