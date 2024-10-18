@@ -8,7 +8,7 @@ To simplify the setup and enable automated deployment we prepared a script which
 curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh -O && bash setup.sh
 ```
 
-### **Pre-release**
+### **Pre-release (latest alpha/beta/release candidate)**
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh -O && bash setup.sh --pre-release
