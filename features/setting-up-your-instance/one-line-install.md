@@ -2,19 +2,19 @@
 
 To simplify the setup and enable automated deployment we prepared a script which will deploy a complete defguard instance, including an enrollment proxy and VPN gateway. To use it just create a working directory set up [configuration options](one-line-install.md#configuration) and run one of the following commands (depending on which version you'd like to use):
 
-**Production release (most stable)**
+### **Production release (most stable)**
 
 ```shell
 curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh -O && bash setup.sh
 ```
 
-**Pre-release**
+### **Pre-release**
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh -O && bash setup.sh --pre-release
 ```
 
-**Latest development builds**
+### **Latest development builds**
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh -O && bash setup.sh --dev
@@ -91,7 +91,7 @@ There are several options that can be configured to customize your defguard inst
 ### CLI options
 
 ```
-defguard deployment setup script v0.1.0
+defguard deployment setup script v1.1.0
 Copyright (C) 2023 teonite <https://teonite.com>
 
 Usage:  [options]
@@ -108,7 +108,7 @@ Available options:
         --vpn-gateway-ip <ip>          VPN gateway external IP
         --vpn-gateway-port <port>      VPN gateway external port
         --dev                          use development docker images
-	--pre-release                  use pre-release docker images
+        --pre-release                  use pre-release docker images
 ```
 
 ## Manual deployment
