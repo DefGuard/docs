@@ -23,6 +23,7 @@
   * [One-line install script](features/setting-up-your-instance/one-line-install.md)
   * [Standalone package based installation](admin-and-features/setting-up-your-instance/standalone-package-based-installation.md)
   * [Configuration](features/setting-up-your-instance/configuration.md)
+  * [Docker images and tags](admin-and-features/setting-up-your-instance/docker-images-and-tags.md)
   * [Docker Compose](features/setting-up-your-instance/docker-compose.md)
   * [Kubernetes](community-features/setting-up-your-instance/kubernetes.md)
   * [Gateway](admin-and-features/setting-up-your-instance/gateway/README.md)
