@@ -66,14 +66,67 @@ You may have also noticed the checkbox option on the right. By default, when a n
     <figure><img src="../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
 
 
-10. On the next screen, fill out all required information:
+10. On the next screen, fill out all required information:\
 
-    <figure><img src="../.gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
 
-    Make sure to select "Web application" as the application type. The other thing to note here is the redirect URI. It is the URI to which the user will be redirected from the external provider's authorization. This URI is in the form of `<DEFGUARD_DASHBOARD_URL>/api/v1/openid/callback`. Replace `<DEFGUARD_DASHBOARD_URL>` with the URL under which your dashboard is accessible, e.g. `https://defguard.example.com`.
+    <figure><img src="../.gitbook/assets/obraz (3).png" alt=""><figcaption></figcaption></figure>
+
+    Make sure to select "Web application" as the application type. The other thing to note here is the redirect URI. It is the URI to which the user will be redirected from the external provider's authorization. This URI is in the form of `<DEFGUARD_DASHBOARD_URL>/auth/callback`. Replace `<DEFGUARD_DASHBOARD_URL>` with the URL under which your dashboard is accessible, e.g. `https://defguard.example.com`.
 11. After you proceed further, you will be presented with a popup containing your `Client ID` and `Client Secret`, copy them and paste on the Defguard OpenID configuration page.
 
     <figure><img src="../.gitbook/assets/settings.png" alt=""><figcaption></figcaption></figure>
+
+#### Microsoft
+
+1. Go to [https://portal.azure.com/](https://portal.azure.com)
+2. Navigate to Microsoft Entra ID
+3.  In the Microsoft Entra ID, click Manage and select App registrations from the menu on the left.\
+    \
+
+
+    <figure><img src="../.gitbook/assets/obraz (4).png" alt=""><figcaption></figcaption></figure>
+
+
+4. Click "Make new registration"
+5.  Fill out the form, like in the example:\
+
+
+    <figure><img src="../.gitbook/assets/obraz (5).png" alt=""><figcaption></figcaption></figure>
+
+    Make sure the Redirect URL you insert here is correct. Replace `defguard.example.com` with the domain you use for your Defguard dashboard.
+6.  You should be now on the registered application's management screen. You can copy the client's ID and the tenant ID from here, as you need to provide them on the Defguard settings' page.\
+
+
+    <figure><img src="../.gitbook/assets/Zrzut ekranu 2024-10-18 o 16.13.54.png" alt=""><figcaption></figcaption></figure>
+7. Go to Defguard settings, click the OpenID tab and paste the copied client ID. The tenant ID should be inserted instead of the `<TENANT_ID>` placeholder in the base URL field.
+8.  &#x20;Now back in Microsoft Entra ID, still in your newly created application, go to Certificates and Secrets\
+    \
+
+
+    <figure><img src="../.gitbook/assets/obraz (8).png" alt=""><figcaption></figcaption></figure>
+
+
+9. Click Client secrets and create a new client secret. Copy its **value** and paste it in your Defguard OpenID settings.
+10. Go to Token configuration (in the menu on the left) and add a new optional token claim.
+11. Make sure to select the ID token type and the following claims:\
+
+
+    <figure><img src="../.gitbook/assets/obraz (9).png" alt=""><figcaption></figcaption></figure>
+
+
+12. Accept the popup or configure the API permissions manually.\
+
+
+    <figure><img src="../.gitbook/assets/obraz (10).png" alt=""><figcaption></figcaption></figure>
+
+
+13. Go to Authentication (again, it's in the menu on the left, still in the registered App settings) and enable the ID tokens field\
+
+
+    <figure><img src="../.gitbook/assets/obraz (11).png" alt=""><figcaption></figcaption></figure>
+
+
+14. Now you should be good to go. A new login button should appear on the login screen.
 
 #### Custom OpenID provider
 
@@ -87,7 +140,7 @@ The easiest way of obtaining the Base URL is finding out what is the OpenID `.we
 
 In order to get the `Client ID` and `Client Secret` values, refer to the documentation of your custom provider of choice.&#x20;
 
-When configuring your external OpenID provider, at some point you will need to provide a callback URL, which will redirect the user back to Defguard. This URL is in form of `<DEFGUARD_DASHBOARD_URL>/api/v1/openid/callback`. Replace `<DEFGUARD_DASHBOARD_URL>` with the URL under which your dashboard is accessible, e.g. `https://defguard.example.com`.
+When configuring your external OpenID provider, at some point you will need to provide a callback URL, which will redirect the user back to Defguard. This URL is in form of `<DEFGUARD_DASHBOARD_URL>/auth/callback`. Replace `<DEFGUARD_DASHBOARD_URL>` with the URL under which your dashboard is accessible, e.g. `https://defguard.example.com`.
 
 **Keycloak**
 
