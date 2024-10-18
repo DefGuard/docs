@@ -1,9 +1,23 @@
 # One-line install script
 
-To simplify the setup and enable automated deployment we prepared a script which will deploy a complete defguard instance, including an enrollment proxy and VPN gateway. To use it just create a working directory set up [configuration options](one-line-install.md#configuration) and run a following command:
+To simplify the setup and enable automated deployment we prepared a script which will deploy a complete defguard instance, including an enrollment proxy and VPN gateway. To use it just create a working directory set up [configuration options](one-line-install.md#configuration) and run one of the following commands (depending on which version you'd like to use):
+
+**Production release (most stable)**
 
 ```shell
 curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh -O && bash setup.sh
+```
+
+**Pre-release**
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh -O && bash setup.sh --pre-release
+```
+
+**Latest development builds**
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh -O && bash setup.sh --dev
 ```
 
 If you provide all required configuration options after the script finishes you should have a fully functional defguard instance with an enrollment proxy and VPN gateway to connect wireguard clients to.
@@ -93,6 +107,8 @@ Available options:
         --vpn-ip <address>             VPN server address & netmask (e.g. 10.0.50.1/24)
         --vpn-gateway-ip <ip>          VPN gateway external IP
         --vpn-gateway-port <port>      VPN gateway external port
+        --dev                          use development docker images
+	--pre-release                  use pre-release docker images
 ```
 
 ## Manual deployment
