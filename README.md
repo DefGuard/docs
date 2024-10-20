@@ -8,7 +8,7 @@ In a nutshell, from a **functionality** point defguard is an **OpenID Identity P
 
 On a broader aspect, it's a **security platform** for building **secure** and **privacy-aware organizations (with its secure architecture).**
 
-By design **defguard core is meant to be deployed in your secure network segments** (available only from an internal network or by VPN) and operations that require public access (like user onboarding, enrollment, password reset, etc.) **are done using a secure proxy:**
+By design **defguard core is meant to be deployed in your secure network segments** (available only from an internal network or by VPN) and operations that require public access (like user onboarding, enrollment, password reset, etc.) **are completed using a secure proxy:**
 
 <figure><img src=".gitbook/assets/defguard-architecture.png" alt=""><figcaption></figcaption></figure>
 
@@ -16,16 +16,16 @@ This architecture and approach gives you options - **either you secure your syst
 
 <figure><img src=".gitbook/assets/defguard-simple.png" alt=""><figcaption><p>Simple Cloud architecture secured only with HTTPS</p></figcaption></figure>
 
-### Why should I care for a secure platform and not just functionalities (i just want VPN/OpenID...)?
+### Why should I care for a secure platform and not just functionalities (I just want VPN/OpenID...)?
 
 You may not, you can just use defguard selected modules (and disable others in UI and not even see them) and be happy with a **really nice UI to manage users, apps, networks, devices, and hardware security keys.**
 
-Or use another dedicated system just for that functionality (there are a lot OpenID/Identity, Wireguard VPN providers - commercial or open-source), but what typically happens is you start with one selected functionality/system - and over time (when your user base, network, and apps grow) - you need another functionality. Then, you need to deploy another and another system - and **integrate them.** Most of the time it's really **hard** (and sometimes impossible) to integrate those systems - even if you can, it's **costly.** But what is most important: **it takes time** to integrate various systems into one platform, and even if you do it - most likely it will **not be easy to use by users** and **hard to maintain by developers and administrators.**
+You could use another dedicated system just for that functionality (there are a lot OpenID/Identity, Wireguard VPN providers - commercial or open-source), but what typically happens is that you start with one selected functionality/system - and over time (when your user base, network, and apps grow) - you need another functionality. Then, you need to deploy another and another system - and **integrate them.** Most of the time it's really **hard** (and sometimes impossible) to integrate those systems - even if you can, it's **costly.** But what is most important: **it takes time** to integrate various systems into one platform, and even if you do it - most likely it will **not be easy to use by users** and **hard to maintain by developers and administrators.**
 
 That's why defguard came to be, being a company that:
 
 * built small projects/organizations that grew over time we saw how difficult and costly it is to expand
-* at the same time working with large organizations - we saw the horror of users that use multiple (ugly and unintuitive systems) - and large devops/admin/developer teams to maintain them
+* at the same time working with large organizations - we saw the horror of users that use multiple (ugly and unintuitive systems) - and needed large devops/admin/developer teams to try and maintain them
 
 ### What does it mean to build a secure "organization" (or even a small network like a homelab)?
 
@@ -83,9 +83,9 @@ _defguard is not an official WireGuard project, and WireGuard is a registered tr
 
 Webhooks & REST API
 
-Build with [Rust](https://www.rust-lang.org/) for portability, security, and speed
+Built with [Rust](https://www.rust-lang.org/) for portability, security, and speed
 
-### Pentested!
+### Penetration tested!
 
 **Checked by professional security researchers** (see [comprehensive security report](https://defguard.net/images/decap/isec-defguard.pdf))
 
@@ -115,7 +115,7 @@ Follow our handy guides to get started on the basics as quickly as possible:
 
 ## Fundamentals: Dive a little deeper
 
-Learn the fundamentals of Defguard to get a deeper understanding of our main features:
+Learn the fundamentals of Defguard to get a deeper understanding of its features:
 
 {% content-ref url="in-depth/architecture.md" %}
 [architecture.md](in-depth/architecture.md)
