@@ -634,7 +634,7 @@ DEFGUARD_GRPC_URL=https://my-server.defguard.net:444
 # proxy must be enabled.
 
 # PROXY configuration:
-DEFGUARD_GRPC_ULR=https://enroll.defguard.net:444 # add this line to your config file
+DEFGUARD_PROXY_URL=https://enroll.defguard.net:444 # add this line to your config file
 
 ### LDAP configuration ###
 # DEFGUARD_LDAP_URL=ldap://localhost:389
@@ -653,7 +653,7 @@ DEFGUARD_DB_PASSWORD="defguard"
 DATABASE_URL="postgresql://defguard:defguard@localhost/defguard"
 ```
 
-Reload changes in `/etc/defguarc/core.conf`
+&#x20;Reload changes in `/etc/defguarc/core.conf`
 
 ```
 systemctl restart defguard.service
