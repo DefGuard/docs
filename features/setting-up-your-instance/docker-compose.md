@@ -20,7 +20,3 @@ You can generate random strings for secrets with e.g.:
 
 `openssl rand -base64 55 | tr -d "=+/" | tr -d '\n' | cut -c1-63`
 {% endhint %}
-
-## LDAP
-
-To setup LDAP integration, you'll have to configure environment variables for core service. You'll find more info on how to do this [here](../ldap-synchronization-setup/).
