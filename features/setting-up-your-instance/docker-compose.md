@@ -3,7 +3,7 @@
 If you want to customize your Docker installation manually, we prepared a [git repository](https://github.com/DefGuard/deployment) with a base docker-compose configuration. Clone it:
 
 ```
-git clone https://github.com/DefGuard/deployment.git && cd deployment
+git clone https://github.com/DefGuard/deployment.git && cd deployment/docker-compose
 ```
 
 In docker-compose directory you'll find a template env file called `.env.template`. Copy it:
