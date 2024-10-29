@@ -22,26 +22,15 @@ Incorporating IDM, ALM, VPN has also other advantages:
 
 1. Internal IdP with 2FA/MFA enables us to provide [**real VPN 2FA/MFA**](admin-and-features/wireguard/multi-factor-authentication-mfa-2fa/architecture.md) - and not like most applications just 2FA when opening the app (and not during the connection process). Even if you use [external OIDC](enterprise/external-openid-providers.md) (Google/Microsoft/Custom - which defguard supports), we still use our internal IdP for 2FA/MFA.
 2. Your organisation may use just **one account** (login) for access control to all your applications as well as VPN.
-3. It simplifies deployment, maintanance, audits.
+3. It simplifies deployment, maintenance, audits.
 
-### Why should I care for a secure platform and not just functionalities (i just want VPN/OpenID...)?
-
-You may not, you can just use defguard selected modules (and disable others in UI and not even see them) and be happy with a **really nice UI to manage users, apps, networks, devices, and hardware security keys.**
-
-Or use another dedicated system just for that functionality (there are a lot OpenID/Identity, Wireguard VPN providers - commercial or open-source), but what typically happens is you start with one selected functionality/system - and over time (when your user base, network, and apps grow) - you need another functionality. Then, you need to deploy another and another system - and **integrate them.** Most of the time it's really **hard** (and sometimes impossible) to integrate those systems - even if you can, it's **costly.** But what is most important: **it takes time** to integrate various systems into one platform, and even if you do it - most likely it will **not be easy to use by users** and **hard to maintain by developers and administrators.**
-
-That's why defguard came to be, being a company that:
-
-* built small projects/organizations that grew over time we saw how difficult and costly it is to expand
-* at the same time working with large organizations - we saw the horror of users that use multiple (ugly and unintuitive systems) - and large devops/admin/developer teams to maintain them
-
-### What does it mean to build a secure "organization" (or even a small network like a homelab)?
+### What does it mean to build a secure "organization"?
 
 First of all, It means implementing a **secure architecture** for your network and systems. In the age of "cloud," all systems (and data) are **public.** But that should be **for you to decide!**
 
 That's why defguard architecture (and implementation) is secure (and thoroughly and comprehensively audited by one of the best security researchers). If you want full privacy, defguard only exposes its VPN gateway (to provide a secure channel to all internal systems that should be behind the firewall) and the public proxy (for the remote user enrollment process).
 
-It also means having an architecture (systems, networks), that will cover all **fundamental processes,** like:
+It also means having **fundamental secure processes,** like:
 
 * secure remote user enrollment (self-service)
 * user self-service to manage their own data, change passwords, add/remove VPN devices, connect securely to networks
