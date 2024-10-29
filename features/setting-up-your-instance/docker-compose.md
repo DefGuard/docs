@@ -1,5 +1,9 @@
 # Docker Compose
 
+{% hint style="warning" %}
+Please not that docker-compose based configuration has been prepared with [_one-line quick deployment_](one-line-install.md)_._ It can be modified or adopted for a custom deployment, but it may be easier to do the one-line deployment, so that the setup will generate all configs for your (compose & env) and them change/adopt them.
+{% endhint %}
+
 If you want to customize your Docker installation manually, we prepared a [git repository](https://github.com/DefGuard/deployment) with a base docker-compose configuration. Clone it:
 
 ```
