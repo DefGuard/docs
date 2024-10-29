@@ -14,13 +14,19 @@ It is **critical** that:
 4. Even if you have secured the network ports/firewall and do not want to create a custom SSL CA - please secure gRPC traffic with SSL and reverse-proxy.
 {% endhint %}
 
-{% hint style="warning" %}
-It's crytically important to ensure SSL encryption between defguard core and gRPC services (e.g. Gateway and Enrollment services).
+## gRPC SSL using reverse-proxy
 
-You should only skip this step if you plan to have a reverse proxy in between that adds encryption itself or if all services are on the same cluster (like Kubernetes/Docker) and have internal communication.
-{% endhint %}
+If core or proxy are using reverse proxy (NGINX, Caddy, Traefik, ...) that handles SSL termination (for [example in this tutorial we show how to configure gRPC SSL reverse proxy using NGINX](standalone-package-based-installation.md#nginx)), then only you need to configure CA certificate paths for:
 
-## gRPC SSL manual setup
+* gateway - in gateway.toml add path to CA file, for example when using Let'sEncrypt you configure the CA path:
+
+`grpc_ca = "/etc/letsencrypt/live/domain.name/chain.pem"`
+
+* core - same way you need to configure PROXY CA File path:
+
+`DEFGUARD_PROXY_GRPC_CA: /etc/letsencrypt/live/domain.name/chain.pem`
+
+## gRPC SSL manual&#x20;
 
 To enable secure gRPC communication between all components, you'll need:
 
@@ -34,15 +40,5 @@ To enable secure gRPC communication between all components, you'll need:
 
 Put the certificates in .volumes/ssl directory if you are using our docker-compose base deployment.
 
-## gRPC using reverse-proxy
-
-If CORE or PROXY are using reverse proxy (NGINX, Caddy, Traefik, ...) that handles SSL termination (for [example in this tutorial we show how to configure gRPC SSL reverse proxy using NGINX](standalone-package-based-installation.md#nginx)), then only you need to configure CA certificate paths for:
-
-* gateway - in gateway.toml add path to CA file, for example when using Let'sEncrypt you configure the CA path:
-
-`grpc_ca = "/etc/letsencrypt/live/domain.name/chain.pem"`
-
-* core - same way you need to configure PROXY CA File path:
-
-`DEFGUARD_PROXY_GRPC_CA: /etc/letsencrypt/live/domain.name/chain.pem`
+##
 
