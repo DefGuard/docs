@@ -4,21 +4,17 @@
 
 ## What is Defguard?
 
-In a nutshell, from a **functionality** point defguard is a complete Remote Access Management solution incorporating:
+Defguard is a **comprehensive Remote Access Management solution** incorporating in one solution:
 
-* Remote Access secured by [WireGuard® VPN with 2FA/Multi-Factor Authentication](features/wireguard/)
-* Identity Management with an [SSO based on OpenID Identity Provider](features/openid-connect/)
-* Account Lifecycle management with [secure remote account onboarding](help/enrollment.md)
+* Remote Access secured by [WireGuard® VPN with 2FA/Multi-Factor Authentication](features/wireguard/),
+* Identity Management with [SSO based on OpenID Identity Provider](features/openid-connect/),
+* Account Lifecycle management with [secure remote account onboarding](help/enrollment.md).
 
 It's a **security platform** for building **secure** and **privacy-aware organizations,** as we put great emphasis not only on functionality but also on secure code, architecture and testing (application and security).
 
 By design **defguard core (the main component) is meant to be deployed in your secure network segments** (available only from an internal network or by VPN) and operations that require public access (like user onboarding, enrollment, password reset, etc.) **are done using a secure proxy:**
 
-<figure><img src=".gitbook/assets/defguard-architecture.png" alt=""><figcaption></figcaption></figure>
-
-This architecture and approach gives you options - **either you secure your systems (with VPN\&Proxy),** or you can deploy typical architecture **without VPN/Gateway\&Proxy - and defguard as an OIDC provider** and your apps can be available from the Internet:
-
-<figure><img src=".gitbook/assets/defguard-simple.png" alt=""><figcaption><p>Simple Cloud architecture secured only with HTTPS</p></figcaption></figure>
+<figure><img src=".gitbook/assets/defguard-architecture.png" alt=""><figcaption><p>defguard architecture</p></figcaption></figure>
 
 ### Why should I care for a secure platform and not just functionalities (i just want VPN/OpenID...)?
 
