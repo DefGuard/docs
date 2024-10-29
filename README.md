@@ -16,6 +16,14 @@ By design **defguard core (the main component) is meant to be deployed in your s
 
 <figure><img src=".gitbook/assets/defguard-architecture.png" alt=""><figcaption><p>defguard architecture</p></figcaption></figure>
 
+This approach is vastly different from most (if not all) VPN/IdP solutions, which are a simple or monolithic application focus on functionalities (like generating configs, managing users, etc.) and most of the time is publicly available in the Internet for any attacker.
+
+Incorporating IDM, ALM, VPN has also other advantages:
+
+1. Internal IdP with 2FA/MFA enables us to provide [**real VPN 2FA/MFA**](admin-and-features/wireguard/multi-factor-authentication-mfa-2fa/architecture.md) - and not like most applications just 2FA when opening the app (and not during the connection process). Even if you use [external OIDC](enterprise/external-openid-providers.md) (Google/Microsoft/Custom - which defguard supports), we still use our internal IdP for 2FA/MFA.
+2. Your organisation may use just **one account** (login) for access control to all your applications as well as VPN.
+3. It simplifies deployment, maintanance, audits.
+
 ### Why should I care for a secure platform and not just functionalities (i just want VPN/OpenID...)?
 
 You may not, you can just use defguard selected modules (and disable others in UI and not even see them) and be happy with a **really nice UI to manage users, apps, networks, devices, and hardware security keys.**
