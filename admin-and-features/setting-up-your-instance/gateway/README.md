@@ -59,17 +59,13 @@ docker-compose up
 
 If everything went well, your Gateway should be connected to Defguard and you can start [adding new devices to your network](../../../features/setting-up-your-instance/features/wireguard/adding-wireguard-devices.md).
 
-## SSL
-
-You'll need a valid CA certificate to connect Gateway to Defguard. See [SSL instructions](https://defguard.gitbook.io/defguard/features/setting-up-your-instance/docker-compose#ssl-setup).
-
 ## OPNsense plugin
 
 To start your gateway as OPNsense plugin:
 
 1. On the [release page](https://github.com/DefGuard/gateway/releases) find and download OPNsense package which will be named: \
-   `defguard-gateway_VERSION_x86_64-unknown-opnsense.pkg`
-2. Install the package
+   `defguard-gateway_VERSION_x86_64-unknown-opnsense.pkg -`this package **includes the gateway as well as OPNSense plugin.**
+2. Install the package:
 
 ```bash
 pkg add <path_to_txz_package>
