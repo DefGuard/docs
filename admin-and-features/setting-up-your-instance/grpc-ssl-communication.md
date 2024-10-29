@@ -16,6 +16,10 @@ It is **critical** that:
 
 ## gRPC SSL using reverse-proxy
 
+{% hint style="warning" %}
+This type of SSL termination should be done only if you trust your network and have secured gRPC ports on firewall.
+{% endhint %}
+
 If core or proxy are using reverse proxy (NGINX, Caddy, Traefik, ...) that handles SSL termination (for [example in this tutorial we show how to configure gRPC SSL reverse proxy using NGINX](standalone-package-based-installation.md#nginx)), then only you need to configure CA certificate paths for:
 
 * gateway - in gateway.toml add path to CA file, for example when using Let'sEncrypt you configure the CA path:
