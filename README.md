@@ -4,9 +4,13 @@
 
 ## What is Defguard?
 
-In a nutshell, from a **functionality** point defguard is an **OpenID Identity Provider** (SSO for your apps) and **Wireguard VPN Service** for building secure private networks (roadwarrior, mesh/peer-to-peer, site-to-site).
+In a nutshell, from a **functionality** point defguard is a complete Remote Access Management solution incorporating:
 
-On a broader aspect, it's a **security platform** for building **secure** and **privacy-aware organizations (with its secure architecture).**
+* Remote Access secured by [WireGuard® VPN with 2FA/Multi-Factor Authentication](features/wireguard/)
+* Identity Management with an [SSO based on OpenID Identity Provider](features/openid-connect/)
+* Account Lifecycle management with [secure remote account onboarding](help/enrollment.md)
+
+It's a **security platform** for building **secure** and **privacy-aware organizations (with its secure architecture).**
 
 By design **defguard core is meant to be deployed in your secure network segments** (available only from an internal network or by VPN) and operations that require public access (like user onboarding, enrollment, password reset, etc.) **are done using a secure proxy:**
 
