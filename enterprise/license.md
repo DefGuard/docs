@@ -1,14 +1,8 @@
 # License
 
-{% hint style="danger" %}
-1.0 with enterprise features is in **alpha** and **for now you can't buy online any of licences.**
-
-Please contact us at: sales \[ at ] defguard.net for a **testing enterprise license**.
-{% endhint %}
-
 Defguard Enterprise offers a lot of functionalities that are not offered in the Open Source Open Core, like external OpenID Connect support, automatic\&real time desktop client synchronization and configuration, and much more (go to [All Enterprise Features](all-enteprise-features.md) to see more). In order to activate those features an Enterprise License must be obtained.&#x20;
 
-We offert two types of licences:
+We offer two types of licences:
 
 1. **Monthly subscription** that can be bought on [https://defguard.net/pricing/](https://defguard.net/pricing/)
 2. **Offline with a defined custom period.**
@@ -19,8 +13,8 @@ You can buy a monthly subscription on our website: [https://defguard.net/pricing
 
 After purchasing:
 
-1. The license will be emailed to you on the email defined in the purchase form.
-2. Each month (on the date the license expires) **defguard core will contact our licensing server** and if the monthy payment was successful, our licensing server will **automatically issue a new license and the enteprise plan will be extended to new date.**
+1. The license will be emailed to you on the email defined in the purchase form. Also there will be a second email with the invoice.
+2. Each month (on the date the license expires) **defguard core will contact our licensing server** and if the monthly payment was successful, our licensing server will **automatically issue a new license and the enterprise plan will be extended to new date.**
 
 {% hint style="warning" %}
 If your setup / firewall / network policy **doesn't allow that defguard will contact our licensing server, please contact us for the** [**Offline license**](license.md#offline-license)**.**
