@@ -141,3 +141,17 @@ Available options:
         --pre-release                  use pre-release docker images
 ```
 
+## Securing the setup
+
+After the installation please make sure that **only the following ports are open on the server firewall:**
+
+* HTTPS port for the proxy (and/or the defguard core if you want it to be public)
+* VPN server port (eg. WireGuard port)
+
+{% hint style="danger" %}
+**DO NOT EXPOSE PUBLICLY THE gRPC ports of the core gateway and proxy, which are:**
+
+* 50052
+* 50055
+{% endhint %}
+
