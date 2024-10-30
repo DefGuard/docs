@@ -10,7 +10,7 @@ Just by launching this one command there will be an interactive configuration an
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-10-30 at 12.08.43.png" alt=""><figcaption></figcaption></figure>
 
-Just copy and paste this command:
+Just copy and paste this command and [secure the setup afterwards](one-line-install.md#securing-the-setup):
 
 ### **Production release (most stable)**
 
