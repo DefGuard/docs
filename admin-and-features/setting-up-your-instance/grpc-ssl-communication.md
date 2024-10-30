@@ -14,7 +14,7 @@ It is **critical** that:
 4. Even if you have secured the network ports/firewall and do not want to create a custom SSL CA, please secure gRPC traffic with SSL and a reverse proxy.
 {% endhint %}
 
-## gRPC SSL using reverse- roxy
+## gRPC SSL using reverse proxy
 
 {% hint style="warning" %}
 This type of SSL termination should only be done if you trust your network and have secured gRPC ports on firewall.
