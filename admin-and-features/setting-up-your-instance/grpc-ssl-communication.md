@@ -1,43 +1,61 @@
 # Securing gRPC communication
 
-There are two main gRPC communication endpoints:
+Defguard Core has two main communication endpoints:
 
-1. defguard core has a gRPC port for communicating with gateways,
-2. defguard proxy has a gRPC port for communicating with defguard core.
+1. gRPC port for communicating with Defguard Gateways,
+2. gRPC port for communicating with Defguard Core.
 
 {% hint style="danger" %}
 It is **critical** that:
 
-1. defguard core gRPC port is open on firewall only for IPs of your gateway nodes.
-2. defguard proxy gRPC port is open on firewall only for the IP address of defguard core server.
-3. If you want an additional layer of security - create a **custom SSL CA** - and provide core, proxy & gateway certificates from that CA - so **any other connections to the gRPC services will not be accepted.**
-4. Even if you have secured the network ports/firewall and do not want to create a custom SSL CA - please secure gRPC traffic with SSL and reverse-proxy.
+1. Defguard Core's gRPC port is open on a firewall only for IP addresses of Defguard Gateway nodes.
+2. Defguard Proxy's gRPC port is open on a firewall only for the IP address of Defguard Core.
+3. If you want an additional layer of security, then you should create a **custom SSL Certificate Authority (CA)**, and provide Core, Proxy and Gateway Certificates from that CA so **any other connections to the gRPC services will not be accepted.**
+4. Even if you have secured the network ports/firewall and do not want to create a custom SSL CA, please secure gRPC traffic with SSL and a reverse proxy.
 {% endhint %}
 
-## gRPC SSL using reverse-proxy
+## gRPC SSL using reverse- roxy
 
 {% hint style="warning" %}
-This type of SSL termination should be done only if you trust your network and have secured gRPC ports on firewall.
+This type of SSL termination should only be done if you trust your network and have secured gRPC ports on firewall.
 {% endhint %}
 
-If core or proxy are using reverse proxy (NGINX, Caddy, Traefik, ...) that handles SSL termination (for [example in this tutorial we show how to configure gRPC SSL reverse proxy using NGINX](standalone-package-based-installation.md#nginx)), then only you need to configure CA certificate paths for:
+If Defguard Core or Defguard Proxy are using reverse proxy (NGINX, Caddy, Traefik, etc.) that handles SSL termination (for [example in this tutorial we show how to configure gRPC SSL reverse proxy using NGINX](standalone-package-based-installation.md#nginx)), then only you need to configure CA certificate paths for:
 
-* gateway - in gateway.toml add path to CA file, for example when using Let'sEncrypt you configure the CA path:
+* Defguard Gateway – in _gateway.toml_ add path to CA certificate file (in PEM format); for example when using standard Let'sEncrypt installation ([Certbot](https://certbot.eff.org)), you configure the CA path like this:
 
 `grpc_ca = "/etc/letsencrypt/live/domain.name/chain.pem"`
 
-* core - same way you need to configure PROXY CA File path:
+* Defguard Core – similarily, you need to configure Proxy CA certificate file using **DEFGUARD\_PROXY\_GRPC\_CA** environment variable:
 
 `DEFGUARD_PROXY_GRPC_CA: /etc/letsencrypt/live/domain.name/chain.pem`
 
-## gRPC SSL manual&#x20;
+## Custom SSL certificates
 
-To enable secure gRPC communication between all components, you'll need:
+To enable secure gRPC communication between all Defguard components, a custom SSL chain of certificates could be used. This way the trust will be ensured on the Transport Layer Security (TLS) level.
 
-* CA certificate  that wil be used to generate client certificates and also configured in:
-  * core: `DEFGUARD_PROXY_GRPC_CA`  and path to CA file
+### Quick setup
+
+To quickly generate a set of SSL certificates using [OpenSSL](https://openssl-library.org) or [LibreSSL](https://www.libressl.org), use the following:
+
+*   Generate Certificate Authority (CA) cerfiticate and key for domain _example.local_
+
+    `openssl req -x509 -noenc -subj '/CN=example.local' -newkey rsa:4096 -keyout ca.key -out ca.crt`
+*   Generate private key and Certificate Signing Request (CSR)
+
+    `openssl req -noenc -newkey rsa:4096 -keyout core.key -out core.csr -subj '/CN=example.local' -addext subjectAltName=DNS:example.local`
+*   Generate certificate by signing the CSR
+
+    `openssl x509 -req -in core.csr -CA ca.crt -CAkey ca.key -days 365 -out client.crt -copy_extensions copy`
+
+Repeat the last two steps for other services (e.g. change _core.csr,_ _core.crt,_ and _core.key_ to _gateway.csr_, _gateway.crt_, _gateway.key_).
+
+### Defguard configuration
+
+* Certificate Authority (CA) certificate (usually used to generate custom certificates) configured in:
+  * Defguard Core: `DEFGUARD_PROXY_GRPC_CA`  and path to CA file
   * gateway (gateway.toml config): `grpc_ca = "/path/to/ca.pem"`
-* certificates for CORE and Proxy that needs to be configured in the `DEFGUARD_GRPC_CERT=/path/to/cert and DEFGUARD_PROXY_GRPC_CERT=/path/to/cert`
+* certificates for Defguard Core and Defguard Proxy that needs to be configured in the `DEFGUARD_GRPC_CERT=/path/to/cert and DEFGUARD_PROXY_GRPC_CERT=/path/to/cert`
 * private keys for the certificates: `DEFGUARD_GRPC_KEY: /ssl/defguard-grpc.key and DEFGUARD_PROXY_GRPC_KEY=/path/to/cert`
 
 [Here](https://deliciousbrains.com/ssl-certificate-authority-for-local-https-development/) is a good tutorial on how to generate a self-signed certificate.
