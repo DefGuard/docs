@@ -155,3 +155,4 @@ After the installation please make sure that **only the following ports are open
 * 50055
 {% endhint %}
 
+Also this setup provides only communication encryption between defguard components, if you additionally like for core/proxy and gateway to have authorisation - [please setup a custom SSL CA](../../admin-and-features/setting-up-your-instance/grpc-ssl-communication.md#custom-ssl-ca-and-certificates).

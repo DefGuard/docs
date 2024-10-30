@@ -20,6 +20,8 @@ Examples will be made by using [**Debian 12**](https://www.debian.org/releases/s
 We also provide **RPM packages** - the procedure is similar to the one for installing DEB packages. If you need help installing RPM packages[ this guide offers help.](https://phoenixnap.com/kb/how-to-install-rpm-file-centos-linux)
 {% endhint %}
 
+Please also remember to [secure the setup after installation](standalone-package-based-installation.md#securing-the-setup).
+
 ### Hardware Requirements
 
 All defguard components are **very low resource-consuming**. All of them are written in [Rust](https://www.rust-lang.org) and are single binaries. As minimum setup as follows should be more then enough:
@@ -200,7 +202,7 @@ defguard-proxy 0.5.0
 
 ## Running defguard
 
-### Generating SSL Certificates
+### Generating SSL Certificates with Let'sEncrypt
 
 Before we run defguard and configure the reverse proxy, first let's prepare SSL certificates that will be used by the NGINX service. We will generate a certificate for two domains we use in this example: _my-service.defguard.net_ and _enroll.defguard.net_:
 
@@ -666,3 +668,20 @@ Now you have full working defguard services 🥳
 You can [configure your desktop client using the enrollment](../../help/configuring-vpn/add-new-instance/) service and use your VPN.
 
 If you would like to use the feature in the desktop client to route **All traffic** through the VPN please configure your firewall to enable Internet access through your VPN - [here you can find exaples how to do it](https://defguard.gitbook.io/defguard/tutorials/step-by-step-setting-up-a-vpn-server#enabling-to-access-internet-through-your-vpn).
+
+## Securing the setup
+
+After the installation please make sure that **only the following ports are open on the server firewall:**
+
+* HTTPS port for the proxy (and/or the defguard core if you want it to be public)
+* VPN server port (eg. WireGuard port)
+
+{% hint style="danger" %}
+**DO NOT EXPOSE PUBLICLY THE gRPC ports of the core gateway and proxy, which are:**
+
+* 444
+* 50051
+* 50055
+{% endhint %}
+
+Also this setup provides only communication encryption between defguard components, if you additionally like for core/proxy and gateway to have authorisation - [please setup a custom SSL CA](grpc-ssl-communication.md#custom-ssl-ca-and-certificates).
