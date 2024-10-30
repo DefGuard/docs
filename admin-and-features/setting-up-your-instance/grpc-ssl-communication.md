@@ -43,7 +43,7 @@ openssl req -noenc -newkey rsa:4096 -keyout core.key -out core.csr -subj '/CN=ex
 * Generate certificate by signing the CSR, valid for 365 days
 
 ```sh
-openssl x509 -req -in core.csr -CA ca.crt -CAkey ca.key -days 365 -out client.crt -copy_extensions copy
+openssl x509 -req -in core.csr -CA ca.crt -CAkey ca.key -days 365 -out core.crt -copy_extensions copy
 ```
 
 {% hint style="info" %}
@@ -57,6 +57,29 @@ openssl x509 -noout -text -in core.crt
 ```
 
 ### Defguard configuration
+
+#### Defguard Core
+
+Using command line arguments
+
+```sh
+defguard --grpc-cert path/to/core.crt \
+         --grpc-key path/to/core.key \
+         --proxy-grpc-ca path/to/ca.crt
+```
+
+Using environment variables
+
+```
+env DEFGUARD_GRPC_CERT=path/to/core.crt \
+    DEFGUARD_GRPC_KEY=path/to/core.key \
+    DEFGUARD_PROXY_GRPC_CA=path/to/ca.crt \
+    defguard
+```
+
+#### Defguard Proxy
+
+
 
 * Certificate Authority (CA) certificate (usually used to generate custom certificates) configured in:
   * core: `DEFGUARD_PROXY_GRPC_CA`  and path to CA file
