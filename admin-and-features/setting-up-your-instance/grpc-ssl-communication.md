@@ -32,23 +32,37 @@ If Defguard Core or Defguard Proxy are using reverse proxy (NGINX, Caddy, Traefi
 
 ## Custom SSL certificates
 
-To enable secure gRPC communication between all Defguard components, a custom SSL chain of certificates could be used. This way the trust will be ensured on the Transport Layer Security (TLS) level.
+To enable secure gRPC communication between all Defguard components, a custom SSL chain of certificates could be used. This way the trust will be ensured on the Transport Layer Security (TLS) level. It is important to embed a correct domain name into the certificate as _X509v3 Subject Alternative Name_. The domain name must match the one under which a service is being hosted.
 
 ### Quick setup
 
 To quickly generate a set of SSL certificates using [OpenSSL](https://openssl-library.org) or [LibreSSL](https://www.libressl.org), use the following:
 
-*   Generate Certificate Authority (CA) cerfiticate and key for domain _example.local_
+* Generate Certificate Authority (CA) cerfiticate and key for domain _example.local_
 
-    `openssl req -x509 -noenc -subj '/CN=example.local' -newkey rsa:4096 -keyout ca.key -out ca.crt`
-*   Generate private key and Certificate Signing Request (CSR)
+```sh
+openssl req -x509 -noenc -subj '/CN=example.local' -newkey rsa:4096 -keyout ca.key -out ca.crt
+```
 
-    `openssl req -noenc -newkey rsa:4096 -keyout core.key -out core.csr -subj '/CN=example.local' -addext subjectAltName=DNS:example.local`
-*   Generate certificate by signing the CSR
+* Generate private key and Certificate Signing Request (CSR)
 
-    `openssl x509 -req -in core.csr -CA ca.crt -CAkey ca.key -days 365 -out client.crt -copy_extensions copy`
+```sh
+openssl req -noenc -newkey rsa:4096 -keyout core.key -out core.csr -subj '/CN=example.local' -addext subjectAltName=DNS:example.local
+```
 
-Repeat the last two steps for other services (e.g. change _core.csr,_ _core.crt,_ and _core.key_ to _gateway.csr_, _gateway.crt_, _gateway.key_).
+* Generate certificate by signing the CSR, valid for 365 days
+
+```sh
+openssl x509 -req -in core.csr -CA ca.crt -CAkey ca.key -days 365 -out client.crt -copy_extensions copy
+```
+
+Repeat the last two steps for other services (e.g. change _core.csr,_ _core.crt,_ and _core.key_ to _gateway.csr_, _gateway.crt_, _gateway.key_). Change the domain name accordingly.
+
+To display certificate file contents:
+
+```sh
+openssl x509 -noout -text -in core.crt
+```
 
 ### Defguard configuration
 
@@ -61,6 +75,4 @@ Repeat the last two steps for other services (e.g. change _core.csr,_ _core.crt,
 [Here](https://deliciousbrains.com/ssl-certificate-authority-for-local-https-development/) is a good tutorial on how to generate a self-signed certificate.
 
 Put the certificates in .volumes/ssl directory if you are using our docker-compose base deployment.
-
-##
 
