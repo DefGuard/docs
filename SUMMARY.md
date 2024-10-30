@@ -60,6 +60,7 @@
 * [Forward auth](features/forward-auth.md)
 * [SSH Authentication](features/ssh-authentication.md)
 * [Sending support information](admin-and-features/sending-support-info.md)
+* [Troubleshooting](admin-and-features/troubleshooting.md)
 
 ## Enterprise Features <a href="#enterprise" id="enterprise"></a>
 
