@@ -7,6 +7,10 @@ We offer two types of licences:
 1. **Monthly subscription** that can be bought on [https://defguard.net/pricing/](https://defguard.net/pricing/)
 2. **Offline with a defined custom period.**
 
+{% hint style="warning" %}
+Enterprise features are now in beta, please deploy defguard pre-release if you want to use them. [For more details see this documentation.](../admin-and-features/setting-up-your-instance/pre-production-and-development-releases.md)
+{% endhint %}
+
 ### Monthly subscription
 
 You can buy a monthly subscription on our website: [https://defguard.net/pricing/](https://defguard.net/pricing/).
