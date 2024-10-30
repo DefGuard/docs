@@ -1,6 +1,16 @@
 # One-line install script
 
-To simplify the setup and enable automated deployment we prepared a script which will deploy a complete defguard instance, including an enrollment proxy and VPN gateway. To use it just create a working directory set up [configuration options](one-line-install.md#configuration) and run one of the following commands (depending on which version you'd like to use):
+{% hint style="info" %}
+The instance deployed by the script is meant to serve as a starting point and makes some tradeoffs to enable automated setup. Most importantly it assumes that your Web UI is available publicly (to generate SSL certificates with Caddy). In general it's not recommended for production and we strongly encourage you to customize this setup to work better within your own infrastructure.
+{% endhint %}
+
+To simplify the setup and enable automated deployment we prepared a script which will deploy a complete defguard instance, including an enrollment proxy and VPN gateway.
+
+Just by launching this one command there will be an interactive configuration and setup that will guide you step by step and deploy full defguard instance based on Docker Compose setup:
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-10-30 at 12.08.43.png" alt=""><figcaption></figcaption></figure>
+
+Just copy and paste this command:
 
 ### **Production release (most stable)**
 
@@ -44,13 +54,7 @@ GATEWAY_IMAGE_TAG=dev
 Downgrading to the production release may not be trivial afterwards because of the changes made to the database during the upgrade.
 {% endhint %}
 
-
-
-If you provide all required configuration options after the script finishes you should have a fully functional defguard instance with an enrollment proxy and VPN gateway to connect wireguard clients to.
-
-{% hint style="warning" %}
-The instance deployed by the script is meant to serve as a starting point and makes some tradeoffs to enable automated setup. Most importantly it assumes that your Web UI is available publicly (to generate SSL certificates with Caddy). In general it's not recommended and we strongly encourage you to customize this setup to work better within your own infrastructure.
-{% endhint %}
+If you provide all required configuration options after the script finishes you should have a fully functional defguard instance with an enrollment proxy and VPN gateway to connect WireGuard clients to.
 
 Of course if you feel rightly uneasy about running random shell scripts from the internet feel free to inspect the [source code](https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh).
 
@@ -137,6 +141,3 @@ Available options:
         --pre-release                  use pre-release docker images
 ```
 
-## Manual deployment
-
-If you prefer to configure and deploy your instance manually please see our [Docker Compose](docker-compose.md) guide.
