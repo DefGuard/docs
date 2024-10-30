@@ -5,11 +5,11 @@
 This guide will walk you through the process of installing and running Debian packages (.deb) for **core, gateway, proxy** services on one server - as a **simple example**.
 
 {% hint style="warning" %}
-For production deployment we would recommend to divide services to multiple servers, eg.:
+For production deployment we would recommend to divide services to multiple servers, e.g.:
 
-* proxy (used for remote enrollment, onboarding and configuring desktop clients) should be on a DMZ node that is exposed in the Internet
-* gateway should be on your firewall/router
-* core (the main control plain panel) - should be in internal network (intranet) and available only by intranet or VPN itself.
+* Defguard Proxy (used for remote enrollment, onboarding and configuring desktop clients) should be on a DMZ node that is exposed in the Internet
+* Defguard Gateway should be on your firewall/router
+* Defguard Core (the main control plain panel) - should be in internal network (intranet) and available only by intranet or VPN itself.
 {% endhint %}
 
 We will cover system requirements, additional dependencies, installation steps, and examples of configuration files and step by step running all services. In this example we will use nginx for a web server (proxy) exposing and securing web based services.
@@ -39,21 +39,22 @@ Before proceeding with the installation, ensure your system meets the following 
 
 * Debian-based operating system (Debian, Ubuntu, etc.).
 * Administrative (sudo) privileges.
-* A server with a public IP (and you know what that IP address is and to which interface it's assigned) - in this example we use: 185.33.37.51.
+* A server with a public IP address (and you know what that IP address is and to which interface it's assigned) - in this example we use: 185.33.37.51.
 * You have a domain name and know how to assign IP and manage subdomains, in our example: defguard main url will be _my-server.defguard.net_ (and the subdomain is pointed to 185.33.37.51).
-* defguard [enrollment service](https://defguard.gitbook.io/defguard/help/enrollment) (run by proxy) that will enable [remote onboarding, enrollment](https://defguard.gitbook.io/defguard/help/enrollment) and [easy configuration for our Desktop Clients (by adding defguard instances)](https://defguard.gitbook.io/defguard/help/configuring-vpn/add-new-instance) with instance URL and one simple token - in this tutorial we use: _enroll.defguard.net_ (this subdomain also points to 185.33.37.51).
+* Defguard [enrollment service](https://defguard.gitbook.io/defguard/help/enrollment) (run by proxy) that will enable [remote onboarding, enrollment](https://defguard.gitbook.io/defguard/help/enrollment) and [easy configuration for our Desktop Clients (by adding defguard instances)](https://defguard.gitbook.io/defguard/help/configuring-vpn/add-new-instance) with instance URL and one simple token - in this tutorial we use: _enroll.defguard.net_ (this subdomain also points to 185.33.37.51).
 * If you have a **firewall**, we assume you have **open port 443** in order to expose both defguard and enrollment service, but also to automatically issue for these domains SSL Certificates. Port 444 (used for internal GRPC communication) **should not be exposed public.**
+* System clock is synchronized using Network Time Protocol (NTP). This is important for time-based one-time password (TOTP) codes.
 
 ### Prequesities
 
 #### PostgreSQL
 
-Defguard core uses PostgreSQL database, so if you do not have installed and configured yet, you can do it in this section. For this tutorial we need to create **a user with superuser privileges and database**.
+Defguard Core uses PostgreSQL database, so if you do not have installed and configured yet, you can do it in this section. For this tutorial we need to create **a user with superuser privileges and database**.
 
-First of all, install postgresql:
+First of all, install PostgreSQL package:
 
 ```
-apt install postgresql 
+apt install postgresql
 ```
 
 Now you can launch a default user and create a new superuser for your database. We create user, password and database with name `defguard`, beacuse this is by default in `/etc/defguard/core.conf`, you can change whatever you want.
@@ -200,11 +201,11 @@ You can check is core installed properly:
 defguard-proxy 0.5.0
 ```
 
-## Running defguard
+## Running Defguard
 
 ### Generating SSL Certificates with Let'sEncrypt
 
-Before we run defguard and configure the reverse proxy, first let's prepare SSL certificates that will be used by the NGINX service. We will generate a certificate for two domains we use in this example: _my-service.defguard.net_ and _enroll.defguard.net_:
+Before we run Defguard and configure the reverse proxy, first let's prepare SSL certificates that will be used by the NGINX service. We will generate a certificate for two domains we use in this example: _my-service.defguard.net_ and _enroll.defguard.net_:
 
 ```
 certbot certonly --non-interactive --agree-tos --standalone --email admin@teonite.com -d my-server.defguard.net -d enroll.defgurd.net
@@ -235,7 +236,7 @@ Example `/etc/defguard/core.conf`:
 
 #
 # Generate secrets
-# 
+#
 DEFGUARD_AUTH_SECRET=defguard-auth-secret
 DEFGUARD_GATEWAY_SECRET=defguard-gateway-secret
 DEFGUARD_YUBIBRIDGE_SECRET=defguard-yubibridge-secret
@@ -366,7 +367,7 @@ Link it to `/etc/nginx/site-available/`
 ln -s /etc/nginx/sites-available/my-server.defguard.net.conf /etc/nginx/sites-enabled/my-server.defguard.net.conf
 ```
 
-Restart nginx.service to activated changes:
+Restart nginx.service to activate changes:
 
 ```
 systemctl reload nginx.service
@@ -609,7 +610,7 @@ Full `/etc/defguard/core.conf`:
 
 #
 # Generate secrets
-# 
+#
 DEFGUARD_AUTH_SECRET=defguard-auth-secret
 DEFGUARD_GATEWAY_SECRET=defguard-gateway-secret
 DEFGUARD_YUBIBRIDGE_SECRET=defguard-yubibridge-secret
