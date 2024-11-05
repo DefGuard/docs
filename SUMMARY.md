@@ -51,6 +51,7 @@
   * [Multi-Factor Authentication (MFA/2FA)](admin-and-features/wireguard/multi-factor-authentication-mfa-2fa/README.md)
     * [MFA Architecture](admin-and-features/wireguard/multi-factor-authentication-mfa-2fa/architecture.md)
   * [Remote desktop client configuration](admin-and-features/wireguard/remote-desktop-activation.md)
+  * [DNS and domains](admin-and-features/wireguard/dns-and-domains.md)
 * [SMTP for email notifications](help/setting-up-smtp-for-email-notifications.md)
 * [LDAP synchronization](features/ldap-synchronization-setup/README.md)
   * [Configuration](features/ldap-synchronization-setup/configuration.md)
@@ -66,7 +67,7 @@
 
 * [License](enterprise/license.md)
 * [All enteprise features](enterprise/all-enteprise-features.md)
-* [Automatic (real time) desktop client configuration](enterprise/automatic-real-time-desktop-client-configuration.md)
+* [Automatic (real time) desktop client configuration & sync](enterprise/automatic-real-time-desktop-client-configuration.md)
 * [External OpenID providers](enterprise/external-openid-providers.md)
 * [VPN & Client behavior customization](enterprise/behavior-customization.md)
 

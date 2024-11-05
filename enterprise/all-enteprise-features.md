@@ -3,7 +3,7 @@
 Here is a list of all Enterprise features:
 
 * [Ability to use external OIDC](external-openid-providers.md) (Google/Microsoft/Custom) to login or create defguard account.
-* Ability to [automatically reconfigure users desktop client](automatic-real-time-desktop-client-configuration.md) (now requires manual action of updating the instance with a token).
+* [Real time sync for client configurations](automatic-real-time-desktop-client-configuration.md)! **First WireGuard client to support this feature!**&#x20;
 * Ability to [disable for users to manage their devices](behavior-customization.md#disable-for-users-to-manage-their-devices) (just admin will have this possibility).
 * Ability to [disable for users to configure WireGuard clients other then defguard desktop client](behavior-customization.md#disable-ability-to-configure-other-vpn-clients-then-defguard-desktop-client).
 * Ability to [disable "All traffic" in the desktop client ](behavior-customization.md#disable-all-traffic-option-in-the-desktop-client)- just "predefined" traffic by admins.
