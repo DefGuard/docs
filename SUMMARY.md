@@ -32,6 +32,7 @@
   * [Pre-production and development releases](admin-and-features/setting-up-your-instance/pre-production-and-development-releases.md)
   * [OpenID RSA Certificates](admin-and-features/setting-up-your-instance/openid-rsa-certificates.md)
   * [Upgrading](features/setting-up-your-instance/upgrading.md)
+  * [High Availability and Failover](admin-and-features/setting-up-your-instance/high-availability-and-failover.md)
   * [Health check](features/setting-up-your-instance/health-check.md)
 * [Remote user enrollment](features/remote-user-enrollment/README.md)
   * [User onboarding after enrollment](features/remote-user-enrollment/user-onboarding-after-enrollment.md)
