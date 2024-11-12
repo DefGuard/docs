@@ -1,12 +1,24 @@
 # Gateway
 
-{% hint style="warning" %}
-Don't forget to copy DEFGUARD\_TOKEN necessary to start gateway connection from modal available on overview page under `Docker run command`
-{% endhint %}
-
 {% hint style="info" %}
 If you are looking for [gateway High Availability, go to this document.](../high-availability-and-failover.md#gateway-high-availability)
 {% endhint %}
+
+## Pre-requirements
+
+{% hint style="warning" %}
+Please remember that **one gateway corresponds to one VPN location.**
+
+You can also deploy multiple gateways for one location for High Availability.
+{% endhint %}
+
+To deploy the gateway you need to have defguard core running and know it's [gRPC url](../../../features/setting-up-your-instance/configuration.md#core-configuration) (meaning what is the **host/ip** where the core is running and the **gRPC port** defined in core by DEFGUARD\_GRPC\_PORT configuration variable**)** and a **token.**
+
+**Token** can be obtained when you go to _VPN Locations -> Edit location settings (in top right corner) -> Select the desired location_ -> the right panel describes how to deploy the gateway for the location as well as lists the gateway authentication token:
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-11-12 at 17.28.07.png" alt=""><figcaption></figcaption></figure>
+
+Also, if core has a custom SSL CA to secure gRPC communication, [you need the CA certificate (more here).](../grpc-ssl-communication.md#custom-ssl-ca-and-certificates)
 
 ## Package Install
 
