@@ -2,11 +2,9 @@
 
 Currently we support the following HA/failover scenarios:
 
-### Gateway - High Availability
+## Gateway - High Availability
 
 We support active-active configurations with multiple gateways for a single VPN instance or location. Since our gateway uses a vanilla kernel WireGuard®, there are multiple approaches for implementation.&#x20;
-
-We recommend to have a floating public IPs between those gateways, but we don’t enforce a specific approach, as each operating system and administrator may have different preferences.
 
 #### Deploying the active-active gateway setup
 
@@ -16,17 +14,20 @@ If you already have a gateway deployed, and want to add new gateways for the loc
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-11-12 at 16.55.55.png" alt=""><figcaption></figcaption></figure>
 
-After each gateway deployment all gateway will have the same configuration and will bind to the same IP and port that is defined in the location _Gateway Address._
+After each gateway deployment all gateway will have the same configuration and will **bind to the defined port** in the location _Gateway Port._
 
-The only thing left to do is to decide how you want to address the one IP - we recommend to have a "floating" public IP.
+The only thing left to do is to point your traffic to those gateway, which can be acomplished with various HA scenarios:
 
-#### Determining if multiple gateways are running
+* floating public IP - if you choose this scenario, please remember that the IP must be the IP specified in the Location _Gateway Address_
+* proxy/load balancing - also remember that the proxy must be configured with the _Gateway Address and Gateway Port_
+
+### Determining if multiple gateways are running
 
 All gateways that are successfully connected for the location are displayed under the Location in VPN Overview, here is an example for two gateways:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-11-12 at 17.01.42.png" alt=""><figcaption></figcaption></figure>
 
-### Core / Proxy - Failover
+## Core / Proxy - Failover
 
 The core service handles gateway states as well as core connects _**to the proxy**_. Since proxy serves HTTP based protocol communication and should be in the public Internet, it needs to be secure, thus core connects to the proxy.
 
