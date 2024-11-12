@@ -8,6 +8,18 @@ We support active-active configurations with multiple gateways for a single VPN 
 
 We recommend to have a floating public IPs between those gateways, but we don’t enforce a specific approach, as each operating system and administrator may have different preferences.
 
+#### Deploying the active-active gateway setup
+
+To have multi-gateway for one location setup, you need to [deploy the gateway on each server](gateway/).
+
+If you already have a gateway deployed, and want to add new gateways for the location, go to _VPN Overview_ -> Click: _Edit Location Settings (in top right corner)_, then choose the location you want to add the gateway, and follow instructions for deployment:
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-11-12 at 16.55.55.png" alt=""><figcaption></figcaption></figure>
+
+After each gateway deployment all gateway will have the same configuration and will bind to the same IP and port that is defined in the location _Gateway Address._
+
+The only thing left to do is to decide how you want to address the one IP - we recommend to have a "floating" public IP.
+
 ### Core / Proxy - Failover
 
 The core service handles gateway states as well as core connects _**to the proxy**_. Since proxy serves HTTP based protocol communication and should be in the public Internet, it needs to be secure, thus core connects to the proxy.
@@ -16,7 +28,7 @@ This way **core can be in an Intranet network segment and proxy can be in DMZ, m
 
 So **High Availability for core and proxy** gets complicated, with multiple proxies core needs to manage those connections. We already have most of the code for that ready, but it's not yet production ready.
 
-How to bulet-proof proxy & core then?
+#### How to bulet-proof proxy & core with failover?
 
 We recommend to deploy them on a failover solution - like on a kubernetes cluster (even small one - like mini-kube) . This way, kubernetes manages: healthecks and does failover. You can have cluster N-nodes and if any VM/node with Core/Proxy goes offline or health checks fail - it's migrated to a new node.
 
