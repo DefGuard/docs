@@ -1,7 +1,11 @@
 # Gateway
 
-{% hint style="info" %}
+{% hint style="warning" %}
 Don't forget to copy DEFGUARD\_TOKEN necessary to start gateway connection from modal available on overview page under `Docker run command`
+{% endhint %}
+
+{% hint style="info" %}
+If you are looking for [gateway High Availability, go to this document.](../high-availability-and-failover.md#gateway-high-availability)
 {% endhint %}
 
 ## Package Install
