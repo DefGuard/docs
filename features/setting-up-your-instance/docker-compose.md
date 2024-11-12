@@ -203,7 +203,7 @@ services:
     environment: 
       - DEFGUARD_GRPC_URL="https://core-ip:50055"
       - DEFGUARD_GRPC_CA="/ca.pem"
-      - DEFGUARD_STATS_PERIOD="30"
+      - DEFGUARD_STATS_PERIOD=30
       # to get the token add a VPN location and get the token
       - DEFGUARD_TOKEN="tokenFromCoreLocation"
       - DEFGUARD_GATEWAY_NAME="willBeVisibleInDefguardAsGWName"
