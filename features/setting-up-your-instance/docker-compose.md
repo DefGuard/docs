@@ -13,7 +13,6 @@ We use "latest" (latest production images) tags in the examples below, but you c
 Here is the docker-compose.yaml for the core and database. Configuration is split to the `.env` file (see below):
 
 ```
-version: "3"
 services:
   core:
     image: ghcr.io/defguard/defguard:latest
@@ -194,7 +193,6 @@ server {
 For gateway to control the WireGuard kernel as well as network, it's recommended to run in the _host_ network mode as well as there are needed some docker CAPs:
 
 ```
-version: "3"
 services:
   gateway: 
     image: ghcr.io/defguard/gateway:latest 
