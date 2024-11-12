@@ -6,6 +6,8 @@ Here are basic and simple docker-compose configuration files that will enable yo
 Please not that we also offer docker-compose deployment with [_one-line quick deployment_](one-line-install.md)_,_ but this method is recommended for PoC/quick deployment as **it launches everything on one server and all services in one docker compose**.
 {% endhint %}
 
+We use "latest" (latest production images) tags in the examples below, but you can use others - [more info here](../../admin-and-features/setting-up-your-instance/docker-images-and-tags.md).
+
 ## Core
 
 Here is the docker-compose.yaml for the core and database. Configuration is split to the `.env` file (see below):
@@ -19,9 +21,10 @@ services:
     container_name: "defguard"
     env_file: .env
     ports:
-      # HTTP port
-      - "80000:8000"
+      # HTTP port - open on localhost, should be secured by reverse-proxy
+      - "127.0.0.1:80000:8000"
       # gRPC port for gateway to connect to
+      # open on all interfaces/IPs - whould be secured with custom CA (see .env)
       - "50055:50055"
     depends_on:
       - db
@@ -39,6 +42,42 @@ services:
     env_file: .env
     volumes:
       - db:/var/lib/postgresql/data
+```
+
+#### NGINX reverese-proxy
+
+Now that you have core running here is an example NGINX configuration to provide SSL termination:
+
+```
+upstream  defguard {
+    server 127.0.0.1:8000;
+}
+
+server {
+    listen 443 ssl http2;
+
+    # your domain
+    server_name defguard.secure-internal.net;
+
+    access_log /var/log/nginx/defguard.log;
+    error_log /var/log/nginx/defguard.error.log;
+
+    ssl on;
+    # we assume you already have Let'sEncrypt SSL certificates
+    # for your domain
+    ssl_certificate /etc/letsencrypt/live/secure-internal.net/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/secure-internal.net/privkey.pem;
+
+    client_max_body_size 20m;
+
+    location / {
+        proxy_connect_timeout 300;
+        proxy_pass http://defguard;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header X-Forwarded-for $remote_addr;
+    }
+}
 ```
 
 ### The configuration
@@ -94,3 +133,58 @@ POSTGRES_USER=defguard
 POSTGRES_PASSWORD=!SAME_AS-GENERATED-DEFGUARD_DB_PASSWORD!
 ```
 
+## Proxy
+
+Here is the docker-compose.yaml for the public proxy (enrollment service as well as desktop client configuration service).
+
+To secure the gRPC communication please generate the proxy CA and certificate, [more info here](../../admin-and-features/setting-up-your-instance/grpc-ssl-communication.md#custom-ssl-ca-and-certificates).
+
+```
+proxy:
+  image: ghcr.io/defguard/defguard-proxy:latest
+  restart: unless-stopped
+  ports:
+     # HTTP port - should be secured by reverse proxy
+     - "127.0.0.1:8080:8080"
+     - "50051:50051"
+  environment:
+     # path in the volume to custom proxy cert & key
+     - DEFGUARD_PROXY_GRPC_CERT=ca/proxy.crt
+     - DEFGUARD_PROXY_GRPC_KEY=ca/proxy.key     
+  volumes:
+     - ./ca/proxy.crt:ca/proxy.crt
+     - ./ca/proxy.key:ca/proxy.key
+  
+```
+
+#### NGINX reverese-proxy
+
+Now that you have proxy running here is an example NGINX configuration to provide SSL termination:
+
+```
+upstream  defguard-proxy  {
+	server   127.0.0.1:8080;
+}
+
+server {
+	listen 443 http2;
+	server_name enrollment.public.net;
+	access_log /var/log/nginx/defguard-proxy.log;
+	error_log /var/log/nginx/defguard-proxy.error.log;
+
+        # we assume you already have Let'sEncrypt SSL certificates
+        # for your domain
+	ssl_certificate /etc/letsencrypt/live/public.net/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/public.net/privkey.pem;
+
+	client_max_body_size 20m;
+
+        location / {
+            proxy_pass         http://defguard-proxy;
+            proxy_set_header   Host             $host;
+            proxy_set_header   X-Real-IP        $remote_addr;
+            proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+        }
+}
+
+```
