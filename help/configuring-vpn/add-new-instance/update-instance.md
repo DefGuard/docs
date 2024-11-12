@@ -10,6 +10,10 @@ If you are looking for how to generate tokens for your users as an Administrator
 [remote-desktop-activation.md](../../../admin-and-features/wireguard/remote-desktop-activation.md "mention")
 {% endhint %}
 
+{% hint style="warning" %}
+Updating the desktop client instance manually is only done if you are using defguard Open Source Open Core, if you have an Enterprise License, all desktop clients and all instances are [synchronized automatically and in real-time.](../../../enterprise/automatic-real-time-desktop-client-configuration.md)
+{% endhint %}
+
 ## Why do instances need updates?
 
 Desktop stores all information locally and doesn't communicate with Defguard outside of the registration process. This means that information about instances are snapshots of the moment you registered them in the desktop client and you might want to update that, for example when some new locations are added or removed.
