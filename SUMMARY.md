@@ -45,7 +45,6 @@
   * [Django](features/openid-connect/django.md)
   * [MinIO](features/openid-connect/minio.md)
   * [Vault](features/openid-connect/vault.md)
-* [LDAP synchronization](admin-and-features/ldap-synchronization.md)
 * [Wireguard](features/wireguard/README.md)
   * [Create your VPN network](features/wireguard/create-your-vpn-network.md)
   * [Network overview](community-features/wireguard/network-overview.md)

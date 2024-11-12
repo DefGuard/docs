@@ -8,13 +8,32 @@ description: Notes on upgrading Defguard and its components
 Before doing any updates please remember to **backup your database.**
 {% endhint %}
 
-## Core & Proxy
+## Any release -> 1.0.0
 
-### Core 0.11.0 -> 1.0.0
+### Core
 
-When upgrading core to 1.0.0 (even to a 1.0.0 pre-release) make sure that your users have unique email addresses as we've introduced a constraint requiring email addresses to be unique among users. If you have duplicate emails in your database, the migrations during the upgrade process will simply fail. You will need to change a duplicate email address before the upgrade by hand via the Defguard dashboard or by accessing the database.
+When upgrading core to 1.0.0 (even to a 1.0.0 pre-release) make sure that your users **have unique email addresses** as we've introduced a constraint requiring email addresses to be unique among users.&#x20;
 
-### Core 0.8.x -> 0.9.x with Proxy 0.2.x -> 0.3.x
+{% hint style="danger" %}
+If you have duplicate emails in your database, the migrations during the upgrade process will simply fail.
+{% endhint %}
+
+&#x20;You will need to change a duplicate email address before the upgrade by hand via the Defguard dashboard or by accessing the database.
+
+### Desktop Client Real Time Sync
+
+From 1.0.0 we have introduced [Enterprise features](../../enterprise/all-enteprise-features.md),  and one of them is [automatic and real-time desktop client configuration synchronisation](../../enterprise/automatic-real-time-desktop-client-configuration.md).
+
+To enable this on an **already configured desktop client** one must perform one time instance update, which will generate necessary tokens on the client to perform from now on automatic updates. In details:
+
+1. The admin must generate a new token for the client -[ more details here](../../admin-and-features/wireguard/remote-desktop-activation.md) (token can be sent over email or shared in any other secret way).
+2. The user must perform the [Instance Update - more details here](../../help/configuring-vpn/add-new-instance/update-instance.md#how-to-update).
+
+{% hint style="warning" %}
+Any client that is configured from scratch has this done automatically and no actions needed to be done.
+{% endhint %}
+
+## Core 0.8.x -> 0.9.x with Proxy 0.2.x -> 0.3.x
 
 In this release, we have **hardened the security architecture**, and since the Proxy component is open for HTTP commands and is frequently communicating with Core we have reversed the communication and now **Core is connecting to Proxy (Proxy is a gRPC server and Core is the client).**
 
