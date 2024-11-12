@@ -188,3 +188,30 @@ server {
 }
 
 ```
+
+## Gateway
+
+For gateway to control the WireGuard kernel as well as network, it's recommended to run in the _host_ network mode as well as there are needed some docker CAPs:
+
+```
+version: "3"
+services:
+  gateway: 
+    image: ghcr.io/defguard/gateway:latest 
+    restart: unless-stopped 
+    network_mode: "host" 
+    environment: 
+      - DEFGUARD_GRPC_URL="https://core-ip:50055"
+      - DEFGUARD_GRPC_CA="/ca.pem"
+      - DEFGUARD_STATS_PERIOD="30"
+      # to get the token add a VPN location and get the token
+      - DEFGUARD_TOKEN="tokenFromCoreLocation"
+      - DEFGUARD_GATEWAY_NAME="willBeVisibleInDefguardAsGWName"
+    volumes:
+      # more info about custom CA here:
+      # https://docs.defguard.net/admin-and-features/setting-up-your-instance/grpc-ssl-communication#custom-ssl-ca-and-certificates
+      - ./ca.pem:/ca.pem
+    cap_add: 
+      - NET_ADMIN 
+```
+
