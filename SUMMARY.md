@@ -23,6 +23,7 @@
   * [One-line install script](features/setting-up-your-instance/one-line-install.md)
   * [Standalone package based installation](admin-and-features/setting-up-your-instance/standalone-package-based-installation.md)
   * [Securing gRPC communication](admin-and-features/setting-up-your-instance/grpc-ssl-communication.md)
+  * [OpenID RSA key](admin-and-features/setting-up-your-instance/openid-rsa-key.md)
   * [Configuration](features/setting-up-your-instance/configuration.md)
   * [Docker images and tags](admin-and-features/setting-up-your-instance/docker-images-and-tags.md)
   * [Docker Compose](features/setting-up-your-instance/docker-compose.md)
