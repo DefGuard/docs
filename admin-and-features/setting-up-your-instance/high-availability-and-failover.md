@@ -20,6 +20,12 @@ After each gateway deployment all gateway will have the same configuration and w
 
 The only thing left to do is to decide how you want to address the one IP - we recommend to have a "floating" public IP.
 
+#### Determining if multiple gateways are running
+
+All gateways that are successfully connected for the location are displayed under the Location in VPN Overview, here is an example for two gateways:
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-11-12 at 17.01.42.png" alt=""><figcaption></figcaption></figure>
+
 ### Core / Proxy - Failover
 
 The core service handles gateway states as well as core connects _**to the proxy**_. Since proxy serves HTTP based protocol communication and should be in the public Internet, it needs to be secure, thus core connects to the proxy.
