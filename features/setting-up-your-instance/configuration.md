@@ -38,9 +38,6 @@ You can generate random strings for secrets with e.g.:
 * `DEFGUARD_USERADMIN_GROUPNAME`: Name of the user administrator group, default: `useradmin`
 * `DEFGUARD_VPN_GROUPNAME`: Name of the vpn group, default: `vpn`
 * `DEFGUARD_DEFAULT_ADMIN_PASSWORD`: Password for the default `admin` user, default: `pass123`
-
-###
-
 * `DEFGUARD_LOG_LEVEL`: [Logger](https://crates.io/crates/log) log level, default: `info`
 * `DEFGUARD_HTTP_PORT`: Core server port, default: `8000`
 * `DEFGUARD_LOG_FILE`: Log file path
@@ -77,7 +74,7 @@ This is of course not recommended in production but can be useful when testing w
 
 ### Enrollment configuration
 
-* `DEFGUARD_ENROLLMENT_URL`: external URL of the enrollment proxy server, default `http://localhost:8080`
+* `DEFGUARD_ENROLLMENT_URL`: external URL of the enrollment proxy server, default `http://localhost:8080` - this URL is send in enrollment emails as well as displayed when configuring the desktop client - thus must be to the actual URL you have configured the proxy to be visible at, otherwise the enrollment or desktop client configuration will not work.
 * `DEFGUARD_ENROLLMENT_TOKEN_TIMEOUT`: how long is the enrollment token valid for use, default: `24h` ([Humantime documentation](https://docs.rs/humantime/latest/humantime/struct.Duration.html))
 * `DEFGUARD_ENROLLMENT_SESSION_TIMEOUT`: how long in the enrollment session valid after a user uses the token to start the enrollment process, default: `10m` ([Humantime documentation](https://docs.rs/humantime/latest/humantime/struct.Duration.html))
 
@@ -98,7 +95,7 @@ This is of course not recommended in production but can be useful when testing w
 ### Proxy connection configuration
 
 * `DEFGUARD_PROXY_URL` (optional): proxy service gRPC endpoint URL
-* `DEFGUARD_PROXY_GRPC_CA`(optional): path to TLS root certificate file, required if connecting to proxy gRPC service with HTTPS
+* `DEFGUARD_PROXY_GRPC_CA`(optional): path to TLS root certificate file, required if connecting to proxy gRPC service with a custom CA ([More on that in this help page.](../../admin-and-features/setting-up-your-instance/grpc-ssl-communication.md))
 
 ## Proxy service
 
@@ -107,29 +104,7 @@ Here are proxy ENV variables. gRPC configuration is described more [on this help
 * `DEFGUARD_PROXY_HTTP_PORT`: port the API server will listen on, default `8080`
 * `DEFGUARD_PROXY_GRPC_PORT`: port the gRPCS server will listen on, default `50051`
 * `DEFGUARD_PROXY_GRPC_CERT` (optional): path to TLS certificate file
-* `DEFGUARD_PROXY_GRPC_KEY`(optional): path to TLS key file
-
-## YubiBridge configuration
-
-### Environmental variables
-
-* `LOG_LEVEL`: Log messages level, default: `INFO`, available levels: `CRITICAL`, `ERROR`, `WARNIG`, `INFO`, `DEBUG`
-* `WORKER_ID`: Name of your YubiBridge displayed on Defguard website, default: `YubiBridge`
-* `DEFGUARD_TOKEN`: - Secret worker token to secure gRPC communication, available on provisioners page
-* `SMARTCARD_RETRIES`: Number of retries in case provisioning failed, default: `1`
-* `JOB_INTERVAL`: Defines how often(seconds) YubiBridge checks Defguard for new jobs, default: `2`
-* `SMARTCARD_RETRY_INTERVAL`: Defines the number of seconds between trying to provision YubiKey again, default `15`
-
-### CLI arguments:
-
-* `-h` , `--help`: Display help message
-* `-g <URL>`, `--grpc <URL>`: Connect to gRPC server at the given URL
-* `-i <ID>` , `--id <ID>`: WorkerID, default `YubiBridge`
-* `-d` , `--debug`: Enable debug mode
-* `-t <TMPDIR>` , `--tmpdir <TMPDIR>`: GnuPG home directory, default: `tmp`
-* `-p <first_name> <last_name> <email>` , `--provision <first_name> <last_name> <email>`: Provision YubiKey with the following data
-* `-w <token>` , `--worker-token <token>`: Secret worker token to secure gRPC communication, available on provisioners page
-* `-c <command>` , `--command <command>`: Run command after provisioning and pass created keys as arguments
+* `DEFGUARD_PROXY_GRPC_KEY`(optional): path to TLS key file. [More on that in this help page.](../../admin-and-features/setting-up-your-instance/grpc-ssl-communication.md)
 
 ## Gateway Configuration
 
@@ -150,6 +125,18 @@ If you're using docker image you can pass this value as environmental variables 
 `DEFGUARD_GATEWAY_NAME`, `--name <NAME>` - (optional) human-readable gateway name that will be displayed in defguard webapp
 
 `-s, --use-syslog` - enable logging to syslog
+
+#### Executing custom commands on VPN up/down
+
+The following env variables or gateway arguments define which commands gateway will run before / after it wil bring up / down the VPN.
+
+It's usfull for exaple to use those commands to launch custom firewall commands or scripts that do various operations needed to be done on those ocasions.
+
+{% hint style="danger" %}
+defguard is built with highest security standards in mind, thus the options below **accept only a full path to one command and it's arguments.**
+
+If you would like to have **multiple commands run,** you can create a shell script which will define the acceptable and preferred shell you would like to use and then all the commands you like to execute.
+{% endhint %}
 
 `PRE_UP` , `--pre-up`, - Command to run before bringing up the interface. If you want to run a shell script, you should pass it's path to your shell, for example: `/bin/sh -c /path/to/script`
 
@@ -210,4 +197,27 @@ syslog_socket = "/var/run/log"
 # Optional: Command which will be run after bringing interface down
 # Example: Remove the default route after WireGuard interface is down:
 #post_down = "ip route del default via 192.168.1.1 dev wg0"
+
 ```
+
+## YubiBridge configuration
+
+### Environmental variables
+
+* `LOG_LEVEL`: Log messages level, default: `INFO`, available levels: `CRITICAL`, `ERROR`, `WARNIG`, `INFO`, `DEBUG`
+* `WORKER_ID`: Name of your YubiBridge displayed on Defguard website, default: `YubiBridge`
+* `DEFGUARD_TOKEN`: - Secret worker token to secure gRPC communication, available on provisioners page
+* `SMARTCARD_RETRIES`: Number of retries in case provisioning failed, default: `1`
+* `JOB_INTERVAL`: Defines how often(seconds) YubiBridge checks Defguard for new jobs, default: `2`
+* `SMARTCARD_RETRY_INTERVAL`: Defines the number of seconds between trying to provision YubiKey again, default `15`
+
+### CLI arguments:
+
+* `-h` , `--help`: Display help message
+* `-g <URL>`, `--grpc <URL>`: Connect to gRPC server at the given URL
+* `-i <ID>` , `--id <ID>`: WorkerID, default `YubiBridge`
+* `-d` , `--debug`: Enable debug mode
+* `-t <TMPDIR>` , `--tmpdir <TMPDIR>`: GnuPG home directory, default: `tmp`
+* `-p <first_name> <last_name> <email>` , `--provision <first_name> <last_name> <email>`: Provision YubiKey with the following data
+* `-w <token>` , `--worker-token <token>`: Secret worker token to secure gRPC communication, available on provisioners page
+* `-c <command>` , `--command <command>`: Run command after provisioning and pass created keys as arguments
