@@ -1,8 +1,18 @@
 # License
 
-Defguard Enterprise offers a lot of functionalities that are not offered in the Open Source Open Core, like external OpenID Connect support, automatic\&real time desktop client synchronization and configuration, and much more (go to [All Enterprise Features](all-enteprise-features.md) to see more). In order to activate those features an Enterprise License must be obtained.&#x20;
+Defguard Enterprise offers a lot of functionalities that are not offered in the Open Source Open Core, like external OpenID Connect support, automatic\&real time desktop client synchronization and configuration, and much more (go to [All Enterprise Features](all-enteprise-features.md) to see more). In order to activate those features an Enterprise License must be obtained.
 
-We offer two types of licences:
+{% hint style="info" %}
+From release 1.1.0 (to be released mid Nov 2024) **all enterprise features up to the following limits are free and no license is required!**
+
+* 5 active users
+* 10 devices
+* 1 location
+{% endhint %}
+
+Those limits should be more then enough for small businesses, home-labs or just to test out Enterprise features before committing.
+
+If you would like to purchase a license, we offer two types of licenses:
 
 1. **Subscription** that can be bought on [https://defguard.net/pricing/](https://defguard.net/pricing/)
 2. **Offline with a defined custom period.**
@@ -30,13 +40,13 @@ To obtain an offline Enterprise License please contact our sales at: **sales \[ 
 
 * the period for which you would like to obtain the license
 * your company data and contact email address (for billing and license sharing)
-* prefered payment method: bank wire transfer or card payment link
+* preferred payment method: bank wire transfer or card payment link
 
 ### Configuring defguard with obtained license
 
 To configure defguard with the received license, please go to **Settings** -> enter the license in the Enterprise License configuration window -> Click Save.
 
-The license will be vaildated and detailed information about the license will be diplayed (validity period and the license type):
+The license will be validated and detailed information about the license will be diplayed (validity period and the license type):
 
 <figure><img src="../.gitbook/assets/enterprise-settings.png" alt=""><figcaption><p>defguard enterprise license settings</p></figcaption></figure>
 
