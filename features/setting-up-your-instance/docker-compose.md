@@ -199,12 +199,12 @@ services:
     restart: unless-stopped 
     network_mode: "host" 
     environment: 
-      - DEFGUARD_GRPC_URL="https://core-ip:50055"
-      - DEFGUARD_GRPC_CA="/ca.pem"
+      - DEFGUARD_GRPC_URL=https://core-ip:50055
+      - DEFGUARD_GRPC_CA=/ca.pem
       - DEFGUARD_STATS_PERIOD=30
       # to get the token add a VPN location and get the token
-      - DEFGUARD_TOKEN="tokenFromCoreLocation"
-      - DEFGUARD_GATEWAY_NAME="willBeVisibleInDefguardAsGWName"
+      - DEFGUARD_TOKEN=tokenFromCoreLocation
+      - DEFGUARD_GATEWAY_NAME=willBeVisibleInDefguardAsGWName
     volumes:
       # more info about custom CA here:
       # https://docs.defguard.net/admin-and-features/setting-up-your-instance/grpc-ssl-communication#custom-ssl-ca-and-certificates
