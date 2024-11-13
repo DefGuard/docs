@@ -1,6 +1,6 @@
 ---
-description: Here are some common issues / problems that are frequently encountered.
 icon: comment-question
+description: Here are some common issues / problems that are frequently encountered.
 ---
 
 # Troubleshooting Guide
@@ -76,3 +76,13 @@ If a user has no access to the VPN location, sometimes admins forget that they *
 
 will not be able to connect.
 
+## I can access VPN but not my local network / Internet
+
+Defguard only manages VPN server configuration (for now, we are planning ACLs / firewall management) which means it basically configures the VPN integrace and peers.
+
+Then when the client / user connects it actually establishes **a secure tunel between their computer network and your server (that VPN interface)**.
+
+From there, what happens to this traffic is the **administrator role.** The most common scenarious to do are:
+
+* add routing rules, so that the traffic from that interface/VPN IP network gets routed to your network - this approach gives the advantage that users VPN ip persists in the network and the user is visible with it's VPN ip in your local network
+* Masquerade or NAT - a common use case is to masquerade or NAT the traffic - which is **actually required if you want users to access Internet from the VPN -** this process is [described in detailed in this tutorial](../../tutorials/step-by-step-setting-up-a-vpn-server/#enabling-to-access-internet-through-your-vpn).
