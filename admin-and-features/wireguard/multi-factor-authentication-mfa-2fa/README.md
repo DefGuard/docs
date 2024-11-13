@@ -49,8 +49,12 @@ If a VPN has MFA enabled, before connecting you will be asked to complete the au
 
 For now, MFA is only available with the following methods:
 
-* TOTP - Time-based one-time password
+* [TOTP - Time-based one-time password](../../../help/setting-up-2fa-mfa.md#one-time-password)
 * Email - requires [SMTP to be configured](../../../help/setting-up-smtp-for-email-notifications.md)
+
+{% hint style="warning" %}
+Please remember to configure TOTP on you user account and/or SMTP settings for MFA on the desktop client to work..
+{% endhint %}
 
 ### User MFA setup
 
