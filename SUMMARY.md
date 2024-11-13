@@ -19,6 +19,8 @@
 
 ## Admin & features
 
+* [Troubleshooting Guide](admin-and-features/troubleshooting/README.md)
+  * [Sending support information](admin-and-features/troubleshooting/sending-support-info.md)
 * [Deploying your instance](features/setting-up-your-instance/README.md)
   * [One-line install script](features/setting-up-your-instance/one-line-install.md)
   * [Standalone package based installation](admin-and-features/setting-up-your-instance/standalone-package-based-installation.md)
@@ -61,8 +63,6 @@
 * [Webhooks](community-features/webhooks.md)
 * [Forward auth](features/forward-auth.md)
 * [SSH Authentication](features/ssh-authentication.md)
-* [Troubleshooting Guide](admin-and-features/troubleshooting-guide/README.md)
-  * [Sending support information](admin-and-features/troubleshooting-guide/sending-support-info.md)
 
 ## Enterprise Features <a href="#enterprise" id="enterprise"></a>
 

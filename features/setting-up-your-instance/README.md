@@ -1,3 +1,7 @@
+---
+icon: rocket-launch
+---
+
 # Deploying your instance
 
 defguard comes with four main components:

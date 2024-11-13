@@ -1,17 +1,13 @@
 ---
-icon: comment-question
 description: Here are some common issues / problems that are frequently encountered.
+icon: comment-question
 ---
 
 # Troubleshooting Guide
 
-
-
 {% hint style="info" %}
 Before contacting support, please see if the answer cannot be found here:
 {% endhint %}
-
-
 
 ## Desktop client real-time/auto sync doesn't work&#x20;
 
