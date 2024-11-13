@@ -61,8 +61,8 @@
 * [Webhooks](community-features/webhooks.md)
 * [Forward auth](features/forward-auth.md)
 * [SSH Authentication](features/ssh-authentication.md)
-* [Troubleshooting](admin-and-features/troubleshooting/README.md)
-  * [Sending support information](admin-and-features/troubleshooting/sending-support-info.md)
+* [Troubleshooting Guide](admin-and-features/troubleshooting-guide/README.md)
+  * [Sending support information](admin-and-features/troubleshooting-guide/sending-support-info.md)
 
 ## Enterprise Features <a href="#enterprise" id="enterprise"></a>
 
