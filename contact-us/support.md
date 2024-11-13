@@ -23,3 +23,11 @@ Matrix is vastly more secure then those (convenient) platforms - and open source
 
 * Here you can submit [a bug](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=bug\&projects=\&template=bug\_report.md\&title=)
 * And here you can submit [a feature request](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=feature\&projects=\&template=feature\_request.md\&title=)
+
+## Reporting a Vulnerability
+
+Please do **not open Github Issues for security issues you encounter**. To reporting a vulnerability open a [security advisory here](https://github.com/defguard/defguard/security/advisories/new).
+
+\
+
+
