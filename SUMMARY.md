@@ -5,9 +5,9 @@
 ## User documentation (help) <a href="#help" id="help"></a>
 
 * [Configuring VPN](help/configuring-vpn/README.md)
-  * [Adding instance to defguard client](help/configuring-vpn/add-new-instance/README.md)
+  * [Defguard Desktop Client](help/configuring-vpn/add-new-instance/README.md)
     * [Update instance](help/configuring-vpn/add-new-instance/update-instance.md)
-  * [Adding a device manually](help/configuring-vpn/adding-wireguard-devices/README.md)
+  * [Other WireGuard® Clients](help/configuring-vpn/adding-wireguard-devices/README.md)
     * [Configuring manually a device for a new VPN Location](help/configuring-vpn/adding-wireguard-devices/configuring-a-device-for-a-new-vpn-location.md)
 * [Password change / Reset](help/changing-your-password.md)
 * [Enrollment & Onboarding](help/enrollment.md)
