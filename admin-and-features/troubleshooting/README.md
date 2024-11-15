@@ -22,6 +22,23 @@ Common problems may be:
 
 See the "[Desktop client real-time/auto sync doesn't work](./#desktop-client-real-time-auto-sync-doesnt-work)" answer.
 
+## I use Multi-Factor Authentication and am disconnected after _X-time_
+
+After enabling Multi-Factor Authentication for a location the configuration of the gateway changes. Without MFA peers (devices) are persistent (always in the Kernel memory) and gateway only changed the gateway configuration if a peer is added/removed/changed.
+
+But when MFA is enabled peers **are only added to the gateway** after successful MFA on the client (and pre-shared key exchange with client and gateway to establish a dedicated key for the session).
+
+Also there is a setting in the location named _Peer Disconnect Threshold (seconds):_
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-11-15 at 18.25.33.png" alt="" width="375"><figcaption></figcaption></figure>
+
+This setting specifies that if the **peer is inactive for **_**(defined seconds)**_, the gateway **should remove it from the configuration** (as it should not be persistent since MFA is required).
+
+So if you are disconnected from the location:
+
+1. Check what is your setting for peer disconnect.
+2. We have a known bug - that after disconnecting Defguard Desktop Client doesn't properly detect that and has a still active connection (and actually is disconnected). You need to reconnect. Also it's [being fixed and will be released in 1.1 version of the client](https://github.com/DefGuard/client/issues/351).
+
 ## Client: failed to configure DNS (Linux)
 
 This error commonly occurs on Ubuntu 22. Defguard client internally calls `resolvconf` to set DNS servers. The only tested backend is `systemd-resolved`, so make sure you use it before proceeding further (`systemctl status systemd-resolved`).&#x20;
