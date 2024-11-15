@@ -4,7 +4,9 @@ description: >-
   desktop client and add all VPN Locations available for you.
 ---
 
-# Adding instance to defguard client
+# Defguard Desktop Client
+
+Defguard Desktop Client is required if you want to use Multi-Factor Authentication as any other WireGuard client doesn't support this functionality.
 
 ## When you can access defguard
 

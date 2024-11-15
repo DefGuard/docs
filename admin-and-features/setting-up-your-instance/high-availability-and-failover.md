@@ -31,6 +31,11 @@ All gateways that are successfully connected for the location are displayed unde
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-11-12 at 17.01.42.png" alt=""><figcaption></figcaption></figure>
 
+### What is the gateway peers persistance (if core/proxy services fail)
+
+1. For **VPN Locations without MFA** - it's persistent until the system reboot - _even if the gateway will not work_ - as the gateway configures WireGuard "in kernel".
+2. For **VPN Locations with MFA**, this depends on the _Peer Disconnect Threshold (seconds)_ setting in the VPN Location settings. This setting specifies that if the peer is inactive for _(defined seconds)_, the gateway should remove it from the configuration. Therefore, if the proxy/core is not operational, MFA authentication will fail, and the peer will not be added if it is disconnected.
+
 ## Core / Proxy - Failover
 
 The core service handles gateway states as well as core connects _**to the proxy**_. Since proxy serves HTTP based protocol communication and should be in the public Internet, it needs to be secure, thus core connects to the proxy.
