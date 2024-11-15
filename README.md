@@ -12,7 +12,7 @@ Defguard is a **comprehensive Remote Access Management solution** incorporating 
 
 * Remote Access secured by [WireGuard® VPN with 2FA/Multi-Factor Authentication](admin-and-features/features-and-configuration/wireguard/),
 * Identity Management with [SSO based on OpenID Identity Provider](admin-and-features/features-and-configuration/openid-connect/),
-* Account Lifecycle management with [secure remote account onboarding](help/enrollment.md).
+* Account Lifecycle management with [secure remote account onboarding](help/enrollment/).
 
 ***
 

@@ -508,7 +508,7 @@ On the other side, core service should print those informations:
 
 ### Proxy - enrollment, onboardin and desktop configuration service
 
-To run proxy service (for [remote onboarding & enrollment](../../help/enrollment.md)), we can do it by:
+To run proxy service (for [remote onboarding & enrollment](../../help/enrollment/)), we can do it by:
 
 ```
 # systemctl enable defguard-proxy.service

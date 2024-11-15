@@ -10,7 +10,9 @@
   * [Other WireGuard® Clients](help/configuring-vpn/adding-wireguard-devices/README.md)
     * [Configuring manually a device for a new VPN Location](help/configuring-vpn/adding-wireguard-devices/configuring-a-device-for-a-new-vpn-location.md)
 * [Password change / Reset](help/changing-your-password.md)
-* [Enrollment & Onboarding](help/enrollment.md)
+* [Enrollment & Onboarding](help/enrollment/README.md)
+  * [With internal Defguard SSO](help/enrollment/with-internal-defguard-sso.md)
+  * [With external SSO (Google/Microsoft/Custom)](help/enrollment/with-external-sso-google-microsoft-custom.md)
 * [Setting up 2FA/MFA](help/setting-up-2fa-mfa.md)
 * [Desktop Client](help/desktop-client.md)
 

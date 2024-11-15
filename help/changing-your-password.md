@@ -11,7 +11,7 @@ The same url you have used to do your remote enrollment & onboarding has the fun
 <figure><img src="../.gitbook/assets/password-reset.pg.png" alt=""><figcaption><p>Password reset in enrollment service</p></figcaption></figure>
 
 {% hint style="info" %}
-The enrollemnt service URL should be avaialbe in the onboarding email you have received when finishing the [onboarding\&enrollment process.](enrollment.md)
+The enrollemnt service URL should be avaialbe in the onboarding email you have received when finishing the [onboarding\&enrollment process.](enrollment/)
 {% endhint %}
 
 #### By admin
@@ -19,7 +19,7 @@ The enrollemnt service URL should be avaialbe in the onboarding email you have r
 Ask your administrator to send you the password reset link.&#x20;
 
 {% hint style="info" %}
-You should have you admin contact data on the onboarding message that was sent automatically after you have finished the [onboarding\&enrollment process.](enrollment.md)
+You should have you admin contact data on the onboarding message that was sent automatically after you have finished the [onboarding\&enrollment process.](enrollment/)
 {% endhint %}
 
 ## Changing your password in defguard

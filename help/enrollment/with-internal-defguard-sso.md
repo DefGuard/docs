@@ -1,11 +1,16 @@
-# Enrollment & Onboarding
+# With internal Defguard SSO
 
-Defguard provides **secure remote enrollment process (remote registration/activation)**, during which the user can:
+Defguard provides **secure remote enrollment process (remote registration and account activation)**, during which the user can:
 
 * double-check their data
 * setup their password
 * add their initial device to access VPN as a nice wizard!
 * see admin (that has added this user) **contact details**
+
+This process includes account setup and/or VPN configuration since defguard is used as an SSO for:
+
+* accessing all your applications, meaning with defguard's account you not only access/configure VPN but also log in to other applications.
+* and accessing the VPN.
 
 All done by a nice wizard:
 
@@ -30,7 +35,7 @@ What is great about this is that after the enrollment process is done - the desk
 When accessing the enrollment service in the browser the process is extended with the possibility to configure the **initial VPN device/access manually.**
 
 {% hint style="info" %}
-Even if the user will do enrollment in the browser - the desktop client can be configured later by using: [Remote desktop client activation.](../admin-and-features/features-and-configuration/wireguard/remote-desktop-activation.md)
+Even if the user will do enrollment in the browser - the desktop client can be configured later by using: [Remote desktop client activation.](../../admin-and-features/features-and-configuration/wireguard/remote-desktop-activation.md)
 {% endhint %}
 
 ## User onboarding after enrollment
