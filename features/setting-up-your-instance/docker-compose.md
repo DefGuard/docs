@@ -1,3 +1,7 @@
+---
+icon: truck-container
+---
+
 # Docker Compose
 
 Here are basic and simple docker-compose configuration files that will enable you to quickly deploy your own instance manually. We also assume in this example, that all services will deployed on dedicated servers/VMs - separating them physically, thus each compose is for a separate service.

@@ -1,3 +1,7 @@
+---
+icon: rocket
+---
+
 # One-line install script
 
 {% hint style="info" %}

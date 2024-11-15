@@ -1,3 +1,7 @@
+---
+icon: box-taped
+---
+
 # Standalone package based installation
 
 ## Introduction
@@ -656,7 +660,7 @@ DEFGUARD_DB_PASSWORD="defguard"
 DATABASE_URL="postgresql://defguard:defguard@localhost/defguard"
 ```
 
-&#x20;Reload changes in `/etc/defguarc/core.conf`
+Reload changes in `/etc/defguarc/core.conf`
 
 ```
 systemctl restart defguard.service

@@ -13,7 +13,7 @@ Has no external requirements and we have wireguard-go bundled.
 ### Linux
 
 {% hint style="warning" %}
-On Linux the desktop client uses `resolvconf` to manage DNS servers. On newer distributions it should be a symbolic link to `resolvectl`, more details can be found on the [troubleshooting](general-troubleshooting.md) page.
+On Linux the desktop client uses `resolvconf` to manage DNS servers. On newer distributions it should be a symbolic link to `resolvectl`, more details can be found on the [troubleshooting](broken-reference) page.
 {% endhint %}
 
 ### Windows

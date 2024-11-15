@@ -1,3 +1,7 @@
+---
+icon: stethoscope
+---
+
 # Health check
 
 ## Core & Proxy

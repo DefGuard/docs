@@ -1,3 +1,7 @@
+---
+icon: bolt
+---
+
 # High Availability and Failover
 
 Currently we support the following HA/failover scenarios:

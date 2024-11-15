@@ -1,3 +1,7 @@
+---
+icon: container-storage
+---
+
 # Docker images and tags
 
 All docker images for gateway, core and proxy have these aditional tags:
