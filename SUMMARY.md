@@ -78,7 +78,8 @@
 ## In depth
 
 * [Roadmap](features/roadmap.md)
-* [Architecture Overview](in-depth/architecture.md)
+* [Architecture](in-depth/architecture/README.md)
+  * [Security concepts](in-depth/architecture/security-concepts.md)
 
 ## For Developers
 
