@@ -12,13 +12,13 @@
     * [Configuring manually a device for a new VPN Location](help/configuring-vpn/adding-wireguard-devices/configuring-a-device-for-a-new-vpn-location.md)
 * [Password change / Reset](help/changing-your-password.md)
 * [Setting up 2FA/MFA](help/setting-up-2fa-mfa.md)
-* [Desktop Client](help/desktop-client/README.md)
-  * [Windows installer exit codes](help/desktop-client/windows-installer-exit-codes.md)
+* [Desktop Client](help/desktop-client.md)
 
 ## Admin & features
 
 * [Troubleshooting Guide](admin-and-features/troubleshooting/README.md)
   * [Sending support information](admin-and-features/troubleshooting/sending-support-info.md)
+  * [Client Windows installer exit codes](admin-and-features/troubleshooting-guide/windows-installer-exit-codes.md)
 * [Deploying your instance](features/setting-up-your-instance/README.md)
   * [Upgrading](features/setting-up-your-instance/upgrading.md)
   * [One-line install script](features/setting-up-your-instance/one-line-install.md)
