@@ -4,7 +4,7 @@ icon: file-certificate
 
 # License
 
-Defguard Enterprise offers a lot of functionalities that are not offered in the Open Source Open Core, like external OpenID Connect support, automatic\&real time desktop client synchronization and configuration, and much more (go to [All Enterprise Features](all-enteprise-features.md) to see more). In order to activate those features an Enterprise License must be obtained.
+Defguard Enterprise offers a lot of functionalities that are not offered in the Open Source Open Core, like external OpenID Connect support, automatic\&real time desktop client synchronization and configuration, and much more (go to [All Enterprise Features](all-enteprise-features/) to see more). In order to activate those features an Enterprise License must be obtained.
 
 {% hint style="info" %}
 From release 1.1.0 (to be released mid Nov 2024) **all enterprise features up to the following limits are free and no license is required!**

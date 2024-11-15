@@ -20,7 +20,7 @@ This approach is vastly different from most (if not all) VPN/IdP solutions, whic
 
 Incorporating IDM, ALM, VPN has also other advantages:
 
-1. Internal IdP with 2FA/MFA enables us to provide [**real VPN 2FA/MFA**](admin-and-features/features-and-configuration/wireguard/multi-factor-authentication-mfa-2fa/architecture.md) - and not like most applications just 2FA when opening the app (and not during the connection process). Even if you use [external OIDC](enterprise/external-openid-providers.md) (Google/Microsoft/Custom - which defguard supports), we still use our internal IdP for 2FA/MFA.
+1. Internal IdP with 2FA/MFA enables us to provide [**real VPN 2FA/MFA**](admin-and-features/features-and-configuration/wireguard/multi-factor-authentication-mfa-2fa/architecture.md) - and not like most applications just 2FA when opening the app (and not during the connection process). Even if you use [external OIDC](enterprise/all-enteprise-features/external-openid-providers.md) (Google/Microsoft/Custom - which defguard supports), we still use our internal IdP for 2FA/MFA.
 2. Your organisation may use just **one account** (login) for access control to all your applications as well as VPN.
 3. It simplifies deployment, maintenance, audits.
 

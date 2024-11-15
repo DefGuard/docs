@@ -23,7 +23,7 @@ If you have duplicate emails in your database, the migrations during the upgrade
 
 ### Desktop Client Real Time Sync
 
-From 1.0.0 we have introduced [Enterprise features](../../enterprise/all-enteprise-features.md),  and one of them is [automatic and real-time desktop client configuration synchronisation](../../enterprise/automatic-real-time-desktop-client-configuration.md).
+From 1.0.0 we have introduced [Enterprise features](../../enterprise/all-enteprise-features/),  and one of them is [automatic and real-time desktop client configuration synchronisation](../../enterprise/all-enteprise-features/automatic-real-time-desktop-client-configuration.md).
 
 To enable this on an **already configured desktop client** one must perform one time instance update, which will generate necessary tokens on the client to perform from now on automatic updates. In details:
 

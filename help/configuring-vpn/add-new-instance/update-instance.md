@@ -11,7 +11,7 @@ If you are looking for how to generate tokens for your users as an Administrator
 {% endhint %}
 
 {% hint style="warning" %}
-Updating the desktop client instance manually is only done if you are using defguard Open Source Open Core, if you have an Enterprise License, all desktop clients and all instances are [synchronized automatically and in real-time.](../../../enterprise/automatic-real-time-desktop-client-configuration.md)
+Updating the desktop client instance manually is only done if you are using defguard Open Source Open Core, if you have an Enterprise License, all desktop clients and all instances are [synchronized automatically and in real-time.](../../../enterprise/all-enteprise-features/automatic-real-time-desktop-client-configuration.md)
 {% endhint %}
 
 ## Why do instances need updates?

@@ -1,6 +1,10 @@
+---
+icon: up-right-from-square
+---
+
 # External OpenID providers
 
-Defguard, [apart from being an identity provider itself](../admin-and-features/features-and-configuration/openid-connect/), supports logging in through external OpenID providers. Currently, there are two built in providers (Google and Microsoft) but there is also an option to specify a custom provider.
+Defguard, [apart from being an identity provider itself](../../admin-and-features/features-and-configuration/openid-connect/), supports logging in through external OpenID providers. Currently, there are two built in providers (Google and Microsoft) but there is also an option to specify a custom provider.
 
 ### Prerequisites
 
@@ -29,7 +33,7 @@ This is an optional value required only if you are using Microsoft as your provi
 
 In order to configure the external OpenID provider login, go to the settings in the Defguard admin dashboard.
 
-<figure><img src="../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
 
 Everything related to the external OpenID configuration can be found in the OpenID tab of the settings page. First thing to do here would be to pick your provider using the dropdown menu under the "Provider" label. Next, fill out the required information with values acquired from your provider. If you picked "Microsoft" or "Custom", make sure to also make corresponding changes in the "Base URL" field. After you are done, click "Save changes" to keep your changes.&#x20;
 
@@ -44,37 +48,37 @@ You may have also noticed the checkbox option on the right. By default, when a n
 1. The Google OpenID connect can be configured in the [Google Cloud Console](https://console.cloud.google.com)
 2.  If you don't have any project setup already (or you want to create a new one for this purpose), create it by clicking the dropdown menu here:
 
-    <figure><img src="../.gitbook/assets/image (31).png" alt="" width="312"><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (31).png" alt="" width="312"><figcaption></figcaption></figure>
 
     If you already have project, make sure to select it in the above dropdown menu.
 3. Now, navigate to [`APIs & Services`](https://console.cloud.google.com/apis)&#x20;
 4. We will focus on the consent screen first, select `OAuth consent screen`
 5.  &#x20;Pick the User Type according to your needs, this example will focus on the internal type
 
-    <figure><img src="../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
 
 
 6. Fill in all required details. Make sure to fill the correct domain. This should be the top domain under which your Defguard dashboard can be accessed, not the subdomain (e.g. `defguard.example.com` -> `example.com`).&#x20;
 7.  On the scopes config screen, click `ADD OR REMOVE SCOPES`, Defguard requires at least the following scopes:
 
-    <figure><img src="../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
 
 
 8. Proceed until the end and return to the OAuth consent screen dashboard.
 9.  Now, go to [`Credentials`](https://console.cloud.google.com/apis/credentials), click `CREATE CREDENTIALS` and choose `OAuth client ID`&#x20;
 
-    <figure><img src="../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
 
 
 10. On the next screen, fill out all required information:\
 
 
-    <figure><img src="../.gitbook/assets/obraz (3).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/obraz (3).png" alt=""><figcaption></figcaption></figure>
 
     Make sure to select "Web application" as the application type. The other thing to note here is the redirect URI. It is the URI to which the user will be redirected from the external provider's authorization. This URI is in the form of `<DEFGUARD_DASHBOARD_URL>/auth/callback`. Replace `<DEFGUARD_DASHBOARD_URL>` with the URL under which your dashboard is accessible, e.g. `https://defguard.example.com`.
 11. After you proceed further, you will be presented with a popup containing your `Client ID` and `Client Secret`, copy them and paste on the Defguard OpenID configuration page.
 
-    <figure><img src="../.gitbook/assets/settings.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/settings.png" alt=""><figcaption></figcaption></figure>
 
 #### Microsoft
 
@@ -84,26 +88,26 @@ You may have also noticed the checkbox option on the right. By default, when a n
     \
 
 
-    <figure><img src="../.gitbook/assets/obraz (4).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/obraz (4).png" alt=""><figcaption></figcaption></figure>
 
 
 4. Click "Make new registration"
 5.  Fill out the form, like in the example:\
 
 
-    <figure><img src="../.gitbook/assets/obraz (5).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/obraz (5).png" alt=""><figcaption></figcaption></figure>
 
     Make sure the Redirect URL you insert here is correct. Replace `defguard.example.com` with the domain you use for your Defguard dashboard.
 6.  You should be now on the registered application's management screen. You can copy the client's ID and the tenant ID from here, as you need to provide them on the Defguard settings' page.\
 
 
-    <figure><img src="../.gitbook/assets/Zrzut ekranu 2024-10-18 o 16.13.54.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Zrzut ekranu 2024-10-18 o 16.13.54.png" alt=""><figcaption></figcaption></figure>
 7. Go to Defguard settings, click the OpenID tab and paste the copied client ID. The tenant ID should be inserted instead of the `<TENANT_ID>` placeholder in the base URL field.
 8.  &#x20;Now back in Microsoft Entra ID, still in your newly created application, go to Certificates and Secrets\
     \
 
 
-    <figure><img src="../.gitbook/assets/obraz (8).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/obraz (8).png" alt=""><figcaption></figcaption></figure>
 
 
 9. Click Client secrets and create a new client secret. Copy its **value** and paste it in your Defguard OpenID settings.
@@ -111,19 +115,19 @@ You may have also noticed the checkbox option on the right. By default, when a n
 11. Make sure to select the ID token type and the following claims:\
 
 
-    <figure><img src="../.gitbook/assets/obraz (9).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/obraz (9).png" alt=""><figcaption></figcaption></figure>
 
 
 12. Accept the popup or configure the API permissions manually.\
 
 
-    <figure><img src="../.gitbook/assets/obraz (10).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/obraz (10).png" alt=""><figcaption></figcaption></figure>
 
 
 13. Go to Authentication (again, it's in the menu on the left, still in the registered App settings) and enable the ID tokens field\
 
 
-    <figure><img src="../.gitbook/assets/obraz (11).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/obraz (11).png" alt=""><figcaption></figcaption></figure>
 
 
 14. Now you should be good to go. A new login button should appear on the login screen.

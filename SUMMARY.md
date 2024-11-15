@@ -65,10 +65,10 @@
 ## Enterprise Features <a href="#enterprise" id="enterprise"></a>
 
 * [License](enterprise/license.md)
-* [All enteprise features](enterprise/all-enteprise-features.md)
-* [Automatic (real time) desktop client configuration & sync](enterprise/automatic-real-time-desktop-client-configuration.md)
-* [External OpenID providers](enterprise/external-openid-providers.md)
-* [VPN & Client behavior customization](enterprise/behavior-customization.md)
+* [Enteprise features](enterprise/all-enteprise-features/README.md)
+  * [Automatic (real time) desktop client configuration & sync](enterprise/all-enteprise-features/automatic-real-time-desktop-client-configuration.md)
+  * [External OpenID providers](enterprise/all-enteprise-features/external-openid-providers.md)
+  * [VPN & Client behavior customization](enterprise/all-enteprise-features/behavior-customization.md)
 
 ## Tutorials
 
