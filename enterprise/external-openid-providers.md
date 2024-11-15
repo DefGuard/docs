@@ -1,6 +1,6 @@
 # External OpenID providers
 
-Defguard, [apart from being an identity provider itself](../features/openid-connect/), supports logging in through external OpenID providers. Currently, there are two built in providers (Google and Microsoft) but there is also an option to specify a custom provider.
+Defguard, [apart from being an identity provider itself](../admin-and-features/features-and-configuration/openid-connect/), supports logging in through external OpenID providers. Currently, there are two built in providers (Google and Microsoft) but there is also an option to specify a custom provider.
 
 ### Prerequisites
 

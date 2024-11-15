@@ -9,7 +9,7 @@ Each user can manage their public SSH (and GPG keys) in their user profile.
 
 Also, when provisioning YubiKeys - those keys are also available in user profile (with info on which YK they are stored):
 
-![](../.gitbook/assets/yk.png)
+![](../../.gitbook/assets/yk.png)
 {% endhint %}
 
 The specific API endpoint used for this is `/api/v1/ssh_authorized_keys`. It returns a list of public keys, each in a new line. It allows you to filter you query by specifying a username, a group or a combination of both.

@@ -1,6 +1,6 @@
 ---
-description: Notes on upgrading Defguard and its components
 icon: chevrons-up
+description: Notes on upgrading Defguard and its components
 ---
 
 # Upgrading
@@ -27,7 +27,7 @@ From 1.0.0 we have introduced [Enterprise features](../../enterprise/all-entepri
 
 To enable this on an **already configured desktop client** one must perform one time instance update, which will generate necessary tokens on the client to perform from now on automatic updates. In details:
 
-1. The admin must generate a new token for the client -[ more details here](../../admin-and-features/wireguard/remote-desktop-activation.md) (token can be sent over email or shared in any other secret way).
+1. The admin must generate a new token for the client -[ more details here](../../admin-and-features/features-and-configuration/wireguard/remote-desktop-activation.md) (token can be sent over email or shared in any other secret way).
 2. The user must perform the [Instance Update - more details here](../../help/configuring-vpn/add-new-instance/update-instance.md#how-to-update).
 
 {% hint style="warning" %}

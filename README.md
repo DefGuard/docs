@@ -6,8 +6,8 @@
 
 Defguard is a **comprehensive Remote Access Management solution** incorporating in one solution:
 
-* Remote Access secured by [WireGuard® VPN with 2FA/Multi-Factor Authentication](features/wireguard/),
-* Identity Management with [SSO based on OpenID Identity Provider](features/openid-connect/),
+* Remote Access secured by [WireGuard® VPN with 2FA/Multi-Factor Authentication](admin-and-features/features-and-configuration/wireguard/),
+* Identity Management with [SSO based on OpenID Identity Provider](admin-and-features/features-and-configuration/openid-connect/),
 * Account Lifecycle management with [secure remote account onboarding](help/enrollment.md).
 
 It's a **security platform** for building **secure** and **privacy-aware organizations,** as we put great emphasis not only on functionality but also on secure code, architecture and testing (application and security).
@@ -20,7 +20,7 @@ This approach is vastly different from most (if not all) VPN/IdP solutions, whic
 
 Incorporating IDM, ALM, VPN has also other advantages:
 
-1. Internal IdP with 2FA/MFA enables us to provide [**real VPN 2FA/MFA**](admin-and-features/wireguard/multi-factor-authentication-mfa-2fa/architecture.md) - and not like most applications just 2FA when opening the app (and not during the connection process). Even if you use [external OIDC](enterprise/external-openid-providers.md) (Google/Microsoft/Custom - which defguard supports), we still use our internal IdP for 2FA/MFA.
+1. Internal IdP with 2FA/MFA enables us to provide [**real VPN 2FA/MFA**](admin-and-features/features-and-configuration/wireguard/multi-factor-authentication-mfa-2fa/architecture.md) - and not like most applications just 2FA when opening the app (and not during the connection process). Even if you use [external OIDC](enterprise/external-openid-providers.md) (Google/Microsoft/Custom - which defguard supports), we still use our internal IdP for 2FA/MFA.
 2. Your organisation may use just **one account** (login) for access control to all your applications as well as VPN.
 3. It simplifies deployment, maintenance, audits.
 
@@ -47,7 +47,7 @@ It also means having **fundamental secure processes,** like:
 
 ### Remote Access with WireGuard® VPN 2FA/MFA:
 
-* [**Multi-Factor Authentication**](admin-and-features/wireguard/multi-factor-authentication-mfa-2fa/) using our [desktop client](https://defguard.net/client)
+* [**Multi-Factor Authentication**](admin-and-features/features-and-configuration/wireguard/multi-factor-authentication-mfa-2fa/) using our [desktop client](https://defguard.net/client)
 * **multiple VPN Locations** (networks/sites) - with defined access (all users or only Admin group)
 * multiple [Gateways](https://github.com/DefGuard/gateway) for each VPN Location (**high availability/failover**) - supported on a cluster of routers/firewalls for Linux, FreeBSD/PFSense/OPNSense
 * import your current WireGuard server configuration (with a wizard!)
@@ -100,16 +100,16 @@ Follow our handy guides to get started on the basics as quickly as possible:
 [setting-up-your-instance](features/setting-up-your-instance/)
 {% endcontent-ref %}
 
-{% content-ref url="features/wireguard/create-your-vpn-network.md" %}
-[create-your-vpn-network.md](features/wireguard/create-your-vpn-network.md)
+{% content-ref url="admin-and-features/features-and-configuration/wireguard/create-your-vpn-network.md" %}
+[create-your-vpn-network.md](admin-and-features/features-and-configuration/wireguard/create-your-vpn-network.md)
 {% endcontent-ref %}
 
-{% content-ref url="features/ldap-synchronization-setup/" %}
-[ldap-synchronization-setup](features/ldap-synchronization-setup/)
+{% content-ref url="admin-and-features/features-and-configuration/ldap-synchronization-setup/" %}
+[ldap-synchronization-setup](admin-and-features/features-and-configuration/ldap-synchronization-setup/)
 {% endcontent-ref %}
 
-{% content-ref url="community-features/webhooks.md" %}
-[webhooks.md](community-features/webhooks.md)
+{% content-ref url="admin-and-features/features-and-configuration/webhooks.md" %}
+[webhooks.md](admin-and-features/features-and-configuration/webhooks.md)
 {% endcontent-ref %}
 
 {% content-ref url="help/desktop-client.md" %}

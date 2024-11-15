@@ -1,3 +1,7 @@
+---
+icon: shoe-prints
+---
+
 # Step by step setting up a VPN server
 
 ### Introduction

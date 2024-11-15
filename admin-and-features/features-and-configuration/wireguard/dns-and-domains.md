@@ -8,4 +8,4 @@ To change / add DNS settings or a DNS search domain:
 
 For example:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-11-05 at 13.05.59.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-11-05 at 13.05.59.png" alt=""><figcaption></figcaption></figure>

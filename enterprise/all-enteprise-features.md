@@ -1,3 +1,7 @@
+---
+icon: square-web-awesome-stroke
+---
+
 # All enteprise features
 
 Here is a list of all Enterprise features:

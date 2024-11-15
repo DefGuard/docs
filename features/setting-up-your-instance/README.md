@@ -46,7 +46,7 @@ If you prefer to configure and deploy defguard manually see the examples below:
 Client services
 
 * [Gateway](../../admin-and-features/setting-up-your-instance/gateway/)
-* [YubiBridge](../yubikey-provisioning.md)
+* [YubiBridge](../../admin-and-features/features-and-configuration/yubikey-provisioning.md)
 
 {% hint style="info" %}
 On initial startup a new `admin` user will be created with a password which can be configured by the `DEFGUARD_DEFAULT_ADMIN_PASSWORD` environment variable (by default it's `pass123`). Use those credentials to log in and start exploring the system.

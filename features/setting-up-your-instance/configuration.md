@@ -64,7 +64,7 @@ This is of course not recommended in production but can be useful when testing w
 {% endhint %}
 
 * `DEFGUARD_COOKIE_INSECURE`: set cookies without the `Secure` flag; use only in dev environments when serving defguard without HTTPS
-* `DEFGUARD_COOKIE_DOMAIN` (optional): set the domain for auth cookies. By default, it's the domain from `DEFGUARD_URL`. Must be changed to base URL if you want to use [forward auth](../forward-auth.md).
+* `DEFGUARD_COOKIE_DOMAIN` (optional): set the domain for auth cookies. By default, it's the domain from `DEFGUARD_URL`. Must be changed to base URL if you want to use [forward auth](../../admin-and-features/features-and-configuration/forward-auth.md).
 
 ### Stats cleanup configuration
 

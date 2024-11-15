@@ -11,7 +11,7 @@ Before contacting support, please see if the answer cannot be found here:
 
 ## Desktop client real-time/auto sync doesn't work&#x20;
 
-The client communicates with core to initiate the handshake through the secure proxy (which is also the enrollment service - [more details about the architecture here](../wireguard/multi-factor-authentication-mfa-2fa/architecture.md)), so it's critical it works and is properly configured.
+The client communicates with core to initiate the handshake through the secure proxy (which is also the enrollment service - [more details about the architecture here](../features-and-configuration/wireguard/multi-factor-authentication-mfa-2fa/architecture.md)), so it's critical it works and is properly configured.
 
 Common problems may be:
 

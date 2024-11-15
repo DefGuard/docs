@@ -1,7 +1,7 @@
 # Proxmox
 
 {% hint style="warning" %}
-For Proxmox OIDC to work you'll have to run Defguard with [RSA signing key](../setting-up-your-instance/docker-compose.md#openid-rsa-setup).
+For Proxmox OIDC to work you'll have to run Defguard with [RSA signing key](../../../features/setting-up-your-instance/docker-compose.md#openid-rsa-setup).
 {% endhint %}
 
 ## Add Proxmox app to Defguard
@@ -27,7 +27,7 @@ After successfully adding your app you can see it in the OpenID apps list. When 
 2. Select `Datacenter`
 3. Select `Permissions -> Realms`
 
-![Proxmox Realm Settings](../../.gitbook/assets/proxmox-oidc-1.png)
+![Proxmox Realm Settings](../../../.gitbook/assets/proxmox-oidc-1.png)
 
 4. Select `Add -> OpenID Connect Server`
 5. Fill in the form:
@@ -48,7 +48,7 @@ Without `Autocreate users` option Proxmox won't be able to create new users, onl
 * Scopes: openid
 * Prompt: Auth-Provider Default
 
-![Proxmox OIDC Form](../../.gitbook/assets/proxmox-oidc-2.png)
+![Proxmox OIDC Form](../../../.gitbook/assets/proxmox-oidc-2.png)
 
 6. Save the form.
 

@@ -8,7 +8,7 @@ description: How to configure connection between Defguard instance and LDAP.
 
 First, navigate to the settings page and select the LDAP tab.
 
-<figure><img src="../../.gitbook/assets/image (18).png" alt=""><figcaption><p>Defguard settings page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption><p>Defguard settings page</p></figcaption></figure>
 
 Now change fields according to your LDAP instance.
 
