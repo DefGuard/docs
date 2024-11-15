@@ -4,7 +4,19 @@
 
 Desktop client provides an easy way to access VPN locations of multiple Defguard instances via user-friendly UI.
 
+Download latest release here: [https://defguard.net/download/](https://defguard.net/download/)
+
+For development/pre-relases go to github: [https://github.com/DefGuard/client/releases](https://github.com/DefGuard/client/releases)
+
 ## Supported Platforms
+
+### Windows
+
+Our desktop client has **bundled** official WireGuard client - as we use **wg.exe** to manage the WireGuard tunnels.
+
+{% hint style="warning" %}
+If you have the official WireGuard client installed - defguard client installation may fail.
+{% endhint %}
 
 ### MacOS
 
@@ -15,16 +27,6 @@ Has no external requirements and we have wireguard-go bundled.
 {% hint style="warning" %}
 On Linux the desktop client uses `resolvconf` to manage DNS servers. On newer distributions it should be a symbolic link to `resolvectl`, more details can be found on the [troubleshooting](broken-reference) page.
 {% endhint %}
-
-### Windows
-
-Our desktop client has **bundled** official WireGuard client - as we use **wg.exe** to manage the WireGuard tunnels.
-
-{% hint style="warning" %}
-If you have the official WireGuard client installed - defguard client installation may fail.
-{% endhint %}
-
-## Installation
 
 #### Debian packages, macOS, and Windows packages
 
@@ -46,8 +48,8 @@ Defguard Client regularly checks for updates and in order to do so operating sys
 
 This functionality can be turned off in the Client settings under Updates section so that no data is sent.
 
-<figure><img src="../../.gitbook/assets/defguard-client-settings-updates.png" alt=""><figcaption><p>"Check for updates" setting</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/defguard-client-settings-updates.png" alt=""><figcaption><p>"Check for updates" setting</p></figcaption></figure>
 
 If a new version is available, a notification with a download button will be shown near the bottom of the menu.
 
-<figure><img src="../../.gitbook/assets/defguard-client-new-release-available.png" alt=""><figcaption><p>New Desktop Client version available for download</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/defguard-client-new-release-available.png" alt=""><figcaption><p>New Desktop Client version available for download</p></figcaption></figure>
