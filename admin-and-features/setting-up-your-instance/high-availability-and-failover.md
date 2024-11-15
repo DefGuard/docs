@@ -48,3 +48,8 @@ So **High Availability for core and proxy** gets complicated, with multiple prox
 
 We recommend to deploy them on a failover solution - like on a kubernetes cluster (even small one - like mini-kube) . This way, kubernetes manages: healthecks and does failover. You can have cluster N-nodes and if any VM/node with Core/Proxy goes offline or health checks fail - it's migrated to a new node.
 
+Also failover is good eanough now, since:
+
+* gateways are fully active-active HA,
+* even if they fail, [peers are fully (or with configuration) persistent](high-availability-and-failover.md#what-is-the-gateway-peers-persistance-if-core-proxy-services-fail).&#x20;
+
