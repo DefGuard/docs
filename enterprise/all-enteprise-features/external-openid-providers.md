@@ -46,33 +46,29 @@ You may have also noticed the checkbox option on the right. By default, when a n
 [Full Google documentation](https://developers.google.com/identity/openid-connect/openid-connect)
 
 1. The Google OpenID Connect can be configured in the [Google Cloud Console](https://console.cloud.google.com)
-2. If you don't have any project setup already (or you want to create a new one for this purpose), create it by clicking the dropdown menu here:
+2.  If you don't have any project setup already (or you want to create a new one for this purpose), create it by clicking the dropdown menu here:
 
     <figure><img src="../../.gitbook/assets/image (31).png" alt="" width="312"><figcaption></figcaption></figure>
 
     If you already have project, make sure to select it in the above dropdown menu.
 3. Now, navigate to [`APIs & Services`](https://console.cloud.google.com/apis)
 4. We will focus on the consent screen first, select `OAuth consent screen`
-5. Pick the User Type according to your needs, this example will focus on the internal type
+5.  Pick the User Type according to your needs, this example will focus on the internal type
 
     <figure><img src="../../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
-
 6. Fill in all required details. Make sure to fill the correct domain. This should be the top domain under which your Defguard dashboard can be accessed, not the subdomain (e.g. `defguard.example.com` -> `example.com`).
 7.  On the scopes config screen, click `ADD OR REMOVE SCOPES`, Defguard requires at least the following scopes:
 
     <figure><img src="../../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
-
 8. Proceed until the end and return to the OAuth consent screen dashboard.
-9. Now, go to [`Credentials`](https://console.cloud.google.com/apis/credentials), click `CREATE CREDENTIALS` and choose `OAuth client ID`
+9.  Now, go to [`Credentials`](https://console.cloud.google.com/apis/credentials), click `CREATE CREDENTIALS` and choose `OAuth client ID`
 
     <figure><img src="../../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
-
 10. On the next screen, fill out all required information:
 
     <figure><img src="../../.gitbook/assets/obraz (3).png" alt=""><figcaption></figcaption></figure>
 
     Make sure to select "Web application" as the application type. The other thing to note here is the redirect URI. It is the URI to which the user will be redirected from the external provider's authorization. This URI is in the form of `<DEFGUARD_DASHBOARD_URL>/auth/callback`. Replace `<DEFGUARD_DASHBOARD_URL>` with the URL under which your dashboard is accessible, e.g. `https://defguard.example.com`.
-
 11. After you proceed further, you will be presented with a popup containing your `Client ID` and `Client Secret`, copy them and paste on the Defguard OpenID configuration page.
 
     <figure><img src="../../.gitbook/assets/settings.png" alt=""><figcaption></figcaption></figure>
@@ -81,40 +77,35 @@ You may have also noticed the checkbox option on the right. By default, when a n
 
 1. Go to [https://portal.azure.com/](https://portal.azure.com)
 2. Navigate to Microsoft Entra ID
-3. In the Microsoft Entra ID, click Manage and select App registrations from the menu on the left.
+3.  In the Microsoft Entra ID, click Manage and select App registrations from the menu on the left.
 
     <figure><img src="../../.gitbook/assets/obraz (4).png" alt=""><figcaption></figcaption></figure>
-
 4. Click "Make new registration"
-5. Fill out the form, like in the example:
+5.  Fill out the form, like in the example:
 
     <figure><img src="../../.gitbook/assets/obraz (5).png" alt=""><figcaption></figcaption></figure>
 
 Make sure the Redirect URL you insert here is correct. Replace `defguard.example.com` with the domain you use for your Defguard dashboard.
 
-6. You should be now on the registered application's management screen. You can copy the client's ID and the tenant ID from here, as you need to provide them on the Defguard settings' page.
+6.  You should be now on the registered application's management screen. You can copy the client's ID and the tenant ID from here, as you need to provide them on the Defguard settings' page.
 
     <figure><img src="../../.gitbook/assets/Zrzut ekranu 2024-10-18 o 16.13.54.png" alt=""><figcaption></figcaption></figure>
-
 7. Go to Defguard settings, click the OpenID tab and paste the copied client ID. The tenant ID should be inserted instead of the `<TENANT_ID>` placeholder in the base URL field.
-8. Now back in Microsoft Entra ID, still in your newly created application, go to **Certificates & Secrets**
+8.  Now back in Microsoft Entra ID, still in your newly created application, go to **Certificates & Secrets**
 
     <figure><img src="../../.gitbook/assets/obraz (8).png" alt=""><figcaption></figcaption></figure>
-
 9. Click Client secrets and create a new client secret. Copy its **value** and paste it in your Defguard OpenID settings.
 10. Go to Token configuration (in the menu on the left) and add a new optional token claim.
 11. Make sure to select the ID token type and the following claims:
 
     <figure><img src="../../.gitbook/assets/obraz (9).png" alt=""><figcaption></figcaption></figure>
-
 12. Accept the popup or configure the API permissions manually.
 
 <figure><img src="../../.gitbook/assets/obraz (10).png" alt=""><figcaption></figcaption></figure>
 
-13. Go to Authentication (again, it's in the menu on the left, still in the registered App settings) and enable the ID tokens field\
+13. Go to Authentication (again, it's in the menu on the left, still in the registered App settings) and enable the ID tokens field
 
     <figure><img src="../../.gitbook/assets/obraz (11).png" alt=""><figcaption></figcaption></figure>
-
 14. Now you should be good to go. A new login button should appear on the login screen.
 
 #### Custom OpenID provider
@@ -131,8 +122,6 @@ In order to get the **Client ID** and **Client Secret** values, refer to the doc
 
 When configuring your external OpenID provider, at some point you will need to provide a callback URL, which will redirect the user back to Defguard. This URL is in form of `<DEFGUARD_DASHBOARD_URL>/auth/callback`. Replace `<DEFGUARD_DASHBOARD_URL>` with the URL under which your dashboard is accessible, e.g. `https://defguard.example.com`.
 
-### Examples
-
 #### Zitadel
 
 Refer to [Zitadel's documentation](https://zitadel.com/docs) on how to install it.
@@ -142,25 +131,21 @@ To use Zitadel with Defguard:
 1. Log in to Zitadel's web interface.
 2. Create a project.
 3. Add a new application within the project.
-4. Select **Web** for applicatiom type.
+4.  Select **Web** for applicatiom type.
 
     <figure><img src="../../.gitbook/assets/zitadel1.png" alt=""><figcaption></figcaption></figure>
-
-5. Choose **Code** for authorization method.
+5.  Choose **Code** for authorization method.
 
     <figure><img src="../../.gitbook/assets/zitadel2.png" alt=""><figcaption></figcaption></figure>
-
-6. Enter redirect URI for your Defguard instance. The URI is in the form `<DEFGUARD_DASHBOARD_URL>/auth/callback`, for example `https://defguard.example.com/auth/callback`. (If Defguard has been launched on the _localhost_, select **Development Mode** and enter `http://localhost:8000/auth/callback`.)
+6.  Enter redirect URI for your Defguard instance. The URI is in the form `<DEFGUARD_DASHBOARD_URL>/auth/callback`, for example `https://defguard.example.com/auth/callback`. (If Defguard has been launched on the _localhost_, select **Development Mode** and enter `http://localhost:8000/auth/callback`.)
 
     <figure><img src="../../.gitbook/assets/zitadel3.png" alt=""><figcaption></figcaption></figure>
-
 7. **Create** the application.
 8. Copy the provided **Client ID** and **Client Secret** and enter these in the Defguard's OpenID settings.
-9. Finally, in the **Token Settings**, enable **User Infor inside ID Token**.
+9.  Finally, in the **Token Settings**, enable **User Infor inside ID Token**.
 
     <figure><img src="../../.gitbook/assets/zitadel4.png" alt=""><figcaption></figcaption></figure>
 
 #### Keycloak
 
 A basic guide about securing applications using Keycloack can be found [here](https://www.keycloak.org/getting-started/getting-started-docker#\_secure\_the\_first\_application).
-
