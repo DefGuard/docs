@@ -4,7 +4,15 @@ icon: up-right-from-square
 
 # External OpenID providers
 
-Defguard, [apart from being an identity provider itself](../../../admin-and-features/features-and-configuration/openid-connect/), supports logging in through external OpenID providers. Currently, there are two built-in providers (Google and Microsoft), but there is also an option to specify a custom one.
+Defguard, [apart from being an identity provider itself](../../../admin-and-features/features-and-configuration/openid-connect/), supports logging in through external OpenID providers. All providers that support standard and common **code authorization flow should work.**
+
+Here are dedicated tutorials for most common SSO providers:
+
+* [Google](google.md)
+* [Microsoft](microsoft.md)
+* [Zitadel](zitadel.md)
+* [Keycloak](keycloak.md)
+* Tested by our users and confirmed: Okta, JumpCloud, Authentik, Authelia.
 
 ## Prerequisites
 
@@ -68,10 +76,5 @@ For this to work, make sure you have the following two things set:
 
 If you disable the option above, new users won't be able to automatically go through the enrollment. You will need to create their accounts by hand (with the same email address as the one they have set on your OIDC provider's side) and only then they will have an option to activate it by logging through the provider.
 
-## Examples
 
-* [Google](google.md)
-* [Microsoft](microsoft.md)
-* [Zitadel](zitadel.md)
-* [Keycloak](keycloak.md)
 
