@@ -74,6 +74,7 @@
     * [Microsoft](enterprise/all-enteprise-features/external-openid-providers/microsoft.md)
     * [Zitadel](enterprise/all-enteprise-features/external-openid-providers/zitadel.md)
     * [Keycloak](enterprise/all-enteprise-features/external-openid-providers/keycloak.md)
+  * [External OIDC secure enrollment](enterprise/all-enteprise-features/external-oidc-secure-enrollment.md)
   * [VPN & Client behavior customization](enterprise/all-enteprise-features/behavior-customization.md)
 
 ## Tutorials
