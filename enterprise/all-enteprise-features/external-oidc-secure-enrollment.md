@@ -1,3 +1,7 @@
+---
+icon: shield-check
+---
+
 # External OIDC secure enrollment
 
 When [External OIDC is enabled](external-openid-providers/) users have the possibility to [securely enroll (automatically create a defguard account) and very easily configure their desktop client](../../help/enrollment/with-external-sso-google-microsoft-custom.md) just by logging in with the SSO provider:
