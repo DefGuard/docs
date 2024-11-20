@@ -36,7 +36,7 @@ Of course you can deploy defguard in a typical scenario (all services on one ser
 
 Incorporating IDM, ALM, VPN has also other advantages:
 
-1. Internal IdP with 2FA/MFA enables us to provide [**real VPN 2FA/MFA**](admin-and-features/features-and-configuration/wireguard/multi-factor-authentication-mfa-2fa/architecture.md) - and not like most applications just 2FA when opening the app (and not during the connection process). Even if you use [external OIDC](enterprise/all-enteprise-features/external-openid-providers.md) (Google/Microsoft/Custom - which defguard supports), we still use our internal IdP for 2FA/MFA.
+1. Internal IdP with 2FA/MFA enables us to provide [**real VPN 2FA/MFA**](admin-and-features/features-and-configuration/wireguard/multi-factor-authentication-mfa-2fa/architecture.md) - and not like most applications just 2FA when opening the app (and not during the connection process). Even if you use [external OIDC](enterprise/all-enteprise-features/external-openid-providers/) (Google/Microsoft/Custom - which defguard supports), we still use our internal IdP for 2FA/MFA.
 2. Your organization may use just **one account** (login) for access control to all your applications as well as VPN.
 3. It simplifies deployment, maintenance, audits.
 
@@ -60,7 +60,7 @@ _defguard is not an official WireGuard project, and WireGuard is a registered tr
 ### Identity Management:
 
 * ### [OpenID Connect](https://openid.net/developers/how-connect-works/) based SSO
-* External [OpenID providers for login/account creation (Google/Microsoft/Custom)](enterprise/all-enteprise-features/external-openid-providers.md)
+* External [OpenID providers for login/account creation (Google/Microsoft/Custom)](enterprise/all-enteprise-features/external-openid-providers/)
 * LDAP (tested on [OpenLDAP](https://www.openldap.org/)) synchronization
 * nice UI to manage users
 * Users **self-service** (besides typical data management, users can revoke access to granted apps, MFA, Wireguard, etc.)

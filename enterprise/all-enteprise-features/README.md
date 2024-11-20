@@ -2,11 +2,11 @@
 icon: square-web-awesome-stroke
 ---
 
-# All enteprise features
+# Enteprise features
 
 Here is a list of all Enterprise features:
 
-* [Ability to use external OIDC](external-openid-providers.md) (Google/Microsoft/Custom) to login or create defguard account.
+* [Ability to use external OIDC](external-openid-providers/) (Google/Microsoft/Custom) to login or create defguard account.
 * [Real time sync for client configurations](automatic-real-time-desktop-client-configuration.md)! **First WireGuard client to support this feature!**&#x20;
 * Ability to [disable for users to manage their devices](behavior-customization.md#disable-for-users-to-manage-their-devices) (just admin will have this possibility).
 * Ability to [disable for users to configure WireGuard clients other then defguard desktop client](behavior-customization.md#disable-ability-to-configure-other-vpn-clients-then-defguard-desktop-client).

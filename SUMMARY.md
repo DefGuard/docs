@@ -69,7 +69,11 @@
 * [License](enterprise/license.md)
 * [Enteprise features](enterprise/all-enteprise-features/README.md)
   * [Automatic (real time) desktop client configuration & sync](enterprise/all-enteprise-features/automatic-real-time-desktop-client-configuration.md)
-  * [External OpenID providers](enterprise/all-enteprise-features/external-openid-providers.md)
+  * [External OpenID providers](enterprise/all-enteprise-features/external-openid-providers/README.md)
+    * [Google](enterprise/all-enteprise-features/external-openid-providers/google.md)
+    * [Microsoft](enterprise/all-enteprise-features/external-openid-providers/microsoft.md)
+    * [Zitadel](enterprise/all-enteprise-features/external-openid-providers/zitadel.md)
+    * [Keycloak](enterprise/all-enteprise-features/external-openid-providers/keycloak.md)
   * [VPN & Client behavior customization](enterprise/all-enteprise-features/behavior-customization.md)
 
 ## Tutorials
