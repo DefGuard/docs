@@ -29,6 +29,20 @@ The base URL is used to discover all the necessary provider's endpoints which wi
 
 This is an optional value required only if you are using Microsoft as your provider. Insert it in the `BASE_URL` field by replacing the `<TENANT_ID>` placeholder.
 
+#### Redirect URI
+
+In almost any provider's configuration you will need to define a set of allowed redirect URIs. Those URIs are the URIs to which the user will be redirected after completing the login on the provider's site. In our case, the user should be redirected back to Defguard, hence, those URIs depend on your Defguard domains and have the following form:
+
+* `<DEFGUARD_DASHBOARD_URL>/auth/callback`
+* `<DEFGUARD_ENROLLMENT_URL>/openid/callback`
+
+For example, if your Defguard main dashboard is accessible at `https://defguard.my-domain.net` and your users perform the enrollment through a proxy accessible at `https://enrollment.my-domain.net` you would need to enter the following URIs:
+
+* `https://defguard.my-domain.net/auth/callback`
+* `https://enrollment.my-domain.net/openid/callback`
+
+These URIs will need to be provided in your provider's configuration. See [#examples](external-openid-providers.md#examples "mention") to learn more.
+
 ### Configuration and setup
 
 In order to configure the external OpenID provider login, go to the settings in the Defguard admin dashboard.
@@ -37,7 +51,22 @@ In order to configure the external OpenID provider login, go to the settings in 
 
 Everything related to the external OpenID configuration can be found in the OpenID tab of the settings page. First thing to do here would be to pick your provider using the dropdown menu under the "Provider" label. Next, fill out the required information with values acquired from your provider. If you picked "Microsoft" or "Custom", make sure to also make corresponding changes in the "Base URL" field. After you are done, click "Save changes" to keep your changes.
 
-You may have also noticed the checkbox option on the right. By default, when a new user (i.e. a user of whom Defguard has no record) logs in for the first time using the external OpenID feature, its account is created automatically, based on the personal details (first name, last name, email) received from the external provider. If you'd like to manually manage such users, uncheck the checkbox. Now users will need to be manually created in Defguard first in order to log in.
+You may have also noticed the checkbox option on the right. By default, when a new user (i.e. a user of whom Defguard has no record) logs in for the first time using the external OpenID feature, its account is created automatically, based on the personal details (first name, last name, email) received from the external provider. If you'd like to manually manage such users, uncheck the checkbox. Now users will need to be manually created in Defguard first in order to log in through the external provider.
+
+### OpenID enrollment
+
+When you configure your provider, the proxy will automatically allow enrolling users through it. See [with-external-sso-google-microsoft-custom.md](../../help/enrollment/with-external-sso-google-microsoft-custom.md "mention") for the process from the user's point of view.
+
+For this to work, make sure you have the following two things set:
+
+* Additional allowed redirect URI in your provider's configuration (see [#redirect-url](external-openid-providers.md#redirect-url "mention"))&#x20;
+* A `DEFGUARD_PROXY_URL` environment variable set correctly for your proxy (not core). This variable needs to be set for your proxy and should be equal to the URL where users perform the enrollment process. This should be set automatically if you are using the one-line deployment script version `1.2.1` or above. E.g. if your enrollment URL is `https://enrollment.my-domain.net`, set `DEFGUARD_PROXY_URL` to `https://enrollment.my-domain.net`.
+
+#### Disabling automatic account creation
+
+<figure><img src="../../.gitbook/assets/image (40).png" alt=""><figcaption></figcaption></figure>
+
+If you disable the option above, new users won't be able to automatically go through the enrollment. You will need to create their accounts by hand (with the same email address as the one they have set on your OIDC provider's side) and only then they will have an option to activate it by logging through the provider.
 
 ### Examples
 
@@ -68,7 +97,7 @@ You may have also noticed the checkbox option on the right. By default, when a n
 
     <figure><img src="../../.gitbook/assets/obraz (3).png" alt=""><figcaption></figcaption></figure>
 
-    Make sure to select "Web application" as the application type. The other thing to note here is the redirect URI. It is the URI to which the user will be redirected from the external provider's authorization. This URI is in the form of `<DEFGUARD_DASHBOARD_URL>/auth/callback`. Replace `<DEFGUARD_DASHBOARD_URL>` with the URL under which your dashboard is accessible, e.g. `https://defguard.example.com`.
+    Make sure to select "Web application" as the application type. The other thing to note here is the redirect URI. It is the URI to which the user will be redirected from the external provider's authorization. This URI is in the form of `<DEFGUARD_DASHBOARD_URL>/auth/callback`. Replace `<DEFGUARD_DASHBOARD_URL>` with the URL under which your dashboard is accessible, e.g. `https://defguard.example.com`. If you'd like to use OpenID enrollment through proxy, make sure to enter an additional URI here in the form of `<DEFGUARD_ENROLLMENT_URL>/openid/callback`.
 11. After you proceed further, you will be presented with a popup containing your `Client ID` and `Client Secret`, copy them and paste on the Defguard OpenID configuration page.
 
     <figure><img src="../../.gitbook/assets/settings.png" alt=""><figcaption></figcaption></figure>
@@ -85,7 +114,7 @@ You may have also noticed the checkbox option on the right. By default, when a n
 
     <figure><img src="../../.gitbook/assets/obraz (5).png" alt=""><figcaption></figcaption></figure>
 
-Make sure the Redirect URL you insert here is correct. Replace `defguard.example.com` with the domain you use for your Defguard dashboard.
+Make sure the Redirect URL you insert here is correct. Replace `defguard.example.com` with the domain you use for your Defguard dashboard. If you'd like to use OpenID enrollment through proxy, make sure to enter an additional URI here in the form of `<DEFGUARD_ENROLLMENT_URL>/openid/callback`.
 
 6.  You should be now on the registered application's management screen. You can copy the client's ID and the tenant ID from here, as you need to provide them on the Defguard settings' page.
 
@@ -103,10 +132,7 @@ Make sure the Redirect URL you insert here is correct. Replace `defguard.example
 
 <figure><img src="../../.gitbook/assets/obraz (10).png" alt=""><figcaption></figcaption></figure>
 
-13. Go to Authentication (again, it's in the menu on the left, still in the registered App settings) and enable the ID tokens field
-
-    <figure><img src="../../.gitbook/assets/obraz (11).png" alt=""><figcaption></figcaption></figure>
-14. Now you should be good to go. A new login button should appear on the login screen.
+13. Now you should be good to go. A new login button should appear on the login screen.
 
 #### Custom OpenID provider
 
@@ -120,7 +146,9 @@ The easiest way of obtaining the Base URL is finding out what is the OpenID `.we
 
 In order to get the **Client ID** and **Client Secret** values, refer to the documentation of your custom provider of choice.
 
-When configuring your external OpenID provider, at some point you will need to provide a callback URL, which will redirect the user back to Defguard. This URL is in form of `<DEFGUARD_DASHBOARD_URL>/auth/callback`. Replace `<DEFGUARD_DASHBOARD_URL>` with the URL under which your dashboard is accessible, e.g. `https://defguard.example.com`.
+When configuring your external OpenID provider, at some point you will need to provide a callback URL, which will redirect the user back to Defguard. This URL is in form of `<DEFGUARD_DASHBOARD_URL>/auth/callback`. Replace `<DEFGUARD_DASHBOARD_URL>` with the URL under which your dashboard is accessible, e.g. `https://defguard.example.com`. If you'd like to use OpenID enrollment through proxy too, make sure to enter an additional URI in the form of `<DEFGUARD_ENROLLMENT_URL>/openid/callback`.
+
+If you're having issues with your custom provider's base URL, check Defguard's (core) logs. It should say what URL it expected.&#x20;
 
 #### Zitadel
 
@@ -137,7 +165,7 @@ To use Zitadel with Defguard:
 5.  Choose **Code** for authorization method.
 
     <figure><img src="../../.gitbook/assets/zitadel2.png" alt=""><figcaption></figcaption></figure>
-6.  Enter redirect URI for your Defguard instance. The URI is in the form `<DEFGUARD_DASHBOARD_URL>/auth/callback`, for example `https://defguard.example.com/auth/callback`. (If Defguard has been launched on the _localhost_, select **Development Mode** and enter `http://localhost:8000/auth/callback`.)
+6.  Enter redirect URI for your Defguard instance. The URI is in the form `<DEFGUARD_DASHBOARD_URL>/auth/callback`, for example `https://defguard.example.com/auth/callback`. (If Defguard has been launched on the _localhost_, select **Development Mode** and enter `http://localhost:8000/auth/callback`). If you'd like to use OpenID enrollment through proxy, make sure to enter an additional URI here in the form of `<DEFGUARD_ENROLLMENT_URL>/openid/callback`.
 
     <figure><img src="../../.gitbook/assets/zitadel3.png" alt=""><figcaption></figcaption></figure>
 7. **Create** the application.
