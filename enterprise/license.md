@@ -4,10 +4,12 @@ icon: file-certificate
 
 # License
 
-Defguard Enterprise offers a lot of functionalities that are not offered in the Open Source Open Core, like external OpenID Connect support, automatic\&real time desktop client synchronization and configuration, and much more (go to [All Enterprise Features](all-enteprise-features/) to see more). In order to activate those features an Enterprise License must be obtained.
+Defguard Enterprise offers a lot of functionalities that are not offered in the Open Source Open Core, like external OpenID Connect/SSO support, automatic\&real time desktop client synchronization and configuration, and much more (go to [All Enterprise Features](all-enteprise-features/) to see more).
+
+### Enterprise is free up to certain limits
 
 {% hint style="info" %}
-From release 1.1.0 (to be released mid Nov 2024) **all enterprise features up to the following limits are free and no license is required!**
+From release 1.1.0 **all enterprise features up to the following limits are free and no license is required:**
 
 * 5 active users
 * 10 devices
@@ -16,12 +18,14 @@ From release 1.1.0 (to be released mid Nov 2024) **all enterprise features up to
 
 Those limits should be more then enough for small businesses, home-labs or just to test out Enterprise features before committing.
 
+### Purchasing the license
+
 If you would like to purchase a license, we offer two types of licenses:
 
 1. **Subscription** that can be bought on [https://defguard.net/pricing/](https://defguard.net/pricing/)
 2. **Offline with a defined custom period.**
 
-### Subscription
+#### Subscription
 
 You can buy a monthly (soon yearly) subscription on our website: [https://defguard.net/pricing/](https://defguard.net/pricing/).
 
@@ -34,7 +38,7 @@ After purchasing:
 If your setup / firewall / network policy **doesn't allow that defguard will contact our licensing server, please contact us for the** [**Offline license**](license.md#offline-license)**.**
 {% endhint %}
 
-### Offline license
+#### Offline license
 
 Defguard is build with the highest security architecture in mind, thus there may be scenarios where you don't want any of the components to contact external services (eg. defguard core will have no access to Internet).
 
