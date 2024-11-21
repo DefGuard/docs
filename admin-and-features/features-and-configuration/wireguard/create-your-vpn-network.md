@@ -1,58 +1,59 @@
-# Create your VPN network
+# Create new VPN Location
 
-## Before we start
+A VPN location is a VPN network to which users can connect to. Every location has a [dedicated gateway](../../setting-up-your-instance/gateway/) (or [multiple gateways if you deploy a high-availability solution](../../setting-up-your-instance/high-availability-and-failover.md#gateway-high-availability)).
 
-* Make sure your Defguard instance is [deployed](../../../features/setting-up-your-instance/) and running
-* Make sure you downloaded our [Wireguard Gateway](https://github.com/DefGuard/gateway)
-* Make sure you know what [Wireguard](https://www.wireguard.com/) is and have basic understanding of how it works
-
-## Network creation wizard
-
-After successful deployment of your Defguard instance first screen you'll see will look like this
-
-![First screen after logging to your freshly installed instance](../../../.gitbook/assets/Wizard.png)
-
-### Network name and type
-
-Nothing fancy in this step just pick your network name and type
-
-![First step on network creation wizard](../../../.gitbook/assets/wizardstep1.png)
-
-{% hint style="info" %}
-Currently only supported network type is regular but we hope it'll change in a short future
+{% hint style="success" %}
+Defguard supports **multiple locations**, for each location to work you need to configure it and deploy a dedicated gateway.
 {% endhint %}
 
-### Network configuration
+When creating a new VPN location you can choose if you want to **create it from scratch (Manual Configuration)** or **import your current WireGuard configuration**:
 
-After choosing a name for your network you"ll be on to the next step which is network configuration this is where things might feel a little bit complicated but no worries it be as painless as possible.
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-11-21 at 14.19.04.png" alt=""><figcaption></figcaption></figure>
 
-![Network configuration setup](../../../.gitbook/assets/wizardstep2.png)
+## VPN Location settings
 
-### Let's briefly discuss all of these weird inputs
+Next step is configuring the location settings:
 
-### **Address**
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-11-21 at 14.29.53.png" alt=""><figcaption></figcaption></figure>
 
-It’s the IP address of the network interface that Wireguard sets up for the peer.
+### Location name
 
-The IP address for a WireGuard interface is defined with a network prefix, which tells the local host what other IP addresses are available on the same virtual subnet as the interface. In the above placeholder, this prefix is /24. That indicate to the localhost that other addresses in the same /24 block as the address itself (10.1.1.0 to 10.1.1.255) are routable through the interface.
+It's a name that will be visible both on the UI, but also in the desktop client for all the users. For exaple if you name your location _Monaco Office_, the desktop client will show:
 
-### Network port
+<figure><img src="../../../.gitbook/assets/Screenshot 2024-11-21 at 14.37.51.png" alt="" width="375"><figcaption></figcaption></figure>
 
-Port on which Wireguard listens on the gateway
+### **Gateway VPN IP address and mask:**
 
-### Gateway endpoint
+By providing the VPN IP/mask, you are configuring both: **the VPN internal network and VPN server IP**. Every gateway will bind to this address and defguard will also generate and assign IP addresses for devices in this location from this network.
 
-It's IP address of your [gateway](https://github.com/DefGuard/gateway) in Wireguard words Endpoint is the remote peer's "real" IP address and port, outside of the WireGuard VPN. This setting tells the localhost how to connect to the remote peer in order to set up a WireGuard tunnel.
+#### Examples
+
+1. 10.11.0.1/8
+   1. internal VPN network will be: 10.11.0.0 with netmask 255.0.0.0
+   2. VPN gateway internal ip will be: 10.11.0.1
+2. 192.168.8.1/24
+   1. internal VPN network will be: 192.168.8.0 with netmask 255.255.255.0
+   2. VPN gateway internal ip will be: 192.168.8.1
+
+### Gateway address
+
+It's the **public IP** address to which the remote peer's/users will connect to. This IP address is **will be shared in the configuration** for the clients, but defguard gateways do **not bind to this address**.&#x20;
 
 {% hint style="warning" %}
-Network port and gateway endpoint port can be different if Wireguard server is behind NAT/Firewall
+Defguard gateways bind to all IP addresses and the port defined below.
+
+This is very handy if you are setting up a **high availability active-active** solution with multiple gateways - then this public IP needs to be exposed and controled by load-balancers or any other solution that will forward this to gateways.
 {% endhint %}
 
-### Optional settings:
+### Gateway port
+
+Defguard **gateways bind to this port** and this port is shared in configuration to any client.
 
 ### Allowed IPs
 
-is the set of IP addresses the localhost should route to the remote peer through the WireGuard tunnel. This setting tells the localhost what goes in a tunnel.
+Defines the IP ranges a device is allowed to route or communicate with.
+
+It supports multiple networks separated with comma, eg. 10.11.1.0/0, 192.168.1.0/24
 
 ### DNS
 
@@ -63,42 +64,3 @@ For now defguard (and defguard client) **only supports a single DNS server** (si
 
 So dns server should be one IP, like: 10.10.10.1
 {% endhint %}
-
-## What to do after wizard completion?
-
-After completing all steps from above you will be redirected to Network overview page which detect if your gateway is connected or not if your gateway never connected to Defguard you'll see modal looking like this
-
-![Modal with docker command to copy to start your gateway server](../../../.gitbook/assets/rungatewaymodal.png)
-
-### Wireguard Gateway setup
-
-Wireguard Gateway is a client program which connects to Defguard in order to setup your network and send all information about your network and it's users. You can think about it like waiter which delivers food(data eg. stats, configuration) between client(Defguard server) and server(wireguard server) and takes orders from Defguard server to setup your network.
-
-#### First run
-
-After creating your network on Defguard you'll see modal pop-up as in picture above with docker run command to start your gateway server but there are other options to start your server.
-
-{% hint style="info" %}
-If you want to use above command make sure you have [docker](https://www.docker.com/) installed.
-{% endhint %}
-
-Second option is downloading source code from this [repository](https://github.com/DefGuard/gateway) and building it using\
-`cargo build --release` command then you'll find binary file named `gateway` at `target/release` directory
-
-Or if you don't want to build it yourself, you can find prebuild binaries [here](https://github.com/DefGuard/gateway/releases).
-
-#### Environmental variables / Arguments
-
-If you're using docker image you can pass this value as environmental variables on binary you can pass them as arguments
-
-`DEFGUARD_USERSPACE` , `-u` - Use userspace wireguard implementation, useful on systems without native wireguard support
-
-`DEFGUARD_GRPC_URL` , `-g` - Defguard server gRPC endpoint URL default is https://localhost:50055
-
-`DEFGUARD_STATS_PERIOD` ,`-p` - Defines how often (seconds) should interface statistics be sent to Defguard server
-
-`DEFGUARD_TOKEN` ,`-t` - Token received on Defguard after completing network wizard
-
-## VPN feature in depth
-
-If you think something above is complicated or unclear you might want to take a look at our [in depth Wireguard VPN explanation](broken-reference).

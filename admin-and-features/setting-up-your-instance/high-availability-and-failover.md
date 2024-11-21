@@ -10,6 +10,10 @@ Currently we support the following HA/failover scenarios:
 
 We support active-active configurations with multiple gateways for a single VPN instance or location. Since our gateway uses a vanilla kernel WireGuard®, there are multiple approaches for implementation.&#x20;
 
+{% hint style="info" %}
+Please also see documentation of [Creating a New VPN location](../features-and-configuration/wireguard/create-your-vpn-network.md) where each [location setting has information regarding high-availability](../features-and-configuration/wireguard/create-your-vpn-network.md#vpn-location-settings).
+{% endhint %}
+
 #### Deploying the active-active gateway setup
 
 To have multi-gateway for one location setup, you need to [deploy the gateway on each server](gateway/).
