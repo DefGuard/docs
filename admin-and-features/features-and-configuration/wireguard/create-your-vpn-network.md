@@ -6,6 +6,12 @@ A VPN location is a VPN network to which users can connect to. Every location ha
 Defguard supports **multiple locations**, for each location to work you need to configure it and deploy a dedicated gateway.
 {% endhint %}
 
+{% hint style="info" %}
+If you are looking for MFA settings, go here.
+{% endhint %}
+
+
+
 When creating a new VPN location you can choose if you want to **create it from scratch (Manual Configuration)** or **import your current WireGuard configuration**:
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2024-11-21 at 14.19.04.png" alt=""><figcaption></figcaption></figure>
@@ -57,10 +63,52 @@ It supports multiple networks separated with comma, eg. 10.11.1.0/0, 192.168.1.0
 
 ### DNS
 
-DNS specifies DNS resolver to query when the WireGuard interface is up.
+This specifies DNS resolvers and search domains. Supported format is by comma separation, eg.:
+
+`IP, IP, search.domain.net, second.search,domain.com`
+
+### Allowed groups
+
+Here you can specify **what groups (users assigned to those groups)  have access to this VPN Location.**
+
+{% hint style="warning" %}
+By default (if no group is chosen) **all users will have access to this location.**
+
+By defining a group, assigning users to that group and then choosing this group(s) you can restrict access to VPN Locations.
+{% endhint %}
+
+### Multi-Factor Authentication for a Location&#x20;
+
+#### Require MFA for this location
+
+By enabling this setting this location **will require Multi-Factor Authentication** on each connection to this location.
 
 {% hint style="danger" %}
-For now defguard (and defguard client) **only supports a single DNS server** (single IP) and doesn't support DNS search domains.
+This feature is only supported in [**Defguard Desktop Client**](../../../help/desktop-client.md)**.**
+{% endhint %}
 
-So dns server should be one IP, like: 10.10.10.1
+Each connection in the client:
+
+1. Will require the user to provide either TOTP token or Email code.
+2. After authorizing defguard will do a key exchange and setup a pre-shared session key unique for this connection.
+
+{% hint style="warning" %}
+For this feature to work, the user must:
+
+1. configure their [TOTP settings in the profile](../../../help/setting-up-2fa-mfa.md#one-time-password)
+2. [SMTP settings needs to be set up](../setting-up-smtp-for-email-notifications.md) and the user must enable Email tokens in their profile.
+{% endhint %}
+
+#### Keepalive interval
+
+Configurable time interval (in seconds) used to send periodic packets to ensure that the connection remains active. This is particularly useful in environments like NAT (Network Address Translation) or firewalls that may close idle connections.
+
+**Peer disconnect threshold**
+
+Since Multi-Factor Authentication (MFA) is used to enforce zero-trust security, a peer (user) that remains inactive for a specified time interval (defined in seconds within the settings) will be disconnected. Additionally, the session configuration will be removed from the gateway. This ensures that when the peer reconnects, they must complete the MFA process again.
+
+{% hint style="warning" %}
+Minimal value for this setting is 120 (2 minutes).
+
+Recommended is more then 300.
 {% endhint %}
