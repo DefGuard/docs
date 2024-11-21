@@ -9,6 +9,18 @@ description: Notes on upgrading Defguard and its components
 Before doing any updates please remember to **backup your database.**
 {% endhint %}
 
+## 1.0.0 -> 1.1.0
+
+### Proxy
+
+There is a new setting:
+
+* ENV Variable: DEFGUARD\_PROXY\_URL
+* command line argument `--url`
+* /etc/defguard/proxy.toml: `url =`&#x20;
+
+**Which should be set to the same value as in core `DEFGUARD_ENROLLMENT_URL`**
+
 ## Any release -> 1.0.0
 
 ### Core
