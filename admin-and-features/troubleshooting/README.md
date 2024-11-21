@@ -78,6 +78,14 @@ If you have configured your defguard instance correctly, after connecting to the
 
 after connecting to VPN you should be able to ping: 10.1.1.1.
 
+## I get error: _h2 protocol error: http2 error: stream error received: not a result of an error_
+
+This error is common if you use a reverse-proxy for any of our components.
+
+Every reverse proxy has a timeout for keeping the connection alive. You can increase the timeout value to see less errors, but they will eventually appear.&#x20;
+
+Ignore them, this is a normal behaviour.
+
 ### VPN Location settings changed
 
 Check if the VPN location configuration has changed. If it did and you do not have Enterprise license where real-time config sync is automatic, the user needs to [update their client configuration by updating that instance manually.](../../help/configuring-vpn/add-new-instance/update-instance.md)
