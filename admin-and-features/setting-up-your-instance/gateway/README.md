@@ -1,3 +1,7 @@
+---
+icon: dungeon
+---
+
 # Gateway
 
 {% hint style="info" %}

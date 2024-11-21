@@ -38,7 +38,7 @@
   * [Health check](features/setting-up-your-instance/health-check.md)
 * [Features & configuration](admin-and-features/features-and-configuration/README.md)
   * [Zero-Trust VPN with 2FA/MFA](admin-and-features/features-and-configuration/wireguard/README.md)
-    * [Create new VPN Location](admin-and-features/features-and-configuration/wireguard/create-your-vpn-network.md)
+    * [Create/manage VPN Location](admin-and-features/features-and-configuration/wireguard/create-your-vpn-network.md)
     * [Network overview](admin-and-features/features-and-configuration/wireguard/network-overview.md)
     * [Executing custom gateway commands](admin-and-features/features-and-configuration/wireguard/executing-custom-gateway-commands.md)
     * [Multi-Factor Authentication (MFA/2FA)](admin-and-features/features-and-configuration/wireguard/multi-factor-authentication-mfa-2fa/README.md)

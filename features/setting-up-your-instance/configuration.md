@@ -1,3 +1,7 @@
+---
+icon: memo-circle-info
+---
+
 # Configuration
 
 Here you can find a list of all configurable things through environmental variables, options or configuration files for all defguard components (each section for every component).
@@ -105,6 +109,7 @@ Here are proxy ENV variables. gRPC configuration is described more [on this help
 * `DEFGUARD_PROXY_GRPC_PORT`: port the gRPCS server will listen on, default `50051`
 * `DEFGUARD_PROXY_GRPC_CERT` (optional): path to TLS certificate file
 * `DEFGUARD_PROXY_GRPC_KEY`(optional): path to TLS key file. [More on that in this help page.](../../admin-and-features/setting-up-your-instance/grpc-ssl-communication.md)
+* `DEFGUARD_PROXY_URL` - if you wish to use External OIDC enrollment/desktop client configuration, please set this value to the same as `DEFGUARD_ENROLLMENT_URL` in core.
 
 ## Gateway Configuration
 

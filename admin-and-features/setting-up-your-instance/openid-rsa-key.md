@@ -1,3 +1,7 @@
+---
+icon: key
+---
+
 # OpenID RSA key
 
 By default Defguard uses [HMAC](https://en.wikipedia.org/wiki/HMAC) algorithm for OIDC token validation and the . If you want to use [RSA](https://en.wikipedia.org/wiki/RSA\_\(cryptosystem\)), you'll have to configure the defguard core `DEFGUARD_OPENID_KEY` dconfiguration variable with the path to the RSA private key.

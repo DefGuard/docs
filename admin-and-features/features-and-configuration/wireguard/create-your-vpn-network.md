@@ -1,4 +1,4 @@
-# Create new VPN Location
+# Create/manage VPN Location
 
 A VPN location is a VPN network to which users can connect to. Every location has a [dedicated gateway](../../setting-up-your-instance/gateway/) (or [multiple gateways if you deploy a high-availability solution](../../setting-up-your-instance/high-availability-and-failover.md#gateway-high-availability)).
 
@@ -60,6 +60,12 @@ Defguard **gateways bind to this port** and this port is shared in configuration
 Defines the IP ranges a device is allowed to route or communicate with.
 
 It supports multiple networks separated with comma, eg. 10.11.1.0/0, 192.168.1.0/24
+
+{% hint style="danger" %}
+Right now defguard only manages routing of AllowedIPs (adding to routing table the networks defined in AllowedIPs).
+
+If you want the _All Traffic_ to work in the desktop client you need to also configure MASQUARED/NAT for the VPN interface. [Example of that here.](../../../tutorials/step-by-step-setting-up-a-vpn-server/#enabling-to-access-internet-through-your-vpn)&#x20;
+{% endhint %}
 
 ### DNS
 

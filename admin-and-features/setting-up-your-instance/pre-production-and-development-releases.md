@@ -1,3 +1,7 @@
+---
+icon: forklift
+---
+
 # Pre-production and development releases
 
 To test any pre-production or development release:
