@@ -42,7 +42,7 @@ You can generate random strings for secrets with e.g.:
 * `DEFGUARD_USERADMIN_GROUPNAME`: Name of the user administrator group, default: `useradmin`
 * `DEFGUARD_VPN_GROUPNAME`: Name of the vpn group, default: `vpn`
 * `DEFGUARD_DEFAULT_ADMIN_PASSWORD`: Password for the default `admin` user, default: `pass123`
-* `DEFGUARD_LOG_LEVEL`: [Logger](https://crates.io/crates/log) log level, default: `info`
+* `DEFGUARD_LOG_LEVEL`: [Logger](https://crates.io/crates/log) log level, default: `info`, supported: `debug`, `warn`, `error`
 * `DEFGUARD_HTTP_PORT`: Core server port, default: `8000`
 * `DEFGUARD_LOG_FILE`: Log file path
 * `DEFGUARD_AUTH_COOKIE_TIMEOUT`: Cookie lifetime period, default: `7d` ([Humantime documentation](https://docs.rs/humantime/latest/humantime/struct.Duration.html))
@@ -110,6 +110,7 @@ Here are proxy ENV variables. gRPC configuration is described more [on this help
 * `DEFGUARD_PROXY_GRPC_CERT` (optional): path to TLS certificate file
 * `DEFGUARD_PROXY_GRPC_KEY`(optional): path to TLS key file. [More on that in this help page.](../../admin-and-features/setting-up-your-instance/grpc-ssl-communication.md)
 * `DEFGUARD_PROXY_URL` - if you wish to use External OIDC enrollment/desktop client configuration, please set this value to the same as `DEFGUARD_ENROLLMENT_URL` in core.
+* `DEFGUARD_PROXY_LOG_LEVEL` : [Logger](https://crates.io/crates/log) log level, default: `info`, supported: `debug`, `warn`, `error`
 
 ## Gateway Configuration
 
@@ -117,19 +118,14 @@ Here are proxy ENV variables. gRPC configuration is described more [on this help
 
 If you're using docker image you can pass this value as environmental variables or on binary you can pass them as arguments
 
-`DEFGUARD_USERSPACE` , `-u` - Use userspace wireguard implementation, useful on systems without native wireguard support
-
-`DEFGUARD_GRPC_URL` , `-g <URL>` - defguard server gRPC endpoint URL default is https://localhost:50055
-
-`DEFGUARD_GRPC_CA - path to ca file` more on this topic [on this help page.](../../admin-and-features/setting-up-your-instance/grpc-ssl-communication.md)
-
-`DEFGUARD_STATS_PERIOD` ,`-p <SECONDS>` - Defines how often (seconds) should interface statistics be sent to the defguard server
-
-`DEFGUARD_TOKEN` ,`-t <TOKEN>` - Token received on defguard after completing network wizard
-
-`DEFGUARD_GATEWAY_NAME`, `--name <NAME>` - (optional) human-readable gateway name that will be displayed in defguard webapp
-
-`-s, --use-syslog` - enable logging to syslog
+* `DEFGUARD_USERSPACE` , `-u` - Use userspace wireguard implementation, useful on systems without native wireguard support
+* `DEFGUARD_GRPC_URL` , `-g <URL>` - defguard server gRPC endpoint URL default is https://localhost:50055
+* `DEFGUARD_GRPC_CA - path to ca file` more on this topic [on this help page.](../../admin-and-features/setting-up-your-instance/grpc-ssl-communication.md)
+* `DEFGUARD_STATS_PERIOD` ,`-p <SECONDS>` - Defines how often (seconds) should interface statistics be sent to the defguard server
+* `DEFGUARD_TOKEN` ,`-t <TOKEN>` - Token received on defguard after completing network wizard
+* `DEFGUARD_GATEWAY_NAME`, `--name <NAME>` - (optional) human-readable gateway name that will be displayed in defguard webapp
+* `-s, --use-syslog` - enable logging to syslog
+* `RUST_LOG` : Logger log level, default: `info`, supported: `debug`, `warn`, `error`
 
 #### Executing custom commands on VPN up/down
 
