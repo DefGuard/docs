@@ -1,8 +1,12 @@
-# Adding a device manually
+# Other WireGuard® Clients
 
 ## Installing Wireguard/VPN client
 
 First, you have to install Wireguard application. On this [site](https://www.wireguard.com/install/) you can find information on how to download Wireguard for any operating system.
+
+{% hint style="warning" %}
+Please note that <mark style="color:red;">other then</mark> [Defguard Desktop Clients](../add-new-instance/) <mark style="color:red;">do not work with Multi-Factor Authentication</mark> <mark style="color:red;">**and they can only be used for Locations without MFA**</mark> - as the only client supporting this feature is our desktop client.
+{% endhint %}
 
 ## Adding a device to connect to VPN
 
