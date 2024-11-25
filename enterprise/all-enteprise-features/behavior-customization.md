@@ -26,7 +26,7 @@ Please note that defguard has only **desktop clients** and **no official mobile*
 
 ### Disable _All Traffic_ option in the desktop client
 
-Of of defguard desktop client uniqe features is the possibility for the user to automatically route **All network traffic** from their device **through the connected VPN Location**, when the user checks _All traffic_ option_**:**_
+Of of defguard desktop client uniqe features is the possibility for the user to automatically route **All network traffic** from their device **through the connected VPN Location**, when the user checks _All traffic_ optio&#x6E;_**:**_
 
 &#x20;![](<../../.gitbook/assets/Screenshot 2024-10-14 at 12.49.30.png>)
 

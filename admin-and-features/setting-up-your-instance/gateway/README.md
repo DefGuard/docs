@@ -16,7 +16,7 @@ Please remember that **one gateway corresponds to one VPN location.**
 You can also deploy multiple gateways for one location for High Availability.
 {% endhint %}
 
-To deploy the gateway you need to have defguard core running and know it's [gRPC url](../../../features/setting-up-your-instance/configuration.md#core-configuration) (meaning what is the **host/ip** where the core is running and the **gRPC port** defined in core by DEFGUARD\_GRPC\_PORT configuration variable**)** and a **token.**
+To deploy the gateway you need to have defguard core running and know it's [gRPC url](../../../features/setting-up-your-instance/configuration.md#core-configuration) (meaning what is the **host/ip** where the core is running and the **gRPC port** defined in core by DEFGUARD\_GRPC\_PORT configuration variabl&#x65;**)** and a **token.**
 
 **Token** can be obtained when you go to _VPN Locations -> Edit location settings (in top right corner) -> Select the desired location_ -> the right panel describes how to deploy the gateway for the location as well as lists the gateway authentication token:
 

@@ -10,7 +10,7 @@ icon: hand-wave
 
 Defguard is a **comprehensive Remote Access Management solution** incorporating in one solution:
 
-* Remote Access secured by [WireGuard® VPN with 2FA/Multi-Factor Authentication](admin-and-features/features-and-configuration/wireguard/),
+* True Zero-Trust [WireGuard® VPN with 2FA/Multi-Factor Authentication](admin-and-features/features-and-configuration/wireguard/),
 * Identity Management with [SSO based on OpenID Identity Provider](admin-and-features/features-and-configuration/openid-connect/),
 * Account Lifecycle management with [secure remote account onboarding](help/enrollment/).
 
@@ -20,13 +20,17 @@ Defguard is a **comprehensive Remote Access Management solution** incorporating 
 
 ***
 
+Defguard is a true Zero-Trust [WireGuard® VPN with 2FA/Multi-Factor Authentication](admin-and-features/features-and-configuration/wireguard/), as each connection requires MFA (and not only when logging in into the client application like other solutions):
+
+<figure><img src=".gitbook/assets/zero-trust.png" alt=""><figcaption></figcaption></figure>
+
 Having said that, this security platform is for building **secure** and **privacy-aware organizations,** as we put great effort not only on functionality but first and foremost on secure code, architecture and testing (application and security).
 
 ### Basic security concept
 
-<figure><img src=".gitbook/assets/defguard (1).png" alt=""><figcaption><p>Defguard main architecture concept</p></figcaption></figure>
+The main architecture concept is that **all critical data should be in the internal (Intranet) network and not exposed in the public Internet** (contrary to typical and common cloud approach) and only services that need to be exposed to the Internet - should be exposed in a controled (DMZ) network segments:
 
-The main architecture concept is that **all critical data should be in the internal (Intranet) network and not exposed in the public Internet** (contrary to typical and common cloud approach).
+<figure><img src=".gitbook/assets/security-basic.png" alt=""><figcaption><p>Internet, DMZ &#x26; Internal network segments</p></figcaption></figure>
 
 This approach is **vastly different from most (if not all) VPN/IdP solutions**, which are a simple or monolithic applications focus on functionalities and most of the time is publicly available in the Internet for any attacker to exploit.
 
@@ -65,9 +69,9 @@ _defguard is not an official WireGuard project, and WireGuard is a registered tr
 * nice UI to manage users
 * Users **self-service** (besides typical data management, users can revoke access to granted apps, MFA, Wireguard, etc.)
 
-#### [Multi-Factor/2FA](https://en.wikipedia.org/wiki/Multi-factor\_authentication) Authentication
+#### [Multi-Factor/2FA](https://en.wikipedia.org/wiki/Multi-factor_authentication) Authentication
 
-* [Time-based One-Time Password Algorithm](https://en.wikipedia.org/wiki/Time-based\_one-time\_password) (TOTP - e.g. Google Authenticator)
+* [Time-based One-Time Password Algorithm](https://en.wikipedia.org/wiki/Time-based_one-time_password) (TOTP - e.g. Google Authenticator)
 * WebAuthn / FIDO2 - for hardware key authentication support (eg. YubiKey, FaceID, TouchID, ...)
 * Email tokens
 
