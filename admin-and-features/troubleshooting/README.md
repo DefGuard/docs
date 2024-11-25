@@ -32,7 +32,7 @@ Also there is a setting in the location named _Peer Disconnect Threshold (second
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-11-15 at 18.25.33.png" alt="" width="375"><figcaption></figcaption></figure>
 
-This setting specifies that if the **peer is inactive for **_**(defined seconds)**_, the gateway **should remove it from the configuration** (as it should not be persistent since MFA is required).
+This setting specifies that if the **peer is inactive for&#x20;**_**(defined seconds)**_, the gateway **should remove it from the configuration** (as it should not be persistent since MFA is required).
 
 So if you are disconnected from the location:
 
@@ -70,14 +70,6 @@ If you are having problems with TOTP codes form 2FA/MFA (when logging in to defg
 
 Best would be to setup on the server NTP time synchronization.
 
-## How to check if the VPN is working / my VPN is not working!
-
-If you have configured your defguard instance correctly, after connecting to the VPN you should be able to ping your VPN server, for example if you have the following setup:
-
-<figure><img src="../../.gitbook/assets/Screenshot 2024-03-24 at 18.36.43.png" alt="" width="313"><figcaption><p>Example VPN server IP</p></figcaption></figure>
-
-after connecting to VPN you should be able to ping: 10.1.1.1.
-
 ## I get error: _h2 protocol error: http2 error: stream error received: not a result of an error_
 
 This error is common if you use a reverse-proxy for any of our components.
@@ -85,6 +77,14 @@ This error is common if you use a reverse-proxy for any of our components.
 Every reverse proxy has a timeout for keeping the connection alive. You can increase the timeout value to see less errors, but they will eventually appear.&#x20;
 
 Ignore them, this is a normal behaviour.
+
+## How to check if the VPN is working / my VPN is not working!
+
+If you have configured your defguard instance correctly, after connecting to the VPN you should be able to ping your VPN server, for example if you have the following setup:
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-03-24 at 18.36.43.png" alt="" width="313"><figcaption><p>Example VPN server IP</p></figcaption></figure>
+
+after connecting to VPN you should be able to ping: 10.1.1.1.
 
 ### VPN Location settings changed
 
