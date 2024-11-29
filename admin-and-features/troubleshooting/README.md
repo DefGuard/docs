@@ -51,19 +51,6 @@ sudo ln -s /usr/bin/resolvectl /usr/sbin/resolvconf
 
 If this fails, one may also try installing one of the packages providing the `resolvconf` command, like `openresolv` or `resolvconf` but this has not been tested and may possibly cause issues with `systemd-resolved`, so proceed at your own risk.
 
-## Desktop Client on Ubuntu 24 and Debian 13
-
-The libwebkit2gtk-4.0-37 library which our client depends on is not available in the default apt package repositories on ubuntu 24.04. There is only libwebkit2gtk-4.1. Client installation is still possible, but requires using some workarounds, as described here: [tauri-apps/tauri#9662](https://github.com/tauri-apps/tauri/issues/9662).
-
-The minimal installation workaround is to manually download and install the following packages (avoiding temporarily adding apt-sources):
-
-```
-sudo dpkg -i libwebkit2gtk-4.0-37_2.44.3-0ubuntu0.22.04.1_amd64.deb \
-  libjavascriptcoregtk-4.0-18_2.44.3-0ubuntu0.22.04.1_amd64.deb \
-  libicu70_70.1-2_amd64.deb \
-  defguard-client_0.4.0_amd64.deb
-```
-
 ## TOTP / Email codes for MFA do not work
 
 If you are having problems with TOTP codes form 2FA/MFA (when logging in to defguard or when connecting to VPN) please make sure your clock on the server that defguard core is running is set properly.
