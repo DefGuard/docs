@@ -76,5 +76,16 @@ For this to work, make sure you have the following two things set:
 
 If you disable the option above, new users won't be able to automatically go through the enrollment. You will need to create their accounts by hand (with the same email address as the one they have set on your OIDC provider's side) and only then they will have an option to activate it by logging through the provider.
 
+## Known issues
 
+### JumpCloud
 
+When setting up JumpCloud you can encounter an error when attempting to login with a message `Failed to parse payload JSON: Error(\\\"invalid type: string...`. This is because JumpCloud is returning a token that doesn't conform fully to the OpenID standard. You can try working around this issue by removing the `email_verified` field in your SSO application configuration in JumpCloud. In order to do this, edit your SSO Application and **deselect** the email scope:
+
+<figure><img src="../../../.gitbook/assets/obraz (12).png" alt=""><figcaption></figcaption></figure>
+
+Then, add the email below by hand:
+
+<figure><img src="../../../.gitbook/assets/obraz (13).png" alt=""><figcaption></figcaption></figure>
+
+Double check that the `email_verified` field is gone from the constant attributes section. The issue should be gone now.

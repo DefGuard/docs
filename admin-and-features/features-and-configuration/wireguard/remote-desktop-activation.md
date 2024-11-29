@@ -12,7 +12,7 @@ Users can activate / configure their desktop client themselves - for that docume
 
 Navigate to the user's list page.
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Select "Configure Desktop Client" from the action menu.
 
@@ -24,7 +24,7 @@ This option is only available if the instance has at least one localization, and
 
 You will be presented with a choice to send an activation token via email or you can choose to just display the token and deliver it through other methods.
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 After receiving the token, the user will need to follow the activation process in the client. You can find out more about it in [add-new-instance](../../../help/configuring-vpn/add-new-instance/ "mention").
 
