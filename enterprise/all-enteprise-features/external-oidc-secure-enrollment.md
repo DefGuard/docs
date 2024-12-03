@@ -8,4 +8,4 @@ When [External OIDC is enabled](external-openid-providers/) users have the possi
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-11-20 at 18.14.17.png" alt=""><figcaption></figcaption></figure>
 
-For this to work, please remember to enable&#x20;
+For this to work, see [#openid-enrollment](external-openid-providers/#openid-enrollment "mention").

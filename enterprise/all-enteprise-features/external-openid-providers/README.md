@@ -12,7 +12,9 @@ Here are dedicated tutorials for most common SSO providers:
 * [Microsoft](microsoft.md)
 * [Zitadel](zitadel.md)
 * [Keycloak](keycloak.md)
-* Tested by our users and confirmed: Okta, JumpCloud, Authentik, Authelia.
+* [Okta](okta.md)
+* [JumpCloud](jumpcloud.md)
+* Tested by our users and confirmed: Authentik, Authelia.
 
 ## Prerequisites
 
