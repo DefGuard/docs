@@ -19,6 +19,14 @@ In Core 1.1.4, we've made email addresses case insensitive, as this is a standar
 
 All email addresses must be unique case-insensitively, meaning that a user with an address `address@email.com` can't coexist with another user with an address `ADDRESS@email.com`. Before upgrading, make sure you don't have any users with the same email addresses given the above. If you do, please change those addresses or remove the users altogether. Remember to check it case-insensitively. If you have users with duplicate email addresses, the migrations will fail and you won't be able to upgrade.
 
+You can use the following SQL query to locate users with duplicate emails in the database:
+
+```sql
+select id, username, email from "user" where lower(email) in (
+	select lower(email) from "user" group by lower(email) having count(*) > 1
+)
+```
+
 ## 1.0.0 -> 1.1.0
 
 ### Proxy
