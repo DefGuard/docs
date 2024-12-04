@@ -130,17 +130,17 @@ If you would like to have multiple VPN locations - [please read this tutorial ho
 
 The most common purpose to setup your own VPN is to provide you (and your users - defguard supports multiple users!) **anonimity and privacy** when accessing public internet.
 
-It's great for every day use (if you want to _hide_ your real IP/location) or for example to encrypt **all your traffic when your are in a public location -** like beeing on WIFI in a coffee shop, hotels, etc. - since **most if not all those places do not provide encrypted WIFI (just open hotspots).**
+It's great for every day use (if you want to _hide_ your real IP/location) or for example to encrypt **all your traffic when your are in a public location -** like beeing on Wi-Fi in a coffee shop, hotels, etc. - since **most if not all those places do not provide encrypted Wi-Fi (just open hotspots).**
 
 So defguard as a VPN service is one thing, but we need to do few commands on the server, to enable routing all traffic through this server and your VPN. For your convenience those we will explain in detail.
 
-First of all we need a simple & easy way to manage firewall. In order to do so on Debian install UFW (it's automatically installed on Ubuntu):
+First of all we need a simple and easy way to manage firewall. In order to do so on Debian install UFW (it's automatically installed on Ubuntu):
 
 ```
 root@server# apt install ufw
 ```
 
-Now let's enable on the firewall rules that provide packet forwarding (from your VPN to the Internet and vice-versa).
+Now let's enable on the firewall rules that provide packet forwarding (from your VPN to the Internet and vice versa).
 
 Edit the /etc/default/ufw file to enable default policies for packet forwarding to ACCEPT
 
@@ -182,10 +182,10 @@ Now just add the following to /etc/ufw/before.rules **just before the filter rul
 *nat
 :POSTROUTING ACCEPT [0:0]
 
-# Forward VPN network traffic through ens18 - Change to match you out-interface
+# Forward VPN network traffic through ens18 - Change to match your egress interface
 -A POSTROUTING -s 10.22.33.0/24 -o ens18 -j MASQUERADE
 
-# don't delete the 'COMMIT' line or these nat table rules won't
+# don't delete the 'COMMIT' line or these NAT table rules won't
 # be processed
 COMMIT
 ```
@@ -199,19 +199,19 @@ root@server# ufw allow https
 # allow WireGuard VPN which is on port 50555 with UDP protocol
 root@server# ufw allow 50555/udp
 
-# also you might consider for the time beeing to allow SSH management
+# for the time being, you might also consider to allow SSH management
 # until you learn how to allow traffic to SSH from VPN
 root@server# ufw allow ssh
 ```
 
-On Ubuntu UFW is enabled, but on Debian we need to enable it:
+On Ubuntu, UFW is enabled by default, but on Debian it has to be enabled manually:
 
 <pre><code><strong>root@server# ufw enable
 </strong>Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
 Firewall is active and enabled on system startup
 </code></pre>
 
-On ubuntu we need to realod the configuration:
+On Ubuntu, we need to reload the configuration:
 
 <pre><code><strong>root@server# ufw reload
 </strong></code></pre>
@@ -237,11 +237,11 @@ To                         Action      From
 
 #### Testing your configuration with defguard client
 
-Defguard is the only (known to us) WireGuard client, that enables to choose during connetion if you would like to **route all your traffic through the VPN.** Just (before connecting) choose the option: **Allow all traffic** and click connect!
+Defguard is the only (known to us) WireGuard client that during connection provides a choice to **route all your traffic through the VPN.** Just (before connecting) choose the option: **Allow all traffic** and click connect!
 
 <figure><img src="../../.gitbook/assets/SCR-20240118-smil.png" alt=""><figcaption><p>Choosing to forward all traffic through VPN</p></figcaption></figure>
 
-This is very usefull, since some of the times you just want to be connected to your VPN to have the server/vpn networks accessible, and sometimes (like in the scenarious mentioned before) you want to hide and encrypt your traffic.
+This is very usefull, since some of the times you just want to be connected to your VPN to have the server/VPN networks accessible, and sometimes (like in the scenarious mentioned before) you want to hide and encrypt your traffic.
 
 In order to check if everything works, let's visit a website [https://ifconfig.co](https://ifconfig.co) - that will show our public IP. If everything went smootly, you should see **your VPN server public IP** (which in our example is: _185.33.37.51_):
 

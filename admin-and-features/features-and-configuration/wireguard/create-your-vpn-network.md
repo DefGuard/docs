@@ -75,7 +75,7 @@ This specifies DNS resolvers and search domains. Supported format is by comma se
 
 ### Allowed groups
 
-Here you can specify **what groups (users assigned to those groups)  have access to this VPN Location.**
+Here you can specify **what groups (users assigned to those groups) have access to this VPN Location.**
 
 {% hint style="warning" %}
 By default (if no group is chosen) **all users will have access to this location.**
@@ -83,7 +83,7 @@ By default (if no group is chosen) **all users will have access to this location
 By defining a group, assigning users to that group and then choosing this group(s) you can restrict access to VPN Locations.
 {% endhint %}
 
-### Multi-Factor Authentication for a Location&#x20;
+### Multi-Factor Authentication for a Location
 
 #### Require MFA for this location
 

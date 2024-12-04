@@ -103,7 +103,7 @@ Because of the main routing 10.0.0.0/8 the VPN server routing the network 10.1.1
 
 ### Firewall rulles
 
-Another common problem is that **your server on which the gateway is working, has some firewall rules that interfere with VPN network.** Please examine carefully  `ufw` and `iptables` (even if ufw is disabled there may be `iptables` rules).
+Another common problem is that **your server on which the gateway is working, has some firewall rules that interfere with VPN network.** Please examine carefully `ufw` and `iptables` (even if ufw is disabled there may be `iptables` rules).
 
 ### VPN location ACLs
 
