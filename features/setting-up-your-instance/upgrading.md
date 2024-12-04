@@ -9,6 +9,16 @@ description: Notes on upgrading Defguard and its components
 Before doing any updates please remember to **backup your database.**
 {% endhint %}
 
+## Any previous core release -> core 1.1.4
+
+### Core
+
+{% hint style="danger" %}
+In Core 1.1.4, we've made email addresses case insensitive, as this is a standard for many major providers. Because the emails were case sensitive up to this point, you may end up with users with the same email addresses from core's point of view. &#x20;
+{% endhint %}
+
+All email addresses must be unique case-insensitively, meaning that a user with an address `address@email.com` can't coexist with another user with an address `ADDRESS@email.com`. Before upgrading, make sure you don't have any users with the same email addresses given the above. If you do, please change those addresses or remove the users altogether. Remember to check it case-insensitively. If you have users with duplicate email addresses, the migrations will fail and you won't be able to upgrade.
+
 ## 1.0.0 -> 1.1.0
 
 ### Proxy
