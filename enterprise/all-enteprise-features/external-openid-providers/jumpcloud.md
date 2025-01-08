@@ -1,41 +1,41 @@
 # JumpCloud
 
 1. Login to your JumpCloud admin account.
-2.  Navigate to SSO Applications\
+2. Navigate to SSO Applications\
 
 
     <figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 
 3. Add a new SSO Application
-4.  Select "Custom" on this screen\
+4. Select "Custom" on this screen\
 
 
     <figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 
-5.  Select "Configure SSO with OIDC"\
+5. Select "Configure SSO with OIDC"\
 
 
     <figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 
-6.  Fill the app's display label in the next form.\
-    &#x20;
+6. Fill the app's display label in the next form.\
+
 
     <figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 
-7.  After finishing this configuration you will be redirected to your newly created SSO Application's settings. Go to the "SSO" tab first.\
+7. After finishing this configuration you will be redirected to your newly created SSO Application's settings. Go to the "SSO" tab first.\
 
 
     <figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
-8.  Configure as following:
+8. Configure as following:
 
     <figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
     Make sure to set the correct Redirect URI and Login URL that will reflect your Defguard's setup. If you access your Defguard dashboard at e.g. `https://defguard.example.net` your redirect URI will be `https://defguard.example.net/auth/callback` and the login URL `https://defguard.example.net/auth/login`. Additionally, if you are using a Defguard proxy to enroll users, you can also add another redirect URI in the form of `<DEFGUARD_ENROLLMENT_URL>/openid/callback`, where the `<DEFGUARD_ENROLLMENT_URL>` is the address at which your proxy enrollment page is accessible.
-9.  Next, select the profile scope and add an `email` user attribute mapping by hand, like so:\
+9. Next, select the profile scope and add an `email` user attribute mapping by hand, like so:\
 
 
     <figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
@@ -56,4 +56,3 @@
 
 
 14. Now you should be able to login to Defguard with JumpCloud.
-

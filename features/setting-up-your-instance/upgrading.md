@@ -14,7 +14,7 @@ Before doing any updates please remember to **backup your database.**
 ### Core
 
 {% hint style="danger" %}
-In Core 1.1.4, we've made email addresses case insensitive, as this is a standard for many major providers. Because the emails were case sensitive up to this point, you may end up with users with the same email addresses from core's point of view. &#x20;
+In Core 1.1.4, we've made email addresses case insensitive, as this is a standard for many major providers. Because the emails were case sensitive up to this point, you may end up with users with the same email addresses from core's point of view.
 {% endhint %}
 
 All email addresses must be unique case-insensitively, meaning that a user with an address `address@email.com` can't coexist with another user with an address `ADDRESS@email.com`. Before upgrading, make sure you don't have any users with the same email addresses given the above. If you do, please change those addresses or remove the users altogether. Remember to check it case-insensitively. If you have users with duplicate email addresses, the migrations will fail and you won't be able to upgrade.
@@ -35,7 +35,7 @@ There is a new setting:
 
 * ENV Variable: DEFGUARD\_PROXY\_URL
 * command line argument `--url`
-* /etc/defguard/proxy.toml: `url =`&#x20;
+* /etc/defguard/proxy.toml: `url =`
 
 **Which should be set to the same value as in core `DEFGUARD_ENROLLMENT_URL`**
 
@@ -43,13 +43,13 @@ There is a new setting:
 
 ### Core
 
-When upgrading core to 1.0.0 (even to a 1.0.0 pre-release) make sure that your users **have unique email addresses** as we've introduced a constraint requiring email addresses to be unique among users.&#x20;
+When upgrading core to 1.0.0 (even to a 1.0.0 pre-release) make sure that your users **have unique email addresses** as we've introduced a constraint requiring email addresses to be unique among users.
 
 {% hint style="danger" %}
 If you have duplicate emails in your database, the migrations during the upgrade process will simply fail.
 {% endhint %}
 
-&#x20;You will need to change a duplicate email address before the upgrade by hand via the Defguard dashboard or by accessing the database.
+You will need to change a duplicate email address before the upgrade by hand via the Defguard dashboard or by accessing the database.
 
 ### Desktop Client Real Time Sync
 
@@ -76,7 +76,7 @@ This change requires a few changes if you are upgrading:
 
 1. Remove `DEFGUARD_PROXY_UPSTREAM_GRPC_URL` variable - since Proxy does not connect to  defguard Core any more.
 2. Proxy is now the server to which defguard Core connects, so you may want to:
-   1. Optional: configure non-default Proxy gRPC port with `DEFGUARD_PROXY_GRPC_PORT -` default value is **50051**&#x20;
+   1. Optional: configure non-default Proxy gRPC port with `DEFGUARD_PROXY_GRPC_PORT -` default value is **50051**
    2. If you have a Proxy in a different network segment - eg. have a custom installation (not with one-line install/docker compose all on one server) - you may also consider exposing the gRPC port and reverse-proxy (nginx/treafik/...) the port with SSL/TLS.
       1. (Optional) If you want to use SSL with Proxy gRPC server without revers-proxy (nginx/etc) configure  `DEFGUARD_PROXY_GRPC_CERT` and `DEFGUARD_PROXY_GRPC_KEY` following the [SSL setup guide](docker-compose.md#grpc-ssl-setup).
    3. Also adjust your firewall config to open new Docker port mapping etc. Make sure Proxy gRPC server **can be reached from Core**.

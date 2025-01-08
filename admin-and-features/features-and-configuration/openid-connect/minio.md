@@ -14,7 +14,7 @@ openssl genpkey -out rsakey.pem -algorithm RSA -pkeyopt rsa_keygen_bits:2048
 
 Now we need to set **DEFGUARD\_OPENID\_KEY** variable to path pointing to that _<mark style="color:purple;">rsakey.pem</mark>_ file.
 
-When starting Defguard now you should be able to see the following info log :&#x20;
+When starting Defguard now you should be able to see the following info log:
 
 ```log
 INFO defguard: Using RSA OpenID signing key

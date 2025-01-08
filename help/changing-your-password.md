@@ -16,7 +16,7 @@ The enrollemnt service URL should be avaialbe in the onboarding email you have r
 
 #### By admin
 
-Ask your administrator to send you the password reset link.&#x20;
+Ask your administrator to send you the password reset link.
 
 {% hint style="info" %}
 You should have you admin contact data on the onboarding message that was sent automatically after you have finished the [onboarding\&enrollment process.](enrollment/)

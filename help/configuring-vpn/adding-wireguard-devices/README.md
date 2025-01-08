@@ -10,7 +10,7 @@ Please note that <mark style="color:red;">other then</mark> [Defguard Desktop Cl
 
 ## Adding a device to connect to VPN
 
-1. Go to **your profile** (_My Profile -_ which you'll find on the navigation on the left side of the screen)&#x20;
+1. Go to **your profile** (_My Profile -_ which you'll find on the navigation on the left side of the screen)
 2. Click on _Add new device_
 
 <figure><img src="../../../.gitbook/assets/add-device1.png" alt=""><figcaption></figcaption></figure>
@@ -30,7 +30,7 @@ Choosing this option - when you download your configuration (or use QR Code to c
 b. **Use my own public key** - if you are an advanced user and know how to generate a key pair yourself - you can choose this option and enter **your own public key (keeping your private key to yourself)**
 
 {% hint style="warning" %}
-Choosing this option - **you will need to change PrivateKey (insert the private key you hold)** in the configuration file you download&#x20;
+Choosing this option - **you will need to change PrivateKey (insert the private key you hold)** in the configuration file you download
 {% endhint %}
 
 4. Now you can **download/configure your Wireguard/VPN client by:**
@@ -45,4 +45,3 @@ Choosing this option - **you will need to change PrivateKey (insert the private 
 {% hint style="info" %}
 If you have **multiple VPN locations** - you can choose to download configuration for **each of the location - by selecting the location as shown**
 {% endhint %}
-

@@ -52,7 +52,7 @@ After the code has been validated, either:
 
 If you are configuring the 2FA/MFA for the first time with any selected method, at the end of the process you will be asked to backup your recovery codes:
 
-&#x20;
+
 
 <figure><img src="../.gitbook/assets/recovery.png" alt=""><figcaption></figcaption></figure>
 

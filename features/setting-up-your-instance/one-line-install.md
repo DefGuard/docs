@@ -118,8 +118,8 @@ There are several options that can be configured to customize your defguard inst
 * `DEFGUARD_VPN_IP`- (optional if VPN name not set) gateway address within the VPN network (e.g. `10.0.50.1/24`)
 * `DEFGUARD_VPN_GATEWAY_IP`- (optional if VPN name not set) gateway public IP
 * `DEFGUARD_VPN_GATEWAY_PORT`- (optional if VPN name not set) gateway public port
-* `CORE_IMAGE_TAG`- (optional) tag to use for `defguard` Docker image&#x20;
-* `PROXY_IMAGE_TAG`- (optional) tag to use for `defguard-proxy` Docker image&#x20;
+* `CORE_IMAGE_TAG`- (optional) tag to use for `defguard` Docker image
+* `PROXY_IMAGE_TAG`- (optional) tag to use for `defguard-proxy` Docker image
 * `GATEWAY_IMAGE_TAG`- (optional) tag to use for `defguard-gateway` Docker image
 
 ### CLI options

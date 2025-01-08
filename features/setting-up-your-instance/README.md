@@ -73,7 +73,7 @@ Check the GitHub repositories for each service to find their newest releases and
 * [Defguard Gateway](https://github.com/DefGuard/gateway/releases)
 * [Defguard YubiBridge](https://github.com/DefGuard/YubiKey-Provision/releases)
 
-## Backup&#x20;
+## Backup
 
 [Core service](https://github.com/DefGuard/defguard) is the only service which uses persistent data storage which is PostgreSQL database. Every SQL migration is applied automatically while bringing up core server and we try our best not to break anything in the process. It's recommended to do database,  configuration and Settings(SMTP, Branding) backup before every update in case of some unexpected failure.
 
@@ -88,4 +88,4 @@ docker exec {container_name} pg_dump -U {user_name} > {backup_file_name}
 
 ## Failover/HA/Clustering
 
-For now the [Gateway](../../admin-and-features/setting-up-your-instance/gateway/) can be deployed on multiple servers/firewall/routers for failover and HA - even if the connection to the Core will be lost, gateways will operate with their local cache/data and the VPN will be working.  Same works the other way around if gateway don't work or is not available other features from Core like OpenID will be working.&#x20;
+For now the [Gateway](../../admin-and-features/setting-up-your-instance/gateway/) can be deployed on multiple servers/firewall/routers for failover and HA - even if the connection to the Core will be lost, gateways will operate with their local cache/data and the VPN will be working.  Same works the other way around if gateway don't work or is not available other features from Core like OpenID will be working.

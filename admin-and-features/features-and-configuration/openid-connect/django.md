@@ -40,7 +40,7 @@ openssl genpkey -out rsakey.pem -algorithm RSA -pkeyopt rsa_keygen_bits:2048
 
 Now we need to set **DEFGUARD\_OPENID\_KEY** variable to path pointing to that _<mark style="color:purple;">rsakey.pem</mark>_ file.
 
-When starting Defguard now you should be able to see the following info log :&#x20;
+When starting Defguard now you should be able to see the following info log:
 
 ```log
 INFO defguard: Using RSA OpenID signing key
@@ -203,7 +203,7 @@ def defguard_authorize(request):
     return redirect("/admin")
 ```
 
-With the provided example, you will need to fill out only **DEFGUARD\_CLIENT\_ID** and **DEFGUARD\_CLIENT\_SECRET**.&#x20;
+With the provided example, you will need to fill out only **DEFGUARD\_CLIENT\_ID** and **DEFGUARD\_CLIENT\_SECRET**.
 
 Either provide them as environment variables or modify the views file and pass them as strings to oauth register function.
 

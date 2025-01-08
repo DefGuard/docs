@@ -8,7 +8,7 @@ Currently we support the following HA/failover scenarios:
 
 ## Gateway - High Availability
 
-We support active-active configurations with multiple gateways for a single VPN instance or location. Since our gateway uses a vanilla kernel WireGuard®, there are multiple approaches for implementation.&#x20;
+We support active-active configurations with multiple gateways for a single VPN instance or location. Since our gateway uses a vanilla kernel WireGuard®, there are multiple approaches for implementation.
 
 {% hint style="info" %}
 Please also see documentation of [Creating a New VPN location](../features-and-configuration/wireguard/create-your-vpn-network.md) where each [location setting has information regarding high-availability](../features-and-configuration/wireguard/create-your-vpn-network.md#vpn-location-settings).
@@ -55,5 +55,4 @@ We recommend to deploy them on a failover solution - like on a kubernetes cluste
 Also failover is good eanough now, since:
 
 * gateways are fully active-active HA,
-* even if they fail, [peers are fully (or with configuration) persistent](high-availability-and-failover.md#what-is-the-gateway-peers-persistance-if-core-proxy-services-fail).&#x20;
-
+* even if they fail, [peers are fully (or with configuration) persistent](high-availability-and-failover.md#what-is-the-gateway-peers-persistance-if-core-proxy-services-fail).

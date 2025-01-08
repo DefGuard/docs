@@ -7,7 +7,7 @@ description: How to manually generate token for user as an administrator.
 This process enables system **administrators** to create and distribute desktop **activation tokens to users facing access issues to the defguard instance**. It's handy if a user is already enrolled (has an account) but has not configured the desktop client and doesn't have access to defguard (is outside the internal network and can't access defguard).
 
 {% hint style="info" %}
-Users can activate / configure their desktop client themselves - for that documentation please go to: [Adding an instance in the client documentation](../../../help/configuring-vpn/add-new-instance/).&#x20;
+Users can activate / configure their desktop client themselves - for that documentation please go to: [Adding an instance in the client documentation](../../../help/configuring-vpn/add-new-instance/).
 {% endhint %}
 
 Navigate to the user's list page.
@@ -17,7 +17,7 @@ Navigate to the user's list page.
 Select "Configure Desktop Client" from the action menu.
 
 {% hint style="info" %}
-This option is only available if the instance has at least one localization, and the user is 'active'. For users that require enrollment, you can choose the option 'Start enrollment' and that token will also work with the client.&#x20;
+This option is only available if the instance has at least one localization, and the user is 'active'. For users that require enrollment, you can choose the option 'Start enrollment' and that token will also work with the client.
 {% endhint %}
 
 <figure><img src="../../../.gitbook/assets/Remote Desktop Client config.png" alt=""><figcaption></figcaption></figure>

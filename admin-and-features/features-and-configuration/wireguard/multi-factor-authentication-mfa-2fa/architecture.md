@@ -1,6 +1,6 @@
 # MFA Architecture
 
-WireGuard by itself does not have a concept of MFA or any additional authorization aside from validating peers cryptographically by their public and pre-shared keys.&#x20;
+WireGuard by itself does not have a concept of MFA or any additional authorization aside from validating peers cryptographically by their public and pre-shared keys.
 
 Desktop Client MFA functionality is build entirely in defguard as a layer above the WireGuard protocol. Below is a brief explanation of its architecture and the authorization process itself.
 

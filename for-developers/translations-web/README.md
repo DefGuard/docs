@@ -1,5 +1,5 @@
-# Translations ( web )
+# Translations (web)
 
-Frontend translations are working on [typesafe-i18n](https://github.com/ivanhofer/typesafe-i18n).
+Frontend translations are using [typesafe-i18n](https://github.com/ivanhofer/typesafe-i18n) library.
 
-The active translation is controlled by `language` value in `AppStore` .
+The active translation is controlled by `language` value in `AppStore` state.

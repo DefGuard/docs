@@ -41,7 +41,7 @@ When MFA configuration is changed, all clients must do an [Instance Update](../.
 
 ### Testing MFA on defguard client
 
-If a VPN has MFA enabled, before connecting you will be asked to complete the authentication step first:&#x20;
+If a VPN has MFA enabled, before connecting you will be asked to complete the authentication step first:
 
 <figure><img src="../../../../.gitbook/assets/defguard-client-mfa-modal.png" alt=""><figcaption><p>MFA in defguard desktop client</p></figcaption></figure>
 

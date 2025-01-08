@@ -9,7 +9,7 @@ description: Here are some common issues / problems that are frequently encounte
 Before contacting support, please see if the answer cannot be found here:
 {% endhint %}
 
-## Desktop client real-time/auto sync doesn't work&#x20;
+## Desktop client real-time/auto sync doesn't work
 
 The client communicates with core to initiate the handshake through the secure proxy (which is also the enrollment service - [more details about the architecture here](../features-and-configuration/wireguard/multi-factor-authentication-mfa-2fa/architecture.md)), so it's critical it works and is properly configured.
 
@@ -41,7 +41,7 @@ So if you are disconnected from the location:
 
 ## Client: failed to configure DNS (Linux)
 
-This error commonly occurs on Ubuntu 22. Defguard client internally calls `resolvconf` to set DNS servers. The only tested backend is `systemd-resolved`, so make sure you use it before proceeding further (`systemctl status systemd-resolved`).&#x20;
+This error commonly occurs on Ubuntu 22. Defguard client internally calls `resolvconf` to set DNS servers. The only tested backend is `systemd-resolved`, so make sure you use it before proceeding further (`systemctl status systemd-resolved`).
 
 On newer Ubuntu distributions (23 and up) `resolvconf` is, by default, a symbolic link to `resolvectl` and this is the recommended way of interacting with the system's DNS configuration. On Ubuntu 22 the symbolic link doesn't exist and the most straightforward way to fix this issue is to manually create it:
 
@@ -61,7 +61,7 @@ Best would be to setup on the server NTP time synchronization.
 
 This error is common if you use a reverse-proxy for any of our components.
 
-Every reverse proxy has a timeout for keeping the connection alive. You can increase the timeout value to see less errors, but they will eventually appear.&#x20;
+Every reverse proxy has a timeout for keeping the connection alive. You can increase the timeout value to see less errors, but they will eventually appear.
 
 Ignore them, this is a normal behaviour.
 

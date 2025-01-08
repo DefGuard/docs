@@ -37,7 +37,7 @@ Now go to the server and open the docker-compose.yml file, and scroll to the gat
 
 Now copy the **whole gateway section and:**
 
-* **name it in a uniqe way,** eg. _gateway-customer2_&#x20;
+* **name it in a uniqe way,** eg. _gateway-customer2_
 * in the enviroment variable `DEFGUARD_TOKEN`: add the token you have copied from the new location
 * **add the following line below the&#x20;**_**image**_**&#x20;-** to change the second gateway WireGuard interface:
 

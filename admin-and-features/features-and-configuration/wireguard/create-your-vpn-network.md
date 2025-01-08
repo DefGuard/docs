@@ -43,7 +43,7 @@ By providing the VPN IP/mask, you are configuring both: **the VPN internal netwo
 
 ### Gateway address
 
-It's the **public IP** address to which the remote peer's/users will connect to. This IP address is **will be shared in the configuration** for the clients, but defguard gateways do **not bind to this address**.&#x20;
+It's the **public IP** address to which the remote peer's/users will connect to. This IP address is **will be shared in the configuration** for the clients, but defguard gateways do **not bind to this address**.
 
 {% hint style="warning" %}
 Defguard gateways bind to all IP addresses and the port defined below.
@@ -64,7 +64,7 @@ It supports multiple networks separated with comma, eg. 10.11.1.0/0, 192.168.1.0
 {% hint style="danger" %}
 Right now defguard only manages routing of AllowedIPs (adding to routing table the networks defined in AllowedIPs).
 
-If you want the _All Traffic_ to work in the desktop client you need to also configure MASQUARED/NAT for the VPN interface. [Example of that here.](../../../tutorials/step-by-step-setting-up-a-vpn-server/#enabling-to-access-internet-through-your-vpn)&#x20;
+If you want the _All Traffic_ to work in the desktop client you need to also configure MASQUARED/NAT for the VPN interface. [Example of that here.](../../../tutorials/step-by-step-setting-up-a-vpn-server/#enabling-to-access-internet-through-your-vpn)
 {% endhint %}
 
 ### DNS

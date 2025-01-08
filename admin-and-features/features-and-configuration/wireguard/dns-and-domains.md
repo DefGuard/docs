@@ -2,7 +2,7 @@
 
 To change / add DNS settings or a DNS search domain:
 
-* Go to Location overview&#x20;
+* Go to Location overview
 * Click \*Edit location settings\* (right top corner)
 * In the DNS section enter the IP addresses of DNS servers (separated by commas ",") and a search domain
 

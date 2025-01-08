@@ -44,4 +44,4 @@ In order to get the **Client ID** and **Client Secret** values, refer to the doc
 
 When configuring your external OpenID provider, at some point you will need to provide a callback URL, which will redirect the user back to Defguard. This URL is in form of `<DEFGUARD_DASHBOARD_URL>/auth/callback`. Replace `<DEFGUARD_DASHBOARD_URL>` with the URL under which your dashboard is accessible, e.g. `https://defguard.example.com`. If you'd like to use OpenID enrollment through proxy too, make sure to enter an additional URI in the form of `<DEFGUARD_ENROLLMENT_URL>/openid/callback`.
 
-If you're having issues with your custom provider's base URL, check Defguard's (core) logs. It should say what URL it expected.&#x20;
+If you're having issues with your custom provider's base URL, check Defguard's (core) logs. It should say what URL it expected.

@@ -1,6 +1,6 @@
 # Community & Support
 
-## Contacting Support&#x20;
+## Contacting Support
 
 If you have bought an [Enterprise plan with premium support ](https://defguard.net/pricing/)you can reach us at:
 
@@ -29,5 +29,3 @@ Matrix is vastly more secure then those (convenient) platforms - and open source
 Please do **not open Github Issues for security issues you encounter**. To reporting a vulnerability open a [security advisory here](https://github.com/defguard/defguard/security/advisories/new).
 
 \
-
-

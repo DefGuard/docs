@@ -29,7 +29,7 @@ It's completely safe, defguard does not store private keys. Every key is provisi
 
 That also means that the **master key** is deleted and only sub-keys are stored - so you will not be able for example to edit the GPG key and add additional emails, etc - as that requires the **master key** to be imported to GPG.
 
-As we do not want to store any private keys for security reasons, we have some ideas and plans for **optional master-key** storage based on **HSM encryption**, but we want to see if any actual companies/users need that, as there is always a way just to overwrite the existing YK and provision with new data.&#x20;
+As we do not want to store any private keys for security reasons, we have some ideas and plans for **optional master-key** storage based on **HSM encryption**, but we want to see if any actual companies/users need that, as there is always a way just to overwrite the existing YK and provision with new data.
 {% endhint %}
 
 ## Installation of provisioning service
@@ -54,7 +54,7 @@ yubikey-provision -h
 
 ### CLI options and configuration
 
-Configuration can be provided in CLI with options, in environment variables, or via `.env` file. &#x20;
+Configuration can be provided in CLI with options, in environment variables, or via `.env` file.
 
 <table><thead><tr><th>Name</th><th>Description</th><th data-type="checkbox">Required</th><th>CLI option</th><th>Environment variable</th><th>Default value</th></tr></thead><tbody><tr><td>Provisioner ID</td><td>Shown in Defguard UI</td><td>true</td><td>--id</td><td>WORKER_ID</td><td>YubikeyProvisioner</td></tr><tr><td>Log level</td><td>Sets logging level</td><td>false</td><td>--log-level</td><td>LOG_LEVEL</td><td>info</td></tr><tr><td>GRPC Endpoint</td><td>Url of your Defguard instance GRPC endpoint. Make sure you include <strong><code>http</code></strong> or <strong><code>https</code></strong>  !</td><td>true</td><td>--grpc</td><td>GRPC_URL</td><td><a href="http://127.0.0.1:50055">http://127.0.0.1:50055</a></td></tr><tr><td>GRPC CA File</td><td>Path to CA file. Needed if you want GRPC to use TLS. <br><br>You don't need to change http in endpoint if this is present.</td><td>false</td><td>--ca-file</td><td>GRPC_CA</td><td></td></tr><tr><td>Authorization Token</td><td>Authorization Token found in Defguard UI on Provisioners page.</td><td>true</td><td>--token</td><td>DEFGUARD_TOKEN</td><td></td></tr><tr><td>Detection retries</td><td>How many times provisioner will check for YubiKey presence in system before abandoning the process.</td><td>false</td><td>--smartcard-retries</td><td>YUBIKEY_RETRIES</td><td>1</td></tr><tr><td>Retry interval</td><td>How long between retries provisioner will wait ( in seconds )</td><td>false</td><td>--smartcard-retry-interval</td><td>YUBIKEY_RETRY_INTERVAL</td><td>15</td></tr><tr><td>GPG debug level</td><td>Sets debug level for gpg command during gpg operations</td><td>false</td><td>--gpg-debug-level</td><td>GPG_DEBUG_LEVEL</td><td>none</td></tr></tbody></table>
 

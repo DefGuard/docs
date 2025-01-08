@@ -79,7 +79,7 @@ _defguard is not an official WireGuard project, and WireGuard is a registered tr
 
 * Secure remote (over the internet) [user enrollment](https://defguard.gitbook.io/defguard/help/remote-user-enrollment)
 * User [onboarding after enrollment](https://defguard.gitbook.io/defguard/help/remote-user-enrollment/user-onboarding-after-enrollment)
-* Self-service for password reset&#x20;
+* Self-service for password reset
 
 ### Yubikey Provisioning
 

@@ -2,7 +2,7 @@
 
 If you (or your defguard administrator) have added a new VPN Location and you would like to connect to that location from your **already existing device** (which you have downloaded configuration for any previous locations), you need to:
 
-1. Go to **your profile** (_My Profile -_ which you'll find on the navigation on the left side of the screen)&#x20;
+1. Go to **your profile** (_My Profile -_ which you'll find on the navigation on the left side of the screen)
 2. Click on the **gear icon on the device you want to download Location configuration** - a menu for that device will apear:
 
 <figure><img src="../../../.gitbook/assets/device-newlocation.png" alt=""><figcaption></figcaption></figure>
@@ -15,7 +15,7 @@ The same configuration screen will popup as you were adding this device, but now
 
 <figure><img src="../../../.gitbook/assets/device-newlocation2.png" alt=""><figcaption></figcaption></figure>
 
-4. **Download and configure your Wireguard VPN** exactly the same way you did it during the [adding device process](./).&#x20;
+4. **Download and configure your Wireguard VPN** exactly the same way you did it during the [adding device process](./).
 
 The configuration will be named **LocationName-device.conf** - just add a new configuration to Wireguard client.
 
@@ -32,4 +32,3 @@ Since defguard doesn't have access to your private keys - **but has your public 
 
 Yon can just **copy the whole line** from any other configurations from any other working locations for that device.
 {% endhint %}
-

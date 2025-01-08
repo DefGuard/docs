@@ -10,7 +10,7 @@ First, go to the defguard OpenID tab and click add new app button.
 
 * OpenID
 * Profile
-* Email&#x20;
+* Email
 
 Then add your app. After successfully adding your app you can see it in the OpenID apps list. When you click on it you will be redirected to the client details page. From this page copy Client ID and Client secret values for later.
 
