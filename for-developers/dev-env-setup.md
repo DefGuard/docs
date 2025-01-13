@@ -31,14 +31,29 @@ docker compose run core init-dev-env
 docker compose up
 ```
 
-To use different versions of Defguard images, edit _docker-compose.yaml_ file, replacing `image:` sections.
-Consult [Defguard Package](https://github.com/DefGuard/defguard/pkgs/container/defguard) versions to browse for available image tags.
+### Switching images
+
+To use different versions of Defguard images, edit _docker-compose.yaml_ file, replacing `image:` sections. Consult [Defguard Package](https://github.com/DefGuard/defguard/pkgs/container/defguard) versions to browse for available image tags.
 
 For example, to use current development version, change this section in _docker-compose.yaml_:
 
 ```
 core:
   image: ghcr.io/defguard/defguard:dev
+```
+
+### Running local code
+
+To run local code you will need to build core image from local changes:
+
+```bash
+docker compose build core
+```
+
+Then just run the compose normally.
+
+```bash
+docker compose up
 ```
 
 ## Cargo
@@ -79,8 +94,6 @@ popd
 
 You'll find environment variables in _.env_ file. Source them however you like (we recommend [direnv](https://direnv.net/)).
 
-
-
 Once that's done, you can run backend with:
 
 ```
@@ -90,7 +103,6 @@ cargo run
 5. Use a web browser to connect to Defguard. For example, when using the default configuration the web site should be accessible under this address:
 
 **http://localhost:8000/**
-
 
 ### Minimum required settings
 
