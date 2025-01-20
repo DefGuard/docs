@@ -31,3 +31,37 @@ Here is [full Google documentation](https://developers.google.com/identity/openi
 11. After you proceed further, you will be presented with a popup containing your `Client ID` and `Client Secret`, copy them and paste on the Defguard OpenID configuration page.
 
     <figure><img src="../../../.gitbook/assets/settings.png" alt=""><figcaption></figcaption></figure>
+
+### Directory synchronization
+
+{% hint style="warning" %}
+Documentation regarding this feature is still work in progress and incomplete.
+{% endhint %}
+
+{% hint style="info" %}
+This feature is available only in Defguard v1.2.0 and above
+{% endhint %}
+
+Defguard supports synchronization of users and groups state based on Google Workspace. The following things can be synchronized:
+
+* Users state: users disabled in Google Workspace will be disabled in Defguard
+* Deletion of users: users deleted in Google Workspace will be deleted in Defguard
+* User groups: user groups in Google Workspace will be automatically assigned and created in Defguard
+
+#### Directory synchronization configuration menu
+
+The menu can be found in Defguard settings by navigatin to the "OpenID" tab.
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+The following configuration options are currently available in the directory synchronization menu:
+
+* Synchronize (All/User/Group): What to synchronize.
+  * All - synchronize both user state (disabled/enabled), their deletion and groups
+  * User - synchronize only user state (disabled/enabled) and whether they've been deleted
+  * Group - synchronize only user groups
+* Synchronization interval (600s by default): How often to synchronize with Google. Very low values may cause issues with Google API. Users are also synchronized on login.
+* User behavior (Keep, Disable, Delete): What to do with users not present in Google Workspace.
+* Admin behavior (Keep, Disable, Delete): What to do with users with admin status in Defguard who are not present in Google Workspace.
+* Admin email: The email of the Google Workspace admin user on which behalf Defguard will call the Google API
+* Service account in use: The email of the Google service account which is currently used
