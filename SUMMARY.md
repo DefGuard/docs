@@ -15,6 +15,7 @@
   * [With external SSO (Google/Microsoft/Custom)](help/enrollment/with-external-sso-google-microsoft-custom.md)
 * [Setting up 2FA/MFA](help/setting-up-2fa-mfa.md)
 * [Desktop Client](help/desktop-client.md)
+* [CLI client](help/cli-client.md)
 
 ## Admin & features
 
