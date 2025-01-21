@@ -1,9 +1,5 @@
 # CLI Client
 
-{% hint style="warning" %}
-Documentation regarding this feature is still work in progress and incomplete.
-{% endhint %}
-
 ### Downloading
 
 Latest release page: [https://github.com/DefGuard/client/releases/tag/v1.2.0](https://github.com/DefGuard/client/releases/tag/v1.2.0)
