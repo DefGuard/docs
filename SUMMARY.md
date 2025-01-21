@@ -64,6 +64,8 @@
   * [Webhooks](admin-and-features/features-and-configuration/webhooks.md)
   * [Forward auth](admin-and-features/features-and-configuration/forward-auth.md)
   * [SSH Authentication](admin-and-features/features-and-configuration/ssh-authentication.md)
+  * [Network devices](admin-and-features/features-and-configuration/network-devices.md)
+  * [Gateway notifications](admin-and-features/features-and-configuration/gateway-notifications.md)
 
 ## Enterprise Features <a href="#enterprise" id="enterprise"></a>
 
