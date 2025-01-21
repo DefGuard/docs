@@ -1,6 +1,6 @@
 # Network devices
 
-Network devices are like regular user devices but can only be managed by admins and have access only to one network. They are designed to be used with the [Defguard CLI client](../../help/cli-client.md).
+Network devices are like regular user devices but can only be managed by admins and have access to only one network. They are designed to be used with the [Defguard CLI client](../../help/cli-client.md).
 
 ### Adding a new network device
 

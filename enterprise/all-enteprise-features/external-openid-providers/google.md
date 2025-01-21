@@ -52,7 +52,7 @@ Defguard supports synchronization of users and groups state based on Google Work
 
 The menu can be found in Defguard settings by navigatin to the "OpenID" tab.
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 The following configuration options are currently available in the directory synchronization menu:
 

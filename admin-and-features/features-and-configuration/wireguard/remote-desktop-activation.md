@@ -12,7 +12,7 @@ Users can activate / configure their desktop client themselves - for that docume
 
 Navigate to the user's list page.
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Select "Configure Desktop Client" from the action menu.
 
