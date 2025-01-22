@@ -28,18 +28,20 @@ It's a name that will be visible both on the UI, but also in the desktop client 
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2024-11-21 at 14.37.51.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### **Gateway VPN IP address and mask:**
+### Gateway VPN IP address and mask
 
-By providing the VPN IP/mask, you are configuring both: **the VPN internal network and VPN server IP**. Every gateway will bind to this address and defguard will also generate and assign IP addresses for devices in this location from this network.
+By providing the VPN IP/mask, you are configuring both: **the VPN internal network and VPN server IP**. Every gateway will bind to this address and Defguard will also generate and assign IP addresses for devices in this location from this network.
+
+This field can contain multiple IP addresses (both IPv4 and IPv6), separated by a comma (e.g. 10.10.20.1/24,fc00::abcd:0:1/96). The first (leftmost) address is the primary address, and this one will be used for IP address assignment for devices. The other IP addresses are auxiliary and are not managed by Defguard.
 
 #### Examples
 
 1. 10.11.0.1/8
    1. internal VPN network will be: 10.11.0.0 with netmask 255.0.0.0
-   2. VPN gateway internal ip will be: 10.11.0.1
+   2. VPN gateway internal IP address will be: 10.11.0.1
 2. 192.168.8.1/24
    1. internal VPN network will be: 192.168.8.0 with netmask 255.255.255.0
-   2. VPN gateway internal ip will be: 192.168.8.1
+   2. VPN gateway internal IP address will be: 192.168.8.1
 
 ### Gateway address
 
@@ -71,7 +73,7 @@ If you want the _All Traffic_ to work in the desktop client you need to also con
 
 This specifies DNS resolvers and search domains. Supported format is by comma separation, eg.:
 
-`IP, IP, search.domain.net, second.search,domain.com`
+`IP, IP, search.domain.net, second.search.domain.com`
 
 ### Allowed groups
 
