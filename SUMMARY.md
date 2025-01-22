@@ -66,6 +66,7 @@
   * [SSH Authentication](admin-and-features/features-and-configuration/ssh-authentication.md)
   * [Network devices](admin-and-features/features-and-configuration/network-devices.md)
   * [Gateway notifications](admin-and-features/features-and-configuration/gateway-notifications.md)
+  * [New version notifications](admin-and-features/features-and-configuration/new-version-notifications.md)
 
 ## Enterprise Features <a href="#enterprise" id="enterprise"></a>
 
