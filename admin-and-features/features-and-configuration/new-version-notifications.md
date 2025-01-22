@@ -10,4 +10,4 @@ You can display the release notes by clicking "See what's new".
 
 If the update is considered critical (e.g. fixes a vulnerability) it will have the "critical update" badge.
 
-If you dismiss the update, it won't be shown again for that version.
+If you dismiss the update, it won't be shown again for that version for the&#x20;
