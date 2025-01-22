@@ -35,7 +35,7 @@ Here is [full Google documentation](https://developers.google.com/identity/openi
 ### Directory synchronization
 
 {% hint style="warning" %}
-Documentation regarding this feature is still work in progress and incomplete.
+This feature is currently limited to 500 Google Workspace members or groups. It may not work correctly if you have more Google Workspace members than that. If this limit is an issue, report it on our GitHub.
 {% endhint %}
 
 {% hint style="info" %}
