@@ -32,7 +32,7 @@ It's a name that will be visible both on the UI, but also in the desktop client 
 
 By providing the VPN IP/mask, you are configuring both: **the VPN internal network and VPN server IP**. Every gateway will bind to this address and Defguard will also generate and assign IP addresses for devices in this location from this network.
 
-This field can contain multiple IP addresses (both IPv4 and IPv6), separated by a comma (e.g. 10.10.20.1/24,fc00::abcd:0:1/96). The first (leftmost) address is the primary address, and this one will be used for IP address assignment for devices. The other IP addresses are auxiliary and are not managed by Defguard.
+This field can contain multiple IP addresses (both IPv4 and IPv6), separated by a comma (e.g. `10.10.20.1/24,fc00::abcd:0:1/96`). The first (leftmost) address is the primary address, and this one will be used for IP address assignment for devices. The other IP addresses are auxiliary and are not managed by Defguard.
 
 #### Examples
 
