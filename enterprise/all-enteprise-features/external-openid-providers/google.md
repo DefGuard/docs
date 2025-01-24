@@ -48,6 +48,8 @@ Defguard supports synchronization of users and groups state based on Google Work
 * **User Deletion**: Removing a user in Google Workspace can also remove them in Defguard.
 * **User Status**: Disabling a user in Google Workspace will disable them in Defguard.
 
+Defguard doesn't automatically create users based on the users in your Workspace. They will have to manually login to Defguard through your provider in order for their Defguard accounts to be created. Defguard is responsible only for synchronizing their later state.
+
 #### Directory synchronization configuration menu
 
 The menu can be found in Defguard settings by navigating to the "OpenID" tab.
