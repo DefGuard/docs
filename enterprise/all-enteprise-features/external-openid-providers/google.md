@@ -61,8 +61,13 @@ The following configuration options are currently available in the directory syn
   * **User** - synchronize only user state (disabled/enabled) and whether they've been deleted
   * **Group** - synchronize only user groups
 * **Synchronization interval (600s by default):** How often to synchronize with Google. Very low values may cause issues with Google API. Users are also synchronized on login.
-* **User behavior (Keep, Disable, Delete):** What to do with users not present in Google Workspace.
-* **Admin behavior (Keep, Disable, Delete):** What to do with users with admin status (in Defguard) who are not present in Google Workspace.
+
+{% hint style="danger" %}
+If you want to delete your users based on the state of Google Workspace we recommend trying out the "disable" behavior first to make sure everything works as expected. Always backup your database regularly.
+{% endhint %}
+
+* **User behavior (Keep, Disable, Delete):** What to do with Defguard users not present in Google Workspace.
+* **Admin behavior (Keep, Disable, Delete):** What to do with Defguard users with admin status (in Defguard) who are not present in Google Workspace.
 * **Admin email:** The email of the Google Workspace admin user on whose behalf Defguard will call the Google API
 * **Service account in use:** The email of the Google service account which is currently used
 
