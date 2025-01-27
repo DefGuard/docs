@@ -25,7 +25,7 @@ services:
     env_file: .env
     ports:
       # HTTP port - open on localhost, should be secured by reverse-proxy
-      - "127.0.0.1:80000:8000"
+      - "127.0.0.1:8000:8000"
       # gRPC port for gateway to connect to
       # open on all interfaces/IPs - whould be secured with custom CA (see .env)
       - "50055:50055"
