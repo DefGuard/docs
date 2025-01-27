@@ -30,18 +30,49 @@ Make sure the Redirect URL you insert here is correct. Replace `defguard.example
 
 13. Now you should be good to go. A new login button should appear on the login screen.
 
-#### Custom OpenID provider
+### Directory synchronization
 
-{% hint style="warning" %}
-Defguard supports custom providers that allow a **code** response type in the OpenID authorization flow.
+{% hint style="info" %}
+This feature is available only in Defguard 1.2.1 and above
 {% endhint %}
 
-You can also configure a custom OpenID provider. The key thing here is setting up the **Base URL** correctly. This URL is used to discover all the endpoints required for the authorization flow.
+{% hint style="warning" %}
+This feature is currently limited to 999 Microsoft Entra ID members or groups. It may not work correctly if you have more members than that. If this limit is an issue, report it on our GitHub.
+{% endhint %}
 
-The easiest way of obtaining the Base URL is finding out what is the OpenID `.well-known` URL of your provider. For example, for Google it's `https://accounts.google.com/.well-known/openid-configuration`, in this case, the Base URL would be `https://accounts.google.com` (note the lack of a trailing slash). The part starting with `/.well-known` is added automatically, so it should be omitted from the Base URL. This is explained in more detail in the [Base URL](microsoft.md#base-url) section.
+Defguard supports synchronizing groups' and users' states based on your Microsoft directory.
 
-In order to get the **Client ID** and **Client Secret** values, refer to the documentation of your custom provider of choice.
+Make sure to check the [general guide to directory synchronization](./#directory-synchronization) to learn more about the available configuration options.
 
-When configuring your external OpenID provider, at some point you will need to provide a callback URL, which will redirect the user back to Defguard. This URL is in form of `<DEFGUARD_DASHBOARD_URL>/auth/callback`. Replace `<DEFGUARD_DASHBOARD_URL>` with the URL under which your dashboard is accessible, e.g. `https://defguard.example.com`. If you'd like to use OpenID enrollment through proxy too, make sure to enter an additional URI in the form of `<DEFGUARD_ENROLLMENT_URL>/openid/callback`.
+#### Setup
 
-If you're having issues with your custom provider's base URL, check Defguard's (core) logs. It should say what URL it expected.
+1. Go back to your app registrations in Microsoft Entra ID and select the app you registered during the provider setup.
+2.  Navigate to API permissions\
+
+
+    <figure><img src="../../../.gitbook/assets/image (58).png" alt=""><figcaption></figcaption></figure>
+
+
+3.  Click "Add a permission", then select "Microsoft Graph"\
+
+
+    <figure><img src="../../../.gitbook/assets/image (59).png" alt=""><figcaption></figcaption></figure>
+
+
+4.  Select "Application permissions", as Defguard will perform the synchronization in the background.\
+
+
+    <figure><img src="../../../.gitbook/assets/image (60).png" alt=""><figcaption></figcaption></figure>
+
+
+5. Assign the following permissions:
+   * `GroupMember.Read.All`
+   * `Group.Read.All`
+   * `User.Read.All`
+6.  Now grant admin consent for the permissions using the "Grant admin consent for" button\
+
+
+    <figure><img src="../../../.gitbook/assets/image (61).png" alt=""><figcaption></figcaption></figure>
+
+
+7. You should be good to go now. Navigate to the directory sync settings in Defguard and try to test your setup using the test connection button.

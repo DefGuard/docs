@@ -78,6 +78,46 @@ For this to work, make sure you have the following two things set:
 
 If you disable the option above, new users won't be able to automatically go through the enrollment. You will need to create their accounts by hand (with the same email address as the one they have set on your OIDC provider's side) and only then they will have an option to activate it by logging through the provider.
 
+### Directory synchronization
+
+{% hint style="info" %}
+This feature is available only in Defguard v1.2.0 and above
+{% endhint %}
+
+Defguard supports synchronizing users' and groups' states based on the state of the external provider directory. The following things can be synchronized:
+
+* **User Groups**: Automatically create and assign user groups in Defguard to reflect them in Google Workspace.
+* **User Deletion**: Removing a user from the provider's directory can also remove them from Defguard.
+* **User Status**: Disabling users in the provider's directory will disable them in Defguard.
+
+Defguard doesn't automatically create users based on the users in your provider's directory. They will have to manually log in to Defguard through your provider for their Defguard accounts to be created. Defguard is responsible only for synchronizing their later state.
+
+#### General configuration
+
+The menu can be found in Defguard settings by navigating to the "OpenID" tab.
+
+<figure><img src="../../../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
+
+The following configuration options are currently available in the directory synchronization menu for all providers:
+
+* **Synchronize (All/User/Group):** What to synchronize.
+  * **All** - synchronize both user state (disabled/enabled), their deletion, and groups
+  * **User** - synchronize only user state (disabled/enabled) and whether they've been deleted
+  * **Group** - synchronize only user groups
+* **Synchronization interval (600s by default):** How often to synchronize with your provider. Very low values may cause issues with the provider API. The user state is also synchronized on login.
+
+{% hint style="danger" %}
+If you want to delete your users based on the state of your provider we recommend trying out the "disable" behavior first to make sure everything works as expected. Always back up your database regularly.
+{% endhint %}
+
+* **User behavior (Keep, Disable, Delete):** What to do with Defguard users who are absent from your provider's directory.
+* **Admin behavior (Keep, Disable, Delete):** What to do with Defguard users with admin status (in Defguard) who are absent from your provider's directory.
+
+#### Currently supported providers
+
+* [Google](google.md#directory-synchronization)
+* Microsoft
+
 ## Known issues
 
 ### JumpCloud

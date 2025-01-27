@@ -42,13 +42,7 @@ This feature is currently limited to 500 Google Workspace members or groups. It 
 This feature is available only in Defguard v1.2.0 and above
 {% endhint %}
 
-Defguard supports synchronization of users and groups state based on Google Workspace. The following things can be synchronized:
-
-* **User Groups**: Automatically create and assign user groups in Defguard to reflect them in Google Workspace.
-* **User Deletion**: Removing a user in Google Workspace can also remove them in Defguard.
-* **User Status**: Disabling a user in Google Workspace will disable them in Defguard.
-
-Defguard doesn't automatically create users based on the users in your Workspace. They will have to manually login to Defguard through your provider in order for their Defguard accounts to be created. Defguard is responsible only for synchronizing their later state.
+This documentation concerns only the Google directory synchronization. For more general information, see the [general directory synchronization guide](./#directory-synchronization).
 
 #### Directory synchronization configuration menu
 
@@ -56,26 +50,16 @@ The menu can be found in Defguard settings by navigating to the "OpenID" tab.
 
 <figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
-The following configuration options are currently available in the directory synchronization menu:
+The following configuration options are currently available in the directory synchronization menu specifically for the Google provider:
 
-* **Synchronize (All/User/Group):** What to synchronize.
-  * **All** - synchronize both user state (disabled/enabled), their deletion and groups
-  * **User** - synchronize only user state (disabled/enabled) and whether they've been deleted
-  * **Group** - synchronize only user groups
-* **Synchronization interval (600s by default):** How often to synchronize with Google. Very low values may cause issues with Google API. Users are also synchronized on login.
-
-{% hint style="danger" %}
-If you want to delete your users based on the state of Google Workspace we recommend trying out the "disable" behavior first to make sure everything works as expected. Always backup your database regularly.
-{% endhint %}
-
-* **User behavior (Keep, Disable, Delete):** What to do with Defguard users not present in Google Workspace.
-* **Admin behavior (Keep, Disable, Delete):** What to do with Defguard users with admin status (in Defguard) who are not present in Google Workspace.
 * **Admin email:** The email of the Google Workspace admin user on whose behalf Defguard will call the Google API
-* **Service account in use:** The email of the Google service account which is currently used
+* **Service account in use:** The email of the Google service account that is currently used
+
+To learn more about the rest of the configuration options, see the [general directory synchronization guide](./#directory-synchronization).
 
 #### Directory synchronization setup
 
-1.  Navigate to [Service Accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) in the Google cloud console\
+1.  Navigate to [Service Accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) in the Google Cloud console\
 
 
     <figure><img src="../../../.gitbook/assets/image (49).png" alt=""><figcaption></figcaption></figure>

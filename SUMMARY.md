@@ -80,6 +80,7 @@
     * [Keycloak](enterprise/all-enteprise-features/external-openid-providers/keycloak.md)
     * [JumpCloud](enterprise/all-enteprise-features/external-openid-providers/jumpcloud.md)
     * [Okta](enterprise/all-enteprise-features/external-openid-providers/okta.md)
+    * [Custom](enterprise/all-enteprise-features/external-openid-providers/custom.md)
   * [External OIDC secure enrollment](enterprise/all-enteprise-features/external-oidc-secure-enrollment.md)
   * [VPN & Client behavior customization](enterprise/all-enteprise-features/behavior-customization.md)
 
