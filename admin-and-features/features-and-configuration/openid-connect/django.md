@@ -121,7 +121,7 @@ We need to register our Django application as an OpenID client in Defguard.
 
 To do that, navigate to OpenID panel and add new client as shown below.
 
-<figure><img src="../../../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -371,6 +371,7 @@ Make _<mark style="color:purple;">**templates/admin/auth/login.html**</mark>_ fi
 {% endblock %}
 {% endraw %}
 
+
 ```
 
 ### Register login route
@@ -411,10 +412,10 @@ After accessing _http://localhost:9000/admin we should see our custom login page
 
 Button "_Login with Defguard_" should redirect us to our Defguard instance. Depending on if Defguard session is active or not we should be able to see app authorization page or login page.
 
-<figure><img src="../../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 When we authorize Django App to our Defguard account we are redirected back to our Django admin and logged in with a user from Defguard.
