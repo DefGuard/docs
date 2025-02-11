@@ -35,7 +35,7 @@ Here is [full Google documentation](https://developers.google.com/identity/openi
 ### Directory synchronization
 
 {% hint style="warning" %}
-This feature is currently limited to 500 Google Workspace members or groups. It may not work correctly if you have more Google Workspace members than that. If this limit is an issue, report it on our GitHub.
+This feature is currently technically limited to 10000 members or groups. High user or group counts may still trigger your provider API limits even below this threshold. If you have many users (200+), we recommend you test this feature first before you decide to turn on automatic user deletion.
 {% endhint %}
 
 {% hint style="info" %}

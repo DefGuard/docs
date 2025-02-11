@@ -51,6 +51,10 @@ To learn more about the rest of the configuration options, see the [general dire
 
 #### Directory synchronization setup
 
+{% hint style="warning" %}
+This feature is currently technically limited to 10000 members or groups. High user or group counts may still trigger your provider API limits even below this threshold. If you have many users (200+), we recommend you test this feature first before you decide to turn on automatic user deletion.
+{% endhint %}
+
 1.  Go to the Okta admin dashboard and navigate to the Applications menu\
 
 

@@ -37,7 +37,7 @@ This feature is available only in Defguard 1.2.1 and above
 {% endhint %}
 
 {% hint style="warning" %}
-This feature is currently limited to 999 Microsoft Entra ID members or groups. It may not work correctly if you have more members than that. If this limit is an issue, report it on our GitHub.
+This feature is currently technically limited to 10000 members or groups. High user or group counts may still trigger your provider API limits even below this threshold. If you have many users (200+), we recommend you test this feature first before you decide to turn on automatic user deletion.
 {% endhint %}
 
 Defguard supports synchronizing groups' and users' states based on your Microsoft directory.
