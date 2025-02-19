@@ -1,0 +1,60 @@
+---
+icon: key-skeleton
+---
+
+# API tokens
+
+{% hint style="warning" %}
+API token functionality requires defguard version 1.2.4+.
+{% endhint %}
+
+
+
+Admin users can generate API tokens to enable request authentication for custom external tools which use defguard REST API.
+
+Tokens retain the same access permissions as their owner, so be careful when sharing them with others.
+
+## Setup
+
+To generate a new API token go to your profile page and click the `Add new API Token`button:
+
+<figure><img src="../../.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
+
+Fill in your chosen token name and submit form:
+
+<figure><img src="../../.gitbook/assets/image (64).png" alt=""><figcaption></figcaption></figure>
+
+Copy generated token. This is the only time the token will be available in plain text form. If you lose it you will have to generate a new one.
+
+<figure><img src="../../.gitbook/assets/image (65).png" alt=""><figcaption></figcaption></figure>
+
+In the API token list you can later rename or delete a token:
+
+<figure><img src="../../.gitbook/assets/image (66).png" alt=""><figcaption></figcaption></figure>
+
+## Usage
+
+defguard API uses a standard **Bearer token authentication** scheme.
+
+This means that an API token can be passed in the `Authorization`header to authenticate a given request instead of a session cookie used by the web UI:
+
+```bash
+Authorization: Bearer <token>
+```
+
+Example GET request:
+
+```bash
+curl -H "Authorization: Bearer <token>" <YOUR_DEFGUARD_URL>/api/v1/me
+```
+
+## REST API documentation
+
+You can explore the defguard REST API  using  [Swagger UI](https://swagger.io/tools/swagger-ui/) by going to `<YOUR_DEFGUARD_URL>/api-docs`.
+
+API specification JSON in OpenAPI format can also be fetched from `<YOUR_DEFGUARD_URL>/api/v1/api-docs`.
+
+
+
+
+

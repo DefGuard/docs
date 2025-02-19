@@ -83,6 +83,7 @@
     * [Custom](enterprise/all-enteprise-features/external-openid-providers/custom.md)
   * [External OIDC secure enrollment](enterprise/all-enteprise-features/external-oidc-secure-enrollment.md)
   * [VPN & Client behavior customization](enterprise/all-enteprise-features/behavior-customization.md)
+  * [API tokens](enterprise/all-enteprise-features/api-tokens.md)
 
 ## Tutorials
 
