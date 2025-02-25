@@ -12,4 +12,4 @@ Here is a list of all Enterprise features:
 * Ability to [disable for users to manage their devices](behavior-customization.md#disable-for-users-to-manage-their-devices) (just admin will have this possibility).
 * Ability to [disable for users to configure WireGuard clients other then defguard desktop client](behavior-customization.md#disable-ability-to-configure-other-vpn-clients-then-defguard-desktop-client).
 * Ability to [disable "All traffic" in the desktop client ](behavior-customization.md#disable-all-traffic-option-in-the-desktop-client)- just "predefined" traffic by admins.
-* Ability to integrate with external tooling using [API tokens](rest-api.md).
+* Ability to integrate with external tooling using [REST API](api-tokens.md).
