@@ -23,7 +23,7 @@ Those limits should be more then enough for small businesses, home-labs or just 
 If you would like to purchase a license, we offer two types of licenses:
 
 1. **Subscription** that can be bought on [https://defguard.net/pricing/](https://defguard.net/pricing/)
-2. **Offline with a defined custom period.**
+2. **Offline (which will not contact our license server) with a defined custom period** can be bought directly, please contact: sales @ defguard.net
 
 #### Subscription
 
