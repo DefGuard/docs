@@ -2,17 +2,26 @@
 icon: key-skeleton
 ---
 
-# API tokens
+# REST API
 
 {% hint style="warning" %}
-API token functionality requires defguard version 1.2.4+.
+API functionality:
+
+1. requires defguard version 1.2.4+
+2. is also **available without enterprise license**, if your instance does not exceed the limits [described here](../license.md#enterprise-is-free-up-to-certain-limits).
 {% endhint %}
 
+## REST API documentation
 
+You can explore the defguard REST API  using  [Swagger UI](https://swagger.io/tools/swagger-ui/) by going to `<YOUR_DEFGUARD_URL>/api-docs`.
+
+API specification JSON in OpenAPI format can also be fetched from `<YOUR_DEFGUARD_URL>/api/v1/api-docs`.
 
 Admin users can generate API tokens to enable request authentication for custom external tools which use defguard REST API.
 
 Tokens retain the same access permissions as their owner, so be careful when sharing them with others.
+
+## Generating API token
 
 ## Setup
 
@@ -47,12 +56,6 @@ Example GET request:
 ```bash
 curl -H "Authorization: Bearer <token>" <YOUR_DEFGUARD_URL>/api/v1/me
 ```
-
-## REST API documentation
-
-You can explore the defguard REST API  using  [Swagger UI](https://swagger.io/tools/swagger-ui/) by going to `<YOUR_DEFGUARD_URL>/api-docs`.
-
-API specification JSON in OpenAPI format can also be fetched from `<YOUR_DEFGUARD_URL>/api/v1/api-docs`.
 
 
 
