@@ -22,9 +22,9 @@ If you already have a gateway deployed, and want to add new gateways for the loc
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-11-12 at 16.55.55.png" alt=""><figcaption></figcaption></figure>
 
-After each gateway deployment all gateway will have the same configuration and will **bind to the defined port** in the location _Gateway Port._
+After each gateway deployment all gateways will have the same configuration and will **bind to the defined port** in the location _Gateway Port._
 
-The only thing left to do is to point your traffic to those gateway, which can be acomplished with various HA scenarios:
+The only thing left to do is to point your traffic to those gateways, which can be acomplished with various HA scenarios:
 
 * floating public IP - if you choose this scenario, please remember that the IP must be the IP specified in the Location _Gateway Address_
 * proxy/load balancing - also remember that the proxy must be configured with the _Gateway Address and Gateway Port_
