@@ -101,9 +101,14 @@
 
 * [Contributing](for-developers/contributing.md)
 * [Environment setup](for-developers/dev-env-setup.md)
-* [Translations ( web )](for-developers/translations-web/README.md)
+* [Translations (core/web)](for-developers/translations-web/README.md)
   * [Switching language](for-developers/translations-web/switching-language.md)
   * [Adding translations](for-developers/translations-web/adding-translations.md)
+
+***
+
+* [Translations (client)](translations-client/README.md)
+  * [Adding translations](translations-client/adding-translations.md)
 
 ## Contact us
 
