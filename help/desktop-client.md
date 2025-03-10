@@ -64,7 +64,7 @@ To safely install a package from Ubuntu Jammy repositories without breaking your
 
     ```bash
     sudo apt update
-    sudo apt install -t jammy libwebkit2gtk-4.0
+    sudo apt install -t jammy libwebkit2gtk-4.0-37
     ```
 4. **Optionaly: Remove Jammy Repo After Use:**\
    Delete or comment out the Jammy entry in `/etc/apt/sources.list`.
