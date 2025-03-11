@@ -4,10 +4,6 @@ icon: bolt
 
 # High Availability and Failover
 
-{% hint style="warning" %}
-This feature has not yet been thoroughly tested in production. We welcome any feedback, especially regarding running gateways in any HA configuration.
-{% endhint %}
-
 ## Gateway - High Availability
 
 We support running multiple gateways for a single VPN instance or location, enabling active-passive configurations. Active-active configurations should also be possible but come with some caveats. Since our gateway uses a vanilla kernel WireGuard®, there are multiple approaches for implementation.
