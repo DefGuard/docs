@@ -4,11 +4,13 @@ icon: bolt
 
 # High Availability and Failover
 
-Currently we support the following HA/failover scenarios:
+{% hint style="warning" %}
+This feature has not yet been thoroughly tested in production. We welcome any feedback, especially regarding running gateways in any HA configuration.
+{% endhint %}
 
 ## Gateway - High Availability
 
-We support active-passive configuration with multiple gateways for a single VPN instance or location. Active-active configurations should also be possible but come with some caveats. Since our gateway uses a vanilla kernel WireGuard®, there are multiple approaches for implementation.
+We support running multiple gateways for a single VPN instance or location, enabling active-passive configurations. Active-active configurations should also be possible but come with some caveats. Since our gateway uses a vanilla kernel WireGuard®, there are multiple approaches for implementation.
 
 {% hint style="info" %}
 Please also see documentation of [Creating a New VPN location](../features-and-configuration/wireguard/create-your-vpn-network.md) where each [location setting has information regarding high-availability](../features-and-configuration/wireguard/create-your-vpn-network.md#vpn-location-settings).
@@ -31,7 +33,7 @@ The only thing left to do is to point your traffic to those gateways, which can 
 
 #### Active-active setups
 
-Active-active setups should be possible but are not as thoroughly tested in production as active-passive. Here are the currently known issues with such configurations:
+Active-active setups should also be possible but come with some caveats. Here are the currently known issues with such configurations:
 
 * Multiple running gateways bound to one location with network traffic distributed between them may produce invalid network usage statistics, making the network usage graphs and displays on the dashboard unreliable. Related issue: [https://github.com/DefGuard/defguard/issues/1022](https://github.com/DefGuard/defguard/issues/1022)
 
@@ -57,5 +59,3 @@ So **High Availability for core and proxy** gets complicated, with multiple prox
 #### How to bullet-proof proxy & core with failover?
 
 We recommend to deploy them on a failover solution - like on a kubernetes cluster (even small one - like mini-kube) . This way, kubernetes manages: healthchecks and does failover. You can have cluster N-nodes and if any VM/node with Core/Proxy goes offline or health checks fail - it's migrated to a new node.
-
-Also failover is good enough now, since gateways also support failover and even if they fail, [peers are fully (or with configuration) persistent](high-availability-and-failover.md#what-is-the-gateway-peers-persistance-if-core-proxy-services-fail).
