@@ -1,6 +1,6 @@
 ---
-icon: comment-question
 description: Here are some common issues / problems that are frequently encountered.
+icon: comment-question
 ---
 
 # Troubleshooting Guide
@@ -18,7 +18,7 @@ Common problems may be:
 1. proxy / enrollment isn't working
 2. DEFGUARD\_ENROLLMENT\_URL is set incorrectly in core - if set incorrectly the client will try to connect to default URL which is "http://localhost:8080" and MFA will not work.
 
-## Click on "Use authenticator app" in client and nothing happens
+## Nothing happens after clicking on "Use authenticator app" in client
 
 See the "[Desktop client real-time/auto sync doesn't work](./#desktop-client-real-time-auto-sync-doesnt-work)" answer.
 
@@ -57,7 +57,13 @@ If you are having problems with TOTP codes form 2FA/MFA (when logging in to defg
 
 Best would be to setup on the server NTP time synchronization.
 
-## I get error: _h2 protocol error: http2 error: stream error received: not a result of an error_
+## I get the following error: There was a network error. Can't reach proxy
+
+This error may happen when the client is unable to make a POST/GET request to your proxy web server. Make sure your proxy is accessible by the client, e.g. by making a GET request by hand or visiting your enrollment/proxy page from the same machine you are running the client on.&#x20;
+
+In some rarer cases, your web server may not accept TLS versions lower than 1.3. Since the maximum version of TLS supported by the client is 1.2, it won't be able to connect to your web server, producing the mentioned error.
+
+## I get the following error: _h2 protocol error: http2 error: stream error received: not a result of an error_
 
 This error is common if you use a reverse-proxy for any of our components.
 
@@ -65,7 +71,7 @@ Every reverse proxy has a timeout for keeping the connection alive. You can incr
 
 Ignore them, this is a normal behaviour.
 
-## How to check if the VPN is working / my VPN is not working!
+## How to check if the VPN is working / my VPN is not working
 
 If you have configured your defguard instance correctly, after connecting to the VPN you should be able to ping your VPN server, for example if you have the following setup:
 
