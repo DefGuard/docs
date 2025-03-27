@@ -1,6 +1,10 @@
 # Access Control List
 
+The ACL (Access Control List) functionality in Defguard allows administrators to define and manage who can access specific network resources. It provides a clear and centralized way to control access based on users, groups, or devices, ensuring that only authorized entities can reach sensitive systems or services.&#x20;
+
+{% hint style="warning" %}
 Access Control is an [enterprise feature](../license.md). To use it you'll need to [purchase a license](../license.md#purchasing-the-license) or ensure your deployment does not [exceed the limits](../license.md#enterprise-is-free-up-to-certain-limits).
+{% endhint %}
 
 ## How to enable Access Control List functionality
 
@@ -12,7 +16,9 @@ There are two relevant options in the **"Location configuration"** section:
 
 Select the checkbox to enable ACL for the location.
 
-**You should also set the default ACL policy for the location.** Default policy defines what happens with traffic to resources that were not explicitly specified in your ACL rules:
+**You should also set the default ACL policy for the location.**
+
+Default policy defines what happens with traffic to resources that were not explicitly specified in your ACL rules:
 
 * Allow - users / devices connected to the location will be able to access all resources within the network if the resource access is not modified by one of your ACL rules.
 * Deny - all traffic to network resources that is not regulated by one of the ACL rules will be dropped
