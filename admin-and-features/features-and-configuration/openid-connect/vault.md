@@ -1,4 +1,4 @@
-# Hashicorp Vault
+# Vault
 
 ## Example setup
 
@@ -58,19 +58,17 @@ Create root token using `docker exec -it vault vault operator init -n 1 -t 1`, w
 
 ## Vault configuration
 
-
 1. Unseal vault by accessing `http://127.0.0.1:8200/ui` and using unseal key.
 2. Login into Vault using method `TOKEN` and using root token.
 3. Navigate to **Access -> Auth Methods** and click **Enable new method** button.
 4. Enable **OIDC** method.
-5. Use values below:
-`OIDC discovery URL: https://defguard.company.net/`
-`OIDC client ID: <YOUR_CLIENT_ID>`
-`OIDC secret ID: <YOUR_CLIENT_SECRET>`
+5. Use values below: `OIDC discovery URL: https://defguard.company.net/` `OIDC client ID: <YOUR_CLIENT_ID>` `OIDC secret ID: <YOUR_CLIENT_SECRET>`
 
 ## Creating role in vault
+
 1. Login into vault CLI using root token: `docker exec -it vault vault login <ROOT_TOKEN>`
 2. To create role `reader` use command below:
+
 ```bash
 docker exec -it vault vault write auth/oidc/role/reader \
     bound_audiences="<YOUR_CLIENT_ID>" \

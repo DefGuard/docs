@@ -84,6 +84,7 @@
   * [External OIDC secure enrollment](enterprise/all-enteprise-features/external-oidc-secure-enrollment.md)
   * [VPN & Client behavior customization](enterprise/all-enteprise-features/behavior-customization.md)
   * [REST API](enterprise/all-enteprise-features/api-tokens.md)
+  * [Access Control List](enterprise/all-enteprise-features/access-control-list.md)
 
 ## Tutorials
 

@@ -48,7 +48,7 @@ This documentation concerns only the Google directory synchronization. For more 
 
 The menu can be found in Defguard settings by navigating to the "OpenID" tab.
 
-<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 The following configuration options are currently available in the directory synchronization menu specifically for the Google provider:
 

@@ -78,7 +78,7 @@ This path describes how the admin can provision a key for a user, but the same p
 
 web applicationYou can see available clients in Defguard web-application under "provisioners" tab.
 
-<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 To provision the key:
 

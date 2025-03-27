@@ -40,7 +40,7 @@ This documentation concerns only the Okta directory synchronization. For more ge
 
 The menu can be found in Defguard settings by navigating to the "OpenID" tab.
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 The following configuration options are currently available in the directory synchronization menu specifically for the Okta provider:
 
@@ -58,21 +58,21 @@ This feature is currently technically limited to 10000 members or groups. High u
 1.  Go to the Okta admin dashboard and navigate to the Applications menu\
 
 
-    <figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 2. Make a completely new app integration by clicking "Create App Integration". This app will be solely responsible for communicating with Okta API.
 3.  Select "API services"\
 
 
-    <figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 4. Name your app integration, e.g. "Defguard directory sync"
 5.  Go to your newly created app integration settings and change the client authentication to "Public key / Private key"\
 
 
-    <figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
 
 
 6. Next, click "Add key" and generate a new key pair.
@@ -82,11 +82,11 @@ This feature is currently technically limited to 10000 members or groups. High u
 10. Return to Okta and under "General settings" turn off the "Require Demonstrating Proof of Possession (DPoP) header in token requests" option. Save your changes.\
 
 
-    <figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 11. Now, navigate to the Okta API scopes tab.\
 
 
-    <figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 12. Grant the `okta.groups.read` and `okta.users.read` scopes.
