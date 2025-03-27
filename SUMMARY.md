@@ -85,6 +85,7 @@
   * [VPN & Client behavior customization](enterprise/all-enteprise-features/behavior-customization.md)
   * [REST API](enterprise/all-enteprise-features/api-tokens.md)
   * [Access Control List](enterprise/all-enteprise-features/access-control-list.md)
+  * [LDAP two way synchronization](enterprise/all-enteprise-features/ldap-two-way-synchronization.md)
 
 ## Tutorials
 
