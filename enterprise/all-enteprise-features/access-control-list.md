@@ -1,3 +1,7 @@
+---
+icon: user-shield
+---
+
 # Access Control List
 
 The ACL (Access Control List) functionality in Defguard allows administrators to define and manage who can access specific network resources. It provides a clear and centralized way to control access based on users, groups, or devices, ensuring that only authorized entities can reach sensitive systems or services.&#x20;
