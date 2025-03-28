@@ -5,7 +5,7 @@ icon: arrow-right-arrow-left
 # Two-way LDAP and Active Directory synchronization
 
 {% hint style="warning" %}
-This is an alpha feature available in Defguard core v1.2.5 alpha builds and above. It may not be production ready yet and may have some bugs. Report any issues you find on our [GitHub](https://github.com/DefGuard/defguard/issues).
+This is an alpha feature available in Defguard core v1.3.0 alpha builds and above. It may not be production ready yet and may have some bugs. Report any issues you find on our [GitHub](https://github.com/DefGuard/defguard/issues).
 {% endhint %}
 
 {% hint style="danger" %}
@@ -19,7 +19,7 @@ This feature has been mainly tested with OpenLDAP and Active Directory.
 ## Requirements
 
 * An LDAP server
-* One of the following user object classes: `user`, `inetOrgPerson`
+* One of the following user object classes set for your LDAP users: `user`, `inetOrgPerson`
 
 For Active Directory:
 
@@ -31,7 +31,7 @@ For OpenLDAP:
 
 ## Setup
 
-First, you will need to configure your LDAP connection. Refer to [Broken link](broken-reference "mention") for instructions. Here is an example configuration for an OpenLDAP server without SSL/TLS:\
+First, you will need to configure your LDAP connection. Refer to [configuration.md](configuration.md "mention") for instructions. Here is an example configuration for an OpenLDAP server without SSL/TLS:\
 
 
 <figure><img src="../../../.gitbook/assets/image (67).png" alt=""><figcaption></figcaption></figure>
@@ -39,10 +39,6 @@ First, you will need to configure your LDAP connection. Refer to [Broken link](b
 <figure><img src="../../../.gitbook/assets/image (68).png" alt=""><figcaption></figcaption></figure>
 
 Make sure you selected "Enable LDAP integration" as without it, the two way synchronization won't work. After you fill out all the fields, test your configuration using the "Test" button.&#x20;
-
-For an LDAP server with TLS/SSL you may want to configure one of the options related to TLS. Check "Use StartTLS" if your LDAP server uses StartTLS for encrypted connections, alternatively you may also use `ldaps`. If you don't want to provide Defguard with your server's certificate, you may also disable checking it.
-
-If you are trying to connect to Active Directory, check "LDAP server is Active Directory".
 
 The LDAP two way synchronization has the following options available:
 
@@ -52,7 +48,7 @@ The LDAP two way synchronization has the following options available:
 * **Consider the following source as the authority** - makes the selected server the source of truth. See [#authority-and-full-synchronization](two-way-ldap-and-active-directory-synchronization.md#authority-and-full-synchronization "mention") for more details.
 * **Synchronization interval** - how often (in seconds) to pull LDAP changes
 
-If you enable the LDAP integration but not the two-way synchronization, your changes in Defguard will be propagated to LDAP but not the other way around.
+If you enabled the LDAP integration but not the two-way synchronization, your changes in Defguard will be propagated to LDAP but not the other way around.
 
 ## Synchronization mechanism overview
 
@@ -64,7 +60,7 @@ Synchronous synchronization happens every time a change occurs in Defguard, e.g.
 
 #### Asynchronous synchronization
 
-Asynchronous synchronization happens periodically in the background and it happens only when you enable the two-way synchronization. This synchronization pulls changes from your LDAP server to be applied in Defguard. The interval of this synchronization may be configured using the "Synchronization interval" setting in the LDAP settings. It's part of the so called "incremental synchronization".
+Asynchronous synchronization happens periodically in the background and it happens only when you enable the two-way synchronization. This synchronization pulls changes from your LDAP server to be applied in Defguard. The interval of this synchronization may be configured using the "Synchronization interval" setting in the LDAP settings. It's part of the "incremental synchronization".
 
 #### Authority and full synchronization
 
@@ -73,10 +69,11 @@ Authority is the setting allowing you to set which source will be considered as 
 * If you are most likely to manage your users in the LDAP server with occasional changes in Defguard, select the LDAP server as the authority.
 * If you are most likely to manage users in Defguard, leave Defguard as the authority
 
-The selected authority is used during a full synchronization. This type of synchronization may occur when Defguard assumes that the two sources may have diverged and regular synchronization won't be possible. This can happen in two scenarios:
+The selected authority is used during a full synchronization. This type of synchronization may occur when Defguard assumes that the two sources may have diverged and regular synchronization won't be possible. This can happen in the following scenarios:
 
 * First synchronization after enabling two-way synchronization will always be a full synchronization, since Defguard can't gracefully merge changes that were made before.
 * Some issue prevented Defguard from synchronously sending a change to the LDAP server
+* You switched the authority or disabled LDAP integration
 
 The full synchronization takes both sources, compares them and produces changes in regard to the given authority. For example, given the following sources:
 
@@ -122,7 +119,7 @@ Defguard doesn't pull passwords from LDAP in any form. Instead, when user tries 
 
 ### General
 
-#### Users are losing their groups (e.g. "admin" group)
+#### Defguard users are losing their groups (e.g. "admin" group)
 
 Your LDAP server may have silently refused creating a Defguard group. A common cause may be a DN conflict, e.g. when the DN for your groups and users has the same structure (`cn=<NAME>,cn=users,dc=example,dc=com` both for users and groups). To solve this, create a new group with a name that won't conflict with any other DN.
 
