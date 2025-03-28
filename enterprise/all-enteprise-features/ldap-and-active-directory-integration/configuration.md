@@ -18,7 +18,7 @@ Now change fields according to your LDAP instance.
 
 For an LDAP server with TLS/SSL you may want to configure one of the options related to TLS. Check "Use StartTLS" if your LDAP server uses StartTLS for encrypted connections, alternatively you may also use `ldaps` in the URL field. If you don't want to provide Defguard with your LDAP server's certificate, you may also disable checking it here.
 
-If you are trying to connect to Active Directory, check "LDAP server is Active Directory".
+If you are trying to connect to Active Directory, check "LDAP server is Active Directory". Make sure to read [#example-active-directory-configuration](configuration.md#example-active-directory-configuration "mention") for a working example.
 
 {% hint style="info" %}
 You can find more brief explanations for these settings on this [page](settings-table.md).
@@ -32,8 +32,6 @@ Testing your connection doesn't mean the whole configuration is correct. Current
 
 After enabling the LDAP integration you will gain the ability to login to Defguard through LDAP. Additionally, all your Defguard user changes after you enable the integration will be propagated to LDAP. This is a simple one-way synchronization. If you are interested in synchronizing LDAP and Defguard both ways, check [two-way-ldap-and-active-directory-synchronization.md](two-way-ldap-and-active-directory-synchronization.md "mention").
 
-
-
 ## Example configurations
 
 ### Example Active Directory configuration
@@ -42,4 +40,4 @@ After enabling the LDAP integration you will gain the ability to login to Defgua
 
 <figure><img src="../../../.gitbook/assets/image (79).png" alt=""><figcaption></figcaption></figure>
 
-This is an example configuration for a default Active Directory setup on a Windows Server 2022. The most important aspect is setting the "LDAP server is Active Directory" setting as AD support won't work otherwise. Additionaly, `ldaps` has been configured as AD requires an encrypted connection in order for Defguard to be allowed to send user passwords.
+This is an example configuration for a default Active Directory setup on a Windows Server 2022. The most important aspect is setting the "LDAP server is Active Directory" setting as AD support won't work otherwise. Additionally, `ldaps` has been configured as AD requires an encrypted connection in order for Defguard to be allowed to send user passwords, which is important if you expect to create users/set passwords through Defguard.
