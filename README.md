@@ -107,8 +107,8 @@ Follow our handy guides to get started on the basics as quickly as possible:
 [create-your-vpn-network.md](admin-and-features/features-and-configuration/wireguard/create-your-vpn-network.md)
 {% endcontent-ref %}
 
-{% content-ref url="admin-and-features/features-and-configuration/ldap-synchronization-setup/" %}
-[ldap-synchronization-setup](admin-and-features/features-and-configuration/ldap-synchronization-setup/)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
 {% content-ref url="admin-and-features/features-and-configuration/webhooks.md" %}

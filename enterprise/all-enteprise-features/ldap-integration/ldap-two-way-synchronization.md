@@ -31,12 +31,12 @@ For OpenLDAP:
 
 ### Setup
 
-First, you will need to configure your LDAP connection. Refer to [ldap-synchronization-setup](../../admin-and-features/features-and-configuration/ldap-synchronization-setup/ "mention") for instructions. Here is an example configuration for an OpenLDAP server without SSL/TLS:\
+First, you will need to configure your LDAP connection. Refer to [Broken link](broken-reference "mention") for instructions. Here is an example configuration for an OpenLDAP server without SSL/TLS:\
 
 
-<figure><img src="../../.gitbook/assets/image (67).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (67).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (68).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (68).png" alt=""><figcaption></figcaption></figure>
 
 Make sure you selected "Enable LDAP integration" as without it, the two way synchronization won't work. After you fill out all the fields, test your configuration using the "Test" button.&#x20;
 
@@ -46,7 +46,7 @@ If you are trying to connect to Active Directory, check "LDAP server is Active D
 
 The LDAP two way synchronization has the following options available:
 
-<figure><img src="../../.gitbook/assets/image (69).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (69).png" alt=""><figcaption></figcaption></figure>
 
 * **Enable LDAP two-way synchronization** - enables the two way synchronization. Check it if you want to pull changes from LDAP.
 * **Consider the LDAP server as the authority** - makes the LDAP server the source of truth. If left disabled, Defguard will be the authoritative source. See [#authority-and-full-synchronization](ldap-two-way-synchronization.md#authority-and-full-synchronization "mention") for more details.

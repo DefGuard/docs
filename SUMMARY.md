@@ -57,9 +57,6 @@
     * [MinIO](admin-and-features/features-and-configuration/openid-connect/minio.md)
     * [Vault](admin-and-features/features-and-configuration/openid-connect/vault.md)
   * [SMTP for email notifications](admin-and-features/features-and-configuration/setting-up-smtp-for-email-notifications.md)
-  * [LDAP synchronization](admin-and-features/features-and-configuration/ldap-synchronization-setup/README.md)
-    * [Configuration](admin-and-features/features-and-configuration/ldap-synchronization-setup/configuration.md)
-    * [Settings table](admin-and-features/features-and-configuration/ldap-synchronization-setup/settings-table.md)
   * [YubiKey Provisioning](admin-and-features/features-and-configuration/yubikey-provisioning.md)
   * [Webhooks](admin-and-features/features-and-configuration/webhooks.md)
   * [Forward auth](admin-and-features/features-and-configuration/forward-auth.md)
@@ -85,7 +82,10 @@
   * [VPN & Client behavior customization](enterprise/all-enteprise-features/behavior-customization.md)
   * [REST API](enterprise/all-enteprise-features/api-tokens.md)
   * [Access Control List](enterprise/all-enteprise-features/access-control-list.md)
-  * [LDAP two way synchronization](enterprise/all-enteprise-features/ldap-two-way-synchronization.md)
+  * [LDAP integration](enterprise/all-enteprise-features/ldap-integration/README.md)
+    * [Configuration](enterprise/all-enteprise-features/ldap-integration/configuration.md)
+    * [Settings table](enterprise/all-enteprise-features/ldap-integration/settings-table.md)
+    * [LDAP two way synchronization](enterprise/all-enteprise-features/ldap-integration/ldap-two-way-synchronization.md)
 
 ## Tutorials
 
