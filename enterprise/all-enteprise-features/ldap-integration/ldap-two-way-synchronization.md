@@ -16,7 +16,7 @@ The LDAP synchronization allows for synchronizing users and groups between Defgu
 
 This feature has been mainly tested with OpenLDAP and Active Directory.
 
-### Requirements
+## Requirements
 
 * An LDAP server
 * One of the following user object classes: `user`, `inetOrgPerson`
@@ -29,7 +29,7 @@ For OpenLDAP:
 
 * SHA1 as the hashing algorithm and `simpleSecurityObject` user object class
 
-### Setup
+## Setup
 
 First, you will need to configure your LDAP connection. Refer to [Broken link](broken-reference "mention") for instructions. Here is an example configuration for an OpenLDAP server without SSL/TLS:\
 
@@ -54,7 +54,7 @@ The LDAP two way synchronization has the following options available:
 
 If you enable the LDAP integration but not the two-way synchronization, your changes in Defguard will be propagated to LDAP but not the other way around.
 
-### Synchronization mechanism overview
+## Synchronization mechanism overview
 
 The goal of the LDAP two-way synchronization is to make the two data sources (LDAP and Defguard) equal. To achieve this, two variants of synchronization are used: synchronous and asynchronous.
 
@@ -118,3 +118,12 @@ Because some LDAP implementations will require password on user creation, Defgua
 
 Defguard doesn't pull passwords from LDAP in any form. Instead, when user tries to login to Defguard, if the LDAP integration is enabled, test login attempt will be made to the LDAP server (bind) with the provided credentials. If the test login attempt succeeds, Defguard will authenticate the user just as during a regular login.
 
+
+
+## Known issues
+
+### Active Directory
+
+#### SysErr: DSID-031A1262, problem 22 (Invalid argument)
+
+You are trying to synchronize a Defguard user with username longer than 20 characters, which [AD doesn't support](https://learn.microsoft.com/en-us/windows/win32/adschema/a-samaccountname?redirectedfrom=MSDN).
