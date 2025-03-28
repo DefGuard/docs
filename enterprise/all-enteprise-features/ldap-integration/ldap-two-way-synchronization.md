@@ -46,10 +46,10 @@ If you are trying to connect to Active Directory, check "LDAP server is Active D
 
 The LDAP two way synchronization has the following options available:
 
-<figure><img src="../../../.gitbook/assets/image (69).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 * **Enable LDAP two-way synchronization** - enables the two way synchronization. Check it if you want to pull changes from LDAP.
-* **Consider the LDAP server as the authority** - makes the LDAP server the source of truth. If left disabled, Defguard will be the authoritative source. See [#authority-and-full-synchronization](ldap-two-way-synchronization.md#authority-and-full-synchronization "mention") for more details.
+* **Consider the following source as the authority** - makes the selected server the source of truth. See [#authority-and-full-synchronization](ldap-two-way-synchronization.md#authority-and-full-synchronization "mention") for more details.
 * **Synchronization interval** - how often (in seconds) to pull LDAP changes
 
 If you enable the LDAP integration but not the two-way synchronization, your changes in Defguard will be propagated to LDAP but not the other way around.
@@ -71,11 +71,11 @@ Asynchronous synchronization happens periodically in the background and it happe
 Authority is the setting allowing you to set which source will be considered as more important or where a change is most likely to occur. You can select the authority based on the following:
 
 * If you are most likely to manage your users in the LDAP server with occasional changes in Defguard, select the LDAP server as the authority.
-* If you are most likely to manage users in Defguard, leave Defguard as the authority (LDAP authority checkbox not selected)
+* If you are most likely to manage users in Defguard, leave Defguard as the authority
 
 Authority is used during a full synchronization. This type of synchronization may occur when Defguard assumes that the two sources may have diverged and regular synchronization won't be possible. This can happen in two scenarios:
 
-* First synchronization after enabling two-way synchronization will always be a full synchronization, since Defguard can't gracefully merge changes that occurred before.
+* First synchronization after enabling two-way synchronization will always be a full synchronization, since Defguard can't gracefully merge changes that were made before.
 * Some issue prevented Defguard from synchronously sending a change to the LDAP server
 
 The full synchronization takes both sources, compares them and produces changes in regard to the given authority. For example, given the following sources:
@@ -100,7 +100,7 @@ This can be summed up as: authority indicates the most likely place where a chan
 The first synchronization will replace all your records with the records of the other source, so it's important to select the direction correctly. This is done by setting the authority, discussed in [#authority-and-full-synchronization](ldap-two-way-synchronization.md#authority-and-full-synchronization "mention"). In short:
 
 * LDAP → Defguard: If you want to replace all Defguard users with LDAP users, set LDAP as the authority
-* Defguard → LDAP: If you want to replace all LDAP users with Defguard users, leave the LDAP authority checkbox unchecked
+* Defguard → LDAP: If you want to replace all LDAP users with Defguard users, set Defguard as the authority
 
 ### Logging in and passwords
 
