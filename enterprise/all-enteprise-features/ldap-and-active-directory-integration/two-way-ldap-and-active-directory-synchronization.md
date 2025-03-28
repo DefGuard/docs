@@ -2,14 +2,14 @@
 icon: arrow-right-arrow-left
 ---
 
-# LDAP two way synchronization
+# Two-way LDAP and Active Directory synchronization
 
 {% hint style="warning" %}
-This is an alpha feature available in Defguard core v1.2.5 alpha builds and above
+This is an alpha feature available in Defguard core v1.2.5 alpha builds and above. It may not be production ready yet and may have some bugs. Report any issues you find on our [GitHub](https://github.com/DefGuard/defguard/issues).
 {% endhint %}
 
 {% hint style="danger" %}
-Make sure to be aware of the mechanisms described in [#authority-and-full-synchronization](ldap-two-way-synchronization.md#authority-and-full-synchronization "mention")and [#first-synchronization](ldap-two-way-synchronization.md#first-synchronization "mention") before enabling this feature, as improper use may cause loss of user data.
+Make sure to be aware of the mechanisms described in [#authority-and-full-synchronization](two-way-ldap-and-active-directory-synchronization.md#authority-and-full-synchronization "mention")and [#first-synchronization](two-way-ldap-and-active-directory-synchronization.md#first-synchronization "mention") before enabling this feature, as improper use may cause loss of user data.
 {% endhint %}
 
 The LDAP synchronization allows for synchronizing users and groups between Defguard and your LDAP server.
@@ -49,7 +49,7 @@ The LDAP two way synchronization has the following options available:
 <figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 * **Enable LDAP two-way synchronization** - enables the two way synchronization. Check it if you want to pull changes from LDAP.
-* **Consider the following source as the authority** - makes the selected server the source of truth. See [#authority-and-full-synchronization](ldap-two-way-synchronization.md#authority-and-full-synchronization "mention") for more details.
+* **Consider the following source as the authority** - makes the selected server the source of truth. See [#authority-and-full-synchronization](two-way-ldap-and-active-directory-synchronization.md#authority-and-full-synchronization "mention") for more details.
 * **Synchronization interval** - how often (in seconds) to pull LDAP changes
 
 If you enable the LDAP integration but not the two-way synchronization, your changes in Defguard will be propagated to LDAP but not the other way around.
@@ -60,11 +60,11 @@ The goal of the LDAP two-way synchronization is to make the two data sources (LD
 
 #### Synchronous synchronization
 
-Synchronous synchronization happens every time a change occurs in Defguard, e.g. when a user is modified, added or removed. In this case a respective change is immediately sent to the LDAP server. This synchronization always happens if you select "Enable LDAP integration".
+Synchronous synchronization happens every time a change occurs in Defguard, e.g. when a user is modified, added or removed. In this case a respective change is immediately sent to the LDAP server. This synchronization always happens if you select "Enable LDAP integration". It's part of the so called "incremental synchronization".
 
 #### Asynchronous synchronization
 
-Asynchronous synchronization happens periodically in the background and it happens only when you enable the two-way synchronization. This synchronization pulls changes from your LDAP server to be applied in Defguard. The interval of this synchronization may be configured using the "Synchronization interval" setting in the LDAP settings.
+Asynchronous synchronization happens periodically in the background and it happens only when you enable the two-way synchronization. This synchronization pulls changes from your LDAP server to be applied in Defguard. The interval of this synchronization may be configured using the "Synchronization interval" setting in the LDAP settings. It's part of the so called "incremental synchronization".
 
 #### Authority and full synchronization
 
@@ -73,7 +73,7 @@ Authority is the setting allowing you to set which source will be considered as 
 * If you are most likely to manage your users in the LDAP server with occasional changes in Defguard, select the LDAP server as the authority.
 * If you are most likely to manage users in Defguard, leave Defguard as the authority
 
-Authority is used during a full synchronization. This type of synchronization may occur when Defguard assumes that the two sources may have diverged and regular synchronization won't be possible. This can happen in two scenarios:
+The selected authority is used during a full synchronization. This type of synchronization may occur when Defguard assumes that the two sources may have diverged and regular synchronization won't be possible. This can happen in two scenarios:
 
 * First synchronization after enabling two-way synchronization will always be a full synchronization, since Defguard can't gracefully merge changes that were made before.
 * Some issue prevented Defguard from synchronously sending a change to the LDAP server
@@ -97,7 +97,7 @@ This can be summed up as: authority indicates the most likely place where a chan
 
 ### First synchronization
 
-The first synchronization will replace all your records with the records of the other source, so it's important to select the direction correctly. This is done by setting the authority, discussed in [#authority-and-full-synchronization](ldap-two-way-synchronization.md#authority-and-full-synchronization "mention"). In short:
+The first synchronization will replace all your records with the records of the other source, so it's important to select the direction correctly. This is done by setting the authority, discussed in [#authority-and-full-synchronization](two-way-ldap-and-active-directory-synchronization.md#authority-and-full-synchronization "mention"). In short:
 
 * LDAP → Defguard: If you want to replace all Defguard users with LDAP users, set LDAP as the authority
 * Defguard → LDAP: If you want to replace all LDAP users with Defguard users, set Defguard as the authority
@@ -118,12 +118,35 @@ Because some LDAP implementations will require password on user creation, Defgua
 
 Defguard doesn't pull passwords from LDAP in any form. Instead, when user tries to login to Defguard, if the LDAP integration is enabled, test login attempt will be made to the LDAP server (bind) with the provided credentials. If the test login attempt succeeds, Defguard will authenticate the user just as during a regular login.
 
-
-
 ## Known issues
+
+### General
+
+#### Users are losing their groups (e.g. "admin" group)
+
+Your LDAP server may have silently refused creating a Defguard group. A common cause may be a DN conflict, e.g. when the DN for your groups and users has the same structure (`cn=<NAME>,cn=users,dc=example,dc=com` both for users and groups). To solve this, create a new group with a name that won't conflict with any other DN.
+
+Otherwise, report it on our GitHub along with any appropriate logs.
+
+#### Can't edit Defguard user because of invalid username
+
+Your LDAP server may allow for usernames that Defguard doesn't accept, e.g. with spaces. Currently the only way to prevent this from happening is not using such usernames in LDAP if you need the ability to update them in Defguard.
+
+#### Can't login with my LDAP username
+
+If Defguard doesn't accept your LDAP username because it has some invalid characters, try logging in through your email address.
+
+#### Something wasn't updated in LDAP
+
+If you notice that your Defguard change isn't propagated properly to LDAP, run Defguard with debug logs enabled (`DEFGUARD_LOG_LEVEL=debug` environment variable).  Some LDAP errors may be not reported as errors by the LDAP server but most of the operations outputs are logged in the debug logs to help you narrow down the issue.
+
+#### Defguard logs suggest that it uses LDAP authority during synchronization despite setting something different in the settings
+
+Incremental synchronization (as opposed to the full synchronization) internally uses LDAP as the authority. This is only an implementation detail to pull and apply changes from LDAP. The authoritative source you picked in settings is only used during full synchronization.
 
 ### Active Directory
 
 #### SysErr: DSID-031A1262, problem 22 (Invalid argument)
 
 You are trying to synchronize a Defguard user with username longer than 20 characters, which [AD doesn't support](https://learn.microsoft.com/en-us/windows/win32/adschema/a-samaccountname?redirectedfrom=MSDN).
+

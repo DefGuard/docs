@@ -82,10 +82,10 @@
   * [VPN & Client behavior customization](enterprise/all-enteprise-features/behavior-customization.md)
   * [REST API](enterprise/all-enteprise-features/api-tokens.md)
   * [Access Control List](enterprise/all-enteprise-features/access-control-list.md)
-  * [LDAP integration](enterprise/all-enteprise-features/ldap-integration/README.md)
-    * [Configuration](enterprise/all-enteprise-features/ldap-integration/configuration.md)
-    * [Settings table](enterprise/all-enteprise-features/ldap-integration/settings-table.md)
-    * [LDAP two way synchronization](enterprise/all-enteprise-features/ldap-integration/ldap-two-way-synchronization.md)
+  * [LDAP and Active Directory integration](enterprise/all-enteprise-features/ldap-and-active-directory-integration/README.md)
+    * [Configuration](enterprise/all-enteprise-features/ldap-and-active-directory-integration/configuration.md)
+    * [Settings table](enterprise/all-enteprise-features/ldap-and-active-directory-integration/settings-table.md)
+    * [Two-way LDAP and Active Directory synchronization](enterprise/all-enteprise-features/ldap-and-active-directory-integration/two-way-ldap-and-active-directory-synchronization.md)
 
 ## Tutorials
 
