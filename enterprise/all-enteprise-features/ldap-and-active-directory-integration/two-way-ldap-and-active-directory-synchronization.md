@@ -20,6 +20,7 @@ This feature has been mainly tested with OpenLDAP and Active Directory.
 
 * An LDAP server
 * One of the following user object classes set for your LDAP users: `user`, `inetOrgPerson`
+* The following attributes set for users you want to sync: `cn`, `sn`, `givenName`, `mail`
 
 For Active Directory:
 
