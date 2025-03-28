@@ -42,7 +42,7 @@ Make sure you selected "Enable LDAP integration" as without it, the two way sync
 
 The LDAP two way synchronization has the following options available:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (70).png" alt=""><figcaption></figcaption></figure>
 
 * **Enable LDAP two-way synchronization** - enables the two way synchronization. Check it if you want to pull changes from LDAP.
 * **Consider the following source as the authority** - makes the selected server the source of truth. See [#authority-and-full-synchronization](two-way-ldap-and-active-directory-synchronization.md#authority-and-full-synchronization "mention") for more details.

@@ -41,3 +41,11 @@ After enabling the LDAP integration you will gain the ability to login to Defgua
 <figure><img src="../../../.gitbook/assets/image (79).png" alt=""><figcaption></figcaption></figure>
 
 This is an example configuration for a default Active Directory setup on a Windows Server 2022. The most important aspect is setting the "LDAP server is Active Directory" setting as AD support won't work otherwise. Additionally, `ldaps` has been configured as AD requires an encrypted connection in order for Defguard to be allowed to send user passwords, which is important if you expect to create users/set passwords through Defguard.
+
+### Example OpenLDAP configuration
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+This is an example configuration for an OpenLDAP server integrated with Samba (hence `sambaSamAccount` object class). The `inetOrgPerson` has been set as the user structural class which adds attributes to the LDAP user like `email` or `mobile`. `simpleSecurityObject` class has been added for the ability to set passwords in LDAP.
