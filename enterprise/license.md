@@ -18,6 +18,10 @@ From release 1.1.0 **all enterprise features up to the following limits are free
 
 Those limits should be more then enough for small businesses, home-labs or just to test out Enterprise features before committing.
 
+{% hint style="info" %}
+At the moment your instance exceeds any of the limits, you will receive a relevant notification in the interface. Defguard will remain fully operational, and all Open Source functionalities will be available. Only the enterprise functionalities will be disabled until you activate the license.
+{% endhint %}
+
 ### Purchasing the license
 
 If you would like to purchase a license, we offer two types of licenses:
