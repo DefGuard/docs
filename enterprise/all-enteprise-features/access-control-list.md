@@ -191,6 +191,31 @@ ip daddr { 10.1.1.0/24 } counter packets 0 bytes 0 drop comment "ACL 132 - Offic
 
 This line effectively blocks all other traffic to the 10.1.1.0/24 network. As mentioned earlier, the ACL rules in Defguard are self-contained and fully define access for their target resource. This set of rules can now be deployed to any gateway, no regardless of the **"default policy"** setting, and they will effectively do the same thing.
 
+#### Adding access exceptions for specific users
+
+Let's build on the last example. The example defined a single rule that grants access to a network to two users. In this example we will block access for one specific user. But first let's rethink our approach.
+
+You may be tempted to specify the access for each user individually like we did while constructing the first rule. This may work at first or if your users don't change too often. But what if you have a constant influx of new users? This might get tedious pretty fast.
+
+So what we will do is:
+
+* we will define two groups
+  * staff-berlin
+  * externals
+* we will add all the users that work in our "Berlin" office to staff-berlin group
+* we will add all users we collaborate with in Berlin, but are not our direct employees, to the "externals" group
+* we will allow all users in staff-berlin group access to the network
+* we will add an exception for the users in "externals" group so that they are not allowed to access the network
+
+Once you have created appropriate groups and assigned the users, let's update the ACL rule. The rule should now:
+
+* still be assigned to the **"office-berlin"** location
+* still define the destination resource address as "10.1.1.0/24"
+* instead of specific users in the **"Allowed Users"** input we now select the **"staff-berlin"** group in the **"Allowed Groups"** input
+* in **"Denied Groups"** input we should now select the **"externals"** group
+
+<figure><img src="../../.gitbook/assets/image (80).png" alt=""><figcaption></figcaption></figure>
+
 ## Gateway deployment with ACL
 
 Under the hood, Access Control functionality uses [nftables](https://wiki.nftables.org/wiki-nftables/index.php/What_is_nftables%3F) to interact with the firewall and implement the rules. This means you'll need kernel version ≥ 5.10 to enable all kernel features required for proper operation.
