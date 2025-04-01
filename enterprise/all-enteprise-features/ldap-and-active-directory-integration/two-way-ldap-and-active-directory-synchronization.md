@@ -39,7 +39,7 @@ First, you will need to configure your LDAP connection. Refer to [configuration.
 
 <figure><img src="../../../.gitbook/assets/image (68).png" alt=""><figcaption></figcaption></figure>
 
-Make sure you selected "Enable LDAP integration" as without it, the two way synchronization won't work. After you fill out all the fields, test your configuration using the "Test" button.&#x20;
+Make sure you selected "Enable LDAP integration" as without it, the two way synchronization won't work. After you fill out all the fields, test your configuration using the <img src="../../../.gitbook/assets/image (81).png" alt="" data-size="line"> button.&#x20;
 
 The LDAP two way synchronization has the following options available:
 

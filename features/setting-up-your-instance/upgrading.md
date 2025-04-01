@@ -1,6 +1,6 @@
 ---
-icon: chevrons-up
 description: Notes on upgrading Defguard and its components
+icon: chevrons-up
 ---
 
 # Upgrading
@@ -8,6 +8,13 @@ description: Notes on upgrading Defguard and its components
 {% hint style="warning" %}
 Before doing any updates please remember to **backup your database.**
 {% endhint %}
+
+## 1.3.0 (alpha)
+
+*   If you used the LDAP integration previously, it will be off by default after upgrading. You will have to manually enable it in the settings in the LDAP tab:\
+
+
+    <figure><img src="../../.gitbook/assets/image (82).png" alt=""><figcaption></figcaption></figure>
 
 ## Any previous core release -> core 1.1.4
 
@@ -53,7 +60,7 @@ You will need to change a duplicate email address before the upgrade by hand via
 
 ### Desktop Client Real Time Sync
 
-From 1.0.0 we have introduced [Enterprise features](../../enterprise/all-enteprise-features/),  and one of them is [automatic and real-time desktop client configuration synchronisation](../../enterprise/all-enteprise-features/automatic-real-time-desktop-client-configuration.md).
+From 1.0.0 we have introduced [Enterprise features](../../enterprise/all-enteprise-features/), and one of them is [automatic and real-time desktop client configuration synchronisation](../../enterprise/all-enteprise-features/automatic-real-time-desktop-client-configuration.md).
 
 To enable this on an **already configured desktop client** one must perform one time instance update, which will generate necessary tokens on the client to perform from now on automatic updates. In details:
 
@@ -74,11 +81,11 @@ This change requires a few changes if you are upgrading:
 
 #### Proxy deployment configuration
 
-1. Remove `DEFGUARD_PROXY_UPSTREAM_GRPC_URL` variable - since Proxy does not connect to  defguard Core any more.
+1. Remove `DEFGUARD_PROXY_UPSTREAM_GRPC_URL` variable - since Proxy does not connect to defguard Core any more.
 2. Proxy is now the server to which defguard Core connects, so you may want to:
    1. Optional: configure non-default Proxy gRPC port with `DEFGUARD_PROXY_GRPC_PORT -` default value is **50051**
    2. If you have a Proxy in a different network segment - eg. have a custom installation (not with one-line install/docker compose all on one server) - you may also consider exposing the gRPC port and reverse-proxy (nginx/treafik/...) the port with SSL/TLS.
-      1. (Optional) If you want to use SSL with Proxy gRPC server without revers-proxy (nginx/etc) configure  `DEFGUARD_PROXY_GRPC_CERT` and `DEFGUARD_PROXY_GRPC_KEY` following the [SSL setup guide](docker-compose.md#grpc-ssl-setup).
+      1. (Optional) If you want to use SSL with Proxy gRPC server without revers-proxy (nginx/etc) configure `DEFGUARD_PROXY_GRPC_CERT` and `DEFGUARD_PROXY_GRPC_KEY` following the [SSL setup guide](docker-compose.md#grpc-ssl-setup).
    3. Also adjust your firewall config to open new Docker port mapping etc. Make sure Proxy gRPC server **can be reached from Core**.
 
 #### Core deployment configuration
@@ -113,7 +120,7 @@ proxy_1  | 2024-01-24T14:17:47.819504Z  INFO defguard_proxy: RPC client connecte
 
 ## Desktop Client 0.1.x -> 0.2.0
 
-With this release we have added Multi-Factor Authentication  to the desktop client. Unfortunately desktop client database has change significantly as well as business logic (for example endpoints to proxy for MFA handshake). We have not stored them previously in the database - thus they cannot be recovered/updated automatically.
+With this release we have added Multi-Factor Authentication to the desktop client. Unfortunately desktop client database has change significantly as well as business logic (for example endpoints to proxy for MFA handshake). We have not stored them previously in the database - thus they cannot be recovered/updated automatically.
 
 {% hint style="warning" %}
 That unfortunately means you have to remove all your instances before upgrading (or just remove any desktop client configuration files, including the database) and start the enrollment (adding new instance) again after upgrading - just by adding a new device (you can remove the old one).
