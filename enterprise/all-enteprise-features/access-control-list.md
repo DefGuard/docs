@@ -220,6 +220,14 @@ Once you have created appropriate groups and assigned the users, let's update th
 
 Under the hood, Access Control functionality uses [nftables](https://wiki.nftables.org/wiki-nftables/index.php/What_is_nftables%3F) to interact with the firewall and implement the rules. This means you'll need kernel version ≥ 5.10 to enable all kernel features required for proper operation.
 
+{% hint style="info" %}
+For traffic to flow between your network interfaces on Linux you may also need to enable IP forwarding. This can be achieved by setting the `ip_forward` variable with the following command:
+
+```
+sysctl -w net.ipv4.ip_forward=1
+```
+{% endhint %}
+
 ### Masquerade
 
 Masquerading between network interfaces falls outside the scope of Defguard’s responsibilities and must be handled by the system administrator. If your environment doesn’t already provide proper routing between the gateway’s interfaces, you may need to enable masquerading to ensure seamless communication.
