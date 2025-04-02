@@ -220,7 +220,7 @@ Once you have created appropriate groups and assigned the users, let's update th
 
 Under the hood, Access Control functionality uses [nftables](https://wiki.nftables.org/wiki-nftables/index.php/What_is_nftables%3F) to interact with the firewall and implement the rules. This means you'll need kernel version ≥ 5.10 to enable all kernel features required for proper operation.
 
-#### IP Forwarding
+### IP Forwarding
 
 For traffic to flow between your network interfaces on Linux you may also need to enable IP forwarding, if you haven't done it already. This can be achieved by setting the `ip_forward` variable with the following command:
 
