@@ -220,13 +220,21 @@ Once you have created appropriate groups and assigned the users, let's update th
 
 Under the hood, Access Control functionality uses [nftables](https://wiki.nftables.org/wiki-nftables/index.php/What_is_nftables%3F) to interact with the firewall and implement the rules. This means you'll need kernel version ≥ 5.10 to enable all kernel features required for proper operation.
 
-{% hint style="info" %}
-For traffic to flow between your network interfaces on Linux you may also need to enable IP forwarding. This can be achieved by setting the `ip_forward` variable with the following command:
+#### IP Forwarding
+
+For traffic to flow between your network interfaces on Linux you may also need to enable IP forwarding, if you haven't done it already. This can be achieved by setting the `ip_forward` variable with the following command:
 
 ```
 sysctl -w net.ipv4.ip_forward=1
 ```
-{% endhint %}
+
+If you want to make the change persistent, you will need to edit the `/etc/sysctl.conf` file and add the following line to it:
+
+```
+net.ipv4.ip_forward = 1
+```
+
+To load your changes in `sysctl.conf`, you can use `sysctl -p`.
 
 ### Masquerade
 
