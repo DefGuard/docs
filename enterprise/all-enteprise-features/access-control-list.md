@@ -252,3 +252,16 @@ As a shortcut, Defguard Gateway offers the `--masquerade` flag (or the `DEFGUARD
 {% hint style="warning" %}
 The `--masquerade` option applies masquerading between **all** interfaces on the gateway, which may be more permissive than necessary in some environments. While convenient, this broad behavior might not align with more restrictive or segmented network designs. For greater control and tighter security, we recommend that administrators configure masquerading manually between only the interfaces that require it.
 {% endhint %}
+
+### Forward chain priority
+
+Defguard creates a forward chain in its namespace to control which forwarded packets are being allowed or blocked. This may interfere with your other nftables rules and chains.
+
+```
+chain FORWARD {
+	type filter hook forward priority filter; policy deny;
+	ct state established,related counter packets 119 bytes 13404 accept
+}
+```
+
+By default this chain has the priority of `filter` (0). You can edit the priority by setting the `DEFGUARD_FW_PRIORITY` environment variable (or `fw_priority` config option) to chosen number, e.g. 1. The higher the priority, the later the chain runs in regard to your other forward chains.&#x20;
