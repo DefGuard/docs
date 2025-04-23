@@ -12,7 +12,7 @@ Active Directory support is available in Defguard v1.3.0 and above.
 
 First, navigate to the settings page and select the LDAP tab.
 
-<figure><img src="../../../.gitbook/assets/image (76).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (83).png" alt=""><figcaption></figcaption></figure>
 
 Now change fields according to your LDAP instance.
 
@@ -36,15 +36,21 @@ After enabling the LDAP integration you will gain the ability to login to Defgua
 
 ### Example Active Directory configuration
 
-<figure><img src="../../../.gitbook/assets/image (78).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (84).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (79).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (85).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/image (86).png" alt=""><figcaption></figcaption></figure>
 
 This is an example configuration for a default Active Directory setup on a Windows Server 2022. The most important aspect is setting the "LDAP server is Active Directory" setting as AD support won't work otherwise. Additionally, `ldaps` has been configured as AD requires an encrypted connection in order for Defguard to be allowed to send user passwords, which is important if you expect to create users/set passwords through Defguard.
 
+The "cn" attribute has been configured as the user's RDN as that's what used in the user's DN in our example setup (`cn=user1,cn=users,dc=ad,dc=example,dc=com`). This is different than the username attribute which will be mapped directly to the Defguard username.
+
 ### Example OpenLDAP configuration
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (93).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/image (89).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 

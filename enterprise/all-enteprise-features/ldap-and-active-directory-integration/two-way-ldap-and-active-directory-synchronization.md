@@ -32,12 +32,9 @@ For OpenLDAP:
 
 ## Setup
 
-First, you will need to configure your LDAP connection. Refer to [configuration.md](configuration.md "mention") for instructions. Here is an example configuration for an OpenLDAP server without SSL/TLS:\
+First, you will need to configure your LDAP connection. Refer to [configuration.md](configuration.md "mention") for instructions. Here is an example configuration for an OpenLDAP server without SSL/TLS:
 
-
-<figure><img src="../../../.gitbook/assets/image (67).png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="../../../.gitbook/assets/image (68).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (91).png" alt=""><figcaption></figcaption></figure>
 
 Make sure you selected "Enable LDAP integration" as without it, the two way synchronization won't work. After you fill out all the fields, test your configuration using the <img src="../../../.gitbook/assets/image (81).png" alt="" data-size="line"> button.&#x20;
 
