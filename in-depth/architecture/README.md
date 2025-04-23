@@ -33,8 +33,6 @@ Below you can see Defguard architecture in [C4 model](https://c4model.com/) divi
 
 Core is a Rust web server which is exposed as REST API and gRPC web server with typescript and rust clients, it handles connection to database, LDAP server and gateway. Core also handles user authorization via LDAP account. It's configurable using Environmental Variables which you can find [here](../../features/setting-up-your-instance/configuration.md).
 
-See Rustdocs [core](https://google.com) [gateway](https://google.com).
-
 Gateway is a small CLI gRPC client written in Rust which sends network statistics to Core server and apply network configuration changes on message from core.\
 Our frontend is React app written in Typescript which allows handling all API calls via Web UI.\
 See detailed gRPC docs [here](https://google.com)
