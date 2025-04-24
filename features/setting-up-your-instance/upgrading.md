@@ -9,6 +9,20 @@ icon: chevrons-up
 Before doing any updates please remember to **backup your database.**
 {% endhint %}
 
+## 1.3.0 any previous alpha -> alpha 4
+
+### Core
+
+LDAP integration received a major overhaul of how users are mapped to Defguard users when the two way synchronization is enabled. Now users are always identified by their leftmost DN value.&#x20;
+
+A new synchronization may cause some of your users to be re-added, which in turn may cause the loss of some of their Defguard specific data (e.g. their devices). This will happen if your leftmost DN component's attribute (referred to as RDN) is not the same as your current username attribute. This issue is only related to the two way synchronization mechanism and occurs only if you used one of the previous alphas of 1.3.0. Upgrading from any previous release to alpha 4 (skipping the alphas before) should not result in this happening.
+
+Before an upgrade, turn off the two way synchronization. After upgrading you will have access to a new option, the RDN user attribute:
+
+<figure><img src="../../.gitbook/assets/image (94).png" alt=""><figcaption></figcaption></figure>
+
+Set it according to your LDAP server setup. This should be the DN's leftmost component attribute, e.g. in the case of `cn=user1,cn=users,dc=ad,dc=example,dc=com` this would be "cn". This attribute is needed to properly identify users in your LDAP server. The username attribute will be mapped to Defguard usernames. Read [settings-table.md](../../enterprise/all-enteprise-features/ldap-and-active-directory-integration/settings-table.md "mention") for a description of those settings options. After you configured this value, you can re-enable the two way synchronization.
+
 ## 1.3.0 (alpha)
 
 *   If you used the LDAP integration previously, it will be off by default after upgrading. You will have to manually enable it in the settings in the LDAP tab:\
