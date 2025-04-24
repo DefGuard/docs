@@ -20,7 +20,8 @@ This feature has been mainly tested with OpenLDAP and Active Directory.
 
 * An LDAP server
 * One of the following user object classes set for your LDAP users: `user`, `inetOrgPerson`
-* The following attributes set for users you want to sync: `cn`, `sn`, `givenName`, `mail` - those are required by Defguard
+* The following attributes set for users you want to sync: username attribute (e.g. `sAMAccountName` or `cn`), `sn`, `givenName`, `mail` - those are required by Defguard
+* Username attribute must conform to the restrictions specified in [settings-table.md](settings-table.md "mention")
 
 For Active Directory:
 
@@ -36,7 +37,7 @@ First, you will need to configure your LDAP connection. Refer to [configuration.
 
 <figure><img src="../../../.gitbook/assets/image (91).png" alt=""><figcaption></figcaption></figure>
 
-Make sure you selected "Enable LDAP integration" as without it, the two way synchronization won't work. After you fill out all the fields, test your configuration using the <img src="../../../.gitbook/assets/image (81).png" alt="" data-size="line"> button.&#x20;
+Make sure you selected "Enable LDAP integration" as without it, the two way synchronization won't work. After you fill out all the fields, test your configuration using the <img src="../../../.gitbook/assets/image.png" alt="" data-size="line"> button.&#x20;
 
 The LDAP two way synchronization has the following options available:
 
@@ -113,23 +114,23 @@ Because some LDAP implementations will require password on user creation, Defgua
 
 Defguard doesn't pull passwords from LDAP in any form. Instead, when user tries to login to Defguard, if the LDAP integration is enabled, test login attempt will be made to the LDAP server (bind) with the provided credentials. If the test login attempt succeeds, Defguard will authenticate the user just as during a regular login.
 
-## Known issues
+## Known issues and other unexpected behavior
 
 ### General
 
+#### Groups are not being synced from LDAP
+
+Only non-empty groups are currently synchronized, groups that don't have any syncable members won't be created in Defguard.
+
+#### A user is not being synced
+
+Your user may be missing one of the required attributes. Check [#requirements](two-way-ldap-and-active-directory-synchronization.md#requirements "mention") for a full list. User without one of those attributes will be skipped.
+
 #### Defguard users are losing their groups (e.g. "admin" group)
 
-Your LDAP server may have silently refused creating a Defguard group. A common cause may be a DN conflict, e.g. when the DN for your groups and users has the same structure (`cn=<NAME>,cn=users,dc=example,dc=com` both for users and groups). To solve this, create a new group with a name that won't conflict with any other DN.
+Your LDAP server may have silently refused creating a Defguard admin group. A common cause may be a DN conflict, e.g. when the DN for your groups and users has the same structure (`cn=<NAME>,cn=users,dc=example,dc=com` both for users and groups). To solve this, create a new group with a name that won't conflict with any other DN.
 
 Otherwise, report it on our GitHub along with any appropriate logs.
-
-#### Can't edit Defguard user because of invalid username
-
-Your LDAP server may allow for usernames that Defguard doesn't accept, e.g. with spaces. Currently the only way to prevent this from happening is not using such usernames in LDAP if you need the ability to update them in Defguard.
-
-#### Can't login with my LDAP username
-
-If Defguard doesn't accept your LDAP username because it has some invalid characters, try logging in through your email address.
 
 #### Something wasn't updated in LDAP
 
