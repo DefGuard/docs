@@ -14,8 +14,12 @@ In defguard interface in VPN Location please click: **Edit location settings** (
 
 Then _**Add new location**_ and configure the new VPN location.
 
+{% hint style="danger" %}
+Without specified DNS field desktop client may be unable to use "All traffic" connection for the location.
+{% endhint %}
+
 {% hint style="warning" %}
-Rember that the:
+Remeber that the:
 
 * VPN IP address needs to be different then in the first location
 * Gateway address should be the same (same public IP)
@@ -62,8 +66,6 @@ docker compose up -d gateway-customer2
 <figure><img src="../../.gitbook/assets/Screenshot 2024-08-15 at 21.54.02.png" alt=""><figcaption></figcaption></figure>
 
 Now if you go back to the location settings you will see **instantly that the new gateway has connected for that location:**
-
-
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-08-15 at 21.29.37.png" alt=""><figcaption></figcaption></figure>
 
