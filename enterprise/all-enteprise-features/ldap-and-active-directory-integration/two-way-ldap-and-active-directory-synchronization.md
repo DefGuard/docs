@@ -49,6 +49,32 @@ The LDAP two way synchronization has the following options available:
 
 If you enabled the LDAP integration but not the two-way synchronization, your changes in Defguard will be propagated to LDAP but not the other way around.
 
+### Selecting which users to synchronize
+
+If you want to synchronize only selected users, you can specify the groups of which members should be synchronized.
+
+<figure><img src="../../../.gitbook/assets/image (95).png" alt=""><figcaption></figcaption></figure>
+
+This can be useful if you have a lot of users in your LDAP server and want to synchronize/pull only users belonging to a given group, e.g. `defguard-sync`.
+
+This setting is described in more depth in [settings-table.md](settings-table.md "mention") and affects both LDAP → Defguard and Defguard → LDAP synchronizations.
+
+After specifying synchronization groups, only members of those groups will be kept in sync.
+
+#### Pruning users after changing the synchronization groups
+
+{% hint style="info" %}
+The following advice should be applied only when you are using LDAP as the authoritative server.
+{% endhint %}
+
+After you change your synchronization groups, users not belonging to the new groups won't be automatically deleted. This may be an issue if you first used the two way synchronization without any synchronization groups, effectively synchronizing everyone and decided later to narrow the scope of synchronization. This can result in many redundant, not synchronized user records in your Defguard instance laying around. If you want to prune your Defguard users to only those who are in your synchronization group, you can follow these steps (assuming you have already set your synchronization groups):
+
+1. Wait for a two-way periodic synchronization to complete, you can recognize it by the `LDAP sync completed` log message.
+2. Temporarily disable the whole LDAP integration in the settings ![](<../../../.gitbook/assets/image (96).png>)
+3. In the Defguard user's list, bulk assign all users one of your synchronization groups, to bring them into the scope of synchronization. You may want to leave out all users which you don't want to be ever touched by the LDAP integration, e.g. the default admin user or other users you want to keep only in Defguard.
+4. Enable the LDAP integration in the settings <img src="../../../.gitbook/assets/image (98).png" alt="" data-size="line">
+5. Now, the next two-way synchronization will remove all users from Defguard who have the synchronization group you just assigned in Defguard but don't have it in LDAP, effectively leaving you only with users that have the group in both sources.
+
 ## Synchronization mechanism overview
 
 The goal of the LDAP two-way synchronization is to make the two data sources (LDAP and Defguard) equal. To achieve this, two variants of synchronization are used: synchronous and asynchronous.

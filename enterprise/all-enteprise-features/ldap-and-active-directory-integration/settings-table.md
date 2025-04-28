@@ -4,21 +4,22 @@ description: List with description of settings for LDAP found in settings page.
 
 # Settings table
 
-| Field                          | Description                                                                        | Default                                  |
-| ------------------------------ | ---------------------------------------------------------------------------------- | ---------------------------------------- |
-| URL                            | URL that points to your LDAP server.                                               | empty                                    |
-| Bind Username                  | Bind DN used for authentication.                                                   | cn=admin,dc=example,dc=org               |
-| Bind Password                  | Password used for authentication.                                                  | empty                                    |
-| Member Attribute               | Naming attribute for group membership.                                             | memberOf                                 |
-| Username Attribute             | Naming attribute for users.                                                        | cn                                       |
-| User Search Base               | Relative Distinguished Name (RDN) of your user entries.                            | ou=users,dc=example,dc=org               |
-| User Object Class              | Object class used for user entries.                                                | inetOrgPerson                            |
-| Additional User Object Classes | Auxiliary classes for user entries                                                 | simpleSecurityObject, sambaSamAccount    |
-| Groupname Attribute            | Naming attribute for groups.                                                       | cn                                       |
-| Group Object Class             | Object class used for group entries.                                               | groupOfUniqueNames                       |
-| Group Member Attribute         | Naming attribute for group membership.                                             | uniqueMember                             |
-| Group Search Base              | Relative Distinguished Name (RDN) of your group entries.                           | ou=groups,dc=example,dc=org              |
-| User RDN attribute             | The attribute which is a part of the user's DN (the leftmost component of the DN). | None, defaults to the username attribute |
+| Field                                 | Description                                                                                                                                         | Default                                   |
+| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| URL                                   | URL that points to your LDAP server.                                                                                                                | Empty                                     |
+| Bind Username                         | Bind DN used for authentication.                                                                                                                    | cn=admin,dc=example,dc=org                |
+| Bind Password                         | Password used for authentication.                                                                                                                   | Empty                                     |
+| Member Attribute                      | Naming attribute for group membership.                                                                                                              | memberOf                                  |
+| Username Attribute                    | Naming attribute for users.                                                                                                                         | cn                                        |
+| User Search Base                      | Relative Distinguished Name (RDN) of your user entries.                                                                                             | ou=users,dc=example,dc=org                |
+| User Object Class                     | Object class used for user entries.                                                                                                                 | inetOrgPerson                             |
+| Additional User Object Classes        | Auxiliary classes for user entries                                                                                                                  | simpleSecurityObject, sambaSamAccount     |
+| Groupname Attribute                   | Naming attribute for groups.                                                                                                                        | cn                                        |
+| Group Object Class                    | Object class used for group entries.                                                                                                                | groupOfUniqueNames                        |
+| Group Member Attribute                | Naming attribute for group membership.                                                                                                              | uniqueMember                              |
+| Group Search Base                     | Relative Distinguished Name (RDN) of your group entries.                                                                                            | ou=groups,dc=example,dc=org               |
+| User RDN attribute                    | The attribute which is a part of the user's DN (the leftmost component of the DN).                                                                  | Empty, defaults to the username attribute |
+| Limit synchronization to these groups | Limits all LDAP actions only to users belonging to one of the specified groups, both ways. Values should be provided as a list separated by commas. | Empty                                     |
 
 ## Settings in depth
 
@@ -36,6 +37,8 @@ Changing the RDN attribute may cause your users to be re-added to Defguard, caus
 * `Username attribute`: The username attribute which will be used to set the username of a Defguard user. The following restrictions apply:
   * Only alphanumeric characters except for  <kbd>.</kbd>, <kbd>-</kbd> or <kbd>\_</kbd>
   * At least 1 and at most 64 characters
-
-
+* `Limit synchronization to these groups`: limits the synchronization scope to only the members of the selected groups, this works both ways:
+  * Changes in Defguard will be propagated to LDAP only if a user belongs to a given group in Defguard.
+  * If the two way synchronization is enabled, only the users belonging to the specified groups will be fetched from the LDAP server.
+  * Adding a user to one of the synchronization groups in Defguard will automatically create that user in LDAP if they don't exist yet. If they already exists, their LDAP data (e.g. the email address) will be overwritten with the data in Defguard if only the one way synchronization (Defguard -> LDAP) is enabled. Otherwise if the two way synchronization is enabled the selected authority server will be respected.
 
