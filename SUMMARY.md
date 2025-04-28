@@ -22,6 +22,7 @@
 * [Troubleshooting Guide](admin-and-features/troubleshooting/README.md)
   * [Sending support information](admin-and-features/troubleshooting/sending-support-info.md)
   * [Client Windows installer exit codes](admin-and-features/troubleshooting-guide/windows-installer-exit-codes.md)
+  * [Client "All traffic" connection issues](admin-and-features/troubleshooting/client-all-traffic-connection-issues.md)
 * [Deploying your instance](features/setting-up-your-instance/README.md)
   * [Upgrading](features/setting-up-your-instance/upgrading.md)
   * [One-line install script](features/setting-up-your-instance/one-line-install.md)
