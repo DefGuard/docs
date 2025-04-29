@@ -10,8 +10,6 @@ Defguard supports **multiple locations**, for each location to work you need to 
 If you are looking for MFA settings, go here.
 {% endhint %}
 
-
-
 When creating a new VPN location you can choose if you want to **create it from scratch (Manual Configuration)** or **import your current WireGuard configuration**:
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2024-11-21 at 14.19.04.png" alt=""><figcaption></figcaption></figure>
@@ -24,24 +22,24 @@ Next step is configuring the location settings:
 
 ### Location name
 
-It's a name that will be visible both on the UI, but also in the desktop client for all the users. For exaple if you name your location _Monaco Office_, the desktop client will show:
+It's a name that will be visible both on the UI, but also in the desktop client for all the users. For example if you name your location _Monaco Office_, the desktop client will show:
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2024-11-21 at 14.37.51.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### Gateway VPN IP address and mask
+### Gateway VPN IP addresses and masks
 
-By providing the VPN IP/mask, you are configuring both: **the VPN internal network and VPN server IP**. Every gateway will bind to this address and Defguard will also generate and assign IP addresses for devices in this location from this network.
+By providing the VPN IPs/masks, you are configuring both: **the VPN internal networks and VPN server IPs**. Every gateway will bind to these addresses and Defguard will also generate and assign IP addresses for devices in this location from these networks.
 
-This field can contain multiple IP addresses (both IPv4 and IPv6), separated by a comma (e.g. `10.10.20.1/24,fc00::abcd:0:1/96`). The first (leftmost) address is the primary address, and this one will be used for IP address assignment for devices. The other IP addresses are auxiliary and are not managed by Defguard.
+This field can contain multiple IP addresses (both IPv4 and IPv6), separated by a comma (e.g. `10.10.20.1/24,fc00::abcd:0:1/96`).
 
 #### Examples
 
 1. 10.11.0.1/8
    1. internal VPN network will be: 10.11.0.0 with netmask 255.0.0.0
    2. VPN gateway internal IP address will be: 10.11.0.1
-2. 192.168.8.1/24
-   1. internal VPN network will be: 192.168.8.0 with netmask 255.255.255.0
-   2. VPN gateway internal IP address will be: 192.168.8.1
+2. 192.168.8.1/24,fc00::1/112
+   1. internal VPN networks will be: `192.168.8.0` with netmask `255.255.255.0` and `fc00::0` with netmask FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:0000
+   2. VPN gateway internal IP addresses will be: 192.168.8.1 and fc00::1
 
 ### Gateway address
 

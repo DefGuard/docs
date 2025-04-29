@@ -5,7 +5,7 @@
 First, you have to install Wireguard application. On this [site](https://www.wireguard.com/install/) you can find information on how to download Wireguard for any operating system.
 
 {% hint style="warning" %}
-Please note that <mark style="color:red;">other then</mark> [Defguard Desktop Clients](../add-new-instance/) <mark style="color:red;">do not work with Multi-Factor Authentication</mark> <mark style="color:red;">**and they can only be used for Locations without MFA**</mark> - as the only client supporting this feature is our desktop client.
+Please note that <mark style="color:red;">WireGuard clients other than</mark> [Defguard Desktop Client](../add-new-instance/) <mark style="color:red;">do not work with Multi-Factor Authentication</mark> <mark style="color:red;">**and they can only be used for Locations without MFA**</mark> - as the only client supporting this feature is our desktop client.
 {% endhint %}
 
 ## Adding a device to connect to VPN
@@ -21,8 +21,6 @@ Please note that <mark style="color:red;">other then</mark> [Defguard Desktop Cl
 
 a. **Generate key pair** - if you are a new user, just select this option - it will generate a secure key pair (private and public key) - **securly in you browser (defguard doesn't store user private keys)**
 
-
-
 {% hint style="info" %}
 Choosing this option - when you download your configuration (or use QR Code to configure Wireguard on your mobile device) - **the private key will be included in your configuration and there will be noting else you need to do**
 {% endhint %}
@@ -37,8 +35,6 @@ Choosing this option - **you will need to change PrivateKey (insert the private 
    1. **downloading** the configuration
    2. **Copy** configuration to Clipboard
    3. Use Wireguard feature to configure by scanning the **QR Code**
-
-
 
 <figure><img src="../../../.gitbook/assets/add-device3.png" alt=""><figcaption></figcaption></figure>
 

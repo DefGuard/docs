@@ -387,7 +387,7 @@ alive
 Success! We can move on to the next service.
 
 {% hint style="danger" %}
-If you will use this simple setup and run all services on one server, you can use [NGINX access restrictions](https://docs.nginx.com/nginx/admin-guide/security-controls/controlling-access-proxied-tcp/) for securing core and allowing to access the _my-server.defguard.net_ only to selected networks - blocking the direct access from the Internet.
+If you use this simple setup and run all services on one server, you can use [NGINX access restrictions](https://docs.nginx.com/nginx/admin-guide/security-controls/controlling-access-proxied-tcp/) for securing core and allowing to access the _my-server.defguard.net_ only to selected networks - blocking the direct access from the Internet.
 {% endhint %}
 
 ### Gateway - the WireGuard VPN service
@@ -399,12 +399,12 @@ To run gateway, we should do two things:
 
 #### Setup location for gateway
 
-Now, after setting up core service you should go to the website that you set on `DEFGUARD_URL`. The link should redirect you to login page. To log in type this credentials from `/etc/defguard/core.conf`
+Now, after setting up core service you should go to the website that you set on `DEFGUARD_URL`. The link should redirect you to login page. To log in type these credentials from `/etc/defguard/core.conf`
 
 * login: admin
 * password: `DEFGUARD_DEFAULT_ADMIN_PASSWORD` (by default: pass123)
 
-Now we can configure our first location. Depends on what is more convenient fo you, choose configuration from Wireguard file or do it manualy.
+Now we can configure our first location. Depends on what is more convenient for you, choose configuration from Wireguard file or do it manually.
 
 <figure><img src="../../.gitbook/assets/choose_location_setup.png" alt=""><figcaption><p>Location wizard</p></figcaption></figure>
 

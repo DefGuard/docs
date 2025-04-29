@@ -11,7 +11,7 @@ Before contacting support, please see if the answer cannot be found here:
 
 ## Desktop client real-time/auto sync doesn't work
 
-The client communicates with core to initiate the handshake through the secure proxy (which is also the enrollment service - [more details about the architecture here](../features-and-configuration/wireguard/multi-factor-authentication-mfa-2fa/architecture.md)), so it's critical it works and is properly configured.
+The client communicates with core to initiate the handshake through the secure proxy (which is also the enrollment service - [more details about the architecture here](../admin-and-features/features-and-configuration/wireguard/multi-factor-authentication-mfa-2fa/architecture.md)), so it's critical it works and is properly configured.
 
 Common problems may be:
 
@@ -30,7 +30,7 @@ But when MFA is enabled peers **are only added to the gateway** after successful
 
 Also there is a setting in the location named _Peer Disconnect Threshold (seconds):_
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-11-15 at 18.25.33.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2024-11-15 at 18.25.33.png" alt="" width="375"><figcaption></figcaption></figure>
 
 This setting specifies that if the **peer is inactive for&#x20;**_**(defined seconds)**_, the gateway **should remove it from the configuration** (as it should not be persistent since MFA is required).
 
@@ -75,13 +75,13 @@ Ignore them, this is a normal behaviour.
 
 If you have configured your defguard instance correctly, after connecting to the VPN you should be able to ping your VPN server, for example if you have the following setup:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-03-24 at 18.36.43.png" alt="" width="313"><figcaption><p>Example VPN server IP</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2024-03-24 at 18.36.43.png" alt="" width="313"><figcaption><p>Example VPN server IP</p></figcaption></figure>
 
 after connecting to VPN you should be able to ping: 10.1.1.1.
 
 ### VPN Location settings changed
 
-Check if the VPN location configuration has changed. If it did and you do not have Enterprise license where real-time config sync is automatic, the user needs to [update their client configuration by updating that instance manually.](../../help/configuring-vpn/add-new-instance/update-instance.md)
+Check if the VPN location configuration has changed. If it did and you do not have Enterprise license where real-time config sync is automatic, the user needs to [update their client configuration by updating that instance manually.](../help/configuring-vpn/add-new-instance/update-instance.md)
 
 ### Conflicting networks
 
@@ -115,17 +115,17 @@ Another common problem is that **your server on which the gateway is working, ha
 
 If a user has no access to the VPN location, sometimes admins forget that they **change the VPN settings and change a group that is allowed to access the VPN location**. If the user is not a part of that group which VPN location is configured to access:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-03-24 at 19.44.57.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2024-03-24 at 19.44.57.png" alt=""><figcaption></figcaption></figure>
 
 will not be able to connect.
 
 ## I can access VPN but not my local network / Internet
 
-Defguard only manages VPN server configuration (for now, we are planning ACLs / firewall management) which means it basically configures the VPN integrace and peers.
+Defguard only manages VPN server configuration (for now, we are planning ACLs / firewall management) which means it basically configures the VPN interface and peers.
 
-Then when the client / user connects it actually establishes **a secure tunel between their computer network and your server (that VPN interface)**.
+Then when the client / user connects it actually establishes **a secure tunnel between their computer network and your server (that VPN interface)**.
 
-From there, what happens to this traffic is the **administrator role.** The most common scenarious to do are:
+From there, what happens to this traffic is the **administrator role.** The most common scenarios to do are:
 
 * add routing rules, so that the traffic from that interface/VPN IP network gets routed to your network - this approach gives the advantage that users VPN ip persists in the network and the user is visible with it's VPN ip in your local network
-* Masquerade or NAT - a common use case is to masquerade or NAT the traffic - which is **actually required if you want users to access Internet from the VPN -** this process is [described in detailed in this tutorial](../../tutorials/step-by-step-setting-up-a-vpn-server/#enabling-to-access-internet-through-your-vpn).
+* Masquerade or NAT - a common use case is to masquerade or NAT the traffic - which is **actually required if you want users to access Internet from the VPN -** this process is [described in detailed in this tutorial](../tutorials/step-by-step-setting-up-a-vpn-server/#enabling-to-access-internet-through-your-vpn).

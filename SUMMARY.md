@@ -8,7 +8,7 @@
   * [Defguard Desktop Client](help/configuring-vpn/add-new-instance/README.md)
     * [Update instance](help/configuring-vpn/add-new-instance/update-instance.md)
   * [Other WireGuard® Clients](help/configuring-vpn/adding-wireguard-devices/README.md)
-    * [Configuring manually a device for a new VPN Location](help/configuring-vpn/adding-wireguard-devices/configuring-a-device-for-a-new-vpn-location.md)
+    * [Configuring a device for new VPN Location manually](help/configuring-vpn/adding-wireguard-devices/configuring-a-device-for-a-new-vpn-location.md)
 * [Password change / Reset](help/changing-your-password.md)
 * [Enrollment & Onboarding](help/enrollment/README.md)
   * [With internal Defguard SSO](help/enrollment/with-internal-defguard-sso.md)
@@ -19,18 +19,13 @@
 
 ## Admin & features
 
-* [Troubleshooting Guide](admin-and-features/troubleshooting/README.md)
-  * [Sending support information](admin-and-features/troubleshooting/sending-support-info.md)
-  * [Client Windows installer exit codes](admin-and-features/troubleshooting-guide/windows-installer-exit-codes.md)
-  * [Client "All traffic" connection issues](admin-and-features/troubleshooting/client-all-traffic-connection-issues.md)
-  * [WebAuthn security keys](admin-and-features/troubleshooting/webauthn-security-keys.md)
 * [Deploying your instance](features/setting-up-your-instance/README.md)
-  * [Upgrading](features/setting-up-your-instance/upgrading.md)
   * [One-line install script](features/setting-up-your-instance/one-line-install.md)
   * [Standalone package based installation](admin-and-features/setting-up-your-instance/standalone-package-based-installation.md)
   * [Docker images and tags](admin-and-features/setting-up-your-instance/docker-images-and-tags.md)
   * [Docker Compose](features/setting-up-your-instance/docker-compose.md)
   * [Kubernetes](community-features/setting-up-your-instance/kubernetes.md)
+  * [Upgrading](features/setting-up-your-instance/upgrading.md)
   * [Gateway](admin-and-features/setting-up-your-instance/gateway/README.md)
     * [Running gateway on MikroTik routers](admin-and-features/setting-up-your-instance/gateway/running-gateway-on-mikrotik-routers.md)
   * [Securing gRPC communication](admin-and-features/setting-up-your-instance/grpc-ssl-communication.md)
@@ -66,6 +61,14 @@
   * [Network devices](admin-and-features/features-and-configuration/network-devices.md)
   * [Gateway notifications](admin-and-features/features-and-configuration/gateway-notifications.md)
   * [New version notifications](admin-and-features/features-and-configuration/new-version-notifications.md)
+
+***
+
+* [Troubleshooting Guide](troubleshooting/README.md)
+  * [Sending support information](troubleshooting/sending-support-info.md)
+  * [Client Windows installer exit codes](troubleshooting/windows-installer-exit-codes.md)
+  * [Client "All traffic" connection issues](troubleshooting/client-all-traffic-connection-issues.md)
+  * [WebAuthn security keys](troubleshooting/webauthn-security-keys.md)
 
 ## Enterprise Features <a href="#enterprise" id="enterprise"></a>
 
