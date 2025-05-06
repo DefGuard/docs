@@ -20,7 +20,7 @@ We assume you have:
   * defguard enrollment service that will enable to easy configure Desktop Clients just with one token is: _enroll.defguard.net_ (this subdomain also points to _185.33.37.51_)
 * server is Debian/Ubuntu-based
 * have installed the [official Docker Engine](https://docs.docker.com/engine/install/debian/#install-using-the-repository) and [docker-compose](https://docs.docker.com/compose/install/standalone/#on-linux) (from our experience it's better to use the official Docker Engine then docker shipped with distro packages - but this should also work with distro packages) and have
-* VPN network will be: 10.22.33.0/24 - but you can assign [any private network address](https://en.wikipedia.org/wiki/Private\_network) and use it in this tutorial - we will name it _Example_
+* VPN network will be: 10.22.33.0/24 - but you can assign [any private network address](https://en.wikipedia.org/wiki/Private_network) and use it in this tutorial - we will name it _Example_
 * If you have a **firewall**, we assume you have **open ports** (if not below we will show you how to enable and secure your server):
   * 443 - in order to expose both defguard & enrollemnt service - but also to automatically issue for these domains SSL Certificates (which the installer script does)
   * 50555 - on this port the WireGuard VPN server will be listning for incoming connections from clients
@@ -164,7 +164,11 @@ net.ipv4.ip_forward=1
 root@server:~# sysctl -p
 ```
 
-Now we need to configure firewall [NAT](https://en.wikipedia.org/wiki/Network\_address\_translation), so that the server will "_translate/masq_" VPN traffic behind its public IP. In order to do that, we need to add rules to MASQUERADE VPN network behind the public interface of the sever.
+Now we need to configure firewall [NAT](https://en.wikipedia.org/wiki/Network_address_translation), so that the server will "_translate/masq_" VPN traffic behind its public IP. In order to do that, we need to add rules to MASQUERADE VPN network behind the public interface of the sever.
+
+{% hint style="info" %}
+From version 1.3.0, gateway can automatically apply masquerade to traffic on all interfaces without the need for manual configuration. Refer to [#masquerade](../../enterprise/all-enteprise-features/access-control-list/#masquerade "mention") for details. If you use this feature, you can skip the following manual masquerade setup step.
+{% endhint %}
 
 We know that VPN network is 10.22.33.0/24 now we need to be sure what interface has the public IP (in our case: 185.33.37.51) - let's figure it out with this command:
 
