@@ -9,7 +9,15 @@ icon: chevrons-up
 Before doing any updates please remember to **backup your database.**
 {% endhint %}
 
-## 1.3.0 any previous alpha -> alpha 4
+## Any previous release → 1.3.0
+
+* The LDAP integration has became an enterprise feature. You will need to purchase the enterprise license if you exceed the free limits. See [license.md](../../enterprise/license.md "mention") for more information regarding the license.
+*   If you used the LDAP integration previously, it will be off by default after upgrading. You will have to manually enable it in the settings in the LDAP tab:\
+
+
+    <figure><img src="../../.gitbook/assets/image (82).png" alt=""><figcaption></figcaption></figure>
+
+## Any previous 1.3.0 alpha → 1.3.0 alpha 4
 
 ### Core
 
@@ -22,13 +30,6 @@ Before an upgrade, turn off the two way synchronization. After upgrading you wil
 <figure><img src="../../.gitbook/assets/image (94).png" alt=""><figcaption></figcaption></figure>
 
 Set it according to your LDAP server setup. This should be the DN's leftmost component attribute, e.g. in the case of `cn=user1,cn=users,dc=ad,dc=example,dc=com` this would be "cn". This attribute is needed to properly identify users in your LDAP server. The username attribute will be mapped to Defguard usernames. Read [settings-table.md](../../enterprise/all-enteprise-features/ldap-and-active-directory-integration/settings-table.md "mention") for a description of those settings options. After you configured this value, you can re-enable the two way synchronization.
-
-## 1.3.0 (alpha)
-
-*   If you used the LDAP integration previously, it will be off by default after upgrading. You will have to manually enable it in the settings in the LDAP tab:\
-
-
-    <figure><img src="../../.gitbook/assets/image (82).png" alt=""><figcaption></figcaption></figure>
 
 ## Any previous core release -> core 1.1.4
 
