@@ -49,6 +49,10 @@ If you enabled the LDAP integration but not the two-way synchronization, your ch
 
 ### Selecting which users to synchronize
 
+{% hint style="warning" %}
+Before enabling this feature, check if you meet requirements described in [settings-table.md](settings-table.md "mention")
+{% endhint %}
+
 If you want to synchronize only selected users, you can specify the groups of which members should be synchronized.
 
 <figure><img src="../../../.gitbook/assets/image (95).png" alt=""><figcaption></figcaption></figure>
