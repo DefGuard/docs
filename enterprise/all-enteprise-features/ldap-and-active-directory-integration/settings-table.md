@@ -37,6 +37,11 @@ Changing the RDN attribute may cause your users to be re-added to Defguard, caus
 * `Username attribute`: The username attribute which will be used to set the username of a Defguard user. The following restrictions apply:
   * Only alphanumeric characters except for  <kbd>.</kbd>, <kbd>-</kbd> or <kbd>\_</kbd>
   * At least 1 and at most 64 characters
+
+{% hint style="danger" %}
+To use this feature, your LDAP user entries must posses the "memberOf" attribute (or it's equivalent, defined using the member attribute), which may not be available by default on your LDAP server. This may require enabling an appropriate module.&#x20;
+{% endhint %}
+
 * `Limit synchronization to these groups`: limits the synchronization scope to only the members of the selected groups, this works both ways:
   * Changes in Defguard will be propagated to LDAP only if a user belongs to a given group in Defguard.
   * If the two way synchronization is enabled, only the users belonging to the specified groups will be fetched from the LDAP server.

@@ -4,12 +4,10 @@ icon: arrow-right-arrow-left
 
 # Two-way LDAP and Active Directory synchronization
 
-{% hint style="warning" %}
-This is an alpha feature available in Defguard core v1.3.0 alpha builds and above. It may not be production ready yet and may have some bugs. Report any issues you find on our [GitHub](https://github.com/DefGuard/defguard/issues).
-{% endhint %}
-
 {% hint style="danger" %}
-Make sure to be aware of the mechanisms described in [#authority-and-full-synchronization](two-way-ldap-and-active-directory-synchronization.md#authority-and-full-synchronization "mention")and [#first-synchronization](two-way-ldap-and-active-directory-synchronization.md#first-synchronization "mention") before enabling this feature, as improper use may cause loss of user data.
+Make sure to be aware of the mechanisms described in [#authority-and-full-synchronization](two-way-ldap-and-active-directory-synchronization.md#authority-and-full-synchronization "mention") and [#first-synchronization](two-way-ldap-and-active-directory-synchronization.md#first-synchronization "mention") before enabling this feature.\
+\
+We recommend testing the integration first in a non-production environment, as improper configuration may cause loss of user data.
 {% endhint %}
 
 The LDAP synchronization allows for synchronizing users and groups between Defguard and your LDAP server.
