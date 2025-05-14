@@ -4,8 +4,8 @@ description: How to configure connection between Defguard instance and LDAP.
 
 # Configuration
 
-{% hint style="info" %}
-Active Directory support is available in Defguard v1.3.0 and above.
+{% hint style="warning" %}
+Active Directory support is available in Defguard ≥ v1.3.0
 {% endhint %}
 
 ## Setup

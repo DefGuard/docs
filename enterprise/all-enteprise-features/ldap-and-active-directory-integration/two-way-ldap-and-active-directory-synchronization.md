@@ -4,6 +4,10 @@ icon: arrow-right-arrow-left
 
 # Two-way LDAP and Active Directory synchronization
 
+{% hint style="warning" %}
+This feature is available in Defguard version ≥ v1.3.0
+{% endhint %}
+
 {% hint style="danger" %}
 Make sure to be aware of the mechanisms described in [#authority-and-full-synchronization](two-way-ldap-and-active-directory-synchronization.md#authority-and-full-synchronization "mention") and [#first-synchronization](two-way-ldap-and-active-directory-synchronization.md#first-synchronization "mention") before enabling this feature.\
 \
