@@ -4,13 +4,19 @@ description: 'Provisioner repository: https://github.com/DefGuard/YubiKey-Provis
 
 # YubiKey Provisioning
 
+### Compatibility
+
+Some Yubikey's will not be compatible with this feature.
+
 {% hint style="danger" %}
-We only support (and tested) Yubikey 5.
-
-Yubikey 4 should work - we have not tested.
-
-Other Yubikeys - especially NEO (which has slots for RSA GPG/PGP keys) will not work, as YK NEO has only 2048 key length slot, which is commonly treated as unsecure for RSA key length.
+This feature was tested only on Yubikey series 5, we don't support older series ( some still might work).
 {% endhint %}
+
+Conditions below needs to be met:
+
+* Yubikey needs to return serial number via `ykman list`&#x20;
+* Yubikey needs to have available and active OpenPGP application. You can check out your series capabilities on yubico website [here](https://support.yubico.com/hc/en-us/articles/360013790259-Using-Your-YubiKey-with-OpenPGP).
+* Yubikey needs to support RSA 4096, older series can have problem with this especially with older firmware versions.
 
 ## Overview
 
@@ -29,6 +35,10 @@ That also means that the **master key** is deleted and only sub-keys are stored 
 
 As we do not want to store any private keys for security reasons, we have some ideas and plans for **optional master-key** storage based on **HSM encryption**, but we want to see if any actual companies/users need that, as there is always a way just to overwrite the existing YK and provision with new data.
 {% endhint %}
+
+### Prerequisites
+
+If you want to use solutions other then docker, the provisioning station needs to have both gpg2 and [ykman](https://docs.yubico.com/software/yubikey/tools/ykman/Install_ykman.html) programs on the provisioning machine.
 
 ## Installation of provisioning service
 
