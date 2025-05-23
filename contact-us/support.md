@@ -5,7 +5,6 @@
 If you have bought an [Enterprise plan with premium support ](https://defguard.net/pricing/)you can reach us at:
 
 * Email: support @ defguard.net
-* Submit a ticket on our ticketing system - after purchasing the initial license is send over email, on that email there is link to a dedicated support page.
 
 ## Community Support
 
@@ -21,11 +20,9 @@ Matrix is vastly more secure then those (convenient) platforms - and open source
 
 ## Found a bug? Need a feature?
 
-* Here you can submit [a bug](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=bug\&projects=\&template=bug\_report.md\&title=)
-* And here you can submit [a feature request](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=feature\&projects=\&template=feature\_request.md\&title=)
+* Here you can submit [a bug](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=bug\&projects=\&template=bug_report.md\&title=)
+* And here you can submit [a feature request](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=feature\&projects=\&template=feature_request.md\&title=)
 
 ## Reporting a Vulnerability
 
 Please do **not open Github Issues for security issues you encounter**. To reporting a vulnerability open a [security advisory here](https://github.com/defguard/defguard/security/advisories/new).
-
-\
