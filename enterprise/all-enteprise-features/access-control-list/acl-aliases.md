@@ -1,8 +1,8 @@
 # ACL Aliases
 
-ACL alias functionality allows administrators to create reusable elements which can then be used when defining a destination in multiple ACL rules.&#x20;
+ACL alias functionality allows administrators to create reusable elements which can then be used when defining a destination in multiple ACL rules.
 
-For example you can define aliases for commonly used ports (e.g. 22 for SSH) or for services within your infrustructure (e.g. 1.2.3.4:5432 for a PostgreSQL server).
+For example you can define aliases for commonly used ports (e.g. 22 for SSH) or for services within your infrustructure (e.g. 1.2.3.4:5432 for a particular PostgreSQL server).
 
 {% hint style="warning" %}
 Access Control is an [enterprise feature](../../license.md). To use it you'll need to [purchase a license](../../license.md#purchasing-the-license) or ensure your deployment does not [exceed the limits](../../license.md#enterprise-is-free-up-to-certain-limits).
@@ -20,24 +20,24 @@ All the aliases defined in your systems are displayed in the second tab of the *
 
 Similarly to ACL rules themselves, the list is split into two sections:
 
-* **Deployed Aliases** - aliases that are active and can be used by ACL rules
-* **Pending Changes** - aliases that have been modified and have not yet been deployed
+* **Deployed Aliases** – aliases that are active and can be used by ACL rules.
+* **Pending Changes** – aliases that have been modified and have not yet been deployed.
 
-To deploy pending changes use the **Deploy pending changes** button. It will deploy selected changes or all pending changes if none have been selected.
+To deploy pending changes use the **Deploy pending changes** button. It will deploy selected or all pending changes.
 
 {% hint style="warning" %}
-When alias changes are deployed, firewall rules will be updated for all affected locations.
+When the alias changes are deployed, firewall rules will be updated for all affected locations.
 {% endhint %}
 
 ### How to add and modify aliases
 
-To create a new rule, use the ![](<../../../.gitbook/assets/image (6).png>)  button in the list view.
+To create a new rule, use the **Add new** button on the list view.
 
 You can edit an existing rule by using the ![](<../../../.gitbook/assets/image (12).png>) context menu and selecting **Edit** in the list view.
 
 <figure><img src="../../../.gitbook/assets/image (102).png" alt=""><figcaption><p>Alias creation form</p></figcaption></figure>
 
-In the ACL alias form you can specify alias name and [type](acl-aliases.md#alias-types).&#x20;
+In the ACL alias form you can specify alias name and [type](.#alias-types).
 
 Below in the **Destination** section you can enter the same resource configuration as in the [ACL rule Destination](./#destination):
 
@@ -71,8 +71,8 @@ Aliases can be used to define an ACL rule destination by selecting them in the i
 
 Aliases are divided into two distinct types to handle various use-cases:
 
-* **Destination** alias - defines a complete [ACL destination](./#destination); it will be translated into a separate set of firewall rules
-* **Component** alias - defines a part of  [ACL destination](./#destination); it will be merged with destination manually configured in a given ACL rule when generating firewall rules
+* **Destination** alias – defines a complete [ACL destination](./#destination); it will be translated into a separate set of firewall rules.
+* **Component** alias – defines a part of  [ACL destination](./#destination); it will be merged with destination manually configured in a given ACL rule when generating firewall rules.
 
 ### Examples
 

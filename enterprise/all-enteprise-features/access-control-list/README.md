@@ -36,7 +36,7 @@ Default policy defines how to treat network traffic (with regarding to resources
 * **Allow** - users and devices connected to a location will be able to access all resources within the network, if the resource access is not modified by one of ACL rules.
 * **Deny** - all traffic to network resources that is not regulated by one of the ACL rules will be blocked.
 
-### How to define the default ACL Policy
+### How to define Default ACL Policy
 
 Make sure ACL has been enabled (see above), otherwise the policy setting will not be inactive.
 
@@ -64,7 +64,7 @@ Defguard does not track rule application status per location. In the event of ne
 * modified rules
 * deleted rules
 
-Use the ![](<../../../.gitbook/assets/image (5).png>) button to apply all the rules from **Pending Changes** section.
+Use the **Deploy pending changes** button to apply all the rules from **Pending Changes** section.
 
 {% hint style="info" %}
 
@@ -95,7 +95,7 @@ The ACL form consists of three main sections:
 
 * rule name
 * locations where the rule should be applied
-* enabling /  disabling of the rule
+* enabling / disabling of the rule
 
 {% hint style="info" %}
 Each rule in Defguard can be **enabled** or **disabled** individually. When a rule is disabled, it remains stored in the system but is not applied to any locations, meaning it has no effect on access control until re-enabled. This allows administrators to temporarily deactivate rules without deleting them, making it easy to toggle access policies as needed.
@@ -103,7 +103,7 @@ Each rule in Defguard can be **enabled** or **disabled** individually. When a ru
 
 #### Destination
 
-This section is meant to define the resource to which access should be granted or restricted. Think of this section as the **"destination"** part of a firewall rule.
+This section is meant to define the resource to which access should be granted or restricted. Think of this section as the **destination** part of a firewall rule.
 
 * IP addresses (IPv4 or IPv6) of the resources for which access will be granted or restricted. The addresses can be specified individually, by CIDR addresses (with a mask) or as a range. You can specify multiple comma-separated addresses. Examples of valid values for this field include:
   * `10.1.1.10, 10.1.2.0/24`
@@ -180,118 +180,29 @@ Now, click on **Deploy pending changes (1)** button. After that, the rule should
 
 <figure><img src="../../../.gitbook/assets/image (75).png" alt=""><figcaption></figcaption></figure>
 
-#### Implementation details
-
-##### Linux
-
-All applied rules are deployed to Defguard Gateway. This means that the firewall on the Gateway that handles the _Office-Berlin_ location should contain appropriate [NFTables](https://nftables.org/) rules that implement the specified requirements. Let's see how this looks like in practice. Below is the `nftables list ruleset` output:
-
-```
-...
-table inet DEFGUARD {
-        chain FORWARD {
-                type filter hook forward priority filter; policy drop;
-                ct state established,related counter packets 0 bytes 0 accept
-                ip saddr { 10.100.200.155-10.100.200.156 } ip daddr { 10.1.1.0/24 } counter packets 0 bytes 0 accept comment "ACL 132 - Office access Berlin ALLOW"
-                ip daddr { 10.1.1.0/24 } counter packets 0 bytes 0 drop comment "ACL 132 - Office access Berlin DENY"
-        }
-}
-...
-```
-
-As you can see, Defguard has created a new inet-type table. This is to make sure Defguard's configuration won't interfere with your existing nftables.
-
-The FORWARD chain specifies our rules. First you can see the `policy drop` default, which is a result of setting the **"default Deny"** policy in the location settings. Then the `established,related` line to skip reevaluation of established connections.
-
-Finally the two lines that directly deal with our requirement to allow the two users into the network.
-
-```
-ip saddr { 10.100.200.155-10.100.200.156 } ip daddr { 10.1.1.0/24 } counter packets 0 bytes 0 accept comment "ACL 132 - Office access Berlin ALLOW"
-```
-
-This rule specifies two addresses as the **"traffic source" -** `10.100.200.155` and `10.100.200.156` . Those happen to be device addresses of our two users in the Wireguard VPN network that the gateway manages for this Location. The destination address **"10.1.1.0/24"** is exactly the network address we specified in the rule. And finally the **"accept"** verdict. All together, this rule allows the traffic specified in the UI to the network.
-
-You may also notice that Defguard added a comment to the rule. The comment includes rule name so that it is easy for you to find the rule using tools like grep etc.
-
-Finally, the last line:
-
-```
-ip daddr { 10.1.1.0/24 } counter packets 0 bytes 0 drop comment "ACL 132 - Office access Berlin DENY"
-```
-
-This line effectively blocks all other traffic to the 10.1.1.0/24 network. As mentioned earlier, the ACL rules in Defguard are self-contained and fully define access for their target resource. This set of rules can now be deployed to any gateway, no regardless of the **"default policy"** setting, and they will effectively do the same thing.
+(See [Implementation Details](firewall-internals.md) documentation to understand integrationn with system packet filtering.)
 
 #### Adding access exceptions for specific users
 
-Let's build on the last example. The example defined a single rule that grants access to a network to two users. In this example we will block access for one specific user. But first let's rethink our approach.
+Let's build on the last example. The example defined a single rule that grants network access for two users. In this example we will block access for one specific user. But first let's rethink our approach.
 
-You may be tempted to specify the access for each user individually like we did while constructing the first rule. This may work at first or if your users don't change too often. But what if you have a constant influx of new users? This might get tedious pretty fast.
+It may be tempting to specify the access for each user individually, like we did while constructing the first rule. This may work at first or if your users don't change too often. But what if you have a constant influx of new users? This might get tedious pretty fast.
 
 So what we will do is:
 
-* we will define two groups
-  * staff-berlin
-  * externals
-* we will add all the users that work in our "Berlin" office to staff-berlin group
-* we will add all users we collaborate with in Berlin, but are not our direct employees, to the "externals" group
-* we will allow all users in staff-berlin group access to the network
-* we will add an exception for the users in "externals" group so that they are not allowed to access the network
+* we will define two groups:
+  * _Staff-Berlin_
+  * _Externals_
+* we will add all the users that work in our _Berlin_ office to _Staff-Berlin_ group
+* we will add all users we collaborate with in _Berlin_, but are not our direct employees, to the _Externals_ group
+* we will allow all users in _Staff-Berlin_ group access to the network
+* we will add an exception for the users in _Externals_ group so that they are not allowed to access the network
 
 Once you have created appropriate groups and assigned the users, let's update the ACL rule. The rule should now:
 
-* still be assigned to the **"office-berlin"** location
-* still define the destination resource address as "10.1.1.0/24"
-* instead of specific users in the **"Allowed Users"** input we now select the **"staff-berlin"** group in the **"Allowed Groups"** input
-* in **"Denied Groups"** input we should now select the **"externals"** group
+* still be assigned to the _Office-Berlin_ location
+* still define the destination resource address as `10.1.1.0/24`
+* instead of specific users in the **Allowed Users** input, we now select the _Staff-Berlin_ group in the **Allowed Groups** input
+* in **Denied Groups** input we should now select the _Externals_ group
 
 <figure><img src="../../../.gitbook/assets/image (80).png" alt=""><figcaption></figcaption></figure>
-
-## Gateway deployment with ACL
-
-Under the hood, Access Control functionality uses [nftables](https://wiki.nftables.org/wiki-nftables/index.php/What_is_nftables%3F) to interact with the firewall and implement the rules. This means you'll need kernel version ≥ 5.10 to enable all kernel features required for proper operation.
-
-### IP Forwarding
-
-For traffic to flow between your network interfaces on Linux you may also need to enable IP forwarding, if you haven't done it already. This can be achieved by setting the `ip_forward` variable with the following command:
-
-```
-sysctl -w net.ipv4.ip_forward=1
-```
-
-If you want to make the change persistent, you will need to edit the `/etc/sysctl.conf` file and add the following line to it:
-
-```
-net.ipv4.ip_forward = 1
-```
-
-To load your changes in `sysctl.conf`, you can use `sysctl -p`.
-
-### Masquerade
-
-Masquerading between network interfaces falls outside the scope of Defguard’s responsibilities and must be handled by the system administrator. If your environment doesn’t already provide proper routing between the gateway’s interfaces, you may need to enable masquerading to ensure seamless communication.
-
-As a shortcut, Defguard Gateway offers the `--masquerade` flag (or the `DEFGUARD_MASQUERADE=true` environment variable), which applies source NAT between all interfaces automatically, saving you from manually configuring masquerade rules at the system level. It results in this masquerade nftables rule:
-
-```
-    chain POSTROUTING {
-            ...
-            oifname != "lo" counter packets 4 bytes 240 masquerade
-    }
-```
-
-{% hint style="warning" %}
-The `--masquerade` option applies masquerading between **all** interfaces on the gateway, which may be more permissive than necessary in some environments. While convenient, this broad behavior might not align with more restrictive or segmented network designs. For greater control and tighter security, we recommend that administrators configure masquerading manually between only the interfaces that require it.
-{% endhint %}
-
-### Forward chain priority
-
-Defguard creates a forward chain in its namespace to control which forwarded packets are being allowed or blocked. This may interfere with your other nftables rules and chains.
-
-```
-chain FORWARD {
-	type filter hook forward priority filter; policy deny;
-	ct state established,related counter packets 119 bytes 13404 accept
-}
-```
-
-By default this chain has the priority of `filter` (0). You can edit the priority by setting the `DEFGUARD_FW_PRIORITY` environment variable (or `fw_priority` config option) to chosen number, e.g. 1. The higher the priority, the later the chain runs in regard to your other forward chains.
