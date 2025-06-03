@@ -2,7 +2,7 @@
 icon: rocket
 ---
 
-# One-line install script
+# One-Line Installer
 
 {% hint style="info" %}
 The instance deployed by the script is meant to serve as a starting point and makes some tradeoffs to enable automated setup. Most importantly it assumes that your Web UI is available publicly (to generate SSL certificates with Caddy). In general it's not recommended for production and we strongly encourage you to customize this setup to work better within your own infrastructure.
@@ -12,17 +12,17 @@ To simplify the setup and enable automated deployment we prepared a script which
 
 Just by launching this one command there will be an interactive configuration and setup that will guide you step by step and deploy full defguard instance based on Docker Compose setup:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-10-30 at 12.08.43.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/one-line-install.png" alt=""><figcaption></figcaption></figure>
 
 Just copy and paste this command and [secure the setup afterwards](one-line-install.md#securing-the-setup):
 
-### **Production release (most stable)**
+### Production Release (most stable)
 
 ```shell
 curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh -O && bash setup.sh
 ```
 
-### **Pre-release (latest alpha/beta/release candidate)**
+### Pre-release (latest alpha/beta/release candidate)
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh -O && bash setup.sh --pre-release
@@ -40,7 +40,7 @@ GATEWAY_IMAGE_TAG=pre-release
 Downgrading to the production release may not be trivial afterwards because of the changes made to the database during the upgrade.
 {% endhint %}
 
-### **Latest development builds**
+### Latest development builds
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh -O && bash setup.sh --dev

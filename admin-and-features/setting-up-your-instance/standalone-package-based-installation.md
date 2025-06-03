@@ -49,11 +49,11 @@ Before proceeding with the installation, ensure your system meets the following 
 * If you have a **firewall**, we assume you have **open port 443** in order to expose both defguard and enrollment service, but also to automatically issue for these domains SSL Certificates. Port 444 (used for internal GRPC communication) **should not be exposed public.**
 * System clock is synchronized using Network Time Protocol (NTP). This is important for time-based one-time password (TOTP) codes.
 
-### Prequesities
+### Prerequisites
 
 #### PostgreSQL
 
-Defguard Core uses PostgreSQL database, so if you do not have installed and configured yet, you can do it in this section. For this tutorial we need to create **a user with superuser privileges and database**.
+Defguard Core uses [PostgreSQL](https://www.postgresql.org) database, so if you do not have installed and configured yet, you can do it in this section. For this tutorial we need to create **a user with superuser privileges and database**.
 
 First of all, install PostgreSQL package:
 
