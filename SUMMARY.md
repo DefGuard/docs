@@ -25,6 +25,7 @@
   * [Docker images and tags](admin-and-features/setting-up-your-instance/docker-images-and-tags.md)
   * [Docker Compose](features/setting-up-your-instance/docker-compose.md)
   * [Kubernetes](community-features/setting-up-your-instance/kubernetes.md)
+  * [Terraform](admin-and-features/setting-up-your-instance/terraform.md)
   * [Upgrading](features/setting-up-your-instance/upgrading.md)
   * [Gateway](admin-and-features/setting-up-your-instance/gateway/README.md)
     * [Running gateway on MikroTik routers](admin-and-features/setting-up-your-instance/gateway/running-gateway-on-mikrotik-routers.md)
