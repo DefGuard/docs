@@ -7,7 +7,7 @@ icon: user-shield
 {% hint style="info" %}
 Access Control List feature is available in Defguard Core v1.3.0 and Defgaurd Gateway v1.3.0.
 
-Defguard Gateway v1.3.0 supports Linux machines with [NFTables](https://nftables.org/).
+Defguard Gateway v1.3.0 supports Linux machines with [NFTables](https://nftables.org/).\
 Defguard Gateway v1.4.0 supports FreeBSD, NetBSD, and macOS machines with Packet Filter (PF).
 {% endhint %}
 
@@ -67,8 +67,7 @@ Defguard does not track rule application status per location. In the event of ne
 Use the **Deploy pending changes** button to apply all the rules from **Pending Changes** section.
 
 {% hint style="info" %}
-
-## Batch rule application
+### Batch rule application
 
 Defguard’s ACL functionality is designed to allow users to apply access control rules in batches. This approach minimizes the risk of transient network issues that could occur when deploying rules individually. By grouping changes and deploying them together, the system reduces the likelihood of connectivity hiccups or firewall disruptions.
 {% endhint %}
@@ -140,7 +139,7 @@ Access Control List (ACL) rules in Defguard are used to manage **who can access 
 * At least one "allowed" source must always be specified - this defines who gets access.
 * Optionally, you can **exclude** specific users, groups, or devices using the "denied" section.
 * You can use this combination to create flexible rules, such as:\
-  _Allow everyone in the “Remote Workers” group except a few individuals access specific office network._
+  &#xNAN;_&#x41;llow everyone in the “Remote Workers” group except a few individuals access specific office network._
 
 This setup helps controlling access clearly and safely without worrying about lower-level network and firewall behavior.
 

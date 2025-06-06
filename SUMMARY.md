@@ -102,6 +102,7 @@
 ## In depth
 
 * [Roadmap](features/roadmap.md)
+* [Release cycle](in-depth/release-cycle.md)
 * [Architecture](in-depth/architecture/README.md)
   * [How do VPN statistics work](in-depth/architecture/how-do-vpn-statistics-work.md)
   * [Security concepts](in-depth/architecture/security-concepts.md)
