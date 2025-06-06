@@ -27,7 +27,7 @@ output {
 
 ```
 
-Add Logstash service to the docker-compose.yaml and start it.
+Add Logstash service to the `docker-compose.yaml` and start it.
 
 ```yaml
   logstash:
