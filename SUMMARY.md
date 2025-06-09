@@ -89,6 +89,7 @@
   * [REST API](enterprise/all-enteprise-features/api-tokens.md)
   * [Access Control List](enterprise/all-enteprise-features/access-control-list/README.md)
     * [ACL Aliases](enterprise/all-enteprise-features/access-control-list/acl-aliases.md)
+    * [Implementation Details](enterprise/all-enteprise-features/access-control-list/firewall-internals.md)
   * [LDAP and Active Directory integration](enterprise/all-enteprise-features/ldap-and-active-directory-integration/README.md)
     * [Configuration](enterprise/all-enteprise-features/ldap-and-active-directory-integration/configuration.md)
     * [Settings table](enterprise/all-enteprise-features/ldap-and-active-directory-integration/settings-table.md)
