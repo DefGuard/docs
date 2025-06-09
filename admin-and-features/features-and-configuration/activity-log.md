@@ -1,4 +1,4 @@
-# Activity log
+# Activity & Audit logs
 
 {% hint style="info" %}
 This feature is available starting from version 1.4
@@ -118,4 +118,8 @@ At the moment following events are tracked in the Activity log:
 * **VPN** module
   * VPN client connected
   * VPN client disconnected
+
+## Streaming to external SIEM systems
+
+Please note, that enterprise version supports streaming of audit logs to e[xternal SIEM systems. More on this topic in dedicated documentation section](../../enterprise/all-enteprise-features/activity-log-streaming/).
 
