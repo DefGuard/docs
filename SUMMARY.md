@@ -62,6 +62,7 @@
   * [Network devices](admin-and-features/features-and-configuration/network-devices.md)
   * [Gateway notifications](admin-and-features/features-and-configuration/gateway-notifications.md)
   * [New version notifications](admin-and-features/features-and-configuration/new-version-notifications.md)
+  * [Activity log](admin-and-features/features-and-configuration/activity-log.md)
 
 ***
 

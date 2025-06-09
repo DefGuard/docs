@@ -52,6 +52,6 @@ The "cn" attribute has been configured as the user's RDN as that's what used in 
 
 <figure><img src="../../../.gitbook/assets/image (89).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 This is an example configuration for an OpenLDAP server integrated with Samba (hence `sambaSamAccount` object class). The `inetOrgPerson` has been set as the user structural class which adds attributes to the LDAP user like `email` or `mobile`. `simpleSecurityObject` class has been added for the ability to set passwords in LDAP.

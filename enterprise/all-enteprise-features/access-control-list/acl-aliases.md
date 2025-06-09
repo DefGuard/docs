@@ -37,7 +37,7 @@ You can edit an existing rule by using the ![](<../../../.gitbook/assets/image (
 
 <figure><img src="../../../.gitbook/assets/image (102).png" alt=""><figcaption><p>Alias creation form</p></figcaption></figure>
 
-In the ACL alias form you can specify alias name and [type](.#alias-types).
+In the ACL alias form you can specify alias name and [type](./#alias-types).
 
 Below in the **Destination** section you can enter the same resource configuration as in the [ACL rule Destination](./#destination):
 
@@ -63,16 +63,16 @@ Unlike with ACL rules, alias deletion is not tracked as a modification. You cann
 
 Aliases can be used to define an ACL rule destination by selecting them in the input within the **Destination** section:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>ACL rule Destination section with Aliases field</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption><p>ACL rule Destination section with Aliases field</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Alias select modal</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Alias select modal</p></figcaption></figure>
 
 ## Alias types
 
 Aliases are divided into two distinct types to handle various use-cases:
 
 * **Destination** alias – defines a complete [ACL destination](./#destination); it will be translated into a separate set of firewall rules.
-* **Component** alias – defines a part of  [ACL destination](./#destination); it will be merged with destination manually configured in a given ACL rule when generating firewall rules.
+* **Component** alias – defines a part of [ACL destination](./#destination); it will be merged with destination manually configured in a given ACL rule when generating firewall rules.
 
 ### Examples
 

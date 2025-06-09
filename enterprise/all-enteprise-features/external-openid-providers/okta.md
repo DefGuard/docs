@@ -82,11 +82,11 @@ This feature is currently technically limited to 10000 members or groups. High u
 10. Return to Okta and under "General settings" turn off the "Require Demonstrating Proof of Possession (DPoP) header in token requests" option. Save your changes.\
 
 
-    <figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 11. Now, navigate to the Okta API scopes tab.\
 
 
-    <figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 12. Grant the `okta.groups.read` and `okta.users.read` scopes.
