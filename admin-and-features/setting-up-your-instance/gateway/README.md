@@ -80,17 +80,17 @@ If everything went well, Defguard Gateway should be connected to Defguard Core a
 
 ## OPNsense plugin
 
-[OPNsense®](https://opnsense.org) is an open source, feature rich firewall and routing platform, offering cutting-edge network protection.
+[OPNsense®](https://opnsense.org/) is an open source, feature rich firewall and routing platform, offering cutting-edge network protection.
 
 To start Defguard Gateway as OPNsense plugin:
 
 1. On the [release page](https://github.com/DefGuard/gateway/releases) find and download OPNsense package which will be named: \
-   `defguard-gateway_VERSION_x86_64-unknown-opnsense.pkg` - this package **includes Defguard Gateway as well as OPNSense plugin.**
+   `defguard-gateway_VERSION_x86_64-unknown-opnsense.pkg` – this package **includes both Defguard Gateway and OPNsense plugin.**
 
 2. Install the package:
 
 ```bash
-pkg add <path_to_txz_package>
+pkg add defguard-gateway_VERSION_x86_64-unknown-opnsense.pkg
 ```
 
 3. Refresh your OPNsense UI by running below command:
@@ -110,6 +110,8 @@ You can find detailed description of all fields [here](../../../features/setting
 {% endhint %}
 
 If everything went well, Defguard Gateway should be connected to Defguard Core and you can start [adding new devices to your network](../../../features/setting-up-your-instance/features/wireguard/adding-wireguard-devices.md).
+
+See also: [how to configure Defguard in OPNsense](opnsense.md)
 
 ## Binary Install
 
