@@ -103,7 +103,7 @@ chain FORWARD {
 
 By default this chain has the priority of `filter` (0). You can edit the priority by setting the `DEFGUARD_FW_PRIORITY` environment variable (or `fw_priority` config option) to chosen number, e.g. 1. The higher the priority, the later the chain runs in regard to your other forward chains.
 
-## Packet Filter (FreeBSDS, NetBSD, macOS)
+## Packet Filter (FreeBSD, NetBSD, macOS)
 
 Packet filter (PF) firewall, is a BSD-licensed stateful packet filtering software originally developed for OpenBSD and now ported to other BSD-based systems like FreeBSD, NetBSD, and macOS.
 
