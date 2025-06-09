@@ -54,6 +54,7 @@
     * [Django](admin-and-features/features-and-configuration/openid-connect/django.md)
     * [MinIO](admin-and-features/features-and-configuration/openid-connect/minio.md)
     * [Vault](admin-and-features/features-and-configuration/openid-connect/vault.md)
+  * [Activity & Audit logs](admin-and-features/features-and-configuration/activity-log.md)
   * [SMTP for email notifications](admin-and-features/features-and-configuration/setting-up-smtp-for-email-notifications.md)
   * [YubiKey Provisioning](admin-and-features/features-and-configuration/yubikey-provisioning.md)
   * [Webhooks](admin-and-features/features-and-configuration/webhooks.md)
@@ -62,7 +63,6 @@
   * [Network devices](admin-and-features/features-and-configuration/network-devices.md)
   * [Gateway notifications](admin-and-features/features-and-configuration/gateway-notifications.md)
   * [New version notifications](admin-and-features/features-and-configuration/new-version-notifications.md)
-  * [Activity log](admin-and-features/features-and-configuration/activity-log.md)
 
 ***
 
