@@ -96,7 +96,7 @@
     * [Settings table](enterprise/all-enteprise-features/ldap-and-active-directory-integration/settings-table.md)
     * [Two-way LDAP and Active Directory synchronization](enterprise/all-enteprise-features/ldap-and-active-directory-integration/two-way-ldap-and-active-directory-synchronization.md)
   * [Audit Log Streaming to SIEM systems](enterprise/all-enteprise-features/activity-log-streaming/README.md)
-    * [Activity log integrations](enterprise/all-enteprise-features/activity-log-streaming/activity-log-integrations/README.md)
+    * [Supported SIEM systems integrations](enterprise/all-enteprise-features/activity-log-streaming/activity-log-integrations/README.md)
       * [Vector integration guide](enterprise/all-enteprise-features/activity-log-streaming/activity-log-integrations/vector-integration-guide.md)
       * [Logstash integration guide](enterprise/all-enteprise-features/activity-log-streaming/activity-log-integrations/logstash-integration-guide.md)
 
