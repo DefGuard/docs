@@ -87,18 +87,18 @@
     * [Custom](enterprise/all-enteprise-features/external-openid-providers/custom.md)
   * [External OIDC secure enrollment](enterprise/all-enteprise-features/external-oidc-secure-enrollment.md)
   * [VPN & Client behavior customization](enterprise/all-enteprise-features/behavior-customization.md)
-  * [REST API](enterprise/all-enteprise-features/api-tokens.md)
   * [Access Control List](enterprise/all-enteprise-features/access-control-list/README.md)
     * [ACL Aliases](enterprise/all-enteprise-features/access-control-list/acl-aliases.md)
     * [Implementation Details](enterprise/all-enteprise-features/access-control-list/firewall-internals.md)
-  * [LDAP and Active Directory integration](enterprise/all-enteprise-features/ldap-and-active-directory-integration/README.md)
-    * [Configuration](enterprise/all-enteprise-features/ldap-and-active-directory-integration/configuration.md)
-    * [Settings table](enterprise/all-enteprise-features/ldap-and-active-directory-integration/settings-table.md)
-    * [Two-way LDAP and Active Directory synchronization](enterprise/all-enteprise-features/ldap-and-active-directory-integration/two-way-ldap-and-active-directory-synchronization.md)
   * [Audit Log Streaming to SIEM systems](enterprise/all-enteprise-features/activity-log-streaming/README.md)
     * [Supported SIEM systems integrations](enterprise/all-enteprise-features/activity-log-streaming/activity-log-integrations/README.md)
       * [Vector integration guide](enterprise/all-enteprise-features/activity-log-streaming/activity-log-integrations/vector-integration-guide.md)
       * [Logstash integration guide](enterprise/all-enteprise-features/activity-log-streaming/activity-log-integrations/logstash-integration-guide.md)
+  * [LDAP and Active Directory integration](enterprise/all-enteprise-features/ldap-and-active-directory-integration/README.md)
+    * [Configuration](enterprise/all-enteprise-features/ldap-and-active-directory-integration/configuration.md)
+    * [Settings table](enterprise/all-enteprise-features/ldap-and-active-directory-integration/settings-table.md)
+    * [Two-way LDAP and Active Directory synchronization](enterprise/all-enteprise-features/ldap-and-active-directory-integration/two-way-ldap-and-active-directory-synchronization.md)
+  * [REST API](enterprise/all-enteprise-features/api-tokens.md)
 
 ## Tutorials
 
