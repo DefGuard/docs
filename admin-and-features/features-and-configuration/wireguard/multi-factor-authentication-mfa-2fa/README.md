@@ -66,4 +66,4 @@ An error message will be shown if users attempt to select a MFA method that has 
 
 ### Successful authentication
 
-If authentication succeeds, the Two-factor authentication modal will be closed and connection to the selected VPN will be attempted. Users will be asked to authenticate on every connection to a VPN with MFA enabled.
+If authentication succeeds, the vpn two factor authentication modal will be closed and connection to the selected VPN will be attempted. Users will be asked to authenticate on every connection to a VPN with MFA enabled.
