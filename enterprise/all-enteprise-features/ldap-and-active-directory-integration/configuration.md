@@ -8,7 +8,9 @@ description: How to configure connection between Defguard instance and LDAP.
 Active Directory support is available in Defguard ≥ v1.3.0
 {% endhint %}
 
-
+{% hint style="danger" %}
+If you are using the integration across multiple nested organizational units, please read the [#multiple-nested-ous](configuration.md#multiple-nested-ous "mention") section.
+{% endhint %}
 
 ## Setup
 
