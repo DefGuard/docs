@@ -8,6 +8,8 @@ description: How to configure connection between Defguard instance and LDAP.
 Active Directory support is available in Defguard ≥ v1.3.0
 {% endhint %}
 
+
+
 ## Setup
 
 First, navigate to the settings page and select the LDAP tab.
@@ -55,3 +57,24 @@ The "cn" attribute has been configured as the user's RDN as that's what used in 
 <figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 This is an example configuration for an OpenLDAP server integrated with Samba (hence `sambaSamAccount` object class). The `inetOrgPerson` has been set as the user structural class which adds attributes to the LDAP user like `email` or `mobile`. `simpleSecurityObject` class has been added for the ability to set passwords in LDAP.
+
+
+
+## Known issues
+
+### Multiple nested OUs
+
+Using the integration with multiple nested organizational units may currently lead to some unexpected behavior. The following issues are known to occur:
+
+* If you have duplicate user RDNs across multiple OUs a database error may occur: `Duplicate key violates unique constraint 'unique_ldap_rdn'` , causing issues with two way synchronization. This would happen in the following scenario:
+  * `CN=user1,OU=ou1,OU=ou,DC=example`
+  * `CN=user1,OU=ou2,OU=ou,DC=example`
+*   Limiting synchronization to selected groups may not work if your user's DN doesn't match the user search base:
+
+    * Search base: `OU=ou,DC=example`
+    * User's DN: `CN=user1,OU=ou1,OU=ou,DC=example`&#x20;
+
+    In this example, the user's DN has deeper nesting than the search base, preventing matching them during the group members lookup.
+
+To fix this problem, you should limit the search base to one organizational unit only, if possible. Otherwise we are working on a solution, the status can be tracked in the following issue: [https://github.com/DefGuard/defguard/issues/1242](https://github.com/DefGuard/defguard/issues/1242).
+
