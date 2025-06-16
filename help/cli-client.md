@@ -54,7 +54,7 @@ dg --help
 
 #### Defguard core setup
 
-Defguard CLI works only with [network devices](../admin-and-features/features-and-configuration/network-devices.md), so to use it, you will need to first add a new network device. Refer to the network device documentation to learn more.
+Defguard CLI works only with [network devices](../admin-and-features/network-devices.md), so to use it, you will need to first add a new network device. Refer to the network device documentation to learn more.
 
 After you've configured your network device on Defguard core, you will be presented with the following command:
 

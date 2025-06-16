@@ -4,7 +4,7 @@ icon: up-right-from-square
 
 # External OpenID providers
 
-Defguard, [apart from being an identity provider itself](../../../admin-and-features/features-and-configuration/openid-connect/), supports logging in through external OpenID providers. All providers that support standard and common **code authorization flow should work.**
+Defguard, [apart from being an identity provider itself](../../../admin-and-features/openid-connect/), supports logging in through external OpenID providers. All providers that support standard and common **code authorization flow should work.**
 
 Here are dedicated tutorials for most common SSO providers:
 

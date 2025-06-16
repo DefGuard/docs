@@ -10,7 +10,7 @@ If you want full privacy, defguard only exposes publicly **components designed f
 
 * WireGuard® gateway - to enable VPN access
 * Public Proxy for secure remote processes like:
-  * [User enrollment and onboarding](../../admin-and-features/features-and-configuration/remote-user-enrollment/)
+  * [User enrollment and onboarding](../../admin-and-features/remote-user-enrollment/)
   * [Desktop Client configuration](../../enterprise/all-enteprise-features/automatic-real-time-desktop-client-configuration.md)
 
 ## C4 component model
@@ -31,7 +31,7 @@ Below you can see Defguard architecture in [C4 model](https://c4model.com/) divi
 
 ### Basics
 
-Core is a Rust web server which is exposed as REST API and gRPC web server with typescript and rust clients, it handles connection to database, LDAP server and gateway. Core also handles user authorization via LDAP account. It's configurable using Environmental Variables which you can find [here](../../features/setting-up-your-instance/configuration.md).
+Core is a Rust web server which is exposed as REST API and gRPC web server with typescript and rust clients, it handles connection to database, LDAP server and gateway. Core also handles user authorization via LDAP account. It's configurable using Environmental Variables which you can find [here](../../configuration.md).
 
 Gateway is a small CLI gRPC client written in Rust which sends network statistics to Core server and apply network configuration changes on message from core.\
 Our frontend is React app written in Typescript which allows handling all API calls via Web UI.\

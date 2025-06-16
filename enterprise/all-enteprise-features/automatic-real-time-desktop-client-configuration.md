@@ -14,5 +14,5 @@ In order to reconfigure users desktop client the administrator has two possibili
 2. Obtain the **Enterprise License**, then each users desktop client (and all Locations) are **reconfigured automatically, real time** (propagation takes around 30 seconds to 1 minute) each time any VPN Location is reconfigured or the user is assigned to a different group.
 
 {% hint style="warning" %}
-If you have been using defguard prior to version 1.0.0, upgraded and have Enterprise License, to take advantage of the real-time config sync on an already configured desktop client, [please refer to Upgrade notes documentation.](../../features/setting-up-your-instance/upgrading.md#desktop-client-real-time-sync)
+If you have been using defguard prior to version 1.0.0, upgraded and have Enterprise License, to take advantage of the real-time config sync on an already configured desktop client, [please refer to Upgrade notes documentation.](../../deployment-strategies/upgrading.md#desktop-client-real-time-sync)
 {% endhint %}

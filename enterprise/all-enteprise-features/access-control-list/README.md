@@ -124,7 +124,7 @@ In Defguard, sources can be defined as one of three object types:
 Each ACL rule in Defguard is intended to fully define access to a specific resource, you must therefore always include at least one allowed source.
 
 {% hint style="warning" %}
-This setting is independent from the default location-level [**Allowed groups**](../../../admin-and-features/features-and-configuration/wireguard/create-your-vpn-network.md#allowed-groups) configuration.
+This setting is independent from the default location-level [**Allowed groups**](../../../admin-and-features/wireguard/create-your-vpn-network.md#allowed-groups) configuration.
 
 If you give a user access to some resource through an ACL rule, but they do not have access to a given location, they still won't be able to access it, because they'll be unable to establish a VPN connection with the gateway.
 {% endhint %}
