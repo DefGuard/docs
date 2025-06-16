@@ -12,7 +12,7 @@ Welcome to the Defguard documentation. Here, you'll learn how to explore the ful
   Helps you, as a future defguard administrator, get familiar with all of defguard's features and how to configure them to suit your needs.
 * [User features](broken-reference)\
   Helps you, as a defguard end user, get familiar with the client applications and their features so you can quickly connect to your defguard instance.
-* [Enterprise features](enterprise/all-enteprise-features/)\
+* [Enterprise features](enterprise/license.md)\
   Covers the advanced features available in the enterprise version of defguard, including how to purchase an enterprise license and the additional benefits it provides.
 * [Deployment strategies](broken-reference)\
   Walks you through the most common deployment strategies to help you set up your defguard instance as a production-grade solution.
