@@ -8,7 +8,20 @@ description: Notes on upgrading Defguard and its components
 Before doing any updates please remember to **backup your database.**
 {% endhint %}
 
+## Any release <= 1.3 -> 1.4
+
+1.4 release introduces changes related to multiple client IP addresses. To ensure compatibility, **all components must be updated** to v1.4 or higher:
+
+* **Core**
+* **Proxy**
+* **Gateway**
+* **Desktop Clients**
+
+Running outdated versions may result in errors due to incompatible data formats.
+
 ## Any previous release → 1.4.0-alpha3
+
+
 
 We've made a small update to the LDAP integration to support more complex user nesting within the LDAP tree ([related issue](https://github.com/DefGuard/defguard/issues/1242)).
 
