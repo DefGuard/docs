@@ -50,6 +50,27 @@ sudo ln -s /usr/bin/resolvectl /usr/sbin/resolvconf
 
 If this fails, one may also try installing one of the packages providing the `resolvconf` command, like `openresolv` or `resolvconf` but this has not been tested and may possibly cause issues with `systemd-resolved`, so proceed at your own risk.
 
+## Client: Failed to parse IP address
+
+<figure><img src="../../.gitbook/assets/image (118).png" alt=""><figcaption></figcaption></figure>
+
+This error usually indicates that the client version is outdated and can't communicate with proxy/core services. Try upgrading the desktop client application.
+
+## Client: **Could not start MFA process**
+
+When setting up MFA/2FA in Defguard, you may encounter the following error when entering the code in the desktop client: **"Could not start MFA process".**&#x20;
+
+Additionally, client application debug logs may show the following error:\
+&#xNAN;**"Failed to deserialize the JSON body into the target type: code: invalid type: string "005325", expected u32 at line 1 column 268."**
+
+This error indicates that one of the following components is outdated:
+
+* Defguard core
+* Defguard proxy
+* Client application
+
+Try upgrading these components to the latest stable version to resolve the issue.
+
 ## TOTP / Email codes for MFA do not work
 
 If you are having problems with TOTP codes form 2FA/MFA (when logging in to defguard or when connecting to VPN) please make sure your clock on the server that defguard core is running is set properly.

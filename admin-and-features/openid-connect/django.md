@@ -284,7 +284,6 @@ jazzmin app **needs** to be registered **before** django.contrib.admin
 Make _<mark style="color:purple;">**templates/admin/auth/login.html**</mark>_ file:
 
 ```django
-{% raw %}
 {% extends "registration/base.html" %}
 
 {% load i18n jazzmin %}
@@ -369,7 +368,6 @@ Make _<mark style="color:purple;">**templates/admin/auth/login.html**</mark>_ fi
         </div>
     </div>
 {% endblock %}
-{% endraw %}
 
 
 ```
