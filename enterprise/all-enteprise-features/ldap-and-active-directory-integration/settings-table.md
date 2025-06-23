@@ -10,7 +10,7 @@ description: List with description of settings for LDAP found in settings page.
 | Bind Username                         | Bind DN used for authentication.                                                                                                                    | cn=admin,dc=example,dc=org                |
 | Bind Password                         | Password used for authentication.                                                                                                                   | Empty                                     |
 | Member Attribute                      | Naming attribute for group membership.                                                                                                              | memberOf                                  |
-| Username Attribute                    | Naming attribute for users.                                                                                                                         | cn                                        |
+| Username Attribute                    | The attribute which will be used as the user's username.                                                                                            | cn                                        |
 | User Search Base                      | Relative Distinguished Name (RDN) of your user entries.                                                                                             | ou=users,dc=example,dc=org                |
 | User Object Class                     | Object class used for user entries.                                                                                                                 | inetOrgPerson                             |
 | Additional User Object Classes        | Auxiliary classes for user entries                                                                                                                  | simpleSecurityObject, sambaSamAccount     |
@@ -37,6 +37,7 @@ Changing the RDN attribute may cause your users to be re-added to Defguard, caus
 * `Username attribute`: The username attribute which will be used to set the username of a Defguard user. The following restrictions apply:
   * Only alphanumeric characters except for  <kbd>.</kbd>, <kbd>-</kbd> or <kbd>\_</kbd>
   * At least 1 and at most 64 characters
+  * Must be unique across all users
 
 {% hint style="danger" %}
 To use this feature, your LDAP user entries must posses the "memberOf" attribute (or it's equivalent, defined using the member attribute), which may not be available by default on your LDAP server. This may require enabling an appropriate module.&#x20;

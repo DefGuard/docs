@@ -8,6 +8,17 @@ description: Notes on upgrading Defguard and its components
 Before doing any updates please remember to **backup your database.**
 {% endhint %}
 
+## Any previous release → 1.4.0-alpha3
+
+We've made a small update to the LDAP integration to support more complex user nesting within the LDAP tree ([related issue](https://github.com/DefGuard/defguard/issues/1242)).
+
+If you were already using the integration, you shouldn't notice any changes. However, we **strongly recommend backing up your database before the upgrade and afterwards verifying** the following to ensure everything continues to work as expected:
+
+* Your Defguard user list and user devices remain unchanged
+* All users can still log in without issues
+
+If you encounter any problems, please report them on our [GitHub](https://github.com/DefGuard/defguard/issues).
+
 ## Any previous release → 1.3.0
 
 * The LDAP integration has became an enterprise feature. You will need to purchase the enterprise license if you exceed the free limits. See [license.md](../enterprise/license.md "mention") for more information regarding the license.
