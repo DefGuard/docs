@@ -6,6 +6,14 @@ By leveraging the ability of some MikroTik routers to run Docker containers it i
 Proceed with extra caution when working with your core infrastructure. All official [RouterOS containers warnings](https://help.mikrotik.com/docs/display/ROS/Container#Container-Disclaimer) still apply.
 {% endhint %}
 
+{% hint style="danger" %}
+Running the gateway on a MikroTik router is not fully supported.
+
+Due to custom RouterOS kernel incompatibility this kind of deployment does not support [Access Control List](../../enterprise/all-enteprise-features/access-control-list/) functionality.
+
+To run the gateway you must explicitly disable firewall management using the [`DEFGUARD_DISABLE_FW_MGMT` option](../../configuration.md#gateway-configuration).
+{% endhint %}
+
 ## Prerequisites
 
 * RouterOS device with ARM or ARM64 architecture (popular homelab choices include RB4011 or RB5009)
@@ -79,6 +87,7 @@ Container port being forwarded to must match your public WireGuard port.
 ```
 /container/envs/add name=defguard_env key=DEFGUARD_TOKEN value=<YOUR TOKEN>
 /container/envs/add name=defguard_env key=DEFGUARD_GRPC_URL value=<YOUR DEFGUARD GRPC URL>
+/container/envs/add name=defguard_env key=DEFGUARD_DISABLE_FW_MGMT value=true
 ```
 
 * (optional) to use SSL for communication between the gateway and your defguard instance copy the root certificate to your router's filesystem and add a following mount and environment variable:

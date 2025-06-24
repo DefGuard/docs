@@ -127,6 +127,15 @@ If you're using docker image you can pass this value as environmental variables 
 * `DEFGUARD_GATEWAY_NAME`, `--name <NAME>` - (optional) human-readable gateway name that will be displayed in defguard webapp
 * `-s, --use-syslog` - enable logging to syslog
 * `RUST_LOG` : Logger log level, default: `info`, supported: `debug`, `warn`, `error`
+* `DEFGUARD_MASQUERADE`  - controls whether the gateway automatically applies masquerade NAT firewall rule; defaults to `false`
+*   `DEFGUARD_DISABLE_FW_MGMT`  - disables all firewall management by the gateway; this overrides `DEFGUARD_MASQUERADE` setting; defaults to `false` \
+
+
+    {% hint style="warning" %}
+    `DEFGUARD_DISABLE_FW_MGMT` is meant as a workaround for running in incompatible environments, where our [default firewall integration](enterprise/all-enteprise-features/access-control-list/firewall-internals.md) is not supported.
+
+    As a consequence, enabling this option disables [ACL functionality](enterprise/all-enteprise-features/access-control-list/) on a given gateway.
+    {% endhint %}
 
 #### Executing custom commands on VPN up/down
 
