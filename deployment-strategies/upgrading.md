@@ -19,9 +19,7 @@ Before doing any updates please remember to **backup your database.**
 
 Running outdated versions may result in errors due to incompatible data formats.
 
-## Any previous release → 1.4.0-alpha3
-
-
+### Core
 
 We've made a small update to the LDAP integration to support more complex user nesting within the LDAP tree ([related issue](https://github.com/DefGuard/defguard/issues/1242)).
 
@@ -31,6 +29,10 @@ If you were already using the integration, you shouldn't notice any changes. How
 * All users can still log in without issues
 
 If you encounter any problems, please report them on our [GitHub](https://github.com/DefGuard/defguard/issues).
+
+## Any previous release → 1.4.0-alpha3
+
+We've introduced some changes to the LDAP integration. We recommend reading [the above section](upgrading.md#core) before upgrading.
 
 ## Any previous release → 1.3.0
 
