@@ -2,10 +2,10 @@
 icon: user-shield
 ---
 
-# Access Control List: Implementation Details
+# Implementation Details
 
 {% hint style="info" %}
-See Examples section in [Access Control List](README.md) documentation as they relate to details described below.
+See Examples section in [Access Control List](./) documentation as they relate to details described below.
 {% endhint %}
 
 ## Firewall Interaction
@@ -162,3 +162,30 @@ block drop in log on wg0 all flags S/SA keep state
 pass in log quick on wg0 inet from 10.100.200.155 to 10.1.1.0/24 flags S/SA label "ACL 132 - Staff access Berlin DENY"
 pass in log quick on wg0 inet from 10.100.200.156 to 10.1.1.0/24 flags S/SA label "ACL 132 - Staff access Berlin DENY"
 ```
+
+## Merging destination IP addresses
+
+Destination IPs for a given ACL can be configured in multiple ways:
+
+* single IP
+* range of IPs
+* IP subnet using CIDR notation
+* list containing arbitrary combination of the above
+* destination aliases
+* component aliases
+
+It is therefore possible to configure some overlapping destinations, for example a 10.0.20.0/24 subnet and then a specific IP like 10.0.20.17 in some alias.&#x20;
+
+When generating firewall rules we have to be mindful of following limitations regarding our specific implementation:
+
+* `nft` rejects overlapping destinations
+* `pf` does not handle IP ranges, so each IP in range is put in a separate rule
+
+To avoid those issues when creating firewall rules we pre-process destination addresses in a following way:
+
+* combine all destinations - manually configured, aliases, ranges etc into a single list
+* convert all types of destination (single IPs, ranges, subnets) into IP ranges
+* merge all those ranges into the smallest possible list of non-overlapping ranges
+* extract all possible subnets (with at least 2 IPs) from ranges
+
+This means that our approach is biased towards finding subnets, so the destinations you see in the firewall rules on the gateway itself might differ significantly (in notation, not the content itself) from those you configured in your ACLs.
