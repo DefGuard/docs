@@ -4,6 +4,10 @@ description: List with description of settings for LDAP found in settings page.
 
 # Settings table
 
+{% hint style="warning" %}
+Ensure that the letter casing in your Defguard settings matches exactly with your LDAP configuration. For instance, if your LDAP uses 'CN', be sure to enter it as 'CN' in the settings, not 'cn'.
+{% endhint %}
+
 | Field                                 | Description                                                                                                                                         | Default                                   |
 | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
 | URL                                   | URL that points to your LDAP server.                                                                                                                | Empty                                     |

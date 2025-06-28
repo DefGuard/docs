@@ -63,6 +63,8 @@ If you want to synchronize only selected users, you can specify the groups of wh
 
 This can be useful if you have a lot of users in your LDAP server and want to synchronize/pull only users belonging to a given group, e.g. `defguard-sync`.
 
+Another use case would be if you want to have some Defguard users that you don't want to synchronize with LDAP. If those users are not members of the synchronization groups, they won't be touched (and deleted) by the integration.
+
 This setting is described in more depth in [settings-table.md](settings-table.md "mention") and affects both LDAP → Defguard and Defguard → LDAP synchronizations.
 
 After specifying synchronization groups, only members of those groups will be kept in sync.
