@@ -163,7 +163,7 @@ root@server:~# sysctl -p
 Now we need to configure firewall [NAT](https://en.wikipedia.org/wiki/Network_address_translation), so that the server will "_translate/masq_" VPN traffic behind its public IP. In order to do that, we need to add rules to MASQUERADE VPN network behind the public interface of the sever.
 
 {% hint style="info" %}
-From version 1.3.0, gateway can automatically apply masquerade to traffic on all interfaces without the need for manual configuration. Refer to [#masquerade](../../enterprise/all-enteprise-features/access-control-list/#masquerade "mention") for details. If you use this feature, you can skip the following manual masquerade setup step.
+From version 1.3.0, gateway can automatically apply masquerade to traffic on all interfaces without the need for manual configuration. Refer to [#masquerade](../../admin-and-features/access-control-list/#masquerade "mention") for details. If you use this feature, you can skip the following manual masquerade setup step.
 {% endhint %}
 
 We know that VPN network is 10.22.33.0/24 now we need to be sure what interface has the public IP (in our case: 185.33.37.51) - let's figure it out with this command:

@@ -136,7 +136,7 @@ POSTGRES_PASSWORD=!SAME_AS-GENERATED-DEFGUARD_DB_PASSWORD!
 
 Here is the docker-compose.yaml for the public proxy (enrollment service as well as desktop client configuration service).
 
-To secure the gRPC communication please generate the proxy CA and certificate, [more info here](../grpc-ssl-communication.md#custom-ssl-ca-and-certificates).
+To secure the gRPC communication please generate the proxy CA and certificate, [more info here](grpc-ssl-communication.md#custom-ssl-ca-and-certificates).
 
 ```
 proxy:

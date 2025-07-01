@@ -11,7 +11,7 @@ If you want full privacy, defguard only exposes publicly **components designed f
 * WireGuard® gateway - to enable VPN access
 * Public Proxy for secure remote processes like:
   * [User enrollment and onboarding](../../admin-and-features/remote-user-enrollment/)
-  * [Desktop Client configuration](../../enterprise/all-enteprise-features/automatic-real-time-desktop-client-configuration.md)
+  * [Desktop Client configuration](../../admin-and-features/remote-user-enrollment/automatic-real-time-desktop-client-configuration.md)
 
 ## C4 component model
 

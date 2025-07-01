@@ -1,7 +1,3 @@
----
-icon: user-shield
----
-
 # Implementation Details
 
 {% hint style="info" %}

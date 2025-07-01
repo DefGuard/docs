@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Proxmox
 
 {% hint style="warning" %}

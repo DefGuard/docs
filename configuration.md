@@ -90,7 +90,7 @@ This is of course not recommended in production but can be useful when testing w
 
 ### gRPC server configuration
 
-[More on that in this help page.](grpc-ssl-communication.md)
+[More on that in this help page.](deployment-strategies/grpc-ssl-communication.md)
 
 * `DEFGUARD_GRPC_PORT`: gRPC server port, default `50055`
 * `DEFGUARD_GRPC_CERT` (optional): path to TLS certificate file
@@ -100,16 +100,16 @@ This is of course not recommended in production but can be useful when testing w
 ### Proxy connection configuration
 
 * `DEFGUARD_PROXY_URL` (optional): proxy service gRPC endpoint URL
-* `DEFGUARD_PROXY_GRPC_CA`(optional): path to TLS root certificate file, required if connecting to proxy gRPC service with a custom CA ([More on that in this help page.](grpc-ssl-communication.md))
+* `DEFGUARD_PROXY_GRPC_CA`(optional): path to TLS root certificate file, required if connecting to proxy gRPC service with a custom CA ([More on that in this help page.](deployment-strategies/grpc-ssl-communication.md))
 
 ## Proxy service
 
-Here are proxy ENV variables. gRPC configuration is described more [on this help page.](grpc-ssl-communication.md)
+Here are proxy ENV variables. gRPC configuration is described more [on this help page.](deployment-strategies/grpc-ssl-communication.md)
 
 * `DEFGUARD_PROXY_HTTP_PORT`: port the proxy API server and Web UI will listen on, default `8080`
 * `DEFGUARD_PROXY_GRPC_PORT`: port the gRPCS server will listen on, default `50051`
 * `DEFGUARD_PROXY_GRPC_CERT` (optional): path to TLS certificate file
-* `DEFGUARD_PROXY_GRPC_KEY`(optional): path to TLS key file. [More on that in this help page.](grpc-ssl-communication.md)
+* `DEFGUARD_PROXY_GRPC_KEY`(optional): path to TLS key file. [More on that in this help page.](deployment-strategies/grpc-ssl-communication.md)
 * `DEFGUARD_PROXY_URL` - if you wish to use External OIDC enrollment/desktop client configuration, please set this value to the same as `DEFGUARD_ENROLLMENT_URL` in core. This is the address at which the proxy Web UI is available.
 * `DEFGUARD_PROXY_LOG_LEVEL` : [Logger](https://crates.io/crates/log) log level, default: `info`, supported: `debug`, `warn`, `error`
 
@@ -121,7 +121,7 @@ If you're using docker image you can pass this value as environmental variables 
 
 * `DEFGUARD_USERSPACE` , `-u` - Use userspace wireguard implementation, useful on systems without native wireguard support
 * `DEFGUARD_GRPC_URL` , `-g <URL>` - defguard server gRPC endpoint URL default is https://localhost:50055
-* `DEFGUARD_GRPC_CA - path to ca file` more on this topic [on this help page.](grpc-ssl-communication.md)
+* `DEFGUARD_GRPC_CA - path to ca file` more on this topic [on this help page.](deployment-strategies/grpc-ssl-communication.md)
 * `DEFGUARD_STATS_PERIOD` ,`-p <SECONDS>` - Defines how often (seconds) should interface statistics be sent to the defguard server
 * `DEFGUARD_TOKEN` ,`-t <TOKEN>` - Token received on defguard after completing network wizard
 * `DEFGUARD_GATEWAY_NAME`, `--name <NAME>` - (optional) human-readable gateway name that will be displayed in defguard webapp
@@ -132,9 +132,9 @@ If you're using docker image you can pass this value as environmental variables 
 
 
     {% hint style="warning" %}
-    `DEFGUARD_DISABLE_FW_MGMT` is meant as a workaround for running in incompatible environments, where our [default firewall integration](enterprise/all-enteprise-features/access-control-list/firewall-internals.md) is not supported.
+    `DEFGUARD_DISABLE_FW_MGMT` is meant as a workaround for running in incompatible environments, where our [default firewall integration](admin-and-features/access-control-list/firewall-internals.md) is not supported.
 
-    As a consequence, enabling this option disables [ACL functionality](enterprise/all-enteprise-features/access-control-list/) on a given gateway.
+    As a consequence, enabling this option disables [ACL functionality](admin-and-features/access-control-list/) on a given gateway.
     {% endhint %}
 
 #### Executing custom commands on VPN up/down

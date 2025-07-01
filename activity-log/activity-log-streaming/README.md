@@ -3,10 +3,13 @@ description: >-
   This feature is designed to help teams centralize visibility into user
   actions, security events, and system behavior by integrating with tools they
   already use for monitoring and incident response.
-icon: notebook
 ---
 
-# Activity Log Streaming
+# Audit Log Streaming to SIEM systems
+
+{% hint style="warning" %}
+This is an enterprise feature. To use it, purchase our [enterprise license](../../enterprise/license.md) or ensure that your deployment does not exceed the [usage limits](../../enterprise/license.md#enterprise-is-free-up-to-certain-limits).
+{% endhint %}
 
 {% hint style="info" %}
 This feature is available starting from version 1.4

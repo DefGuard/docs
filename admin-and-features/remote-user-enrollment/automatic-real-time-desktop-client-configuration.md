@@ -1,8 +1,8 @@
----
-icon: rotate-exclamation
----
-
 # Automatic (real time) desktop client configuration & sync
+
+{% hint style="warning" %}
+This is an enterprise feature. To use it, purchase our [enterprise license](../../enterprise/license.md) or ensure that your deployment does not exceed the [usage limits](../../enterprise/license.md#enterprise-is-free-up-to-certain-limits).
+{% endhint %}
 
 When initially configuring defguard desktop client all available locations for the user (with all location settings) is automatically configured (which is one of defguard's uniqe functionalities).
 

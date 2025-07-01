@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Matrix / Synapse
 
 {% hint style="warning" %}

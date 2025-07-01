@@ -1,11 +1,15 @@
-# Prerequisites
+# Overview
+
+Welcome to the deployment strategies section of defguard documentation. This guide covers the different ways you can deploy Defguard in your environment, from quick options using packages or Docker to more advanced setups with Kubernetes or Terraform. Whether you're running a small instance or preparing for a more complex production environment, this section will help you choose the deployment method that best fits your needs.
+
+## Components
 
 defguard comes with four main components:
 
 * **Core service** - main web UI and database
 * **Proxy service** - used to safely expose a subset of public functionalities
 * **VPN gateway server** - retrieves configuration from core and configures VPN interfaces on the gateway server
-* **Provisioning station** - client application which can be started on any pc to auto generate PGP keys for YubiKey
+* **Provisioning station** - client application which can be started on any pc to auto-generate PGP keys for YubiKey
 
 There is one external component required: PostgreSQL database.
 

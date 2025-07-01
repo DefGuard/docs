@@ -54,7 +54,7 @@ Before an upgrade, turn off the two way synchronization. After upgrading you wil
 
 <figure><img src="../.gitbook/assets/image (94).png" alt=""><figcaption></figcaption></figure>
 
-Set it according to your LDAP server setup. This should be the DN's leftmost component attribute, e.g. in the case of `cn=user1,cn=users,dc=ad,dc=example,dc=com` this would be "cn". This attribute is needed to properly identify users in your LDAP server. The username attribute will be mapped to Defguard usernames. Read [settings-table.md](../enterprise/all-enteprise-features/ldap-and-active-directory-integration/settings-table.md "mention") for a description of those settings options. After you configured this value, you can re-enable the two way synchronization.
+Set it according to your LDAP server setup. This should be the DN's leftmost component attribute, e.g. in the case of `cn=user1,cn=users,dc=ad,dc=example,dc=com` this would be "cn". This attribute is needed to properly identify users in your LDAP server. The username attribute will be mapped to Defguard usernames. Read [settings-table.md](../admin-and-features/ldap-and-active-directory-integration/settings-table.md "mention") for a description of those settings options. After you configured this value, you can re-enable the two way synchronization.
 
 ## Any previous core release -> core 1.1.4
 
@@ -100,7 +100,7 @@ You will need to change a duplicate email address before the upgrade by hand via
 
 ### Desktop Client Real Time Sync
 
-From 1.0.0 we have introduced [Enterprise features](../enterprise/all-enteprise-features/), and one of them is [automatic and real-time desktop client configuration synchronisation](../enterprise/all-enteprise-features/automatic-real-time-desktop-client-configuration.md).
+From 1.0.0 we have introduced [Enterprise features](broken-reference), and one of them is [automatic and real-time desktop client configuration synchronisation](../admin-and-features/remote-user-enrollment/automatic-real-time-desktop-client-configuration.md).
 
 To enable this on an **already configured desktop client** one must perform one time instance update, which will generate necessary tokens on the client to perform from now on automatic updates. In details:
 

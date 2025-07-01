@@ -1,21 +1,17 @@
----
-icon: user-shield
----
-
 # Access Control List
 
-{% hint style="info" %}
+{% hint style="warning" %}
+This is an enterprise feature. To use it, purchase our [enterprise license](../../enterprise/license.md) or ensure that your deployment does not exceed the [usage limits](../../enterprise/license.md#enterprise-is-free-up-to-certain-limits).
+{% endhint %}
+
+{% hint style="warning" %}
 Access Control List feature is available in Defguard Core v1.3.0 and Defgaurd Gateway v1.3.0.
 
 Defguard Gateway v1.3.0 supports Linux machines with [NFTables](https://nftables.org/).\
 Defguard Gateway v1.4.0 supports FreeBSD, NetBSD, and macOS machines with Packet Filter (PF).
 {% endhint %}
 
-The ACL (Access Control List) functionality in Defguard allows administrators to define and manage who can access specific network resources. It provides a clear and centralized way to control access based on users, groups, or devices, ensuring that only authorized entities can reach sensitive systems or services.
-
-{% hint style="warning" %}
-Access Control is an [enterprise feature](../../license.md). To be able to use it, it is requireed to [purchase a license](../../license.md#purchasing-the-license), or ensure your deployment does not [exceed the limits](../../license.md#enterprise-is-free-up-to-certain-limits).
-{% endhint %}
+The ACL (Access Control List) functionality in defguard allows administrators to define and manage who can access specific network resources. It provides a clear and centralized way to control access based on users, groups, or devices, ensuring that only authorized entities can reach sensitive systems or services.
 
 ### How to enable Access Control List functionality
 
@@ -25,7 +21,7 @@ Access Control can be enabled for each location individually. To enable it:
 2. In **Location configuration** section select **Enable ACL for this location**.
 3. Click on **Save changes**.
 
-<figure><img src="../../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 
 **You should also set the default ACL policy for the location** (see below).
 
@@ -44,11 +40,11 @@ Make sure ACL has been enabled (see above), otherwise the policy setting will no
 2. In **Location configuration** choose the desired option under **Default ACL Policy**.
 3. Click on **Save changes**.
 
-<figure><img src="../../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 
 ## List of ACL rules
 
-<figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
 
 **Access Control List** view displays all the rules defined in your system. The list is split into two sections.
 
@@ -74,19 +70,19 @@ Defguard’s ACL functionality is designed to allow users to apply access contro
 
 The ACL list view also allows rule filtering by name, locations and other attributes
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## How to add and modify ACL rules
 
-To create a new rule, use the ![](<../../../.gitbook/assets/image (6).png>) button in the [ACL List View](./#list-of-acl-rules).
+To create a new rule, use the ![](<../../.gitbook/assets/image (6).png>) button in the [ACL List View](./#list-of-acl-rules).
 
-You can edit an existing rule by using the ![](<../../../.gitbook/assets/image (12).png>) context menu and selecting **"Edit"** in the [ACL List View](./#list-of-acl-rules)**.**
+You can edit an existing rule by using the ![](<../../.gitbook/assets/image (12).png>) context menu and selecting **"Edit"** in the [ACL List View](./#list-of-acl-rules)**.**
 
-<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption><p>Rule context menu</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption><p>Rule context menu</p></figcaption></figure>
 
 ### Anatomy of an ACL rule
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 The ACL form consists of three main sections:
 
@@ -124,7 +120,7 @@ In Defguard, sources can be defined as one of three object types:
 Each ACL rule in Defguard is intended to fully define access to a specific resource, you must therefore always include at least one allowed source.
 
 {% hint style="warning" %}
-This setting is independent from the default location-level [**Allowed groups**](../../../admin-and-features/wireguard/create-your-vpn-network.md#allowed-groups) configuration.
+This setting is independent from the default location-level [**Allowed groups**](../wireguard/create-your-vpn-network.md#allowed-groups) configuration.
 
 If you give a user access to some resource through an ACL rule, but they do not have access to a given location, they still won't be able to access it, because they'll be unable to establish a VPN connection with the gateway.
 {% endhint %}
@@ -169,17 +165,17 @@ To do this, the following new rules have to be added:
 * Add desired users in the **"Allowed Users/Groups/Devices** > **Users**.
 * Click on the **Submit** button.
 
-<figure><img src="../../../.gitbook/assets/image (71).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (71).png" alt=""><figcaption></figcaption></figure>
 
 You will be redirected back to the [ACL List View](./#list-of-acl-rules) and the new rule should now be in the **Pending Changes** section.
 
-<figure><img src="../../../.gitbook/assets/image (73).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (73).png" alt=""><figcaption></figcaption></figure>
 
 Now, click on **Deploy pending changes (1)** button. After that, the rule should be applied on the _Office-Berlin_ location.
 
-<figure><img src="../../../.gitbook/assets/image (75).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (75).png" alt=""><figcaption></figcaption></figure>
 
-(See [Implementation Details](firewall-internals.md) documentation to understand integrationn with system packet filtering.)
+(See [Implementation Details](../../enterprise/all-enteprise-features/access-control-list/firewall-internals.md) documentation to understand integrationn with system packet filtering.)
 
 #### Adding access exceptions for specific users
 
@@ -204,4 +200,4 @@ Once you have created appropriate groups and assigned the users, let's update th
 * instead of specific users in the **Allowed Users** input, we now select the _Staff-Berlin_ group in the **Allowed Groups** input
 * in **Denied Groups** input we should now select the _Externals_ group
 
-<figure><img src="../../../.gitbook/assets/image (80).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (80).png" alt=""><figcaption></figcaption></figure>

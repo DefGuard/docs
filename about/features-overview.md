@@ -16,7 +16,7 @@ _defguard is not an official WireGuard project, and WireGuard is a registered tr
 ### Identity Management:
 
 * #### [OpenID Connect](https://openid.net/developers/how-connect-works/) based SSO
-* External [OpenID providers for login/account creation (Google/Microsoft/Custom)](../enterprise/all-enteprise-features/external-openid-providers/)
+* External [OpenID providers for login/account creation (Google/Microsoft/Custom)](../admin-and-features/external-openid-providers/)
 * LDAP (tested on [OpenLDAP](https://www.openldap.org/)) synchronization
 * nice UI to manage users
 * Users **self-service** (besides typical data management, users can revoke access to granted apps, MFA, Wireguard, etc.)

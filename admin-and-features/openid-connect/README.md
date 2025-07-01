@@ -12,7 +12,7 @@ As an identity provider one of our core features is Login with Defguard which al
 
 ### Defguard OpenID flow
 
-![OpenID flow](../../../in-depth/puml/openid-flow.svg)
+![OpenID flow](../../in-depth/puml/openid-flow.svg)
 
 ### How to enable login with Defguard using OpenID?
 
@@ -20,7 +20,7 @@ As an identity provider one of our core features is Login with Defguard which al
 
 To enable login with other app first you need to add it as new OpenID client. To do it navigate to OpenID Apps on the left side navigation then click Add new button.
 
-![OpenID add client form](../../../.gitbook/assets/OpenIDForm.png)
+![OpenID add client form](../../.gitbook/assets/OpenIDForm.png)
 
 Here are explained inputs
 
@@ -141,7 +141,7 @@ Every user that used Login with Defguard option can see in his profile name of e
 
 ## OpenID clients
 
-On the sidebar or by clicking links below you can find tutorials how to configure OpenID for:
+Below, you can find tutorials on how to configure OpenID for:
 
 {% content-ref url="portainer.md" %}
 [portainer.md](portainer.md)

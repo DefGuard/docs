@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Grafana setup
 
 #### Add grafana app on defguard

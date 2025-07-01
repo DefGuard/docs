@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # MinIO
 
 MinIO has OpenID Connect functionality out of the box. We will use it to authenticate users from Defguard to MinIO.
@@ -28,7 +32,7 @@ Navigate to the OpenID page in Defguard and add MinIO to the client's list. Redi
 http://localhost:9001/oauth_callback
 ```
 
-<figure><img src="../../../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## MinIO Configuration
 

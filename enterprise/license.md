@@ -1,6 +1,6 @@
-# Overview
+# License
 
-Defguard Enterprise offers a lot of functionalities that are not offered in the Open Source Open Core, like external OpenID Connect/SSO support, automatic\&real time desktop client synchronization and configuration, and much more (go to [All Enterprise Features](all-enteprise-features/) to see more).
+Defguard Enterprise offers a lot of functionalities that are not offered in the Open Source Open Core, like external OpenID Connect/SSO support, automatic\&real time desktop client synchronization and configuration, and much more (go to [All Enterprise Features](broken-reference) to see more).
 
 ### Enterprise is free up to certain limits
 

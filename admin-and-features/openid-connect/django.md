@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Django
 
 This article aims to show the basic integration of authenticating users through **Defguard** via **OpenID Connect**. So you can have a solid start to adjust it for your own use case.

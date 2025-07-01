@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Portainer
 
 ## Add Portainer app in Defguard

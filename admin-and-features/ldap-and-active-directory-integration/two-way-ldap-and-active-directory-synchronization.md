@@ -1,7 +1,3 @@
----
-icon: arrow-right-arrow-left
----
-
 # Two-way LDAP and Active Directory synchronization
 
 {% hint style="warning" %}
@@ -37,13 +33,13 @@ For OpenLDAP:
 
 First, you will need to configure your LDAP connection. Refer to [configuration.md](configuration.md "mention") for instructions. Here is an example configuration for an OpenLDAP server without SSL/TLS:
 
-<figure><img src="../../../.gitbook/assets/image (91).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (91).png" alt=""><figcaption></figcaption></figure>
 
-Make sure you selected "Enable LDAP integration" as without it, the two way synchronization won't work. After you fill out all the fields, test your configuration using the <img src="../../../.gitbook/assets/image (2) (1).png" alt="" data-size="line"> button.&#x20;
+Make sure you selected "Enable LDAP integration" as without it, the two way synchronization won't work. After you fill out all the fields, test your configuration using the <img src="../../.gitbook/assets/image (2) (1).png" alt="" data-size="line"> button.&#x20;
 
 The LDAP two way synchronization has the following options available:
 
-<figure><img src="../../../.gitbook/assets/image (70).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (70).png" alt=""><figcaption></figcaption></figure>
 
 * **Enable LDAP two-way synchronization** - enables the two way synchronization. Check it if you want to pull changes from LDAP.
 * **Consider the following source as the authority** - makes the selected server the source of truth. See [#authority-and-full-synchronization](two-way-ldap-and-active-directory-synchronization.md#authority-and-full-synchronization "mention") for more details.
@@ -59,7 +55,7 @@ Before enabling this feature, check if you meet requirements described in [setti
 
 If you want to synchronize only selected users, you can specify the groups of which members should be synchronized.
 
-<figure><img src="../../../.gitbook/assets/image (95).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (95).png" alt=""><figcaption></figcaption></figure>
 
 This can be useful if you have a lot of users in your LDAP server and want to synchronize/pull only users belonging to a given group, e.g. `defguard-sync`.
 
@@ -78,9 +74,9 @@ The following advice should be applied only when you are using LDAP as the autho
 After you change your synchronization groups, users not belonging to the new groups won't be automatically deleted. This may be an issue if you first used the two way synchronization without any synchronization groups, effectively synchronizing everyone and decided later to narrow the scope of synchronization. This can result in many redundant, not synchronized user records in your Defguard instance laying around. If you want to prune your Defguard users to only those who are in your synchronization group, you can follow these steps (assuming you have already set your synchronization groups):
 
 1. Wait for a two-way periodic synchronization to complete, you can recognize it by the `LDAP sync completed` log message.
-2. Temporarily disable the whole LDAP integration in the settings ![](<../../../.gitbook/assets/image (96).png>)
+2. Temporarily disable the whole LDAP integration in the settings ![](<../../.gitbook/assets/image (96).png>)
 3. In the Defguard user's list, bulk assign all users one of your synchronization groups, to bring them into the scope of synchronization. You may want to leave out all users which you don't want to be ever touched by the LDAP integration, e.g. the default admin user or other users you want to keep only in Defguard.
-4. Enable the LDAP integration in the settings <img src="../../../.gitbook/assets/image (98).png" alt="" data-size="line">
+4. Enable the LDAP integration in the settings <img src="../../.gitbook/assets/image (98).png" alt="" data-size="line">
 5. Now, the next two-way synchronization will remove all users from Defguard who have the synchronization group you just assigned in Defguard but don't have it in LDAP, effectively leaving you only with users that have the group in both sources.
 
 ## Synchronization mechanism overview

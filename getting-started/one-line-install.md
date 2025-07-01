@@ -1,12 +1,14 @@
 # One-line install script
 
+Welcome to getting started with defguard! In this section, you'll be guided through setting up your simplified instance of defguard that will allow you to get familiar with the solution's features.
+
 {% hint style="info" %}
-The instance deployed by the script is meant to serve as a starting point and makes some tradeoffs to enable automated setup. Most importantly it assumes that your Web UI is available publicly (to generate SSL certificates with Caddy). In general it's not recommended for production and we strongly encourage you to customize this setup to work better within your own infrastructure.
+The instance deployed by the script is meant to serve as a starting point and makes some tradeoffs to enable automated setup. Most importantly, it assumes that your Web UI is available publicly (to generate SSL certificates with Caddy). In general, it's not recommended for production, and we strongly encourage you to customise this setup to work better within your own infrastructure using more [advanced deployment strategies](../deployment-strategies/setting-up-your-instance.md).
 {% endhint %}
 
-To simplify the setup and enable automated deployment we prepared a script which will deploy a complete defguard instance, including an enrollment proxy and VPN gateway.
+To simplify the setup and enable automated deployment, we prepared a script which will deploy a complete defguard instance, including an enrollment proxy and VPN gateway.
 
-Just by launching this one command there will be an interactive configuration and setup that will guide you step by step and deploy full defguard instance based on Docker Compose setup:
+Just by launching this one command, there will be an interactive configuration and setup that will guide you step by step and deploy a full defguard instance based on Docker Compose setup:
 
 <figure><img src="../.gitbook/assets/one-line-install.png" alt=""><figcaption></figcaption></figure>
 
@@ -155,4 +157,9 @@ After the installation please make sure that **only the following ports are open
 * 50055
 {% endhint %}
 
-Also this setup provides only communication encryption between defguard components, if you additionally like for core/proxy and gateway to have authorization - [please setup a custom SSL CA](../grpc-ssl-communication.md#custom-ssl-ca-and-certificates).
+Also this setup provides only communication encryption between defguard components, if you additionally like for core/proxy and gateway to have authorization - [please setup a custom SSL CA](../deployment-strategies/grpc-ssl-communication.md#custom-ssl-ca-and-certificates).
+
+## Advanced deployment strategies
+
+For more advanced deployment strategies, go to our [deployment strategies section](../deployment-strategies/setting-up-your-instance.md).
+

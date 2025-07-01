@@ -1,10 +1,10 @@
----
-icon: up-right-from-square
----
-
 # External OpenID providers
 
-Defguard, [apart from being an identity provider itself](../../../admin-and-features/openid-connect/), supports logging in through external OpenID providers. All providers that support standard and common **code authorization flow should work.**
+{% hint style="warning" %}
+This is an enterprise feature. To use it, purchase our [enterprise license](../../enterprise/license.md) or ensure that your deployment does not exceed the [usage limits](../../enterprise/license.md#enterprise-is-free-up-to-certain-limits).
+{% endhint %}
+
+Defguard, [apart from being an identity provider itself](../openid-connect/), supports logging in through external OpenID providers. All providers that support standard and common **code authorization flow should work.**
 
 Here are dedicated tutorials for most common SSO providers:
 
@@ -57,7 +57,7 @@ These URIs will need to be provided in your provider's configuration. See [#exam
 
 In order to configure the external OpenID provider login, go to the settings in the Defguard admin dashboard.
 
-<figure><img src="../../../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
 
 Everything related to the external OpenID configuration can be found in the OpenID tab of the settings page. First thing to do here would be to pick your provider using the dropdown menu under the "Provider" label. Next, fill out the required information with values acquired from your provider. If you picked "Microsoft" or "Custom", make sure to also make corresponding changes in the "Base URL" field. After you are done, click "Save changes" to keep your changes.
 
@@ -65,7 +65,7 @@ You may have also noticed the checkbox option on the right. By default, when a n
 
 ### OpenID enrollment
 
-When you configure your provider, the proxy will automatically allow enrolling users through it. See [with-external-sso-google-microsoft-custom.md](../../../help/enrollment/with-external-sso-google-microsoft-custom.md "mention") for the process from the user's point of view.
+When you configure your provider, the proxy will automatically allow enrolling users through it. See [with-external-sso-google-microsoft-custom.md](../../help/enrollment/with-external-sso-google-microsoft-custom.md "mention") for the process from the user's point of view.
 
 For this to work, make sure you have the following two things set:
 
@@ -74,7 +74,7 @@ For this to work, make sure you have the following two things set:
 
 #### Disabling automatic account creation
 
-<figure><img src="../../../.gitbook/assets/image (40).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (40).png" alt=""><figcaption></figcaption></figure>
 
 If you disable the option above, new users won't be able to automatically go through the enrollment. You will need to create their accounts by hand (with the same email address as the one they have set on your OIDC provider's side) and only then they will have an option to activate it by logging through the provider.
 
@@ -96,7 +96,7 @@ Defguard doesn't automatically create users based on the users in your provider'
 
 The menu can be found in Defguard settings by navigating to the "OpenID" tab.
 
-<figure><img src="../../../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
 
 The following configuration options are currently available in the directory synchronization menu for all providers:
 
@@ -124,10 +124,10 @@ If you want to delete your users based on the state of your provider we recommen
 
 When setting up JumpCloud you can encounter an error when attempting to login with a message `Failed to parse payload JSON: Error(\\\"invalid type: string...`. This is because JumpCloud is returning a token that doesn't conform fully to the OpenID standard. You can try working around this issue by removing the `email_verified` field in your SSO application configuration in JumpCloud. In order to do this, edit your SSO Application and **deselect** the email scope:
 
-<figure><img src="../../../.gitbook/assets/obraz (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/obraz (12).png" alt=""><figcaption></figcaption></figure>
 
 Then, add the email below by hand:
 
-<figure><img src="../../../.gitbook/assets/obraz (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/obraz (13).png" alt=""><figcaption></figcaption></figure>
 
 Double check that the `email_verified` field is gone from the constant attributes section. The issue should be gone now.
