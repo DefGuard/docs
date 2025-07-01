@@ -98,7 +98,7 @@
 
 ## Using defguard (for end users) <a href="#help" id="help"></a>
 
-* [Overview](help/overview.md)
+* [Overview](help/overwiew.md)
 * [Desktop Client](help/desktop-client.md)
 * [CLI Client](help/cli-client.md)
 * [Configuring VPN](help/configuring-vpn/README.md)
