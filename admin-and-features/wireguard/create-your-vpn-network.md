@@ -53,12 +53,16 @@ Defguard assigns IP addresses to clients by sequentially scanning each defined s
 
 ### Gateway address
 
-It's the **public IP** address to which the remote peer's/users will connect to. This IP address is **will be shared in the configuration** for the clients, but defguard gateways do **not bind to this address**.
+It's the **public IP address** or **DNS domain** to which the remote peer's/users will connect to. This address is **will be shared in the configuration** for the clients, but defguard gateways do **not bind to this address**.
 
-{% hint style="warning" %}
-Defguard gateways bind to all IP addresses and the port defined below.
+{% hint style="info" %}
+**Defguard gateways bind to all IP addresses and the port defined below.**
 
 This is very handy if you are setting up a **high availability active-active** solution with multiple gateways - then this public IP needs to be exposed and controled by load-balancers or any other solution that will forward this to gateways.
+{% endhint %}
+
+{% hint style="success" %}
+DNS domain is **very useful** for example is a setup uses Dynamic DNS (DDNS).
 {% endhint %}
 
 ### Gateway port
