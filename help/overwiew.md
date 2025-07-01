@@ -20,7 +20,7 @@ This section guides you through the key features of defguard designed for everyd
 
 Whether you're installing the desktop or CLI client, configuring your VPN access, or setting up secure authentication with 2FA/MFA, this section will walk you through each step clearly. It also covers how to reset your password, complete enrollment, and onboard into your organization’s setup smoothly.
 
-## What You’ll Learn
+### What you’ll learn
 
 As a defguard user, this documentation will help you:
 

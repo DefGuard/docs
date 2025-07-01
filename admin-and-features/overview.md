@@ -6,7 +6,7 @@ This documentation walks you through all the administrative features of defguard
 
 We recommend setting up your own example instance using our [one-line install script](../getting-started/one-line-install.md) to explore these features firsthand. As you follow along, you can adjust the configuration directly within your instance to better understand each feature in action.
 
-### What You’ll Learn
+### What you’ll learn
 
 As a future defguard administrator, this documentation will help you:
 
