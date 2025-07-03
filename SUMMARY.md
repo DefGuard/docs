@@ -70,6 +70,7 @@
 * [Integrations](integrations/README.md)
   * [Webhooks](integrations/webhooks.md)
   * [REST API](integrations/api-tokens.md)
+* [User SNAT bindings](user-snat-bindings.md)
 
 ## Deployment strategies
 
