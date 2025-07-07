@@ -143,3 +143,4 @@
   * [Client Windows installer exit codes](resources/troubleshooting/windows-installer-exit-codes.md)
   * [Client "All traffic" connection issues](resources/troubleshooting/client-all-traffic-connection-issues.md)
   * [WebAuthn security keys](resources/troubleshooting/webauthn-security-keys.md)
+  * [Unable to sign in to your defguard instance with correct credentials](resources/troubleshooting/unable-to-sign-in-to-your-defguard-instance-with-correct-credentials.md)
