@@ -91,6 +91,27 @@ Every reverse proxy has a timeout for keeping the connection alive. You can incr
 
 Ignore them, this is a normal behaviour.
 
+## Gateway throws "No buffer space available" error
+
+In the log files you can see the following message:
+
+```
+Jul 08 08:33:24 defguard defguard-gateway[1241]: [2025-07-08T06:33:24Z ERROR defguard_gateway::gateway] Failed to update network configuration: Firewall error: Netlink error: Failed while reading a message from socket: Os { code: 105, kind: Uncategorized, message: "No buffer space available" }
+```
+
+To fix this, you'll need to set larger socket buffer sizes using kernel parameters:
+
+```
+net.core.rmem_max = 67108864
+net.core.wmem_max = 67108864
+net.ipv4.tcp_rmem = 4096 87380 67108864
+net.ipv4.tcp_wmem = 4096 65536 67108864
+net.core.rmem_default = 524288
+net.core.wmem_default = 524288
+```
+
+More info here: [https://github.com/DefGuard/defguard/issues/1303](https://github.com/DefGuard/defguard/issues/1303)
+
 ## How to check if the VPN is working / my VPN is not working
 
 If you have configured your defguard instance correctly, after connecting to the VPN you should be able to ping your VPN server, for example if you have the following setup:
