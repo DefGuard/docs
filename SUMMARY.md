@@ -144,3 +144,4 @@
   * [Client "All traffic" connection issues](resources/troubleshooting/client-all-traffic-connection-issues.md)
   * [WebAuthn security keys](resources/troubleshooting/webauthn-security-keys.md)
   * [Unable to sign in to your defguard instance with correct credentials](resources/troubleshooting/unable-to-sign-in-to-your-defguard-instance-with-correct-credentials.md)
+  * ["No buffer space available" error in the gateway logs](resources/troubleshooting/no-buffer-space-available-error-in-the-gateway-logs.md)
