@@ -170,3 +170,11 @@ From there, what happens to this traffic is the **administrator role.** The most
 
 * add routing rules, so that the traffic from that interface/VPN IP network gets routed to your network - this approach gives the advantage that users VPN ip persists in the network and the user is visible with it's VPN ip in your local network
 * Masquerade or NAT - a common use case is to masquerade or NAT the traffic - which is **actually required if you want users to access Internet from the VPN -** this process is [described in detailed in this tutorial](../../tutorials/step-by-step-setting-up-a-vpn-server/#enabling-to-access-internet-through-your-vpn).
+
+## Unable to sign in to your defguard instance with correct credentials
+
+The user tries to sign in to a defguard instance but gets a 401 response with message "Session is required".
+
+This issue is most likely caused by a misconfigured `DEFGUARD_URL` . Please take a look at the configuration options described in [General configuration](../../configuration.md#general-configuration) documentation.
+
+If you want to access your defguard instance without TLS (using an `http://` URL), please also make sure you have everything configured according to [Auth cookies configuration](../../configuration.md#auth-cookies-configuration) documentation.
