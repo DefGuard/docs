@@ -88,36 +88,83 @@ Additionally administrators can view events related to all users.
 At the moment following events are tracked in the Activity log:
 
 * **Defguard** module
-  * User login
-  * User login failed
-  * User MFA login
-  * User MFA login failed
-  * Recovery code used
-  * User logout
-  * User added
-  * User modified
-  * User removed
-  * MFA disabled
-  * MFA TOTP enabled
-  * MFA TOTP disabled
-  * MFA email enabled
-  * MFA email disabled
-  * MFA security key added
-  * MFA security key removed
-  * Device added
-  * Device modified
-  * Device removed
-  * Network device added
-  * Network device modified
-  * Network device removed
-  * Activity log stream device added
-  * Activity log stream device modified
-  * Activity log stream device removed
-* **Client** module
+  * UserLogin
+  * UserLoginFailed
+  * UserLogout
+  * UserMfaLogin
+  * UserMfaLoginFailed
+  * RecoveryCodeUsed
+  * PasswordChangedByAdmin
+  * PasswordChanged
+  * PasswordReset
+  * MfaDisabled
+  * UserMfaDisabled
+  * MfaTotpDisabled
+  * MfaTotpEnabled
+  * MfaEmailDisabled
+  * MfaEmailEnabled
+  * MfaSecurityKeyAdded
+  * MfaSecurityKeyRemoved
+  * UserAdded
+  * UserRemoved
+  * UserModified
+  * UserGroupsModified
+  * UserDeviceAdded
+  * UserDeviceRemoved
+  * UserDeviceModified
+  * NetworkDeviceAdded
+  * NetworkDeviceRemoved
+  * NetworkDeviceModified
+  * ActivityLogStreamCreated
+  * ActivityLogStreamModified
+  * ActivityLogStreamRemoved
+  * VpnLocationAdded
+  * VpnLocationRemoved
+  * VpnLocationModified
+  * ApiTokenAdded
+  * ApiTokenRemoved
+  * ApiTokenRenamed
+  * OpenIdAppAdded
+  * OpenIdAppRemoved
+  * OpenIdAppModified
+  * OpenIdAppStateChanged
+  * OpenIdProviderModified
+  * OpenIdProviderRemoved
+  * SettingsUpdated
+  * SettingsUpdatedPartial
+  * SettingsDefaultBrandingRestored
+  * GroupsBulkAssigned
+  * GroupAdded
+  * GroupModified
+  * GroupRemoved
+  * GroupMemberAdded
+  * GroupMemberRemoved
+  * GroupMembersModified
+  * WebHookAdded
+  * WebHookModified
+  * WebHookRemoved
+  * WebHookStateChanged
+  * AuthenticationKeyAdded
+  * AuthenticationKeyRemoved
+  * AuthenticationKeyRenamed
+  * ClientConfigurationTokenAdded
+  * UserSnatBindingAdded
+  * UserSnatBindingRemoved
+  * UserSnatBindingModified
 * **Enrollment** module
+  * EnrollmentStarted
+  * EnrollmentDeviceAdded
+  * EnrollmentCompleted
+  * PasswordResetRequested
+  * PasswordResetStarted
+  * PasswordResetCompleted
+  * TokenAdded
 * **VPN** module
-  * VPN client connected
-  * VPN client disconnected
+  * ConnectedToMfaLocation
+  * DisconnectedFromMfaLocation
+  * MfaFailed
+  * ConnectedToLocation
+  * DisconnectedFromLocation
 
 ## Streaming to external SIEM systems
 
