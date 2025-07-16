@@ -23,32 +23,61 @@ Also, if core has a custom SSL CA to secure gRPC communication, [you need the CA
 ## Package Install
 
 1. On the [release page](https://github.com/DefGuard/gateway/releases) find and download a correct software package for your system (currently DEB, RPM and TXZ are available).
-2.  Install the package using relevant system tools:
+2. Install the package using relevant system tools:
 
-    **Ubuntu/Debian:**
+   **Ubuntu/Debian:**
 
-    ```bash
-    sudo dpkg -i <path_to_deb_package>
-    ```
+   ```bash
+   sudo dpkg -i <path_to_deb_package>
+   ```
 
-    **Fedora/Red Hat Linux/SUSE:**
+   **Fedora/Red Hat Linux/SUSE:**
 
-    ```bash
-    sudo rpm -i <path_to_rpm_package>
-    ```
+   ```bash
+   sudo rpm -i <path_to_rpm_package>
+   ```
 
-    **FreeBSD:**
+   **FreeBSD:**
 
-    ```bash
-    pkg add <path_to_txz_package>
-    ```
+   ```bash
+   pkg add <path_to_txz_package>
+   ```
+
 3. Fill in the default configuration file (`/etc/defguard/gateway.toml`) with values corresponding to your Defguard installation (token and gRPC enpoint URL).
-4.  Enable and start the systemd service.
+4. On systems with [systemd](https://systemd.io/), enable and start the **systemd** service:
 
-    ```bash
-    sudo systemctl enable defguard-gateway.service
-    sudo systemctl start defguard-gateway.service
-    ```
+   ```bash
+   sudo systemctl enable defguard-gateway.service
+   sudo systemctl start defguard-gateway.service
+   ```
+
+  On systems with rc.d (like FreeBSD, NetBSD), start the service. For example, on OPNsense:
+
+   ```bash
+   sudo /usr/local/etc/rc.d/defguard_gateway start
+   ```
+
+## Package Upgrade
+
+### FreeBSD/OPNsense
+
+1. Uninstall the current version.
+
+   ```bash
+   pkg delete defguard-gateway
+   ```
+
+2. Install a newer version (as described above in [Package Install](#package-install)).
+
+   ```bash
+   pkg add <path_to_txz_package>
+   ```
+
+3. Restart Defguard Gateway service.
+
+   ```bash
+   sudo /usr/local/etc/rc.d/defguard_gateway restart
+   ```
 
 ## Docker Compose
 
@@ -62,13 +91,13 @@ git clone --recursive https://github.com/DefGuard/deployment.git && cd deploymen
 
 2. Copy and fill in the .env file:
 
-```
+```bash
 cp .env.template .env
 ```
 
 3. Finally, run the service with Docker Compose:
 
-```
+```bash
 docker compose up
 ```
 
