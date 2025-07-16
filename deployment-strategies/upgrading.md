@@ -121,8 +121,8 @@ This change requires a few changes if you are upgrading:
 
 #### Proxy deployment configuration
 
-1. Remove `DEFGUARD_PROXY_UPSTREAM_GRPC_URL` variable - since Proxy does not connect to defguard Core any more.
-2. Proxy is now the server to which defguard Core connects, so you may want to:
+1. Remove `DEFGUARD_PROXY_UPSTREAM_GRPC_URL` variable - since Proxy does not connect to Defguard Core any more.
+2. Proxy is now the server to which Defguard Core connects, so you may want to:
    1. Optional: configure non-default Proxy gRPC port with `DEFGUARD_PROXY_GRPC_PORT -` default value is **50051**
    2. If you have a Proxy in a different network segment - eg. have a custom installation (not with one-line install/docker compose all on one server) - you may also consider exposing the gRPC port and reverse-proxy (nginx/treafik/...) the port with SSL/TLS.
       1. (Optional) If you want to use SSL with Proxy gRPC server without revers-proxy (nginx/etc) configure `DEFGUARD_PROXY_GRPC_CERT` and `DEFGUARD_PROXY_GRPC_KEY` following the [SSL setup guide](docker-compose.md#grpc-ssl-setup).
@@ -152,7 +152,7 @@ proxy_1  | 2024-01-24T14:05:41.365333Z  INFO defguard_proxy::server: Web server 
 defguard | 2024-01-24T14:17:47.815294Z  INFO defguard::grpc: Connecting to proxy
 ```
 
-4. After defguard connects successfully to proxy, you should see in proxy logs:
+4. After Defguard connects successfully to proxy, you should see in proxy logs:
 
 ```
 proxy_1  | 2024-01-24T14:17:47.819504Z  INFO defguard_proxy: RPC client connected from: 10.123.123.2:35916

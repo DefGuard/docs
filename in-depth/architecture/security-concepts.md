@@ -9,4 +9,4 @@ defguard's **fundamental secure processes**:
 * that Identity Provider should provide SSO functionality to enable users to log in to all systems with one login/password
   * have 2FA/MFA functionality to harden security
 * setup Yubikey Hardware keys to enable the best 2FA security, secure SSH login with private keys on a secure hardware
-* integrate all your systems with API, and Webhooks (to access defguard functionalities or users' data)
+* integrate all your systems with API, and Webhooks (to access Defguard functionalities or users' data)

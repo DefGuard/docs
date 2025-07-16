@@ -6,7 +6,7 @@ hidden: true
 
 #### Add grafana app on defguard
 
-First, go to the defguard OpenID tab and click add new app button.
+First, go to the Defguard OpenID tab and click add new app button.
 
 1. Add the name Grafana
 2. Redirect Url add `https://<grafana domain>/login/generic_oauth` where is the address of your grafana instance.
@@ -27,8 +27,8 @@ First, go to the defguard OpenID tab and click add new app button.
 name = Defguard
 icon = signin
 enabled = true
-client_id = <YOUR_APP_CLIENT_ID>  # from defguard page
-client_secret = <YOUR_APP_CLIENT_SECRET> # from defguard page
+client_id = <YOUR_APP_CLIENT_ID>  # from Defguard page
+client_secret = <YOUR_APP_CLIENT_SECRET> # from Defguard page
 scopes = openid profile email
 empty_scopes = false
 auth_url = https://<your_defguards_instance>/api/v1/oauth/authorize
@@ -38,4 +38,4 @@ allow_sign_up = true
 ```
 
 1. Restart your grafana server using `systemctl restart grafana-server`
-2. Then on login, you'll see the `Sign-in defguard button`
+2. Then on login, you'll see the `Sign-in Defguard button`

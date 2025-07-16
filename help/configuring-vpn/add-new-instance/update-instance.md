@@ -11,7 +11,7 @@ If you are looking for how to generate tokens for your users as an Administrator
 {% endhint %}
 
 {% hint style="warning" %}
-Updating the desktop client instance manually is only done if you are using defguard Open Source Open Core, if you have an Enterprise License, all desktop clients and all instances are [synchronized automatically and in real-time.](../../../admin-and-features/remote-user-enrollment/automatic-real-time-desktop-client-configuration.md)
+Updating the desktop client instance manually is only done if you are using Defguard Open Source Open Core, if you have an Enterprise License, all desktop clients and all instances are [synchronized automatically and in real-time.](../../../admin-and-features/remote-user-enrollment/automatic-real-time-desktop-client-configuration.md)
 {% endhint %}
 
 ## Why do instances need updates?
@@ -20,7 +20,7 @@ Desktop stores all information locally and doesn't communicate with Defguard out
 
 ## How to update
 
-Open defguard instance that you want to update, and click the "Edit Instance" button in the top right corner.
+Open Defguard instance that you want to update, and click the "Edit Instance" button in the top right corner.
 
 <figure><img src="../../../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
 

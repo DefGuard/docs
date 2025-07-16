@@ -97,10 +97,11 @@
 
 * [License](enterprise/license.md)
 
-## Using defguard (for end users) <a href="#help" id="help"></a>
+## Using Defguard (for end users) <a href="#help" id="help"></a>
 
 * [Overview](help/overwiew.md)
 * [Desktop Client](help/desktop-client.md)
+* [Mobile Client](help/mobile-client.md)
 * [CLI Client](help/cli-client.md)
 * [Configuring VPN](help/configuring-vpn/README.md)
   * [Defguard Desktop Client](help/configuring-vpn/add-new-instance/README.md)

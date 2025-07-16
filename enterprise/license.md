@@ -35,12 +35,12 @@ After purchasing:
 2. Each month (on the date the license expires) **defguard core will contact our licensing server** and if the monthly payment was successful, our licensing server will **automatically issue a new license and the enterprise plan will be extended to new date.**
 
 {% hint style="warning" %}
-If your setup / firewall / network policy **doesn't allow that defguard will contact our licensing server, please contact us for the** [**Offline license**](license.md#offline-license)**.**
+If your setup / firewall / network policy **doesn't allow that Defguard will contact our licensing server, please contact us for the** [**Offline license**](license.md#offline-license)**.**
 {% endhint %}
 
 #### Offline license
 
-Defguard is build with the highest security architecture in mind, thus there may be scenarios where you don't want any of the components to contact external services (eg. defguard core will have no access to Internet).
+Defguard is build with the highest security architecture in mind, thus there may be scenarios where you don't want any of the components to contact external services (eg. Defguard core will have no access to Internet).
 
 Offline license can be also issued for any period of time, so another scenario is that you can buy the enterprise license for any duration you wish.
 
@@ -50,9 +50,9 @@ To obtain an offline Enterprise License please contact our sales at: **sales \[ 
 * your company data and contact email address (for billing and license sharing)
 * preferred payment method: bank wire transfer or card payment link
 
-### Configuring defguard with obtained license
+### Configuring Defguard with obtained license
 
-To configure defguard with the received license, please go to **Settings** -> enter the license in the Enterprise License configuration window -> Click Save.
+To configure Defguard with the received license, please go to **Settings** -> enter the license in the Enterprise License configuration window -> Click Save.
 
 The license will be validated and detailed information about the license will be diplayed (validity period and the license type):
 

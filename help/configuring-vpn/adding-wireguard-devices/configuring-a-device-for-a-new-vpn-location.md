@@ -1,6 +1,6 @@
 # Configuring a device for new VPN Location manually
 
-If you (or your defguard administrator) have added a new VPN Location and you would like to connect to that location from your **existing device** (for which you have downloaded configuration for any previous locations), you need to:
+If you (or your Defguard administrator) have added a new VPN Location and you would like to connect to that location from your **existing device** (for which you have downloaded configuration for any previous locations), you need to:
 
 1. Go to **your profile** (_My Profile -_ which you'll find on the navigation on the left side of the screen)
 2. Click on the **gear icon on the device you want to download Location configuration** - a menu for that device will apear:
@@ -23,7 +23,7 @@ The configuration will be named **LocationName-device.conf** - just add a new co
 **defguard doesn't store any user devices' private keys - you need to provide them**
 {% endhint %}
 
-Since defguard doesn't have access to your private keys - **but has your public key stored for that device** - you need to replace the **PrivateKey value** in the new configuration location.
+Since Defguard doesn't have access to your private keys - **but has your public key stored for that device** - you need to replace the **PrivateKey value** in the new configuration location.
 
 {% hint style="warning" %}
 **Where to find the private key for that device?**

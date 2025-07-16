@@ -116,7 +116,7 @@ grpc_ca = "path/to/ca.crt"
 Often (like in the standalone package based installation tutorial) gRPC communication can be secured by a reverse proxy (NGINX, Caddy, Traefik, etc.) that handles SSL termination. It's common to use typical trusted CA (that is used for typical HTTPS traffic) like Let'sEncrypt or others.
 
 {% hint style="danger" %}
-While this secures the transport layer and encrypts communication between defguard components - it does not provide authorization between gRPC components like Custom CA does.
+While this secures the transport layer and encrypts communication between Defguard components - it does not provide authorization between gRPC components like Custom CA does.
 
 Thus, this type of SSL termination should only be done if you trust your network and have secured gRPC ports on firewall.
 {% endhint %}

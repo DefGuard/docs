@@ -1,6 +1,6 @@
 # Overview
 
-Welcome to the deployment strategies section of defguard documentation. This guide covers the different ways you can deploy Defguard in your environment, from quick options using packages or Docker to more advanced setups with Kubernetes or Terraform. Whether you're running a small instance or preparing for a more complex production environment, this section will help you choose the deployment method that best fits your needs.
+Welcome to the deployment strategies section of Defguard documentation. This guide covers the different ways you can deploy Defguard in your environment, from quick options using packages or Docker to more advanced setups with Kubernetes or Terraform. Whether you're running a small instance or preparing for a more complex production environment, this section will help you choose the deployment method that best fits your needs.
 
 ## Components
 
@@ -15,7 +15,7 @@ There is one external component required: PostgreSQL database.
 
 ## Hardware requirements
 
-All defguard components are **very low resource-consuming**. All of them are written in [Rust](https://www.rust-lang.org) and are single binaries. As minimum setup as follows should be more then enough:
+All Defguard components are **very low resource-consuming**. All of them are written in [Rust](https://www.rust-lang.org) and are single binaries. As minimum setup as follows should be more then enough:
 
 | Resource     | Minimum requirements         |
 | ------------ | ---------------------------- |
@@ -26,7 +26,7 @@ All defguard components are **very low resource-consuming**. All of them are wri
 
 ## Quick start
 
-The easiest way to run your own defguard instance is to use Docker and our [one-line install script](../getting-started/one-line-install.md).
+The easiest way to run your own Defguard instance is to use Docker and our [one-line install script](../getting-started/one-line-install.md).
 
 Just run the command below in your shell and follow the prompts:
 
@@ -38,7 +38,7 @@ To learn more about the script and available options please see the [documentati
 
 ## Manual deployment
 
-If you prefer to configure and deploy defguard manually see the examples below:
+If you prefer to configure and deploy Defguard manually see the examples below:
 
 * [Docker Compose](docker-compose.md)
 * [Kubernetes](kubernetes.md)

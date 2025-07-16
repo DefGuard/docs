@@ -11,7 +11,7 @@ Defguard Gateway v1.3.0 supports Linux machines with [NFTables](https://nftables
 Defguard Gateway v1.4.0 supports FreeBSD, NetBSD, and macOS machines with Packet Filter (PF).
 {% endhint %}
 
-The ACL (Access Control List) functionality in defguard allows administrators to define and manage who can access specific network resources. It provides a clear and centralized way to control access based on users, groups, or devices, ensuring that only authorized entities can reach sensitive systems or services.
+The ACL (Access Control List) functionality in Defguard allows administrators to define and manage who can access specific network resources. It provides a clear and centralized way to control access based on users, groups, or devices, ensuring that only authorized entities can reach sensitive systems or services.
 
 ### How to enable Access Control List functionality
 

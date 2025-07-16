@@ -2,13 +2,13 @@
 
 WireGuard by itself does not have a concept of MFA or any additional authorization aside from validating peers cryptographically by their public and pre-shared keys.
 
-Desktop Client MFA functionality is build entirely in defguard as a layer above the WireGuard protocol. Below is a brief explanation of its architecture and the authorization process itself.
+Desktop Client MFA functionality is build entirely in Defguard as a layer above the WireGuard protocol. Below is a brief explanation of its architecture and the authorization process itself.
 
 ## Pre-shared keys
 
 Our additional authorization is enabled by using [pre-shared keys](https://www.wireguard.com/protocol/#key-exchange-and-data-packets). They are similar to peer public keys but while public keys identify a specific device and are static, pre-shared keys can be safely rotated.
 
-When you configure your defguard location to require MFA it tells the Gateway to not add any peers (clients) to the WireGuard interface unless they are authorized and have a pre-shared key assigned.
+When you configure your Defguard location to require MFA it tells the Gateway to not add any peers (clients) to the WireGuard interface unless they are authorized and have a pre-shared key assigned.
 
 On the other side a Client must have a valid pre-shared key (received after successful authorization) to establish a connection to the Gateway.
 
@@ -16,7 +16,7 @@ In typical REST API terms the pre-shared key can be thought of as an analogue to
 
 ## Authorization process
 
-To enable MFA functionality Desktop Client uses the [proxy ](https://github.com/DefGuard/proxy)to bridge communication between itself and defguard Core. Below is a diagram of the authorization process that is performed each time the Client initiates a connection to an MFA-enabled location:
+To enable MFA functionality Desktop Client uses the [proxy ](https://github.com/DefGuard/proxy)to bridge communication between itself and Defguard Core. Below is a diagram of the authorization process that is performed each time the Client initiates a connection to an MFA-enabled location:
 
 <figure><img src="../../../../.gitbook/assets/mfa.png" alt=""><figcaption></figcaption></figure>
 

@@ -16,9 +16,9 @@ The specific API endpoint used for this is `/api/v1/ssh_authorized_keys`. It ret
 
 ## Setup
 
-There's no specific configuration to be performed in defguard itself (aside from adding SSH keys for users of course), all the steps below are performed on the server you want to SSH into using defguard-supplied public keys:
+There's no specific configuration to be performed in Defguard itself (aside from adding SSH keys for users of course), all the steps below are performed on the server you want to SSH into using defguard-supplied public keys:
 
-1. Add a script which fetches SSH keys from your defguard instance
+1. Add a script which fetches SSH keys from your Defguard instance
 
 ```bash
 #!/bin/sh
@@ -42,7 +42,7 @@ AuthorizedKeysCommandUser nobody
 
 4. Restart OpenSSH daemon
 
-With this setup when a user `someuser` tries to log in with SSH to your server the script will make a `GET` request to your defguard instance and fetch a list of keys assigned to `someuser` (if such a user exists). This list is then used to verify keys presented by the client.
+With this setup when a user `someuser` tries to log in with SSH to your server the script will make a `GET` request to your Defguard instance and fetch a list of keys assigned to `someuser` (if such a user exists). This list is then used to verify keys presented by the client.
 
 ### Other examples
 

@@ -1,7 +1,7 @@
 # How do VPN statistics work
 
-1. Each defguard gateway reads kernel data from the WireGuard® interface for each peer.
-2. If any change is detected between previous stats (bytes in/out) then through the gRPC interface the gateway sends those statistics to defguard core.
+1. Each Defguard gateway reads kernel data from the WireGuard® interface for each peer.
+2. If any change is detected between previous stats (bytes in/out) then through the gRPC interface the gateway sends those statistics to Defguard core.
 
 {% hint style="info" %}
 If the gateway doesn't detect any changes in stats, doesn't send anything to core.

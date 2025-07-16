@@ -7,7 +7,7 @@ Defguard provides **secure remote enrollment process (remote registration and ac
 * add their initial device to access VPN as a nice wizard!
 * see admin (that has added this user) **contact details**
 
-This process includes account setup and/or VPN configuration since defguard is used as an SSO for:
+This process includes account setup and/or VPN configuration since Defguard is used as an SSO for:
 
 * accessing all your applications, meaning with defguard's account you not only access/configure VPN but also log in to other applications.
 * and accessing the VPN.

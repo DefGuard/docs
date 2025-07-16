@@ -7,7 +7,7 @@ description: How to stream activity logs to vector.
 [Vector ](https://vector.dev/)serves as a flexible log pipeline, allowing activity events to be collected, processed, and forwarded to a wide range of SIEM systems. By using Vector, you can transform and route logs as needed, making it easier to integrate with your existing observability tools and adapt to future changes in your logging infrastructure.
 
 \
-The goal is to connect defguard as [HTTP Source](https://vector.dev/docs/reference/configuration/sinks/http/) in Vector service. This guide uses an example Vector service running in Docker, configured via Docker Compose.
+The goal is to connect Defguard as [HTTP Source](https://vector.dev/docs/reference/configuration/sinks/http/) in Vector service. This guide uses an example Vector service running in Docker, configured via Docker Compose.
 
 ### Setup Vector
 
@@ -58,7 +58,7 @@ INFO vector::app: Loading configs. paths=["/etc/vector/vector.toml"]
 
 ### Add Vector destination
 
-In defguard UI with an administrator account, go into  settings page and choose `Activity log streaming`.
+In Defguard UI with an administrator account, go into  settings page and choose `Activity log streaming`.
 
 Click `Add new` and choose `Vector` destination.
 
@@ -70,7 +70,7 @@ If your `defguard` instance is running in the same Docker Compose network as Vec
 
 <figure><img src="../../../../.gitbook/assets/image (108).png" alt=""><figcaption></figcaption></figure>
 
-That's it! defguard should now be sending activity events to Vector, and you should see them printed to `stdout` in the running Vector container.
+That's it! Defguard should now be sending activity events to Vector, and you should see them printed to `stdout` in the running Vector container.
 
 To verify that everything is working, try logging in or out of `defguard` and check if the events appear in the Vector stdout.
 
@@ -91,7 +91,7 @@ sources:
       username: vector
 ```
 
-Next, add the configured `username` and `password` in defguard settings to the Vector destination.
+Next, add the configured `username` and `password` in Defguard settings to the Vector destination.
 
 <figure><img src="../../../../.gitbook/assets/image (109).png" alt=""><figcaption></figcaption></figure>
 

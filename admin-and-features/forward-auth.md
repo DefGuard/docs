@@ -1,18 +1,18 @@
 # Forward auth
 
-defguard supports [forward auth](https://app.gitbook.com/o/Z3mGSAbEj9iLdZ7cNFlL/s/hM5HQk0xXl585Dm4YMUV/~/changes/48/features/forward-auth) integration with popular reverse proxies (tested with [traefik](https://doc.traefik.io/traefik/) and [caddy](https://caddyserver.com/)). This allows you to use defguard to secure services which don't provide their own authorization or OAuth integration.
+defguard supports [forward auth](https://app.gitbook.com/o/Z3mGSAbEj9iLdZ7cNFlL/s/hM5HQk0xXl585Dm4YMUV/~/changes/48/features/forward-auth) integration with popular reverse proxies (tested with [traefik](https://doc.traefik.io/traefik/) and [caddy](https://caddyserver.com/)). This allows you to use Defguard to secure services which don't provide their own authorization or OAuth integration.
 
 {% hint style="warning" %}
-In order for forward auth to work the services you are trying to protect must be available at URLs within the same base domain as your defguard instance.
+In order for forward auth to work the services you are trying to protect must be available at URLs within the same base domain as your Defguard instance.
 
-For example if you are serving your defguard UI at `id.yourdomain.com`, then your services must use other subdomains of `yourdomain.com`, e.g. ``app1.yourdomain.com, `service.yourdomain.com` etc``.
+For example if you are serving your Defguard UI at `id.yourdomain.com`, then your services must use other subdomains of `yourdomain.com`, e.g. ``app1.yourdomain.com, `service.yourdomain.com` etc``.
 
 Additionally you have to update your [defguard config](../configuration.md#auth-cookies-configuration) to set the cookies domain to `yourdomain.com`.
 {% endhint %}
 
 ## Example configurations
 
-For brevity all of the examples below assume you are hosting your defguard instance at `defguard.yourdomain.com`.
+For brevity all of the examples below assume you are hosting your Defguard instance at `defguard.yourdomain.com`.
 
 We'll use a basic [whoami](https://github.com/traefik/whoami) container as an example service which will be available at `whoami.yourdomain.com`.
 

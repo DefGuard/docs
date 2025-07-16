@@ -34,7 +34,7 @@ cp defguard/values.yaml ./
 
 Required values (the rest should work if left as-is):
 
-* `ingress.hosts.grpc`: GRPC ingress address - GRPC clients like defguard **gateway**, yubi-bridge
+* `ingress.hosts.grpc`: GRPC ingress address - GRPC clients like Defguard **gateway**, yubi-bridge
 
 {% hint style="warning" %}
 If you are configuring your gateway or yubi-bridge - please use this GRPC URL for communication.

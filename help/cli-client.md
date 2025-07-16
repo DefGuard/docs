@@ -66,7 +66,7 @@ Copy the command and proceed with [enrollment](cli-client.md#enrollmen).
 
 #### Enrollment
 
-Execute the command obtained in the previous step to configure defguard CLI on the machine of your choice. The enrollment command will pull all the information required to establish a connection from your Defguard instance (through the Defguard proxy, so make sure it can be accessed) and will save it in a configuration file. Run the `enroll` command only when you need to retrieve your network configuration and apply it to the CLI Client. If you have access to the enterprise features, the CLI should automatically handle this when running.
+Execute the command obtained in the previous step to configure Defguard CLI on the machine of your choice. The enrollment command will pull all the information required to establish a connection from your Defguard instance (through the Defguard proxy, so make sure it can be accessed) and will save it in a configuration file. Run the `enroll` command only when you need to retrieve your network configuration and apply it to the CLI Client. If you have access to the enterprise features, the CLI should automatically handle this when running.
 
 #### Connecting
 

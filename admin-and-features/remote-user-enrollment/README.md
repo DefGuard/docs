@@ -36,7 +36,7 @@ There are several **template tags** (similar to [Jinja2](https://jinja.palletspr
 * `{{ admin_last_name }}` - last name of the administrator who initiated the enrollment process
 * `{{ admin_phone }}`- phone number of the administrator who initiated the enrollment process
 * `{{ admin_email }}`- email of the administrator who initiated the enrollment process
-* `{{ defguard_url }}`- internal defguard URL (your defguard instance address)
+* `{{ defguard_url }}`- internal Defguard URL (your Defguard instance address)
 * `{{ defguard_version }}`
 
 ## Remote enrollment process
@@ -81,4 +81,4 @@ By following the **enrollment wizard** you'll be able to do the following:
 * choose your password
 * add an initial device for VPN access
 
-After completing the wizard you should be able to connect to the VPN and access the main defguard web UI.
+After completing the wizard you should be able to connect to the VPN and access the main Defguard web UI.

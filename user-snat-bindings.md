@@ -8,7 +8,7 @@ This is an enterprise feature. To use it, purchase our [enterprise license](ente
 This feature is available starting from version 1.5
 {% endhint %}
 
-**User SNAT bindings** allow administrators to assign specific public IP addresses to users for outbound traffic from defguard VPN gateways in a given location. This provides fine-grained control over how user traffic appears to external networks.
+**User SNAT bindings** allow administrators to assign specific public IP addresses to users for outbound traffic from Defguard VPN gateways in a given location. This provides fine-grained control over how user traffic appears to external networks.
 
 ## Overview
 
@@ -26,7 +26,7 @@ Once a binding is configured, when a specified user connects to a given location
 
 ## Configuring user SNAT bindings
 
-Bindings can be configured through the defguard REST API, which supports following operations:
+Bindings can be configured through the Defguard REST API, which supports following operations:
 
 * listing all bindings for a given location
 * creating a new binding
@@ -35,7 +35,7 @@ Bindings can be configured through the defguard REST API, which supports followi
 
 All the endpoints require authentication (with session cookies or [API tokens](integrations/api-tokens.md#generating-api-token)) and Admin role permissions.
 
-The details are available in the [Swagger docs](integrations/api-tokens.md#rest-api-documentation) provided by each defguard instance.
+The details are available in the [Swagger docs](integrations/api-tokens.md#rest-api-documentation) provided by each Defguard instance.
 
 Each modification to configured bindings triggers an update to be sent to relevant VPN gateways assigned to a given location.
 

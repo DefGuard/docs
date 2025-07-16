@@ -10,7 +10,7 @@ Defguard Desktop Client is required if you want to use Multi-Factor Authenticati
 
 ## When you can access defguard
 
-In this scenario, you can log in to your defguard account.
+In this scenario, you can log in to your Defguard account.
 
 Click "Add new device" on your profile page.
 

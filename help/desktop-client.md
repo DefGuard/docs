@@ -13,7 +13,7 @@ For development/pre-relases go to github: [https://github.com/DefGuard/client/re
 Our desktop client has **bundled** official WireGuard client - as we use **wg.exe** to manage the WireGuard tunnels.
 
 {% hint style="warning" %}
-If you have the official WireGuard client installed - defguard client installation may fail.
+If you have the official WireGuard client installed - Defguard client installation may fail.
 {% endhint %}
 
 ## MacOS

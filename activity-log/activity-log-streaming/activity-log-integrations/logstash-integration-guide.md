@@ -6,7 +6,7 @@ description: How to stream activity logs to vector.
 
 [Logstash ](https://www.elastic.co/logstash)serves as a versatile data processing pipeline that ingests, transforms, and forwards logs from various sources to your preferred observability or SIEM tools. With its modular plugin architecture, Logstash enables flexible configuration of inputs, filters, and outputs—making it ideal for adapting log flows to fit evolving infrastructure needs.
 
-This guide demonstrates how to configure a Logstash service running in Docker using Docker Compose to accept HTTP events from defguard and forward them for further processing or storage.
+This guide demonstrates how to configure a Logstash service running in Docker using Docker Compose to accept HTTP events from Defguard and forward them for further processing or storage.
 
 ### Setup Logstash
 
@@ -40,7 +40,7 @@ Add Logstash service to the `docker-compose.yaml` and start it.
 
 ### Add Logstash destination
 
-In defguard UI with an administrator account, go into  settings page and choose `Activity log streaming`.
+In Defguard UI with an administrator account, go into  settings page and choose `Activity log streaming`.
 
 Click `Add new` and choose `Vector` destination.
 
@@ -50,7 +50,7 @@ Fill out `Name` and `Url` fields and click **Submit**.
 
 <figure><img src="../../../../.gitbook/assets/image (112).png" alt=""><figcaption></figcaption></figure>
 
-That's it! defguard should now be sending activity events to Logstash, and you should see them printed to `stdout` in the running Logstash container.
+That's it! Defguard should now be sending activity events to Logstash, and you should see them printed to `stdout` in the running Logstash container.
 
 To verify that everything is working, try logging in or out of `defguard` and check if the events appear in the Logstash stdout.
 

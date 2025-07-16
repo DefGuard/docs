@@ -53,7 +53,7 @@ Defguard assigns IP addresses to clients by sequentially scanning each defined s
 
 ### Gateway address
 
-It's the **public IP address** or **DNS domain** to which the remote peer's/users will connect to. This address is **will be shared in the configuration** for the clients, but defguard gateways do **not bind to this address**.
+It's the **public IP address** or **DNS domain** to which the remote peer's/users will connect to. This address is **will be shared in the configuration** for the clients, but Defguardgateways do **not bind to this address**.
 
 {% hint style="info" %}
 **Defguard gateways bind to all IP addresses and the port defined below.**
@@ -76,7 +76,7 @@ Defines the IP ranges a device is allowed to route or communicate with.
 It supports multiple networks separated with comma, eg. 10.11.1.0/0, 192.168.1.0/24
 
 {% hint style="danger" %}
-Right now defguard only manages routing of AllowedIPs (adding to routing table the networks defined in AllowedIPs).
+Right now Defguardonly manages routing of AllowedIPs (adding to routing table the networks defined in AllowedIPs).
 
 If you want the _All Traffic_ to work in the desktop client you need to also configure MASQUARED/NAT for the VPN interface. [Example of that here.](../../tutorials/step-by-step-setting-up-a-vpn-server/#enabling-to-access-internet-through-your-vpn)
 {% endhint %}
@@ -110,7 +110,7 @@ This feature is only supported in [**Defguard Desktop Client**](../../help/deskt
 Each connection in the client:
 
 1. Will require the user to provide either TOTP token or Email code.
-2. After authorizing defguard will do a key exchange and setup a pre-shared session key unique for this connection.
+2. After authorizing Defguardwill do a key exchange and setup a pre-shared session key unique for this connection.
 
 {% hint style="warning" %}
 For this feature to work, the user must:

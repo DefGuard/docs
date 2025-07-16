@@ -4,7 +4,7 @@
 This features is available from Defguard 1.1
 {% endhint %}
 
-In this scenario defguard is only the VPN system and enrollment is used just to obtain credentials to configure the [Defguard Desktop Client](../configuring-vpn/add-new-instance/).
+In this scenario Defguard is only the VPN system and enrollment is used just to obtain credentials to configure the [Defguard Desktop Client](../configuring-vpn/add-new-instance/).
 
 Please go to the enrollment URL, like: https://enrollment.company.com and choose Enrollment:
 

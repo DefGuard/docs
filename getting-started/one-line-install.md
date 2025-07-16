@@ -1,14 +1,14 @@
 # One-line install script
 
-Welcome to getting started with defguard! In this section, you'll be guided through setting up your simplified instance of defguard that will allow you to get familiar with the solution's features.
+Welcome to getting started with defguard! In this section, you'll be guided through setting up your simplified instance of Defguard that will allow you to get familiar with the solution's features.
 
 {% hint style="info" %}
 The instance deployed by the script is meant to serve as a starting point and makes some tradeoffs to enable automated setup. Most importantly, it assumes that your Web UI is available publicly (to generate SSL certificates with Caddy). In general, it's not recommended for production, and we strongly encourage you to customise this setup to work better within your own infrastructure using more [advanced deployment strategies](../deployment-strategies/setting-up-your-instance.md).
 {% endhint %}
 
-To simplify the setup and enable automated deployment, we prepared a script which will deploy a complete defguard instance, including an enrollment proxy and VPN gateway.
+To simplify the setup and enable automated deployment, we prepared a script which will deploy a complete Defguard instance, including an enrollment proxy and VPN gateway.
 
-Just by launching this one command, there will be an interactive configuration and setup that will guide you step by step and deploy a full defguard instance based on Docker Compose setup:
+Just by launching this one command, there will be an interactive configuration and setup that will guide you step by step and deploy a full Defguard instance based on Docker Compose setup:
 
 <figure><img src="../.gitbook/assets/one-line-install.png" alt=""><figcaption></figcaption></figure>
 
@@ -56,7 +56,7 @@ GATEWAY_IMAGE_TAG=dev
 Downgrading to the production release may not be trivial afterwards because of the changes made to the database during the upgrade.
 {% endhint %}
 
-If you provide all required configuration options after the script finishes you should have a fully functional defguard instance with an enrollment proxy and VPN gateway to connect WireGuard clients to.
+If you provide all required configuration options after the script finishes you should have a fully functional Defguard instance with an enrollment proxy and VPN gateway to connect WireGuard clients to.
 
 Of course if you feel rightly uneasy about running random shell scripts from the internet feel free to inspect the [source code](https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh).
 
@@ -100,7 +100,7 @@ This setup should be deployed on a bare-metal or a virtual (VM) server - it will
 
 ## Configuration
 
-There are several options that can be configured to customize your defguard instance. They can be provided to the script in following ways:
+There are several options that can be configured to customize your Defguard instance. They can be provided to the script in following ways:
 
 * by setting environment variables in your shell
 * by providing an `.env` file in the working directory
@@ -109,7 +109,7 @@ There are several options that can be configured to customize your defguard inst
 
 ### Environment variables
 
-* `DEFGUARD_DOMAIN` - domain for you defguard web UI (e.g. `id.example.com`)
+* `DEFGUARD_DOMAIN` - domain for you Defguard web UI (e.g. `id.example.com`)
 * `DEFGUARD_ENROLLMENT_DOMAIN` - (optional) domain for the enrollment service; if not set the service will not be deployed
 * `DEFGUARD_USE_HTTPS` - (optional) set to any value if you want Caddy to generate SSL certificates and use HTTPS
 * `DEFGUARD_VPN_NAME`- (optional) name of initial VPN location to create; if not provided the script will not set up the VPN gateway
@@ -132,7 +132,7 @@ Available options:
 
         --help                         this help message
         --non-interactive              run in non-interactive mode (no user input)
-        --domain <domain>              domain where defguard web UI will be available
+        --domain <domain>              domain where Defguard web UI will be available
         --enrollment-domain <domain>   domain where enrollment service will be available
         --use-https                    configure reverse proxy to use HTTPS
         --vpn-name <name>              VPN location name
@@ -147,7 +147,7 @@ Available options:
 
 After the installation please make sure that **only the following ports are open on the server firewall:**
 
-* HTTPS port for the proxy (and/or the defguard core if you want it to be public)
+* HTTPS port for the proxy (and/or the Defguard core if you want it to be public)
 * VPN server port (eg. WireGuard port)
 
 {% hint style="danger" %}
@@ -157,7 +157,7 @@ After the installation please make sure that **only the following ports are open
 * 50055
 {% endhint %}
 
-Also this setup provides only communication encryption between defguard components, if you additionally like for core/proxy and gateway to have authorization - [please setup a custom SSL CA](../deployment-strategies/grpc-ssl-communication.md#custom-ssl-ca-and-certificates).
+Also this setup provides only communication encryption between Defguard components, if you additionally like for core/proxy and gateway to have authorization - [please setup a custom SSL CA](../deployment-strategies/grpc-ssl-communication.md#custom-ssl-ca-and-certificates).
 
 ## Advanced deployment strategies
 

@@ -7,17 +7,17 @@ This is an enterprise feature. To use it, purchase our [enterprise license](../e
 {% hint style="warning" %}
 API functionality:
 
-1. requires defguard version 1.2.4+
+1. requires Defguard version 1.2.4+
 2. is also **available without enterprise license**, if your instance does not exceed the limits [described here](../enterprise/license.md#enterprise-is-free-up-to-certain-limits).
 {% endhint %}
 
 ## REST API documentation
 
-You can explore the defguard REST API  using  [Swagger UI](https://swagger.io/tools/swagger-ui/) by going to `<YOUR_DEFGUARD_URL>/api-docs`.
+You can explore the Defguard REST API  using  [Swagger UI](https://swagger.io/tools/swagger-ui/) by going to `<YOUR_DEFGUARD_URL>/api-docs`.
 
 API specification JSON in OpenAPI format can also be fetched from `<YOUR_DEFGUARD_URL>/api/v1/api-docs`.
 
-Admin users can generate API tokens to enable request authentication for custom external tools which use defguard REST API.
+Admin users can generate API tokens to enable request authentication for custom external tools which use Defguard REST API.
 
 Tokens retain the same access permissions as their owner, so be careful when sharing them with others.
 

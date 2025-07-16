@@ -12,21 +12,21 @@ After purchasing the Enterprise License the _Enterprise features_ **tab will be 
 
 When this option is enabled, **only users in the Admin group can manage devices in user profile**, for any other users adding/editing/removing their VPN devices is disabled.
 
-### Disable ability to configure other VPN clients then defguard desktop client
+### Disable ability to configure other VPN clients then Defguard desktop client
 
-If '_Disable users' ability to manually configure WireGuard client_' option is **enabled**, then any user **has only possibility to configure defguard desktop client.**
+If '_Disable users' ability to manually configure WireGuard client_' option is **enabled**, then any user **has only possibility to configure Defguard desktop client.**
 
 This option will not be available for users:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-10-14 at 12.44.15.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="danger" %}
-Please note that defguard has only **desktop clients** and **no official mobile** client, thus when using this option users **will not be able to configure their mobile WireGuard clients.**
+Please note that Defguard has only **desktop clients** and **no official mobile** client, thus when using this option users **will not be able to configure their mobile WireGuard clients.**
 {% endhint %}
 
 ### Disable _All Traffic_ option in the desktop client
 
-Of of defguard desktop client uniqe features is the possibility for the user to automatically route **All network traffic** from their device **through the connected VPN Location**, when the user checks _All traffic_ optio&#x6E;_**:**_
+One of Defguarddesktop client uniqe features is the possibility for the user to automatically route **All network traffic** from their device **through the connected VPN Location**, when the user checks _All traffic_ optio&#x6E;_**:**_
 
 ![](<../../.gitbook/assets/Screenshot 2024-10-14 at 12.49.30.png>)
 

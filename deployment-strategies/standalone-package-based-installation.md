@@ -24,7 +24,7 @@ Please also remember to [secure the setup after installation](standalone-package
 
 ### Hardware Requirements
 
-All defguard components are **very low resource-consuming**. All of them are written in [Rust](https://www.rust-lang.org) and are single binaries. As minimum setup as follows should be more then enough:
+All Defguard components are **very low resource-consuming**. All of them are written in [Rust](https://www.rust-lang.org) and are single binaries. As minimum setup as follows should be more then enough:
 
 | Resource     | Minimum requirements         |
 | ------------ | ---------------------------- |
@@ -40,9 +40,9 @@ Before proceeding with the installation, ensure your system meets the following 
 * Debian-based operating system (Debian, Ubuntu, etc.).
 * Administrative (sudo) privileges.
 * A server with a public IP address (and you know what that IP address is and to which interface it's assigned) - in this example we use: 185.33.37.51.
-* You have a domain name and know how to assign IP and manage subdomains, in our example: defguard main url will be _my-server.defguard.net_ (and the subdomain is pointed to 185.33.37.51).
-* Defguard [enrollment service](https://defguard.gitbook.io/defguard/help/enrollment) (run by proxy) that will enable [remote onboarding, enrollment](https://defguard.gitbook.io/defguard/help/enrollment) and [easy configuration for our Desktop Clients (by adding defguard instances)](https://defguard.gitbook.io/defguard/help/configuring-vpn/add-new-instance) with instance URL and one simple token - in this tutorial we use: _enroll.defguard.net_ (this subdomain also points to 185.33.37.51).
-* If you have a **firewall**, we assume you have **open port 443** in order to expose both defguard and enrollment service, but also to automatically issue for these domains SSL Certificates. Port 444 (used for internal GRPC communication) **should not be exposed public.**
+* You have a domain name and know how to assign IP and manage subdomains, in our example: Defguard main url will be _my-server.defguard.net_ (and the subdomain is pointed to 185.33.37.51).
+* Defguard [enrollment service](https://defguard.gitbook.io/defguard/help/enrollment) (run by proxy) that will enable [remote onboarding, enrollment](https://defguard.gitbook.io/defguard/help/enrollment) and [easy configuration for our Desktop Clients (by adding Defguard instances)](https://defguard.gitbook.io/defguard/help/configuring-vpn/add-new-instance) with instance URL and one simple token - in this tutorial we use: _enroll.defguard.net_ (this subdomain also points to 185.33.37.51).
+* If you have a **firewall**, we assume you have **open port 443** in order to expose both Defguard and enrollment service, but also to automatically issue for these domains SSL Certificates. Port 444 (used for internal GRPC communication) **should not be exposed public.**
 * System clock is synchronized using Network Time Protocol (NTP). This is important for time-based one-time password (TOTP) codes.
 
 ### Prerequisites
@@ -242,7 +242,7 @@ DEFGUARD_GATEWAY_SECRET=defguard-gateway-secret
 DEFGUARD_YUBIBRIDGE_SECRET=defguard-yubibridge-secret
 DEFGUARD_SECRET_KEY=9oZqdHRCN0TWIyMhjYOAYwgzVz9IfOqz62PzUvjvyMzqLICGSM3b0pRMdDH300CQ
 
-# Define the URL under which defguard is running:
+# Define the URL under which Defguard is running:
 DEFGUARD_URL=https://my-server.defguard.net
 
 # How long auth session lives in seconds
@@ -283,9 +283,9 @@ DATABASE_URL="postgresql://defguard:defguard@localhost/defguard"
 
 **If you have configured your postgres with different names than in** [**PostgreSQL guide**](standalone-package-based-installation.md#postgresql)**, you can change it in DB configuration part. LDAP configuration is not part of this tutorial, you can also commented those lines.**
 
-**We will back to this configuration to connect defguard core with proxy in the** [**Run proxy**](standalone-package-based-installation.md#run-proxy) **section. For now `DEFGUARD_PROXY_URL` is commented.**
+**We will back to this configuration to connect Defguard core with proxy in the** [**Run proxy**](standalone-package-based-installation.md#run-proxy) **section. For now `DEFGUARD_PROXY_URL` is commented.**
 
-After changes, you can simply enable and start your defguard core service:
+After changes, you can simply enable and start your Defguard core service:
 
 ```
 systemctl enable defguard.service
@@ -296,7 +296,7 @@ To see logs, type journalctl command:
 
 ```
 # journalctl -u defguard.service | tail -n 50
-Jul 29 13:57:15 defguard-testing systemd[1]: Started defguard.service - defguard core service.
+Jul 29 13:57:15 defguard-testing systemd[1]: Started defguard.service - Defguard core service.
 Jul 29 13:57:15 defguard-testing defguard[2776504]: 2024-07-29T11:57:15.738420Z  INFO defguard: Starting defguard
 Jul 29 13:57:15 defguard-testing defguard[2776504]: 2024-07-29T11:57:15.743079Z  INFO defguard::db: Initializing DB pool
 Jul 29 13:57:16 defguard-testing defguard[2776504]: 2024-07-29T11:57:16.297407Z  INFO defguard: Using HMAC OpenID signing key
@@ -308,7 +308,7 @@ Jul 29 13:57:19 defguard-testing defguard[2776504]: 2024-07-29T11:57:19.780563Z 
 
 #### Configuring NGINX reverse proxy with SSL
 
-Now, we are able to create our first nginx config for defguard core service with _my-server.defguard.net_.
+Now, we are able to create our first nginx config for Defguard core service with _my-server.defguard.net_.
 
 Create config file `/etc/nginx/site-available/my-server.defguard.net.conf`, example config file for _my-server.defguard.ent_ should look like this:
 
@@ -421,22 +421,22 @@ After getting `DEFGUARD_TOKEN` and `DEFGUARD_GRPC_URL` variables, we can configu
 Template for configure gateway service looks like below:
 
 ```
-# This is an example config file for defguard VPN gateway
+# This is an example config file for Defguard VPN gateway
 # To use it fill in actual values for your deployment below
 
 # Required: secret token generated by defguard
 # NOTE: must replace default with actual value
 token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEZWZHdWFyZCIsInN1YiI6IkRFRkdVQVJELU5FVFdPUkstMSIsImNsaWVudF9pZCI6IjEiLCJleHAiOjYwMTczODM0MjQsIm5iZiI6MTcyMjQxNjEyOX0.HP-9ArvdXuyeBxRdQ6S_wJb3rBTq73J0sVyfwuPM-vY"
-# Required: defguard server gRPC endpoint URL
+# Required: Defguard server gRPC endpoint URL
 # NOTE: must replace default with actual value
 grpc_url = "https://my-server.defguard.net:444/"
-# Optional: gateway name which will be displayed in defguard web UI
+# Optional: gateway name which will be displayed in Defguard web UI
 name = "Gateway A"
 # Required: use userspace WireGuard implementation (e.g. wireguard-go)
 userspace = false
 # Optional: path to TLS cert file
 # grpc_ca = cert.pem
-# Required: how often should interface stat updates be sent to defguard server (in seconds)
+# Required: how often should interface stat updates be sent to Defguard server (in seconds)
 stats_period = 60
 # Required: name of WireGuard interface
 ifname = "wg0"
@@ -616,7 +616,7 @@ DEFGUARD_GATEWAY_SECRET=defguard-gateway-secret
 DEFGUARD_YUBIBRIDGE_SECRET=defguard-yubibridge-secret
 DEFGUARD_SECRET_KEY=9oZqdHRCN0TWIyMhjYOAYwgzVz9IfOqz62PzUvjvyMzqLICGSM3b0pRMdDH300CQ
 
-# Define the URL under which defguard is running:
+# Define the URL under which Defguard is running:
 DEFGUARD_URL=https://my-server.defguard.net
 
 # How long auth session lives in seconds
@@ -663,7 +663,7 @@ systemctl restart defguard.service
 ```
 
 {% hint style="success" %}
-Now you have full working defguard services 🥳
+Now you have full working Defguard services 🥳
 {% endhint %}
 
 You can [configure your desktop client using the enrollment](../help/configuring-vpn/add-new-instance/) service and use your VPN.
@@ -674,7 +674,7 @@ If you would like to use the feature in the desktop client to route **All traffi
 
 After the installation please make sure that **only the following ports are open on the server firewall:**
 
-* HTTPS port for the proxy (and/or the defguard core if you want it to be public)
+* HTTPS port for the proxy (and/or the Defguard core if you want it to be public)
 * VPN server port (eg. WireGuard port)
 
 {% hint style="danger" %}
@@ -685,4 +685,4 @@ After the installation please make sure that **only the following ports are open
 * 50055
 {% endhint %}
 
-Also this setup provides only communication encryption between defguard components, if you additionally like for core/proxy and gateway to have authorization - [please setup a custom SSL CA](grpc-ssl-communication.md#custom-ssl-ca-and-certificates).
+Also this setup provides only communication encryption between Defguard components, if you additionally like for core/proxy and gateway to have authorization - [please setup a custom SSL CA](grpc-ssl-communication.md#custom-ssl-ca-and-certificates).

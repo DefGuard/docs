@@ -2,7 +2,7 @@
 
 ## Resetting your password
 
-If you don't have access to defguard you can reset your password with a link that will be sent to you on your email. Can be done in two ways:
+If you don't have access to Defguard you can reset your password with a link that will be sent to you on your email. Can be done in two ways:
 
 #### Enrollment public page
 

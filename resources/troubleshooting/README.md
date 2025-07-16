@@ -73,7 +73,7 @@ Try upgrading these components to the latest stable version to resolve the issue
 
 ## TOTP / Email codes for MFA do not work
 
-If you are having problems with TOTP codes form 2FA/MFA (when logging in to defguard or when connecting to VPN) please make sure your clock on the server that defguard core is running is set properly.
+If you are having problems with TOTP codes form 2FA/MFA (when logging in to Defguard or when connecting to VPN) please make sure your clock on the server that Defguard core is running is set properly.
 
 Best would be to setup on the server NTP time synchronization.
 
@@ -114,7 +114,7 @@ More info here: [https://github.com/DefGuard/defguard/issues/1303](https://githu
 
 ## How to check if the VPN is working / my VPN is not working
 
-If you have configured your defguard instance correctly, after connecting to the VPN you should be able to ping your VPN server, for example if you have the following setup:
+If you have configured your Defguard instance correctly, after connecting to the VPN you should be able to ping your VPN server, for example if you have the following setup:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-03-24 at 18.36.43.png" alt="" width="313"><figcaption><p>Example VPN server IP</p></figcaption></figure>
 
@@ -171,10 +171,10 @@ From there, what happens to this traffic is the **administrator role.** The most
 * add routing rules, so that the traffic from that interface/VPN IP network gets routed to your network - this approach gives the advantage that users VPN ip persists in the network and the user is visible with it's VPN ip in your local network
 * Masquerade or NAT - a common use case is to masquerade or NAT the traffic - which is **actually required if you want users to access Internet from the VPN -** this process is [described in detailed in this tutorial](../../tutorials/step-by-step-setting-up-a-vpn-server/#enabling-to-access-internet-through-your-vpn).
 
-## Unable to sign in to your defguard instance with correct credentials
+## Unable to sign in to your Defguard instance with correct credentials
 
-The user tries to sign in to a defguard instance but gets a 401 response with message "Session is required".
+The user tries to sign in to a Defguard instance but gets a 401 response with message "Session is required".
 
 This issue is most likely caused by a misconfigured `DEFGUARD_URL` . Please take a look at the configuration options described in [General configuration](../../configuration.md#general-configuration) documentation.
 
-If you want to access your defguard instance without TLS (using an `http://` URL), please also make sure you have everything configured according to [Auth cookies configuration](../../configuration.md#auth-cookies-configuration) documentation.
+If you want to access your Defguard instance without TLS (using an `http://` URL), please also make sure you have everything configured according to [Auth cookies configuration](../../configuration.md#auth-cookies-configuration) documentation.

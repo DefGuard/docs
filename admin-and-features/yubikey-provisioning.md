@@ -20,13 +20,13 @@ Conditions below needs to be met:
 
 ## Overview
 
-Our provisioning service (installed on a computer that has USB access and securely communicating with defguard) allows you to easily create and populate the **SSH and GPG/OpenPGP** keys on a YubiKey hardware key, and share its public information inside defguard - which can be [used for example to authenticate to servers using defguard](ssh-authentication.md).
+Our provisioning service (installed on a computer that has USB access and securely communicating with defguard) allows you to easily create and populate the **SSH and GPG/OpenPGP** keys on a YubiKey hardware key, and share its public information inside Defguard - which can be [used for example to authenticate to servers using defguard](ssh-authentication.md).
 
 {% hint style="info" %}
 Defguard allows also of uploading/managing any GPG/SSH keys in the user profile.
 {% endhint %}
 
-It's completely safe, defguard does not store private keys. Every key is provisioned inside an encapsulated session so any **gpg-related files are deleted right after the process ends successfully or not**. Only public PGP and SSH keys are sent to defguard so you can access them at any time.
+It's completely safe, Defguard does not store private keys. Every key is provisioned inside an encapsulated session so any **gpg-related files are deleted right after the process ends successfully or not**. Only public PGP and SSH keys are sent to Defguard so you can access them at any time.
 
 {% hint style="warning" %}
 **GPG keys warning!**
@@ -119,8 +119,8 @@ This is very similar to Yubikey not detected issue. If run under VM with no dire
 
 #### Failed to register worker
 
-This error is most commonly caused by your provisioner having problems making a connection to the defguard GRPC endpoint. Make sure to:
+This error is most commonly caused by your provisioner having problems making a connection to the Defguard GRPC endpoint. Make sure to:
 
 * Include `http://` in your GRPC URL.
 * Run docker on the host network with the `--privileged` option. If you are using a docker container.
-* The host that runs the provisioner can connect to the defguard GRPC endpoint.
+* The host that runs the provisioner can connect to the Defguard GRPC endpoint.

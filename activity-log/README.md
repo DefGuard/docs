@@ -4,11 +4,11 @@
 This feature is available starting from version 1.4
 {% endhint %}
 
-The Activity Log provides a comprehensive view of user interactions within your defguard instance. This allows you to monitor user behavior, troubleshoot issues, and maintain an audit trail of important activities.
+The Activity Log provides a comprehensive view of user interactions within your Defguard instance. This allows you to monitor user behavior, troubleshoot issues, and maintain an audit trail of important activities.
 
 ## Viewing Activity log events
 
-Activity log is available as a dedicated page in defguard core Web UI that's used to manage your instance.
+Activity log is available as a dedicated page in Defguard core Web UI that's used to manage your instance.
 
 To access it click the `Activity log` button in the navbar.
 

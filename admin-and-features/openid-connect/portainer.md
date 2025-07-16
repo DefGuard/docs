@@ -6,7 +6,7 @@ hidden: true
 
 ## Add Portainer app in Defguard
 
-First, go to the defguard OpenID tab and click add new app button.
+First, go to the Defguard OpenID tab and click add new app button.
 
 1. Add the name `Portainer`
 2. Redirect Url add `https://yourportainer.com` where yourpotainer.com is the address of your portainer instance.
@@ -30,8 +30,8 @@ Select **Custom**
 
 **OAuth Configuration**
 
-* **Client ID** -> Client ID from defguard available on client details page.
-* **Client secret** -> Client secret from defguard available on client details page.
+* **Client ID** -> Client ID from Defguard available on client details page.
+* **Client secret** -> Client secret from Defguard available on client details page.
 * **Authorization URL** -> https://\<YOUR\_DEFGUARD\_INSTANCE>/api/v1/oauth/authorize
 * **Access token URL** -> https://\<YOUR\_DEFGUARD\_INSTANCE>/api/v1/oauth/token
 * **Resource URL** -> https://\<YOUR\_DEFGUARD\_INSTANCE>/api/v1/oauth/userinfo

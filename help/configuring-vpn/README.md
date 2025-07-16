@@ -1,18 +1,18 @@
 # Configuring VPN
 
-There are two possibilities to configure VPN connections that are provided by defguard server:
+There are two possibilities to configure VPN connections that are provided by Defguard server:
 
-### Automatic with defguard client
+### Automatic with Defguard client
 
-Using defguard desktop client will:
+Using Defguard desktop client will:
 
 * **automatically configure all VPN locations** available for the user - VPN Locations have access control based on groups - depending on which groups user is a part of **those VPN locations** will automatically appear after configuration
 * automatically add the client (device) to the user profile
 
-Please go [to this documentation describing this process](add-new-instance/):[ **Adding instance to defguard client**](add-new-instance/)
+Please go [to this documentation describing this process](add-new-instance/):[ **Adding instance to Defguard client**](add-new-instance/)
 
 ### Manual - for other clients
 
-By adding a device in the user profile there is a possibility to use **other WireGuard clients** (like mobile clients - since defguard - for now - only has desktop clients available).
+By adding a device in the user profile there is a possibility to use **other WireGuard clients** (like mobile clients - since Defguard - for now - only has desktop clients available).
 
 In order to configure/add your devlice manulally [go to this documentation section: **Adding a device manually**.](adding-wireguard-devices/)

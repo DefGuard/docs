@@ -6,7 +6,7 @@ By design **defguard core (the main component) is meant to be deployed in your s
 
 This approach is vastly different from most (if not all) VPN/IdP solutions, which are a simple or monolithic application focus on functionalities (like generating configs, managing users, etc.) and most of the time is publicly available in the Internet for any attacker.
 
-If you want full privacy, defguard only exposes publicly **components designed for this purpose:**
+If you want full privacy, Defguard only exposes publicly **components designed for this purpose:**
 
 * WireGuard® gateway - to enable VPN access
 * Public Proxy for secure remote processes like:
