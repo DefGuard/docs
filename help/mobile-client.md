@@ -7,7 +7,7 @@ Download for [iOS](https://defguard.net) or [Android](https://defguard.net) (Com
 
 ### Connecting made effortless 
 
-<figure><img src="../.gitbook/assets/defguard-mobile-connecting.gif" width="35%" alt=""></figure>
+<figure><img src="../.gitbook/assets/defguard-mobile-connecting.gif" width=50% alt=""></figure>
 
 
 ---
