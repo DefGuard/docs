@@ -19,7 +19,7 @@ Please note that <mark style="color:red;">WireGuard clients other than</mark> [D
 
 <figure><img src="../../../.gitbook/assets/add-device2.png" alt=""><figcaption></figcaption></figure>
 
-a. **Generate key pair** - if you are a new user, just select this option - it will generate a secure key pair (private and public key) - **securly in you browser (defguard doesn't store user private keys)**
+a. **Generate key pair** - if you are a new user, just select this option - it will generate a secure key pair (private and public key) - **securly in you browser (Defguard doesn't store user private keys)**
 
 {% hint style="info" %}
 Choosing this option - when you download your configuration (or use QR Code to configure Wireguard on your mobile device) - **the private key will be included in your configuration and there will be noting else you need to do**

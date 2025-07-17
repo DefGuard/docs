@@ -43,7 +43,7 @@ In the API token list you can later rename or delete a token:
 
 ## Usage
 
-defguard API uses a standard **Bearer token authentication** scheme.
+Defguard API uses a standard **Bearer token authentication** scheme.
 
 This means that an API token can be passed in the `Authorization`header to authenticate a given request instead of a session cookie used by the web UI:
 

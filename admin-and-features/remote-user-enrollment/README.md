@@ -1,10 +1,10 @@
 # Remote user enrollment
 
-By design **defguard core** is meant to be deployed **securely** within your infrastructure and only accessible from within the internal network or by VPN.
+By design **Defguard core** is meant to be deployed **securely** within your infrastructure and only accessible from within the internal network or by VPN.
 
 This introduces an issue with onboarding **new users** and forces the admin to choose an initial password, setup a VPN device for them, and pass on those details to the end user using possibly **insecure** channels.
 
-To avoid this issue you can deploy a **public** [defguard proxy](https://github.com/DefGuard/proxy) which enables a **secure enrollment process:**
+To avoid this issue you can deploy a **public** [Defguard proxy](https://github.com/DefGuard/proxy) which enables a **secure enrollment process:**
 
 <figure><img src="https://raw.githubusercontent.com/DefGuard/docs/docs/releases/0.7/enrollment.png" alt=""><figcaption></figcaption></figure>
 

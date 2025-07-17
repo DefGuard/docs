@@ -53,7 +53,7 @@ Defguard assigns IP addresses to clients by sequentially scanning each defined s
 
 ### Gateway address
 
-It's the **public IP address** or **DNS domain** to which the remote peer's/users will connect to. This address is **will be shared in the configuration** for the clients, but Defguardgateways do **not bind to this address**.
+It's the **public IP address** or **DNS domain** to which the remote peer's/users will connect to. This address is **will be shared in the configuration** for the clients, but Defguard gateways do **not bind to this address**.
 
 {% hint style="info" %}
 **Defguard gateways bind to all IP addresses and the port defined below.**

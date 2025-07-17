@@ -16,7 +16,7 @@ System_Boundary(c1, "Community", "Core server") {
 }
 System_Boundary(c2, "Enterprise",) {
     Container(openid, "OpenID provider", "Rust", "Provides Login with Defguard functionality in trusted apps")
-    Container(yubibridge, "Yubi-Bridge", "Python", "Allows to create PGP keys based on user data from defguard and transfer them to YubiKey")
+    Container(yubibridge, "Yubi-Bridge", "Python", "Allows to create PGP keys based on user data from Defguard and transfer them to YubiKey")
     Container(ldap, "OpenLDAP synchronization", "Provide OpenLDAP sync functionality")
     Container(oauth2, "OAuth2", "Provides OAuth2 functionality")
 }

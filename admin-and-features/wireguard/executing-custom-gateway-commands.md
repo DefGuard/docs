@@ -1,6 +1,6 @@
 # Executing custom gateway commands
 
-defguard gateway has ability to execute custom commands before and after the WireGuard tunnel us up or down.
+Defguard gateway has ability to execute custom commands before and after the WireGuard tunnel us up or down.
 
 {% hint style="warning" %}
 If you want to run a shell script, you should pass it's path to your shell, for example:

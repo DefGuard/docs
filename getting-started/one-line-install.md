@@ -123,7 +123,7 @@ There are several options that can be configured to customize your Defguard inst
 ### CLI options
 
 ```
-defguard deployment setup script v1.1.0
+Defguard deployment setup script v1.1.0
 Copyright (C) 2023 teonite <https://teonite.com>
 
 Usage:  [options]

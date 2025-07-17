@@ -16,7 +16,7 @@ All done by a nice wizard:
 
 <figure><img src="https://github.com/DefGuard/docs/raw/docs/releases/0.7/enrollment.png?raw=true" alt=""><figcaption></figcaption></figure>
 
-This can be done in **two ways** - either in the **browser** (web based) or by using a **defguard desktop client**. For both ways, there is an email that is sent to the user with explanation and relevant URLs/tokens.
+This can be done in **two ways** - either in the **browser** (web based) or by using a **Defguard desktop client**. For both ways, there is an email that is sent to the user with explanation and relevant URLs/tokens.
 
 {% hint style="warning" %}
 When starting the enrollment process - a user will have only **10minutes** to complete the process.

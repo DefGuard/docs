@@ -36,7 +36,7 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGua
 In this example we are answering the questions with the following answers:
 
 ```
-Enter defguard domain [default: ]: my-server.defguard.net
+Enter Defguard domain [default: ]: my-server.defguard.net
 Enter enrollment domain [default: ]: enroll.defguard.net
 Use HTTPS [default: false]: true
 Enter VPN location name [default: ]: Example
@@ -48,7 +48,7 @@ Enter VPN gateway public port [default: ]: 50555
 When finished you should see the following message:
 
 ```
-defguard setup finished successfully
+Defguard setup finished successfully
 If your DNS configuration is correct your Defguard instance should be available at:
 
 	Web UI: https://my-server.defguard.net
@@ -64,7 +64,7 @@ You can log into the UI using the default admin user:
 
 When you log in to your instance with user admin and the password that was generated for you, you should see that the VPN gateway is connected:
 
-<figure><img src="../../.gitbook/assets/SCR-20240118-ralh.png" alt=""><figcaption><p>defguard live status of WireGuard VPN gateway</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/SCR-20240118-ralh.png" alt=""><figcaption><p>Defguard live status of WireGuard VPN gateway</p></figcaption></figure>
 
 ### Connecting to your VPN using Defguard desktop client
 
@@ -110,7 +110,7 @@ Now let's test if the VPN network is accessible. To do so, let's ping the VPN ga
 
 As an administrator, you will probably be happy to see this - Defguard VPN dashboard:
 
-<figure><img src="../../.gitbook/assets/SCR-20240118-sthz.png" alt=""><figcaption><p>defguard VPN dashboard</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/SCR-20240118-sthz.png" alt=""><figcaption><p>Defguard VPN dashboard</p></figcaption></figure>
 
 {% hint style="info" %}
 This completes your VPN setup - both server and client.
@@ -254,4 +254,4 @@ We put a lot! of effort in development, testing and documentation - to make diff
 * star us on GitHub: [https://github.com/defguard/defguard](https://github.com/defguard/defguard)
 * and spread the word about Defguard however you like!
 
-Thank you from the whole [defguard team.](https://teonite.com)
+Thank you from the whole [Defguard team.](https://teonite.com)

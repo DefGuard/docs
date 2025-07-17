@@ -10,7 +10,7 @@ The simplest way to test the latest development or pre-release version is to use
 
 Each GitHub repository ([core](https://github.com/DefGuard/defguard/releases), [gateway](https://github.com/DefGuard/gateway/releases), [proxy](https://github.com/DefGuard/proxy/releases), and [client](https://github.com/DefGuard/client/releases)) has its **pre-prelease versions** available on the GitHub release page. This is where you can download binaries or packages with the pre-release, e.g.:
 
-<figure><img src="../.gitbook/assets/Screenshot 2024-10-18 at 14.51.11.png" alt=""><figcaption><p>defguard core example pre-release</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2024-10-18 at 14.51.11.png" alt=""><figcaption><p>Defguard core example pre-release</p></figcaption></figure>
 
 ### Docker images
 

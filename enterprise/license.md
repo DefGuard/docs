@@ -32,7 +32,7 @@ You can buy a monthly (soon yearly) subscription on our website: [https://defgua
 After purchasing:
 
 1. The license will be emailed to you on the email defined in the purchase form. Also there will be a second email with the invoice.
-2. Each month (on the date the license expires) **defguard core will contact our licensing server** and if the monthly payment was successful, our licensing server will **automatically issue a new license and the enterprise plan will be extended to new date.**
+2. Each month (on the date the license expires) **Defguard core will contact our licensing server** and if the monthly payment was successful, our licensing server will **automatically issue a new license and the enterprise plan will be extended to new date.**
 
 {% hint style="warning" %}
 If your setup / firewall / network policy **doesn't allow that Defguard will contact our licensing server, please contact us for the** [**Offline license**](license.md#offline-license)**.**
@@ -56,7 +56,7 @@ To configure Defguard with the received license, please go to **Settings** -> en
 
 The license will be validated and detailed information about the license will be diplayed (validity period and the license type):
 
-<figure><img src="../.gitbook/assets/enterprise-settings.png" alt=""><figcaption><p>defguard enterprise license settings</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/enterprise-settings.png" alt=""><figcaption><p>Defguard enterprise license settings</p></figcaption></figure>
 
 
 

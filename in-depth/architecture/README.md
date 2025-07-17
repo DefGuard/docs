@@ -1,8 +1,8 @@
 # Architecture
 
-By design **defguard core (the main component) is meant to be deployed in your secure network segments** (available only from an internal network or by VPN) and operations that require public access (like user onboarding, enrollment, password reset, etc.) **are done using a secure proxy:**
+By design **Defguard core (the main component) is meant to be deployed in your secure network segments** (available only from an internal network or by VPN) and operations that require public access (like user onboarding, enrollment, password reset, etc.) **are done using a secure proxy:**
 
-<figure><img src="../../.gitbook/assets/defguard-architecture.png" alt=""><figcaption><p>defguard architecture</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/defguard-architecture.png" alt=""><figcaption><p>Defguard architecture</p></figcaption></figure>
 
 This approach is vastly different from most (if not all) VPN/IdP solutions, which are a simple or monolithic application focus on functionalities (like generating configs, managing users, etc.) and most of the time is publicly available in the Internet for any attacker.
 

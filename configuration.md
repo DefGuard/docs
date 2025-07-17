@@ -144,7 +144,7 @@ The following env variables or gateway arguments define which commands gateway w
 It's usfull for exaple to use those commands to launch custom firewall commands or scripts that do various operations needed to be done on those ocasions.
 
 {% hint style="danger" %}
-defguard is built with highest security standards in mind, thus the options below **accept only a full path to one command and it's arguments.**
+Defguard is built with highest security standards in mind, thus the options below **accept only a full path to one command and it's arguments.**
 
 If you would like to have **multiple commands run,** you can create a shell script which will define the acceptable and preferred shell you would like to use and then all the commands you like to execute.
 {% endhint %}

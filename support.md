@@ -12,7 +12,7 @@ If you have bought an [Enterprise plan with premium support](https://defguard.ne
 
 ## Community Support
 
-Community support is done by the community as well as us (defguard authors) on our [Matrix](https://matrix.to/#/#defguard:teonite.com) - **Support** channel.
+Community support is done by the community as well as us (Defguard authors) on our [Matrix](https://matrix.to/#/#defguard:teonite.com) - **Support** channel.
 
 {% hint style="info" %}
 Since this a community support please remember that it may take some time to get a response, as there is no-one _assigned_ for the support 24/h - especially during the weekends, when people are just off.

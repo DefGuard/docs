@@ -20,7 +20,7 @@ The configuration will be named **LocationName-device.conf** - just add a new co
 5. **Replacing the PrivateKey**
 
 {% hint style="danger" %}
-**defguard doesn't store any user devices' private keys - you need to provide them**
+**Defguard doesn't store any user devices' private keys - you need to provide them**
 {% endhint %}
 
 Since Defguard doesn't have access to your private keys - **but has your public key stored for that device** - you need to replace the **PrivateKey value** in the new configuration location.

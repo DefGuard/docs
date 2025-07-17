@@ -2,7 +2,7 @@
 
 ## Overview
 
-defguard allows you to configure SSH authentication on your servers to use public SSH keys stored in your instance's database. This is possible by using the [AuthorizedKeysCommand option](http://man.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man5/sshd\_config.5#AuthorizedKeysCommand) in OpenSSH daemon configuration file.
+Defguard allows you to configure SSH authentication on your servers to use public SSH keys stored in your instance's database. This is possible by using the [AuthorizedKeysCommand option](http://man.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man5/sshd\_config.5#AuthorizedKeysCommand) in OpenSSH daemon configuration file.
 
 {% hint style="info" %}
 Each user can manage their public SSH (and GPG keys) in their user profile.

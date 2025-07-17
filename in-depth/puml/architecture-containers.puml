@@ -9,7 +9,7 @@ System_Boundary(c1, "Defguard web platform") {
     Container(gateway, "Gateway client", "Rust", "Allows to manage wireguard server from defguard")
     Container(web_app, "Defguard web application", "React, Typescript", "Provides UI for user")
     ContainerDb(db, "Database", "PostgreSQL", "Stores all platform data")
-    Container(yubibridge, "Yubi-Bridge", "Python", "Allows to create PGP keys based on user data from defguard and transfer them to YubiKey")
+    Container(yubibridge, "Yubi-Bridge", "Python", "Allows to create PGP keys based on user data from Defguard and transfer them to YubiKey")
 }
 Rel(user, mfa, "Uses", "HTTPS", $tags="firewall")
 Rel(user, web_app, "Uses", "HTTPS", $tags="firewall")

@@ -12,7 +12,7 @@ This feature is available starting from version 1.5
 
 ## Overview
 
-defguard administrators are able to create SNAT (Source Network Address Translation) bindings which include following information:
+Defguard administrators are able to create SNAT (Source Network Address Translation) bindings which include following information:
 
 * location ID
 * user ID

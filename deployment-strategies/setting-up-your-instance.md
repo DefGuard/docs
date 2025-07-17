@@ -4,7 +4,7 @@ Welcome to the deployment strategies section of Defguard documentation. This gui
 
 ## Components
 
-defguard comes with four main components:
+Defguard comes with four main components:
 
 * **Core service** - main web UI and database
 * **Proxy service** - used to safely expose a subset of public functionalities
