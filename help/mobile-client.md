@@ -4,7 +4,7 @@ Mobile client is currently under development, current page should be considered 
 {% endhint %}
 
 ### Overview
-This guide explains how to use the Defguard Mobile to connect securely to VPN locations managed within your Defguard instance. It covers the entire process, from installation, adding new instances, connecting to locations, to managing your VPN connection settings.
+This guide explains how to use the Defguard Mobile to connect securely to VPN locations managed within your Defguard [instance](#what-is-an-instance). It covers the entire process, from installation, adding new instances, connecting to locations, to managing your VPN connection settings.
 
 
 
