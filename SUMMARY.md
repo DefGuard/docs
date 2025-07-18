@@ -124,6 +124,7 @@
 
 * [Architecture Decision Records](in-depth/architecture-decision-records/README.md)
   * [1.5](in-depth/architecture-decision-records/1.5.md)
+  * [1.4](in-depth/architecture-decision-records/1.4.md)
   * [1.3](in-depth/architecture-decision-records/1.3.md)
   * [Pre-1.3](in-depth/architecture-decision-records/pre-1.3.md)
 * [Architecture](in-depth/architecture/README.md)
