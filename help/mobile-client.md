@@ -1,7 +1,7 @@
 # Mobile Client
 
 {% hint style="warning" %}
-Mobile client is currently under development, current page should be considered as preview. Some parts of UI may look diffrent in upcoming release.
+Mobile client is currently under development **(closed beta)**, current page should be considered as preview. Some parts of UI may look different in upcoming release.
 {% endhint %}
 
 ### Overview
@@ -11,20 +11,21 @@ This guide explains how to use the Defguard Mobile to connect securely to VPN lo
 
 ### Installation
 
-Download for [iOS](https://defguard.net) or [Android](https://defguard.net) (Coming soon!)
+Join closed beta for [iOS](https://defguard.net/download) or [Android](https://defguard.net) (Coming soon!)
 
 ### Quick guide
-- [How to add instance?](#adding-new-instance-by-qr-or-manually)
+- [How to add an instance?](#adding-new-instance-by-qr-or-manually)
 - [How to connect to location without MFA?](#connecting-to-location-without-mfa)
 - [How to connect to location with MFA?](#connecting-to-location-with-mfa)
 - [How can I obtain QR Code?](#how-can-i-obtain-qr-code-url-and-token)
 - [What is an instance?](#what-is-an-instance)
-- [Supported MFA methods](#supported-mfa-methods)
+- [Supported MFA methods](#supportd-mfa-methods)
 - [Additional features](#additional-features)
 ### Connecting made effortless 
-
-<figure><img src="../.gitbook/assets/defguard-mobile-connecting.gif" width=50% alt=""></figure>
-
+1. Download app from [App Store](https://defguard.net/download) or [Google Play](https://defguard.net/download)
+2. Open app
+3. To add instance [scan QR](#add-instance-by-qr-code) or [use manual configuartion](#add-instance-manually)
+4. [Connect](#connecting-to-location-without-mfa) with single click
 
 
 ### Adding new instance
@@ -32,7 +33,7 @@ Download for [iOS](https://defguard.net) or [Android](https://defguard.net) (Com
 <figure><img src="../.gitbook/assets/defguard-mobile-new-instance.jpg" width=50% alt=""></figure>
 
 {% hint style="info" %}
-**Before** proceeding, please read [this](#how-can-i-obtain-qr-code-url-and-token) 
+In this stage you will need [QR code or URL with token](#how-can-i-obtain-qr-code-url-and-token) 
 {% endhint %}
 
 #### Add instance by QR Code
@@ -56,7 +57,7 @@ Your phone will need to add new VPN configuration, when you see the request, ple
 
 1. Choose desired instance from list
 2. Select location by clicking "Connect" next to it
-3. Choose if you want to route you traffic with:
+3. Choose if you want to route your traffic with:
    * Predefined traffic (Faster for general browsing)
    * All traffic (Full encryption and privacy)
 4. Press "Connect"
@@ -65,7 +66,7 @@ Your phone will need to add new VPN configuration, when you see the request, ple
 
 1. Choose desired instance from list
 2. Select location by clicking "Connect" next to it
-3. Choose if you want to route you traffic with:
+3. Choose if you want to route your traffic with:
    * Predefined traffic (Faster for general browsing)
    * All traffic (Full encryption and privacy)
 4. Choose MFA method which is configured in your account
@@ -74,7 +75,7 @@ Your phone will need to add new VPN configuration, when you see the request, ple
 5. Authenticate and connect.
 
 {% hint style="warning" %}
-If your instance have configured external OpenID authentication, it will be used as primary method for MFA
+If your instance has configured external OpenID authentication, it will be used as primary method for MFA
 {% endhint %}
 
 ### How can I obtain QR Code, URL and token?
