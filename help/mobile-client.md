@@ -13,20 +13,22 @@ This guide explains how to use the Defguard Mobile to connect securely to VPN lo
 
 Join closed beta for [iOS](https://defguard.net/download) or [Android](https://defguard.net) (Coming soon!)
 
-### Quick guide
-- [How to add an instance?](#adding-new-instance-by-qr-or-manually)
-- [How to connect to location without MFA?](#connecting-to-location-without-mfa)
-- [How to connect to location with MFA?](#connecting-to-location-with-mfa)
-- [How can I obtain QR Code?](#how-can-i-obtain-qr-code-url-and-token)
-- [What is an instance?](#what-is-an-instance)
-- [Supported MFA methods](#supportd-mfa-methods)
-- [Additional features](#additional-features)
 ### Connecting made effortless 
 1. Download app from [App Store](https://defguard.net/download) or [Google Play](https://defguard.net/download)
 2. Open app
 3. To add instance [scan QR](#add-instance-by-qr-code) or [use manual configuartion](#add-instance-manually)
 4. [Connect](#connecting-to-location-without-mfa) with single click
 
+
+
+### Quick guide
+- [How to add an instance?](#adding-new-instance)
+- [How to connect to location without MFA?](#connecting-to-location-without-mfa)
+- [How to connect to location with MFA?](#connecting-to-location-with-mfa)
+- [How can I obtain QR Code?](#how-can-i-obtain-qr-code-url-and-token)
+- [What is an instance?](#what-is-an-instance)
+- [Supported MFA methods](#supported-mfa-methods)
+- [Additional features](#additional-features)
 
 ### Adding new instance
 
