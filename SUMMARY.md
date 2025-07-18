@@ -122,6 +122,10 @@
 
 ## In depth
 
+* [Architecture Decision Records](in-depth/architecture-decision-records/README.md)
+  * [1.5](in-depth/architecture-decision-records/1.5.md)
+  * [1.3](in-depth/architecture-decision-records/1.3.md)
+  * [Pre-1.3](in-depth/architecture-decision-records/pre-1.3.md)
 * [Architecture](in-depth/architecture/README.md)
   * [How do VPN statistics work](in-depth/architecture/how-do-vpn-statistics-work.md)
   * [Security concepts](in-depth/architecture/security-concepts.md)
