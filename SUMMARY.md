@@ -96,6 +96,7 @@
 ## Enterprise
 
 * [License](enterprise/license.md)
+* [Enterprise features](enterprise/enterprise-features.md)
 
 ## Using Defguard (for end users) <a href="#help" id="help"></a>
 

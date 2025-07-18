@@ -1,4 +1,5 @@
 # Mobile Client
+
 {% hint style="warning" %}
 Mobile client is currently under development, current page should be considered as preview. Some parts of UI may look diffrent in upcoming release.
 {% endhint %}
@@ -48,26 +49,25 @@ Download for [iOS](https://defguard.net) or [Android](https://defguard.net) (Com
 
 
 {% hint style="warning" %}
-Your phone will need to add new VPN configuration, when you see the request, please allow it. Without this permission, Defguard cannot establish VPN connection. 
+Your phone will need to add new VPN configuration, when you see the request, please allow it. Without this permission, Defguard cannot establish VPN connection.
 {% endhint %}
+
 ### Connecting to location (without MFA)
 
 1. Choose desired instance from list
 2. Select location by clicking "Connect" next to it
 3. Choose if you want to route you traffic with:
-    - Predefined traffic (Faster for general browsing)
-    - All traffic (Full encryption and privacy)
+   * Predefined traffic (Faster for general browsing)
+   * All traffic (Full encryption and privacy)
 4. Press "Connect"
-
-
 
 ### Connecting to location (with MFA)
 
 1. Choose desired instance from list
 2. Select location by clicking "Connect" next to it
 3. Choose if you want to route you traffic with:
-    - Predefined traffic (Faster for general browsing)
-    - All traffic (Full encryption and privacy)
+   * Predefined traffic (Faster for general browsing)
+   * All traffic (Full encryption and privacy)
 4. Choose MFA method which is configured in your account
     - Email
     - Authenticator App
@@ -99,6 +99,7 @@ An instance contains locations. These are the servers you can connect to via VPN
 
 
 ### Supported MFA Methods
+
 Defguard Mobile supports multiple secure authentication methods:
 - **TOTP** – time‑based one‑time passwords (Authenticator apps)  
 - **Email** – receive verification codes via email  
@@ -108,7 +109,8 @@ Defguard Mobile supports multiple secure authentication methods:
 
 
 ## Additional features
-- Switch to **dark/light theme** — adapts to your system settings  
-- View **live connection stats**, logs & tunnel details  
-- Manage multiple instances
-- Choose if you want to route all or predefined traffic
+
+* Switch to **dark/light theme** — adapts to your system settings
+* View **live connection stats**, logs & tunnel details
+* Manage multiple instances
+* Choose if you want to route all or predefined traffic

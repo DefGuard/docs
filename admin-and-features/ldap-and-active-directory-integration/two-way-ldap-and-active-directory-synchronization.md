@@ -1,6 +1,10 @@
 # Two-way LDAP and Active Directory synchronization
 
 {% hint style="warning" %}
+This is an enterprise feature. To use it, purchase our [enterprise license](../../enterprise/license.md) or ensure that your deployment does not exceed the [usage limits](../../enterprise/license.md#enterprise-is-free-up-to-certain-limits).
+{% endhint %}
+
+{% hint style="warning" %}
 This feature is available in Defguard version ≥ v1.3.0
 {% endhint %}
 

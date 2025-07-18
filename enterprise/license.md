@@ -1,6 +1,6 @@
 # License
 
-Defguard Enterprise offers a lot of functionalities that are not offered in the Open Source Open Core, like external OpenID Connect/SSO support, automatic\&real time desktop client synchronization and configuration, and much more (go to [All Enterprise Features](broken-reference) to see more).
+Defguard Enterprise offers a lot of functionalities that are not offered in the Open Source Open Core, like external OpenID Connect/SSO support, automatic\&real time desktop client synchronization and configuration, and much more (go to [All Enterprise Features](enterprise-features.md) to see more).
 
 ### Enterprise is free up to certain limits
 
@@ -57,6 +57,3 @@ To configure Defguard with the received license, please go to **Settings** -> en
 The license will be validated and detailed information about the license will be diplayed (validity period and the license type):
 
 <figure><img src="../.gitbook/assets/enterprise-settings.png" alt=""><figcaption><p>Defguard enterprise license settings</p></figcaption></figure>
-
-
-
