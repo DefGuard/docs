@@ -1,4 +1,4 @@
-# About defguard
+# About Defguard
 
 {% embed url="https://www.youtube.com/watch?v=4PF7edMGBwk" %}
 
