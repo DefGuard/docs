@@ -124,11 +124,6 @@ After disconnecting, your device will stop sending traffic through the VPN and r
 
 ## Additional information
 
-### What is an instance?
-
-An instance contains locations. These are the servers you can connect to via VPN. When you use the Defguard Mobile, you select an instance first, and then choose the specific location within it to establish your VPN connection.
-
-
 ### Authenticating with OpenID
 
 Upon connecting location with **external** MFA requirement we should see this information
