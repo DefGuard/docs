@@ -5,7 +5,7 @@
 
 ## About
 
-* [About defguard](about/about-defguard.md)
+* [About Defguard](about/about-defguard.md)
 * [Features overview](about/features-overview.md)
 
 ## Getting started
