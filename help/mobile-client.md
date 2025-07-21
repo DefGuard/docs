@@ -67,8 +67,7 @@ Your phone will need to add new VPN configuration, when you see the request, ple
 ### Connecting to location (with MFA)
 
 {% hint style="warning" %}
-If your instance has configured external OpenID authentication, it will be used as primary method for MFA.
-For detailed information please check [this](#authenticating-with-openid) section.
+Please check [this](#authenticating-with-openid) section for information about OpenID authentication method. 
 {% endhint %}
 
 1. Choose desired instance from list
