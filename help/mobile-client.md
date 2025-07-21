@@ -19,7 +19,6 @@ Join closed beta for [iOS](https://defguard.net/download) or [Android](https://d
 4. [Connect](#connecting-to-location-without-mfa) with single click
 
 
-
 ### Quick guide
 - [How to add an instance?](#adding-new-instance)
 - [How to connect to location without MFA?](#connecting-to-location-without-mfa)
@@ -67,7 +66,7 @@ Your phone will need to add new VPN configuration, when you see the request, ple
 ### Connecting to location (with MFA)
 
 {% hint style="warning" %}
-Please check [this](#authenticating-with-openid) section for information about OpenID authentication method works. 
+Please check [this](#authenticating-with-openid) section for information about how the OpenID authentication method works. 
 {% endhint %}
 
 1. Choose desired instance from list
@@ -79,8 +78,6 @@ Please check [this](#authenticating-with-openid) section for information about O
    * Email
    * [Authenticator App](#authenticating-with-authenticator-app-totp)
 5. Authenticate and connect
-
-
 
 
 {% hint style="info" %}
@@ -100,7 +97,6 @@ If you want to change this setting later:
 {% endhint %}
 
 <figure><img src="../.gitbook/assets/defguard-mobile-connect-traffic.png"width="50%"><figcaption></figcaption></figure>
-
 
 {% hint style="info" %}
 When connecting with MFA for the first time, you will have the option to select **"Remember my choice"**. Select this option if you want to always use this method for this location.
