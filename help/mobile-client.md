@@ -8,162 +8,140 @@ Mobile client is currently under development **(closed beta)**, current page sho
 
 This guide explains how to use the Defguard Mobile to connect securely to VPN locations managed within your Defguard [instance](mobile-client.md#what-is-an-instance). It covers the entire process, from installation, adding new instances, connecting to locations, to managing your VPN connection settings.
 
-### Installation
+## Installation process
 
-Join closed beta for [iOS](https://defguard.net/download) or [Android](https://defguard.net) (Coming soon!)
+### Step 1: Download app 
+1. Join closed beta for [iOS](https://defguard.net) or [Android](https://defguard.net). (Coming soon!)
+2. Download and install the app on your device.
 
-### Connecting made effortless 
-1. Download app from [App Store](https://defguard.net/download) or [Google Play](https://defguard.net/download)
-2. Open app
-3. To add instance [scan QR](#add-instance-by-qr-code) or [use manual configuration](#add-instance-manually)
-4. [Connect](#connecting-to-location-without-mfa) with single click
-
-
-### Quick guide
-- [How to add an instance?](#adding-new-instance)
-- [How to connect to location without MFA?](#connecting-to-location-without-mfa)
-- [How to connect to location with MFA?](#connecting-to-location-with-mfa)
-- [How can I obtain QR Code?](#how-can-i-obtain-qr-code-url-and-token)
-- [What is an instance?](#what-is-an-instance)
-- [Supported MFA methods](#supported-mfa-methods)
-- [Additional features](#additional-features)
-
-### Adding new instance
-
-<figure><img src="../.gitbook/assets/defguard-mobile-new-instance.jpg" alt="" width="375"><figcaption></figcaption></figure>
-
+### Step 2: Add new Instance
 {% hint style="info" %}
-In this stage you will need [QR code or URL with token](#how-can-i-obtain-qr-code-url-and-token) 
+An instance is a container for VPN locations. Each instance can have multiple locations that you can connect to with a single click. 
 {% endhint %}
 
-#### Add instance by QR Code
+1. Log in to your Defguard account.
+2. Go to **"My Profile"** tab.
+3. Click **"Add new device"** button inside **"User Devices"** list.
+<figure><img src="../.gitbook/assets/defguard-myprofile-add-device.png" alt="" width="50%"><figcaption></figcaption></figure>
 
-1. Go to "Add Instance" tab
-2. Click "Scan QR Code"
-3. Scan QR code
-4. Enter name
+4. Select "Remote Device Activation" and click "Next". 
+<figure><img src="../.gitbook/assets/defguard-add-new-device.png" alt="" width="50%"><figcaption></figcaption></figure>
 
-#### Add instance manually
+5. After that you should see URL, Token and QR Code. **Take screenshot**, we will need it next step.
+<figure><img src="../.gitbook/assets/defguard-add-instance-qr.png" alt="" width="50%"><figcaption></figcaption></figure>
 
-1. Go to "Add Instance" tab
-2. Click "Add Instance Manually"
-3. Enter URL and token
-4. Confirm
+6. Open Defguard Mobile on your smartphone
+7. Click "Scan QR Code"
+8. Scan QR generated in step 5.
+9. Enter name of your device. For example "iPhone 11"
+10. Confirm
+
+{% hint style="info" %}
+If you can't scan QR Code, select "Add Instance Manually" in **step 4** and enter URL and Token from **step 5**.
+{% endhint %}
 
 {% hint style="warning" %}
 Your phone will need to add new VPN configuration, when you see the request, please allow it. Without this permission, Defguard cannot establish VPN connection.
 {% endhint %}
 
-### Connecting to location (without MFA)
-
-1. Choose the desired instance from list
-2. Select the location by clicking "Connect" next to it
-3. Choose if you want to route your traffic with:
-   * Predefined traffic
-   * All traffic
-4. Press "Connect"
-
-### Connecting to location (with MFA)
-
-{% hint style="warning" %}
-Please check [this](#authenticating-with-openid) section for information about how the OpenID authentication method works. 
-{% endhint %}
-
-1. Choose desired instance from list
-2. Select location by clicking "Connect" next to it
-3. Choose if you want to route your traffic with:
-   * Predefined traffic
-   * All traffic
-4. Choose MFA method which is configured in your account
-   * Email
-   * [Authenticator App](#authenticating-with-authenticator-app-totp)
-5. Authenticate and connect
-
-
+### Step 3: Connecting to instance
+ 
 {% hint style="info" %}
-The first time you connect, app will ask whether you want to route **predefined traffic** or **all traffic**. 
+Some VPN locations require extra security when connecting. This is called MFA (Multi-Factor Authentication). There are two types:
 
-- **Predefined traffic** is optimized for general browsing and will route only specific traffic through VPN.
-- **All traffic** provides full encryption and privacy for all your device traffic.
-
-You can select **"Remember my choice"** if you don't want to be asked again. 
-
-
-If you want to change this setting later:
-1. Go to **Instances** in the app menu.
-2. Press **Connect** button next to location name and wait until popup shows.
-3. Click **Select Traffic Routing**, choose option and confirm with **Save** button.
-
+* Internal MFA: You confirm your identity directly in the app, for example by entering a code from your Authenticator App or email.
+* External MFA: You are redirected to a secure login page (like Google or Microsoft) outside the app to confirm your identity.
+If a location uses MFA, you will see clear instructions in the app. Just follow the steps shown on your screen to connect safely.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/defguard-mobile-connect-traffic.png"width="50%"><figcaption></figcaption></figure>
+1. Open Defguard
+2. Click on Instance you want to connect to.
+<figure><img src="../.gitbook/assets/defguard-instance-list.jpg" alt="" width="375"><figcaption></figcaption></figure>
 
+3. Click **"Connect"** next to location you want to use.
+<figure><img src="../.gitbook/assets/defguard-location-list.jpg" alt="" width="375"><figcaption></figcaption></figure>
+{% hint style="info" %}
+The first time you connect, app will ask whether you want to route **predefined traffic** or **all traffic**.
+
+* **Predefined traffic** is optimized for general browsing and will route only specific traffic through VPN.
+* **All traffic** provides full encryption and privacy for all your device traffic.
+
+You can select **"Remember my choice"** if you don't want to be asked again.
+
+To change your traffic routing method after your first connection:
+
+1. Open the Defguard.
+2. Go to **Instances** in the app menu.
+3. Press the **Connect** button next to the location you want to update.
+4. When the popup appears, look for the option **Select Traffic Routing**.
+<figure><img src="../.gitbook/assets/defguard-mobile-connect-traffic.png" alt="" width="375"><figcaption></figcaption></figure>
+
+5. Choose your preferred routing method and confirm with the **Save** button.
+
+{% endhint %}
+[screen]
+4. Choose your routing method
+5. Confirm
+{% hint style="warning" %}
+If your location doesn't require MFA skip to step 8.
+{% endhint %}
 {% hint style="info" %}
 When connecting with MFA for the first time, you will have the option to select **"Remember my choice"**. Select this option if you want to always use this method for this location.
 
 To change your preferred MFA method later:
+
 1. Go to **Instances** in the app menu.
 2. Press **Connect** button next to location name and wait until popup shows.
+<figure><img src="../.gitbook/assets/defguard-mobile-connect-mfa.png" alt="" width="375"><figcaption></figcaption></figure>
+
 3. Click **Select MFA Method**, choose option and confirm with **Save** button.
-
 {% endhint %}
-<figure><img src="../.gitbook/assets/defguard-mobile-connect-mfa.png"width="50%"><figcaption></figcaption></figure>
-
-### Authenticating with OpenID
-Upon connecting location with **external** MFA requirement we should see this information
-<figure><img src="../.gitbook/assets/defguard-mobile-openid-banner.png"width="50%"><figcaption></figcaption></figure>
-
-After clicking "Authenticate with OpenID", we should be redirected to login page. After successfully logging in, you should see something like this:
-<figure><img src="../.gitbook/assets/defguard-mobile-openid-success.png"width="50%"><figcaption></figcaption></figure>
-After this step please go back to the Defguard app and check your connection.
-
-### Authenticating with Authenticator App (TOTP)
-
-When connecting to a location that requires **internal** MFA, you should see this screen.
-<figure><img src="../.gitbook/assets/defguard-mobile-totp-screen.png"width="50%"><figcaption></figcaption></figure>
-
-Enter code from **your Authenticator App** and click "Verify". After this step your VPN connection will be established.
+4. Enter code from your [Authenticator App](mobile-client.md#authenticating-with-authenticator-app-totp) or Email.
+{% hint style="warning" %}
+If the VPN location requires OpenID for authentication, you will need to authorize in a different way. Instead of entering a code in the app, you will be redirected to a secure login page (for example, Google or Microsoft). Follow the instructions on the screen to log in. After successful authentication, after returning to Defguard, your connection will be established.
+For detailed explanation of the OpenID authentication process, see the section "[Authenticating with OpenID](#authenticating-with-openid)".
+{% endhint %}
+5. Connect
 
 
-### How can I obtain QR Code, URL and token?
+#### Disconnecting from VPN
 
-1. Login to your Defguard instance
-2. Go to "My Profile" tab
-3. Click "Add new device" in "User devices" tab
+To disconnect from a VPN location in Defguard:
 
-<figure><img src="../.gitbook/assets/defguard-myprofile-add-device.png" alt="" width="50%"><figcaption></figcaption></figure>
+1. Open  Defguard.
+2. Go to the active instance
+3. Click **Disconnect** button next to the location you are currently connected to.
 
-4\. Select "Remote Device Activation" and click "Next"
+{% hint style="info" %}
+After disconnecting, your device will stop sending traffic through the VPN and return to your regular internet connection. You can reconnect at any time by following the connection steps above.
+{% endhint %}
 
-<figure><img src="../.gitbook/assets/defguard-add-new-device.png" alt="" width="50%"><figcaption></figcaption></figure>
-
-5\. You will see URL, Authentication token and \*\*QR Code\*\*
-
-<figure><img src="../.gitbook/assets/defguard-add-instance-qr.png" alt="" width="50%"><figcaption></figcaption></figure>
+## Additional information
 
 ### What is an instance?
 
 An instance contains locations. These are the servers you can connect to via VPN. When you use the Defguard Mobile, you select an instance first, and then choose the specific location within it to establish your VPN connection.
 
-#### Instance list
 
-<figure><img src="../.gitbook/assets/defguard-instance-list.jpg" alt="" width="375"><figcaption></figcaption></figure>
+### Authenticating with OpenID
 
-#### Location list (inside instance)
+Upon connecting location with **external** MFA requirement we should see this information
 
-<figure><img src="../.gitbook/assets/defguard-location-list.jpg" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/defguard-mobile-openid-banner.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### Supported MFA Methods
+After clicking "Authenticate with OpenID", you should be redirected to login page. After successfully logging in, you should see something like this:
 
-Defguard Mobile supports multiple secure authentication methods:
+<figure><img src="../.gitbook/assets/defguard-mobile-openid-success.png" alt="" width="375"><figcaption></figcaption></figure>
 
-* **TOTP** – time‑based one‑time passwords (Authenticator apps)
-* **Email** – receive verification codes via email
-* **OpenID** – integrate with any OpenID Connect provider (Google, etc.)
+After this step please go back to the Defguard and check your connection.
 
-## Additional features
+### Authenticating with Authenticator App (TOTP)
 
-* Switch to **dark/light theme** — adapts to your system settings
-* View **live connection stats**, logs & tunnel details
-* Manage multiple instances
-* Choose if you want to route all or predefined traffic
+When connecting to a location that requires **internal** MFA, you should see this screen.
+
+<figure><img src="../.gitbook/assets/defguard-mobile-totp-screen.png" alt="" width="375"><figcaption></figcaption></figure>
+
+1. Open your Authenticator App (such as Google Authenticator or Microsoft Authenticator) on your phone.
+2. Find the code generated for your Defguard account.
+3. Enter this code into the Defguard.
+4. Tap **"Verify"**.
