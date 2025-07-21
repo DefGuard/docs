@@ -88,7 +88,7 @@ To change your traffic routing method after your first connection:
 5. Confirm
 
 {% hint style="warning" %}
-If your location doesn't require MFA skip to step 8.
+If your location doesn't require MFA skip to step 7.
 {% endhint %}
 {% hint style="info" %}
 When connecting with MFA for the first time, you will have the option to select **"Remember my choice"**. Select this option if you want to always use this method for this location.
@@ -102,12 +102,12 @@ To change your preferred MFA method later:
 
 3. Click **Select MFA Method**, choose option and confirm with **Save** button.
 {% endhint %}
-4. Enter code from your [Authenticator App](mobile-client.md#authenticating-with-authenticator-app-totp) or Email.
+6. Enter code from your [Authenticator App](mobile-client.md#authenticating-with-authenticator-app-totp) or Email.
 {% hint style="warning" %}
 If the VPN location requires OpenID for authentication, you will need to authorize in a different way. Instead of entering a code in the app, you will be redirected to a secure login page (for example, Google or Microsoft). Follow the instructions on the screen to log in. After successful authentication, after returning to Defguard, your connection will be established.
 For detailed explanation of the OpenID authentication process, see the section "[Authenticating with OpenID](#authenticating-with-openid)".
 {% endhint %}
-5. Connect
+7. Connect
 
 
 #### Disconnecting from VPN
