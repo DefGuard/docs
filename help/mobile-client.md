@@ -81,9 +81,12 @@ To change your traffic routing method after your first connection:
 
 
 {% endhint %}
-[screen]
+
+* Insert screenshot here
+
 4. Choose your routing method
 5. Confirm
+
 {% hint style="warning" %}
 If your location doesn't require MFA skip to step 8.
 {% endhint %}
