@@ -49,6 +49,8 @@ You can generate random strings for secrets with e.g.:
 * `DEFGUARD_AUTH_COOKIE_TIMEOUT`: Cookie lifetime period, default: `7d` ([Humantime documentation](https://docs.rs/humantime/latest/humantime/struct.Duration.html))
 * `DEFGUARD_MFA_CODE_TIMEOUT`: Email code lifetime period, default: `60s` ([Humantime documentation](https://docs.rs/humantime/latest/humantime/struct.Duration.html))
 * `DEFGUARD_SESSION_TIMEOUT`: Session lifetime period, default: `7d` ([Humantime documentation](https://docs.rs/humantime/latest/humantime/struct.Duration.html))
+* `HTTP_BIND_ADDRESS`: The IP address that the HTTP should bind to (available since version 1.5.0)
+* `GRPC_BIND_ADDRESS`: The IP address that the gRPC should bind to (available since version 1.5.0)
 
 ### Database configuration
 
@@ -112,6 +114,8 @@ Here are proxy ENV variables. gRPC configuration is described more [on this help
 * `DEFGUARD_PROXY_GRPC_KEY`(optional): path to TLS key file. [More on that in this help page.](deployment-strategies/grpc-ssl-communication.md)
 * `DEFGUARD_PROXY_URL` - if you wish to use External OIDC enrollment/desktop client configuration, please set this value to the same as `DEFGUARD_ENROLLMENT_URL` in core. This is the address at which the proxy Web UI is available.
 * `DEFGUARD_PROXY_LOG_LEVEL` : [Logger](https://crates.io/crates/log) log level, default: `info`, supported: `debug`, `warn`, `error`
+* `HTTP_BIND_ADDRESS`: The IP address that the HTTP should bind to (available since version 1.5.0)
+* `GRPC_BIND_ADDRESS`: The IP address that the gRPC should bind to (available since version 1.5.0)
 
 ## Gateway Configuration
 
@@ -127,15 +131,13 @@ If you're using docker image you can pass this value as environmental variables 
 * `DEFGUARD_GATEWAY_NAME`, `--name <NAME>` - (optional) human-readable gateway name that will be displayed in Defguard webapp
 * `-s, --use-syslog` - enable logging to syslog
 * `RUST_LOG` : Logger log level, default: `info`, supported: `debug`, `warn`, `error`
-* `DEFGUARD_MASQUERADE`  - controls whether the gateway automatically applies masquerade NAT firewall rule; defaults to `false`
-*   `DEFGUARD_DISABLE_FW_MGMT`  - disables all firewall management by the gateway; this overrides `DEFGUARD_MASQUERADE` setting; defaults to `false` \
+* `DEFGUARD_MASQUERADE` - controls whether the gateway automatically applies masquerade NAT firewall rule; defaults to `false`
+*   `DEFGUARD_DISABLE_FW_MGMT` - disables all firewall management by the gateway; this overrides `DEFGUARD_MASQUERADE` setting; defaults to `false` \\
 
+    \{% hint style="warning" %\} `DEFGUARD_DISABLE_FW_MGMT` is meant as a workaround for running in incompatible environments, where our [default firewall integration](admin-and-features/access-control-list/firewall-internals.md) is not supported.
 
-    {% hint style="warning" %}
-    `DEFGUARD_DISABLE_FW_MGMT` is meant as a workaround for running in incompatible environments, where our [default firewall integration](admin-and-features/access-control-list/firewall-internals.md) is not supported.
-
-    As a consequence, enabling this option disables [ACL functionality](admin-and-features/access-control-list/) on a given gateway.
-    {% endhint %}
+    As a consequence, enabling this option disables [ACL functionality](admin-and-features/access-control-list/) on a given gateway. \{% endhint %\}
+* `HTTP_BIND_ADDRESS`: The IP address that the HTTP should bind to (available since version 1.5.0)
 
 #### Executing custom commands on VPN up/down
 
