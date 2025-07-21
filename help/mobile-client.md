@@ -60,6 +60,7 @@ If a location uses MFA, you will see clear instructions in the app. Just follow 
 
 3. Click **"Connect"** next to location you want to use.
 <figure><img src="../.gitbook/assets/defguard-location-list.jpg" alt="" width="375"><figcaption></figcaption></figure>
+
 {% hint style="info" %}
 The first time you connect, app will ask whether you want to route **predefined traffic** or **all traffic**.
 
@@ -78,6 +79,7 @@ To change your traffic routing method after your first connection:
 
 5. Choose your preferred routing method and confirm with the **Save** button.
 
+
 {% endhint %}
 [screen]
 4. Choose your routing method
@@ -92,6 +94,7 @@ To change your preferred MFA method later:
 
 1. Go to **Instances** in the app menu.
 2. Press **Connect** button next to location name and wait until popup shows.
+
 <figure><img src="../.gitbook/assets/defguard-mobile-connect-mfa.png" alt="" width="375"><figcaption></figcaption></figure>
 
 3. Click **Select MFA Method**, choose option and confirm with **Save** button.
