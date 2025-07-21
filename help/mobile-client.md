@@ -103,8 +103,6 @@ If you want to change this setting later:
 <figure><img src="../.gitbook/assets/defguard-mobile-connect-traffic.png"width="50%"><figcaption></figcaption></figure>
 
 
-
-
 {% hint style="info" %}
 When connecting with MFA for the first time, you will have the option to select **"Remember my choice"**. Select this option if you want to always use this method for this location.
 
@@ -129,7 +127,7 @@ After this step please go back to the Defguard app and check your connection.
 When connecting to a location that requires **internal** MFA, you should see this screen.
 <figure><img src="../.gitbook/assets/defguard-mobile-totp-screen.png"width="50%"><figcaption></figcaption></figure>
 
-Enter code from **your Authenticator App** and click "Verify".
+Enter code from **your Authenticator App** and click "Verify". After this step your VPN connection will be established.
 
 
 ### How can I obtain QR Code, URL and token?
