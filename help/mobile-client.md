@@ -67,7 +67,7 @@ Your phone will need to add new VPN configuration, when you see the request, ple
 ### Connecting to location (with MFA)
 
 {% hint style="warning" %}
-Please check [this](#authenticating-with-openid) section for information about OpenID authentication method. 
+Please check [this](#authenticating-with-openid) section for information about OpenID authentication method works. 
 {% endhint %}
 
 1. Choose desired instance from list
@@ -108,7 +108,7 @@ When connecting with MFA for the first time, you will have the option to select 
 To change your preferred MFA method later:
 1. Go to **Instances** in the app menu.
 2. Press **Connect** button next to location name and wait until popup shows.
-3 Click **Select MFA Method**, choose option and confirm with **Save** button.
+3. Click **Select MFA Method**, choose option and confirm with **Save** button.
 
 {% endhint %}
 <figure><img src="../.gitbook/assets/defguard-mobile-connect-mfa.png"width="50%"><figcaption></figcaption></figure>
