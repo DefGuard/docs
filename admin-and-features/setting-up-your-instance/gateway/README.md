@@ -1,8 +1,4 @@
----
-icon: dungeon
----
-
-# OPNsense
+# OPSense Configuartion
 
 [OPNsense®](https://opnsense.org/) is an open source, feature rich firewall and routing platform, offering cutting-edge network protection.
 
@@ -27,7 +23,7 @@ This instruction helps configuring Defguard Gateway in OPNsense. This is based o
 
 <figure><img src="../../../.gitbook/assets/OPNSense-interface-assignments.png" alt="Interface Assignments"><figcaption></figcaption></figure>
 
-5. Select the newly create interface by clicking on its name (in this example _[ParisOfficeVPN]_).
+5. Select the newly create interface by clicking on its name (in this example _\[ParisOfficeVPN]_).
 6. Select **Enable Interface**
 7. Select **Prevent interface removal**
 8. Click **Save**, and then **Apply changes**
