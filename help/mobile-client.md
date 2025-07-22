@@ -176,6 +176,7 @@ After disconnecting, your device will stop sending traffic through the VPN and r
 3. Click **Select MFA Method**.
 4. You should see this:
 <figure><img src="../.gitbook/assets/defguard-mobile-mfa-panel.png" alt="" width="375"></figure>
+
 5. Choose method and click **Connect** 
 
 ## Additional information
