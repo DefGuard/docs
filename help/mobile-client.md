@@ -8,7 +8,7 @@ Mobile client is currently under development **(closed beta)**, current page sho
 
 This guide explains how to use the Defguard Mobile to connect securely to VPN locations managed within your Defguard [instance](mobile-client.md#what-is-an-instance). It covers the entire process, from installation, adding new instances, connecting to locations, to managing your VPN connection settings.
 
-## Installation process
+## Setup instructions
 
 ### Step 1: Download app 
 1. Join closed beta for [iOS](https://defguard.net) or [Android](https://defguard.net). (Coming soon!)
@@ -87,7 +87,7 @@ The first time you connect, app will ask whether you want to route **predefined 
 
 You can select **"Remember my choice"** if you don't want to be asked again.
 
-If you want to change your traffic routing method after your first connection go to [this section](#changing-traffic-routing-method-after-first-connection)
+If you want to change your traffic routing method after your first connection go to [this section](#changing-mfa-method-after-first-connection)
 
 
 {% endhint %}
@@ -99,10 +99,10 @@ If your location does not use MFA, your VPN connection should be established imm
 {% endhint %}
 
 {% hint style="warning" %}
-If your location is using MFA please go to [section 3.2 "Connecting to location with MFA](#32-connecting-to-location-with-mfa)
+If your location is using MFA please go to [section 3.2 "Connecting to location with MFA](#connecting-to-location-with-mfa)
 {% endhint %}
 
-#### 3.1 Connecting to location without MFA
+### Connecting to location without MFA
 
 1. Open Defguard
 2. Go to **Instances** and click **Connect** next to location you want to use.
@@ -110,7 +110,7 @@ If your location is using MFA please go to [section 3.2 "Connecting to location 
 3. After this step your connection should be established.
 
 
-#### 3.2 Connecting to location with MFA
+### Connecting to location with MFA
 
 1. Open Defguard
 2. Go to **Instances** and click **Connect** next to location you want to use.
@@ -136,7 +136,7 @@ If you are stuck on this process please check [this article]((/help/setting-up-2
 {% endhint %}
 5. After this step, your connection should be established immedietaly.
 
-#### Disconnecting from VPN
+### Disconnecting from VPN
 
 To disconnect from a VPN location in Defguard:
 
@@ -147,6 +147,8 @@ To disconnect from a VPN location in Defguard:
 {% hint style="info" %}
 After disconnecting, your device will stop sending traffic through the VPN and return to your regular internet connection. You can reconnect at any time by following the connection steps above.
 {% endhint %}
+
+## Managing your instance
 
 ### Changing traffic routing method after first connection
 
