@@ -128,7 +128,7 @@ For detailed explanation of the OpenID authentication process, see the section "
     - If you're using "Email" method, please enter code sent to your email.
     - If you're using "Authenticator App", please enter code generated within your authenticator app. 
 {% hint style="info" %}
-If you are stuck on this process please check [this article]((/help/setting-up-2fa-mfa.md#setting-up-2famfa)) for detailed information.
+If you don't know how to setup or use your **Authenticator App** please check [this article](/help/setting-up-2fa-mfa.md#setting-up-2famfa) for detailed information.
 {% endhint %}
 5. After this step, your connection will be established immedietaly.
 
@@ -146,7 +146,7 @@ To disconnect from a VPN location in Defguard:
 1. Open  Defguard.
 2. Go to the active instance
 3. Click **Disconnect** button next to the location you are currently connected to.
-
+<figure><img src="../.gitbook/assets/defguard-mobile-disconnect-button.png" alt="" width="375"></figure>
 {% hint style="info" %}
 After disconnecting, your device will stop sending traffic through the VPN and return to your regular internet connection. You can reconnect at any time by following steps above.
 {% endhint %}
