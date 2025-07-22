@@ -135,7 +135,7 @@ You can find detailed description of all fields [here](../../configuration.md#ga
 
 If everything went well, Defguard Gateway should be connected to Defguard Core and you can start [adding new devices to your network](../../features/setting-up-your-instance/features/wireguard/adding-wireguard-devices.md).
 
-See also: [how to configure Defguard in OPNsense](../../admin-and-features/setting-up-your-instance/gateway/opnsense.md)
+See also: [how to configure Defguard in OPNsense](/admin-and-features/setting-up-your-instance/gateway/opnsense.md)
 
 ## Binary Install
 
