@@ -148,7 +148,7 @@ To disconnect from a VPN location in Defguard:
 3. Click **Disconnect** button next to the location you are currently connected to.
 <figure><img src="../.gitbook/assets/defguard-mobile-disconnect-button.png" alt="" width="375"></figure>
 {% hint style="info" %}
-After disconnecting, your device will stop sending traffic through the VPN and return to your regular internet connection. You can reconnect at any time by following steps above.
+After disconnecting, your device will stop sending traffic through the VPN and return to your regular internet connection.
 {% endhint %}
 
 ## Managing your instance
