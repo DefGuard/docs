@@ -127,8 +127,8 @@ For detailed explanation of the OpenID authentication process, see the section "
 4. Choose method configured for your account, and click **Connect**.
     - If you're using "Email" method, please enter code sent to your email.
     - If you're using "Authenticator App", please enter code generated within your authenticator app. 
-{% hint style="info" %}
-If you don't know how to setup or use your **Authenticator App** please check [this article](/help/setting-up-2fa-mfa.md#setting-up-2famfa) for detailed information.
+{% hint style="warning" %}
+If you don't know how to use your **Authenticator App** please check [this article](/help/setting-up-2fa-mfa.md#setting-up-2famfa) for detailed information.
 {% endhint %}
 5. After this step, your connection will be established immedietaly.
 
@@ -163,6 +163,7 @@ After disconnecting, your device will stop sending traffic through the VPN and r
 
 5. You should see this:
 <figure><img src="../.gitbook/assets/defguard-mobile-traffic-panel.png" alt="" width="375"></figure>
+
 6. Choose method and click **Connect** 
 
 
