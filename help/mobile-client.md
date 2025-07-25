@@ -107,8 +107,8 @@ The first time you connect, app will ask whether you want to route **predefined 
 
 <figure><img src="../.gitbook/assets/defguard-mobile-traffic-panel.png" alt="" width="375"></figure>
 
-* **Predefined traffic** is optimized for general browsing and will route only specific traffic through VPN.
-* **All traffic** provides full encryption and privacy for all your device traffic.
+* **Predefined traffic** will only route traffic specified by your administrator.
+* **All traffic** will route everything through VPN tunnel.
 
 You can select **Remember my choice** if you don't want to be asked again.
 
