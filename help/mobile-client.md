@@ -13,7 +13,7 @@ This guide explains how to use the Defguard Mobile to connect securely to VPN lo
 2. Download and install the app on your device.
 
 
-## Adding new instance
+## How to add an Instance?
 
 ### Adding Instance during the enrollment process
 
@@ -81,7 +81,7 @@ Your phone will need to add new VPN configuration, you will see popup like this:
 Please click **Allow**, without this permission, Defguard cannot establish VPN connection.
 {% endhint %}
 
-## Connection management
+## How to connect?
 
 ### Connecting for the first time
  
