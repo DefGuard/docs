@@ -83,7 +83,7 @@ Please click **Allow**, without this permission, Defguard cannot establish VPN c
 
 ## Connection management
 
-### Connecting to Instance
+### Connecting for the first time
  
 {% hint style="info" %}
 Some VPN locations require extra security when connecting. This is called MFA (Multi-Factor Authentication). There are two types:
@@ -142,7 +142,7 @@ If the VPN location requires OpenID for authentication (external MFA) you should
 <figure><img src="../.gitbook/assets/defguard-mobile-openid-banner.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Click **Authenticate with OpenID** and you will be redirected to a secure login page (for example Google). Follow the instructions on the screen to log in. After successful authentication please return to Defguard. 
-In the app you should se sceen like this:
+In the app you should see screen like this:
 
 <figure><img src="../.gitbook/assets/defguard-mobile-openid-success.png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -154,7 +154,7 @@ Now, your connection is successfully established.
 When connecting with MFA for the first time, you will have the option to select **Remember my choice**. Select this option if you want to always use this method for this location.
 {% endhint %}
 
-3. After selecting routing method, you should see something like to this:
+3. After selecting routing method, you should see this:
 <figure><img src="../.gitbook/assets/defguard-mobile-mfa-panel.png" alt="" width="375"></figure>
 
 4. Choose method configured for your account, and click **Connect**.
@@ -163,7 +163,7 @@ When connecting with MFA for the first time, you will have the option to select 
 {% hint style="info" %}
 If you don't know how to setup or use your **Authenticator App** please check [this article](/help/setting-up-2fa-mfa.md#setting-up-2famfa) for detailed information.
 {% endhint %}
-5. After this step, your connection will be established immedietaly.
+5. After this step, your connection will be established immediately.
 
 ### Connecting to location without MFA
 
