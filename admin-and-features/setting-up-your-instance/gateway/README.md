@@ -1,8 +1,4 @@
----
-icon: dungeon
----
-
-# OPNsense
+# OPSense Configuartion
 
 [OPNsense®](https://opnsense.org/) is an open source, feature rich firewall and routing platform, offering cutting-edge network protection.
 
@@ -13,7 +9,7 @@ This instruction helps configuring Defguard Gateway in OPNsense. This is based o
 ### Configure Defguard Gateway plugin
 
 1. Go to **VPN → Defguard Gateway**
-2. Fill out the approriate values in the form
+2. Fill out the appropriate values in the form. You can read more about the available configuration options here: [#gateway-configuration](../../../configuration.md#gateway-configuration "mention")
 3. Eventually, **Start/Restart** the service.
 
 <figure><img src="../../../.gitbook/assets/OPNSense Plugin.png" alt="OPNSense plugin"><figcaption></figcaption></figure>
@@ -27,7 +23,7 @@ This instruction helps configuring Defguard Gateway in OPNsense. This is based o
 
 <figure><img src="../../../.gitbook/assets/OPNSense-interface-assignments.png" alt="Interface Assignments"><figcaption></figcaption></figure>
 
-5. Select the newly create interface by clicking on its name (in this example _[ParisOfficeVPN]_).
+5. Select the newly create interface by clicking on its name (in this example _\[ParisOfficeVPN]_).
 6. Select **Enable Interface**
 7. Select **Prevent interface removal**
 8. Click **Save**, and then **Apply changes**

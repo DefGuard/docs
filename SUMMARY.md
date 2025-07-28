@@ -51,6 +51,7 @@
   * [Okta](admin-and-features/external-openid-providers/okta.md)
   * [Custom](admin-and-features/external-openid-providers/custom.md)
   * [External OIDC secure enrollment](admin-and-features/external-openid-providers/external-oidc-secure-enrollment.md)
+* [OPSense Configuartion](admin-and-features/setting-up-your-instance/gateway/README.md)
 * [SSH Authentication](admin-and-features/ssh-authentication.md)
 * [Forward auth](admin-and-features/forward-auth.md)
 * [YubiKey Provisioning](admin-and-features/yubikey-provisioning.md)

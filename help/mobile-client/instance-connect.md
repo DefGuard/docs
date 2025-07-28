@@ -1,6 +1,4 @@
-
-
-### Connecting to Instance
+## Connecting to Instance
 
 1. Open Defguard
 2. Click on Instance you want to connect to.

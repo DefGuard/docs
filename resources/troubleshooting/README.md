@@ -58,10 +58,10 @@ This error usually indicates that the client version is outdated and can't commu
 
 ## Client: **Could not start MFA process**
 
-When setting up MFA/2FA in Defguard, you may encounter the following error when entering the code in the desktop client: **"Could not start MFA process".**&#x20;
+When setting up MFA/2FA in Defguard, you may encounter the following error when entering the code in the desktop client: **"Could not start MFA process".**
 
 Additionally, client application debug logs may show the following error:\
-&#xNAN;**"Failed to deserialize the JSON body into the target type: code: invalid type: string "005325", expected u32 at line 1 column 268."**
+\&#xNAN;**"Failed to deserialize the JSON body into the target type: code: invalid type: string "005325", expected u32 at line 1 column 268."**
 
 This error indicates that one of the following components is outdated:
 
@@ -79,7 +79,7 @@ Best would be to setup on the server NTP time synchronization.
 
 ## I get the following error: There was a network error. Can't reach proxy
 
-This error may happen when the client is unable to make a POST/GET request to your proxy web server. Make sure your proxy is accessible by the client, e.g. by making a GET request by hand or visiting your enrollment/proxy page from the same machine you are running the client on.&#x20;
+This error may happen when the client is unable to make a POST/GET request to your proxy web server. Make sure your proxy is accessible by the client, e.g. by making a GET request by hand or visiting your enrollment/proxy page from the same machine you are running the client on.
 
 In some rarer cases, your web server may not accept TLS versions lower than 1.3. Since the maximum version of TLS supported by the client is 1.2, it won't be able to connect to your web server, producing the mentioned error.
 
@@ -178,3 +178,11 @@ The user tries to sign in to a Defguard instance but gets a 401 response with me
 This issue is most likely caused by a misconfigured `DEFGUARD_URL` . Please take a look at the configuration options described in [General configuration](../../configuration.md#general-configuration) documentation.
 
 If you want to access your Defguard instance without TLS (using an `http://` URL), please also make sure you have everything configured according to [Auth cookies configuration](../../configuration.md#auth-cookies-configuration) documentation.
+
+## User lost access to their 2FA methods
+
+If a user lost their TOTP app or security key and is therefore unable to log in it is possible for an admin to disable MFA for their account.
+
+In order to do this go to the `Users` page and find the relevant user in the list. Then click on the cog button on the right and select `Disable MFA`. You will be then asked to confirm your choice.
+
+It's recommended that after MFA is disabled the user should configure a new MFA method as soon as possible.
