@@ -1,5 +1,7 @@
 ## Connecting to Instance
 
+In this guide, you will learn how to connect to location. If you haven't added an instance yet, follow [this guide](instance-adding.md#adding-instance-during-the-enrollment).
+
 ### Connecting to location without MFA
 
 1. Open Defguard
@@ -19,7 +21,7 @@ The first time you connect, app will ask whether you want to route **predefined 
 
 You can select **Remember my choice** if you don't want to be asked again.
 
-If you want to change your traffic routing method after your first connection go to [this section](#changing-mfa-method-after-first-connection)
+If you want to change your traffic routing method after your first connection go to [this article](instance-manage.md#changing-traffic-routing-method-after-first-connection)
 
 
 {% endhint %}
@@ -59,6 +61,22 @@ If your location is using MFA please go to [section 3.2 "Connecting to location 
 2. Go to **Instances** and click **Connect** next to location you want to use.
 <figure><img src="../../.gitbook/assets/defguard-mobile-connect-location-list.png" alt="" width="375"></figure>
 
+{% hint style="info" %}
+The first time you connect, app will ask whether you want to route **predefined traffic** or **all traffic**. You will see screen like this:
+
+<figure><img src="../../.gitbook/assets/defguard-mobile-traffic-panel.png" alt="" width="375"></figure>
+
+* **Predefined traffic** will only route traffic specified by your administrator.
+* **All traffic** will route everything through VPN tunnel.
+
+You can select **Remember my choice** if you don't want to be asked again.
+
+If you want to change your traffic routing method after your first connection go to [this article](instance-manage.md#changing-traffic-routing-method-after-first-connection)
+
+
+{% endhint %}
+3. Choose your routing method
+
 {% hint style="warning" %}
 If the VPN location requires OpenID for authentication (external MFA) you will see screen like this:
 <figure><img src="../../.gitbook/assets/defguard-mobile-openid-banner.png" alt="" width="375"><figcaption></figcaption></figure>
@@ -76,16 +94,16 @@ Now, your connection is successfully established.
 When connecting with MFA for the first time, you will have the option to select **Remember my choice**. Select this option if you want to always use this method for this location.
 {% endhint %}
 
-3. After selecting routing method, you will see this:
+4. After selecting routing method, you will see this:
 <figure><img src="../../.gitbook/assets/defguard-mobile-mfa-panel.png" alt="" width="375"></figure>
 
-4. Choose method configured for your account, and click **Connect**.
+5. Choose method configured for your account, and click **Connect**.
     - If you're using "Email" method, please enter code sent to your email.
     - If you're using "Authenticator App", please enter code generated within your authenticator app. 
 {% hint style="info" %}
 If you don't know how to setup or use your **Authenticator App** please check [this article](/help/setting-up-2fa-mfa.md#setting-up-2famfa) for detailed information.
 {% endhint %}
-5. After this step, your connection will be established immediately.
+6. After this step, your connection will be established immediately.
 
 
 ### Disconnecting from VPN

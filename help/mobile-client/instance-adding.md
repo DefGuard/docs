@@ -1,6 +1,10 @@
 
 ## Adding instance during the enrollment
 
+In this guide, you will learn how to add Instance in mobile app. 
+
+If you are after the enrollment process, please follow [this guide](#adding-instance-in-defguard)
+
 ### Enrollment via external SSO
 
 1. Go to your enrollment page. Click **Select** under "Enrollment process".

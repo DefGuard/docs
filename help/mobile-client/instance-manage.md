@@ -1,6 +1,8 @@
 
 ## Managing your instance
 
+In this guide you will learn how to manage your instances. If you haven't added your instance yet, follow [this guide](instance-adding.md#adding-instance-in-defguard)
+
 ### Changing traffic routing method after first connection
 
 1. Open the Defguard.
