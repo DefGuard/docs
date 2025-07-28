@@ -103,7 +103,10 @@
 
 * [Overview](help/overwiew.md)
 * [Desktop Client](help/desktop-client.md)
-* [Mobile Client](help/mobile-client.md)
+* [Mobile Client](help/mobile-client/README.md)
+  * [Adding new Instance](help/mobile-client/instance-adding.md)
+  * [Connecting to Instance](help/mobile-client/instance-connect.md)
+  * [Managing your Instance](help/mobile-client/instance-manage.md)
 * [CLI Client](help/cli-client.md)
 * [Configuring VPN](help/configuring-vpn/README.md)
   * [Defguard Desktop Client](help/configuring-vpn/add-new-instance/README.md)
