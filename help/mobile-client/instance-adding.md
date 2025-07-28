@@ -1,5 +1,5 @@
 
-## Adding instance during enrollment
+## Adding instance during the enrollment
 
 ### Enrollment via external SSO
 
@@ -17,7 +17,7 @@
 <figure><img src="../../.gitbook/assets/defguard-mobile-add-instance.png" width="375"></figure>
 
 6. Scan QR generated in step 3.
-7. Enter name of your device. For example "iPhone 11"
+7. Enter the name of your device. For example "iPhone 11"
 8. Confirm
 
 {% hint style="info" %}
@@ -26,11 +26,11 @@ If you can't scan QR Code, select **Add Instance Manually** in **step 5** and en
 
 
 
-### Enrollment via email
+### Enrollment via Email
 Find enrollment **Instance URL** and **Token** in your "Defguard user enrollment" email. It should look like this:
 <figure><img src="../../.gitbook/assets/defguard-enrollment-email.png" alt="" width="50%"></figure>
 
-If you want to enroll via Web Browser please click **Start enrollment** or:
+If you want to enroll via Web Browser, click **Start enrollment** or:
 1. Go to your enrollment page. Click **Select** under "Enrollment process".
 <figure><img src="../../.gitbook/assets/defguard-enrollment-options.png" alt="" width="50%"></figure>
 
@@ -62,7 +62,7 @@ Now, follow [Enrollment via Web Browser](#enrollment-via-web-browser) guide.
 6. Open Defguard on your mobile device. Click **Scan QR Code**, and scan the code from **step 5**.
 <figure><img src="../../.gitbook/assets/defguard-mobile-add-instance.png" width="375"></figure>
 
-7. After scanning the QR code, enter name of your device and confirm.
+7. After scanning the QR code, enter the name of your device and confirm.
 
 {% hint style="info" %}
 If you can't scan QR Code, select **Add Instance Manually** in **step 6** and enter URL and Token from **step 5**.
@@ -81,7 +81,7 @@ If you can't scan QR Code, select **Add Instance Manually** in **step 6** and en
 4. Select **Remote Device Activation** and click **Next**. 
 <figure><img src="../../.gitbook/assets/defguard-add-new-device.png" alt="" width="50%"><figcaption></figcaption></figure>
 
-5. After that you will see URL, Token and QR Code. **Take screenshot of QR code**, we will need it in next step.
+5. After that you will see URL, Token and QR Code. **Take a screenshot of QR code**, we will need it in next step.
 <figure><img src="../../.gitbook/assets/defguard-add-instance-qr.png" alt="" width="50%"><figcaption></figcaption></figure>
 
 6. Open Defguard Mobile on your smartphone
@@ -89,7 +89,7 @@ If you can't scan QR Code, select **Add Instance Manually** in **step 6** and en
 <figure><img src="../../.gitbook/assets/defguard-mobile-add-instance.png" width="375"></figure>
 
 8. Scan QR generated in step 5.
-9. Enter name of your device. For example "iPhone 11"
+9. Enter the name of your device. For example "iPhone 11"
 10. Confirm
 
 {% hint style="info" %}

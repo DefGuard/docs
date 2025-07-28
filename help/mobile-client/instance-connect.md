@@ -1,5 +1,7 @@
 ## Connecting to Instance
 
+### Connecting to location without MFA
+
 1. Open Defguard
 2. Click on Instance you want to connect to.
 <figure><img src="../../.gitbook/assets/defguard-instance-list.jpg" alt="" width="375"><figcaption></figcaption></figure>
@@ -85,12 +87,6 @@ If you don't know how to setup or use your **Authenticator App** please check [t
 {% endhint %}
 5. After this step, your connection will be established immediately.
 
-### Connecting to location without MFA
-
-1. Open Defguard
-2. Go to **Instances** and click **Connect** next to location you want to use.
-<figure><img src="../../.gitbook/assets/defguard-mobile-connect-location-list.png" alt="" width="375"></figure>
-3. After this step your connection should be established.
 
 ### Disconnecting from VPN
 
