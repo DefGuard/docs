@@ -124,7 +124,7 @@ opnsense-patch
 
 <figure><img src="../../.gitbook/assets/OPNSense Plugin.png" alt=""><figcaption></figcaption></figure>
 
-5. Fill out the form with appropriate values, click **Save**, and then click **Start/Restart**.
+5. Fill out the form with appropriate values, click **Save**, and then click **Start/Restart.**
 
 {% hint style="info" %}
 You can find detailed description of all fields [here](../../configuration.md#gateway-configuration).

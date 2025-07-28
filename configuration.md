@@ -94,7 +94,7 @@ This is of course not recommended in production but can be useful when testing w
 
 [More on that in this help page.](deployment-strategies/grpc-ssl-communication.md)
 
-* `DEFGUARD_GRPC_PORT`: gRPC server port, default `50055`
+* `DEFGUARD_GRPC_PORT`: the port on which the gRPC server should listen, default is `50055`. This port is used by Defguard Gateways to connect to your Core instance.
 * `DEFGUARD_GRPC_CERT` (optional): path to TLS certificate file
 * `DEFGUARD_GRPC_KEY`(optional): path to TLS key file
 * `DEFGUARD_GRPC_URL`: external URL of your instance's gRPC server, default `http://localhost:50055`; used for generating example VPN gateway startup command in Web UI
@@ -123,20 +123,25 @@ Here are proxy ENV variables. gRPC configuration is described more [on this help
 
 If you're using docker image you can pass this value as environmental variables or on binary you can pass them as arguments
 
+* `DEFGUARD_GRPC_URL` , `-g <URL>` - Defguard Core gRPC endpoint URL. This is used by the gateway to connect to your Defguard Core instance. If you configured the `DEFGUARD_GRPC_URL` variable on your Core instance before (as described in the [#grpc-server-configuration](configuration.md#grpc-server-configuration "mention") section), use the same value here. Otherwise, provide an URL that will allow the Gateway to reach your Core instance, e.g. `http://localhost:50055` if both Core and Gateway are running on the same host.&#x20;
+*   `DEFGUARD_TOKEN` ,`-t <TOKEN>` - Token displayed in the Defguard Core web UI after completing the network wizard. It can be copied from the "Authentication Token" section on the Location Settings page.
+
+    <figure><img src=".gitbook/assets/obraz (1).png" alt=""><figcaption></figcaption></figure>
 * `DEFGUARD_USERSPACE` , `-u` - Use userspace wireguard implementation, useful on systems without native wireguard support
-* `DEFGUARD_GRPC_URL` , `-g <URL>` - Defguard server gRPC endpoint URL default is https://localhost:50055
 * `DEFGUARD_GRPC_CA - path to ca file` more on this topic [on this help page.](deployment-strategies/grpc-ssl-communication.md)
 * `DEFGUARD_STATS_PERIOD` ,`-p <SECONDS>` - Defines how often (seconds) should interface statistics be sent to the Defguard server
-* `DEFGUARD_TOKEN` ,`-t <TOKEN>` - Token received on Defguard after completing network wizard
 * `DEFGUARD_GATEWAY_NAME`, `--name <NAME>` - (optional) human-readable gateway name that will be displayed in Defguard webapp
 * `-s, --use-syslog` - enable logging to syslog
 * `RUST_LOG` : Logger log level, default: `info`, supported: `debug`, `warn`, `error`
 * `DEFGUARD_MASQUERADE` - controls whether the gateway automatically applies masquerade NAT firewall rule; defaults to `false`
-*   `DEFGUARD_DISABLE_FW_MGMT` - disables all firewall management by the gateway; this overrides `DEFGUARD_MASQUERADE` setting; defaults to `false` \\
+* `DEFGUARD_DISABLE_FW_MGMT` - disables all firewall management by the gateway; this overrides `DEFGUARD_MASQUERADE` setting; defaults to `false`&#x20;
 
-    \{% hint style="warning" %\} `DEFGUARD_DISABLE_FW_MGMT` is meant as a workaround for running in incompatible environments, where our [default firewall integration](admin-and-features/access-control-list/firewall-internals.md) is not supported.
+{% hint style="info" %}
+`DEFGUARD_DISABLE_FW_MGMT` is meant as a workaround for running in incompatible environments, where our [default firewall integration](admin-and-features/access-control-list/firewall-internals.md) is not supported.
 
-    As a consequence, enabling this option disables [ACL functionality](admin-and-features/access-control-list/) on a given gateway. \{% endhint %\}
+As a consequence, enabling this option disables [ACL functionality](admin-and-features/access-control-list/) on a given gateway.
+{% endhint %}
+
 * `HTTP_BIND_ADDRESS`: The IP address that the HTTP should bind to (available since version 1.5.0)
 
 #### Executing custom commands on VPN up/down
