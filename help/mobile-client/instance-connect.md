@@ -75,35 +75,40 @@ If you want to change your traffic routing method after your first connection go
 
 
 {% endhint %}
-3. Choose your routing method
+3. Choose your routing method, and confirm.
 
-{% hint style="warning" %}
+Depending on your location settings you will need to authenticate with [external](#external-mfa) or [internal](#internal-mfa) MFA.
+
+
+#### External MFA
+
 If the VPN location requires OpenID for authentication (external MFA) you will see screen like this:
-<figure><img src="../../.gitbook/assets/defguard-mobile-openid-banner.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/defguard-mobile-openid-banner.png" alt="" width="375"></figure>
 
-Click **Authenticate with OpenID** and you will be redirected to a secure login page (for example Google). Follow the instructions on the screen to log in. After successful authentication please return to Defguard. 
+Click **Authenticate with OpenID** and you will be redirected to a secure login page (for example Google/Microsoft). Follow the instructions on the screen to log in. After successful authentication please return to Defguard. 
 In the app you will see screen like this:
 
 <figure><img src="../../.gitbook/assets/defguard-mobile-openid-success.png" alt="" width="375"><figcaption></figcaption></figure>
 
-Now, your connection is successfully established.
+After successful authentication, return to Defguard Mobile, your connection will be established automatically.
 
-{% endhint %}
+
+#### Internal MFA
 
 {% hint style="warning" %}
 When connecting with MFA for the first time, you will have the option to select **Remember my choice**. Select this option if you want to always use this method for this location.
 {% endhint %}
 
-4. After selecting routing method, you will see this:
+1. If you are conneting for first time, or if you have not clicked **Remember my choice** during previous connection, you will need to choose your MFA method. 
 <figure><img src="../../.gitbook/assets/defguard-mobile-mfa-panel.png" alt="" width="375"></figure>
 
-5. Choose method configured for your account, and click **Connect**.
+2. Choose method configured for your account, and click **Connect**.
     - If you're using "Email" method, please enter code sent to your email.
     - If you're using "Authenticator App", please enter code generated within your authenticator app. 
 {% hint style="info" %}
 If you don't know how to setup or use your **Authenticator App** please check [this article](/help/setting-up-2fa-mfa.md#setting-up-2famfa) for detailed information.
 {% endhint %}
-6. After this step, your connection will be established immediately.
+3. After this step, your connection will be established immediately.
 
 
 ### Disconnecting from VPN
