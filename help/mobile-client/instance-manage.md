@@ -5,7 +5,7 @@ In this guide you will learn how to manage your instances. If you haven't added 
 
 ### Changing traffic routing method after first connection
 
-1. Open the Defguard.
+1. Open Defguard.
 2. Go to **Instances** in the app menu.
 3. Press & Hold the **Connect** button next to the location you want to update.
 4. When the popup appears, look for the option **Select Traffic Routing**.

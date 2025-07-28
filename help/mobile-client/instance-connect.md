@@ -99,7 +99,7 @@ After successful authentication, return to Defguard Mobile, your connection will
 When connecting with MFA for the first time, you will have the option to select **Remember my choice**. Select this option if you want to always use this method for this location.
 {% endhint %}
 
-1. If you are conneting for first time, or if you have not clicked **Remember my choice** during previous connection, you will need to choose your MFA method. 
+1. If you are connecting for first time, or if you have not clicked **Remember my choice** during previous connection, you will need to choose your MFA method. 
 <figure><img src="../../.gitbook/assets/defguard-mobile-mfa-panel.png" alt="" width="375"></figure>
 
 2. Choose method configured for your account, and click **Connect**.
