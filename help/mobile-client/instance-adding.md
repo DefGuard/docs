@@ -7,7 +7,7 @@
 <figure><img src="../../.gitbook/assets/defguard-enrollment-options.png" alt="" width="50%"></figure>
 
 2. In this example we use Google as OIDC provider so our button is "Sign in with Google". Your organization can use different OIDC provider.
-<figure><img src="../../.gitbook/assets/defguard-enrollment-by-sso.png" alt="" w  dth="50%"></figure>
+<figure><img src="../../.gitbook/assets/defguard-enrollment-by-sso.png" alt="" width="50%"></figure>
 
 3. You will be redirected to your OIDC provider login page, please log in. After doing this, you will be redirected and shown a screen with **URL, Token and QR Code**.
 <figure><img src="../../.gitbook/assets/defguard-enrollment-sso-qr-url.png" alt="" width="50%"></figure>
@@ -42,7 +42,7 @@ Now, follow [Enrollment via Web Browser](#enrollment-via-web-browser) guide.
 
 ### Enrollment via Web Browser
 
-1. Upon starting enrollment process you should see something like this:
+1. Upon starting enrollment process you will see something like this:
 **Before proceeding, read the text carefully, as it may contain important information given by your administrator,** then click **Next**.
 <figure><img src="../../.gitbook/assets/defguard-enrollment-step1.png" alt="" width="50%"></figure>
 
@@ -56,7 +56,7 @@ Now, follow [Enrollment via Web Browser](#enrollment-via-web-browser) guide.
 4. This is the step where we can add our mobile device. Enter the name of your device, then click **Create Configuration**. 
 <figure><img src="../../.gitbook/assets/defguard-enrollment-step4.png" alt="" width="50%"></figure>
 
-5. You should see a screen like this. 
+5. You will see a screen like this. 
 <figure><img src="../../.gitbook/assets/defguard-enrollment-step4-qr.png" alt="" width="50%"></figure>
 
 6. Open Defguard on your mobile device. Click **Scan QR Code**, and scan the code from **step 5**.
@@ -81,7 +81,7 @@ If you can't scan QR Code, select **Add Instance Manually** in **step 6** and en
 4. Select **Remote Device Activation** and click **Next**. 
 <figure><img src="../../.gitbook/assets/defguard-add-new-device.png" alt="" width="50%"><figcaption></figcaption></figure>
 
-5. After that you should see URL, Token and QR Code. **Take screenshot of QR code**, we will need it in next step.
+5. After that you will see URL, Token and QR Code. **Take screenshot of QR code**, we will need it in next step.
 <figure><img src="../../.gitbook/assets/defguard-add-instance-qr.png" alt="" width="50%"><figcaption></figcaption></figure>
 
 6. Open Defguard Mobile on your smartphone
