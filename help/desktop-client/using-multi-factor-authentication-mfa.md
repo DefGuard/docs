@@ -1,10 +1,16 @@
 # Using Multi-Factor Authentication (MFA)
 
 {% hint style="danger" %}
-Connecting to location with required MFA is possible in the desktop client since **version 1.5.0.**
-
-[**https://github.com/DefGuard/client/releases**](https://github.com/DefGuard/client/releases)
+Connecting to location with required **external** MFA is possible in the desktop client since **version 1.5.0.** Please check out [**https://github.com/DefGuard/client/releases**](https://github.com/DefGuard/client/releases) for new releases.
 {% endhint %}
+
+* Up to version 1.4, only internal MFA was supported. User can use MFA methods configured in his profile.
+* Since version 1.5 (currently in alpha), MFA can be configured per location, and administrators can choose whether a location will use internal MFA or external OIDC/SSO provider.
+
+Depending on location settings, you may use:
+
+* Internal MFA - You must have at least one MFA method configured in your profile. For a detailed tutorial, [check out this article](../setting-up-2fa-mfa.md).
+* External MFA - You will be redirected to an external site, where authentication is handled by your OIDC provider, for example Google/Microsoft.
 
 ## External MFA
 
