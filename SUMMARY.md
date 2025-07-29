@@ -81,6 +81,7 @@
 * [Docker Compose](deployment-strategies/docker-compose.md)
 * [Kubernetes](deployment-strategies/kubernetes.md)
 * [Terraform](deployment-strategies/terraform.md)
+* [AMIs and AWS CloudFormation](deployment-strategies/amis-and-aws-cloudformation.md)
 * [High Availability and Failover](deployment-strategies/high-availability-and-failover.md)
 * [Upgrading](deployment-strategies/upgrading.md)
 * [Pre-production and development releases](deployment-strategies/pre-production-and-development-releases.md)
