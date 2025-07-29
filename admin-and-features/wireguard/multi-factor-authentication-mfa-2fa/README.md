@@ -92,7 +92,7 @@ We recommend to set:
 
 ### Testing MFA on Defguard client
 
-When a location has External MFA enabled, after clicking Connect in the Desktop client, there will be information displayed about authentication requirement:
+When a location has External MFA enabled, after clicking Connect in the Desktop client ([here you can find information about Mobile Client External MFA](../../../help/mobile-client/instance-connect.md#external-mfa)), there will be information displayed about authentication requirement:
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2025-07-29 at 17.32.51.png" alt="" width="375"><figcaption></figcaption></figure>
 
