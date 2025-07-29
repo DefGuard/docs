@@ -40,15 +40,15 @@ Add Logstash service to the `docker-compose.yaml` and start it.
 
 ### Add Logstash destination
 
-In Defguard UI with an administrator account, go into  settings page and choose `Activity log streaming`.
+In Defguard UI with an administrator account, go into settings page and choose `Activity log streaming`.
 
 Click `Add new` and choose `Vector` destination.
 
-<figure><img src="../../../../.gitbook/assets/image (111).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (111).png" alt=""><figcaption></figcaption></figure>
 
 Fill out `Name` and `Url` fields and click **Submit**.
 
-<figure><img src="../../../../.gitbook/assets/image (112).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (112).png" alt=""><figcaption></figcaption></figure>
 
 That's it! Defguard should now be sending activity events to Logstash, and you should see them printed to `stdout` in the running Logstash container.
 
@@ -78,7 +78,7 @@ output {
 
 Modify Logstash destination in settings and fill`username` and `password` in settings.
 
-<figure><img src="../../../../.gitbook/assets/image (113).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (113).png" alt=""><figcaption></figcaption></figure>
 
 ### Logstash integration configuration
 

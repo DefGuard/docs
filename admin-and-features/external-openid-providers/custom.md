@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # Custom
 
 {% hint style="warning" %}

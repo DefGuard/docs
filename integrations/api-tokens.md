@@ -1,14 +1,14 @@
 # REST API
 
 {% hint style="warning" %}
-This is an enterprise feature. To use it, purchase our [enterprise license](../../enterprise/license.md) or ensure that your deployment does not exceed the [usage limits](../../enterprise/license.md#enterprise-is-free-up-to-certain-limits).
+This is an enterprise feature. To use it, purchase our [enterprise license](../enterprise/license.md) or ensure that your deployment does not exceed the [usage limits](../enterprise/license.md#enterprise-is-free-up-to-certain-limits).
 {% endhint %}
 
 {% hint style="warning" %}
 API functionality:
 
 1. requires Defguard version 1.2.4+
-2. is also **available without enterprise license**, if your instance does not exceed the limits [described here](../../enterprise/license.md#enterprise-is-free-up-to-certain-limits).
+2. is also **available without enterprise license**, if your instance does not exceed the limits [described here](../enterprise/license.md#enterprise-is-free-up-to-certain-limits).
 {% endhint %}
 
 ## REST API documentation
@@ -27,19 +27,19 @@ Tokens retain the same access permissions as their owner, so be careful when sha
 
 To generate a new API token go to your profile page and click the `Add new API Token`button:
 
-<figure><img src="../../.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
 
 Fill in your chosen token name and submit form:
 
-<figure><img src="../../.gitbook/assets/image (64).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (64).png" alt=""><figcaption></figcaption></figure>
 
 Copy generated token. This is the only time the token will be available in plain text form. If you lose it you will have to generate a new one.
 
-<figure><img src="../../.gitbook/assets/image (65).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (65).png" alt=""><figcaption></figcaption></figure>
 
 In the API token list you can later rename or delete a token:
 
-<figure><img src="../../.gitbook/assets/image (66).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (66).png" alt=""><figcaption></figcaption></figure>
 
 ## Usage
 

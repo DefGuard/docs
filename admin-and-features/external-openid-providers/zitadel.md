@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # Zitadel
 
 {% hint style="info" %}

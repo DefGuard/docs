@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # Google
 
 {% hint style="info" %}

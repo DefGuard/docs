@@ -1,7 +1,7 @@
 # User SNAT bindings
 
 {% hint style="warning" %}
-This is an enterprise feature. To use it, purchase our [enterprise license](../enterprise/license.md) or ensure that your deployment does not exceed the [usage limits](../enterprise/license.md#enterprise-is-free-up-to-certain-limits).
+This is an enterprise feature. To use it, purchase our [enterprise license](enterprise/license.md) or ensure that your deployment does not exceed the [usage limits](enterprise/license.md#enterprise-is-free-up-to-certain-limits).
 {% endhint %}
 
 {% hint style="info" %}

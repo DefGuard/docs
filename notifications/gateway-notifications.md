@@ -10,7 +10,7 @@ You can configure automatic e-mail notifications when one of your gateways disco
 
 In order to configure the notifications, navigate to the "Gateway notifications" settings tab.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 The configuration options are as follows:
 

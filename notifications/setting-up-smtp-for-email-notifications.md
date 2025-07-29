@@ -1,4 +1,4 @@
-# SMTP for email notifications
+# Email notifications
 
 In **Settings > SMTP** tab you can setup a connection to an SMTP server.
 

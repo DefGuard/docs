@@ -2,7 +2,7 @@
 description: List of supported services to stream activity logs into.
 ---
 
-# Activity log integrations
+# Supported SIEM systems integrations
 
 {% hint style="info" %}
 We're actively working to expand support for additional SIEM and log management platforms. If your organization uses a tool that's not currently supported, we welcome your feedback—user requests help us prioritize future integrations.

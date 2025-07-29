@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # JumpCloud
 
 1. Login to your JumpCloud admin account.

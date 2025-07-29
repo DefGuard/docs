@@ -8,7 +8,7 @@ Basic idea of webhooks is to send user data to external systems in order to auto
 
 On the left side of Defguard navigation you'll find webhooks page
 
-![New webhook form](../../.gitbook/assets/webhookform.png)
+![New webhook form](../.gitbook/assets/webhookform.png)
 
 On above form you'll see inputs like URL description token and triggers
 

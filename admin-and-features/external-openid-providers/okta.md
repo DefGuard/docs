@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # Okta
 
 1. First, navigate in your Okta dashboard to "Applications" and create a new app integration here:

@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # Microsoft
 
 1. Go to [https://portal.azure.com/](https://portal.azure.com)
