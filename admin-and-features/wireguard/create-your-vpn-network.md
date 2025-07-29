@@ -116,7 +116,7 @@ Each connection in the client:
 For this feature to work, the user must:
 
 1. configure their [TOTP settings in the profile](../../help/setting-up-2fa-mfa.md#one-time-password)
-2. [SMTP settings needs to be set up](../../notifications/setting-up-smtp-for-email-notifications.md) and the user must enable Email tokens in their profile.
+2. [SMTP settings needs to be set up](../notifications/setting-up-smtp-for-email-notifications.md) and the user must enable Email tokens in their profile.
 {% endhint %}
 
 #### Keepalive interval

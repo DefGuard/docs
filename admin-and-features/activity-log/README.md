@@ -12,7 +12,7 @@ Activity log is available as a dedicated page in Defguard core Web UI that's use
 
 To access it click the `Activity log` button in the navbar.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Activity log page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>Activity log page</p></figcaption></figure>
 
 ### Overview
 
@@ -33,16 +33,16 @@ Events are grouped into modules based on the part of the system they are related
 
 Currently there are four modules:
 
-* **Defguard** - operations performed in the core Web UI (e.g. adding users, modifying devices, managing groups etc.)&#x20;
+* **Defguard** - operations performed in the core Web UI (e.g. adding users, modifying devices, managing groups etc.)
 * **Client** - actions performed by desktop client applications
-* **Enrollment** - events related to the [user enrollment](../help/enrollment/) process
+* **Enrollment** - events related to the [user enrollment](../../help/enrollment/) process
 * **VPN -** events related to VPN clients (e.g. client connecting to a location)
 
 ### Filtering
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Event filter modal</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Event filter modal</p></figcaption></figure>
 
-By clicking the `Filter` button above the list you can narrow down the displayed events based on following criteria:&#x20;
+By clicking the `Filter` button above the list you can narrow down the displayed events based on following criteria:
 
 * Event
 * Module
@@ -52,11 +52,11 @@ For each of those you can select multiple options.
 
 Filtering by date can be done by clicking the `Time range` button above the list.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>Time range filter modal</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Time range filter modal</p></figcaption></figure>
 
 ### Sorting
 
-By default the Activity log is sorted in reverse chronological order (most recent event on top).&#x20;
+By default the Activity log is sorted in reverse chronological order (most recent event on top).
 
 To change the order you can click on the header of the `Date` column.
 
@@ -169,4 +169,3 @@ At the moment following events are tracked in the Activity log:
 ## Streaming to external SIEM systems
 
 Please note, that enterprise version supports streaming of audit logs to e[xternal SIEM systems. More on this topic in dedicated documentation section](activity-log-streaming/).
-
