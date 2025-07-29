@@ -1,4 +1,4 @@
-# Authenticating with MFA
+# Using Multi-Factor Authentication (MFA)
 
 {% hint style="danger" %}
 Connecting to location with required MFA is possible in the desktop client since **version 1.5.0.**
@@ -6,7 +6,7 @@ Connecting to location with required MFA is possible in the desktop client since
 [**https://github.com/DefGuard/client/releases**](https://github.com/DefGuard/client/releases)
 {% endhint %}
 
-## Internal MFA
+## External MFA
 
 1. Open Defguard client, select your Instance and click **Connect** next to location with required MFA
 
@@ -22,7 +22,7 @@ Connecting to location with required MFA is possible in the desktop client since
 
 Your connection will be established immediately after successful authentication.
 
-## External MFA
+## Internal MFA
 
 1. Open Defguard client, select your Instance and click **Connect** next to location with required MFA
 
