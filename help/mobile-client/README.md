@@ -5,7 +5,8 @@ Mobile client is currently under development **(closed beta)**, current page sho
 {% endhint %}
 
 ### Installation
-1. Join closed beta for [iOS](https://defguard.net) or [Android](https://defguard.net). (Coming soon!)
+
+1. Join closed beta for [iOS](https://defguard.net) or [Android](https://play.google.com/store/apps/details?id=net.defguard.mobile). (Coming soon!)
 2. Download and install the app on your device.
 
 ### Guides
@@ -15,10 +16,3 @@ These guides explains how to use the Defguard Mobile to connect securely to VPN 
 * [Instance adding guide](instance-adding.md#adding-instance-during-enrollment)
 * [Connecting to Instance guide](instance-connect.md#connecting-to-instance)
 * [Managing Instance guide](instance-manage.md#managing-your-instance)
-
-
-
-
-
-
-
