@@ -3,6 +3,7 @@
 Here is a list of all Enterprise features:
 
 * [Ability to use external OIDC](../admin-and-features/external-openid-providers/) (Google/Microsoft/Okta/JumpCloud/Custom) to login or create defguard account.
+  * Do Multi-Factor Authentication on selected VPN locations with External SSO on Desktop and Mobile clients (from version 1.5).
 * [Two-way LDAP & Active Directory synchronization](../admin-and-features/ldap-and-active-directory-integration/two-way-ldap-and-active-directory-synchronization.md)
 * [Real time sync for client configurations](../admin-and-features/remote-user-enrollment/automatic-real-time-desktop-client-configuration.md)! **First WireGuard client to support this feature!**
 * Ability to define and enforce [Access Control List rules](../admin-and-features/access-control-list/) / firewall management
