@@ -132,3 +132,17 @@ Minimal value for this setting is 120 (2 minutes).
 
 Recommended is more then 300.
 {% endhint %}
+
+#### Multi-Factor Authentication with external OIDC/SSO (Google/Microsoft/Okta/...)
+
+{% hint style="info" %}
+This feature is currently [available in pre-release](../../deployment-strategies/pre-production-and-development-releases.md) version 1.5 - please help us test it!
+{% endhint %}
+
+On each location you can choose if the Location should support our Internal MFA (configured by each user in their own profile) or (if you have [external OIDC/SSO configured](../external-openid-providers/)) external MFA:
+
+<figure><img src="../../.gitbook/assets/Screenshot 2025-07-29 at 12.12.18.png" alt=""><figcaption></figcaption></figure>
+
+When enabled, on the desktop client when authenticating the user will be required on **each connection** to authenticate with the configured External OIDC/SSO:
+
+<figure><img src="../../.gitbook/assets/Screenshot 2025-07-29 at 12.20.01.png" alt="" width="375"><figcaption></figcaption></figure>
