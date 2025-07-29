@@ -104,7 +104,7 @@ By defining a group, assigning users to that group and then choosing this group(
 By enabling this setting this location **will require Multi-Factor Authentication** on each connection to this location.
 
 {% hint style="danger" %}
-This feature is only supported in [**Defguard Desktop Client**](../../help/desktop-client.md)**.**
+This feature is only supported in [**Defguard Desktop Client**](../../help/desktop-client/)**.**
 {% endhint %}
 
 Each connection in the client:
