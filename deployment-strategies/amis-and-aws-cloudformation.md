@@ -1,6 +1,6 @@
 # AMIs and AWS CloudFormation
 
-{% hint style="info" %}
+{% hint style="warning" %}
 This feature is still under development. The documentation may be incomplete or refer to resources that are not yet available.
 {% endhint %}
 
@@ -8,9 +8,9 @@ This feature is still under development. The documentation may be incomplete or 
 
 We provide an AMI for each Defguard component (Core, Gateway and Proxy) which can be used to launch instances in AWS. The AMIs are available in the following regions:
 
-- `us-east-1` (N. Virginia)
-- `eu-west-1` (Ireland)
-- `ap-northeast-1` (Tokyo)
+* `us-east-1` (N. Virginia)
+* `eu-west-1` (Ireland)
+* `ap-northeast-1` (Tokyo)
 
 We recommend using the AMIs either with a CloudFormation template or with our Terraform module, as they will automatically configure the instances with the necessary settings.
 
@@ -20,10 +20,10 @@ You can import the CloudFormation template from the AWS Marketplace or from our 
 
 The template consists of the following components:
 
-- **Defguard Core**
-- **Defguard Gateway** - The template has only one Gateway instance, but Defguard supports running multiple Gateways if you need more VPN locations.
-- **Defguard Proxy**
-- **PostgreSQL Database**
+* **Defguard Core**
+* **Defguard Gateway** - The template has only one Gateway instance, but Defguard supports running multiple Gateways if you need more VPN locations.
+* **Defguard Proxy**
+* **PostgreSQL Database**
 
 We recommend reading the [Architecture documentation](https://docs.defguard.net/in-depth/architecture) to understand how these components interact.
 
@@ -31,48 +31,48 @@ The template has the following configurable parameters:
 
 ### Core Instance
 
-- `CoreCookieInsecure` (optional): If set to `true`, Defguard Core will use insecure cookies. This is not recommended for production environments. Set it to `true` if you are using HTTP instead of HTTPS.
-- `CoreGrpcPort` (optional): The gRPC port, default is `50051`. This is used for communication between Defguard components.
-- `CoreHttpPort` (optional): The HTTP port on which Defguard Core should listen, default is `8000`. This is where the Defguard web UI will be accessible.
-- `CoreInstanceType` (optional): The instance type (e.g., `t3.medium`, `m5.large`), default is `t3.micro`.
-- `CoreLogLevel` (optional): The log level of Defguard Core, default is `info`.
-- `CoreUrl` (required): The URL where Defguard Core will be accessible (e.g., `https://defguard.example.com`). This should be the URL that users will use to access the Defguard web interface.
-- `CoreDefaultAdminPassword` (optional): The default password for the `admin` user, default is `pass123`. This should be changed to a more secure password in production environments.
+* `CoreCookieInsecure` (optional): If set to `true`, Defguard Core will use insecure cookies. This is not recommended for production environments. Set it to `true` if you are using HTTP instead of HTTPS.
+* `CoreGrpcPort` (optional): The gRPC port, default is `50051`. This is used for communication between Defguard components.
+* `CoreHttpPort` (optional): The HTTP port on which Defguard Core should listen, default is `8000`. This is where the Defguard web UI will be accessible.
+* `CoreInstanceType` (optional): The instance type (e.g., `t3.medium`, `m5.large`), default is `t3.micro`.
+* `CoreLogLevel` (optional): The log level of Defguard Core, default is `info`.
+* `CoreUrl` (required): The URL where Defguard Core will be accessible (e.g., `https://defguard.example.com`). This should be the URL that users will use to access the Defguard web interface.
+* `CoreDefaultAdminPassword` (optional): The default password for the `admin` user, default is `pass123`. This should be changed to a more secure password in production environments.
 
 ### Database
 
-- `DbInstanceClass` (optional): The instance class for the PostgreSQL database, default is `db.t3.micro`.
-- `DbName` (optional): The name of the PostgreSQL database, default is `defguard`.
-- `DbPassword` (optional): The password for the PostgreSQL database, default is `defguard`. This should be changed to a more secure password in production environments.
-- `DbPort` (optional): The port on which the PostgreSQL database will listen, default is `5432`.
-- `DbStorage` (optional): The storage size for the PostgreSQL database, default is `20`. This is the size in GB.
-- `DbUsername` (optional): The username for the PostgreSQL database, default is `defguard`.
+* `DbInstanceClass` (optional): The instance class for the PostgreSQL database, default is `db.t3.micro`.
+* `DbName` (optional): The name of the PostgreSQL database, default is `defguard`.
+* `DbPassword` (optional): The password for the PostgreSQL database, default is `defguard`. This should be changed to a more secure password in production environments.
+* `DbPort` (optional): The port on which the PostgreSQL database will listen, default is `5432`.
+* `DbStorage` (optional): The storage size for the PostgreSQL database, default is `20`. This is the size in GB.
+* `DbUsername` (optional): The username for the PostgreSQL database, default is `defguard`.
 
 ### Gateway Instance
 
-- `GatewayInstanceType` (optional): The instance type for the Gateway, default is `t3.micro`.
-- `GatewayLogLevel` (optional): The log level for the Gateway, default is `info`.
-- `GatewaySecret` (required): The secret used to authenticate the Gateway with Defguard Core. This should be a strong, random string, 64 characters long.
+* `GatewayInstanceType` (optional): The instance type for the Gateway, default is `t3.micro`.
+* `GatewayLogLevel` (optional): The log level for the Gateway, default is `info`.
+* `GatewaySecret` (required): The secret used to authenticate the Gateway with Defguard Core. This should be a strong, random string, 64 characters long.
 
 ### Proxy Instance
 
-- `ProxyGrpcPort` (optional): The gRPC port for the Proxy, default is `50051`.
-- `ProxyHttpPort` (optional): The HTTP port for the Proxy, default is `8000`. This is where the Defguard Proxy web UI will be accessible. The proxy UI is used for user enrollment.
-- `ProxyInstanceType` (optional): The instance type for the Proxy, default is `t3.micro`.
-- `ProxyLogLevel` (optional): The log level for the Proxy, default is `info`.
-- `ProxyUrl` (required): The URL where the Defguard Proxy will be accessible (e.g., `https://proxy.defguard.example.com`). This should be the URL that users will use to access the Defguard Proxy web UI.
+* `ProxyGrpcPort` (optional): The gRPC port for the Proxy, default is `50051`.
+* `ProxyHttpPort` (optional): The HTTP port for the Proxy, default is `8000`. This is where the Defguard Proxy web UI will be accessible. The proxy UI is used for user enrollment.
+* `ProxyInstanceType` (optional): The instance type for the Proxy, default is `t3.micro`.
+* `ProxyLogLevel` (optional): The log level for the Proxy, default is `info`.
+* `ProxyUrl` (required): The URL where the Defguard Proxy will be accessible (e.g., `https://proxy.defguard.example.com`). This should be the URL that users will use to access the Defguard Proxy web UI.
 
 ### Network configuration
 
-- `VpcCidr` (optional): The CIDR block for the VPC in which Defguard will be deployed, default is `10.0.0.0/16`.
-- `VpcName` (optional): The name of the VPC, default is `defguard-vpc`.
+* `VpcCidr` (optional): The CIDR block for the VPC in which Defguard will be deployed, default is `10.0.0.0/16`.
+* `VpcName` (optional): The name of the VPC, default is `defguard-vpc`.
 
 ### VPN Network (Location) configuration
 
-- `VpnNetworkAddress` (optional): The CIDR address for the VPN network, default is `10.10.10.1/24`. The VPN clients will receive IP addresses from this range. The gateway will have the first address in the range.
-- `VpnNetworkName` (optional): The name of the VPN network (location). This is displayed both to the clients and in the Defguard web UI, default is `vpn1`.
-- `VpnNetworkNat` (optional): If set to `true`, the VPN will have masquerading enabled, allowing clients to access other networks through the VPN (e.g., the internet). Default is `true`.
-- `VpnNetworkPort` (optional): The UDP port on which the VPN will listen for incoming VPN connections, default is `51820`.
+* `VpnNetworkAddress` (optional): The CIDR address for the VPN network, default is `10.10.10.1/24`. The VPN clients will receive IP addresses from this range. The gateway will have the first address in the range.
+* `VpnNetworkName` (optional): The name of the VPN network (location). This is displayed both to the clients and in the Defguard web UI, default is `vpn1`.
+* `VpnNetworkNat` (optional): If set to `true`, the VPN will have masquerading enabled, allowing clients to access other networks through the VPN (e.g., the internet). Default is `true`.
+* `VpnNetworkPort` (optional): The UDP port on which the VPN will listen for incoming VPN connections, default is `51820`.
 
 ### Customizing the deployment
 
@@ -86,10 +86,9 @@ By default, the CloudFormation template will deploy Defguard with the settings a
 | Proxy     | 8000 (HTTP)  | Anywhere            |
 | Gateway   | 51820 (UDP)  | Anywhere            |
 
-
 You can customize the deployment by modifying the template or doing changes in the AWS Infrastructure Composer.
 
-To modify an existing stack deployed from the template, you can use the AWS Console, navigate to the CloudFormation service, select your stack, click on "Update stack" and then choose "Create a change set". 
+To modify an existing stack deployed from the template, you can use the AWS Console, navigate to the CloudFormation service, select your stack, click on "Update stack" and then choose "Create a change set".
 
 ![alt text](../.gitbook/assets/image-5.png)
 
@@ -100,8 +99,6 @@ Next, select how you want to update the stack. If you want to modify the paramet
 If you want to modify the template itself, the easiest way is to edit it in the Infrastructure Composer: select "Edit in Infrastructure Composer" and click the "Edit in Infrastructure Composer" button.
 
 ![alt text](../.gitbook/assets/image-9.png)
-
-
 
 #### Granting SSH access to the instances
 
