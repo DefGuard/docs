@@ -1,12 +1,12 @@
 # Mobile Client
 
 {% hint style="warning" %}
-Mobile client is currently under development **(closed beta)**, current page should be considered as preview. Some parts of UI may look different in upcoming release.
+Mobile client is currently under development and are in **beta**, current page should be considered as preview. Some parts of UI may look different in upcoming release.
 {% endhint %}
 
 ### Installation
 
-1. Join closed beta for [iOS](https://defguard.net) or [Android](https://play.google.com/store/apps/details?id=net.defguard.mobile). (Coming soon!)
+1. Join closed beta for [iOS](https://testflight.apple.com/join/Jvdhkt7h) or [Android](https://play.google.com/store/apps/details?id=net.defguard.mobile).
 2. Download and install the app on your device.
 
 ### Guides
