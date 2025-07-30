@@ -101,6 +101,7 @@
 
 * [Overview](help/overwiew.md)
 * [Desktop Client](help/desktop-client/README.md)
+  * [Instance configuration](help/desktop-client/instance-configuration.md)
   * [Using Multi-Factor Authentication (MFA)](help/desktop-client/using-multi-factor-authentication-mfa.md)
 * [Mobile Client](help/mobile-client/README.md)
   * [Adding new Instance](help/mobile-client/instance-adding.md)

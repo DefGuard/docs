@@ -6,7 +6,9 @@ Desktop client provides an easy way to access VPN locations of multiple Defguard
 
 Download latest release here: [https://defguard.net/download/](https://defguard.net/download/)
 
-For development/pre-relases go to github: [https://github.com/DefGuard/client/releases](https://github.com/DefGuard/client/releases)
+For development/pre-releases, go to GitHub: [https://github.com/DefGuard/client/releases](https://github.com/DefGuard/client/releases)
+
+
 
 ## Windows
 
@@ -66,14 +68,14 @@ To safely install a package from Ubuntu Jammy repositories without breaking your
     sudo apt update
     sudo apt install -t jammy libwebkit2gtk-4.0
     ```
-4. **Optionaly: Remove Jammy Repo After Use:**\
+4. **Optionally: Remove Jammy Repo After Use:**\
    Delete or comment out the Jammy entry in `/etc/apt/sources.list`.
 
 #### ArchLinux
 
 There is an [AUR package](https://aur.archlinux.org/packages/defguard-client)[: defguard-client](https://aur.archlinux.org/packages/defguard-client).
 
-If you don't know how to install AUR packages, please follow these guidlines:
+If you don't know how to install AUR packages, please follow these guidelines:
 
 * Manual install: [https://wiki.archlinux.org/title/Arch\_User\_Repository](https://wiki.archlinux.org/title/Arch_User_Repository)
 * Installation through PARU (AUR Helper): [https://owlhowto.com/how-to-install-paru-on-arch-linux/](https://owlhowto.com/how-to-install-paru-on-arch-linux/)
