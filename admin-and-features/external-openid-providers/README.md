@@ -45,11 +45,13 @@ In almost any provider's configuration you will need to define a set of allowed 
 
 * `<DEFGUARD_DASHBOARD_URL>/auth/callback`
 * `<DEFGUARD_ENROLLMENT_URL>/openid/callback`
+* `<DEFGUARD_ENROLLMENT_URL>/openid/mfa/callback`
 
 For example, if your Defguard main dashboard is accessible at `https://defguard.my-domain.net` and your users perform the enrollment through a proxy accessible at `https://enrollment.my-domain.net` you would need to enter the following URIs:
 
 * `https://defguard.my-domain.net/auth/callback`
 * `https://enrollment.my-domain.net/openid/callback`
+* `https://enrollment.my-domain.net/openid/mfa/callback`
 
 These URIs will need to be provided in your provider's configuration. See [#examples](./#examples "mention") to learn more.
 
