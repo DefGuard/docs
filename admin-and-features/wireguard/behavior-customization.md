@@ -33,3 +33,7 @@ One of Defguard desktop client uniqe features is the possibility for the user to
 But there are scenarios that administrator would like that users have only access to the **Predefined traffic** (meaning Allowed IPs in the Network VPN configuration) and the possibility to access all networks disabled.
 
 When enabling this option, users will only have _Predefined traffic_ available in their desktop client and the _All traffic_ option disabled.
+
+{% hint style="warning" %}
+Please note that this option is only client-side enforced, meaning the user may manually modify Wireguard interface to force all traffic to go through the VPN.
+{% endhint %}
