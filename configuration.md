@@ -128,7 +128,7 @@ If you're using docker image you can pass this value as environmental variables 
 
     <figure><img src=".gitbook/assets/obraz (1).png" alt=""><figcaption></figcaption></figure>
 * `DEFGUARD_USERSPACE` , `-u` - Use userspace wireguard implementation, useful on systems without native wireguard support
-* `DEFGUARD_GRPC_CA - path to ca file` more on this topic [on this help page.](deployment-strategies/grpc-ssl-communication.md)
+* `DEFGUARD_GRPC_CA - path to ca file` more on this topic can be found [on this help page.](deployment-strategies/grpc-ssl-communication.md)
 * `DEFGUARD_STATS_PERIOD` ,`-p <SECONDS>` - Defines how often (seconds) should interface statistics be sent to the Defguard server
 * `DEFGUARD_GATEWAY_NAME`, `--name <NAME>` - (optional) human-readable gateway name that will be displayed in Defguard webapp
 * `-s, --use-syslog` - enable logging to syslog
@@ -146,9 +146,9 @@ As a consequence, enabling this option disables [ACL functionality](admin-and-fe
 
 #### Executing custom commands on VPN up/down
 
-The following env variables or gateway arguments define which commands gateway will run before / after it wil bring up / down the VPN.
+The following env variables or gateway arguments define which commands gateway will run before / after it will bring up / down the VPN.
 
-It's usfull for exaple to use those commands to launch custom firewall commands or scripts that do various operations needed to be done on those ocasions.
+It's usefull for example to use those commands to launch custom firewall commands or scripts that do various operations needed to be done on those occasions.
 
 {% hint style="danger" %}
 Defguard is built with highest security standards in mind, thus the options below **accept only a full path to one command and it's arguments.**
@@ -156,7 +156,7 @@ Defguard is built with highest security standards in mind, thus the options belo
 If you would like to have **multiple commands run,** you can create a shell script which will define the acceptable and preferred shell you would like to use and then all the commands you like to execute.
 {% endhint %}
 
-`PRE_UP` , `--pre-up`, - Command to run before bringing up the interface. If you want to run a shell script, you should pass it's path to your shell, for example: `/bin/sh -c /path/to/script`
+`PRE_UP` , `--pre-up`, - Command to run before bringing up the interface. If you want to run a shell script, you should pass its path to your shell, for example: `/bin/sh -c /path/to/script`
 
 `POST_UP` , `--post-up`, - Command to run after bringing up the interface.
 
@@ -165,7 +165,7 @@ If you would like to have **multiple commands run,** you can create a shell scri
 `POST_DOWN` , `--post-down`, - Command to run after bringing down the interface.
 
 {% hint style="info" %}
-If logging to syslog please remember to configure your syslog deamon accordingly, so that a dedicated logfile is created or the messages are included in the main system log.
+If logging to syslog please remember to configure your syslog daemon accordingly, so that a dedicated logfile is created or the messages are included in the main system log.
 {% endhint %}
 
 ### Config file
@@ -222,7 +222,7 @@ syslog_socket = "/var/run/log"
 
 ### Environmental variables
 
-* `LOG_LEVEL`: Log messages level, default: `INFO`, available levels: `CRITICAL`, `ERROR`, `WARNIG`, `INFO`, `DEBUG`
+* `LOG_LEVEL`: Log messages level, default: `INFO`, available levels: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`
 * `WORKER_ID`: Name of your YubiBridge displayed on Defguard website, default: `YubiBridge`
 * `DEFGUARD_TOKEN`: - Secret worker token to secure gRPC communication, available on provisioners page
 * `SMARTCARD_RETRIES`: Number of retries in case provisioning failed, default: `1`

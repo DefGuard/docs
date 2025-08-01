@@ -1,6 +1,6 @@
 # Docker Compose
 
-Here are basic and simple docker-compose configuration files that will enable you to quickly deploy your own instance manually. We also assume in this example, that all services will deployed on dedicated servers/VMs - separating them physically, thus each compose is for a separate service.
+Here are basic and simple docker-compose configuration files that will enable you to quickly deploy your own instance manually. We also assume in this example, that all services will be deployed on dedicated servers/VMs - separating them physically, thus each compose is for a separate service.
 
 {% hint style="success" %}
 Please not that we also offer docker-compose deployment with [_one-line quick deployment_](../getting-started/one-line-install.md)_,_ but this method is recommended for PoC/quick deployment as **it launches everything on one server and all services in one docker compose**.
@@ -43,9 +43,9 @@ services:
       - db:/var/lib/postgresql/data
 ```
 
-#### NGINX reverese-proxy
+#### NGINX reverse-proxy
 
-Now that you have core running here is an example NGINX configuration to provide SSL termination:
+Now that you have core running, here is an example NGINX configuration to provide SSL termination:
 
 ```
 upstream  defguard {
@@ -136,7 +136,7 @@ POSTGRES_PASSWORD=!SAME_AS-GENERATED-DEFGUARD_DB_PASSWORD!
 
 Here is the docker-compose.yaml for the public proxy (enrollment service as well as desktop client configuration service).
 
-To secure the gRPC communication please generate the proxy CA and certificate, [more info here](grpc-ssl-communication.md#custom-ssl-ca-and-certificates).
+To secure the gRPC communication, please generate the proxy CA and certificate, [more info here](grpc-ssl-communication.md#custom-ssl-ca-and-certificates).
 
 ```
 proxy:
@@ -156,9 +156,9 @@ proxy:
   
 ```
 
-#### NGINX reverese-proxy
+#### NGINX reverse-proxy
 
-Now that you have proxy running here is an example NGINX configuration to provide SSL termination:
+Now that you have proxy running, here is an example NGINX configuration to provide SSL termination:
 
 ```
 upstream  defguard-proxy  {

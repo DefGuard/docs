@@ -4,7 +4,7 @@
 
 ## Defguard Gateway Configuration
 
-This instruction helps configuring Defguard Gateway in OPNsense. This is based on [WireGuard Road Warrior Setup](https://docs.opnsense.org/manual/how-tos/wireguard-client.html) from OPNsense documentation.
+This instruction helps configure Defguard Gateway in OPNsense. This is based on [WireGuard Road Warrior Setup](https://docs.opnsense.org/manual/how-tos/wireguard-client.html) from OPNsense documentation.
 
 ### Configure Defguard Gateway plugin
 
@@ -17,8 +17,8 @@ This instruction helps configuring Defguard Gateway in OPNsense. This is based o
 ### Assign a network interface to Defguard
 
 1. Go to **Interfaces → Assignments**
-2. Under **Assign a new interface**, select the Defgaurd Gateway network interface (e.g. _wg0_)
-3. Add a descrption, for example _ParisOfficeVPN_
+2. Under **Assign a new interface**, select the Defguard Gateway network interface (e.g. _wg0_)
+3. Add a description, for example _ParisOfficeVPN_
 4. Click **Add**
 
 <figure><img src="../../../.gitbook/assets/OPNSense-interface-assignments.png" alt="Interface Assignments"><figcaption></figcaption></figure>
@@ -48,7 +48,7 @@ This instruction helps configuring Defguard Gateway in OPNsense. This is based o
 4. Select **WAN** interface
 5. Choose **TCP/IP version** of your desire
 6. Select **UDP** protocol.
-7. Set **Destination** to **WAN address** and port to the port number provided in Defaurd Core: _Location configuration → Gateway port_
+7. Set **Destination** to **WAN address** and port to the port number provided in Defguard Core: _Location configuration → Gateway port_
 8. Click **Save**, and then **Apply changes**
 
 <figure><img src="../../../.gitbook/assets/OPNSense-firewall-rule.png" alt="Firewall rule"><figcaption></figcaption></figure>

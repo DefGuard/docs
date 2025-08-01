@@ -10,7 +10,7 @@ Before contacting support, please see if the answer cannot be found here:
 
 ## Desktop client real-time/auto sync doesn't work
 
-The client communicates with core to initiate the handshake through the secure proxy (which is also the enrollment service - [more details about the architecture here](../../admin-and-features/wireguard/multi-factor-authentication-mfa-2fa/architecture.md)), so it's critical it works and is properly configured.
+The client communicates with core to initiate the handshake through the secure proxy - which is also the enrollment service - [more details about the architecture here](../../admin-and-features/wireguard/multi-factor-authentication-mfa-2fa/architecture.md) so it's critical it works and is properly configured.
 
 Common problems may be:
 
@@ -23,11 +23,11 @@ See the "[Desktop client real-time/auto sync doesn't work](./#desktop-client-rea
 
 ## I use Multi-Factor Authentication and am disconnected after _X-time_
 
-After enabling Multi-Factor Authentication for a location the configuration of the gateway changes. Without MFA peers (devices) are persistent (always in the Kernel memory) and gateway only changed the gateway configuration if a peer is added/removed/changed.
+location, After enabling Multi-Factor Authentication for a location, the configuration of the gateway changes. Without MFA, peers (devices) are persistent (always in the Kernel memory) and gateway only changed the gateway configuration if a peer is added/removed/changed.
 
-But when MFA is enabled peers **are only added to the gateway** after successful MFA on the client (and pre-shared key exchange with client and gateway to establish a dedicated key for the session).
+But when MFA is enabled, peers **are only added to the gateway** after successful MFA on the client (and pre-shared key exchange with client and gateway to establish a dedicated key for the session).
 
-Also there is a setting in the location named _Peer Disconnect Threshold (seconds):_
+Also, there is a setting in the location named _Peer Disconnect Threshold (seconds):_
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-11-15 at 18.25.33.png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -36,7 +36,7 @@ This setting specifies that if the **peer is inactive for&#x20;**_**(defined sec
 So if you are disconnected from the location:
 
 1. Check what is your setting for peer disconnect.
-2. We have a known bug - that after disconnecting Defguard Desktop Client doesn't properly detect that and has a still active connection (and actually is disconnected). You need to reconnect. Also it's [being fixed and will be released in 1.1 version of the client](https://github.com/DefGuard/client/issues/351).
+2. We have a known bug - that after disconnecting Defguard Desktop Client doesn't properly detect that and has a still active connection (and actually is disconnected). You need to reconnect. Also, it's [being fixed and will be released in 1.1 version of the client](https://github.com/DefGuard/client/issues/351).
 
 ## Client: failed to configure DNS (Linux)
 
@@ -48,7 +48,7 @@ On newer Ubuntu distributions (23 and up) `resolvconf` is, by default, a symboli
 sudo ln -s /usr/bin/resolvectl /usr/sbin/resolvconf
 ```
 
-If this fails, one may also try installing one of the packages providing the `resolvconf` command, like `openresolv` or `resolvconf` but this has not been tested and may possibly cause issues with `systemd-resolved`, so proceed at your own risk.
+If this fails, one may also try installing one of the packages providing the `resolvconf` command, like `openresolv` or, ⁣ but`resolvconf` this has not been tested and may cause issues with `systemd-resolved`, so proceed at your own risk.
 
 ## Client: Failed to parse IP address
 
@@ -75,7 +75,7 @@ Try upgrading these components to the latest stable version to resolve the issue
 
 If you are having problems with TOTP codes form 2FA/MFA (when logging in to Defguard or when connecting to VPN) please make sure your clock on the server that Defguard core is running is set properly.
 
-Best would be to setup on the server NTP time synchronization.
+Best would be to set up on the server NTP time synchronization.
 
 ## I get the following error: There was a network error. Can't reach proxy
 
@@ -93,7 +93,7 @@ Ignore them, this is a normal behaviour.
 
 ## Gateway throws "No buffer space available" error
 
-In the log files you can see the following message:
+In the log files, you can see the following message:
 
 ```
 Jul 08 08:33:24 defguard defguard-gateway[1241]: [2025-07-08T06:33:24Z ERROR defguard_gateway::gateway] Failed to update network configuration: Firewall error: Netlink error: Failed while reading a message from socket: Os { code: 105, kind: Uncategorized, message: "No buffer space available" }
@@ -118,17 +118,17 @@ If you have configured your Defguard instance correctly, after connecting to the
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-03-24 at 18.36.43.png" alt="" width="313"><figcaption><p>Example VPN server IP</p></figcaption></figure>
 
-after connecting to VPN you should be able to ping: 10.1.1.1.
+After connecting to VPN you should be able to ping: 10.1.1.1.
 
 ### VPN Location settings changed
 
-Check if the VPN location configuration has changed. If it did and you do not have Enterprise license where real-time config sync is automatic, the user needs to [update their client configuration by updating that instance manually.](../../help/configuring-vpn/add-new-instance/update-instance.md)
+Check if the VPN location configuration has changed. If it did, and you do not have Enterprise license where real-time config sync is automatic, the user needs to [update their client configuration by updating that instance manually.](../../help/desktop-client/instance-configuration.md#updating-instance)
 
 ### Conflicting networks
 
-If you are **not able to ping the VPN server** the **most common problem is that you have chosen a network that may be in conflict with your other networks** (local network, network from your Internet provider, etc.).
+If you are **not able to ping the VPN server,** the **most common problem is that you have chosen a network that may be in conflict with your other networks** (local network, network from your Internet provider, etc.).
 
-To examine your routing use on Mac and Linux `netstat -rn` command. Let's look at the example from above, the VPN network is: 10.1.1.0/24, let's look at the network route tabile:
+To examine your routing use on Mac and Linux `netstat -rn` command. Let's look at the example from above, the VPN network is: 10.1.1.0/24, let's look at the network route table:
 
 ```
 root# netstat -rn                                                                                                                                          ✔  18:40:46  
@@ -150,7 +150,7 @@ Because of the main routing 10.0.0.0/8 the VPN server routing the network 10.1.1
 
 ### Firewall rulles
 
-Another common problem is that **your server on which the gateway is working, has some firewall rules that interfere with VPN network.** Please examine carefully `ufw` and `iptables` (even if ufw is disabled there may be `iptables` rules).
+Another common problem is that **your server, on which the gateway is working, has some firewall rules that interfere with VPN network.** Please examine carefully `ufw` and `iptables` (even if ufw is disabled there may be `iptables` rules).
 
 ### VPN location ACLs
 
@@ -175,14 +175,14 @@ From there, what happens to this traffic is the **administrator role.** The most
 
 The user tries to sign in to a Defguard instance but gets a 401 response with message "Session is required".
 
-This issue is most likely caused by a misconfigured `DEFGUARD_URL` . Please take a look at the configuration options described in [General configuration](../../configuration.md#general-configuration) documentation.
+This issue is most likely caused by a misconfigured `DEFGUARD_URL` . Please have a look at the configuration options described in [General configuration](../../configuration.md#general-configuration) documentation.
 
 If you want to access your Defguard instance without TLS (using an `http://` URL), please also make sure you have everything configured according to [Auth cookies configuration](../../configuration.md#auth-cookies-configuration) documentation.
 
 ## User lost access to their 2FA methods
 
-If a user lost their TOTP app or security key and is therefore unable to log in it is possible for an admin to disable MFA for their account.
+If a user lost their TOTP app or security key and is therefore unable to log in, it is possible for an admin to disable MFA for their account.
 
-In order to do this go to the `Users` page and find the relevant user in the list. Then click on the cog button on the right and select `Disable MFA`. You will be then asked to confirm your choice.
+In order to do this, go to the `Users` page and find the relevant user in the list. Then click on the cog button on the right and select `Disable MFA`. You will be then asked to confirm your choice.
 
-It's recommended that after MFA is disabled the user should configure a new MFA method as soon as possible.
+It's recommended that after MFA is disabled, the user should configure a new MFA method as soon as possible.

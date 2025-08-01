@@ -169,7 +169,7 @@ tofu plan -var="aws_access_key=<YOUR_ACCESS_KEY>" -var="aws_secret_key=<YOUR_SEC
 tofu apply -var="aws_access_key=<YOUR_ACCESS_KEY>" -var="aws_secret_key=<YOUR_SECRET_KEY>"
 ```
 
-After running these commands, Terraform will create the necessary resources in your AWS account and deploy Defguard. The output will include the public and private addresses for Core, Proxy and ateway components:
+After running these commands, Terraform will create the necessary resources in your AWS account and deploy Defguard. The output will include the public and private addresses for Core, Proxy and gateway components:
 
 ```bash
 Apply complete! Resources: 35 added, 0 changed, 0 destroyed.

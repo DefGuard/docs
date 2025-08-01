@@ -8,7 +8,7 @@ Here is a step-by-step way to do so:
 
 ### Adding a new Location
 
-In Defguard interface in VPN Location please click: **Edit location settings** (button in the top right corner):
+In Defguard interface in VPN Location, please click: **Edit location settings** (button in the top right corner):
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-08-15 at 21.40.38.png" alt=""><figcaption></figcaption></figure>
 

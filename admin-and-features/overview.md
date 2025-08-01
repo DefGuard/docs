@@ -10,7 +10,7 @@ We recommend setting up your own example instance using our [one-line install sc
 
 As a future Defguard administrator, this documentation will help you:
 
-* Be aware of all the possibilities you have with defguard.
+* Be aware of all the possibilities you have with Defguard.
 * How to configure them to your needs.
 
-If you're more interested in different deployment strategies after using our [one-line install script](../getting-started/one-line-install.md), go to the [deployment strategies](broken-reference) section.
+If you're more interested in different deployment strategies after using our [one-line install script](../getting-started/one-line-install.md), go to the [deployment strategies](broken-reference/) section.

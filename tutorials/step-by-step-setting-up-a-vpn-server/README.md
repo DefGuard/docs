@@ -2,9 +2,9 @@
 
 ### Introduction
 
-This tutorial aims to show how quick and easy is to deploy your VPN server using defguard.
+This tutorial aims to show how quick and easy it is to deploy your VPN server using Defguard.
 
-This tutorial is also availabe as a video:
+This tutorial is also available as a video:
 
 {% embed url="https://www.youtube.com/watch?v=MqlE6ZTn0bg" %}
 
@@ -12,14 +12,14 @@ We assume you have:
 
 * a **server with a public IP** (and you know what that IP address is and to which interface it's assigned) - in this example it's: _185.33.37.51_
 * you have a **domain name** and know how to assign IP and manage subdomains, in our example:
-  * Defguard main url will be _my-server.defguard.net_ (and the subdomain is pointed to _185.33.37.51_)
-  * Defguard enrollment service that will enable to easy configure Desktop Clients just with one token is: _enroll.defguard.net_ (this subdomain also points to _185.33.37.51_)
+  * Defguard main URL will be _my-server.defguard.net_ (and the subdomain is pointed to _185.33.37.51_)
+  * Defguard enrollment service that will enable to easily configure Desktop Clients just with one token is: _enroll.defguard.net_ (this subdomain also points to _185.33.37.51_)
 * server is Debian/Ubuntu-based
 * have installed the [official Docker Engine](https://docs.docker.com/engine/install/debian/#install-using-the-repository) and [docker-compose](https://docs.docker.com/compose/install/standalone/#on-linux) (from our experience it's better to use the official Docker Engine then docker shipped with distro packages - but this should also work with distro packages) and have
 * VPN network will be: 10.22.33.0/24 - but you can assign [any private network address](https://en.wikipedia.org/wiki/Private_network) and use it in this tutorial - we will name it _Example_
-* If you have a **firewall**, we assume you have **open ports** (if not below we will show you how to enable and secure your server):
-  * 443 - in order to expose both Defguard & enrollemnt service - but also to automatically issue for these domains SSL Certificates (which the installer script does)
-  * 50555 - on this port the WireGuard VPN server will be listning for incoming connections from clients
+* If you have a **firewall**, we assume you have **open ports** (if not, below we will show you how to enable and secure your server):
+  * 443 - in order to expose both Defguard & enrollment service - but also to automatically issue for these domains SSL Certificates (which the installer script does)
+  * 50555 - on this port, the WireGuard VPN server will be listening for incoming connections from clients
 
 ### Deploying your VPN server
 
@@ -27,13 +27,13 @@ Deployment is really easy and will be done automatically if you follow these ste
 
 There are multiple ways to install Defguard tailored to your network & infrastructure - in fact, Defguard as a VPN server is one of the few to support secure deployments with network segmentation and secure communication, but for the purpose of this tutorial we will do the **easiest setup** and install all components on this server using docker & docker-compose. The installation process will also **automatically configure and deploy all your services and issue SSL certificates.**
 
-To do so just execute by **root** this simple command and follow the instructions:
+To do so, just execute by **root** this simple command and follow the instructions:
 
 ```
 curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh -O && bash setup.sh
 ```
 
-In this example we are answering the questions with the following answers:
+In this example, we are answering the questions with the following answers:
 
 ```
 Enter Defguard domain [default: ]: my-server.defguard.net
@@ -45,11 +45,11 @@ Enter VPN gateway public IP [default: ]: 185.33.37.51
 Enter VPN gateway public port [default: ]: 50555
 ```
 
-When finished you should see the following message:
+When finished, you should see the following message:
 
 ```
 Defguard setup finished successfully
-If your DNS configuration is correct your Defguard instance should be available at:
+If your DNS configuration is correct, your Defguard instance should be available at:
 
 	Web UI: https://my-server.defguard.net
 	Enrollment service: https://enroll.defguard.net
@@ -60,7 +60,7 @@ You can log into the UI using the default admin user:
 	password: bQ63RSp4o5ZAnIkv
 ```
 
-<mark style="color:blue;">**And voila! It was that easy!**</mark>
+<mark style="color:blue;">**And voilà! It was that easy!**</mark>
 
 When you log in to your instance with user admin and the password that was generated for you, you should see that the VPN gateway is connected:
 
@@ -70,21 +70,21 @@ When you log in to your instance with user admin and the password that was gener
 
 Download the latest client from: [https://github.com/DefGuard/client/releases](https://github.com/DefGuard/client/releases) and install it - which is (during writing this article) version 0.1.1.
 
-No go to **defguard** Web UI (in this example: _https://my-server.defguard.net_) and go to _My Profile_ and click on _Add Device:_
+Now, go to **Defguard** Web UI (in this example: _https://my-server.defguard.net_) and go to _My Profile_ and click on _Add Device:_
 
 <figure><img src="../../.gitbook/assets/SCR-20240118-rzqf.png" alt=""><figcaption><p>Adding a new device/desktop client in Defguard user profile</p></figcaption></figure>
 
-Then choose _Defguard Client Remote Desktop Activation_ - which will easly configure your Desktop client:
+Then choose _Defguard Client Remote Desktop Activation_ - which will easily configure your Desktop client:
 
-<figure><img src="../../.gitbook/assets/SCR-20240118-sajv.png" alt=""><figcaption><p>Defguard supports both it's desktop client and configuring any Wireguard Client</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/SCR-20240118-sajv.png" alt=""><figcaption><p>Defguard supports both desktop client and configuring any WireGuard Client</p></figcaption></figure>
 
 Defguard will show what **URL** (which is - as you see - your enrollment service URL) and **token** to paste to your desktop client:
 
-<figure><img src="../../.gitbook/assets/SCR-20240118-sfkc.png" alt=""><figcaption><p>Just by simply providing URL &#x26; token your client will be automatically configured</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/SCR-20240118-sfkc.png" alt=""><figcaption><p>Just by simply providing URL &#x26; token, your client will be automatically configured</p></figcaption></figure>
 
-You can easily copy those with buttons provided in defguard, and paste to your desktop client.
+You can easily copy those with buttons provided in Defguard, and paste to your desktop client.
 
-In desktop client click on \_**+ Add instance** \_ and provide the URL and token:
+In desktop client, click on \_**+ Add instance** \_ and provide the URL and token:
 
 <figure><img src="../../.gitbook/assets/SCR-20240118-sfnm.png" alt=""><figcaption><p>Configuring the client with a new instance</p></figcaption></figure>
 
@@ -94,9 +94,9 @@ After that, the client will ask you to name your device (however you like), afte
 
 The client will instantly show your Defguard instance and the VPN (we named _Example):_
 
-<figure><img src="../../.gitbook/assets/SCR-20240118-sfuz.png" alt=""><figcaption><p>Client after succesfully adding a new instance</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/SCR-20240118-sfuz.png" alt=""><figcaption><p>Client after successfully adding a new instance</p></figcaption></figure>
 
-Also, in Defguard you should see in your profle, that the client is configured and visible (for now - no details of IPs, etc - will automaticaly show details when you connect with your client):
+Also, you should see in your profile, that the client is configured and visible (for now - no details of IPs, etc - will automatically show details when you connect with your client):
 
 <figure><img src="../../.gitbook/assets/SCR-20240118-sfyi.png" alt=""><figcaption><p>Defguard showing the newly configured client in user profile</p></figcaption></figure>
 
@@ -115,7 +115,7 @@ As an administrator, you will probably be happy to see this - Defguard VPN dashb
 {% hint style="info" %}
 This completes your VPN setup - both server and client.
 
-But if you would like to configure your VPN server to allow accessing Internet through the VPN gateway, please read the chaptare below.
+But if you would like to configure your VPN server to allow accessing Internet through the VPN gateway, please read the chapter below.
 {% endhint %}
 
 ### Adding new location
@@ -124,13 +124,13 @@ If you would like to have multiple VPN locations - [please read this tutorial ho
 
 ### Enabling to access Internet through your VPN
 
-The most common purpose to setup your own VPN is to provide you (and your users - Defguard supports multiple users!) **anonimity and privacy** when accessing public internet.
+The most common purpose to set up your own VPN is to provide you (and your users - Defguard supports multiple users!) **anonymity and privacy** when accessing public internet.
 
-It's great for every day use (if you want to _hide_ your real IP/location) or for example to encrypt **all your traffic when your are in a public location -** like beeing on Wi-Fi in a coffee shop, hotels, etc. - since **most if not all those places do not provide encrypted Wi-Fi (just open hotspots).**
+It's great for everyday use (if you want to _hide_ your real IP/location) or for example to encrypt **all your traffic when you are in a public location -** like being on Wi-Fi in a coffee shop, hotels, etc. - since **most if not all those places do not provide encrypted Wi-Fi (just open hotspots).**
 
-So Defguard as a VPN service is one thing, but we need to do few commands on the server, to enable routing all traffic through this server and your VPN. For your convenience those we will explain in detail.
+So Defguard as a VPN service is one thing, but we need to do a few commands on the server, to enable routing all traffic through this server and your VPN. For your convenience, those we will explain in detail.
 
-First of all we need a simple and easy way to manage firewall. In order to do so on Debian install UFW (it's automatically installed on Ubuntu):
+First of all we need a simple and easy way to manage firewall. In order to do so on Debian, install UFW (it's automatically installed on Ubuntu):
 
 ```
 root@server# apt install ufw
@@ -160,7 +160,7 @@ net.ipv4.ip_forward=1
 root@server:~# sysctl -p
 ```
 
-Now we need to configure firewall [NAT](https://en.wikipedia.org/wiki/Network_address_translation), so that the server will "_translate/masq_" VPN traffic behind its public IP. In order to do that, we need to add rules to MASQUERADE VPN network behind the public interface of the sever.
+Now we need to configure firewall [NAT](https://en.wikipedia.org/wiki/Network_address_translation), so that the server will "_translate/masq_" VPN traffic behind its public IP. In order to do that, we need to add rules to MASQUERADE VPN network behind the public interface of the server.
 
 {% hint style="info" %}
 From version 1.3.0, gateway can automatically apply masquerade to traffic on all interfaces without the need for manual configuration. Refer to [#masquerade](../../admin-and-features/access-control-list/#masquerade "mention") for details. If you use this feature, you can skip the following manual masquerade setup step.
@@ -190,7 +190,7 @@ Now just add the following to /etc/ufw/before.rules **just before the filter rul
 COMMIT
 ```
 
-Typical ufw configuration is that INPUT traffic is disabled, so we need to open ports for our WEB and WireGuard gateway:
+A typical ufw configuration is that INPUT traffic is disabled, so we need to open ports for our WEB and WireGuard gateway:
 
 ```
 # allow HTTPS to access defguard
@@ -241,15 +241,15 @@ Defguard is the only (known to us) WireGuard client that during connection provi
 
 <figure><img src="../../.gitbook/assets/SCR-20240118-smil.png" alt=""><figcaption><p>Choosing to forward all traffic through VPN</p></figcaption></figure>
 
-This is very usefull, since some of the times you just want to be connected to your VPN to have the server/VPN networks accessible, and sometimes (like in the scenarious mentioned before) you want to hide and encrypt your traffic.
+This is very useful, since some times you just want to be connected to your VPN to have the server/VPN networks accessible, and sometimes (like in the scenarios mentioned before) you want to hide and encrypt your traffic.
 
-In order to check if everything works, let's visit a website [https://ifconfig.co](https://ifconfig.co) - that will show our public IP. If everything went smootly, you should see **your VPN server public IP** (which in our example is: _185.33.37.51_):
+In order to check if everything works, let's visit a website [https://ifconfig.co](https://ifconfig.co) - that will show our public IP. If everything went smoothly, you should see **your VPN server public IP** (which in our example is: _185.33.37.51_):
 
 <figure><img src="../../.gitbook/assets/SCR-20240118-smsu.png" alt=""><figcaption><p>Success! Defguard is AWESOME!</p></figcaption></figure>
 
 ## Final thoughts
 
-We put a lot! of effort in development, testing and documentation - to make difficult things like security, VPN easy and good looking. So for now, we kindly ask you to:
+We put a lot of effort in development, testing, and documentation - to make difficult things like security, VPN easy and good-looking. So for now, we kindly ask you to:
 
 * star us on GitHub: [https://github.com/defguard/defguard](https://github.com/defguard/defguard)
 * and spread the word about Defguard however you like!

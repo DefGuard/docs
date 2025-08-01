@@ -1,6 +1,6 @@
 # Desktop Client
 
-## Overview
+### Overview
 
 Desktop client provides an easy way to access VPN locations of multiple Defguard instances via user-friendly UI.
 
@@ -8,21 +8,26 @@ Download latest release here: [https://defguard.net/download/](https://defguard.
 
 For development/pre-releases, go to GitHub: [https://github.com/DefGuard/client/releases](https://github.com/DefGuard/client/releases)
 
+Guides:
+
+* [Instance configuration](instance-configuration.md)
+* [Using Multi-Factor Authentication](using-multi-factor-authentication-mfa.md)
 
 
-## Windows
+
+### Windows
 
 Our desktop client has **bundled** official WireGuard client - as we use **wg.exe** to manage the WireGuard tunnels.
 
-{% hint style="warning" %}
+{% hint style="danger" %}
 If you have the official WireGuard client installed - Defguard client installation may fail.
 {% endhint %}
 
-## MacOS
+### MacOS
 
 Has no external requirements and we have wireguard-go bundled.
 
-## Linux
+### Linux
 
 {% hint style="warning" %}
 On Linux the desktop client uses `resolvconf` to manage DNS servers. On newer distributions it should be a symbolic link to `resolvectl`, more details can be found on the [troubleshooting](../broken-reference/) page.
@@ -80,7 +85,7 @@ If you don't know how to install AUR packages, please follow these guidelines:
 * Manual install: [https://wiki.archlinux.org/title/Arch\_User\_Repository](https://wiki.archlinux.org/title/Arch_User_Repository)
 * Installation through PARU (AUR Helper): [https://owlhowto.com/how-to-install-paru-on-arch-linux/](https://owlhowto.com/how-to-install-paru-on-arch-linux/)
 
-## Client update
+### Client update
 
 Defguard Client regularly checks for updates and in order to do so operating system name and installed application version are sent to the Defguard update service.
 

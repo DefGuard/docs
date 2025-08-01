@@ -36,9 +36,8 @@ We've introduced some changes to the LDAP integration. We recommend reading [the
 
 ## Any previous release → 1.3.0
 
-* The LDAP integration has became an enterprise feature. You will need to purchase the enterprise license if you exceed the free limits. See [license.md](../enterprise/license.md "mention") for more information regarding the license.
-*   If you used the LDAP integration previously, it will be off by default after upgrading. You will have to manually enable it in the settings in the LDAP tab:\
-
+* The LDAP integration has become an enterprise feature. You will need to purchase the enterprise license if you exceed the free limits. See [license.md](../enterprise/license.md "mention") for more information regarding the license.
+*   If you used the LDAP integration previously, it will be off by default after upgrading. You will have to manually enable it in the settings in the LDAP tab:\\
 
     <figure><img src="../.gitbook/assets/image (82).png" alt=""><figcaption></figcaption></figure>
 
@@ -46,15 +45,15 @@ We've introduced some changes to the LDAP integration. We recommend reading [the
 
 ### Core
 
-LDAP integration received a major overhaul of how users are mapped to Defguard users when the two way synchronization is enabled. Now users are always identified by their leftmost DN value.&#x20;
+LDAP integration received a major overhaul of how users are mapped to Defguard users when the two-way synchronization is enabled. Now, users are always identified by their leftmost DN value.
 
-A new synchronization may cause some of your users to be re-added, which in turn may cause the loss of some of their Defguard specific data (e.g. their devices). This will happen if your leftmost DN component's attribute (referred to as RDN) is not the same as your current username attribute. This issue is only related to the two way synchronization mechanism and occurs only if you used one of the previous alphas of 1.3.0. Upgrading from any previous release to alpha 4 (skipping the alphas before) should not result in this happening.
+A new synchronization may cause some of your users to be re-added, which in turn may cause the loss of some of their Defguard specific data (e.g. their devices). This will happen if your leftmost DN component's attribute (referred to as RDN) is not the same as your current username attribute. This issue is only related to the two-way synchronization mechanism and occurs only if you used one of the previous alphas of 1.3.0. Upgrading from any previous release to alpha 4 (skipping the alphas before) should not result in this happening.
 
-Before an upgrade, turn off the two way synchronization. After upgrading you will have access to a new option, the RDN user attribute:
+Before an upgrade, turn off the two-way synchronization. After upgrading, you will have access to a new option, the RDN user attribute:
 
 <figure><img src="../.gitbook/assets/image (94).png" alt=""><figcaption></figcaption></figure>
 
-Set it according to your LDAP server setup. This should be the DN's leftmost component attribute, e.g. in the case of `cn=user1,cn=users,dc=ad,dc=example,dc=com` this would be "cn". This attribute is needed to properly identify users in your LDAP server. The username attribute will be mapped to Defguard usernames. Read [settings-table.md](../admin-and-features/ldap-and-active-directory-integration/settings-table.md "mention") for a description of those settings options. After you configured this value, you can re-enable the two way synchronization.
+Set it according to your LDAP server setup. This should be the DN's leftmost component attribute, e.g. in the case of `cn=user1,cn=users,dc=ad,dc=example,dc=com` this would be "cn". This attribute is needed to properly identify users in your LDAP server. The username attribute will be mapped to Defguard usernames. Read [settings-table.md](../admin-and-features/ldap-and-active-directory-integration/settings-table.md "mention") for a description of those settings options. After you configured this value, you can re-enable the two-way synchronization.
 
 ## Any previous core release -> core 1.1.4
 
@@ -64,7 +63,7 @@ Set it according to your LDAP server setup. This should be the DN's leftmost com
 In Core 1.1.4, we've made email addresses case insensitive, as this is a standard for many major providers. Because the emails were case sensitive up to this point, you may end up with users with the same email addresses from core's point of view.
 {% endhint %}
 
-All email addresses must be unique case-insensitively, meaning that a user with an address `address@email.com` can't coexist with another user with an address `ADDRESS@email.com`. Before upgrading, make sure you don't have any users with the same email addresses given the above. If you do, please change those addresses or remove the users altogether. Remember to check it case-insensitively. If you have users with duplicate email addresses, the migrations will fail and you won't be able to upgrade.
+All email addresses must be unique case-insensitively, meaning that a user with an address `address@email.com` can't coexist with another user with an address `ADDRESS@email.com`. Before upgrading, make sure you don't have any users with the same email addresses given the above. If you do, please change those addresses or remove the users altogether. Remember to check it case-insensitively. If you have users with duplicate email addresses, the migrations will fail, and you won't be able to upgrade.
 
 You can use the following SQL query to locate users with duplicate emails in the database:
 
@@ -100,12 +99,12 @@ You will need to change a duplicate email address before the upgrade by hand via
 
 ### Desktop Client Real Time Sync
 
-From 1.0.0 we have introduced [Enterprise features](broken-reference), and one of them is [automatic and real-time desktop client configuration synchronisation](../admin-and-features/remote-user-enrollment/automatic-real-time-desktop-client-configuration.md).
+From 1.0.0 we have introduced [Enterprise features](broken-reference/), and one of them is [automatic and real-time desktop client configuration synchronization](../admin-and-features/remote-user-enrollment/automatic-real-time-desktop-client-configuration.md).
 
-To enable this on an **already configured desktop client** one must perform one time instance update, which will generate necessary tokens on the client to perform from now on automatic updates. In details:
+To enable this on an **already configured desktop client,** one must perform one time instance update, which will generate necessary tokens on the client to perform from now on automatic updates. In details:
 
 1. The admin must generate a new token for the client -[ more details here](../admin-and-features/wireguard/remote-desktop-activation.md) (token can be sent over email or shared in any other secret way).
-2. The user must perform the [Instance Update - more details here](../help/configuring-vpn/add-new-instance/update-instance.md#how-to-update).
+2. The user must perform the [Instance Update - more details here](../help/desktop-client/instance-configuration.md#updating-instance).
 
 {% hint style="warning" %}
 Any client that is configured from scratch has this done automatically and no actions needed to be done.

@@ -4,7 +4,7 @@ By design **Defguard core (the main component) is meant to be deployed in your s
 
 <figure><img src="../../.gitbook/assets/defguard-architecture.png" alt=""><figcaption><p>Defguard architecture</p></figcaption></figure>
 
-This approach is vastly different from most (if not all) VPN/IdP solutions, which are a simple or monolithic application focus on functionalities (like generating configs, managing users, etc.) and most of the time is publicly available in the Internet for any attacker.
+This approach is vastly different from most (if not all) VPN/IdP solutions, which are a simple or monolithic application focus on functionalities (like generating configs, managing users, etc.) and most of the time is publicly available on the Internet for any attacker.
 
 If you want full privacy, Defguard only exposes publicly **components designed for this purpose:**
 
@@ -35,8 +35,8 @@ Core is a Rust web server which is exposed as REST API and gRPC web server with 
 
 Gateway is a small CLI gRPC client written in Rust which sends network statistics to Core server and apply network configuration changes on message from core.\
 Our frontend is React app written in Typescript which allows handling all API calls via Web UI.\
-See detailed gRPC docs [here](https://google.com)
+See detailed gRPC docs [here](https://google.com).
 
 ### Example setup flow
 
-After creating your network in our wizard and running our gateway program core will message it with network data. Gateway after receiving data will setup your network using wireguard commands you can think of it like a wrapper on wireguard commands which also sends network information through gRPC. After successfully setting up your network gateway will start sending your networks stats in period given as argument on gateway program start or if not provided at default which is 60 seconds. You can see all of your network statistics, connected users, bandwidth, user devices on the overview page.
+After creating your network in our wizard and running our gateway program core will message it with network data. Gateway after receiving data will set up your network using WireGuard commands you can think of it like a wrapper on WireGuard commands which also sends network information through gRPC. After successfully setting up your network gateway will start sending your networks stats in period given as argument on gateway program start or if not provided at default which is 60 seconds. You can see all of your network statistics, connected users, bandwidth, user devices on the overview page.

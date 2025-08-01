@@ -4,7 +4,7 @@
 This features is available from Defguard 1.1
 {% endhint %}
 
-In this scenario Defguard is only the VPN system and enrollment is used just to obtain credentials to configure the [Defguard Desktop Client](../configuring-vpn/add-new-instance/).
+In this scenario, Defguard is only the VPN system and enrollment is used just to obtain credentials to configure the [Defguard Desktop Client](../desktop-client/).
 
 Please go to the enrollment URL, like: https://enrollment.company.com and choose Enrollment:
 
@@ -18,4 +18,4 @@ Now log in with your SSO and after successful login process, you will receive in
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-11-15 at 18.52.56.png" alt=""><figcaption></figcaption></figure>
 
-Download the [Defguard desktop client](https://defguard.net/download/), and [enter _Instance URL_ and _token_ shown on this screen - more details here](../configuring-vpn/#automatic-with-defguard-client).
+Download the [Defguard desktop client](https://defguard.net/download/), and [enter _Instance URL_ and _token_ shown on this screen - more details here](broken-reference).

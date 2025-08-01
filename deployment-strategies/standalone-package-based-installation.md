@@ -41,7 +41,7 @@ Before proceeding with the installation, ensure your system meets the following 
 * Administrative (sudo) privileges.
 * A server with a public IP address (and you know what that IP address is and to which interface it's assigned) - in this example we use: 185.33.37.51.
 * You have a domain name and know how to assign IP and manage subdomains, in our example: Defguard main url will be _my-server.defguard.net_ (and the subdomain is pointed to 185.33.37.51).
-* Defguard [enrollment service](https://defguard.gitbook.io/defguard/help/enrollment) (run by proxy) that will enable [remote onboarding, enrollment](https://defguard.gitbook.io/defguard/help/enrollment) and [easy configuration for our Desktop Clients (by adding Defguard instances)](https://defguard.gitbook.io/defguard/help/configuring-vpn/add-new-instance) with instance URL and one simple token - in this tutorial we use: _enroll.defguard.net_ (this subdomain also points to 185.33.37.51).
+* Defguard [enrollment service](https://defguard.gitbook.io/defguard/help/enrollment) (run by proxy) that will enable [remote onboarding, enrollment](https://defguard.gitbook.io/defguard/help/enrollment) and [easy configuration for our Desktop Clients (by adding Defguard instances)](../help/desktop-client/instance-configuration.md#adding-instance) with instance URL and one simple token - in this tutorial we use: _enroll.defguard.net_ (this subdomain also points to 185.33.37.51).
 * If you have a **firewall**, we assume you have **open port 443** in order to expose both Defguard and enrollment service, but also to automatically issue for these domains SSL Certificates. Port 444 (used for internal GRPC communication) **should not be exposed public.**
 * System clock is synchronized using Network Time Protocol (NTP). This is important for time-based one-time password (TOTP) codes.
 
@@ -666,7 +666,7 @@ systemctl restart defguard.service
 Now you have full working Defguard services 🥳
 {% endhint %}
 
-You can [configure your desktop client using the enrollment](../help/configuring-vpn/add-new-instance/) service and use your VPN.
+You can [configure your desktop client using the enrollment](../help/desktop-client/instance-configuration.md#adding-instance) service and use your VPN.
 
 If you would like to use the feature in the desktop client to route **All traffic** through the VPN please configure your firewall to enable Internet access through your VPN - [here you can find exaples how to do it](https://defguard.gitbook.io/defguard/tutorials/step-by-step-setting-up-a-vpn-server#enabling-to-access-internet-through-your-vpn).
 

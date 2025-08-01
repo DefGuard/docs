@@ -76,7 +76,7 @@ The template has the following configurable parameters:
 
 ### Customizing the deployment
 
-By default, the CloudFormation template will deploy Defguard with the settings accroding to the recommended architecture, that is:
+By default, the CloudFormation template will deploy Defguard with the settings according to the recommended architecture, that is:
 
 | Component | Port         | Access allowed from |
 | --------- | ------------ | ------------------- |

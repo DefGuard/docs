@@ -25,7 +25,7 @@ Tokens retain the same access permissions as their owner, so be careful when sha
 
 ## Setup
 
-To generate a new API token go to your profile page and click the `Add new API Token`button:
+To generate a new API token, go to your profile page and click the `Add new API Token`button:
 
 <figure><img src="../.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
 
@@ -45,7 +45,7 @@ In the API token list you can later rename or delete a token:
 
 Defguard API uses a standard **Bearer token authentication** scheme.
 
-This means that an API token can be passed in the `Authorization`header to authenticate a given request instead of a session cookie used by the web UI:
+This means that an API token can be passed in the `Authorization` header to authenticate a given request instead of a session cookie used by the web UI:
 
 ```bash
 Authorization: Bearer <token>

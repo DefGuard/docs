@@ -15,7 +15,7 @@ There is one external component required: PostgreSQL database.
 
 ## Hardware requirements
 
-All Defguard components are **very low resource-consuming**. All of them are written in [Rust](https://www.rust-lang.org) and are single binaries. As minimum setup as follows should be more then enough:
+All Defguard components are **very low resource-consuming**. All of them are written in [Rust](https://www.rust-lang.org) and are single binaries. As minimum setup as follows should be more than enough:
 
 | Resource     | Minimum requirements         |
 | ------------ | ---------------------------- |
@@ -34,11 +34,11 @@ Just run the command below in your shell and follow the prompts:
 curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh -O && bash setup.sh
 ```
 
-To learn more about the script and available options please see the [documentation](../getting-started/one-line-install.md).
+To learn more about the script and available options, please see the [documentation](../getting-started/one-line-install.md).
 
 ## Manual deployment
 
-If you prefer to configure and deploy Defguard manually see the examples below:
+If you prefer to configure and deploy Defguard manually, see the examples below:
 
 * [Docker Compose](docker-compose.md)
 * [Kubernetes](kubernetes.md)
@@ -58,7 +58,7 @@ See our [Configuration](../configuration.md) document to check all configurable 
 
 ## Updates
 
-All services within the Defguard architecture can be updated independently although it's recommended to always use newest version of services and update them all together to avoid situtations like Core expecting some not existing feature in Gateway.\
+All services within the Defguard architecture can be updated independently, although it's recommended to always use newest version of services and update them all together to avoid situations like Core expecting some not existing feature in Gateway.\
 Check the GitHub repositories for each service to find their newest releases and release notes.
 
 * Docker - For Docker and Kubernetes based setup just change docker image version for service you want to update.
@@ -73,7 +73,7 @@ Check the GitHub repositories for each service to find their newest releases and
 
 ## Backup
 
-[Core service](https://github.com/DefGuard/defguard) is the only service which uses persistent data storage which is PostgreSQL database. Every SQL migration is applied automatically while bringing up core server and we try our best not to break anything in the process. It's recommended to do database, configuration and Settings(SMTP, Branding) backup before every update in case of some unexpected failure.
+[Core service](https://github.com/DefGuard/defguard) is the only service which uses persistent data storage, which is PostgreSQL database. Every SQL migration is applied automatically while bringing up core server and we try our best not to break anything in the process. It's recommended to do database, configuration and Settings(SMTP, Branding) backup before every update in case of some unexpected failure.
 
 \
 Example database backup:

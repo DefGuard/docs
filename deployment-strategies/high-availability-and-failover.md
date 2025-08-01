@@ -50,4 +50,4 @@ So **High Availability for core and proxy** gets complicated, with multiple prox
 
 #### How to bullet-proof proxy & core with failover?
 
-We recommend to deploy them on a failover solution - like on a kubernetes cluster (even small one - like mini-kube) . This way, kubernetes manages: healthchecks and does failover. You can have cluster N-nodes and if any VM/node with Core/Proxy goes offline or health checks fail - it's migrated to a new node.
+We recommend to deploy them on a failover solution - like on a kubernetes cluster (even small one - like mini-kube) . This way, Kubernetes manages: healthchecks and does failover. You can have cluster N-nodes and if any VM/node with Core/Proxy goes offline or health checks fail - it's migrated to a new node.

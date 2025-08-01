@@ -51,4 +51,4 @@ Each binding is then translated into one SNAT rule in the `POSTROUTING` firewall
 
 Those rules are applied before the final `MASQUERADE` rule which handles all the remaining outbound traffic.
 
-The gateway itself is not aware of public IPs available on it's network interfaces, so it's important to verify that the IP address assigned to a user is indeed available. Otherwise it's possible to block all outgoing traffic for a user.
+The gateway itself is not aware of public IPs available on its network interfaces, so it's important to verify that the IP address assigned to a user is indeed available. Otherwise, it's possible to block all outgoing traffic for a user.

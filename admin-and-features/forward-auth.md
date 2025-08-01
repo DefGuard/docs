@@ -12,9 +12,9 @@ Additionally you have to update your [Defguard config](../configuration.md#auth-
 
 ## Example configurations
 
-For brevity all of the examples below assume you are hosting your Defguard instance at `defguard.yourdomain.com`.
+For brevity, all of the examples below assume you are hosting your Defguard instance at `defguard.yourdomain.com`.
 
-We'll use a basic [whoami](https://github.com/traefik/whoami) container as an example service which will be available at `whoami.yourdomain.com`.
+We'll use a basic [whoami](https://github.com/traefik/whoami) container as an example service, which will be available at `whoami.yourdomain.com`.
 
 ### Traefik
 

@@ -6,7 +6,7 @@ If you don't have access to Defguard you can reset your password with a link tha
 
 #### Enrollment public page
 
-The same url you have used to do your remote enrollment & onboarding has the functionality of password reset:
+The same URL you have used to do your remote enrollment & onboarding has the functionality of password reset:
 
 <figure><img src="../.gitbook/assets/password-reset.pg.png" alt=""><figcaption><p>Password reset in enrollment service</p></figcaption></figure>
 
@@ -22,7 +22,7 @@ Ask your administrator to send you the password reset link.
 You should have you admin contact data on the onboarding message that was sent automatically after you have finished the [onboarding\&enrollment process.](enrollment/)
 {% endhint %}
 
-## Changing your password in defguard
+## Changing your password in Defguard
 
 Go to _My Profile_ and click _Edit:_
 
@@ -32,6 +32,6 @@ Then scroll down and choose _Change Password:_
 
 <figure><img src="../.gitbook/assets/up-change-password1.png" alt=""><figcaption></figcaption></figure>
 
-Setup a new secure password according to the password rules and click _Save new password_
+Set up a new secure password according to the password rules and click _Save new password_
 
 <figure><img src="../.gitbook/assets/up-change-password2.png" alt=""><figcaption></figcaption></figure>

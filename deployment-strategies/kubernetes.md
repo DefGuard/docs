@@ -2,14 +2,14 @@
 
 ## Prerequisites
 
-To deploy and use Defguard on your cluster you'll need:
+To deploy and use Defguard on your cluster, you'll need:
 
-* a [Kubernetes cluster](https://kubernetes.io/docs/setup/)
+* A [Kubernetes cluster](https://kubernetes.io/docs/setup/)
 * Kubernetes CLI [kubectl](https://kubernetes.io/docs/reference/kubectl/) installed on your machine
-* helm binary https://github.com/helm/helm/releases/latest
+* Helm binary https://github.com/helm/helm/releases/latest
 
 {% hint style="warning" %}
-Our helm charts currently support only **Traefik ingress - which is relevant and affects exposing GRPC services (see below** `ingress.hosts.grpc`**`).`**&#x20;
+Our helm charts currently support only **Traefik ingress - which is relevant and affects exposing GRPC services (see below** `ingress.hosts.grpc`**`).`**
 {% endhint %}
 
 ## Deployment
@@ -39,19 +39,19 @@ Required values (the rest should work if left as-is):
 {% hint style="warning" %}
 If you are configuring your gateway or yubi-bridge - please use this GRPC URL for communication.
 
-If you have other ingress controller than traefik - you need to configure GRPC ingress manualy with corresponding to your setup.
+If you have other ingress controller than traefik - you need to configure GRPC ingress manually with corresponding to your setup.
 {% endhint %}
 
 * `ingress.hosts.web`: Web ingress address - Defguard web app will be available here.
 * `publicUrl`: Public URL your Defguard will be available under. Usually the same as ingress.hosts.web, but differs depending on your load balancer and/or reverse-proxy setup.
 
-If you want to deploy the enrollment service along with your Defguard instance you also need to configure values related to the `defguard-proxy`subchart:
+If you want to deploy the enrollment service along with your Defguard instance, you also need to configure values related to the `defguard-proxy`subchart:
 
 * `defguard-proxy.enabled`: enable the enrollment service
 * `proxyUrl`: proxy gRPC endpoint URL (based on `defguard-proxy.ingress.grpc.host`)
 * `defguard-proxy.publicUrl`: public URL of the enrollment service
 * `defguard-proxy.ingress.web.host`: enrollment service web ingress address (the enrollment website)
-* `defguard-proxy.ingress.grpc.host`: enrollment service  gRPC ingress address (for communicating with core)
+* `defguard-proxy.ingress.grpc.host`: enrollment service gRPC ingress address (for communicating with core)
 
 And finally, install the Helm chart in the namespace:
 

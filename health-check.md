@@ -2,7 +2,7 @@
 
 ## Core & Proxy
 
-### Rest Api
+### Rest API
 
 [Core](https://github.com/defguard/defguard) and [Proxy](https://github.com/defguard/proxy) provides health endpoint at  `GET /api/v1/health` which checks whether the application server is running.
 
@@ -61,7 +61,7 @@ You can enable in gateway config ([example config](https://github.com/DefGuard/g
 health_port = 55003
 ```
 
-In this example gateway will open an additional HTTP port number 55003 and will return the following HTTP status codes:
+In this example, gateway will open an additional HTTP port number 55003 and will return the following HTTP status codes:
 
 * <pre><code><strong>200 - Gateway is working and is connected to CORE
   </strong></code></pre>

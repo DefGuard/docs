@@ -4,19 +4,19 @@
 This feature is available starting from version 1.4
 {% endhint %}
 
-The Activity Log provides a comprehensive view of user interactions within your Defguard instance. This allows you to monitor user behavior, troubleshoot issues, and maintain an audit trail of important activities.
+The Activity Log provides a comprehensive view of user interactions within your Defguard instance. This allows you to monitor user behaviour, troubleshoot issues, and maintain an audit trail of important activities.
 
 ## Viewing Activity log events
 
 Activity log is available as a dedicated page in Defguard core Web UI that's used to manage your instance.
 
-To access it click the `Activity log` button in the navbar.
+To access it, click the `Activity log` button in the navbar.
 
 <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Activity log page</p></figcaption></figure>
 
 ### Overview
 
-Activity log page displays a chronological list of user-initiated events. By default most recent events are on top.
+Activity log page displays a chronological list of user-initiated events. By default, most recent events are on top.
 
 Each entry in the list contains following fields:
 
@@ -31,7 +31,7 @@ Each entry in the list contains following fields:
 
 Events are grouped into modules based on the part of the system they are related to.
 
-Currently there are four modules:
+Currently, there are four modules:
 
 * **Defguard** - operations performed in the core Web UI (e.g. adding users, modifying devices, managing groups etc.)
 * **Client** - actions performed by desktop client applications

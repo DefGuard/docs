@@ -29,7 +29,7 @@ As you can see, Defguard has created a new table of type _inet_ (the one that ha
 
 The FORWARD chain specifies our rules. First you can see the `policy drop` default, which is a result of setting the **Default Deny** policy in the location settings. Then the `established,related` line to skip re-evaluation of established connections.
 
-Finally the two lines that directly deal with our requirement to allow the two users into the network.
+Finally, the two lines that directly deal with our requirement to allow the two users into the network.
 
 ```
 ip saddr { 10.100.200.155-10.100.200.156 } ip daddr { 10.1.1.0/24 } counter packets 0 bytes 0 accept comment "ACL 132 - Staff access Berlin ALLOW"
@@ -163,25 +163,25 @@ pass in log quick on wg0 inet from 10.100.200.156 to 10.1.1.0/24 flags S/SA labe
 
 Destination IPs for a given ACL can be configured in multiple ways:
 
-* single IP
-* range of IPs
+* Single IP
+* Range of IPs
 * IP subnet using CIDR notation
-* list containing arbitrary combination of the above
-* destination aliases
-* component aliases
+* List containing arbitrary combination of the above
+* Destination aliases
+* Component aliases
 
 It is therefore possible to configure some overlapping destinations, for example a 10.0.20.0/24 subnet and then a specific IP like 10.0.20.17 in some alias.&#x20;
 
-When generating firewall rules we have to be mindful of following limitations regarding our specific implementation:
+When generating firewall rules, we have to be mindful of the following limitations regarding our specific implementation:
 
 * `nft` rejects overlapping destinations
 * `pf` does not handle IP ranges, so each IP in range is put in a separate rule
 
-To avoid those issues when creating firewall rules we pre-process destination addresses in a following way:
+To avoid those issues when creating firewall rules, we pre-process destination addresses in a following way:
 
-* combine all destinations - manually configured, aliases, ranges etc into a single list
-* convert all types of destination (single IPs, ranges, subnets) into IP ranges
-* merge all those ranges into the smallest possible list of non-overlapping ranges
-* extract all possible subnets (with at least 2 IPs) from ranges
+* Combine all destinations - manually configured, aliases, ranges etc into a single list
+* Convert all types of destination (single IPs, ranges, subnets) into IP ranges
+* Merge all those ranges into the smallest possible list of non-overlapping ranges
+* Extract all possible subnets (with at least 2 IPs) from ranges
 
 This means that our approach is biased towards finding subnets, so the destinations you see in the firewall rules on the gateway itself might differ significantly (in notation, not the content itself) from those you configured in your ACLs.

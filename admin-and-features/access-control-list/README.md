@@ -5,7 +5,7 @@ This is an enterprise feature. To use it, purchase our [enterprise license](../.
 {% endhint %}
 
 {% hint style="warning" %}
-Access Control List feature is available in Defguard Core v1.3.0 and Defgaurd Gateway v1.3.0.
+Access Control List feature is available in Defguard Core v1.3.0 and Defguard Gateway v1.3.0.
 
 Defguard Gateway v1.3.0 supports Linux machines with [NFTables](https://nftables.org/).\
 Defguard Gateway v1.4.0 supports FreeBSD, NetBSD, and macOS machines with Packet Filter (PF).
@@ -18,7 +18,7 @@ The ACL (Access Control List) functionality in Defguard allows administrators to
 Access Control can be enabled for each location individually. To enable it:
 
 1. Navigate to **VPN Overview** > **Edit Location settings**
-2. In **Location configuration** section select **Enable ACL for this location**.
+2. In **Location configuration** section, select **Enable ACL for this location**.
 3. Click on **Save changes**.
 
 <figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
@@ -27,7 +27,7 @@ Access Control can be enabled for each location individually. To enable it:
 
 ## Default Access Control List Policy
 
-Default policy defines how to treat network traffic (with regarding to resources) that was not explicitly specified in ACL rules:
+Default policy defines how to treat network traffic (with regard to resources) that was not explicitly specified in ACL rules:
 
 * **Allow** - users and devices connected to a location will be able to access all resources within the network, if the resource access is not modified by one of ACL rules.
 * **Deny** - all traffic to network resources that is not regulated by one of the ACL rules will be blocked.
@@ -37,7 +37,7 @@ Default policy defines how to treat network traffic (with regarding to resources
 Make sure ACL has been enabled (see above), otherwise the policy setting will not be inactive.
 
 1. Navigate to **VPN Overview** > **Edit Location settings**
-2. In **Location configuration** choose the desired option under **Default ACL Policy**.
+2. In **Location configuration,** choose the desired option under **Default ACL Policy**.
 3. Click on **Save changes**.
 
 <figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
@@ -68,7 +68,7 @@ Use the **Deploy pending changes** button to apply all the rules from **Pending 
 Defguard’s ACL functionality is designed to allow users to apply access control rules in batches. This approach minimizes the risk of transient network issues that could occur when deploying rules individually. By grouping changes and deploying them together, the system reduces the likelihood of connectivity hiccups or firewall disruptions.
 {% endhint %}
 
-The ACL list view also allows rule filtering by name, locations and other attributes
+The ACL list view also allows rule filtering by name, locations, and other attributes
 
 <figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -120,14 +120,14 @@ In Defguard, sources can be defined as one of three object types:
 Each ACL rule in Defguard is intended to fully define access to a specific resource, you must therefore always include at least one allowed source.
 
 {% hint style="warning" %}
-This setting is independent from the default location-level [**Allowed groups**](../wireguard/create-your-vpn-network.md#allowed-groups) configuration.
+This setting is independent of the default location-level [**Allowed groups**](../wireguard/create-your-vpn-network.md#allowed-groups) configuration.
 
 If you give a user access to some resource through an ACL rule, but they do not have access to a given location, they still won't be able to access it, because they'll be unable to establish a VPN connection with the gateway.
 {% endhint %}
 
 ### How to define your ACL ruleset
 
-Access Control List (ACL) rules in Defguard are used to manage **who can access specific resources** across your network. Think of each rule as a clear instruction that says: _These users or devices are allowed to reach this resource – and optionally, these others are not._
+Access Control List (ACL) rules in Defguard are used to manage **who can access specific resources** across your network. Think of each rule as a clear instruction that says: _These users or devices are allowed to reach this resource – and, optionally, these others are not._
 
 #### Key Concepts:
 
@@ -135,9 +135,9 @@ Access Control List (ACL) rules in Defguard are used to manage **who can access 
 * At least one "allowed" source must always be specified - this defines who gets access.
 * Optionally, you can **exclude** specific users, groups, or devices using the "denied" section.
 * You can use this combination to create flexible rules, such as:\
-  \&#xNAN;_Allow everyone in the “Remote Workers” group except a few individuals access specific office network._
+  \&#xNAN;_Allow everyone in the “Remote Workers” group except a few individuals to access a specific office network._
 
-This setup helps controlling access clearly and safely without worrying about lower-level network and firewall behavior.
+This setup helps control access clearly and safely without worrying about lower-level network and firewall behaviour.
 
 #### Details
 
@@ -153,21 +153,21 @@ This setup helps controlling access clearly and safely without worrying about lo
 
 #### Allowing access for specific users
 
-In this scenario we will allow specific users to access the 10.1.1.0/24 network, assuming the users connect through _Office-Berlin_ location.
+In this scenario, we will allow specific users to access the 10.1.1.0/24 network, assuming the users connect through _Office-Berlin_ location.
 
 To do this, the following new rules have to be added:
 
 * Navigate to **Access Control**.
 * Click on **Add new** button.
-* Name the rule under **Rule Name**: _Staff access Berlin_.
+* Name the rule under **Rule Name**: _Staff access, Berlin_.
 * Select _Office-Berlin_ in the **Locations** input.
-* Under **Manual Input** > **IPv4/v6 CIDR range or adderess**, enter: _10.1.1.0/24_.
+* Under **Manual Input** > **IPv4/v6 CIDR range or address**, enter: _10.1.1.0/24_.
 * Add desired users in the **"Allowed Users/Groups/Devices** > **Users**.
 * Click on the **Submit** button.
 
 <figure><img src="../../.gitbook/assets/image (71).png" alt=""><figcaption></figcaption></figure>
 
-You will be redirected back to the [ACL List View](./#list-of-acl-rules) and the new rule should now be in the **Pending Changes** section.
+You will be redirected back to the [ACL List View,](./#list-of-acl-rules) and the new rule should now be in the **Pending Changes** section.
 
 <figure><img src="../../.gitbook/assets/image (73).png" alt=""><figcaption></figcaption></figure>
 
@@ -175,29 +175,29 @@ Now, click on **Deploy pending changes (1)** button. After that, the rule should
 
 <figure><img src="../../.gitbook/assets/image (75).png" alt=""><figcaption></figcaption></figure>
 
-(See [Implementation Details](../../enterprise/all-enteprise-features/access-control-list/firewall-internals.md) documentation to understand integrationn with system packet filtering.)
+(See [Implementation Details](../../enterprise/all-enteprise-features/access-control-list/firewall-internals.md) documentation to understand integration with system packet filtering.)
 
 #### Adding access exceptions for specific users
 
-Let's build on the last example. The example defined a single rule that grants network access for two users. In this example we will block access for one specific user. But first let's rethink our approach.
+Let's build on the last example. The example defined a single rule that grants network access for two users. In this example, we will block access for one specific user. But first, let's rethink our approach.
 
-It may be tempting to specify the access for each user individually, like we did while constructing the first rule. This may work at first or if your users don't change too often. But what if you have a constant influx of new users? This might get tedious pretty fast.
+It may be tempting to specify the access for each user individually, like we did while constructing the first rule. This may work at first, or if your users don't change too often. But what if you have a constant influx of new users? This might get tedious pretty fast.
 
 So what we will do is:
 
-* we will define two groups:
+* Define two groups:
   * _Staff-Berlin_
   * _Externals_
-* we will add all the users that work in our _Berlin_ office to _Staff-Berlin_ group
-* we will add all users we collaborate with in _Berlin_, but are not our direct employees, to the _Externals_ group
-* we will allow all users in _Staff-Berlin_ group access to the network
-* we will add an exception for the users in _Externals_ group so that they are not allowed to access the network
+* Add all the users that work in our _Berlin_ office to _Staff-Berlin_ group
+* Add all users we collaborate with in _Berlin_, but are not our direct employees, to the _Externals_ group
+* Allow all users in _Staff-Berlin_ group access to the network
+* Add an exception for the users in _Externals_ group so that they are not allowed to access the network
 
 Once you have created appropriate groups and assigned the users, let's update the ACL rule. The rule should now:
 
-* still be assigned to the _Office-Berlin_ location
-* still define the destination resource address as `10.1.1.0/24`
-* instead of specific users in the **Allowed Users** input, we now select the _Staff-Berlin_ group in the **Allowed Groups** input
-* in **Denied Groups** input we should now select the _Externals_ group
+* Still be assigned to the _Office-Berlin_ location
+* Still define the destination resource address as `10.1.1.0/24`
+* Instead of specific users in the **Allowed Users** input, we now select the _Staff-Berlin_ group in the **Allowed Groups** input
+* In **Denied Groups** input we should now select the _Externals_ group
 
 <figure><img src="../../.gitbook/assets/image (80).png" alt=""><figcaption></figcaption></figure>

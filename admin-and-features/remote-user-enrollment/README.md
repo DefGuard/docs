@@ -63,22 +63,22 @@ If there are any issues with the enrollment process (failed notification deliver
 
 * Go to **Users** page
 * Find the relevant user and click on the **Action** button on the right
-* A **Start enrollment** option should be available in the popover menu
+* A **Start enrollment** option should be available in the pop-over menu
 * Clicking it will open the same **Start enrollment** modal where you can choose how to deliver the enrollment token
 
 ### Performing remote enrollment (as a user)
 
-As a new user after an admin starts the enrollment process, you will receive your enrollment token.
+As a new user, after an admin starts the enrollment process, you will receive your enrollment token.
 
-If you receive an **email notification** just click the link and you'll be redirected the the enrollment wizard.
+If you receive an **email notification**, just click the link, and you'll be redirected to the enrollment wizard.
 
-If the admin decides to deliver your token through some other secure means you'll have to go the the specified enrollment page and enter the token **manually**.
+If the admin decides to deliver your token through some other secure means, you'll have to go the specified enrollment page and enter the token **manually**.
 
-By following the **enrollment wizard** you'll be able to do the following:
+By following the **enrollment wizard,** you'll be able to do the following:
 
 * verify that your data is correct
 * activate your user account
 * choose your password
 * add an initial device for VPN access
 
-After completing the wizard you should be able to connect to the VPN and access the main Defguard web UI.
+After completing the wizard, you should be able to connect to the VPN and access the main Defguard web UI.

@@ -13,19 +13,19 @@ From version 1.5 ([currently in alpha](../../../deployment-strategies/pre-produc
 
 Enabling Internal MFA for a desired VPN Location is done by:
 
-1. going into Defguard to **VPN Overview**
-2. selecting the VPN Location from the dropdown list, and pressing the **Edit Location** button in the top right corner of the page
-3. check the "**Require MFA for this Location**" checkbox under the Location Configuration section
-4. set **Peer disconnect threshold** we recommend it to be min. 300 (5 min) - see chapter [below](./#peer-disconnect-threshold).
-5. and **save changes**.
+1. Going into Defguard to **VPN Overview**
+2. Selecting the VPN Location from the dropdown list, and pressing the **Edit Location** button in the top right corner of the page
+3. Check the "**Require MFA for this Location**" checkbox under the Location Configuration section
+4. Set **peer disconnect threshold**, we recommend it to be min. 300 (5 min) - see chapter [below](./#peer-disconnect-threshold).
+5. And **save changes**.
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2024-02-19 at 11.59.23.png" alt=""><figcaption><p>Example MFA Location configuration</p></figcaption></figure>
 
 ### Peer disconnect **threshold**
 
-When MFA is enabled on a location Defguard periodically (currently every **1 minute**) checks statistics if a client is connected and if the period of inactivity (defined in Peer disconnect threshold option) is met, a client is disconnected.
+When MFA is enabled on a location, Defguard periodically (currently every **1 minute**) checks statistics if a client is connected and if the period of inactivity (defined in Peer disconnect threshold option) is met, a client is disconnected.
 
-Thus the gateway needs to be configured to send statistics in that period.
+Thus, the gateway needs to be configured to send statistics in that period.
 
 We recommend to set:
 
@@ -35,7 +35,7 @@ We recommend to set:
 ### Client update after enabling MFA
 
 {% hint style="warning" %}
-When MFA configuration is changed, all clients must do an [Instance Update](../../../help/configuring-vpn/add-new-instance/update-instance.md).
+When MFA configuration is changed, all clients must do an [Instance Update](../../../help/desktop-client/instance-configuration.md#updating-instance).
 {% endhint %}
 
 ### Testing MFA on Defguard client
@@ -59,13 +59,13 @@ Please remember to configure TOTP on you user account and/or SMTP settings for M
 
 After enabling MFA for a given VPN, users will need to enable MFA for their accounts to be able to connect. This process is described in [setting-up-2fa-mfa.md](../../../help/setting-up-2fa-mfa.md "mention"). For simplicity & security, the desktop client uses the same MFA methods as the Defguard server.
 
-An error message will be shown if users attempt to select a MFA method that has not been enabled for their accounts:
+An error message will be shown if users attempt to select an MFA method that has not been enabled for their accounts:
 
 <figure><img src="../../../.gitbook/assets/defguard-client-mfa-not-configured.png" alt=""><figcaption><p>Attempting to use an MFA method that has not been enabled on the user's account.</p></figcaption></figure>
 
 ### Successful authentication
 
-If authentication succeeds, the vpn two factor authentication modal will be closed and connection to the selected VPN will be attempted. Users will be asked to authenticate on every connection to a VPN with MFA enabled.
+If authentication succeeds, the VPN two-factor authentication modal will be closed and connection to the selected VPN will be attempted. Users will be asked to authenticate on every connection to a VPN with MFA enabled.
 
 ## External MFA
 
@@ -73,7 +73,7 @@ In order to enable the External MFA authentication:
 
 1. Your instance **must have** [external OIDC/SSO configured](../../external-openid-providers/).
 2. Select the VPN Location from the dropdown list on the Network Overview, and pressing the **Edit Location** button in the top right corner of the page.
-3. Select the External MFA in the M
+3. Select the External MFA in the menu.
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2025-07-29 at 17.29.25.png" alt=""><figcaption></figcaption></figure>
 
@@ -81,12 +81,12 @@ In order to enable the External MFA authentication:
 
 When MFA is enabled on a location, Defguard periodically (currently every **1 minute**) checks statistics if a client is connected and if the period of inactivity (defined in this option) is met, a client is disconnected.
 
-Thus the gateway needs to be configured to send statistics in that period.
+Thus, the gateway needs to be configured to send statistics in that period.
 
 {% hint style="info" %}
 We recommend to set:
 
-* gateway to send statistics every 30sec
+* Gateway to send statistics every 30sec
 * Peer disconnect threshold we recommend it to be min. 300 (5 min)
 {% endhint %}
 
@@ -98,7 +98,7 @@ When a location has External MFA enabled, after clicking Connect in the Desktop 
 
 In order to authenticate the user will be prompted to click on Authenticate with your configured OIDC (like Authenticate with Google) - which will open the browser and start the authentication session with your OIDC/SSO provider by the [Defguard Enrollment ](../../../help/enrollment/)service (which is the only public component).
 
-After successful authentication the user will be informed by the enrollment service like so:
+After successful authentication, the user will be informed by the enrollment service like so:
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2025-07-29 at 17.33.21.png" alt="" width="375"><figcaption></figcaption></figure>
 

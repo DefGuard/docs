@@ -11,7 +11,7 @@ The goal is to connect Defguard as [HTTP Source](https://vector.dev/docs/referen
 
 ### Setup Vector
 
-For the sake of this example we will follow simple Docker deployment of Vector via Docker Compose but you most likely want to follow Vector's guide to [deploy ](https://vector.dev/docs/setup/deployment/)it in your infrastructure.
+For the sake of this example we will follow simple Docker deployment of Vector via Docker Compose, but you most likely want to follow Vector's guide to [deploy ](https://vector.dev/docs/setup/deployment/)it in your infrastructure.
 
 ### Vector configuration
 
@@ -37,7 +37,7 @@ sinks:
 
 This basic configuration adds an HTTP source named `defguard` and a console sink, which forwards all logs received from `defguard` to standard output.
 
-Next add vector service to your **docker-compose.yaml** file.
+Next, add vector service to your **docker-compose.yaml** file.
 
 ```yaml
   vector:
@@ -50,7 +50,7 @@ Next add vector service to your **docker-compose.yaml** file.
       - "8001:8001"
 ```
 
-Make sure that new `vector` service is up and it loaded the configuration, it should print it in stdout:
+Make sure that new `vector` service is up, and it loaded the configuration, it should print it in stdout:
 
 ```
 INFO vector::app: Loading configs. paths=["/etc/vector/vector.toml"]

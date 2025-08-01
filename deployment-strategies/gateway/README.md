@@ -42,7 +42,7 @@ Also, if core has a custom SSL CA to secure gRPC communication, [you need the CA
     ```bash
     pkg add <path_to_txz_package>
     ```
-3. Fill in the default configuration file (`/etc/defguard/gateway.toml`) with values corresponding to your Defguard installation (token and gRPC enpoint URL).
+3. Fill in the default configuration file (`/etc/defguard/gateway.toml`) with values corresponding to your Defguard installation (token and gRPC endpoint URL).
 4.  On systems with [systemd](https://systemd.io/), enable and start the **systemd** service:
 
     ```bash
@@ -98,7 +98,7 @@ cp .env.template .env
 docker compose up
 ```
 
-If everything went well, Defguard Gateway should be connected to Defguard Core and you can start [adding new devices to your network](../../features/setting-up-your-instance/features/wireguard/adding-wireguard-devices.md).
+If everything went well, Defguard Gateway should be connected to Defguard Core and you can start [adding new devices to your network](../../admin-and-features/network-devices.md#adding-a-new-network-device).
 
 ## OPNsense plugin
 
@@ -114,13 +114,13 @@ To start Defguard Gateway as OPNsense plugin:
 pkg add defguard-gateway_VERSION_x86_64-unknown-opnsense.pkg
 ```
 
-3. Refresh your OPNsense UI by running below command:
+3. Refresh your OPNsense UI by running command below:
 
 ```bash
 opnsense-patch
 ```
 
-4. Go to you OPNsense UI and navigate to **VPN** > **Defguard Gateway**.
+4. Go to your OPNsense UI and navigate to **VPN** > **Defguard Gateway**.
 
 <figure><img src="../../.gitbook/assets/OPNSense Plugin.png" alt=""><figcaption></figcaption></figure>
 

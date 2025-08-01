@@ -80,8 +80,8 @@ impl WireguardKeys<NoId> {
 
 ## 2024-09-06 – External OpenID login
 
-* Currently our OpenID login implementation matches the user by email. This is not a standard practice, as most services use the “sub” field (a guaranteed unique identifier) to identify the user (e.g. matrix/element). Our approach may be problematic when the email changes on the provider’s side (it may be unlikely in the case of google or microsoft but may happen in the case of keycloak).
-* To prevent such scenario and to standardize our approach we could add a “sub” field to the user and perform openid login on its basis. Additionally, if we’d like to link existing defguard accounts with the external provider, we could try to also match by email on first user login and then use the sub field only on subsequent login attempts. This doesn’t seem to require a massive rework of already existing code.
+* Currently our OpenID login implementation matches the user by email. This is not a standard practice, as most services use the “sub” field (a guaranteed unique identifier) to identify the user (e.g. matrix/element). Our approach may be problematic when the email changes on the provider’s side (it may be unlikely in the case of google or Microsoft but may happen in the case of keycloak).
+* To prevent such scenario and to standardize our approach, we could add a “sub” field to the user and perform OpenID login on its basis. Additionally, if we’d like to link existing Defguard accounts with the external provider, we could try to also match by email on first user login and then use the sub field only on subsequent login attempts. This doesn’t seem to require a massive rework of already existing code.
 
 ## 2024-09-02 – Client configuration updates
 
@@ -91,7 +91,7 @@ impl WireguardKeys<NoId> {
   * WireGuard keys - since client does not implement key management features, updating public key in client db guarantees that the client won’t be able to connect to the gateway (public-private keys don’t match)
   * only way to update keys at this point is using standard enrollment procedure
   * Instances - effectively only the `name` field may change, we can deal with it later maybe
-* Objects that need to be updated in client db:
+* Objects that need to be updated in client DB:
   * Instance locations - those contain all the necessary configuration that make connecting to the gateway possible and define parameters like `allowed_ips`, `dns` etc.
 * We can’t simply update the locations whenever they change, client may be connected to one of the locations that get removed in the update and we end up in invalid state.
 * Solution:

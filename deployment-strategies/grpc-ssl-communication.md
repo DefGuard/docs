@@ -24,7 +24,7 @@ It is important to embed a correct domain name into the certificate as _X509v3 S
 
 To quickly generate a set of SSL certificates using [OpenSSL](https://openssl-library.org) or [LibreSSL](https://www.libressl.org), use the following:
 
-* Generate Certificate Authority (CA) cerfiticate and key for domain _example.local_
+* Generate Certificate Authority (CA) certificate and key for domain _example.local_
 
 ```sh
 openssl req -x509 -noenc -subj '/CN=example.local' -newkey rsa:4096 -keyout ca.key -out ca.crt
@@ -123,7 +123,7 @@ Thus, this type of SSL termination should only be done if you trust your network
 
 If Defguard Core or Defguard Proxy are using reverse proxy with SSL termination, then only you need to configure CA certificate paths for:
 
-* Defguard Gateway – in _gateway.toml_ add path to CA certificate file (in PEM format); for example when using standard Let'sEncrypt installation ([Certbot](https://certbot.eff.org)), you configure the CA path like this:
+* Defguard Gateway – in _gateway.toml_ add path to CA certificate file (in PEM format); for example, when using standard Let'sEncrypt installation ([Certbot](https://certbot.eff.org)), you configure the CA path like this:
   * `grpc_ca = "/etc/letsencrypt/live/domain.name/chain.pem"`
 * Defguard Core – similarily, you need to configure Proxy CA certificate file using **DEFGUARD\_PROXY\_GRPC\_CA** environment variable:
   * `DEFGUARD_PROXY_GRPC_CA: /etc/letsencrypt/live/domain.name/chain.pem`

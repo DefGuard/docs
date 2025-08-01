@@ -10,7 +10,7 @@ This guide demonstrates how to configure a Logstash service running in Docker us
 
 ### Setup Logstash
 
-Save the following config to `logstash.conf` . This will setup http input for Logstash on port 8002 and output the incoming data into stdout.
+Save the following config to `logstash.conf` . This will set up http input for Logstash on port 8002 and output the incoming data into stdout.
 
 ```
 input {

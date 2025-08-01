@@ -12,7 +12,7 @@ From release 1.1.0 **all enterprise features up to the following limits are free
 * 1 location
 {% endhint %}
 
-Those limits should be more then enough for small businesses, home-labs or just to test out Enterprise features before committing.
+Those limits should be more than enough for small businesses, home-labs or just to test out Enterprise features before committing.
 
 {% hint style="info" %}
 At the moment your instance exceeds any of the limits, you will receive a relevant notification in the interface. Defguard will remain fully operational, and all Open Source functionalities will be available. Only the enterprise functionalities will be disabled until you activate the license.
@@ -54,6 +54,6 @@ To obtain an offline Enterprise License please contact our sales at: **sales \[ 
 
 To configure Defguard with the received license, please go to **Settings** -> enter the license in the Enterprise License configuration window -> Click Save.
 
-The license will be validated and detailed information about the license will be diplayed (validity period and the license type):
+The license will be validated and detailed information about the license will be displayed (validity period and the license type):
 
 <figure><img src="../.gitbook/assets/enterprise-settings.png" alt=""><figcaption><p>Defguard enterprise license settings</p></figcaption></figure>

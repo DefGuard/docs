@@ -1,4 +1,4 @@
-# VPN & Client behavior customization
+# VPN & Client behaviour customization
 
 {% hint style="warning" %}
 This is an enterprise feature. To use it, purchase our [enterprise license](../../enterprise/license.md) or ensure that your deployment does not exceed the [usage limits](../../enterprise/license.md#enterprise-is-free-up-to-certain-limits).
@@ -20,19 +20,15 @@ This option will not be available for users:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-10-14 at 12.44.15.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="danger" %}
-Please note that Defguard has only **desktop clients** and **no official mobile** client, thus when using this option users **will not be able to configure their mobile WireGuard clients.**
-{% endhint %}
-
 ### Disable _All Traffic_ option in the desktop client
 
-One of Defguard desktop client uniqe features is the possibility for the user to automatically route **All network traffic** from their device **through the connected VPN Location**, when the user checks _All traffic_ optio&#x6E;_**:**_
+One of Defguard desktop client unique features is the possibility for the user to automatically route **All network traffic** from their device **through the connected VPN Location**, when the user checks _All traffic_ optio&#x6E;_**:**_
 
 ![](<../../.gitbook/assets/Screenshot 2024-10-14 at 12.49.30.png>)
 
-But there are scenarios that administrator would like that users have only access to the **Predefined traffic** (meaning Allowed IPs in the Network VPN configuration) and the possibility to access all networks disabled.
+But there are scenarios that administrator would like that users have only access to the **predefined traffic** (meaning Allowed IPs in the Network VPN configuration) and the possibility to access all networks disabled.
 
-When enabling this option, users will only have _Predefined traffic_ available in their desktop client and the _All traffic_ option disabled.
+When enabling this option, users will only have _predefined traffic_ available in their desktop client and the _all traffic_ option disabled.
 
 {% hint style="warning" %}
 Please note that this option is only client-side enforced, meaning the user may manually modify Wireguard interface to force all traffic to go through the VPN.

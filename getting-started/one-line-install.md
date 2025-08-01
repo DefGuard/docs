@@ -1,6 +1,6 @@
 # One-line install script
 
-Welcome to getting started with defguard! In this section, you'll be guided through setting up your simplified instance of Defguard that will allow you to get familiar with the solution's features.
+Welcome to getting started with Defguard! In this section, you'll be guided through setting up your simplified instance of Defguard that allows you to get familiar with the solution's features.
 
 {% hint style="info" %}
 The instance deployed by the script is meant to serve as a starting point and makes some tradeoffs to enable automated setup. Most importantly, it assumes that your Web UI is available publicly (to generate SSL certificates with Caddy). In general, it's not recommended for production, and we strongly encourage you to customise this setup to work better within your own infrastructure using more [advanced deployment strategies](../deployment-strategies/setting-up-your-instance.md).
@@ -26,7 +26,7 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGua
 curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh -O && bash setup.sh --pre-release
 ```
 
-If you used the install script before and would like to upgrade to the pre-release version, you can update your `.env` file (it should be located next to the docker-compose.yml file created by the script) like this:
+If you used the installation script before and would like to upgrade to the pre-release version, you can update your `.env` file (it should be located next to the docker-compose.yml file created by the script) like this:
 
 ```
 CORE_IMAGE_TAG=pre-release
@@ -44,7 +44,7 @@ Downgrading to the production release may not be trivial afterwards because of t
 curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh -O && bash setup.sh --dev
 ```
 
-If you used the install script before and would like to upgrade to the development version, you can update your `.env` file (it should be located next to the docker-compose.yml file created by the script) like this:
+If you used the installation script before and would like to upgrade to the development version, you can update your `.env` file (it should be located next to the docker-compose.yml file created by the script) like this:
 
 ```
 CORE_IMAGE_TAG=dev
@@ -56,23 +56,23 @@ GATEWAY_IMAGE_TAG=dev
 Downgrading to the production release may not be trivial afterwards because of the changes made to the database during the upgrade.
 {% endhint %}
 
-If you provide all required configuration options after the script finishes you should have a fully functional Defguard instance with an enrollment proxy and VPN gateway to connect WireGuard clients to.
+If you provide all required configuration options after the script finishes, you should have a fully functional Defguard instance with an enrollment proxy and VPN gateway to connect WireGuard clients to.
 
-Of course if you feel rightly uneasy about running random shell scripts from the internet feel free to inspect the [source code](https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh).
+Of course, if you feel rightly uneasy about running random shell scripts from the internet, feel free to inspect the [source code](https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh).
 
 The script does the following:
 
-* reads configuration from environment variables, `.env` file or user input
-* prepares a docker-compose file
-* prepares an `.env` file for the compose stack
-* creates a `.volumes` directory for persistent storage
-* generates secret keys and certificates
-* sets up an initial VPN location and VPN gateway
-* starts the compose stack
+* Reads configuration from environment variables, `.env` file or user input
+* Prepares a docker-compose file
+* Prepares an `.env` file for the compose stack
+* Creates a `.volumes` directory for persistent storage
+* Generates secret keys and certificates
+* Sets up an initial VPN location and VPN gateway
+* Starts the compose stack
 
 ## Prerequisites
 
-In order to work the script requires some specific tools to be available and also some infrastructure-level settings to be pre-configured.
+In order to work, the script requires some specific tools to be available and also some infrastructure-level settings to be pre-configured.
 
 ### Tools
 
@@ -81,7 +81,7 @@ In order to work the script requires some specific tools to be available and als
 * `curl`
 * `sed`
 * `grep`
-* `docker` - **we recommend official** [**docker engine packages**](https://docs.docker.com/engine/install/) (not packages shiped with distros)
+* `docker` - **we recommend official** [**docker engine packages**](https://docs.docker.com/engine/install/) (not packages shipped with distros)
 * `docker-compose` - not necessary if using newer Docker versions (20.10+) which include the `docker compose` command
 
 ### Environment setup
@@ -90,29 +90,29 @@ In order to work the script requires some specific tools to be available and als
 This setup should be deployed on a bare-metal or a virtual (VM) server - it will **not run on a LXC container.**
 {% endhint %}
 
-* server has a public IP address
-* public DNS records for your chosen domain
-* allow Docker to bind on host ports 80 and 443; sometimes this requires setting the `net.ipv4.ip_unprivileged_port_start` sysctl variable to 80
-* enable IP forwarding (`sysctl -w net.ipv4.ip_forward=1`)
-* firewall rules
+* Server has a public IP address
+* Public DNS records for your chosen domain
+* Allow Docker to bind on host ports 80 and 443; sometimes this requires setting the `net.ipv4.ip_unprivileged_port_start` sysctl variable to 80
+* Enable IP forwarding (`sysctl -w net.ipv4.ip_forward=1`)
+* Firewall rules
   * allow incoming traffic on chosen WireGuard port and port 443
   * enable `MASQUERADE` for VPN traffic (for example `iptables -t nat -I POSTROUTING 1 -s {vpn_subnet} -o {internet_interface} -j MASQUERADE`)
 
 ## Configuration
 
-There are several options that can be configured to customize your Defguard instance. They can be provided to the script in following ways:
+There are several options that can be configured to customise your Defguard instance. They can be provided to the script in the following ways:
 
-* by setting environment variables in your shell
-* by providing an `.env` file in the working directory
-* by running the script manually and setting CLI options
-* by providing user input
+* By setting environment variables in your shell
+* By providing an `.env` file in the working directory
+* By running the script manually and setting CLI options
+* By providing user input
 
 ### Environment variables
 
-* `DEFGUARD_DOMAIN` - domain for you Defguard web UI (e.g. `id.example.com`)
-* `DEFGUARD_ENROLLMENT_DOMAIN` - (optional) domain for the enrollment service; if not set the service will not be deployed
+* `DEFGUARD_DOMAIN` - domain for your Defguard web UI (e.g. `id.example.com`)
+* `DEFGUARD_ENROLLMENT_DOMAIN` - (optional) domain for the enrollment service; if not set, the service will not be deployed
 * `DEFGUARD_USE_HTTPS` - (optional) set to any value if you want Caddy to generate SSL certificates and use HTTPS
-* `DEFGUARD_VPN_NAME`- (optional) name of initial VPN location to create; if not provided the script will not set up the VPN gateway
+* `DEFGUARD_VPN_NAME`- (optional) name of initial VPN location to create; if not provided, the script will not set up the VPN gateway
 * `DEFGUARD_VPN_IP`- (optional if VPN name not set) gateway address within the VPN network (e.g. `10.0.50.1/24`)
 * `DEFGUARD_VPN_GATEWAY_IP`- (optional if VPN name not set) gateway public IP
 * `DEFGUARD_VPN_GATEWAY_PORT`- (optional if VPN name not set) gateway public port
@@ -145,7 +145,7 @@ Available options:
 
 ## Securing the setup
 
-After the installation please make sure that **only the following ports are open on the server firewall:**
+After the installation, please make sure that **only the following ports are open on the server firewall:**
 
 * HTTPS port for the proxy (and/or the Defguard core if you want it to be public)
 * VPN server port (eg. WireGuard port)
@@ -157,9 +157,8 @@ After the installation please make sure that **only the following ports are open
 * 50055
 {% endhint %}
 
-Also this setup provides only communication encryption between Defguard components, if you additionally like for core/proxy and gateway to have authorization - [please setup a custom SSL CA](../deployment-strategies/grpc-ssl-communication.md#custom-ssl-ca-and-certificates).
+Also, this setup provides only communication encryption between Defguard components, if you additionally like for core/proxy and gateway to have authorization - [please set up a custom SSL CA](../deployment-strategies/grpc-ssl-communication.md#custom-ssl-ca-and-certificates).
 
 ## Advanced deployment strategies
 
 For more advanced deployment strategies, go to our [deployment strategies section](../deployment-strategies/setting-up-your-instance.md).
-

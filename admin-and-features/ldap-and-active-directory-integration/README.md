@@ -10,4 +10,4 @@ This chapter covers all aspects of LDAP and AD integration, including:
 
 * **Connection Configuration**: How to connect Defguard to your directory server.
 * **Settings Overview**: A detailed breakdown of each LDAP configuration option and how it affects synchronization and user mapping.
-* **Two-Way Sync**: How Defguard synchronises data both from and to the directory, including how to handle conflicts, deletion policies, and attribute mappings.
+* **Two-Way Sync**: How Defguard synchronizes data both from and to the directory, including how to handle conflicts, deletion policies, and attribute mappings.

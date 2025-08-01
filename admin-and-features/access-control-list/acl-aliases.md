@@ -2,7 +2,7 @@
 
 ACL alias functionality allows administrators to create reusable elements which can then be used when defining a destination in multiple ACL rules.
 
-For example you can define aliases for commonly used ports (e.g. 22 for SSH) or for services within your infrustructure (e.g. 1.2.3.4:5432 for a particular PostgreSQL server).
+For example, you can define aliases for commonly used ports (e.g. 22 for SSH) or for services within your infrastructure (e.g. 1.2.3.4:5432 for a particular PostgreSQL server).
 
 {% hint style="warning" %}
 Access Control is an [enterprise feature](../../enterprise/license.md). To use it you'll need to [purchase a license](../../enterprise/license.md#purchasing-the-license) or ensure your deployment does not [exceed the limits](../../enterprise/license.md#enterprise-is-free-up-to-certain-limits).
@@ -23,7 +23,7 @@ Similarly to ACL rules themselves, the list is split into two sections:
 * **Deployed Aliases** – aliases that are active and can be used by ACL rules.
 * **Pending Changes** – aliases that have been modified and have not yet been deployed.
 
-To deploy pending changes use the **Deploy pending changes** button. It will deploy selected or all pending changes.
+To deploy pending changes, use the **Deploy pending changes** button. It will deploy selected or all pending changes.
 
 {% hint style="warning" %}
 When the alias changes are deployed, firewall rules will be updated for all affected locations.
@@ -37,21 +37,21 @@ You can edit an existing rule by using the ![](<../../.gitbook/assets/image (12)
 
 <figure><img src="../../.gitbook/assets/image (102).png" alt=""><figcaption><p>Alias creation form</p></figcaption></figure>
 
-In the ACL alias form you can specify alias name and [type](./#alias-types).
+In the ACL alias form, you can specify alias name and [type](./#alias-types).
 
-Below in the **Destination** section you can enter the same resource configuration as in the [ACL rule Destination](./#destination):
+Below in the **Destination** section, you can enter the same resource configuration as in the [ACL rule Destination](./#destination):
 
 * IP addresses
-* ports or port ranges
-* protocols
+* Ports or port ranges
+* Protocols
 
 {% hint style="info" %}
-Unlike ACL rules, newly created aliases have **Applied** status, since they do not affect any traffic unless used by a rule.
+Unlike ACL rules, newly created aliases have **Applied** status, since they do not alter any traffic unless used by a rule.
 {% endhint %}
 
 ### Removing aliases
 
-To remove an alias select the **Delete alias** option from the context menu.
+To remove an alias, select the **Delete alias** option from the context menu.
 
 <figure><img src="../../.gitbook/assets/image (100).png" alt=""><figcaption></figcaption></figure>
 
@@ -80,7 +80,7 @@ Let's start with an ACL rule that defines a following destination:
 
 <figure><img src="../../.gitbook/assets/image (104).png" alt=""><figcaption></figcaption></figure>
 
-By itself this rule will allow specified users to access **all ports** and **all protocols** on the specified IP.
+By itself, this rule allows specified users to access **all ports** and **all protocols** on the specified IP.
 
 #### Component alias
 

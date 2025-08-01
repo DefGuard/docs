@@ -39,13 +39,13 @@ First, you will need to configure your LDAP connection. Refer to [configuration.
 
 <figure><img src="../../.gitbook/assets/image (91).png" alt=""><figcaption></figcaption></figure>
 
-Make sure you selected "Enable LDAP integration" as without it, the two way synchronization won't work. After you fill out all the fields, test your configuration using the <img src="../../.gitbook/assets/image (2) (1).png" alt="" data-size="line"> button.&#x20;
+Make sure you selected "Enable LDAP integration" as without it, the two-way synchronization won't work. After you fill out all the fields, test your configuration using the <img src="../../.gitbook/assets/image (2) (1).png" alt="" data-size="line"> button.&#x20;
 
-The LDAP two way synchronization has the following options available:
+The LDAP two-way synchronization has the following options available:
 
 <figure><img src="../../.gitbook/assets/image (70).png" alt=""><figcaption></figcaption></figure>
 
-* **Enable LDAP two-way synchronization** - enables the two way synchronization. Check it if you want to pull changes from LDAP.
+* **Enable LDAP two-way synchronization** - enables the two-way synchronization. Check it if you want to pull changes from LDAP.
 * **Consider the following source as the authority** - makes the selected server the source of truth. See [#authority-and-full-synchronization](two-way-ldap-and-active-directory-synchronization.md#authority-and-full-synchronization "mention") for more details.
 * **Synchronization interval** - how often (in seconds) to pull LDAP changes
 
@@ -75,7 +75,7 @@ After specifying synchronization groups, only members of those groups will be ke
 The following advice should be applied only when you are using LDAP as the authoritative server.
 {% endhint %}
 
-After you change your synchronization groups, users not belonging to the new groups won't be automatically deleted. This may be an issue if you first used the two way synchronization without any synchronization groups, effectively synchronizing everyone and decided later to narrow the scope of synchronization. This can result in many redundant, not synchronized user records in your Defguard instance laying around. If you want to prune your Defguard users to only those who are in your synchronization group, you can follow these steps (assuming you have already set your synchronization groups):
+After you change your synchronization groups, users not belonging to the new groups won't be automatically deleted. This may be an issue if you first used the two-way synchronization without any synchronization groups, effectively synchronizing everyone and decided later to narrow the scope of synchronization. This can result in many redundant, not synchronized user records in your Defguard instance lying around. If you want to prune your Defguard users to only those who are in your synchronization group, you can follow these steps (assuming you have already set your synchronization groups):
 
 1. Wait for a two-way periodic synchronization to complete, you can recognize it by the `LDAP sync completed` log message.
 2. Temporarily disable the whole LDAP integration in the settings ![](<../../.gitbook/assets/image (96).png>)

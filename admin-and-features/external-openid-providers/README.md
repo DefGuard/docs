@@ -1,4 +1,4 @@
-# External OpenID providers
+# External SSO/OpenID providers
 
 {% hint style="warning" %}
 This is an enterprise feature. To use it, purchase our [enterprise license](../../enterprise/license.md) or ensure that your deployment does not exceed the [usage limits](../../enterprise/license.md#enterprise-is-free-up-to-certain-limits).
@@ -37,11 +37,11 @@ The base URL is used to discover all the necessary provider's endpoints which wi
 
 ### Tenant ID
 
-This is an optional value required only if you are using Microsoft as your provider. Insert it in the `BASE_URL` field by replacing the `<TENANT_ID>` placeholder.
+This is an optional value, required only if you are using Microsoft as your provider. Insert it in the `BASE_URL` field by replacing the `<TENANT_ID>` placeholder.
 
 ### Redirect URI
 
-In almost any provider's configuration you will need to define a set of allowed redirect URIs. Those URIs are the URIs to which the user will be redirected after completing the login on the provider's site. In our case, the user should be redirected back to Defguard, hence, those URIs depend on your Defguard domains and have the following form:
+In almost any provider's configuration, you will need to define a set of allowed redirect URIs. Those URIs are the URIs to which the user will be redirected after completing the login on the provider's site. In our case, the user should be redirected back to Defguard, hence, those URIs depend on your Defguard domains and have the following form:
 
 * `<DEFGUARD_DASHBOARD_URL>/auth/callback`
 * `<DEFGUARD_ENROLLMENT_URL>/openid/callback`
@@ -61,9 +61,9 @@ In order to configure the external OpenID provider login, go to the settings in 
 
 <figure><img src="../../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
 
-Everything related to the external OpenID configuration can be found in the OpenID tab of the settings page. First thing to do here would be to pick your provider using the dropdown menu under the "Provider" label. Next, fill out the required information with values acquired from your provider. If you picked "Microsoft" or "Custom", make sure to also make corresponding changes in the "Base URL" field. After you are done, click "Save changes" to keep your changes.
+Everything related to the external OpenID configuration can be found in the OpenID tab of the settings page. The first thing to do here would be to pick your provider using the dropdown menu under the "Provider" label. Next, fill out the required information with values acquired from your provider. If you picked "Microsoft" or "Custom", make sure to also make corresponding changes in the "Base URL" field. After you are done, click "Save changes" to keep your changes.
 
-You may have also noticed the checkbox option on the right. By default, when a new user (i.e. a user of whom Defguard has no record) logs in for the first time using the external OpenID feature, its account is created automatically, based on the personal details (first name, last name, email) received from the external provider. If you'd like to manually manage such users, uncheck the checkbox. Now users will need to be manually created in Defguard first in order to log in through the external provider.
+You may have also noticed the checkbox option on the right. By default, when a new user (i.e. a user of whom Defguard has no record) logs in for the first time using the external OpenID feature, its account is created automatically, based on the personal details (first name, last name, email) received from the external provider. If you'd like to manually manage such users, uncheck the checkbox. Now, users will need to be manually created in Defguard first in order to log in through the external provider.
 
 ### OpenID enrollment
 
@@ -112,8 +112,8 @@ The following configuration options are currently available in the directory syn
 If you want to delete your users based on the state of your provider we recommend trying out the "disable" behavior first to make sure everything works as expected. Always back up your database regularly.
 {% endhint %}
 
-* **User behavior (Keep, Disable, Delete):** What to do with Defguard users who are absent from your provider's directory.
-* **Admin behavior (Keep, Disable, Delete):** What to do with Defguard users with admin status (in Defguard) who are absent from your provider's directory.
+* **User behaviour (Keep, Disable, Delete):** What to do with Defguard users who are absent from your provider's directory.
+* **Admin behaviour (Keep, Disable, Delete):** What to do with Defguard users with admin status (in Defguard) who are absent from your provider's directory.
 
 #### Currently supported providers
 
@@ -124,7 +124,7 @@ If you want to delete your users based on the state of your provider we recommen
 
 ### JumpCloud
 
-When setting up JumpCloud you can encounter an error when attempting to login with a message `Failed to parse payload JSON: Error(\\\"invalid type: string...`. This is because JumpCloud is returning a token that doesn't conform fully to the OpenID standard. You can try working around this issue by removing the `email_verified` field in your SSO application configuration in JumpCloud. In order to do this, edit your SSO Application and **deselect** the email scope:
+When setting up JumpCloud you can encounter an error when attempting to log in with a message `Failed to parse payload JSON: Error(\\\"invalid type: string...`. This is because JumpCloud is returning a token that doesn't conform fully to the OpenID standard. You can try working around this issue by removing the `email_verified` field in your SSO application configuration in JumpCloud. In order to do this, edit your SSO Application and **deselect** the email scope:
 
 <figure><img src="../../.gitbook/assets/obraz (12).png" alt=""><figcaption></figcaption></figure>
 

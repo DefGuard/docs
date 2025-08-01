@@ -1,10 +1,22 @@
 ---
-description: In this guide, you will learn how to use Defguard desktop client.
+description: >-
+  In this guide, you will learn how to add, remove and update Instance in
+  Defguard desktop client.
 ---
 
 # Instance configuration
 
+{% hint style="warning" %}
+Defguard Desktop Client is required if you want to use Multi-Factor Authentication, as any other WireGuard client doesn't support this functionality.
+{% endhint %}
+
 ### Obtaining URL and Token
+
+{% hint style="info" %}
+If you are looking for how to generate tokens for your users as an Administrator, look here:
+
+[remote-desktop-activation.md](../../admin-and-features/wireguard/remote-desktop-activation.md "mention")
+{% endhint %}
 
 1. Log in to your Defguard account.
 2. Go to **My Profile** tab.
@@ -46,9 +58,9 @@ description: In this guide, you will learn how to use Defguard desktop client.
 
 <figure><img src="../../.gitbook/assets/defguard-client-connect.png" alt=""><figcaption></figcaption></figure>
 
-### Disconnect from Instance
+### Disconnecting from Instance
 
-Click **Disconnect** next to location you are currently connected to.
+Click **Disconnect** next to the location you are currently connected to.
 
 <figure><img src="../../.gitbook/assets/defguard-client-disconnect.png" alt=""><figcaption></figcaption></figure>
 
@@ -60,11 +72,23 @@ If you want to update your instance manually:
 
 <figure><img src="../../.gitbook/assets/defguard-client-edit-instance.png" alt=""><figcaption></figcaption></figure>
 
+{% hint style="warning" %}
+Only tokens issued from that specific instance will work in that modal.
+{% endhint %}
+
 2. Enter Token provided by your administrator, or generate it [on your own](instance-configuration.md#obtaining-url-and-token). Then click **Update Instance**
 
 <figure><img src="../../.gitbook/assets/defguard-client-update-instance (1).png" alt=""><figcaption></figcaption></figure>
 
 Your Instance will update immediately.
+
+### Why do instances need updates?
+
+Defguard Desktop stores all information locally and doesn't communicate with Defguard outside the registration process. This means that information about instances are snapshots of the moment you registered them in the desktop client, and you might want to update that, for example when some new locations are added or removed.
+
+{% hint style="success" %}
+If you have an Enterprise License, all desktop clients and all instances are [synchronized automatically and in real-time.](../../admin-and-features/remote-user-enrollment/automatic-real-time-desktop-client-configuration.md)
+{% endhint %}
 
 ### Removing Instance
 

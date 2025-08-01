@@ -14,13 +14,13 @@ This feature was tested only on Yubikey series 5, we don't support older series 
 
 Conditions below needs to be met:
 
-* Yubikey needs to return serial number via `ykman list`&#x20;
-* Yubikey needs to have available and active OpenPGP application. You can check out your series capabilities on yubico website [here](https://support.yubico.com/hc/en-us/articles/360013790259-Using-Your-YubiKey-with-OpenPGP).
-* Yubikey needs to support RSA 4096, older series can have problem with this especially with older firmware versions.
+* YubiKey needs to return serial number via `ykman list`
+* YubiKey needs to have available and active OpenPGP application. You can check out your series capabilities on yubico [website](https://support.yubico.com/hc/en-us/articles/360013790259-Using-Your-YubiKey-with-OpenPGP).
+* YubiKey needs to support RSA 4096, older series can have problem with this, especially with older firmware versions.
 
 ## Overview
 
-Our provisioning service (installed on a computer that has USB access and securely communicating with defguard) allows you to easily create and populate the **SSH and GPG/OpenPGP** keys on a YubiKey hardware key, and share its public information inside Defguard - which can be [used for example to authenticate to servers using defguard](ssh-authentication.md).
+Our provisioning service (installed on a computer that has USB access and securely communicating with Defguard) allows you to easily create and populate the **SSH and GPG/OpenPGP** keys on a YubiKey hardware key, and share its public information inside Defguard - which can be [used for example to authenticate to servers using defguard](ssh-authentication.md).
 
 {% hint style="info" %}
 Defguard allows also of uploading/managing any GPG/SSH keys in the user profile.
@@ -38,7 +38,7 @@ As we do not want to store any private keys for security reasons, we have some i
 
 ### Prerequisites
 
-If you want to use solutions other then docker, the provisioning station needs to have both gpg2 and [ykman](https://docs.yubico.com/software/yubikey/tools/ykman/Install_ykman.html) programs on the provisioning machine.
+If you want to use solutions other than docker, the provisioning station needs to have both gpg2 and [ykman](https://docs.yubico.com/software/yubikey/tools/ykman/Install_ykman.html) programs on the provisioning machine.
 
 ## Installation of provisioning service
 
@@ -48,7 +48,7 @@ The provisioning service is required as we need physical access to the USB and t
 It's good for example to prepare a _provisioning station_ in your organization that will be available for just plugging in new YK's and provisioning them with ease..
 {% endhint %}
 
-Currently, we provide Linux .rpm and .deb packages alongside Docker image, but provisioning clients can also be compiled and run under Windows and MacOS.
+Currently, we provide Linux .rpm and .deb packages alongside Docker image, but provisioning clients can also be compiled and run under Windows and macOS.
 
 Note that if you decide to use Docker make sure your container has access to host machine devices, otherwise, you will encounter `No keys detected` error.
 
@@ -86,26 +86,26 @@ To register a new provisioning client you will need an access token provided by 
 This path describes how the admin can provision a key for a user, but the same provisioning modal is also available to the users on the user profile if any workers are available on the instance.
 {% endhint %}
 
-web applicationYou can see available clients in Defguard web-application under "provisioners" tab.
+You can see available clients in Defguard web-application under "provisioners" tab.
 
-<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 To provision the key:
 
-1. select the user from "Users" page in Defguard web application (or go to "My Profile" if you're provisioning a key for yourself)\\
-2. insert a YubiKey to machine that is running the provisioner client.
-3.  select "Add YubiKey" from the actions menu for a User in the list.\\
+1. Select the user from "Users" page in Defguard web application (or go to "My Profile" if you're provisioning a key for yourself)\\
+2. Insert a YubiKey to machine that is running the provisioner client.
+3.  Select "Add YubiKey" from the actions menu for a User in the list.
 
-    <figure><img src="../../.gitbook/assets/image (25).png" alt="" width="301"><figcaption></figcaption></figure>
-4.  select your provisioner and click the "Provision YubiKey" button.\\
+    <figure><img src="../.gitbook/assets/image (25).png" alt="" width="301"><figcaption></figcaption></figure>
+4.  Select your provisioner and click the "Provision YubiKey" button.
 
-    <figure><img src="../../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
 
-The service will take a short moment to prepare and provision your keys. Once the process is done, the modal will close and you will see a notification in the corner of the screen.
+The service will take a short moment to prepare and provision your keys. Once the process is done, the modal will close, and you will see a notification in the corner of the screen.
 
-After provisioning a YK with serial number and all keys details will be visible in yousr profile:
+After provisioning a YK with serial number and all keys details will be visible in your profile:
 
-<figure><img src="../../.gitbook/assets/yk.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/yk.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ## Common problems
 
