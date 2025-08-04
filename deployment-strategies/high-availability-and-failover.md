@@ -33,7 +33,7 @@ Active-active setups should also be possible but come with some caveats. Here ar
 
 All gateways that are successfully connected for the location are displayed under the Location in VPN Overview, here is an example for two gateways:
 
-<figure><img src="../.gitbook/assets/location-overview.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/location-overview (1).png" alt=""><figcaption></figcaption></figure>
 
 ### What is the gateway peers persistence (if core/proxy services fail)
 
