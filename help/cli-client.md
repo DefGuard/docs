@@ -52,7 +52,7 @@ dg --help
 
 ### Usage
 
-#### Defguard core setup
+#### Defguard Core setup
 
 Defguard CLI works only with [network devices](../admin-and-features/network-devices.md), so to use it, you will need to first add a new network device. Refer to the network device documentation to learn more.
 
@@ -62,7 +62,9 @@ After you've configured your network device on Defguard core, you will be presen
 dg enroll -u <ENROLLMENT_URL> -t <TOKEN>
 ```
 
-Copy the command and proceed with [enrollment](cli-client.md#enrollmen).
+Copy the command and proceed with [enrollment](cli-client.md#enrollment).
+
+**Important**: The machine on which the `dg` command is executed must have its clock set to current date and time (possibly using Network Time Protocol). This is required to store web cookies correctly.
 
 #### Enrollment
 
