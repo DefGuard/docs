@@ -112,6 +112,16 @@ net.core.wmem_default = 524288
 
 More info here: [https://github.com/DefGuard/defguard/issues/1303](https://github.com/DefGuard/defguard/issues/1303)
 
+
+
+## Enrollment URL shows http://localhost:8080 despite `DEFGUARD_URL` is different
+
+You are probably looking for `DEFGUARD_ENROLLMENT_URL` which is the URL needed to add device (image below).
+
+<figure><img src="../../.gitbook/assets/DEFGUARD_ENROLLMENT_URL (2).png" alt=""><figcaption></figcaption></figure>
+
+Please check [this article](../../configuration.md#enrollment-configuration).
+
 ## How to check if the VPN is working / my VPN is not working
 
 If you have configured your Defguard instance correctly, after connecting to the VPN you should be able to ping your VPN server, for example if you have the following setup:
