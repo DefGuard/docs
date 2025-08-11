@@ -229,38 +229,6 @@ Then, you can add the ALBs along with listeners and target groups:
                 - !Ref CoreUrl
       ListenerArn: !Ref InternalALBListener
       Priority: 100
-  CoreListenerRule:
-    Type: AWS::ElasticLoadBalancingV2::ListenerRule
-    Properties:
-      Actions:
-        - Type: forward
-          TargetGroupArn: !Ref CoreTargetGroup
-      Conditions:
-        - Field: host-header
-          Values:
-            - !Select
-              - 2
-              - !Split
-                - /
-                - !Ref CoreUrl
-      ListenerArn: !Ref InternalALBListener
-      Priority: 100
-  CoreListenerRule404:
-    Type: AWS::ElasticLoadBalancingV2::ListenerRule
-    Properties:
-      Actions:
-        - Type: fixed-response
-          FixedResponseConfig:
-            StatusCode: "404"
-            ContentType: text/plain
-            MessageBody: "Not Found"
-      Conditions:
-        - Field: host-header
-          HostHeaderConfig:
-            Values:
-              - "*"
-      ListenerArn: !Ref InternalALBListener
-      Priority: 200
   ProxyListenerRule:
     Type: AWS::ElasticLoadBalancingV2::ListenerRule
     Properties:
@@ -277,22 +245,48 @@ Then, you can add the ALBs along with listeners and target groups:
                 - !Ref ProxyUrl
       ListenerArn: !Ref ALBListener
       Priority: 100
-  ProxyListenerRule404:
-    Type: AWS::ElasticLoadBalancingV2::ListenerRule
+  CoreTargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties:
-      Actions:
-        - Type: fixed-response
-          FixedResponseConfig:
-            StatusCode: "404"
-            ContentType: text/plain
-            MessageBody: "Not Found"
-      Conditions:
-        - Field: host-header
-          HostHeaderConfig:
-            Values:
-              - "*"
-      ListenerArn: !Ref ALBListener
-      Priority: 200
+      Name: defguard-core-tg
+      Port: !Ref CoreHttpPort
+      Protocol: HTTP
+      VpcId: !Ref VPC
+      TargetType: instance
+      HealthCheckEnabled: true
+      HealthCheckPath: /api/v1/health
+      HealthCheckProtocol: HTTP
+      HealthCheckIntervalSeconds: 30
+      HealthCheckTimeoutSeconds: 5
+      HealthyThresholdCount: 2
+      UnhealthyThresholdCount: 3
+      Targets:
+        - Id: !Ref CoreInstance
+          Port: !Ref CoreHttpPort
+      Tags:
+        - Key: Name
+          Value: defguard-core-tg
+  ProxyTargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      Name: defguard-proxy-tg
+      Port: !Ref ProxyHttpPort
+      Protocol: HTTP
+      VpcId: !Ref VPC
+      TargetType: instance
+      HealthCheckEnabled: true
+      HealthCheckPath: /health
+      HealthCheckProtocol: HTTP
+      HealthCheckIntervalSeconds: 30
+      HealthCheckTimeoutSeconds: 5
+      HealthyThresholdCount: 2
+      UnhealthyThresholdCount: 3
+      Targets:
+        - Id: !Ref ProxyInstance
+          Port: !Ref ProxyHttpPort
+      Tags:
+        - Key: Name
+          Value: defguard-proxy-tg
 ```
 
 Then, modify the Core and Proxy security groups to allow traffic from the ALBs:
@@ -386,13 +380,11 @@ To easily inspect the ALB DNS names, you can add the following outputs to your t
 
 ```yaml
   LoadBalancerDNS:
-    Condition: CreateLoadBalancer
     Description: The DNS name of the Public Application Load Balancer
     Value: !GetAtt ApplicationLoadBalancer.DNSName
     Export:
       Name: !Sub ${AWS::StackName}-alb-dns
   InternalLoadBalancerDNS:
-    Condition: CreateInternalLoadBalancer
     Description: The DNS name of the Internal Application Load Balancer
     Value: !GetAtt InternalApplicationLoadBalancer.DNSName
     Export:
