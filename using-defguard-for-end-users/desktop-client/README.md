@@ -13,8 +13,6 @@ Guides:
 * [Instance configuration](instance-configuration.md)
 * [Using Multi-Factor Authentication](using-multi-factor-authentication-mfa.md)
 
-
-
 ### Windows
 
 Our desktop client has **bundled** official WireGuard client - as we use **wg.exe** to manage the WireGuard tunnels.
@@ -49,7 +47,7 @@ On Linux the desktop client requires the user to belong to the `defguard` group 
 The official packages handle group setup, but logging out and back in or rebooting might be required on initial client install to refresh group membership. This is no longer required on subsequent updates.
 {% endhint %}
 
-#### ArchLinux
+### ArchLinux
 
 There is an [AUR package](https://aur.archlinux.org/packages/defguard-client)[: defguard-client](https://aur.archlinux.org/packages/defguard-client).
 
@@ -57,6 +55,10 @@ If you don't know how to install AUR packages, please follow these guidelines:
 
 * Manual install: [https://wiki.archlinux.org/title/Arch\_User\_Repository](https://wiki.archlinux.org/title/Arch_User_Repository)
 * Installation through PARU (AUR Helper): [https://owlhowto.com/how-to-install-paru-on-arch-linux/](https://owlhowto.com/how-to-install-paru-on-arch-linux/)
+
+### Ubuntu 22.04 / Debian 12
+
+Download `defguard-client_{x.x.x}_{arch}_ubuntu-22-04-lts.deb` from [releases](https://github.com/DefGuard/client/releases).&#x20;
 
 ### Client update
 
