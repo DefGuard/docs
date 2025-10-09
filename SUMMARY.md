@@ -130,6 +130,7 @@
 
 * [Step by step setting up a VPN server](tutorials/step-by-step-setting-up-a-vpn-server/README.md)
   * [Adding additional VPN locations](tutorials/step-by-step-setting-up-a-vpn-server/adding-additional-vpn-locations.md)
+* [Server migration and licence transfer](tutorials/server-migration-and-licence-transfer.md)
 
 ## In depth
 
