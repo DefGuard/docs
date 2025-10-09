@@ -42,13 +42,27 @@ Docker deployment requires the system to have [official Docker Engine installati
 
 ### Gateway server - where WireGuard VPN tunnels itself will be launched
 
-* **must have a public IP assigned on which the WireGuard port will be exposed in the Internet**
+* **The** [**Gateway address**](../features/wireguard/create-your-vpn-network.md) and[ **Gateway Port**](../features/wireguard/create-your-vpn-network.md) **must be publicly available from the Internet**
+
+{% hint style="warning" %}
+The server on which the Gateway is installed does not need to have the IP address (the same as the Gateway Address) assigned to it - can have internal network address.
+
+The Gateway Address is the address specified in the clients’ configuration – therefore, if this address is assigned for example to a Firewall or Load Balancer rather than the server hosting the Gateway, **the port from this address (Gateway Port) must be forwarded (e.g., via NAT) to the Gateway Port on the server where the Gateway is installed.**
+{% endhint %}
+
 * must have all networks on internal interfaces addresses configured, that should be accessible from VPN
 * **Recommended:** to have a public domain assigned to this IP for VPN server, eg. _vpn.company.com_
 
 ### Proxy - public web service for enrollment & desktop client configuration
 
-* **must have a public IP assigned on which the enrollment domain will be configured and HTTPS server will be exposed**
+* **The** [**enrollment URL**](https://docs.defguard.net/deployment-strategies/configuration#enrollment-configuration) **(that proxy will be configured under and available for user and clients to reach) needs to be publicly available from the Internet.**
+
+{% hint style="warning" %}
+The server on which the Proxy is installed does not need to have the IP address assigned to it which the enrollment URL domain points to - can have internal network address.
+
+If this address is assigned for example to a Firewall or Load Balancer rather than the server hosting the Gateway, **the port from this address (eg. if the enrollment URL is https://vpn-config.domain.com, then the port is 443) must be forwarded (e.g., via NAT) to the** [**DEFGUARD\_PROXY\_HTTP\_PORT**](https://docs.defguard.net/deployment-strategies/configuration#proxy-service) **on the server where the Proxy is installed.**
+{% endhint %}
+
 * **must have a public enrollment domain assigned to this IP,&#x20;**_**eg. enrollment.company.com (or vpn-config.company.com, etc..**_**)**
 
 ### Core & database server
