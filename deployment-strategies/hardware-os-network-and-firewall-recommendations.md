@@ -10,7 +10,7 @@ description: >-
 
 Defguard can be deployed on multiple servers (physical or virtual) or on a single server (which is not recommended).
 
-Recommended setup:
+Recommended setup reflects the [general system architecture](../in-depth/architecture/) with components being split into three separate machines:
 
 1. **Dedicated server or Virtual Machine for Core (control plane)** - that is in the Intranet network segment, not exposed in the public Internet in any way. Core needs to be accessible from the local (secure) network and VPN (to access Defguard securely). Recommended hardware parameters:
    1. CPU: min. 1 CPU/vCPU per location - eg. if Defguard handles 2 VPN locations recommended is min. 2 CPU/vCPU
@@ -27,6 +27,8 @@ Recommended setup:
       1. CPU: min. 1 CPU/vCPU per location
       2. RAM: min. 1GB
       3. Disk: min 4GB (mostly for logs)
+
+In general the hardware requirements will also have to be adjusted based on the number of active users. The numbers above should serve as a baseline.
 
 ### Operating system and software requirements
 
@@ -87,3 +89,10 @@ If this address is assigned for example to a Firewall or Load Balancer rather th
 
 1. please open 443 port for web interface accessible only from local/VPN network
 2. please open a gRPC port **for the gateway server to connect to this port - more info here:** [**https://docs.defguard.net/deployment-strategies/configuration#grpc-server-configuration**](https://docs.defguard.net/deployment-strategies/configuration#grpc-server-configuration)
+
+## Backup strategy
+
+In a production environment you should use your preferred backup solution to secure the following:
+
+* service configuration (.env file, service config files, compose configuration)
+* database content (prefferably by doing a regular pgdump, not just filesystem-level backup)

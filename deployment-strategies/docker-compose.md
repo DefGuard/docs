@@ -3,7 +3,7 @@
 Here are basic and simple docker-compose configuration files that will enable you to quickly deploy your own instance manually. We also assume in this example, that all services will be deployed on dedicated servers/VMs - separating them physically, thus each compose is for a separate service.
 
 {% hint style="success" %}
-Please not that we also offer docker-compose deployment with [_one-line quick deployment_](../getting-started/one-line-install.md)_,_ but this method is recommended for PoC/quick deployment as **it launches everything on one server and all services in one docker compose**.
+Please note that we also offer docker-compose deployment with [_one-line quick deployment_](../getting-started/one-line-install.md)_,_ but this method is recommended for PoC/quick deployment as **it launches everything on one server and all services in one docker compose**.
 {% endhint %}
 
 We use "latest" (latest production images) tags in the examples below, but you can use others - [more info here](docker-images-and-tags.md).
