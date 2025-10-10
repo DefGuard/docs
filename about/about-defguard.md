@@ -42,6 +42,10 @@ Incorporating IDM, ALM, VPN has also other advantages:
 
 More about [defguard's architecture and security can be found here](../in-depth/architecture/).
 
-## Pentested!
+## Open, transparent, verifiable and inspectable&#x20;
 
-**Checked by professional security researchers** (see [comprehensive security report](https://defguard.net/pdf/isec-defguard.pdf))
+* Our security approach: [https://defguard.net/security/](https://defguard.net/security/)
+* Our public penetration tests reports: [https://defguard.net/pentesting/](https://defguard.net/pentesting/)
+* Daily SBOM CVE scan: [https://defguard.net/sbom/](https://defguard.net/sbom/)&#x20;
+* Our detailed roadmap: [https://github.com/orgs/DefGuard/projects/5](https://github.com/orgs/DefGuard/projects/5)
+* Our Architecture Decision Records: [https://app.gitbook.com/o/Z3mGSAbEj9iLdZ7cNFlL/s/kHPDOBrb5X1TB8O3GsjW/\~/changes/86/in-depth/architecture-decision-records](../in-depth/architecture-decision-records/)
