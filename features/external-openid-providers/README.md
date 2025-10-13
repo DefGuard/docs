@@ -146,3 +146,59 @@ Then, add the email below by hand:
 <figure><img src="../../.gitbook/assets/obraz (15).png" alt=""><figcaption></figcaption></figure>
 
 Double check that the `email_verified` field is gone from the constant attributes section. The issue should be gone now.
+
+### Request to the provider times out
+
+If the requests made to your provider time out you should check if the Defguard Core server has access to your provider. This can be done for example by running the `curl` command to one of the provider's endpoint from the machine/container on which the Defguard Core is running on. The request may time out either if:
+
+* The resource is not accessible because it's blocked by a firewall or other network configuration
+* The response is taking too long (more than 10s), making Defguard Core terminate the request.
+
+#### Docker
+
+If your Defguard Core instance is running inside a Docker container, you should first obtain the container's name:
+
+```
+docker container ls
+```
+
+```
+CONTAINER ID   IMAGE                            COMMAND                  CREATED       STATUS          PORTS                                              NAMES
+42986c3e772j   postgres:15-alpine               "docker-entrypoint.s…"   10 days ago   Up 5 hours      0.0.0.0:5432->5432/tcp                             defguard-db-1
+c4000t32936a   ghcr.io/defguard/defguard:main   "./defguard"             4 weeks ago   Up 19 minutes   0.0.0.0:8000->8000/tcp, 0.0.0.0:50055->50055/tcp   defguard-core-1
+```
+
+In this case, the container name is `defguard-core-1`.
+
+Now, open a shell inside the container:
+
+```
+docker exec -it <YOUR_CONTAINER_NAME> /bin/bash
+```
+
+While inside the container, you will need to first temporarily install the `curl` command as its not available by default:
+
+```
+apt update && apt install curl
+```
+
+#### Non-docker deployments
+
+Make sure you have the curl command installed and you are running the command from the same server on which the Defguard Core is running.
+
+
+
+Use the `curl` command to query one of your provider endpoints:
+
+* **Microsoft:** `https://login.microsoftonline.com/<YOUR_TENANT_ID>/oauth2/v2.0/token`
+* **JumpCloud:** `https://console.jumpcloud.com/api/v2`
+* **Google:** `https://oauth2.googleapis.com/token`
+* **Okta:** `<YOUR_OKTA_BASE_URL>/oauth2/v1/token`
+
+E.g. for Microsoft you can do:
+
+```
+curl -s -w "\nResponse Code: %{http_code} Time: %{time_total}\n" -X Post https://login.microsoftonline.com/<YOUR_TENANT_ID>/oauth2/v2.0/token
+```
+
+Which should both print the response, the response code and the time it took for the request to complete. If the command doesn't complete or takes longer than 10s, the timeout issue may be related to your network/firewall configuration which makes the requests fail from the machine or take longer than expected. Please note that it's expected for this command to return an HTTP error code (4xx) as we are only testing connectivity (the ability to reach given endpoint).
