@@ -25,7 +25,7 @@ After obtaining the token, proceed with deploying the Gateway service. During it
 
 {% stepper %}
 {% step %}
-#### Deploy Defguard Core service
+#### Deploy Defguard Core service.
 
 
 {% endstep %}
