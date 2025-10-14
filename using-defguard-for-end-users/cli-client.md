@@ -94,6 +94,20 @@ systemctl start dg
 
 You can configure the service and set the log verbosity by editing `/etc/defguard/dg.conf`.
 
+#### Specifying a custom configuration path
+
+You can use a custom config path to save your network configuration by providing it as a command argument:
+
+```
+dg --config ./config.json enroll -u <URL> -t <TOKEN>
+```
+
+And then to connect:
+
+```
+dg --config ./config.json
+```
+
 ### Debugging and troubleshooting
 
 It may be easier to identify a problem by passing one of the following flags, which control the logging verbosity level:
