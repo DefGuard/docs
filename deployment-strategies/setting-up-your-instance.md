@@ -1,60 +1,63 @@
+---
+description: >-
+  This documentation will guide you through the process of deploying your
+  Defguard instance.
+---
+
 # Overview
 
 Welcome to the deployment strategies section of Defguard documentation. This guide covers the different ways you can deploy Defguard in your environment, from quick options using packages or Docker to more advanced setups with Kubernetes or Terraform. Whether you're running a small instance or preparing for a more complex production environment, this section will help you choose the deployment method that best fits your needs.
 
-## Components
+## Before you begin
 
-Defguard comes with four main components:
+1. Make sure you understand [Defguard's architecture](../in-depth/architecture/), especially the division into the main components: Core, Proxy, Gateway.
+2. Make sure your infrastructure is prepared by following our [recommendations](hardware-os-network-and-firewall-recommendations.md).
 
-* **Core service** - main web UI and database
-* **Proxy service** - used to safely expose a subset of public functionalities
-* **VPN gateway server** - retrieves configuration from core and configures VPN interfaces on the gateway server
-* **Provisioning station** - client application which can be started on any pc to auto-generate PGP keys for YubiKey
+## Initial deployment sequence
 
-There is one external component required: PostgreSQL database.
+Before deploying any Gateways, you must first install and configure the Core service. The Core acts as the central control plane - it manages configuration, authentication, and communication with all connected Gateways.
 
-## Hardware requirements
+Once the Core is running and accessible, log in to the admin interface and navigate to the Gateways section. Create a new Gateway entry to generate a unique registration token. This token will be used during the Gateway deployment process to securely link the Gateway instance with your Core.
 
-All Defguard components are **very low resource-consuming**. All of them are written in [Rust](https://www.rust-lang.org) and are single binaries. As minimum setup as follows should be more than enough:
+After obtaining the token, proceed with deploying the Gateway service. During its initial setup, provide the generated token so that the Gateway can authenticate and register itself with the Core. Once registration is complete, the Gateway will appear in the Core dashboard and start receiving configuration updates automatically.
 
-| Resource     | Minimum requirements         |
-| ------------ | ---------------------------- |
-| CPU          | 1 GHz                        |
-| RAM          | 2 GB (mostly for PostgreSQL) |
-| Disk         | 2 GB                         |
-| Architecture | x86\_64, ARM64               |
+#### Long story short:
 
-## Quick start
+{% stepper %}
+{% step %}
+#### Deploy Defguard Core service
 
-The easiest way to run your own Defguard instance is to use Docker and our [one-line install script](../getting-started/one-line-install.md).
 
-Just run the command below in your shell and follow the prompts:
+{% endstep %}
 
-```bash
-curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh -O && bash setup.sh
-```
+{% step %}
+#### Add a new location in Core's web interface and obtain a token.&#x20;
 
-To learn more about the script and available options, please see the [documentation](../getting-started/one-line-install.md).
+More on that [here](gateway.md).
+{% endstep %}
 
-## Manual deployment
+{% step %}
+#### Deploy Gateway configured with the token.
 
-If you prefer to configure and deploy Defguard manually, see the examples below:
 
-* [Docker Compose](docker-compose.md)
-* [Kubernetes](kubernetes.md)
+{% endstep %}
+{% endstepper %}
 
-Client services
+## Choose your deployment strategy
 
-* [Gateway](gateway/)
-* [YubiBridge](../features/yubikey-provisioning.md)
+| Strategy name                                                   | Difficulty                                                       | Production readiness                                                                                            | Purpose                         |
+| --------------------------------------------------------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| [One-line script](../getting-started/one-line-install.md)       | :green\_circle: Easy, single command installation                | :x: Doesn't follow the [recommendations](hardware-os-network-and-firewall-recommendations.md)                   | For testing purposes only       |
+| [Standalone packages](standalone-package-based-installation.md) | :green\_circle: Easy, using apt and dpkg                         | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Small to medium deployment      |
+| [Docker images](broken-reference)                               | :yellow\_circle: Medium, Docker knowledge required               | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Small to medium deployment      |
+| [Docker Compose](docker-compose.md)                             | :yellow\_circle: Medium, Docker knowledge required               | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Small to medium deployment      |
+| [Kubernetes](kubernetes.md)                                     | :red\_circle: Advanced, requires a k8s cluster and administrator | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Large or enterprise deployments |
+| [Terraform](terraform.md)                                       | :red\_circle: Advanced, requires an AWS account and knowledge    | :white\_check\_mark:                                                                                            | Large or enterprise deployments |
+| [AMI and AWS CloudFormation](amis-and-aws-cloudformation.md)    | :red\_circle: Advanced, requires an AWS account and knowledge    | :white\_check\_mark:                                                                                            | Large or enterprise deployments |
 
-{% hint style="info" %}
-On initial startup a new `admin` user will be created with a password which can be configured by the `DEFGUARD_DEFAULT_ADMIN_PASSWORD` environment variable (by default it's `pass123`). Use those credentials to log in and start exploring the system.
-{% endhint %}
+## Configure to your needs
 
-### Tips
-
-See our [Configuration](configuration.md) document to check all configurable things before you start. And learn about our Architecture [here](../in-depth/architecture/) to see how it works.
+See our [configuration documentation](configuration.md) to learn about all the settings you can change in your deployment.
 
 ## Backup
 
@@ -69,4 +72,6 @@ docker exec {container_name} pg_dump -U {user_name} > {backup_file_name}
 
 ## Failover/HA/Clustering
 
-For now the [Gateway](gateway/) can be deployed on multiple servers/firewall/routers for failover and HA - even if the connection to the Core will be lost, gateways will operate with their local cache/data and the VPN will be working. Same works the other way around if gateway don't work or is not available other features from Core like OpenID will be working.
+The [Gateway](gateway.md) can be deployed on multiple servers, firewalls, or routers for failover and high availability (HA). Even if the connection to the Core is lost, gateways continue operating using their local cache and data, ensuring that the VPN remains functional. Conversely, if a gateway becomes unavailable, other Core features (such as OpenID) will continue to work normally.
+
+For details on deploying multiple Gateway to [High Availability and Failover](high-availability-and-failover.md) documentation.

@@ -2,10 +2,10 @@
 
 ## Introduction
 
-This guide will walk you through the process of installing and running Debian packages (.deb) for **core, gateway, proxy** services on one server - as a **simple example**.
+This guide will walk you through the process of installing and running Defguard packages for **core, gateway, proxy** services on one server - as a **simple example**.
 
 {% hint style="warning" %}
-For production deployment we would recommend to divide services to multiple servers, e.g.:
+For production deployment we recommend to divide services to multiple servers, e.g.:
 
 * Defguard Proxy (used for remote enrollment, onboarding and configuring desktop clients) should be on a DMZ node that is exposed in the Internet
 * Defguard Gateway should be on your firewall/router
@@ -14,30 +14,33 @@ For production deployment we would recommend to divide services to multiple serv
 
 We will cover system requirements, additional dependencies, installation steps, and examples of configuration files and step by step running all services. In this example we will use nginx for a web server (proxy) exposing and securing web based services.
 
-Examples will be made by using [**Debian 12**](https://www.debian.org/releases/stable/releasenotes) **and Ubuntu based system.**
-
-{% hint style="info" %}
-We also provide **RPM packages** - the procedure is similar to the one for installing DEB packages. If you need help installing RPM packages[ this guide offers help.](https://phoenixnap.com/kb/how-to-install-rpm-file-centos-linux)
-{% endhint %}
-
 Please also remember to [secure the setup after installation](standalone-package-based-installation.md#securing-the-setup).
 
-### Hardware Requirements
+### Supported operating systems
 
-All Defguard components are **very low resource-consuming**. All of them are written in [Rust](https://www.rust-lang.org) and are single binaries. As minimum setup as follows should be more then enough:
+#### Core
 
-| Resource     | Minimum requirements         |
-| ------------ | ---------------------------- |
-| CPU          | 1 GHz                        |
-| RAM          | 2 GB (mostly for PostgreSQL) |
-| Disk         | 2 GB                         |
-| Architecture | x86\_64, ARM64               |
+You can find releases of the Core component on [GitHub](https://github.com/DefGuard/defguard/releases).
+
+<table><thead><tr><th width="237.14453125">OS distribution</th><th width="149.89453125">OS architecture</th><th>Release artifact naming convention</th></tr></thead><tbody><tr><td>Debian/Ubuntu</td><td>x86</td><td>defguard-X.Y.Z-x86_64-unknown-linux-gnu.deb</td></tr><tr><td>Fedora/Red Hat Linux/SUSE</td><td>x86</td><td>defguard-X.Y.Z-x86_64-unknown-linux-gnu.rpm</td></tr><tr><td>FreeBSD</td><td>x86</td><td>defguard-X.Y.Z_x86_64-unknown-freebsd.pkg</td></tr></tbody></table>
+
+#### Gateway
+
+You can find releases of the Core component on [GitHub](https://github.com/DefGuard/gateway/releases).
+
+<table><thead><tr><th width="237.4140625">OS discibution</th><th width="150.0078125">OS architecture</th><th>Release artifact naming convention</th></tr></thead><tbody><tr><td>Debian/Ubuntu</td><td>x86</td><td>defguard-gateway_X.Y.Z_x86_64-unknown-linux-gnu.deb</td></tr><tr><td>Debian/Ubuntu</td><td>ARM</td><td>defguard-gateway_X.Y.Z_aarch64-unknown-linux-gnu.deb</td></tr><tr><td>Fedora/Red Hat Linux/SUSE</td><td>x86</td><td>defguard-gateway_X.Y.Z_x86_64-unknown-linux-gnu.rpm</td></tr><tr><td>FreeBSD</td><td>x86</td><td>defguard-gateway_X.Y.Z_x86_64-unknown-freebsd.pkg</td></tr></tbody></table>
+
+#### Proxy
+
+You can find releases of the Core component on [GitHub](https://github.com/DefGuard/proxy/releases).
+
+<table><thead><tr><th width="237.4140625">OS discibution</th><th width="150.0078125">OS architecture</th><th>Release artifact naming convention</th></tr></thead><tbody><tr><td>Debian/Ubuntu</td><td>x86</td><td>defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.deb</td></tr><tr><td>Fedora/Red Hat Linux/SUSE</td><td>x86</td><td>defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.rpm</td></tr></tbody></table>
 
 ### System Requirements
 
 Before proceeding with the installation, ensure your system meets the following requirements:
 
-* Debian-based operating system (Debian, Ubuntu, etc.).
+* One of the [supported operating systems](standalone-package-based-installation.md#supported-operating-systems) installed.
 * Administrative (sudo) privileges.
 * A server with a public IP address (and you know what that IP address is and to which interface it's assigned) - in this example we use: 185.33.37.51.
 * You have a domain name and know how to assign IP and manage subdomains, in our example: Defguard main url will be _my-server.defguard.net_ (and the subdomain is pointed to 185.33.37.51).
@@ -77,7 +80,7 @@ defguard=# exit
 * we created `.pgpass` file that consist of `<hostname>:<port>:<database>:<user>:<password>`
 * we connected into the `defguard` database to verify `defguard` user can communicate with the database
 
-#### NGINX
+#### Reverse proxy
 
 To expose our services in the server we need to configure a reverse proxy server. For this we will use nginx web server with ssl certificates for enabling https protocol.
 
@@ -102,12 +105,14 @@ unlink /etc/nginx/sites-enabled/default
 
 ## Installing packages
 
-### Core service
+### Core
 
-Navigate to [core repository release](https://github.com/DefGuard/defguard/releases) and choose version of core package that you want to obtain that has debian package and then swap `<version>` in the following command:
+Navigate to [core repository releases](https://github.com/DefGuard/defguard/releases) page, choose the release you want to install, then choose the right package from the list of release's artifacts, and download the package.
+
+Replace the `<version>` and `<package extension>` in the following command:
 
 ```
-wget https://github.com/DefGuard/defguard/releases/download/<version>/defguard-<version>-x86_64-unknown-linux-gnu.deb
+wget https://github.com/DefGuard/defguard/releases/download/<version>/defguard-<version>-x86_64-unknown-linux-gnu.<package extension>
 ```
 
 Example:
@@ -116,17 +121,19 @@ Example:
 wget https://github.com/DefGuard/defguard/releases/download/v0.11.0/defguard-0.11.0-x86_64-unknown-linux-gnu.deb
 ```
 
-You can also download directly from the Github realse page, but please note that you should know the path where this could be storead after downloading. Once the package is downloaded, install it using dpkg:
+You can also download directly from the Github release page, but please note that you should know the path where this could be stored after downloading.
 
-```
-dpkg -i <path_to_package>/defguard-<version>-x86_64-unknown-linux-gnu.deb
-```
+Once the package appropriate for your distribution is downloaded, install it using the appropriate system tool:
 
-Example:
+<pre><code># on Debian/Ubuntu
+<strong>sudo dpkg -i &#x3C;path_to_package>/defguard-X.Y.Z-x86_64-unknown-linux-gnu.deb
+</strong>
+# on Fedora/Red Hat Linux/SUSE
+sudo rpm -i &#x3C;path_to_rpm_package>/defguard-X.Y.Z-x86_64-unknown-linux-gnu.rpm
 
-```
-dpkg -i defguard-0.11.0-x86_64-unknown-linux-gnu.deb
-```
+# FreeBSD
+pkg add &#x3C;path_to_txz_package>/defguard-X.Y.Z_x86_64-unknown-freebsd.pkg
+</code></pre>
 
 You can check is core installed properly:
 
@@ -135,12 +142,14 @@ You can check is core installed properly:
 defguard 0.11.0
 ```
 
-### Gateway service
+### Gateway
 
-Navigate to [gateway repository release](https://github.com/DefGuard/gateway/releases) and choose version of core package that you want to obtain that has debian package and then swap `<version>` in the following command:
+Navigate to the [releases](https://github.com/DefGuard/gateway/releases) page, choose the release you want to install, then choose the right package from the list of release's artifacts, and download the package.
+
+Replace the `<version>` and `<package extension>` in the following command:
 
 ```
-# wget https://github.com/DefGuard/gateway/releases/download/<version>/defguard-gateway_<version>_x86_64-unknown-linux-gnu.deb
+wget https://github.com/DefGuard/gateway/releases/download/v1.5.1/defguard-gateway_1.5.1_aarch64-unknown-linux-gnu.<package extension>
 ```
 
 Example:
@@ -149,16 +158,25 @@ Example:
 # wget https://github.com/DefGuard/gateway/releases/download/v0.7.0/defguard-gateway_0.7.0_x86_64-unknown-linux-gnu.deb
 ```
 
-You can also download directly from the Github realse page, but please note that you should know the path where this could be storead after downloading. Once the package is downloaded, install it using dpkg:
+You can also download directly from the Github realse page, but please note that you should know the path where this could be storead after downloading.&#x20;
+
+Once the package appropriate for your distribution is downloaded, install it using the appropriate system tool:
 
 ```
-dpkg -i <path_to_package>/defguard-gateway_<version>_x86_64-unknown-linux-gnu.deb
+# on Debian/Ubuntu
+sudo dpkg -i <path_to_package>/defguard-gateway-X.Y.Z-x86_64-unknown-linux-gnu.deb
+
+# on Fedora/Red Hat Linux/SUSE
+sudo rpm -i <path_to_rpm_package>/defguard-gateway-X.Y.Z-x86_64-unknown-linux-gnu.rpm
+
+# FreeBSD
+pkg add <path_to_txz_package>/defguard-gateway-X.Y.Z_x86_64-unknown-freebsd.pkg
 ```
 
 Example:
 
 ```
-dpkg -i defguard-gateway_0.7.0_x86_64-unknown-linux-gnu.deb
+sudo dpkg -i defguard-gateway_0.7.0_x86_64-unknown-linux-gnu.deb
 ```
 
 You can check is core installed properly:
@@ -168,12 +186,14 @@ You can check is core installed properly:
 defguard-gateway 0.7.0
 ```
 
-### Proxy service
+### Proxy
 
-Navigate to [proxy repository release](https://github.com/DefGuard/proxy/releases) and choose version of core package that you want to obtain that has debian package and then swap `<version>` in the following command:
+Navigate to the [releases](https://github.com/DefGuard/proxy/releases) page, choose the release you want to install, then choose the right package from the list of release's artifacts, and download the package.
+
+Replace the `<version>` and `<package extension>` in the following command:
 
 ```
-wget https://github.com/DefGuard/proxy/releases/download/<version>>/defguard-proxy-<version>-x86_64-unknown-linux-gnu.deb
+wget https://github.com/DefGuard/proxy/releases/download/<version>>/defguard-proxy-<version>-x86_64-unknown-linux-gnu.<package extension>
 ```
 
 Example:
@@ -182,7 +202,9 @@ Example:
 wget https://github.com/DefGuard/proxy/releases/download/v0.5.0/defguard-proxy-0.5.0-x86_64-unknown-linux-gnu.deb
 ```
 
-You can also download directly from the Github realse page, but please note that you should know the path where this could be storead after downloading. Once the package is downloaded, install it using dpkg:
+You can also download directly from the Github realse page, but please note that you should know the path where this could be storead after downloading.&#x20;
+
+Once the package appropriate for your distribution is downloaded, install it using the appropriate system tool:
 
 ```
 dpkg -i <path_to_package>/defguard-proxy-<version>-x86_64-unknown-linux-gnu.deb
@@ -191,7 +213,14 @@ dpkg -i <path_to_package>/defguard-proxy-<version>-x86_64-unknown-linux-gnu.deb
 Example:
 
 ```
-dpkg -i defguard-proxy-0.5.0-x86_64-unknown-linux-gnu.deb
+# on Debian/Ubuntu
+sudo dpkg -i <path_to_package>/defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.deb
+
+# on Fedora/Red Hat Linux/SUSE
+sudo rpm -i <path_to_rpm_package>/defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.rpm
+
+# FreeBSD
+pkg add <path_to_txz_package>/defguard-proxy-X.Y.Z_x86_64-unknown-freebsd.pkg
 ```
 
 You can check is core installed properly:

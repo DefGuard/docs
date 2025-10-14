@@ -1,14 +1,47 @@
 # Docker Compose
 
-Here are basic and simple docker-compose configuration files that will enable you to quickly deploy your own instance manually. We also assume in this example, that all services will be deployed on dedicated servers/VMs - separating them physically, thus each compose is for a separate service.
+This document provides a complete example of how to deploy Defguard using Docker Compose, including configuration for all components - Core, Proxy, and Gateway. It covers Docker image tags, environment variables, and reverse-proxy setup examples to help you quickly launch a fully functional Defguard environment.&#x20;
+
+We recommend deploying each Defguard service on a dedicated server or virtual machine to ensure better isolation, performance, and security. In this setup, each Docker Compose file should be used for a single service, keeping the Core, Proxy, and Gateway components physically separated.
 
 {% hint style="success" %}
 Please note that we also offer docker-compose deployment with [_one-line quick deployment_](../getting-started/one-line-install.md)_,_ but this method is recommended for PoC/quick deployment as **it launches everything on one server and all services in one docker compose**.
 {% endhint %}
 
-We use "latest" (latest production images) tags in the examples below, but you can use others - [more info here](docker-images-and-tags.md).
+## Docker images and tags
 
-## Core
+We use `latest` (latest production images) tags in the examples below, but you can use others.
+
+All docker images for Core, Gateway, and Proxy have these additional tags:
+
+* `latest` - the latest stable production release.
+* `vX.Y`, `vX.Y.Z`, `vX.Y-alpha1` - fixed tags for specific stable and alpha releases.
+* `pre-release`- the latest pre-production release (equivalent to vX.Y-alpha1).
+* `dev` - the latest development build from the dev branch (experimental).
+
+{% hint style="warning" %}
+We recommend always using fixed, stable tags (`vX.Y`, `vX.Y.Z`) for your production deployment.
+{% endhint %}
+
+## Example Docker Compose deployment repository
+
+We prepared a [git repository](https://github.com/DefGuard/deployment) with and example Docker Compose configuration.
+
+To run your services using this example prepare your .env file by copying the template:
+
+```bash
+cp .env.template .env
+```
+
+Finally, run the service with Docker Compose:
+
+```bash
+docker compose up
+```
+
+Below you'll find a detailed breakdown of configuration for different components: Core, Proxy and Gateway.
+
+## Deploying Core, database and reverse proxy services
 
 Here is the docker-compose.yaml for the core and database. Configuration is split to the `.env` file (see below):
 
@@ -79,7 +112,7 @@ server {
 }
 ```
 
-### The configuration
+#### The configuration
 
 Here is the `.env` file with all configuration variables:
 
@@ -132,7 +165,7 @@ POSTGRES_USER=defguard
 POSTGRES_PASSWORD=!SAME_AS-GENERATED-DEFGUARD_DB_PASSWORD!
 ```
 
-## Proxy
+## Deploying Proxy and reverse proxy service
 
 Here is the docker-compose.yaml for the public proxy (enrollment service as well as desktop client configuration service).
 
@@ -188,7 +221,9 @@ server {
 
 ```
 
-## Gateway
+## Deploying Gateway service
+
+You'll need a token to deploy the Gateway service. You'll have to set it as DEFGUARD\_TOKEN environment variable. Details on how to obtain the token [here](gateway.md).
 
 For gateway to control the WireGuard kernel as well as network, it's recommended to run in the _host_ network mode as well as there are needed some docker CAPs:
 

@@ -1,42 +1,68 @@
 # Architecture
 
-By design **Defguard core (the main component) is meant to be deployed in your secure network segments** (available only from an internal network or by VPN) and operations that require public access (like user onboarding, enrollment, password reset, etc.) **are done using a secure proxy:**
+## Design Principles
 
-<figure><img src="../../.gitbook/assets/defguard-architecture.png" alt=""><figcaption><p>Defguard architecture</p></figcaption></figure>
+Defguard is a zero-trust, VPN-centric access platform built on WireGuard®. Its design cleanly separates the control plane (Core) from the data plane (Gateways) and exposes a minimal public surface (Gateway for VPN; Proxy for secure web flows). Administrative and identity-sensitive services remain off the public internet, behind controlled network boundaries.
 
-This approach is vastly different from most (if not all) VPN/IdP solutions, which are a simple or monolithic application focus on functionalities (like generating configs, managing users, etc.) and most of the time is publicly available on the Internet for any attacker.
+### **Separation of Concerns**
 
-If you want full privacy, Defguard only exposes publicly **components designed for this purpose:**
+Each Defguard component serves a distinct purpose, ensuring clear functional isolation:
 
-* WireGuard® gateway - to enable VPN access
-* Public Proxy for secure remote processes like:
-  * [User enrollment and onboarding](../../features/remote-user-enrollment/)
-  * [Desktop Client configuration](../../features/remote-user-enrollment/automatic-real-time-desktop-client-configuration.md)
+* The Core operates as the _control plane_: storing state, enforcing policy, and managing users and devices.
+* The Gateway serves as the _data plane_: forwarding traffic, enforcing ACLs, and maintaining local operational independence.
+* The Proxy acts as a _secure edge layer_: handling user-facing traffic and offloading authentication flows.
 
-## C4 component model
+This modular architecture simplifies scaling, security audits, and upgrades.
 
-Below you can see Defguard architecture in [C4 model](https://c4model.com/) divided into context, containers and components.
+### **Minimize Exposure**
 
-## Context
+Defguard is designed around the principle of least exposure — only the absolutely necessary components are reachable from the public internet.
 
-![Context look at Defguard architecture](../../.gitbook/assets/architecture-context.svg)
+* The Proxy is the _only_ component exposing a public HTTPS interface.
+* The Gateway exposes only a single UDP port for WireGuard connections.
+* The Core, database, and identity integrations (OIDC, LDAP, etc.) remain entirely private, accessible only from trusted networks.
 
-## Containers
+This ensures the smallest possible attack surface while still supporting remote enrollment, authentication, and VPN connectivity.
 
-![Containers look at Defguard architecture](../../.gitbook/assets/architecture-containers.svg)
+### **Defense in Depth**
 
-## Components
+Every communication layer is protected by redundant and complementary security mechanisms:
 
-![Components look at Defguard architecture](../../.gitbook/assets/architecture-components.svg)
+* All internal API traffic uses gRPC (recommended over TLS).
+* Firewall rules restrict network flows to specific IPs and ports.
+* Sensitive services (Core, DB) are deployed in private network segments inaccessible from the internet.
 
-### Basics
+This layered approach reduces the blast radius of any potential compromise.
 
-Core is a Rust web server which is exposed as REST API and gRPC web server with typescript and rust clients, it handles connection to database, LDAP server and gateway. Core also handles user authorization via LDAP account. It's configurable using Environmental Variables which you can find [here](../../deployment-strategies/configuration.md).
+### **Zero-Trust Posture**
 
-Gateway is a small CLI gRPC client written in Rust which sends network statistics to Core server and apply network configuration changes on message from core.\
-Our frontend is React app written in Typescript which allows handling all API calls via Web UI.\
-See detailed gRPC docs [here](https://google.com).
+Defguard adopts a zero-trust philosophy: no implicit trust is given to users, devices, or networks.
 
-### Example setup flow
+* Access is always authenticated and authorized dynamically.
+* Multi-Factor Authentication (MFA) is supported natively for VPN connections via per-location pre-shared keys (PSKs) that serve as one-time authorization tokens.
+* Device enrollment and configuration are bound to verified identities and can be revoked or rotated at any time.
 
-After creating your network in our wizard and running our gateway program core will message it with network data. Gateway after receiving data will set up your network using WireGuard commands you can think of it like a wrapper on WireGuard commands which also sends network information through gRPC. After successfully setting up your network gateway will start sending your networks stats in period given as argument on gateway program start or if not provided at default which is 60 seconds. You can see all of your network statistics, connected users, bandwidth, user devices on the overview page.
+This model ensures that even within an established tunnel, every access decision remains policy-driven and verifiable.
+
+### **Graceful Degradation**
+
+The platform is built for resilience and autonomy:
+
+* Gateways cache configuration and continue to operate even if the Core becomes temporarily unavailable.
+* Core services remain functional (e.g., OpenID login, admin operations) if a Gateway is offline.
+* Gateways report state deltas to the Core when connectivity is restored, ensuring accurate statistics and consistency.
+
+This approach prevents downtime during transient network or control-plane failures.
+
+### **Observability and Auditability**
+
+Security and reliability rely on visibility. Defguard provides built-in observability and audit mechanisms:
+
+* Gateways periodically send metrics and peer statistics to the Core for dashboards and alerts.
+* Every administrative action (e.g., user addition, configuration change) is logged for traceability.
+* Logs and metrics can be exported to external monitoring systems (SIEM, Prometheus, etc.) for centralized analysis.
+
+Continuous visibility ensures operational awareness and compliance with audit requirements.
+
+
+

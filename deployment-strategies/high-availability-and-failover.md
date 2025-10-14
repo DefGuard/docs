@@ -10,7 +10,7 @@ Please also see documentation of [Creating a New VPN location](../features/wireg
 
 #### Deploying multiple gateways for one location
 
-To have a multi-gateway setup for a given location, you  will need to [deploy the gateway on each one of your servers](gateway/) under the same location.
+To have a multi-gateway setup for a given location, you  will need to [deploy the gateway on each one of your servers](gateway.md) under the same location.
 
 If you already have a gateway deployed and want to add another one for the location, go to _VPN Overview_ -> Click: _Edit Location Settings (in the top right corner)_, then choose the location you want to add the new gateway to, and follow the deployment instructions:
 
