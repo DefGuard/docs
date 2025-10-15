@@ -317,8 +317,12 @@ DATABASE_URL="postgresql://defguard:defguard@localhost/defguard"
 After changes, you can simply enable and start your Defguard core service:
 
 ```
+# on systems with systemd (like Debian, Ubuntu, Fedora/Red Hat Linux/SUSE)
 systemctl enable defguard.service
 systemctl start defguard.service
+
+# on systems with rc.d (like FreeBSD, NetBSD)
+sudo /usr/local/etc/rc.d/defguard start
 ```
 
 To see logs, type journalctl command:
@@ -507,9 +511,18 @@ syslog_socket = "/var/run/log"
 Now we can run gateway service with configuration above:
 
 ```
-# systemctl enable defguard-gateway.service
-# systemctl start defguard-gateway.service
-# journalctl -u defguard-gateway.service | tail -n 50
+# on systems with systemd (like Debian, Ubuntu, Fedora/Red Hat Linux/SUSE)
+systemctl enable defguard-gateway.service
+systemctl start defguard-gateway.service
+
+# on systems with rc.d (like FreeBSD, NetBSD)
+sudo /usr/local/etc/rc.d/defguard_gateway start
+```
+
+Check the logs of the gateway service:
+
+```
+journalctl -u defguard-gateway.service | tail -n 50
 [2024-07-27T16:37:56Z INFO  defguard_gateway::gateway] Starting defguard gateway version 0.7.0 with configuration: Config { token: "***", name: Some("Gateway on server X"), grpc_url: "https://my-server.defguard.net:444/", userspace: false, grpc_ca: None, stats_period: 60, ifname: "wg0", pidfile: None, use_syslog: false, syslog_facility: "LOG_USER", syslog_socket: "/var/run/log", config_path: None, pre_up: None, post_up: None, pre_down: None, post_down: None, health_port: None }
 [2024-07-27T16:37:56Z INFO  defguard_gateway::gateway] gRPC server connection setup done.
 [2024-07-27T16:37:56Z INFO  defguard_wireguard_rs::wgapi_linux] Creating interface wg0
@@ -536,8 +549,17 @@ On the other side, core service should print those informations:
 To run proxy service (for [remote onboarding & enrollment](../using-defguard-for-end-users/enrollment/)), we can do it by:
 
 ```
-# systemctl enable defguard-proxy.service
-# systemctl start defguard-proxy.service
+# on systems with systemd (like Debian, Ubuntu, Fedora/Red Hat Linux/SUSE)
+systemctl enable defguard-proxy.service
+systemctl start defguard-proxy.service
+
+# on systems with rc.d (like FreeBSD, NetBSD)
+sudo /usr/local/etc/rc.d/defguard_proxy start
+```
+
+Check the logs afterwards. Should look like this:
+
+```
 # journalctl -u defguard-proxy.service | tail -n 50
 2024-07-27T16:53:58.584154Z INFO defguard_proxy::tracing: Tracing initialized
 2024-07-27T16:53:58.584233Z INFO defguard_proxy::http: Starting Defguard proxy server
@@ -720,3 +742,33 @@ After the installation please make sure that **only the following ports are open
 {% endhint %}
 
 Also this setup provides only communication encryption between Defguard components, if you additionally like for core/proxy and gateway to have authorization - [please setup a custom SSL CA](grpc-ssl-communication.md#custom-ssl-ca-and-certificates).
+
+## Package Upgrade
+
+### FreeBSD/OPNsense
+
+1.  Uninstall the current version.
+
+    ```bash
+    # Core package
+    pkg delete defguard-gateway
+
+    # or Gateway package
+    pkg delete defguard-gateway
+
+    # or Proxy package
+    pkg delete defguard-proxy
+    ```
+2. Install a newer version (as described [above](standalone-package-based-installation.md#installing-packages)).
+3.  Restart the service.
+
+    ```bash
+    # Core service
+    sudo /usr/local/etc/rc.d/defguard restart
+
+    # or Gateway service
+    sudo /usr/local/etc/rc.d/defguard_gateway restart
+
+    # or Proxy service
+    sudo /usr/local/etc/rc.d/defguard_proxy restart
+    ```
