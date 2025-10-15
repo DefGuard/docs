@@ -22,81 +22,15 @@ To deploy the gateway you need to have Defguard core running and know it's [gRPC
 
 Also, if core has a custom SSL CA to secure gRPC communication, [you need the CA certificate (more here).](grpc-ssl-communication.md#custom-ssl-ca-and-certificates)
 
-## Deploying Gateway
+## Deploy the Gateway service
 
-1. On the [release page](https://github.com/DefGuard/gateway/releases) find and download a correct software package for your system (currently DEB, RPM and TXZ are available).
-2.  Install the package using relevant system tools:
+Proceed with deploying your Gateway service using the selected [deployment strategy](setting-up-your-instance.md#choose-your-deployment-strategy):
 
-    **Ubuntu/Debian:**
-
-    ```bash
-    sudo dpkg -i <path_to_deb_package>
-    ```
-
-    **Fedora/Red Hat Linux/SUSE:**
-
-    ```bash
-    sudo rpm -i <path_to_rpm_package>
-    ```
-
-    **FreeBSD:**
-
-    ```bash
-    pkg add <path_to_txz_package>
-    ```
-3. Fill in the default configuration file (`/etc/defguard/gateway.toml`) with values corresponding to your Defguard installation (token and gRPC endpoint URL).
-4.  On systems with [systemd](https://systemd.io/), enable and start the **systemd** service:
-
-    ```bash
-    sudo systemctl enable defguard-gateway.service
-    sudo systemctl start defguard-gateway.service
-    ```
-
-On systems with rc.d (like FreeBSD, NetBSD), start the service. For example, on OPNsense:
-
-```bash
-sudo /usr/local/etc/rc.d/defguard_gateway start
-```
-
-## Package Upgrade
-
-### FreeBSD/OPNsense
-
-1.  Uninstall the current version.
-
-    ```bash
-    pkg delete defguard-gateway
-    ```
-2.  Install a newer version (as described above in [Package Install](gateway.md#package-install)).
-
-    ```bash
-    pkg add <path_to_txz_package>
-    ```
-3.  Restart Defguard Gateway service.
-
-    ```bash
-    sudo /usr/local/etc/rc.d/defguard_gateway restart
-    ```
-
-## Docker Compose
-
-We prepared an example [git repository](https://github.com/DefGuard/deployment) with Docker Compose configuration, clone it:
-
-```
-git clone --recursive https://github.com/DefGuard/deployment.git && cd deployment/gateway
-```
-
-2. Copy and fill in the .env file:
-
-```bash
-cp .env.template .env
-```
-
-3. Finally, run the service with Docker Compose:
-
-```bash
-docker compose up
-```
+* [package based](standalone-package-based-installation.md#gateway)
+* [Docker Compose](docker-compose.md#deploying-gateway-service)
+* [Kubernetes](kubernetes.md#vpn-gateway-service)
+* [Terraform](terraform.md#gateway-module)
+* [AMIs and AWS CloudFormation](amis-and-aws-cloudformation.md#gateway-instance)
 
 If everything went well, Defguard Gateway should be connected to Defguard Core and you can start [adding new devices to your network](../features/network-devices.md#adding-a-new-network-device).
 
