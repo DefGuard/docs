@@ -726,7 +726,7 @@ After the installation please make sure that **only the following ports are open
 
 Also this setup provides only communication encryption between Defguard components, if you additionally like for core/proxy and gateway to have authorization - [please setup a custom SSL CA](grpc-ssl-communication.md#custom-ssl-ca-and-certificates).
 
-## Package Upgrade
+## Upgrading packages
 
 ### FreeBSD/OPNsense
 
