@@ -26,7 +26,7 @@ Also, if core has a custom SSL CA to secure gRPC communication, [you need the CA
 
 Proceed with deploying your Gateway service using the selected [deployment strategy](setting-up-your-instance.md#choose-your-deployment-strategy):
 
-* [package based](standalone-package-based-installation.md#gateway)
+* [package based](standalone-package-based-installation.md#gateway-1)
 * [Docker Compose](docker-compose.md#deploying-gateway-service)
 * [Kubernetes](kubernetes.md#vpn-gateway-service)
 * [Terraform](terraform.md#gateway-module)
