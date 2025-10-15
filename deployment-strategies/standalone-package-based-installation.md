@@ -433,19 +433,7 @@ Now, after setting up core service you should go to the website that you set on 
 * login: admin
 * password: `DEFGUARD_DEFAULT_ADMIN_PASSWORD` (by default: pass123)
 
-Now we can configure our first location. Depends on what is more convenient for you, choose configuration from Wireguard file or do it manually.
 
-<figure><img src="../.gitbook/assets/choose_location_setup.png" alt=""><figcaption><p>Location wizard</p></figcaption></figure>
-
-<figure><img src="../.gitbook/assets/location_configuration.png" alt=""><figcaption><p>Location configuration</p></figcaption></figure>
-
-After saving configuration for location you should be redirect to Location overview page, where at the top right corner is `Edit Locations Settings` button, click on it.
-
-<figure><img src="../.gitbook/assets/edit_locations_settings.png" alt=""><figcaption><p>Manual configuration</p></figcaption></figure>
-
-In `Gateway server setup` copy two variables: `DEFGUARD_TOKEN` and `DEFGUARD_GRPC_URL`
-
-<figure><img src="../.gitbook/assets/gateway_server_setup.png" alt=""><figcaption><p>Gateway server setup</p></figcaption></figure>
 
 #### Create config file
 

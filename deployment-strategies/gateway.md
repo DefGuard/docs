@@ -1,7 +1,7 @@
 ---
 description: >-
-  This documentation will guide you through adding a new location and deploying
-  your first Gateway service, enabling your devices to connect to it via VPN.
+  This documentation will guide you through adding a new location and proceeding
+  with the Gateway deployment, enabling your devices to connect to it via VPN.
 ---
 
 # Adding a location and getting a Gateway token
@@ -14,11 +14,29 @@ Please remember that **one gateway corresponds to one VPN location.**
 You can also deploy multiple gateways for one location for High Availability.
 {% endhint %}
 
-To deploy the gateway you need to have Defguard core running and know it's [gRPC url](configuration.md#core-configuration) (meaning what is the **host/ip** where the core is running and the **gRPC port** defined in core by DEFGUARD\_GRPC\_PORT configuration variabl&#x65;**)** and a **token.**
+Go to the address you set on `DEFGUARD_URL` with your browser and sign in using the credentials you set up during Core deployment.
 
-**Token** can be obtained when you go to _VPN Locations -> Edit location settings (in top right corner) -> Select the desired location_ -> the right panel describes how to deploy the gateway for the location as well as lists the gateway authentication token:
+Go to the _VPN Overview_ module from the main menu and click the _Edit Locations settings_.
 
-<figure><img src="../.gitbook/assets/Screenshot 2024-11-12 at 17.28.07.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2025-10-15 at 13.37.33.png" alt=""><figcaption><p>Adding a new location</p></figcaption></figure>
+
+Then click the _Add new location tab_.
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-10-15 at 13.37.55.png" alt="Adding a new location"><figcaption><p>Adding a new location</p></figcaption></figure>
+
+Depending on what is more convenient for you, choose configuration from Wireguard file or do it manually.
+
+<figure><img src="../.gitbook/assets/choose_location_setup.png" alt=""><figcaption><p>Location wizard</p></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/location_configuration.png" alt=""><figcaption><p>Location configuration</p></figcaption></figure>
+
+After saving configuration for location you should be redirect to Location overview page, where at the top right corner is `Edit Locations Settings` button, click on it.
+
+<figure><img src="../.gitbook/assets/edit_locations_settings.png" alt=""><figcaption><p>Manual configuration</p></figcaption></figure>
+
+In `Gateway server setup` copy two variables: `DEFGUARD_TOKEN` and `DEFGUARD_GRPC_URL`
+
+<figure><img src="../.gitbook/assets/gateway_server_setup.png" alt=""><figcaption><p>Gateway server setup</p></figcaption></figure>
 
 Also, if core has a custom SSL CA to secure gRPC communication, [you need the CA certificate (more here).](grpc-ssl-communication.md#custom-ssl-ca-and-certificates)
 
