@@ -428,12 +428,7 @@ To run gateway, we should do two things:
 
 #### Setup location for gateway
 
-Now, after setting up core service you should go to the website that you set on `DEFGUARD_URL`. The link should redirect you to login page. To log in type these credentials from `/etc/defguard/core.conf`
-
-* login: admin
-* password: `DEFGUARD_DEFAULT_ADMIN_PASSWORD` (by default: pass123)
-
-
+Follow [this guide](gateway.md) for setting up the location in Defguard Core web interface. You should leave the guide with a token for your new Gateway instance.
 
 #### Create config file
 

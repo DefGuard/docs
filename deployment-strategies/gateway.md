@@ -50,5 +50,7 @@ Proceed with deploying your Gateway service using the selected [deployment strat
 * [Terraform](terraform.md#gateway-module)
 * [AMIs and AWS CloudFormation](amis-and-aws-cloudformation.md#gateway-instance)
 
+You can also check our guides on running Gateway on [OPNsense firewall](running-gateway-on-opnsense-firewall.md) or [MikroTik router](running-gateway-on-mikrotik-routers.md).
+
 If everything went well, Defguard Gateway should be connected to Defguard Core and you can start [adding new devices to your network](../features/network-devices.md#adding-a-new-network-device).
 
