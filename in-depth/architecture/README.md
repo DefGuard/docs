@@ -4,7 +4,7 @@
 
 Defguard is a zero-trust, VPN-centric access platform built on WireGuard®. Its design cleanly separates the control plane (Core) from the data plane (Gateways) and exposes a minimal public surface (Gateway for VPN; Proxy for secure web flows). Administrative and identity-sensitive services remain off the public internet, behind controlled network boundaries.
 
-<figure><img src="../../.gitbook/assets/Untitled Diagram.drawio (1).svg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Untitled Diagram.drawio.png" alt=""><figcaption></figcaption></figure>
 
 ### **Separation of Concerns**
 
