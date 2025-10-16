@@ -84,6 +84,7 @@
 * [Configuration](deployment-strategies/configuration.md)
 * [Running Gateway on OPNsense firewall](deployment-strategies/running-gateway-on-opnsense-firewall.md)
 * [Running Gateway on MikroTik routers](deployment-strategies/running-gateway-on-mikrotik-routers.md)
+* [Reverse Proxy configuration using NGINX](deployment-strategies/reverse-proxy-configuration-using-nginx.md)
 * [High Availability and Failover](deployment-strategies/high-availability-and-failover.md)
 * [Updating and version compatibility](deployment-strategies/updating-and-version-compatibility.md)
 * [Migration guides](deployment-strategies/upgrading.md)
