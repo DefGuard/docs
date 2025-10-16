@@ -1,10 +1,12 @@
 # Docker Compose
 
+## Introduction
+
 This document provides a complete example of how to deploy Defguard using Docker Compose, including configuration for all components - Core, Proxy, and Gateway. It covers Docker image tags, environment variables, and reverse-proxy setup examples to help you quickly launch a fully functional Defguard environment.&#x20;
 
 We recommend deploying each Defguard service on a dedicated server or virtual machine to ensure better isolation, performance, and security. In this setup, each Docker Compose file should be used for a single service, keeping the Core, Proxy, and Gateway components physically separated.
 
-{% hint style="success" %}
+{% hint style="info" %}
 Please note that we also offer docker-compose deployment with [_one-line quick deployment_](../getting-started/one-line-install.md)_,_ but this method is recommended for PoC/quick deployment as **it launches everything on one server and all services in one docker compose**.
 {% endhint %}
 
