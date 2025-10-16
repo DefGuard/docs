@@ -120,6 +120,10 @@ curl https://my-server.defguard.net/api/v1/health
 alive
 ```
 
+{% hint style="info" %}
+If you use this simple setup and run all services on one server, you can use [NGINX access restrictions](https://docs.nginx.com/nginx/admin-guide/security-controls/controlling-access-proxied-tcp/) for securing core and allowing to access the _my-server.defguard.net_ only to selected networks - blocking the direct access from the Internet.
+{% endhint %}
+
 ### Defguard Proxy (Enrollment Service) NGINX configuration
 
 The Proxy service exposes APIs for enrollment, remote onboarding, and desktop client configuration.\

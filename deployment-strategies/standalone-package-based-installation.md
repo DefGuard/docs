@@ -2,45 +2,26 @@
 
 ## Introduction
 
-This guide will walk you through the process of installing and running Defguard packages for **core, gateway, proxy** services on one server - as a **simple example**.
+This guide will walk you through the process of installing and running Defguard using system packages.
 
-{% hint style="warning" %}
-For production deployment we recommend to divide services to multiple servers, e.g.:
+We will cover system requirements, additional dependencies, installation steps, and examples of configuration files and step by step running all services. In this example we will use NGINX for a web server (proxy) exposing and securing web based services.
 
-* Defguard Proxy (used for remote enrollment, onboarding and configuring desktop clients) should be on a DMZ node that is exposed in the Internet
-* Defguard Gateway should be on your firewall/router
-* Defguard Core (the main control plain panel) - should be in internal network (intranet) and available only by intranet or VPN itself.
+{% hint style="info" %}
+Make sure you understand [Defguard's architecture](../in-depth/architecture/), especially the division into the main components: Core, Proxy, Gateway.
 {% endhint %}
 
-We will cover system requirements, additional dependencies, installation steps, and examples of configuration files and step by step running all services. In this example we will use nginx for a web server (proxy) exposing and securing web based services.
+{% hint style="warning" %}
+This is a simple guide installing all components on a single server. For production make sure your infrastructure is prepared by following our [recommendations](hardware-os-network-and-firewall-recommendations.md).
+{% endhint %}
 
-Please also remember to [secure the setup after installation](standalone-package-based-installation.md#securing-the-setup).
-
-### Supported operating systems
-
-#### Core
-
-You can find releases of the Core component on [GitHub](https://github.com/DefGuard/defguard/releases).
-
-<table><thead><tr><th width="237.14453125">OS distribution</th><th width="149.89453125">OS architecture</th><th>Release artifact naming convention</th></tr></thead><tbody><tr><td>Debian/Ubuntu</td><td>x86</td><td>defguard-X.Y.Z-x86_64-unknown-linux-gnu.deb</td></tr><tr><td>Fedora/Red Hat Linux/SUSE</td><td>x86</td><td>defguard-X.Y.Z-x86_64-unknown-linux-gnu.rpm</td></tr><tr><td>FreeBSD</td><td>x86</td><td>defguard-X.Y.Z_x86_64-unknown-freebsd.pkg</td></tr></tbody></table>
-
-#### Gateway
-
-You can find releases of the Core component on [GitHub](https://github.com/DefGuard/gateway/releases).
-
-<table><thead><tr><th width="237.4140625">OS discibution</th><th width="150.0078125">OS architecture</th><th>Release artifact naming convention</th></tr></thead><tbody><tr><td>Debian/Ubuntu</td><td>x86</td><td>defguard-gateway_X.Y.Z_x86_64-unknown-linux-gnu.deb</td></tr><tr><td>Debian/Ubuntu</td><td>ARM</td><td>defguard-gateway_X.Y.Z_aarch64-unknown-linux-gnu.deb</td></tr><tr><td>Fedora/Red Hat Linux/SUSE</td><td>x86</td><td>defguard-gateway_X.Y.Z_x86_64-unknown-linux-gnu.rpm</td></tr><tr><td>FreeBSD</td><td>x86</td><td>defguard-gateway_X.Y.Z_x86_64-unknown-freebsd.pkg</td></tr></tbody></table>
-
-#### Proxy
-
-You can find releases of the Core component on [GitHub](https://github.com/DefGuard/proxy/releases).
-
-<table><thead><tr><th width="237.4140625">OS discibution</th><th width="150.0078125">OS architecture</th><th>Release artifact naming convention</th></tr></thead><tbody><tr><td>Debian/Ubuntu</td><td>x86</td><td>defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.deb</td></tr><tr><td>Fedora/Red Hat Linux/SUSE</td><td>x86</td><td>defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.rpm</td></tr></tbody></table>
-
-### System Requirements
+## System Requirements
 
 Before proceeding with the installation, ensure your system meets the following requirements:
 
-* One of the [supported operating systems](standalone-package-based-installation.md#supported-operating-systems) installed.
+* One of the installed:
+  * Debian/Ubuntu
+  * Fedora/Red Hat Linux/SUSE
+  * FreeBSD
 * Administrative (sudo) privileges.
 * A server with a public IP address (and you know what that IP address is and to which interface it's assigned) - in this example we use: 185.33.37.51.
 * You have a domain name and know how to assign IP and manage subdomains, in our example: Defguard main url will be _my-server.defguard.net_ (and the subdomain is pointed to 185.33.37.51).
@@ -48,9 +29,7 @@ Before proceeding with the installation, ensure your system meets the following 
 * If you have a **firewall**, we assume you have **open port 443** in order to expose both Defguard and enrollment service, but also to automatically issue for these domains SSL Certificates. Port 444 (used for internal GRPC communication) **should not be exposed public.**
 * System clock is synchronized using Network Time Protocol (NTP). This is important for time-based one-time password (TOTP) codes.
 
-### Prerequisites
-
-#### PostgreSQL
+## Installing a database
 
 Defguard Core uses [PostgreSQL](https://www.postgresql.org) database, so if you do not have installed and configured yet, you can do it in this section. For this tutorial we need to create **a user with superuser privileges and database**.
 
@@ -80,39 +59,20 @@ defguard=# exit
 * we created `.pgpass` file that consist of `<hostname>:<port>:<database>:<user>:<password>`
 * we connected into the `defguard` database to verify `defguard` user can communicate with the database
 
-#### Reverse proxy
-
-To expose our services in the server we need to configure a reverse proxy server. For this we will use nginx web server with ssl certificates for enabling https protocol.
-
-To get started, we need to install:
-
-```
-apt install nginx certbot
-```
-
-Enable nginx service
-
-```
-systemctl enable nginx.service
-systemctl start nginx.service
-```
-
-Disable all default domains:
-
-```
-unlink /etc/nginx/sites-enabled/default
-```
-
 ## Installing packages
 
 ### Core
 
-Navigate to [core repository releases](https://github.com/DefGuard/defguard/releases) page, choose the release you want to install, then choose the right package from the list of release's artifacts, and download the package.
+You can find the URL to your package from the releases of the Core component on [GitHub](https://github.com/DefGuard/defguard/releases).
 
-Replace the `<version>` and `<package extension>` in the following command:
+<table><thead><tr><th width="237.14453125">OS distribution</th><th width="149.89453125">OS architecture</th><th>Release artifact naming convention</th></tr></thead><tbody><tr><td>Debian/Ubuntu</td><td>x86</td><td>defguard-X.Y.Z-x86_64-unknown-linux-gnu.deb</td></tr><tr><td>Fedora/Red Hat Linux/SUSE</td><td>x86</td><td>defguard-X.Y.Z-x86_64-unknown-linux-gnu.rpm</td></tr><tr><td>FreeBSD</td><td>x86</td><td>defguard-X.Y.Z_x86_64-unknown-freebsd.pkg</td></tr></tbody></table>
+
+Choose the release you want to install, then choose the right package from the list of release's assets, and copy the package URL.
+
+Download the package to your server using `wget:`
 
 ```
-wget https://github.com/DefGuard/defguard/releases/download/<version>/defguard-<version>-x86_64-unknown-linux-gnu.<package extension>
+wget <URL to the chosen package>
 ```
 
 Example:
@@ -144,12 +104,16 @@ defguard 0.11.0
 
 ### Gateway
 
-Navigate to the [releases](https://github.com/DefGuard/gateway/releases) page, choose the release you want to install, then choose the right package from the list of release's artifacts, and download the package.
+You can find the URL to your package from the releases of the Core component on [GitHub](https://github.com/DefGuard/gateway/releases).
 
-Replace the `<version>` and `<package extension>` in the following command:
+<table><thead><tr><th width="237.4140625">OS discibution</th><th width="150.0078125">OS architecture</th><th>Release artifact naming convention</th></tr></thead><tbody><tr><td>Debian/Ubuntu</td><td>x86</td><td>defguard-gateway_X.Y.Z_x86_64-unknown-linux-gnu.deb</td></tr><tr><td>Debian/Ubuntu</td><td>ARM</td><td>defguard-gateway_X.Y.Z_aarch64-unknown-linux-gnu.deb</td></tr><tr><td>Fedora/Red Hat Linux/SUSE</td><td>x86</td><td>defguard-gateway_X.Y.Z_x86_64-unknown-linux-gnu.rpm</td></tr><tr><td>FreeBSD</td><td>x86</td><td>defguard-gateway_X.Y.Z_x86_64-unknown-freebsd.pkg</td></tr></tbody></table>
+
+Choose the release you want to install, then choose the right package from the list of release's assets, and copy the package URL.
+
+Download the package to your server using `wget:`
 
 ```
-wget https://github.com/DefGuard/gateway/releases/download/v1.5.1/defguard-gateway_1.5.1_aarch64-unknown-linux-gnu.<package extension>
+wget <URL to the chosen package>
 ```
 
 Example:
@@ -158,7 +122,7 @@ Example:
 # wget https://github.com/DefGuard/gateway/releases/download/v0.7.0/defguard-gateway_0.7.0_x86_64-unknown-linux-gnu.deb
 ```
 
-You can also download directly from the Github realse page, but please note that you should know the path where this could be storead after downloading.&#x20;
+You can also download directly from the Github release page, but please note that you should know the path where this could be stored after downloading.&#x20;
 
 Once the package appropriate for your distribution is downloaded, install it using the appropriate system tool:
 
@@ -188,12 +152,16 @@ defguard-gateway 0.7.0
 
 ### Proxy
 
-Navigate to the [releases](https://github.com/DefGuard/proxy/releases) page, choose the release you want to install, then choose the right package from the list of release's artifacts, and download the package.
+You can find the URL to your package from the releases of the Core component on [GitHub](https://github.com/DefGuard/proxy/releases).
 
-Replace the `<version>` and `<package extension>` in the following command:
+<table><thead><tr><th width="237.4140625">OS discibution</th><th width="150.0078125">OS architecture</th><th>Release artifact naming convention</th></tr></thead><tbody><tr><td>Debian/Ubuntu</td><td>x86</td><td>defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.deb</td></tr><tr><td>Fedora/Red Hat Linux/SUSE</td><td>x86</td><td>defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.rpm</td></tr></tbody></table>
+
+Choose the release you want to install, then choose the right package from the list of release's assets, and copy the package URL.
+
+Download the package to your server using `wget:`
 
 ```
-wget https://github.com/DefGuard/proxy/releases/download/<version>>/defguard-proxy-<version>-x86_64-unknown-linux-gnu.<package extension>
+wget <URL to the chosen package>
 ```
 
 Example:
@@ -202,7 +170,7 @@ Example:
 wget https://github.com/DefGuard/proxy/releases/download/v0.5.0/defguard-proxy-0.5.0-x86_64-unknown-linux-gnu.deb
 ```
 
-You can also download directly from the Github realse page, but please note that you should know the path where this could be storead after downloading.&#x20;
+You can also download directly from the Github release page, but please note that you should know the path where this could be stored after downloading.&#x20;
 
 Once the package appropriate for your distribution is downloaded, install it using the appropriate system tool:
 
@@ -232,21 +200,7 @@ defguard-proxy 0.5.0
 
 ## Running Defguard
 
-### Generating SSL Certificates with Let'sEncrypt
-
-Before we run Defguard and configure the reverse proxy, first let's prepare SSL certificates that will be used by the NGINX service. We will generate a certificate for two domains we use in this example: _my-service.defguard.net_ and _enroll.defguard.net_:
-
-```
-certbot certonly --non-interactive --agree-tos --standalone --email admin@teonite.com -d my-server.defguard.net -d enroll.defgurd.net
-```
-
-Certbot will generate certificate in fullchain.pem and privkey.pem in path:
-
-`/etc/letsencrypt/live/my-server.defguard.net`
-
-`/etc/letsencrypt/live/enrolldefguard.net`
-
-### Core - the control plain
+### Core
 
 To run core service we need to configure `/etc/defguard/core.conf`.
 
@@ -339,87 +293,7 @@ Jul 29 13:57:19 defguard-testing defguard[2776504]: 2024-07-29T11:57:19.747717Z 
 Jul 29 13:57:19 defguard-testing defguard[2776504]: 2024-07-29T11:57:19.780563Z  INFO defguard: Started web services
 ```
 
-#### Configuring NGINX reverse proxy with SSL
-
-Now, we are able to create our first nginx config for Defguard core service with _my-server.defguard.net_.
-
-Create config file `/etc/nginx/site-available/my-server.defguard.net.conf`, example config file for _my-server.defguard.ent_ should look like this:
-
-```
-upstream defguard {
-	server 127.0.0.1:8000;
-}
-
-upstream defguard-grpc {
-	server 127.0.0.1:50055;
-}
-
-server {
-	listen 443 ssl http2;
-	server_name my-server.defguard.net;
-	access_log /var/log/nginx/defguard.log;
-	error_log /var/log/nginx/defguard.e.log;
-
-	ssl_certificate /etc/letsencrypt/live/my-server.defguard.net/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/my-server.defguard.net/privkey.pem;
-	ssl_trusted_certificate /etc/letsencrypt/live/my-server.defguard.net/fullchain.pem;
-
-	client_max_body_size 128M;
-
-	location / {
-		proxy_pass		http://defguard;
-		proxy_set_header	Host		$host;
-		proxy_set_header	X-Real-IP	$remote_addr;
-		proxy_set_header	X-Forwarded-For	$proxy_add_x_forwarded_for;
-		proxy_http_version	1.1;
-		proxy_set_header	Upgrade		$http_upgrade;
-		proxy_set_header	Connection	"upgrade";
-	}
-}
-
-server {
-	listen 444 ssl http2;
-	server_name my-server.defguard.net;
-	access_log /var/log/nginx/defguard-grpc.log;
-	error_log /var/log/nginx/defguard-grpc.e.log;
-
-	ssl_certificate /etc/letsencrypt/live/my-server.defguard.net/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/my-server.defguard.net/privkey.pem;
-
-	client_max_body_size 200m;
-
-	location / {
-		grpc_pass grpc://defguard-grpc;
-	}
-}
-```
-
-Link it to `/etc/nginx/site-available/`
-
-```
-ln -s /etc/nginx/sites-available/my-server.defguard.net.conf /etc/nginx/sites-enabled/my-server.defguard.net.conf
-```
-
-Restart nginx.service to activate changes:
-
-```
-systemctl reload nginx.service
-```
-
-Test your domain on another terminal tab
-
-```
-$ curl https://my-server.defguard.net/api/v1/health
-alive
-```
-
-Success! We can move on to the next service.
-
-{% hint style="danger" %}
-If you use this simple setup and run all services on one server, you can use [NGINX access restrictions](https://docs.nginx.com/nginx/admin-guide/security-controls/controlling-access-proxied-tcp/) for securing core and allowing to access the _my-server.defguard.net_ only to selected networks - blocking the direct access from the Internet.
-{% endhint %}
-
-### Gateway - the WireGuard VPN service
+### Gateway
 
 To run gateway, we should do two things:
 
@@ -428,7 +302,7 @@ To run gateway, we should do two things:
 
 #### Setup location for gateway
 
-Follow [this guide](gateway.md) for setting up the location in Defguard Core web interface. You should leave the guide with a token for your new Gateway instance.
+Follow [this guide](gateway.md) for setting up the location in Defguard Core web interface. You should leave the guide with a token for your new Gateway instance and use it in the following configuration.
 
 #### Create config file
 
@@ -527,7 +401,7 @@ On the other side, core service should print those informations:
 2024-07-27T16:37:56.388810Z  INFO defguard::grpc::gateway: Starting update stream to gateway: user, network [ID 1] Szczecin
 ```
 
-### Proxy - enrollment, onboardin and desktop configuration service
+### Proxy
 
 To run proxy service (for [remote onboarding & enrollment](../using-defguard-for-end-users/enrollment/)), we can do it by:
 
@@ -552,90 +426,15 @@ Check the logs afterwards. Should look like this:
 2024-07-27T16:53:58.585262Z INFO defguard_proxy::http: API web server is listening on 0.0.0.0:8080
 ```
 
-#### Configuring NGiNX reverse proxy for enrollment
+### Reverse proxy
 
-{% hint style="info" %}
-Please note that [we already have issued the enrollemnt domain SSL certificate](standalone-package-based-installation.md#generating-ssl-certificates).
-{% endhint %}
+The reverse proxy acts as an intermediary between users and Defguard services, handling HTTPS requests, routing internal gRPC communication, and ensuring encrypted connections between all components.
 
-Create config file `/etc/nginx/sites-available/enroll.defguard.net.conf`, example config file for _enroll.defguard.net_ should look like this:
+Follow our additional guide on [configuring reverse proxy for for Core and Proxy service](reverse-proxy-configuration-using-nginx.md). After having the reverse proxy configured and running you can continue with this guide.
 
-```
-upstream defguard-proxy {
-	server 127.0.0.1:8080;
-}
+### Enabling Proxy service in the Core
 
-upstream proxy-grpc {
-	server 127.0.0.1:50051;
-}
-
-server {
-	listen 443 ssl http2;
-	server_name enroll.defguard.net;
-	access_log /var/log/nginx/enroll.log;
-	error_log /var/log/nginx/enroll.e.log;
-
-	ssl_certificate /etc/letsencrypt/live/my-server.defguard.net/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/my-server.defguard.net/privkey.pem;
-
-	client_max_body_size 200m;
-
-	location / {
-		proxy_pass         http://defguard-proxy;
-		proxy_set_header   Host	$host;
-		proxy_set_header   X-Real-IP	$remote_addr;
-		proxy_set_header   X-Forwarded-For	$proxy_add_x_forwarded_for;
-		proxy_set_header   Upgrade $http_upgrade;
-    		proxy_set_header   Connection "upgrade";
-		proxy_set_header   X-Forwarded-Proto $scheme;
-    		proxy_read_timeout 86400s;
-    		proxy_send_timeout 86400s;
-	}
-}
-
-server {
-	listen 444 ssl http2;
-	server_name enroll.defguard.net;
-	access_log /var/log/nginx/enroll.log;
-	error_log /var/log/nginx/enroll.e.log;
-
-	ssl_certificate /etc/letsencrypt/live/my-server.defguard.net/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/my-server.defguard.net/privkey.pem;
-
-	client_max_body_size 200m;
-
-	location / {
-		grpc_pass grpc://proxy-grpc;
-		grpc_socket_keepalive on;
-		grpc_read_timeout 3000s;
-		grpc_send_timeout 3000s;
-		grpc_next_upstream_timeout 0;
-
-		proxy_request_buffering off;
-		proxy_buffering off;
-		proxy_connect_timeout 3000s;
-		proxy_send_timeout 3000s;
-		proxy_read_timeout 3000s;
-		proxy_socket_keepalive on;
-
-		keepalive_timeout 90s;
-		send_timeout 90s;
-
-		client_body_timeout 3000s;
-	}
-}
-```
-
-Enable configuration and restart nginx:
-
-```
-ln -s /etc/nginx/sites-available/enroll.defguard.conf /etc/nginx/sites-enabled/enroll.defguard.conf
-systemctl restart nginx.service
-```
-
-#### Enabling Proxy service in the Core
-
-Now, we can update our **core configuration** in `/etc/defguard/core.conf` by uncommenting `DEFGUARD_PROXY_URL`
+Now, we can update our Core service configuration in `/etc/defguard/core.conf` to use the Proxy service by uncommenting `DEFGUARD_PROXY_URL`
 
 ```
 # Proxy connection configuration
@@ -728,7 +527,7 @@ Also this setup provides only communication encryption between Defguard componen
 
 ## Upgrading packages
 
-### FreeBSD/OPNsense
+#### FreeBSD/OPNsense
 
 1.  Uninstall the current version.
 
