@@ -73,6 +73,6 @@ Here is a video showcasing this process:
 
 {% embed url="https://www.youtube.com/watch?v=b-XC76k4KVU" %}
 
-And here you can see the whole flow done with multiple steps:
+And here you can see the whole flow done with multiple steps including the user, desktop (and mobile) the Proxy and Defguard Core and gateway in the final step:
 
 <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
