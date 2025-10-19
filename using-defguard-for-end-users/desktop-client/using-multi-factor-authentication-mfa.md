@@ -72,3 +72,7 @@ This QR code to be scanned on the mobile device for additional MFA steps:&#x20;
 Here is a video showcasing this process:
 
 {% embed url="https://www.youtube.com/watch?v=b-XC76k4KVU" %}
+
+And here you can see the whole flow done with multiple steps:
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
