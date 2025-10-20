@@ -33,10 +33,10 @@ In this example we use:
 Generate certificates with Certbot:
 
 ```bash
-certbot certonly \ 
-    --non-interactive \ 
-    --agree-tos \ 
-    --standalone \ 
+certbot certonly \
+    --non-interactive \
+    --agree-tos \
+    --standalone \
     --email admin@yourdomain.com \
     -d my-server.defguard.net \
     -d enroll.defguard.net
@@ -152,6 +152,7 @@ server {
     client_max_body_size 200m;
 
     location / {
+        proxy_http_version 1.1;
         proxy_pass         http://defguard-proxy;
         proxy_set_header   Host $host;
         proxy_set_header   X-Real-IP $remote_addr;
