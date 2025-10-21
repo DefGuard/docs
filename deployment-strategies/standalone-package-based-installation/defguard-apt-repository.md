@@ -15,8 +15,7 @@ sudo curl -fsSL https://apt.defguard.net/defguard.asc -o /etc/apt/keyrings/defgu
 sudo chmod a+r /etc/apt/keyrings/defguard.asc
 
 #Add APT repository
-echo \ 
-    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/defguard.asc] https://apt.defguard.net/ trixie release " | \
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/defguard.asc] https://apt.defguard.net/ trixie release " | \
    sudo tee /etc/apt/sources.list.d/defguard.list > /dev/null 
 
 sudo apt update
@@ -31,9 +30,9 @@ After new release, simply use `sudo apt update` to update repository.
 Defguard has two separate components on one APT repository, **release** and **pre-release.** If you want to install packages from pre-release, simply change `release` to `pre-release` in the installation steps described above, or run the following line.
 
 ```sh
-echo \ 
-    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/defguard.asc] https://apt.defguard.net/ trixie pre-release " | \
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/defguard.asc] https://apt.defguard.net/ trixie pre-release " | \
    sudo tee /etc/apt/sources.list.d/defguard.list > /dev/null 
+   
 sudo apt update
 ```
 
