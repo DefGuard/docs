@@ -1,6 +1,9 @@
 # Defguard APT repository
 
+### Distribution
 
+Defguard APT repository provides packages for **Debian 12**, **Debian 13**, and **Ubuntu 22.04/24.04 LTS.**\
+Packages are available on the default `trixie` repository distribution.
 
 ### Adding Defguard APT repository
 
