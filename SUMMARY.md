@@ -75,7 +75,8 @@
 
 * [Overview](deployment-strategies/setting-up-your-instance.md)
 * [Hardware, OS, network and firewall recommendations](deployment-strategies/hardware-os-network-and-firewall-recommendations.md)
-* [Standalone package based installation](deployment-strategies/standalone-package-based-installation.md)
+* [Standalone package based installation](deployment-strategies/standalone-package-based-installation/README.md)
+  * [Defguard APT repository](deployment-strategies/standalone-package-based-installation/defguard-apt-repository.md)
 * [Docker Compose](deployment-strategies/docker-compose.md)
 * [Kubernetes](deployment-strategies/kubernetes.md)
 * [Terraform](deployment-strategies/terraform.md)
