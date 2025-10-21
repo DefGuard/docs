@@ -16,8 +16,6 @@ Defguard helps organizations:
 
 For a detailed list of features go to the [Features overview](broken-reference) section.
 
-{% embed url="https://www.youtube.com/watch?v=4PF7edMGBwk" %}
-
 ## Why choose Defguard?
 
 Defguard was built with security, transparency, and control at its core.
