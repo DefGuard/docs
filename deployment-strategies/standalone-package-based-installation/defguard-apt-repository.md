@@ -12,7 +12,7 @@ sudo apt install -y ca-certificates curl
 #Add official Defguard public GPG key
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://apt.defguard.net/defguard.asc -o /etc/apt/keyrings/defguard.asc
-sudo chmod a+r /etc/apt/keyrings/defguard
+sudo chmod a+r /etc/apt/keyrings/defguard.asc
 
 #Add APT repository
 echo \ 
