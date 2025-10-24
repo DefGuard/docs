@@ -74,6 +74,7 @@
 ## Deployment strategies
 
 * [Overview](deployment-strategies/setting-up-your-instance.md)
+* [Deploying to Production](deployment-strategies/deploying-to-production.md)
 * [Hardware, OS, network and firewall recommendations](deployment-strategies/hardware-os-network-and-firewall-recommendations.md)
 * [Standalone package based installation](deployment-strategies/standalone-package-based-installation/README.md)
   * [Defguard APT repository](deployment-strategies/standalone-package-based-installation/defguard-apt-repository.md)
@@ -129,13 +130,12 @@
   * [Client Windows installer exit codes](support-1/troubleshooting/windows-installer-exit-codes.md)
   * [Client "All traffic" connection issues](support-1/troubleshooting/client-all-traffic-connection-issues.md)
   * [WebAuthn security keys](support-1/troubleshooting/webauthn-security-keys.md)
+* [Server migration and licence transfer](support-1/server-migration-and-licence-transfer.md)
 
 ## Tutorials
 
 * [Step by step setting up a VPN server](tutorials/step-by-step-setting-up-a-vpn-server/README.md)
   * [Adding additional VPN locations](tutorials/step-by-step-setting-up-a-vpn-server/adding-additional-vpn-locations.md)
-* [Server migration and licence transfer](tutorials/server-migration-and-licence-transfer.md)
-* [Deploying Defguard in production](tutorials/deploying-defguard-in-production.md)
 
 ## In depth
 
