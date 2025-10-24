@@ -94,6 +94,7 @@
 * [Securing gRPC communication](deployment-strategies/grpc-ssl-communication.md)
 * [Using RSA instead of HMAC for OpenID key](deployment-strategies/openid-rsa-key.md)
 * [Health check](deployment-strategies/health-check.md)
+* [Production deployment verification guide](deployment-strategies/production-deployment-verification-guide.md)
 
 ## Enterprise
 
@@ -134,6 +135,7 @@
 * [Step by step setting up a VPN server](tutorials/step-by-step-setting-up-a-vpn-server/README.md)
   * [Adding additional VPN locations](tutorials/step-by-step-setting-up-a-vpn-server/adding-additional-vpn-locations.md)
 * [Server migration and licence transfer](tutorials/server-migration-and-licence-transfer.md)
+* [Deploying Defguard in production](tutorials/deploying-defguard-in-production.md)
 
 ## In depth
 
