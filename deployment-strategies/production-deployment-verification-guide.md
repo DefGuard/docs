@@ -21,7 +21,7 @@ Before proceeding, ensure that you deployed your Defguard environment according 
 * 1 server running Defguard Gateway
   * Located in a DMZ network segment
   * Publicly accessible from the Internet under a domain such as vpn.example.com
-* A workstation with the Defguard Desktop Client installed and configured for VPN connection testing.
+* A workstation with the Defguard Desktop Client installed and configured to test VPN connectivity.
 
 ## Verify firewall policies
 
