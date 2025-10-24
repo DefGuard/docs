@@ -33,6 +33,6 @@ Deploy your instance using the chosen strategy. Make sure to follow the right [d
 {% step %}
 ### Test if everything works as expected
 
-
+Follow our [guide](../deployment-strategies/production-deployment-verification-guide.md) to test if your deployment in secure and works as expected.
 {% endstep %}
 {% endstepper %}
