@@ -35,4 +35,24 @@ Deploy your instance using the chosen strategy. Make sure to follow the right [d
 
 Follow our [guide](../deployment-strategies/production-deployment-verification-guide.md) to test if your deployment in secure and works as expected.
 {% endstep %}
+
+{% step %}
+### Configure features
+
+Follow detailed descriptions of [Defguard's features](broken-reference). As you follow along, you can adjust the configuration directly within your instance.
+
+For a detailed list of all configurable things through environmental variables, options or configuration files follow [this reference](../deployment-strategies/configuration.md).
+{% endstep %}
+
+{% step %}
+### Your secure infrastructure is ready for use
+
+Optional but recommended additional steps:
+
+* [Securing internal gRPC communication](../deployment-strategies/grpc-ssl-communication.md)
+* [Configuring backups](../deployment-strategies/setting-up-your-instance.md#backup)
+* [Setting up for high availability and failover](../deployment-strategies/high-availability-and-failover.md)
+
+
+{% endstep %}
 {% endstepper %}
