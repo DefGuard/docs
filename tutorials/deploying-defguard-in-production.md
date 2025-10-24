@@ -27,7 +27,7 @@ Make sure your infrastructure meets all [system and network requirements](../dep
 {% step %}
 ### Deploy using the chosen strategy
 
-Deploy your instance using the chosen strategy. Make sure to follow the right [deployment sequence](../deployment-strategies/setting-up-your-instance.md#initial-deployment-sequence).
+Deploy your instance using the chosen [strategy](../deployment-strategies/setting-up-your-instance.md#choose-your-deployment-strategy). Make sure to follow the right [deployment sequence](../deployment-strategies/setting-up-your-instance.md#initial-deployment-sequence).
 {% endstep %}
 
 {% step %}
