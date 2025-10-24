@@ -17,7 +17,7 @@ Before proceeding, ensure that you deployed your Defguard environment according 
   * Reachable internally under a domain such as defguard.example.com
 * 1 server running Defguard Proxy
   * Located in a DMZ network segment
-  * Publicly accessible from the Internet under a domain such as enrolment.example.com
+  * Publicly accessible from the Internet under a domain such as proxy.example.com
 * 1 server running Defguard Gateway
   * Located in a DMZ network segment
   * Publicly accessible from the Internet under a domain such as vpn.example.com
@@ -30,7 +30,7 @@ Confirm that your firewall rules align with Defguard’s secure deployment model
 | Component | Allowed inbound                                                      | Blocked inbound           | Notes                                                  |
 | --------- | -------------------------------------------------------------------- | ------------------------- | ------------------------------------------------------ |
 | Core      | TCP 443 (from internal/VPN only)  gRPC port (from Proxy and Gateway) | All public traffic        | Core should never be directly exposed to the Internet. |
-| Proxy     | TCP 443 (from public Internet)  gRPC port (from Core)                | All other inbound traffic | Used for enrolment and client configuration.           |
+| Proxy     | TCP 443 (from public Internet)  gRPC port (from Core)                | All other inbound traffic | Used for enrollment and client configuration.          |
 | Gateway   | UDP VPN port (e.g. 50555)  gRPC port (from Core)                     | All other inbound traffic | Only VPN and Core communication should be allowed.     |
 
 ## Verify DNS resolution
@@ -41,17 +41,17 @@ Run:
 
 ```
 dig +short vpn.example.com
-dig +short enrolment.example.com
+dig +short proxy.example.com
 dig +short defguard.example.com
 ```
 
 Expected results:
 
-| Domain                | Expected IP Type    | Description                                            |
-| --------------------- | ------------------- | ------------------------------------------------------ |
-| vpn.example.com       | Public IP           | Gateway server reachable from the Internet             |
-| enrolment.example.com | Public IP           | Proxy server for enrolment and configuration           |
-| defguard.example.com  | Private/Internal IP | Core server, accessible only from internal/VPN network |
+| Domain               | Expected IP Type    | Description                                            |
+| -------------------- | ------------------- | ------------------------------------------------------ |
+| vpn.example.com      | Public IP           | Gateway server reachable from the Internet             |
+| proxy.example.com    | Public IP           | Proxy server for enrollment and configuration          |
+| defguard.example.com | Private/Internal IP | Core server, accessible only from internal/VPN network |
 
 ## Test the environment
 
@@ -92,7 +92,7 @@ Interpretation:
 Check the open ports on your Defguard Proxy server:
 
 ```
-sudo nmap -Pn -sS enrolment.example.com
+sudo nmap -Pn -sS proxy.example.com
 ```
 
 Expected output:
