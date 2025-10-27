@@ -1,6 +1,6 @@
 # Features overview
 
-Defguard combines secure remote access, modern identity management, and powerful integrations — all in one open-source platform.\
+Defguard combines secure remote access, modern identity management, and powerful integrations - all in one open-source platform.\
 Below you’ll find an overview of its main capabilities, designed for both administrators and end users.
 
 ### 🌐 Remote Access with WireGuard® VPN + 2FA/MFA
