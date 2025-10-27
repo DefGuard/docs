@@ -20,14 +20,14 @@ Secure, high-performance VPN built on [WireGuard®](https://www.wireguard.com/) 
 
 Defguard provides modern, easy-to-use clients for every platform - giving users secure, MFA-protected VPN access wherever they work.
 
-* Desktop Client - available for [Windows, macOS, and Linux](https://github.com/DefGuard/client/releases/tag/v1.5.2)
+* Desktop Client - available for [Windows, macOS, and Linux](https://defguard.net/download/)
   * Enables direct VPN connection using MFA/2FA
   * One-click enrollment via secure deep links received from the administrator
-* Mobile Apps — available for [Android](https://play.google.com/store/apps/details?id=net.defguard.mobile) and [iOS](https://apps.apple.com/us/app/defguard-vpn-client/id6748068630)
+* Mobile Apps - available for [Android](https://play.google.com/store/apps/details?id=net.defguard.mobile) and [iOS](https://apps.apple.com/us/app/defguard-vpn-client/id6748068630)
   * Connect securely to the Defguard VPN using multi-factor authentication
   * Includes an additional biometric factor (Face ID / Touch ID) for MFA confirmation
   * Allows fast approval of authentication requests directly from the phone
-* CLI Client — lightweight and script-friendly tool for Linux and macOS
+* [CLI Client](../using-defguard-for-end-users/cli-client.md) - lightweight and script-friendly tool for Linux
   * Provides full VPN control via terminal
   * Ideal for automation, servers, or advanced users preferring CLI workflows
 
@@ -46,7 +46,7 @@ Manage your users and their access in one place.
 
 * [OpenID Connect](https://openid.net/developers/how-connect-works/) based SSO
 * External [OpenID providers for login/account creation (Google/Microsoft/Custom)](https://docs.defguard.net/features/external-openid-providers)
-* LDAP synchronization (tested on [OpenLDAP](https://www.openldap.org/))
+* [LDAP and Active Directory integration](../features/ldap-and-active-directory-integration/)
 * Simple, modern UI for managing users
 * User self-service - manage data, revoke app access, reset MFA, control WireGuard devices
 
@@ -54,15 +54,15 @@ Manage your users and their access in one place.
 
 Automated, secure, and user-friendly onboarding.
 
-* Secure remote (over the Internet) [user enrollment](https://defguard.gitbook.io/defguard/help/remote-user-enrollment)
-* [User onboarding after enrollment](https://defguard.gitbook.io/defguard/help/remote-user-enrollment/user-onboarding-after-enrollment)
+* Secure remote (over the Internet) [user enrollment](../features/remote-user-enrollment/)
+* [User onboarding after enrollment](../features/remote-user-enrollment/user-onboarding-after-enrollment.md)
 * Self-service password reset
 
-### 🧱 [Access Control List](https://docs.defguard.net/features/access-control-list)
+### 🧱 Access Control List
 
 Granular, instant control over VPN access.
 
-* Access rules per VPN location
+* [Access rules per VPN location](../features/access-control-list/)
 * Allow or deny access based on users or groups
 * Changes are applied in real time
 
@@ -70,14 +70,14 @@ Granular, instant control over VPN access.
 
 Defguard acts as your internal OIDC provider - giving you full control over identity and SSO.
 
-* Defguard is an internal OIDC provider for [Single Sign-On](https://docs.defguard.net/features/openid-connect)
+* Defguard is an [internal OIDC provider](../features/openid-connect/) for Single Sign-On
 * Supports [external OpenID](https://docs.defguard.net/features/external-openid-providers) providers for authentication
 
-### 🧾 [Activity & Audit Logs](https://docs.defguard.net/features/activity-log)
+### 🧾 Activity & Audit Logs
 
 Monitor and understand what’s happening across your system with detailed, searchable logs.
 
-* User event logging with complete metadata
+* [User event logging](../features/activity-log/#viewing-activity-log-events) with complete metadata
 * Advanced filtering by user, module, event type, or time range
 * Role-based visibility - users only see their own events
 * Logs grouped by module (Defguard, enrollment, VPN)
@@ -93,7 +93,9 @@ Stay in the loop with real-time notifications.
 
 ### 🛡️ YubiKey Provisioning
 
-* [YubiKey hardware keys](https://www.yubico.com/) provisioning for users with one click
+Easily create and populate the SSH and GPG/OpenPGP keys on a YubiKey hardware key.
+
+* [YubiKey hardware keys provisioning](../features/yubikey-provisioning.md) for users with one click
 
 ### 🔗 Integrations
 
