@@ -27,11 +27,11 @@ Before proceeding, ensure that you deployed your Defguard environment according 
 
 Confirm that your firewall rules align with Defguard’s secure deployment model.
 
-| Component | Allowed inbound                                                      | Blocked inbound           | Notes                                                  |
-| --------- | -------------------------------------------------------------------- | ------------------------- | ------------------------------------------------------ |
-| Core      | TCP 443 (from internal/VPN only)  gRPC port (from Proxy and Gateway) | All public traffic        | Core should never be directly exposed to the Internet. |
-| Proxy     | TCP 443 (from public Internet)  gRPC port (from Core)                | All other inbound traffic | Used for enrollment and client configuration.          |
-| Gateway   | UDP VPN port (e.g. 50555)  gRPC port (from Core)                     | All other inbound traffic | Only VPN and Core communication should be allowed.     |
+| Component | Allowed inbound                                                                              | Blocked inbound           | Notes                                                  |
+| --------- | -------------------------------------------------------------------------------------------- | ------------------------- | ------------------------------------------------------ |
+| Core      | <ul><li>TCP 443 (from internal/VPN only) </li><li> gRPC server port (from Gateway)</li></ul> | All public traffic        | Core should never be directly exposed to the Internet. |
+| Proxy     | <ul><li>TCP 443 (from public Internet)  </li><li>gRPC server port (from Core)</li></ul>      | All other inbound traffic | Used for enrollment and client configuration.          |
+| Gateway   | <ul><li>UDP VPN port (from public Internet)</li></ul>                                        | All other inbound traffic | Only VPN and Core communication should be allowed.     |
 
 ## Verify DNS resolution
 
