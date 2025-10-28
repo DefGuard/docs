@@ -50,19 +50,19 @@ Make sure to check the [general guide to directory synchronization](./#directory
 2.  Navigate to API permissions\
 
 
-    <figure><img src="../../.gitbook/assets/image (154).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (155).png" alt=""><figcaption></figcaption></figure>
 
 
 3.  Click "Add a permission", then select "Microsoft Graph"\
 
 
-    <figure><img src="../../.gitbook/assets/image (155).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (156).png" alt=""><figcaption></figcaption></figure>
 
 
 4.  Select "Application permissions", as Defguard will perform the synchronization in the background.\
 
 
-    <figure><img src="../../.gitbook/assets/image (156).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (157).png" alt=""><figcaption></figcaption></figure>
 
 
 5. Assign the following permissions:
@@ -72,7 +72,7 @@ Make sure to check the [general guide to directory synchronization](./#directory
 6.  Now grant admin consent for the permissions using the "Grant admin consent for" button\
 
 
-    <figure><img src="../../.gitbook/assets/image (157).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (158).png" alt=""><figcaption></figcaption></figure>
 
 
 7. You should be good to go now. Navigate to the directory sync settings in Defguard and try to test your setup using the test connection button.

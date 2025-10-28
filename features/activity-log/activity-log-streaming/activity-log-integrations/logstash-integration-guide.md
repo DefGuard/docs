@@ -44,11 +44,11 @@ In Defguard UI with an administrator account, go into settings page and choose `
 
 Click `Add new` and choose `Vector` destination.
 
-<figure><img src="../../../../.gitbook/assets/image (93).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (94).png" alt=""><figcaption></figcaption></figure>
 
 Fill out `Name` and `Url` fields and click **Submit**.
 
-<figure><img src="../../../../.gitbook/assets/image (94).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (95).png" alt=""><figcaption></figcaption></figure>
 
 That's it! Defguard should now be sending activity events to Logstash, and you should see them printed to `stdout` in the running Logstash container.
 
@@ -78,7 +78,7 @@ output {
 
 Modify Logstash destination in settings and fill`username` and `password` in settings.
 
-<figure><img src="../../../../.gitbook/assets/image (95).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (96).png" alt=""><figcaption></figcaption></figure>
 
 ### Logstash integration configuration
 

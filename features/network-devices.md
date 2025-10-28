@@ -15,7 +15,7 @@ While in the network device menu, click the "Add new" button. You will be presen
 
 After selecting the first option you will be presented with the initial setup screen.
 
-<figure><img src="../.gitbook/assets/image (139).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (140).png" alt=""><figcaption></figcaption></figure>
 
 You can specify here the following settings:
 
@@ -30,7 +30,7 @@ After you've finished setting those values, proceed to the next step. You will b
 
 The screen here is similar to that of the CLI client configuration, except for the additional public key field.
 
-<figure><img src="../.gitbook/assets/image (142).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (143).png" alt=""><figcaption></figcaption></figure>
 
 The fields are as follows:
 
@@ -47,7 +47,7 @@ On the next screen you will be presented with the WireGuard configuration file. 
 
 After you've configured your network device, you can display its enrollment token again,  by interacting with the following menu:
 
-<figure><img src="../.gitbook/assets/image (144).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (145).png" alt=""><figcaption></figcaption></figure>
 
 * Selecting "Generate auth token" will re-generate the enrollment token and will allow you to enroll your CLI client again. Use it if you want to manually pull the newest network configuration for your client.
 * Selecting the "View config" option will display the WireGuard configuration file (without the private key, as Defguard doesn't store it).

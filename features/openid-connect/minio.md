@@ -32,7 +32,7 @@ Navigate to the OpenID page in Defguard and add MinIO to the client's list. Redi
 http://localhost:9001/oauth_callback
 ```
 
-<figure><img src="../../.gitbook/assets/image (69).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (70).png" alt=""><figcaption></figcaption></figure>
 
 ## MinIO Configuration
 

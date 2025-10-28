@@ -88,7 +88,7 @@ This path describes how the admin can provision a key for a user, but the same p
 
 You can see available clients in Defguard web-application under "provisioners" tab.
 
-<figure><img src="../.gitbook/assets/image (78).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (79).png" alt=""><figcaption></figcaption></figure>
 
 To provision the key:
 
@@ -96,10 +96,10 @@ To provision the key:
 2. Insert a YubiKey to machine that is running the provisioner client.
 3.  Select "Add YubiKey" from the actions menu for a User in the list.
 
-    <figure><img src="../.gitbook/assets/image (121).png" alt="" width="301"><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (122).png" alt="" width="301"><figcaption></figcaption></figure>
 4.  Select your provisioner and click the "Provision YubiKey" button.
 
-    <figure><img src="../.gitbook/assets/image (123).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (124).png" alt=""><figcaption></figcaption></figure>
 
 The service will take a short moment to prepare and provision your keys. Once the process is done, the modal will close, and you will see a notification in the corner of the screen.
 

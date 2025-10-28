@@ -8,7 +8,7 @@ Activity log is available as a dedicated page in Defguard core Web UI that's use
 
 To access it, click the `Activity log` button in the navbar.
 
-<figure><img src="../../.gitbook/assets/image (82).png" alt=""><figcaption><p>Activity log page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (83).png" alt=""><figcaption><p>Activity log page</p></figcaption></figure>
 
 ### Overview
 
@@ -36,7 +36,7 @@ Currently, there are four modules:
 
 ### Filtering
 
-<figure><img src="../../.gitbook/assets/image (83).png" alt=""><figcaption><p>Event filter modal</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (84).png" alt=""><figcaption><p>Event filter modal</p></figcaption></figure>
 
 By clicking the `Filter` button above the list you can narrow down the displayed events based on following criteria:
 
@@ -48,7 +48,7 @@ For each of those you can select multiple options.
 
 Filtering by date can be done by clicking the `Time range` button above the list.
 
-<figure><img src="../../.gitbook/assets/image (84).png" alt=""><figcaption><p>Time range filter modal</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (85).png" alt=""><figcaption><p>Time range filter modal</p></figcaption></figure>
 
 ### Sorting
 

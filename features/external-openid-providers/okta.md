@@ -38,7 +38,7 @@ This documentation concerns only the Okta directory synchronization. For more ge
 
 The menu can be found in Defguard settings by navigating to the "OpenID" tab.
 
-<figure><img src="../../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (38).png" alt=""><figcaption></figcaption></figure>
 
 The following configuration options are currently available in the directory synchronization menu specifically for the Okta provider:
 
@@ -55,24 +55,24 @@ This feature is currently technically limited to 10000 members or groups. High u
 
 1.  Go to the Okta admin dashboard and navigate to the Applications menu\\
 
-    <figure><img src="../../.gitbook/assets/image (39).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (40).png" alt=""><figcaption></figcaption></figure>
 2. Make a completely new app integration by clicking "Create App Integration". This app will be solely responsible for communicating with Okta API.
 3.  Select "API services"\\
 
-    <figure><img src="../../.gitbook/assets/image (41).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (42).png" alt=""><figcaption></figcaption></figure>
 4. Name your app integration, e.g. "Defguard directory sync"
 5.  Go to your newly created app integration settings and change the client authentication to "Public key / Private key"\\
 
-    <figure><img src="../../.gitbook/assets/image (33).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
 6. Next, click "Add key" and generate a new key pair.
 7. Copy the generated private key in the JSON format to your clipboard
 8. Paste the copied key in the Defguard Okta directory sync settings in the "Directory Sync Private Key" field.
 9. Go back to Okta again. Save your new Okta configuration along with the newly generated keys. Now, copy the app integration's client ID. Paste it in the "Directory Sync Client ID" field in Defguard Okta directory sync settings. Save your Defguard settings.
 10. Return to Okta and under "General settings" turn off the "Require Demonstrating Proof of Possession (DPoP) header in token requests" option. Save your changes.\\
 
-    <figure><img src="../../.gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
 11. Now, navigate to the Okta API scopes tab.\\
 
-    <figure><img src="../../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
 12. Grant the `okta.groups.read` and `okta.users.read` scopes.
 13. Everything should be set now. Try testing your provider connection in Defguard directory synchronization settings.

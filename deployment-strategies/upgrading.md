@@ -77,7 +77,7 @@ We've introduced some changes to the LDAP integration. We recommend reading [the
 * The LDAP integration has become an enterprise feature. You will need to purchase the enterprise license if you exceed the free limits. See [license.md](../enterprise/license.md "mention") for more information regarding the license.
 *   If you used the LDAP integration previously, it will be off by default after upgrading. You will have to manually enable it in the settings in the LDAP tab:\\
 
-    <figure><img src="../.gitbook/assets/image (177).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (178).png" alt=""><figcaption></figcaption></figure>
 
 ## Any previous 1.3.0 alpha → 1.3.0 alpha 4
 
@@ -89,7 +89,7 @@ A new synchronization may cause some of your users to be re-added, which in turn
 
 Before an upgrade, turn off the two-way synchronization. After upgrading, you will have access to a new option, the RDN user attribute:
 
-<figure><img src="../.gitbook/assets/image (189).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (190).png" alt=""><figcaption></figcaption></figure>
 
 Set it according to your LDAP server setup. This should be the DN's leftmost component attribute, e.g. in the case of `cn=user1,cn=users,dc=ad,dc=example,dc=com` this would be "cn". This attribute is needed to properly identify users in your LDAP server. The username attribute will be mapped to Defguard usernames. Read [settings-table.md](../features/ldap-and-active-directory-integration/settings-table.md "mention") for a description of those settings options. After you configured this value, you can re-enable the two-way synchronization.
 

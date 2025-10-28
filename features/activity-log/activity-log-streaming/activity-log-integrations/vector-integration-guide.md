@@ -62,13 +62,13 @@ In Defguard UI with an administrator account, go into settings page and choose `
 
 Click `Add new` and choose `Vector` destination.
 
-<figure><img src="../../../../.gitbook/assets/image (89).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (90).png" alt=""><figcaption></figcaption></figure>
 
 Fill out `Name` and `Url` of the form and click `Submit`.
 
 If your `defguard` instance is running in the same Docker Compose network as Vector, use `http://vector:8001` as the URL instead of `http://127.0.0.1`, since services in the same Compose network communicate by container name.
 
-<figure><img src="../../../../.gitbook/assets/image (90).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (91).png" alt=""><figcaption></figcaption></figure>
 
 That's it! Defguard should now be sending activity events to Vector, and you should see them printed to `stdout` in the running Vector container.
 
@@ -93,7 +93,7 @@ sources:
 
 Next, add the configured `username` and `password` in Defguard settings to the Vector destination.
 
-<figure><img src="../../../../.gitbook/assets/image (91).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (92).png" alt=""><figcaption></figcaption></figure>
 
 ### TLS
 
@@ -139,7 +139,7 @@ sources:
 
 Next, copy the contents of `cert.pem` into the **Certificate** field in the Vector destination settings. Then, update the **URL** field to use the `https` scheme instead of `http`.
 
-<figure><img src="../../../../.gitbook/assets/image (92).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (93).png" alt=""><figcaption></figcaption></figure>
 
 ### Vector integration configuration
 

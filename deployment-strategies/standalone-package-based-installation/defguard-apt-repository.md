@@ -39,21 +39,6 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/defguar
 sudo apt update
 ```
 
-### Choosing distribution
-
-Most of our packages are located on `trixie` distribution.&#x20;
-
-However, if you are using **Ubuntu 22.04/Debian 12** and want to install **Defguard Client**, you should be using `bookworm` distribution.
-
-To do so, replace `trixie` with `bookworm` in installation steps, or run the following command.
-
-```sh
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/defguard.asc] https://apt.defguard.net/ bookworm release " | \
-   sudo tee /etc/apt/sources.list.d/defguard.list > /dev/null
-
-sudo apt update
-```
-
 ### Installing packages
 
 Defguard Core:

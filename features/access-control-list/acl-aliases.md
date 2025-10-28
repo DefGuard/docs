@@ -16,7 +16,7 @@ All the aliases defined in your systems are displayed in the second tab of the *
 
 ### List of aliases
 
-<figure><img src="../../.gitbook/assets/image (194).png" alt=""><figcaption><p>ACL alias list</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (195).png" alt=""><figcaption><p>ACL alias list</p></figcaption></figure>
 
 Similarly to ACL rules themselves, the list is split into two sections:
 
@@ -33,9 +33,9 @@ When the alias changes are deployed, firewall rules will be updated for all affe
 
 To create a new rule, use the **Add new** button on the list view.
 
-You can edit an existing rule by using the ![](<../../.gitbook/assets/image (26).png>) context menu and selecting **Edit** in the list view.
+You can edit an existing rule by using the ![](<../../.gitbook/assets/image (27).png>) context menu and selecting **Edit** in the list view.
 
-<figure><img src="../../.gitbook/assets/image (197).png" alt=""><figcaption><p>Alias creation form</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (198).png" alt=""><figcaption><p>Alias creation form</p></figcaption></figure>
 
 In the ACL alias form, you can specify alias name and [type](./#alias-types).
 
@@ -53,19 +53,19 @@ Unlike ACL rules, newly created aliases have **Applied** status, since they do n
 
 To remove an alias, select the **Delete alias** option from the context menu.
 
-<figure><img src="../../.gitbook/assets/image (195).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (196).png" alt=""><figcaption></figcaption></figure>
 
 Unlike with ACL rules, alias deletion is not tracked as a modification. You cannot delete an alias if it's being used by any rules and deleting unused aliases is immediate, not requiring changes to be deployed.
 
-<figure><img src="../../.gitbook/assets/image (196).png" alt=""><figcaption><p>You cannot delete aliases used by ACL rules</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (197).png" alt=""><figcaption><p>You cannot delete aliases used by ACL rules</p></figcaption></figure>
 
 ## Using aliases in ACL rules
 
 Aliases can be used to define an ACL rule destination by selecting them in the input within the **Destination** section:
 
-<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption><p>ACL rule Destination section with Aliases field</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption><p>ACL rule Destination section with Aliases field</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption><p>Alias select modal</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption><p>Alias select modal</p></figcaption></figure>
 
 ## Alias types
 
@@ -78,7 +78,7 @@ Aliases are divided into two distinct types to handle various use-cases:
 
 Let's start with an ACL rule that defines a following destination:
 
-<figure><img src="../../.gitbook/assets/image (199).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (200).png" alt=""><figcaption></figcaption></figure>
 
 By itself, this rule allows specified users to access **all ports** and **all protocols** on the specified IP.
 
@@ -86,7 +86,7 @@ By itself, this rule allows specified users to access **all ports** and **all pr
 
 Consider an **SSH** alias with a following definition:
 
-<figure><img src="../../.gitbook/assets/image (198).png" alt=""><figcaption><p>SSH component alias definition</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (199).png" alt=""><figcaption><p>SSH component alias definition</p></figcaption></figure>
 
 When used in the previously created ACL rule, port 22 will be added to manual inputs defined in the rule itself.
 
@@ -96,7 +96,7 @@ In effect the rule will now grant access **only** to port 22 on 10.2.0.5, just l
 
 Now consider the following alias:
 
-<figure><img src="../../.gitbook/assets/image (200).png" alt=""><figcaption><p>Postgres server destination alias</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (201).png" alt=""><figcaption><p>Postgres server destination alias</p></figcaption></figure>
 
 When used in the previously defined ACL rule it will have the following effects:
 

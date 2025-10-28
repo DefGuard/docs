@@ -18,7 +18,7 @@ Before submitting the logs, after you have changed the logging to debug, please 
 
 You can easly send us client logs by going _Settings ->_ in the _Log_ window you will have the possibility to see the logs, but also two buttons, to Copy the logs or Download them - so you can easly share them with us:
 
-<figure><img src="../../.gitbook/assets/image (134).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (135).png" alt=""><figcaption></figcaption></figure>
 
 ## Core
 

@@ -52,7 +52,7 @@ If this fails, one may also try installing one of the packages providing the `re
 
 ## Client: Failed to parse IP address
 
-<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 This error usually indicates that the client version is outdated and can't communicate with proxy/core services. Try upgrading the desktop client application.
 
@@ -281,6 +281,6 @@ If the background service logs contain errors similar to `Unable to access inter
 
 To verify that this is the case open the system service manager and look for any services named `WireGuard Tunnel`
 
-<figure><img src="../../.gitbook/assets/image (202).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (203).png" alt=""><figcaption></figcaption></figure>
 
 If any such services are present, remove them and retry the connection.

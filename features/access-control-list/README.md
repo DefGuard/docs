@@ -21,7 +21,7 @@ Access Control can be enabled for each location individually. To enable it:
 2. In **Location configuration** section, select **Enable ACL for this location**.
 3. Click on **Save changes**.
 
-<figure><img src="../../.gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
 
 **You should also set the default ACL policy for the location** (see below).
 
@@ -40,11 +40,11 @@ Make sure ACL has been enabled (see above), otherwise the policy setting will no
 2. In **Location configuration,** choose the desired option under **Default ACL Policy**.
 3. Click on **Save changes**.
 
-<figure><img src="../../.gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
 
 ## List of ACL rules
 
-<figure><img src="../../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (33).png" alt=""><figcaption></figcaption></figure>
 
 **Access Control List** view displays all the rules defined in your system. The list is split into two sections.
 
@@ -70,19 +70,19 @@ Defguard’s ACL functionality is designed to allow users to apply access contro
 
 The ACL list view also allows rule filtering by name, locations, and other attributes
 
-<figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
 
 ## How to add and modify ACL rules
 
-To create a new rule, use the ![](<../../.gitbook/assets/image (20).png>) button in the [ACL List View](./#list-of-acl-rules).
+To create a new rule, use the ![](<../../.gitbook/assets/image (21).png>) button in the [ACL List View](./#list-of-acl-rules).
 
-You can edit an existing rule by using the ![](<../../.gitbook/assets/image (26).png>) context menu and selecting **"Edit"** in the [ACL List View](./#list-of-acl-rules)**.**
+You can edit an existing rule by using the ![](<../../.gitbook/assets/image (27).png>) context menu and selecting **"Edit"** in the [ACL List View](./#list-of-acl-rules)**.**
 
-<figure><img src="../../.gitbook/assets/image (27).png" alt=""><figcaption><p>Rule context menu</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (28).png" alt=""><figcaption><p>Rule context menu</p></figcaption></figure>
 
 ### Anatomy of an ACL rule
 
-<figure><img src="../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
 
 The ACL form consists of three main sections:
 
@@ -165,15 +165,15 @@ To do this, the following new rules have to be added:
 * Add desired users in the **"Allowed Users/Groups/Devices** > **Users**.
 * Click on the **Submit** button.
 
-<figure><img src="../../.gitbook/assets/image (168).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (169).png" alt=""><figcaption></figcaption></figure>
 
 You will be redirected back to the [ACL List View,](./#list-of-acl-rules) and the new rule should now be in the **Pending Changes** section.
 
-<figure><img src="../../.gitbook/assets/image (169).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (170).png" alt=""><figcaption></figcaption></figure>
 
 Now, click on **Deploy pending changes (1)** button. After that, the rule should be applied on the _Office-Berlin_ location.
 
-<figure><img src="../../.gitbook/assets/image (170).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (171).png" alt=""><figcaption></figcaption></figure>
 
 (See [Implementation Details](https://github.com/DefGuard/docs/blob/docs/enterprise/all-enteprise-features/access-control-list/firewall-internals.md) documentation to understand integration with system packet filtering.)
 
@@ -200,4 +200,4 @@ Once you have created appropriate groups and assigned the users, let's update th
 * Instead of specific users in the **Allowed Users** input, we now select the _Staff-Berlin_ group in the **Allowed Groups** input
 * In **Denied Groups** input we should now select the _Externals_ group
 
-<figure><img src="../../.gitbook/assets/image (175).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (176).png" alt=""><figcaption></figcaption></figure>
