@@ -201,3 +201,51 @@ Once you have created appropriate groups and assigned the users, let's update th
 * In **Denied Groups** input we should now select the _Externals_ group
 
 <figure><img src="../../.gitbook/assets/image (175).png" alt=""><figcaption></figcaption></figure>
+
+## Troubleshooting
+
+### Connection issues with Docker installed
+
+If you have Docker installed on the same machine as your Gateway (or if you deployed Defguard using the one-line installation script) the firewall may not work properly due to Docker firewall rules interfering with your ACL rules.&#x20;
+
+To verify this, execute `nft list ruleset` (may require sudo) on the machine on which your Gateway is installed:
+
+```
+table ip filter {
+	[...]
+	chain FORWARD {
+		type filter hook forward priority filter; policy drop;
+		counter packets 744194 bytes 1580784676 jump DOCKER-USER
+		counter packets 744194 bytes 1580784676 jump DOCKER-FORWARD
+	}
+	[...]
+}
+```
+
+If you have a FORWARD chain (managed by Docker) that has a default policy of drop and filter priority, this chain will interfere with Defguard rules (accept policy shouldn't be a problem).
+
+To fix this, set the [Defguard firewall priority](https://docs.defguard.net/features/access-control-list/firewall-internals#forward-chain-priority) to -1. This will make Defguard rules run before Docker rules.
+
+Running `nft list ruleset` on the machine should then result in the following:
+
+```
+table ip filter {
+	[...]
+	chain FORWARD {
+		type filter hook forward priority filter; policy drop;
+		counter packets 744194 bytes 1580784676 jump DOCKER-USER
+		counter packets 744194 bytes 1580784676 jump DOCKER-FORWARD
+	}
+	[...]
+}
+table inet DEFGUARD-wg0 {
+	chain FORWARD {
+		type filter hook forward priority filter - 1; policy accept;
+		iifname != "wg0" counter packets 13807 bytes 11743290 accept comment "Ignore traffic not related to the VPN"
+		ct state established,related counter packets 2692 bytes 601240 accept comment "Allow established and related traffic
+	}
+	[...]
+}
+```
+
+The Default forward chain that is managed by Docker has the priority of `filter` and Defguard chain of `filter - 1`, making it run before Docker's.
