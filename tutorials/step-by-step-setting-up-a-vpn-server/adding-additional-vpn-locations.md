@@ -35,7 +35,13 @@ After configuring the location, please:
 
 ### Adding new gateway in docker
 
-Now go to the server and open the docker-compose.yml file, and scroll to the gateway section, it should look like this:
+{% hint style="warning" %}
+This section assumes a new gateway will be launched on the same machine.
+
+If you want to launch a gateway on a separate host please see the[ next section](adding-additional-vpn-locations.md#adding-new-gateway-on-a-remote-host).
+{% endhint %}
+
+Now go to the server and open the `docker-compose.yml` file, and scroll to the gateway section, it should look like this:
 
 <figure><img src="../../.gitbook/assets/docker-gw1.png" alt=""><figcaption></figcaption></figure>
 
@@ -70,3 +76,16 @@ Now if you go back to the location settings you will see **instantly that the ne
 <figure><img src="../../.gitbook/assets/Screenshot 2024-08-15 at 21.29.37.png" alt=""><figcaption></figcaption></figure>
 
 And that's it, you have a new VPN location ready.
+
+### Adding new gateway on a remote host
+
+If you intend to add a new gateway on a different host than the one you've run the [one-line install script](../../getting-started/one-line-install.md) on, there are some additional steps that need to be performed:
+
+* make sure that both hosts can securely communicate within an isolated network segment without exposing the core gRPC port to the public internet as described in our [general network requirements](../../deployment-strategies/hardware-os-network-and-firewall-recommendations.md#server-and-environment-requirements)
+* edit you `docker-compose.yaml` and add a `DEFGUARD_GRPC_URL` environment variable to the core service; this should be a URL that a remote gateway is able to connect to as described [here](../../deployment-strategies/configuration.md#grpc-server-configuration)
+* after adding the variable restart the core service
+* securely transfer the `/ssl/defguard-ca.pem` file to the new host
+* depending on your preference create a copy of the `docker-compose.yaml` on the new host (with just the gateway service) or use the command from web UI to start a new gateway
+* if using the command remember to add the `DEFGUARD_GRPC_CA` environment variable
+
+&#x20;  &#x20;
