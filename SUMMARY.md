@@ -70,6 +70,7 @@
 * [Forward auth](features/forward-auth.md)
 * [YubiKey Provisioning](features/yubikey-provisioning.md)
 * [User SNAT bindings](features/user-snat-bindings.md)
+* [Service locations](features/service-locations.md)
 
 ## Deployment strategies
 

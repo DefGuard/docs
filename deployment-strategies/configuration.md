@@ -128,7 +128,7 @@ If you're using docker image you can pass this value as environmental variables 
 * `DEFGUARD_GRPC_URL` , `-g <URL>` - Defguard Core gRPC endpoint URL. This is used by the gateway to connect to your Defguard Core instance. If you configured the `DEFGUARD_GRPC_URL` variable on your Core instance before (as described in the [#grpc-server-configuration](configuration.md#grpc-server-configuration "mention") section), use the same value here. Otherwise, provide an URL that will allow the Gateway to reach your Core instance, e.g. `http://localhost:50055` if both Core and Gateway are running on the same host.&#x20;
 *   `DEFGUARD_TOKEN` ,`-t <TOKEN>` - Token displayed in the Defguard Core web UI after completing the network wizard. It can be copied from the "Authentication Token" section on the Location Settings page.
 
-    <figure><img src="../.gitbook/assets/obraz (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/obraz (1) (1).png" alt=""><figcaption></figcaption></figure>
 * `DEFGUARD_USERSPACE` , `-u` - Use userspace wireguard implementation, useful on systems without native wireguard support
 * `DEFGUARD_GRPC_CA - path to ca file` more on this topic can be found [on this help page.](grpc-ssl-communication.md)
 * `DEFGUARD_STATS_PERIOD` ,`-p <SECONDS>` - Defines how often (seconds) should interface statistics be sent to the Defguard server
