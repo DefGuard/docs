@@ -71,7 +71,7 @@ When you configure your provider, the proxy will automatically allow enrolling u
 
 For this to work, make sure you have the following two things set:
 
-* Additional allowed redirect URI in your provider's configuration (see [#redirect-url](./#redirect-url "mention"))
+* Additional allowed redirect URI in your provider's configuration (see [#redirect-uri](./#redirect-uri "mention"))
 * A `DEFGUARD_PROXY_URL` environment variable set correctly for your proxy (not core). This variable needs to be set for your proxy and should be equal to the URL where users perform the enrollment process. This should be set automatically if you are using the one-line deployment script version `1.2.1` or above. E.g. if your enrollment URL is `https://enrollment.my-domain.net`, set `DEFGUARD_PROXY_URL` to `https://enrollment.my-domain.net`.
 
 #### Disabling automatic account creation
