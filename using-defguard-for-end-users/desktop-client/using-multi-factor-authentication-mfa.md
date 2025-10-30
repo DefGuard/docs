@@ -75,4 +75,4 @@ Here is a video showcasing this process:
 
 And here you can see the whole flow done with multiple steps including the user, desktop (and mobile) the Proxy and Defguard Core and gateway in the final step:
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
