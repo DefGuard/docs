@@ -59,3 +59,21 @@ If you selected the always-on mode, the connection will be established on system
 
 The connection won't be terminated or restarted unless the Desktop Client receives a network update or is uninstalled.&#x20;
 
+## Troubleshooting
+
+### Restarting the background service
+
+In order to force a reconnect to the service location, you can restart the background service that manages it. To do this on Windows, go to search and open `services.msc` as an administrator.
+
+Next, find a service called "Defguard Service". Right click on it and select the restart option.
+
+This will restart the background service and re-connect to the service location.
+
+### Network change
+
+If the network you use to access the internet (or more specifically, the VPN gateway) changes (for example, you switch Wi-Fis) while the service location connection is established, the connection will stop working. To resolve this issue, you will need to restart your device or restart the service responsible for management of the service locations, so the connection is re-established.
+
+
+
+&#x20;
+
