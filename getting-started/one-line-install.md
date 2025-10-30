@@ -151,13 +151,8 @@ After the installation, please make sure that **only the following ports are ope
 * VPN server port (eg. WireGuard port)
 
 {% hint style="danger" %}
-**DO NOT EXPOSE PUBLICLY THE gRPC ports of the core gateway and proxy, which are:**
-
-* 50052
-* 50055
+Do not publicly expose the gRPC port of the Core service (50055).
 {% endhint %}
-
-Also, this setup provides only communication encryption between Defguard components, if you additionally like for core/proxy and gateway to have authorization - [please set up a custom SSL CA](../deployment-strategies/grpc-ssl-communication.md#custom-ssl-ca-and-certificates).
 
 ## Advanced deployment strategies
 
