@@ -137,6 +137,7 @@
 
 * [Step by step setting up a VPN server](tutorials/step-by-step-setting-up-a-vpn-server/README.md)
   * [Adding additional VPN locations](tutorials/step-by-step-setting-up-a-vpn-server/adding-additional-vpn-locations.md)
+  * [Custom HTTPS Configuration](tutorials/step-by-step-setting-up-a-vpn-server/custom-https-configuration.md)
 
 ## In depth
 
