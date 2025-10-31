@@ -72,6 +72,16 @@ If a new version is available, a notification with a download button will be sho
 
 <figure><img src="../../.gitbook/assets/defguard-client-new-release-available.png" alt=""><figcaption><p>New Desktop Client version available for download</p></figcaption></figure>
 
+### Storage
+
+Application data is stored in following locations:
+
+| Platform | Storage directory                              |
+| -------- | ---------------------------------------------- |
+| Windows  | C:\Users\\\<USER>\AppData\Roaming\net.defguard |
+| macOS    | $HOME/Library/Application Support/net.defguard |
+| Linux    | $HOME/.local/share/net.defguard                |
+
 ### Log files
 
 All relevant application logs should be available in the clients Settings where they can be filtered by source and log level:\
@@ -84,5 +94,5 @@ In case of unexpected issues the log files themselves can also be found in the f
 | Platform | Client logs                                       | Background service logs   |
 | -------- | ------------------------------------------------- | ------------------------- |
 | Windows  | C:\Users\<USER>\AppData\Roaming\net.defguard\logs | C:\Logs\defguard-service  |
-| macOS    | {homeDir}/Library/Logs/net.defguard               | /var/log/defguard-service |
+| macOS    | $HOME/Library/Logs/net.defguard                   | /var/log/defguard-service |
 | Linux    | $HOME/.local/share/net.defguard/logs              | /var/log/defguard-service |

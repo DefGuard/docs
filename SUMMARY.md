@@ -71,6 +71,8 @@
 * [YubiKey Provisioning](features/yubikey-provisioning.md)
 * [User SNAT bindings](features/user-snat-bindings.md)
 * [Service locations](features/service-locations.md)
+* [Desktop client auto-provisioning](features/desktop-client-auto-provisioning/README.md)
+  * [On-premise Active Directory environments](features/desktop-client-auto-provisioning/on-premise-active-directory-environments.md)
 
 ## Deployment strategies
 
