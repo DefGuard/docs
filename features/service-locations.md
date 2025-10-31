@@ -65,9 +65,35 @@ The connection won't be terminated or restarted unless the Desktop Client receiv
 
 In order to force a reconnect to the service location, you can restart the background service that manages it. To do this on Windows, go to search and open `services.msc` as an administrator.
 
+<figure><img src="../.gitbook/assets/obraz (19).png" alt=""><figcaption></figcaption></figure>
+
 Next, find a service called "Defguard Service". Right click on it and select the restart option.
 
+<figure><img src="../.gitbook/assets/obraz (17).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/obraz (18).png" alt=""><figcaption></figcaption></figure>
+
 This will restart the background service and re-connect to the service location.
+
+### Checking if connection is established
+
+This can be checked either by:
+
+1. Going to the Defguard Core web interface and checking if the given Client is connected. This is a less reliable way as it can report the status with a delay. We recommend checking the status directly on the given machine.
+2. On the given Windows machine:
+   1.  Go to "Settings"\
+
+
+       <figure><img src="../.gitbook/assets/obraz (20).png" alt=""><figcaption></figcaption></figure>
+   2.  Network & Internet\
+
+
+       <figure><img src="../.gitbook/assets/obraz (21).png" alt=""><figcaption></figcaption></figure>
+   3.  Change adapter settings\
+
+
+       <figure><img src="../.gitbook/assets/obraz (22).png" alt=""><figcaption></figcaption></figure>
+   4. The VPN connection should be visible here, if it's established (for example in the case of an always on mode).
 
 ### Network change
 
