@@ -20,14 +20,20 @@ Even if you already use [SSL on a reverse proxy](reverse-proxy-configuration-usi
 
 You can **choose one** of two approaches:
 
-* [Trusted CA certificates](grpc-ssl-communication.md#trusted-ca-certificates) (simple) – use certificates issued by a recognized Certificate Authority (e.g., Let’s Encrypt). This ensures encrypted traffic and verifies the identity of each component. This approach assumes you're already using [reverse proxy with SSL termination](reverse-proxy-configuration-using-nginx.md#obtaining-ssl-certificates) for Defguard Core or Defguard Proxy.
-* [Custom internal CA](grpc-ssl-communication.md#custom-internal-ca) (recommended) – create your own Certificate Authority and issue certificates for Core, Proxy, and Gateway. This enables mutual TLS (mTLS), so only trusted Defguard components can communicate.
+* [Trusted CA certificates](grpc-ssl-communication.md#trusted-ca-certificates) (encryption only) - use certificates issued by a recognized Certificate Authority (e.g., Let’s Encrypt). This approach provides encrypted traffic.
+* [Custom internal CA](grpc-ssl-communication.md#custom-internal-ca) (encryption + authentication) - create your own Certificate Authority and issue certificates for Core, Proxy, and Gateway. This setup enables mutual TLS (mTLS), meaning each component both encrypts and authenticates the connection - ensuring that only trusted Defguard services can communicate with each other.
 
 Choose one of these options based on your environment: trusted CA for simplicity, or a custom CA for full Zero Trust mutual authentication.
 
 ### Trusted CA certificates
 
 If you followed our [guide on configuring SSL for reverse proxy](reverse-proxy-configuration-using-nginx.md#obtaining-ssl-certificates) your certificates should be located in the following path `/etc/letsencrypt/live/domain.name/`. Use the PEM-formatted CA certificate for configuring Defguard components.          &#x20;
+
+{% hint style="warning" %}
+While this secures the transport layer and encrypts communication between Defguard components - it does not provide authorization between gRPC components like [Custom internal CA](grpc-ssl-communication.md#custom-internal-ca) does.&#x20;
+
+Thus, this type of SSL termination should only be done if you trust your network and have secured gRPC ports on firewall.
+{% endhint %}
 
 #### Configure Defguard Core
 
