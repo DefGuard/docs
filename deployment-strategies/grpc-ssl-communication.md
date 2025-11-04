@@ -1,26 +1,83 @@
 # Securing gRPC communication
 
-Defguard Core has two main communication endpoints:
+Defguard components exchange data over gRPC, which must be properly secured to protect sensitive information and prevent unauthorized access.
 
-1. gRPC port for communicating with Defguard Gateways,
-2. gRPC port for communicating with Defguard Core.
+## Firewall rules
 
-{% hint style="danger" %}
-It is **critical** that:
+Defguard components expose two ports that require firewall-level protection:
 
-1. Defguard Core's gRPC port is open on a firewall only for IP addresses of Defguard Gateway nodes.
-2. Defguard Proxy's gRPC port is open on a firewall only for the IP address of Defguard Core.
-3. If you want an additional layer of security, then you should create a **custom SSL Certificate Authority (CA)**, and provide Core, Proxy and Gateway Certificates from that CA so **any other connections to the gRPC services will not be accepted.**
-4. Even if you have secured the network ports/firewall and do not want to create a custom SSL CA, please secure gRPC traffic with SSL and a reverse proxy.
+* Defguard Core exposes a gRPC port for communication with Defguard Gateways.
+* Defguard Proxy exposes a gRPC port for communication with Defguard Core.
+
+Limit access to gRPC ports:
+
+* Allow Core’s gRPC port only from Gateway IPs.
+* Allow Proxy’s gRPC port only from Core’s IP.
+
+## SSL encryption
+
+Even if you already use [SSL on a reverse proxy](reverse-proxy-configuration-using-nginx.md#obtaining-ssl-certificates), this only protects external traffic. Internal gRPC connections between Proxy, Core, and Gateways occur behind the proxy and must also be encrypted and authenticated. These connections carry sensitive operational data and should never be left unprotected.
+
+You can **choose one** of two approaches:
+
+* [Trusted CA certificates](grpc-ssl-communication.md#trusted-ca-certificates) (simple) – use certificates issued by a recognized Certificate Authority (e.g., Let’s Encrypt). This ensures encrypted traffic and verifies the identity of each component. This approach assumes you're already using [reverse proxy with SSL termination](reverse-proxy-configuration-using-nginx.md#obtaining-ssl-certificates) for Defguard Core or Defguard Proxy.
+* [Custom internal CA](grpc-ssl-communication.md#custom-internal-ca) (recommended) – create your own Certificate Authority and issue certificates for Core, Proxy, and Gateway. This enables mutual TLS (mTLS), so only trusted Defguard components can communicate.
+
+Choose one of these options based on your environment: trusted CA for simplicity, or a custom CA for full Zero Trust mutual authentication.
+
+### Trusted CA certificates
+
+If you followed our [guide on configuring SSL for reverse proxy](reverse-proxy-configuration-using-nginx.md#obtaining-ssl-certificates) your certificates should be located in the following path `/etc/letsencrypt/live/domain.name/`. Use the PEM-formatted CA certificate for configuring Defguard components.          &#x20;
+
+#### Configure Defguard Core
+
+Add path to CA certificate file using command line arguments:
+
+```bash
+defguard --proxy-grpc-ca /etc/letsencrypt/live/domain.name/chain.pem
+```
+
+or using the service's configuration file:
+
+```toml
+proxy_grpc_ca = "/etc/letsencrypt/live/domain.name/chain.pem"
+```
+
+or using environment variable:
+
+```bash
+env DEFGUARD_PROXY_GRPC_CA=/etc/letsencrypt/live/domain.name/chain.pem \
+    defguard
+```
+
+#### Configure Defguard Gateway
+
+Add path to CA certificate file using command line arguments:
+
+```bash
+defguard-gateway --grpc-ca /etc/letsencrypt/live/domain.name/chain.pem
+```
+
+or using the service's configuration file:
+
+```toml
+grpc_ca = "/etc/letsencrypt/live/domain.name/chain.pem"
+```
+
+or using environment variable:
+
+```bash
+env DEFGUARD_GRPC_CA=/etc/letsencrypt/live/domain.name/chain.pem \
+    defguard-gateway
+```
+
+### Custom internal CA
+
+{% hint style="warning" %}
+It is important to embed a correct domain name into the certificate as _X509v3 Subject Alternative Name_. The domain name must match the one **under which a service is being hosted**.
 {% endhint %}
 
-## Custom SSL CA and certificates
-
-To secure not only with firewall communication between all Defguard gRPC components, a custom SSL chain of certificates should be used. This way the trust will be ensured on the Transport Layer Security (TLS) level.
-
-It is important to embed a correct domain name into the certificate as _X509v3 Subject Alternative Name_. The domain name must match the one under which a service is being hosted.
-
-### Quick setup
+#### Generate certificates
 
 To quickly generate a set of SSL certificates using [OpenSSL](https://openssl-library.org) or [LibreSSL](https://www.libressl.org), use the following:
 
@@ -52,11 +109,9 @@ To display certificate file contents:
 openssl x509 -noout -text -in core.crt
 ```
 
-### Defguard configuration
+#### Configure Defguard Core
 
-#### Defguard Core
-
-Using command line arguments
+Add paths to certificate files using command line arguments:
 
 ```sh
 defguard --grpc-cert path/to/core.crt \
@@ -64,7 +119,15 @@ defguard --grpc-cert path/to/core.crt \
          --proxy-grpc-ca path/to/ca.crt
 ```
 
-Using environment variables
+or using the service's configuration file:
+
+```toml
+grpc_cert = "path/to/core.crt"
+grpc_key = "path/to/core.key"
+proxy_grpc_ca = "path/to/ca.crt"
+```
+
+or using environment variables:
 
 ```sh
 env DEFGUARD_GRPC_CERT=path/to/core.crt \
@@ -73,16 +136,23 @@ env DEFGUARD_GRPC_CERT=path/to/core.crt \
     defguard
 ```
 
-#### Defguard Proxy
+#### Configure Defguard Proxy
 
-Using command line arguments
+Add paths to certificate files using command line arguments:
 
 ```sh
 defguard-proxy --grpc-cert path/to/proxy.crt \
                --grpc-key path/to/proxy.key
 ```
 
-Using environment variables
+or using the service's configuration file:
+
+```toml
+grpc_cert = "path/to/core.crt"
+grpc_key = "path/to/core.key"
+```
+
+or using environment variables:
 
 ```sh
 env DEFGUARD_PROXY_GRPC_CERT=path/to/proxy.crt \
@@ -90,40 +160,26 @@ env DEFGUARD_PROXY_GRPC_CERT=path/to/proxy.crt \
     defguard-proxy
 ```
 
-### Defguard Gateway
+#### Configure Defguard Gateway
 
-Using command line arguments
+Add paths to certificate files using command line arguments:
 
 ```sh
 defguard-gateway --grpc-ca path/to/ca.crt
 ```
 
-Using environment variables
+or using the service's configuration file:
+
+```toml
+grpc_ca = "path/to/ca.crt"
+```
+
+or using environment variables:
 
 ```sh
 env DEFGUARD_GRPC_CA=path/to/ca.crt \
     defguard-gateway
 ```
 
-Using configuration file
 
-```toml
-grpc_ca = "path/to/ca.crt"
-```
 
-## Trusted CA (eg. Let'sEncrypt or others)
-
-Often (like in the standalone package based installation tutorial) gRPC communication can be secured by a reverse proxy (NGINX, Caddy, Traefik, etc.) that handles SSL termination. It's common to use typical trusted CA (that is used for typical HTTPS traffic) like Let'sEncrypt or others.
-
-{% hint style="danger" %}
-While this secures the transport layer and encrypts communication between Defguard components - it does not provide authorization between gRPC components like Custom CA does.
-
-Thus, this type of SSL termination should only be done if you trust your network and have secured gRPC ports on firewall.
-{% endhint %}
-
-If Defguard Core or Defguard Proxy are using reverse proxy with SSL termination, then only you need to configure CA certificate paths for:
-
-* Defguard Gateway – in _gateway.toml_ add path to CA certificate file (in PEM format); for example, when using standard Let'sEncrypt installation ([Certbot](https://certbot.eff.org)), you configure the CA path like this:
-  * `grpc_ca = "/etc/letsencrypt/live/domain.name/chain.pem"`
-* Defguard Core – similarily, you need to configure Proxy CA certificate file using **DEFGUARD\_PROXY\_GRPC\_CA** environment variable:
-  * `DEFGUARD_PROXY_GRPC_CA: /etc/letsencrypt/live/domain.name/chain.pem`

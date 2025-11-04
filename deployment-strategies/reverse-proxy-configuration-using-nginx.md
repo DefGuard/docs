@@ -1,4 +1,4 @@
-# Reverse Proxy configuration using NGINX
+# Reverse Proxy configuration using Nginx
 
 ## Introduction
 
@@ -6,31 +6,41 @@ This guide explains how to configure [NGINX](https://nginx.org/) as a reverse pr
 
 To provide HTTPS encryption, this guide also uses [Certbot](https://certbot.eff.org/), a free, open-source tool from the [Let’s Encrypt](https://letsencrypt.org/) project. Certbot automatically issues and renews SSL/TLS certificates, allowing you to secure your Defguard domains without manual certificate management.
 
-### Installing NGINX and Certbot
+{% hint style="info" %}
+We assume in this guide that you run your Core and Proxy services on separate servers, and you run Certbot and Nginx on each one of them.
+{% endhint %}
 
-To install and prepare NGINX with Let’s Encrypt certificates:
+## Installing Nginx and Certbot
+
+Run the followign command to install Nginx and Certbot.
 
 ```bash
 apt install nginx certbot
-systemctl enable nginx.service
-systemctl start nginx.service
 ```
 
-Disable the default configuration to avoid conflicts:
+Disable the default Nginx configuration to avoid conflicts:
 
 ```bash
 unlink /etc/nginx/sites-enabled/default
 ```
 
-### Obtaining SSL Certificates
+## Obtaining SSL certificates
 
-Before configuring NGINX, issue valid SSL certificates for your domains.\
-In this example we use:
+Use Certbot to generate SSL certificates.&#x20;
 
-* Core: **my-server.defguard.net**
-* Enrollment (Proxy): **enroll.defguard.net**
+For each service (Core, Proxy), run the following command on the server that your domain’s DNS records resolve to. Ensure that inbound traffic on port 80 is allowed by the firewall and that no other process is using this port.
 
-Generate certificates with Certbot:
+{% hint style="info" %}
+Certbot verifies domain ownership using the HTTP-01 challenge, where it temporarily serves a validation file over port 80 for the exact domain you are requesting a certificate for.&#x20;
+
+If the request fails with a timeout or connection error, Let’s Encrypt could not reach this temporary server. This usually means the DNS record for that domain does not point to the correct public IP of the machine running Certbot, port 80 is blocked (firewall or Security Group), an IPv6 (AAAA) record is published but not supported on the server, or another service is already using port 80.&#x20;
+
+Ensure the domain’s DNS resolves to this server’s public IP, inbound port 80 is open, and no other service is binding the port before trying again.
+{% endhint %}
+
+### Obtaining SSL certificate for Core service
+
+Use the following command to generate certificate with Certbot. Replace the example domain for the Core service (my-server.defguard.net) with your own.
 
 ```bash
 certbot certonly \
@@ -38,18 +48,37 @@ certbot certonly \
     --agree-tos \
     --standalone \
     --email admin@yourdomain.com \
-    -d my-server.defguard.net \
-    -d enroll.defguard.net
+    -d my-server.defguard.net
 ```
 
-Certbot will generate certificate in fullchain.pem and privkey.pem in the following paths:
+Certbot will generate certificate in fullchain.pem and privkey.pem in the following path:
 
 ```
 /etc/letsencrypt/live/my-server.defguard.net
+```
+
+### Obtaining SSL certificate for Proxy service
+
+Use the following command to generate certificate with Certbot. Replace the example domain for the Proxy service (enroll.defguard.net) with your own.
+
+```bash
+certbot certonly \
+    --non-interactive \
+    --agree-tos \
+    --standalone \
+    --email admin@yourdomain.com \
+    -d enroll.defguard.net
+```
+
+Certbot will generate certificate in fullchain.pem and privkey.pem in the following path:
+
+```
 /etc/letsencrypt/live/enroll.defguard.net
 ```
 
-### Defguard Core NGINX configuration
+## Configuring and starting Nginx
+
+### Configuring and starting Nginx for Core service
 
 Create a new configuration file for the Core service:
 
@@ -104,13 +133,12 @@ server {
 }
 ```
 
-Enable the configuration and reload NGINX:
+Enable the configuration and start Nginx:
 
-```bash
-ln -s /etc/nginx/sites-available/my-server.defguard.net.conf /etc/nginx/sites-enabled/my-server.defguard.net.conf
-
-systemctl reload nginx.service
-```
+<pre class="language-bash"><code class="lang-bash"><strong>ln -s /etc/nginx/sites-available/my-server.defguard.net.conf /etc/nginx/sites-enabled/my-server.defguard.net.conf
+</strong>
+systemctl start nginx.service
+</code></pre>
 
 To verify, run:
 
@@ -124,7 +152,7 @@ alive
 If you use this simple setup and run all services on one server, you can use [NGINX access restrictions](https://docs.nginx.com/nginx/admin-guide/security-controls/controlling-access-proxied-tcp/) for securing core and allowing to access the _my-server.defguard.net_ only to selected networks - blocking the direct access from the Internet.
 {% endhint %}
 
-### Defguard Proxy (Enrollment Service) NGINX configuration
+### Configuring and starting Nginx for Proxy service
 
 The Proxy service exposes APIs for enrollment, remote onboarding, and desktop client configuration.\
 Create its NGINX configuration file:
@@ -206,12 +234,12 @@ ln -s /etc/nginx/sites-available/enroll.defguard.net.conf /etc/nginx/sites-enabl
 systemctl restart nginx.service
 ```
 
-### Security Recommendations
+## Security Recommendations
 
 * Only expose **HTTPS ports (443)** for web access.
 * Do **not** expose internal **gRPC ports** (444, 50051, 50055) directly to the Internet.
 
-### Summary
+## Summary
 
 After completing the configuration:
 
