@@ -225,28 +225,30 @@ server {
 
 ## Deploying Gateway service
 
-You'll need a token to deploy the Gateway service. You'll have to set it as DEFGUARD\_TOKEN environment variable. Details on how to obtain the token [here](gateway.md).
+Before deploying a new Gateway service, make sure you have a running Defguard Core instance.
 
-For gateway to control the WireGuard kernel as well as network, it's recommended to run in the _host_ network mode as well as there are needed some docker CAPs:
+On the network level, your Gateway must be able to reach the Core service’s gRPC endpoint. This address is passed as the `DEFGUARD_GRPC_URL` parameter when deploying the Gateway. The Gateway uses it to communicate with Core, fetch its configuration, and publish operational statistics.
+
+You’ll also need a Location created in the Defguard Core Admin Panel.
+
+Each Location is identified by a unique token, which must be provided to the Gateway as the `DEFGUARD_TOKEN` parameter. The Gateway uses this token to authenticate with Core over the gRPC channel and retrieve the correct configuration for that specific Location. For detailed steps on how to create a Location and obtain its token, see [this section](gateway.md).
+
+For the most basic configuration use the following Docker Compose file:
 
 ```
 services:
   gateway: 
-    image: ghcr.io/defguard/gateway:latest 
-    restart: unless-stopped 
-    network_mode: "host" 
-    environment: 
+    image: ghcr.io/defguard/gateway:latest
+    restart: unless-stopped
+    network_mode: "host"
+    environment:
       - DEFGUARD_GRPC_URL=https://core-ip:50055
-      - DEFGUARD_GRPC_CA=/ca.pem
-      - DEFGUARD_STATS_PERIOD=30
-      # to get the token add a VPN location and get the token
       - DEFGUARD_TOKEN=tokenFromCoreLocation
-      - DEFGUARD_GATEWAY_NAME=willBeVisibleInDefguardAsGWName
-    volumes:
-      # more info about custom CA here:
-      # https://docs.defguard.net/deployment-strategies/grpc-ssl-communication#custom-ssl-ca-and-certificates
-      - ./ca.pem:/ca.pem
-    cap_add: 
-      - NET_ADMIN 
+    cap_add:
+      - NET_ADMIN
 ```
+
+{% hint style="info" %}
+The Docker Compose configuration runs the Gateway in host network mode and includes the required Docker capabilities. This setup is necessary because the Gateway needs direct access to the host network stack and WireGuard kernel module to create and manage VPN interfaces properly.
+{% endhint %}
 
