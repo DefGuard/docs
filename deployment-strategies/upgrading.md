@@ -34,9 +34,9 @@ To work properly, this feature requires the Desktop Client to be in version 1.6.
 
 The Windows Desktop Client installer has changed. The installer is now provided in an `.msi` format.
 
-Installing the new 1.6.0 Client from the `.msi` may leave the previous Client version still installed. This can also cause old VPN connections to still be active until a next system restart is performed.
+Installing the new 1.6.0 Client from the `.msi` will leave the previous Client version still installed. This can also cause old VPN connections to still be active until a next system restart is performed.
 
-To resolve this, before upgrading, we recommend first uninstalling the old Client. This should leave your configuration intact and it should carry over to the new Client after its installation, without the need to configure everything again.
+To resolve this, before upgrading, we recommend first uninstalling the old Client. This will leave your configuration intact and it should carry over to the new Client after its installation, without the need to configure everything again.
 
 ## 1.4.x -> 1.5.0
 
