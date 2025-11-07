@@ -16,6 +16,7 @@ Common problems may be:
 
 1. proxy / enrollment isn't working
 2. DEFGUARD\_ENROLLMENT\_URL is set incorrectly in core - if set incorrectly the client will try to connect to default URL which is "http://localhost:8080" and MFA will not work.
+3. Proxy uses wildcard SSL certificate and the client system does not accept it. Observed on some Linux and Android systems.
 
 ## Nothing happens after clicking on "Use authenticator app" in client
 
