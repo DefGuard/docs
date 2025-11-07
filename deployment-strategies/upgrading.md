@@ -8,6 +8,36 @@ description: Notes on upgrading Defguard and its components
 Before doing any updates please remember to **backup your database.**
 {% endhint %}
 
+## 1.5.x -> 1.6.0
+
+### Core
+
+#### Service locations
+
+A new feature has been introduced: [service-locations.md](../features/service-locations.md "mention"). This feature requires both Defguard Core and Proxy to be updated to the 1.6.0 version. Updating only one of those components will prevent this feature from working properly.
+
+### Proxy
+
+#### Service locations
+
+As mentioned in the Core migration section, this feature requires both Defguard Core and Proxy to be updated to the 1.6.0 version.
+
+### Desktop client
+
+#### Service locations
+
+The [service-locations.md](../features/service-locations.md "mention") feature currently only works on the Windows Desktop Client. Locations in the service location mode won't be sent to clients that don't support them (either are older than 1.6.0 or are on a different platform than Windows).
+
+To work properly, this feature requires the Desktop Client to be in version 1.6. Service locations won't show up or work in older clients.
+
+#### Windows client changes
+
+The Windows Desktop Client installer has changed. The installer is now provided in an `.msi` format.
+
+Installing the new 1.6.0 Client from the `.msi` may leave the previous Client version still installed. This can also cause old VPN connections to still be active until a next system restart is performed.
+
+To resolve this, before upgrading, we recommend first uninstalling the old Client. This should leave your configuration intact and it should carry over to the new Client after its installation, without the need to configure everything again.
+
 ## 1.4.x -> 1.5.0
 
 ### Core
