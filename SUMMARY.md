@@ -73,6 +73,7 @@
 * [Service locations](features/service-locations.md)
 * [Desktop client auto-provisioning](features/desktop-client-auto-provisioning/README.md)
   * [On-premise Active Directory environments](features/desktop-client-auto-provisioning/on-premise-active-directory-environments.md)
+  * [Entra ID environments](features/desktop-client-auto-provisioning/entra-id-environments.md)
 
 ## Deployment strategies
 

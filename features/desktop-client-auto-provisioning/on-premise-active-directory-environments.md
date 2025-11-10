@@ -2,7 +2,7 @@
 
 ## Overview
 
-This guide desctibes an example desktop client provisioning scenario in an on-premise Active Directory.
+This guide desctibes an example desktop client provisioning scenario in an on-premise Active Directory environment.
 
 The guide assumes that our goal is to provision desktop clients for a set of users in a specific AD group.
 

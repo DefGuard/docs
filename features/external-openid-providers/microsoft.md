@@ -76,3 +76,24 @@ Make sure to check the [general guide to directory synchronization](./#directory
 
 
 7. You should be good to go now. Navigate to the directory sync settings in Defguard and try to test your setup using the test connection button.
+
+#### Creating Defguard user
+
+{% hint style="warning" %}
+In order for Entra users to be created in Defguard they must have the following attributes set:
+
+* email (or otherMails)
+* first name
+* last name
+{% endhint %}
+
+By default directory sync guaranteed only that the state and group membership of Defguard users also present in the directory is up-to-date. It does not create Defguard users until they log in using an External OpenID provider.
+
+{% hint style="info" %}
+Currently creating Deguard users during directory synchronization is only available for the Microsoft provider.
+{% endhint %}
+
+To create Defguard users during directory sync enable the `Prefetch users` option:\
+
+
+<figure><img src="../../.gitbook/assets/image (204).png" alt=""><figcaption></figcaption></figure>

@@ -76,6 +76,14 @@ For this to work, make sure you have the following two things set:
 
 #### Disabling automatic account creation
 
+{% hint style="warning" %}
+In order for users to be created in Defguard they must have the following attributes set:
+
+* email
+* first name
+* last name
+{% endhint %}
+
 <figure><img src="../../.gitbook/assets/image (137).png" alt=""><figcaption></figcaption></figure>
 
 If you disable the option above, new users won't be able to automatically go through the enrollment. You will need to create their accounts by hand (with the same email address as the one they have set on your OIDC provider's side) and only then they will have an option to activate it by logging through the provider.
