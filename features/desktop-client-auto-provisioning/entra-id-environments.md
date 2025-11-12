@@ -12,7 +12,7 @@ Please note that it is just a reference, you should adjust it to work with your 
 
 To automate the process as much as possible we've prepared an example PowerShell script which can be used to generate enrollment tokens for all users in a specified group.&#x20;
 
-The script can be downloaded [here](https://github.com/DefGuard/client/blob/a7ced1d0e3e3831c553a291126304475777d9176/src-tauri/resources-windows/admin-scripts/GenerateEnrollmentTokensEntraID.ps1).
+The script can be downloaded [here](https://github.com/DefGuard/client/blob/555fb727d3599264996ee1ac99f5124026083146/src-tauri/resources-windows/admin-scripts/GenerateEnrollmentTokensEntraID.ps1).
 
 The assumption is that this script will be run by an Entra administrator on a domain-joined machine.
 
@@ -45,6 +45,7 @@ It will present an interactive propmt for selecting a user account. If this fail
 ### Optional parameters
 
 * `AttributeSetName` - name of custom security attribute set where the provisioning config data will be stored
+* `EnrollmentTokenExpirationTime` - how long should the generated enrollment tokens be valid for (default is 24h); should be specified as human-readable string, e.g 24h, 1d, 2w etc
 
 ### Example script execution command
 

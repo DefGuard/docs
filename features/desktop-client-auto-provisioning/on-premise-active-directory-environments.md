@@ -10,7 +10,7 @@ Please note that it is just a reference, you should adjust it to work with your 
 
 ## Generating enrollment tokens
 
-To automate the process as much as possible we've prepared an example PowerShell script which can be used to generate enrollment tokens for all users in a specified group. The script can be downloaded [here](https://github.com/DefGuard/client/blob/16e2f9512d8889a2507023fc38391c694df15f90/src-tauri/resources-windows/admin-scripts/GenerateEnrollmentTokensAD.ps1).
+To automate the process as much as possible we've prepared an example PowerShell script which can be used to generate enrollment tokens for all users in a specified group. The script can be downloaded [here](https://github.com/DefGuard/client/blob/555fb727d3599264996ee1ac99f5124026083146/src-tauri/resources-windows/admin-scripts/GenerateEnrollmentTokensAD.ps1).
 
 ### Prerequisites
 
@@ -38,6 +38,7 @@ Alternatively if you specify a username by the `ADUsername` parameter you'll be 
 
 * `ADUsername` - username for domain controller authentication
 * `DomainController` - your AD domain controller URL
+* `EnrollmentTokenExpirationTime` - how long should the generated enrollment tokens be valid for (default is 24h); should be specified as human-readable string, e.g 24h, 1d, 2w etc
 
 ### Example script execution command
 
