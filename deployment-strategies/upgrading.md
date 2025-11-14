@@ -8,6 +8,12 @@ description: Notes on upgrading Defguard and its components
 Before doing any updates please remember to **backup your database.**
 {% endhint %}
 
+## 1.5.x -> 1.6
+
+### Client
+
+Be sure to stop and uninstall the existing client before installing version 1.6. The installer has been updated in this release, and older versions may not shut down or remove themselves correctly during the upgrade.
+
 ## 1.4.x -> 1.5.0
 
 ### Core
