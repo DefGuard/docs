@@ -13,14 +13,6 @@ Guides:
 * [Instance configuration](instance-configuration.md)
 * [Using Multi-Factor Authentication](using-multi-factor-authentication-mfa.md)
 
-### Windows
-
-Our desktop client has **bundled** official WireGuard client - as we use **wg.exe** to manage the WireGuard tunnels.
-
-{% hint style="danger" %}
-If you have the official WireGuard client installed - Defguard client installation may fail.
-{% endhint %}
-
 ### MacOS
 
 {% hint style="warning" %}
