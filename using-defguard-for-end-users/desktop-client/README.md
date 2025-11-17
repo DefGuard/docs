@@ -15,15 +15,9 @@ Guides:
 
 ### MacOS
 
-{% hint style="warning" %}
-On macOS the desktop client requires the user to belong to the `staff` group in order to access the `defguard.socket` Unix socket used for IPC.&#x20;
+Desktop Client is available in App Store.
 
-This is usually the case by default and requires no additional actions.
-{% endhint %}
-
-Has no external requirements and we have wireguard-go bundled.
-
-You can also download Desktop Client via [Homebrew](https://brew.sh/) using:&#x20;
+You can also download Desktop Client via [Homebrew](https://brew.sh/) using:
 
 `brew install --cask defguard-client`
 
