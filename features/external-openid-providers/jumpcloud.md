@@ -30,7 +30,7 @@
 10. Click "Activate". You will be presented with a client ID and a secret. Copy both of them, as you will need to insert them in Defguard's settings.
 11. Go to Defguard settings, OpenID tab, select `JumpCloud` provider tab and paste the copied values:
 
-    <figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 12. Back in JumpCloud, make sure your users have access to the SSO Application. You can enable it by navigating to the `User groups` menu and selecting the group you want to enable logging in through JumpCloud for. Only users from this group will be able to log in to Defguard with JumpCloud. In this example, we will select the `All users` group, which is a dynamic group containing every user.
 13. Now in the group settings menu, select the `Applications` tab and select the checkbox next to your newly created app, this will enable the app for that group. Click `Save group` when you finish.
 
@@ -50,17 +50,14 @@ Because JumpCloud API keys are bound to users and they don't support granular pe
 {% endhint %}
 
 1. Login to your [JumpCloud admin portal](https://console.jumpcloud.com/)
-2.  Generate a new API key (or use an existing one). This can be done by clicking your user icon in the upper right corner and selecting "My API key"\
+2.  Generate a new API key (or use an existing one). This can be done by clicking your user icon in the upper right corner and selecting "My API key"\\
 
+    <figure><img src="../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
+3.  If you already generated an API key, you will have to regenerate it here (please note that regenerating the API key may break your existing integrations that already use it).\\
 
-    <figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
-3.  If you already generated an API key, you will have to regenerate it here (please note that regenerating the API key may break your existing integrations that already use it).\
-
-
-    <figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 4. Copy the newly generated API key and navigate to your Defguard instance's settings.
-5.  Paste the key into the "JumpCloud API key" field\
-
+5.  Paste the key into the "JumpCloud API key" field\\
 
     <figure><img src="../../.gitbook/assets/image (202).png" alt=""><figcaption></figcaption></figure>
 6. The JumpCloud directory synchronization should now work and your users' state and group memberships should be periodically synchronized.

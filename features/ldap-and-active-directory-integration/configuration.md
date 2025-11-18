@@ -52,15 +52,13 @@ The "cn" attribute has been configured as the user's RDN as that's what used in 
 
 ### Example OpenLDAP configuration
 
-<figure><img src="../../.gitbook/assets/image (189).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (188) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (185).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
 
 This is an example configuration for an OpenLDAP server integrated with Samba (hence `sambaSamAccount` object class). The `inetOrgPerson` has been set as the user structural class which adds attributes to the LDAP user like `email` or `mobile`. `simpleSecurityObject` class has been added for the ability to set passwords in LDAP.
-
-
 
 ## Known issues
 
@@ -76,9 +74,8 @@ If you are using an older version of Defguard, using the integration with multip
 *   Limiting synchronization to selected groups may not work if your user's DN doesn't match the user search base:
 
     * Search base: `OU=ou,DC=example`
-    * User's DN: `CN=user1,OU=ou1,OU=ou,DC=example`&#x20;
+    * User's DN: `CN=user1,OU=ou1,OU=ou,DC=example`
 
     In this example, the user's DN has deeper nesting than the search base, preventing matching them during the group members lookup.
 
 To fix this problem, you should limit the search base to one organizational unit only, if possible.
-

@@ -52,7 +52,7 @@ If this fails, one may also try installing one of the packages providing the `re
 
 ## Client: Failed to parse IP address
 
-<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
 
 This error usually indicates that the client version is outdated and can't communicate with proxy/core services. Try upgrading the desktop client application.
 
@@ -112,13 +112,11 @@ net.core.wmem_default = 524288
 
 More info here: [https://github.com/DefGuard/defguard/issues/1303](https://github.com/DefGuard/defguard/issues/1303)
 
-
-
 ## Enrollment URL shows http://localhost:8080 despite `DEFGUARD_URL` is different
 
 You are probably looking for `DEFGUARD_ENROLLMENT_URL` which is the URL needed to add device (image below).
 
-<figure><img src="../../.gitbook/assets/DEFGUARD_ENROLLMENT_URL (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DEFGUARD_ENROLLMENT_URL (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Please check [this article](../../deployment-strategies/configuration.md#enrollment-configuration).
 
@@ -218,35 +216,30 @@ This means that the user who runs the GUI client must belong to this group. An i
 
 By default the official packages (deb, rpm etc) should handle creating this group and adding the user, but in case of some unexpected errors it can also be done manually by running the following shell commands:
 
-*   check if the `defguard` group exists: \
-
+*   check if the `defguard` group exists: \\
 
     ```bash
     $ getent group defguard
     defguard:x:988:some_user  # this indicated that the group exists and user some_user is a member
 
     ```
-*   if the group does not exist (you get no lines of output for the above command) create it manually:\
-
+*   if the group does not exist (you get no lines of output for the above command) create it manually:\\
 
     ```bash
     $ sudo groupadd -r defguard
     ```
-*   add current user to the group:\
-
+*   add current user to the group:\\
 
     ```bash
     sudo usermod -a -G groupname $USER
     ```
 * for the group membership changes to take effect you now need to reboot or log out and back in
-*   confirm that your user is a member of `defguard` group:\
-
+*   confirm that your user is a member of `defguard` group:\\
 
     ```bash
     id -nG | grep -q defguard && echo "You are a member of defguard group" || echo "You are NOT a member of defguard group"
     ```
-*   verify that the socket itself has correct permissions:\
-
+*   verify that the socket itself has correct permissions:\\
 
     ```bash
     $ ls -l /var/run/defguard.socket
@@ -275,9 +268,9 @@ sudo systemctl start defguard-service
 
 ## Windows client is unable to connect
 
-If the Windows client is unable to connect to establish a connection and shows command timeout errors it's useful to look into the application logs in the settings screen or in the [log files](../../using-defguard-for-end-users/desktop-client/#log-files) themselves.&#x20;
+If the Windows client is unable to connect to establish a connection and shows command timeout errors it's useful to look into the application logs in the settings screen or in the [log files](../../using-defguard-for-end-users/desktop-client/#log-files) themselves.
 
-If the background service logs contain errors similar to `Unable to access interface: No such file or directory` it might indicate that due to some unforeseen combination of factors a tunnel has not been shut down correctly.&#x20;
+If the background service logs contain errors similar to `Unable to access interface: No such file or directory` it might indicate that due to some unforeseen combination of factors a tunnel has not been shut down correctly.
 
 To verify that this is the case open the system service manager and look for any services named `WireGuard Tunnel`
 

@@ -28,7 +28,7 @@ On Linux the desktop client uses `resolvconf` to manage DNS servers. On newer di
 {% endhint %}
 
 {% hint style="warning" %}
-On Linux the desktop client requires the user to belong to the `defguard` group in order to access the `defguard.socket` Unix socket used for IPC.&#x20;
+On Linux the desktop client requires the user to belong to the `defguard` group in order to access the `defguard.socket` Unix socket used for IPC.
 
 The official packages handle group setup, but logging out and back in or rebooting might be required on initial client install to refresh group membership. This is no longer required on subsequent updates.
 {% endhint %}
@@ -44,7 +44,7 @@ If you don't know how to install AUR packages, please follow these guidelines:
 
 ### Ubuntu 22.04 / Debian 12
 
-Download `defguard-client_{x.x.x}_{arch}_ubuntu-22-04-lts.deb` from [releases](https://github.com/DefGuard/client/releases).&#x20;
+Download `defguard-client_{x.x.x}_{arch}_ubuntu-22-04-lts.deb` from [releases](https://github.com/DefGuard/client/releases).
 
 ### Client update
 
@@ -70,10 +70,9 @@ Application data is stored in following locations:
 
 ### Log files
 
-All relevant application logs should be available in the clients Settings where they can be filtered by source and log level:\
+All relevant application logs should be available in the clients Settings where they can be filtered by source and log level:\\
 
-
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 In case of unexpected issues the log files themselves can also be found in the following locations by default:
 

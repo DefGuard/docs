@@ -64,7 +64,7 @@ You can log into the UI using the default admin user:
 
 When you log in to your instance with user admin and the password that was generated for you, you should see that the VPN gateway is connected:
 
-<figure><img src="../../.gitbook/assets/defguard-location-overview-tutorial (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/defguard-location-overview-tutorial (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Connecting to your VPN using Defguard desktop client
 
@@ -72,7 +72,7 @@ Download the latest client from: [https://github.com/DefGuard/client/releases](h
 
 Now, go to **Defguard** Web UI (in this example: _https://my-server.defguard.net_) and go to _My Profile_ and click on _Add Device:_
 
-<figure><img src="../../.gitbook/assets/add-device-tutorial (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/add-device-tutorial (1).png" alt=""><figcaption></figcaption></figure>
 
 Then choose _Defguard Client Remote Desktop Activation_ - which will easily configure your Desktop client:
 

@@ -52,7 +52,7 @@ Your connection will be established immediately after this step.
 
 ## Multi-Factor Authentication via Mobile Biometry
 
-After configuring VPN on your mobile device and [enabling Biometry](../mobile-client/using-biometry-as-mfa-method.md#setting-up-biometry), we not only enable Biometry based connecting on a mobile device, but add an extra security layer to have the most secure/sophisticated MFA method available.&#x20;
+After configuring VPN on your mobile device and [enabling Biometry](../mobile-client/using-biometry-as-mfa-method.md#setting-up-biometry), we not only enable Biometry based connecting on a mobile device, but add an extra security layer to have the most secure/sophisticated MFA method available.
 
 After enabling Biometry we create an additional private/public key par, with the private key stored on the hardware/secure storage, and inform in the UI, that this device now can be used for MFA using Biometry on a desktop client:
 
@@ -62,11 +62,9 @@ Now, when you connect on the desktop client to a location that has Internal MFA 
 
 <figure><img src="../../.gitbook/assets/mobile-client-desktop-modal (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
+This QR code to be scanned on the mobile device for additional MFA steps:
 
-
-This QR code to be scanned on the mobile device for additional MFA steps:&#x20;
-
-1. &#x20;Biometry authentication, that enables access to device secure storage&#x20;
+1. Biometry authentication, that enables access to device secure storage
 2. Additional validation with private/public key pair between mobile/desktop/core server. After that, our “normal” MFA flow (with session keys, WireGuard private/public keys) takes place.
 
 Here is a video showcasing this process:
@@ -75,4 +73,4 @@ Here is a video showcasing this process:
 
 And here you can see the whole flow done with multiple steps including the user, desktop (and mobile) the Proxy and Defguard Core and gateway in the final step:
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>

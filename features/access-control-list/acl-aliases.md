@@ -63,9 +63,9 @@ Unlike with ACL rules, alias deletion is not tracked as a modification. You cann
 
 Aliases can be used to define an ACL rule destination by selecting them in the input within the **Destination** section:
 
-<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption><p>ACL rule Destination section with Aliases field</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1).png" alt=""><figcaption><p>ACL rule Destination section with Aliases field</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption><p>Alias select modal</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1).png" alt=""><figcaption><p>Alias select modal</p></figcaption></figure>
 
 ## Alias types
 

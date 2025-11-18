@@ -33,7 +33,7 @@ By providing the VPN IPs/masks, you are configuring both: **the VPN internal net
 This field can contain multiple IP addresses (both IPv4 and IPv6), separated by a comma (e.g. `10.10.20.1/24,fc00::abcd:0:1/96`).
 
 {% hint style="info" %}
-### Dual-stack VPN networks
+#### Dual-stack VPN networks
 
 Defguard supports dual-stack VPN networks, allowing simultaneous assignment of both IPv4 and IPv6 addresses to clients. Each VPN network can include multiple IPv4 and IPv6 subnets, and connected clients will automatically receive one address from each defined subnet. This enables seamless communication over both IP versions within a single VPN session.
 {% endhint %}

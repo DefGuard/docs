@@ -39,7 +39,7 @@ First, you will need to configure your LDAP connection. Refer to [configuration.
 
 <figure><img src="../../.gitbook/assets/image (187).png" alt=""><figcaption></figcaption></figure>
 
-Make sure you selected "Enable LDAP integration" as without it, the two-way synchronization won't work. After you fill out all the fields, test your configuration using the <img src="../../.gitbook/assets/image (13).png" alt="" data-size="line"> button.&#x20;
+Make sure you selected "Enable LDAP integration" as without it, the two-way synchronization won't work. After you fill out all the fields, test your configuration using the <img src="../../.gitbook/assets/image (13) (1).png" alt="" data-size="line"> button.
 
 The LDAP two-way synchronization has the following options available:
 
@@ -115,7 +115,7 @@ The full synchronization takes both sources, compares them and produces changes 
 
 With LDAP authority:
 
-* `user3` will be removed from Defguard (since he is not in LDAP),&#x20;
+* `user3` will be removed from Defguard (since he is not in LDAP),
 * `user1` will be added to Defguard (since he is not in there but is in LDAP)
 
 With Defguard authority:
@@ -138,9 +138,9 @@ As passwords are stored as hashes with possibly incompatible hashing algorithm b
 
 #### Defguard → LDAP
 
-Passwords are set in LDAP only on Defguard user account creation, enrollment, password change or reset. Basically when the password is explicitly provided by the user with the intent to set or change it.&#x20;
+Passwords are set in LDAP only on Defguard user account creation, enrollment, password change or reset. Basically when the password is explicitly provided by the user with the intent to set or change it.
 
-This means that if you want to import to LDAP all Defguard users who were created before enabling LDAP integration, they will have to change their passwords in Defguard in order for it to be propagated and set in LDAP.&#x20;
+This means that if you want to import to LDAP all Defguard users who were created before enabling LDAP integration, they will have to change their passwords in Defguard in order for it to be propagated and set in LDAP.
 
 Because some LDAP implementations will require password on user creation, Defguard will set a temporary, long, random text as the LDAP user password until it's not changed/set/reset by the user in Defguard.
 
@@ -168,7 +168,7 @@ Otherwise, report it on our GitHub along with any appropriate logs.
 
 #### Something wasn't updated in LDAP
 
-If you notice that your Defguard change isn't propagated properly to LDAP, run Defguard with debug logs enabled (`DEFGUARD_LOG_LEVEL=debug` environment variable).  Some LDAP errors may be not reported as errors by the LDAP server but most of the operations outputs are logged in the debug logs to help you narrow down the issue.
+If you notice that your Defguard change isn't propagated properly to LDAP, run Defguard with debug logs enabled (`DEFGUARD_LOG_LEVEL=debug` environment variable). Some LDAP errors may be not reported as errors by the LDAP server but most of the operations outputs are logged in the debug logs to help you narrow down the issue.
 
 #### Defguard logs suggest that it uses LDAP authority during synchronization despite setting something different in the settings
 
@@ -179,4 +179,3 @@ Incremental synchronization (as opposed to the full synchronization) internally 
 #### SysErr: DSID-031A1262, problem 22 (Invalid argument)
 
 You are trying to synchronize a Defguard user with username longer than 20 characters, which [AD doesn't support](https://learn.microsoft.com/en-us/windows/win32/adschema/a-samaccountname?redirectedfrom=MSDN).
-

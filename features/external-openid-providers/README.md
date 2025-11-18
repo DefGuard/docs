@@ -84,7 +84,7 @@ In order for users to be created in Defguard they must have the following attrib
 * last name
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/image (137).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (136) (1).png" alt=""><figcaption></figcaption></figure>
 
 If you disable the option above, new users won't be able to automatically go through the enrollment. You will need to create their accounts by hand (with the same email address as the one they have set on your OIDC provider's side) and only then they will have an option to activate it by logging through the provider.
 
@@ -193,8 +193,6 @@ apt update && apt install curl
 #### Non-docker deployments
 
 Make sure you have the curl command installed and you are running the command from the same server on which the Defguard Core is running.
-
-
 
 Use the `curl` command to query one of your provider endpoints:
 

@@ -63,14 +63,14 @@ Defguard does not track rule application status per location. In the event of ne
 Use the **Deploy pending changes** button to apply all the rules from **Pending Changes** section.
 
 {% hint style="info" %}
-#### Batch rule application
+**Batch rule application**
 
 Defguard’s ACL functionality is designed to allow users to apply access control rules in batches. This approach minimizes the risk of transient network issues that could occur when deploying rules individually. By grouping changes and deploying them together, the system reduces the likelihood of connectivity hiccups or firewall disruptions.
 {% endhint %}
 
 The ACL list view also allows rule filtering by name, locations, and other attributes
 
-<figure><img src="../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## How to add and modify ACL rules
 

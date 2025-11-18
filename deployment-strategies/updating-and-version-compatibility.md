@@ -2,9 +2,7 @@
 
 Each service in the Defguard stack can be updated independently, provided the components remain compatible. When components connect, Defguard automatically performs a version check. If an incompatibility is detected, the connection is refused and it will be clearly reported both in the log files and through a dialog in the core UI:
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
-
-
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 **Note on Multiple Gateways per Location**
