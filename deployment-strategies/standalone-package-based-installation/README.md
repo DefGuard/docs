@@ -26,7 +26,7 @@ Before proceeding with the installation, ensure your system meets the following 
 * A server with a public IP address (and you know what that IP address is and to which interface it's assigned) - in this example we use: 185.33.37.51.
 * You have a domain name and know how to assign IP and manage subdomains, in our example: Defguard main url will be _my-server.defguard.net_ (and the subdomain is pointed to 185.33.37.51).
 * Defguard [enrollment service](https://defguard.gitbook.io/defguard/help/enrollment) (run by proxy) that will enable [remote onboarding, enrollment](https://defguard.gitbook.io/defguard/help/enrollment) and [easy configuration for our Desktop Clients (by adding Defguard instances)](../../using-defguard-for-end-users/desktop-client/instance-configuration.md#adding-instance) with instance URL and one simple token - in this tutorial we use: _enroll.defguard.net_ (this subdomain also points to 185.33.37.51).
-* If you have a **firewall**, we assume you have **open port 443** in order to expose both Defguard and enrollment service, but also to automatically issue for these domains SSL Certificates. Port 444 (used for internal GRPC communication) **should not be exposed public.**
+* If you have a **firewall**, we assume you have **opened port 443** in order to expose both Defguard and enrollment service, but also to automatically issue for these domains SSL Certificates. Port 444 (used for internal GRPC communication) **should not be publicly exposed.**
 * System clock is synchronized using Network Time Protocol (NTP). This is important for time-based one-time password (TOTP) codes.
 
 ## Installing a database
@@ -89,26 +89,28 @@ You can also download directly from the Github release page, but please note tha
 
 Once the package appropriate for your distribution is downloaded, install it using the appropriate system tool:
 
-<pre><code># on Debian/Ubuntu
-<strong>sudo dpkg -i &#x3C;path_to_package>/defguard-X.Y.Z-x86_64-unknown-linux-gnu.deb
-</strong>
+```
+# on Debian/Ubuntu
+sudo dpkg -i <path_to_package>/defguard-X.Y.Z-x86_64-unknown-linux-gnu.deb
+
 # on Fedora/Red Hat Linux/SUSE
-sudo rpm -i &#x3C;path_to_rpm_package>/defguard-X.Y.Z-x86_64-unknown-linux-gnu.rpm
+sudo rpm -i <path_to_rpm_package>/defguard-X.Y.Z-x86_64-unknown-linux-gnu.rpm
 
 # FreeBSD
-pkg add &#x3C;path_to_txz_package>/defguard-X.Y.Z_x86_64-unknown-freebsd.pkg
-</code></pre>
+pkg install openssl
+pkg add <path_to_txz_package>/defguard-X.Y.Z_x86_64-unknown-freebsd.pkg
+```
 
-You can check is core installed properly:
+You can check if Defguard Core has been installed properly:
 
 ```
 # defguard -V
-defguard 0.11.0
+defguard_common 1.6.0
 ```
 
 ### Gateway
 
-You can find the URL to your package from the releases of the Core component on [GitHub](https://github.com/DefGuard/gateway/releases).
+You can find the URL to your package from the releases of Defguard Gateway on [GitHub](https://github.com/DefGuard/gateway/releases).
 
 <table><thead><tr><th width="237.4140625">OS discibution</th><th width="150.0078125">OS architecture</th><th>Release artifact naming convention</th></tr></thead><tbody><tr><td>Debian/Ubuntu</td><td>x86</td><td>defguard-gateway_X.Y.Z_x86_64-unknown-linux-gnu.deb</td></tr><tr><td>Debian/Ubuntu</td><td>ARM</td><td>defguard-gateway_X.Y.Z_aarch64-unknown-linux-gnu.deb</td></tr><tr><td>Fedora/Red Hat Linux/SUSE</td><td>x86</td><td>defguard-gateway_X.Y.Z_x86_64-unknown-linux-gnu.rpm</td></tr><tr><td>FreeBSD</td><td>x86</td><td>defguard-gateway_X.Y.Z_x86_64-unknown-freebsd.pkg</td></tr></tbody></table>
 
@@ -138,6 +140,7 @@ sudo dpkg -i <path_to_package>/defguard-gateway-X.Y.Z-x86_64-unknown-linux-gnu.d
 sudo rpm -i <path_to_rpm_package>/defguard-gateway-X.Y.Z-x86_64-unknown-linux-gnu.rpm
 
 # FreeBSD
+pkg install openssl
 pkg add <path_to_txz_package>/defguard-gateway-X.Y.Z_x86_64-unknown-freebsd.pkg
 ```
 
@@ -156,7 +159,7 @@ defguard-gateway 0.7.0
 
 ### Proxy
 
-You can find the URL to your package from the releases of the Core component on [GitHub](https://github.com/DefGuard/proxy/releases).
+You can find the URL to your package from the releases of Defguard Proxy component on [GitHub](https://github.com/DefGuard/proxy/releases).
 
 <table><thead><tr><th width="237.4140625">OS discibution</th><th width="150.0078125">OS architecture</th><th>Release artifact naming convention</th></tr></thead><tbody><tr><td>Debian/Ubuntu</td><td>x86</td><td>defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.deb</td></tr><tr><td>Fedora/Red Hat Linux/SUSE</td><td>x86</td><td>defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.rpm</td></tr></tbody></table>
 
@@ -194,6 +197,7 @@ sudo apt install defguard-proxy
 sudo rpm -i <path_to_rpm_package>/defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.rpm
 
 # FreeBSD
+pkg install openssl
 pkg add <path_to_txz_package>/defguard-proxy-X.Y.Z_x86_64-unknown-freebsd.pkg
 ```
 
@@ -216,7 +220,7 @@ To generate any secret (which **we recommend to be 64 chars)**, use the followin
 `openssl rand -base64 55 | tr -d "=+/" | tr -d '\n' | cut -c1-64`
 {% endhint %}
 
-As previously mentioned, in this tutorial we wil use server domain `my-server.defguard.net`.
+As previously mentioned, in this tutorial we will use server domain `my-server.defguard.net`.
 
 Example `/etc/defguard/core.conf`:
 
@@ -270,11 +274,11 @@ DEFGUARD_DB_PASSWORD="defguard"
 DATABASE_URL="postgresql://defguard:defguard@localhost/defguard"
 ```
 
-**If you have configured your postgres with different names than in** [**PostgreSQL guide**](./#postgresql)**, you can change it in DB configuration part. LDAP configuration is not part of this tutorial, you can also commented those lines.**
+**If you have configured PostgreSQL database with different names than in [PostgreSQL guide](./#postgresql), you can change it in DB configuration part. LDAP configuration is not part of this tutorial, you can also commented those lines.**
 
-**We will back to this configuration to connect Defguard core with proxy in the** [**Run proxy**](./#run-proxy) **section. For now `DEFGUARD_PROXY_URL` is commented.**
+**We will back to this configuration to connect Defguard core with proxy in the [Run proxy](./#run-proxy) section. For now `DEFGUARD_PROXY_URL` is commented.**
 
-After changes, you can simply enable and start your Defguard core service:
+After changes, you can simply enable and start your Defguard Core service:
 
 ```
 # on systems with systemd (like Debian, Ubuntu, Fedora/Red Hat Linux/SUSE)
@@ -512,7 +516,7 @@ Now you have full working Defguard services 🥳
 
 You can [configure your desktop client using the enrollment](../../using-defguard-for-end-users/desktop-client/instance-configuration.md#adding-instance) service and use your VPN.
 
-If you would like to use the feature in the desktop client to route **All traffic** through the VPN please configure your firewall to enable Internet access through your VPN - [here you can find exaples how to do it](https://defguard.gitbook.io/defguard/tutorials/step-by-step-setting-up-a-vpn-server#enabling-to-access-internet-through-your-vpn).
+If you would like to use the feature in the desktop client to route **All traffic** through the VPN please configure your firewall to enable Internet access through your VPN – [here you can find exaples how to do it](https://defguard.gitbook.io/defguard/tutorials/step-by-step-setting-up-a-vpn-server#enabling-to-access-internet-through-your-vpn).
 
 ## Securing the setup
 
@@ -529,7 +533,7 @@ After the installation please make sure that **only the following ports are open
 * 50055
 {% endhint %}
 
-Also this setup provides only communication encryption between Defguard components, if you additionally like for core/proxy and gateway to have authorization - [please setup a custom SSL CA](../grpc-ssl-communication.md#custom-ssl-ca-and-certificates).
+Also this setup provides only communication encryption between Defguard components, if you additionally like for core/proxy and gateway to have authorization – [please setup a custom SSL CA](../grpc-ssl-communication.md#custom-ssl-ca-and-certificates).
 
 ## Upgrading packages
 
@@ -547,7 +551,9 @@ Also this setup provides only communication encryption between Defguard componen
     # or Proxy package
     pkg delete defguard-proxy
     ```
+
 2. Install a newer version (as described [above](./#installing-packages)).
+
 3.  Restart the service.
 
     ```bash
