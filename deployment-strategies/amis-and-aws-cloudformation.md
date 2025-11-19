@@ -84,7 +84,7 @@ Next, select the behavior on deployment failure:
 
 <figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
-&#x20;We recommend cleaning up everything after failed deployment, to keep a clean state when retrying.
+We recommend cleaning up everything after failed deployment, to keep a clean state when retrying.
 
 <figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
@@ -212,7 +212,7 @@ The template will provision two domains: `InternalProxyALBDNSName` and `PublicPr
 
 In order to gain the initial access, use the token displayed in the `AdminFirstDeviceToken` CloudFormation output to add your first device. Check this [guide](https://docs.defguard.net/using-defguard-for-end-users/desktop-client/instance-configuration#adding-instance) on adding a new instance in the Desktop client, to learn more about the process. As the instance URL, use the URL you defined in your Defguard Proxy instance configuration section of the CloudFormation template.
 
-<figure><img src="../.gitbook/assets/image (4) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Accessing the EC2 instances
 
