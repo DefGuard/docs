@@ -33,7 +33,7 @@ We recommend reading the [Architecture documentation](https://docs.defguard.net/
 ### Step by step example setup
 
 {% hint style="info" %}
-In order to use the CloudFormation template you need to subscribe to the Defguard AMI product. The most straightforward way to obtain the template is to do this via subscribing to the AMI product via the marketplace.
+In order to use the CloudFormation template you need to subscribe to the Defguard AMI product. The most straightforward way to obtain the template is to select it during the product delivery after subscribing to the product on the marketplace.
 {% endhint %}
 
 After the CloudFormation template is uploaded either manually or via the marketplace, you will be prompted to fill the details of your deployment. This guide will go over the most important settings that need to be filled for a functional deployment.
@@ -106,17 +106,23 @@ The ALB DNS name outputs will allow you to further configure your domains.
 
 <figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 
-See the [#setting-up-your-domains](amis-and-aws-cloudformation.md#setting-up-your-domains "mention") section for information how to proceed further with domain setup.
+You will need to point the domains you selected ([#prerequisites](amis-and-aws-cloudformation.md#prerequisites "mention")) to the above load balancer domains using a CNAME record. See the [#setting-up-your-domains](amis-and-aws-cloudformation.md#setting-up-your-domains "mention") section for information how to proceed further with domain setup. This step is required for your domains to properly work.
 
-The AdminFirstDeviceToken will allow you to get initial access to the VPN network.
+The `AdminFirstDeviceToken` will allow you to get initial access to the VPN network.
 
 <figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
 
 Refer to [#getting-initial-access-to-the-vpn](amis-and-aws-cloudformation.md#getting-initial-access-to-the-vpn "mention") section for more information on how to add your first device.
 
-You should then be able to see the newly deployed EC2 instances in the AWS console:
+After deploying the CloudFormation template, the newly created EC2 instances should be visible in the AWS console in your target region:
 
 <figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+
+#### Accessing the dashboard
+
+After you use the `AdminFirstDeviceToken` as described in the previous section you will gain access to the VPN network and (by default) the VPC network. To access the Defguard Core dashboard, navigate to the URL you defined in the `CoreUrl` parameter.
+
+To login, use the default `admin` username and the password defined in `CoreDefaultAdminPassword`.
 
 ### Template parameters
 
@@ -201,16 +207,13 @@ After the deployment completes, you will receive a set of outputs in the "output
 
 #### Setting up your domains
 
-The template will provision two domains: `InternalProxyALBDNSName` and `PublicProxyALBDNSName` . The public domain points to the Defguard Proxy instance's reverse proxy, and the internal one to Core's. You can use those domains to setup CNAME records in your DNS provider configuration, so the domains you defined in the `ProxyUrl` and `CoreUrl` point to the correct components:
+The template will provision two domains: `InternalProxyALBDNSName` and `PublicProxyALBDNSName` . The public domain points to the Defguard Proxy instance's reverse proxy, and the internal one to Core's. You can use those domains to setup CNAME records in your DNS provider configuration, so the domains you defined in the `ProxyUrl` and `CoreUrl` point to the correct load balancers (reverse proxies) and in result, to the correct components:
 
-| Your domain                  | CNAME response              | Target component         |
-| ---------------------------- | --------------------------- | ------------------------ |
-| `YOUR_DEFGUARD_CORE_DOMAIN`  | `<InternalProxyALBDNSName>` | Defguard Core (internal) |
-| `YOUR_DEFGUARD_PROXY_DOMAIN` | `<PublicProxyALBDNSName>`   | Defguard Proxy (public)  |
+<table><thead><tr><th width="261">Your domain</th><th>CNAME response</th><th>Target component</th></tr></thead><tbody><tr><td><code>&#x3C;YOUR_DEFGUARD_CORE_DOMAIN></code></td><td><code>&#x3C;InternalProxyALBDNSName></code></td><td>Defguard Core (internal)</td></tr><tr><td><code>&#x3C;YOUR_DEFGUARD_PROXY_DOMAIN></code></td><td><code>&#x3C;PublicProxyALBDNSName></code></td><td>Defguard Proxy (public)</td></tr></tbody></table>
 
 #### Getting initial access to the VPN
 
-In order to gain the initial access, use the token displayed in the `AdminFirstDeviceToken` CloudFormation output to add your first device. Check this [guide](https://docs.defguard.net/using-defguard-for-end-users/desktop-client/instance-configuration#adding-instance) on adding a new instance in the Desktop client, to learn more about the process. As the instance URL, use the URL you defined in your Defguard Proxy instance configuration section of the CloudFormation template.
+In order to gain the initial access, use the token displayed in the `AdminFirstDeviceToken` CloudFormation output to add your first device. Check this [guide](https://docs.defguard.net/using-defguard-for-end-users/desktop-client/instance-configuration#adding-instance) on adding a new instance in the Desktop client, to learn more about the process. As the instance URL, use the URL you defined in your Defguard Proxy instance configuration section of the CloudFormation template (`ProxyUrl`).
 
 <figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
