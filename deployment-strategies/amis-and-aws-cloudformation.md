@@ -44,11 +44,32 @@ After the CloudFormation template is uploaded either manually or via the marketp
 * AWS issued SSL certificates for the two domains. See the [#attaching-certificates](amis-and-aws-cloudformation.md#attaching-certificates "mention") section for more information.
 * An SSH key added to AWS. This will allow you to access the EC2 instances later on.
 
+#### Obtaining the template
+
+1. Subscribe to the product on AWS Marketplace.
+2.  After subscription succeeds, click the launch your software button:\
+
+
+    <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+
+3.  Select the CloudFormation option and click "Launch with CloudFormation"\
+
+
+    <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+
+4. On the "Create stack" screen click next and proceed to the next section ( [#template-parameters](amis-and-aws-cloudformation.md#template-parameters "mention")).
+
 #### Template parameters
 
 After you are presented with the template configuration screen, make sure to fill out the following parameters:
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+Choose a name for the stack. This can be chosen freely but must be unique across your deployed stacks.
+
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 The `CoreDefaultAdminPassword` will be the password used for logging to the Defguard Core dashboard for the `admin` user.
 
@@ -187,19 +208,19 @@ To auto configure HTTPS you will need to create and attach an AWS issued certifi
 
 First, request a new certificate (if you don't have one already).
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 A public certificate is enough.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Specify the domains you will want to use for your Defguard instance (for accessing Defguard Proxy and Defguard Core). Those domains should be the same as those you'll use in `ProxyUrl` and `CoreUrl`.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Next, you will need to validate your domain ownership by adding appropriate CNAME records in your DNS provider. After you complete this step, your certificate can be used. Copy the ARN of your certificate and paste it into the `SSLCertificateArn` parameter in the CloudFormation template.
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Outputs and next steps
 
@@ -215,7 +236,7 @@ The template will provision two domains: `InternalProxyALBDNSName` and `PublicPr
 
 In order to gain the initial access, use the token displayed in the `AdminFirstDeviceToken` CloudFormation output to add your first device. Check this [guide](https://docs.defguard.net/using-defguard-for-end-users/desktop-client/instance-configuration#adding-instance) on adding a new instance in the Desktop client, to learn more about the process. As the instance URL, use the URL you defined in your Defguard Proxy instance configuration section of the CloudFormation template (`ProxyUrl`).
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Accessing the EC2 instances
 
