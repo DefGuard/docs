@@ -47,37 +47,25 @@ Make sure to check the [general guide to directory synchronization](./#directory
 #### Setup
 
 1. Go back to your app registrations in Microsoft Entra ID and select the app you registered during the provider setup.
-2.  Navigate to API permissions\
-
+2.  Navigate to API permissions\\
 
     <figure><img src="../../.gitbook/assets/image (155).png" alt=""><figcaption></figcaption></figure>
-
-
-3.  Click "Add a permission", then select "Microsoft Graph"\
-
+3.  Click "Add a permission", then select "Microsoft Graph"\\
 
     <figure><img src="../../.gitbook/assets/image (156).png" alt=""><figcaption></figcaption></figure>
-
-
-4.  Select "Application permissions", as Defguard will perform the synchronization in the background.\
-
+4.  Select "Application permissions", as Defguard will perform the synchronization in the background.\\
 
     <figure><img src="../../.gitbook/assets/image (157).png" alt=""><figcaption></figcaption></figure>
-
-
 5. Assign the following permissions:
    * `GroupMember.Read.All`
    * `Group.Read.All`
    * `User.Read.All`
-6.  Now grant admin consent for the permissions using the "Grant admin consent for" button\
-
+6.  Now grant admin consent for the permissions using the "Grant admin consent for" button\\
 
     <figure><img src="../../.gitbook/assets/image (158).png" alt=""><figcaption></figcaption></figure>
-
-
 7. You should be good to go now. Navigate to the directory sync settings in Defguard and try to test your setup using the test connection button.
 
-#### Creating Defguard user
+#### Creating Defguard users
 
 {% hint style="warning" %}
 In order for Entra users to be created in Defguard they must have the following attributes set:
@@ -93,7 +81,6 @@ By default directory sync guaranteed only that the state and group membership of
 Currently creating Deguard users during directory synchronization is only available for the Microsoft provider.
 {% endhint %}
 
-To create Defguard users during directory sync enable the `Prefetch users` option:\
-
+To create Defguard users during directory sync enable the `Prefetch users` option:\\
 
 <figure><img src="../../.gitbook/assets/image (204).png" alt=""><figcaption></figcaption></figure>
