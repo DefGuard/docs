@@ -32,7 +32,7 @@ To work properly, this feature requires the Desktop Client to be in version 1.6.
 
 #### Force all traffic
 
-The&#x20;
+1.6 introduces the ability to "Force all traffic" as a [Client traffic policy](../features/wireguard/behavior-customization.md#client-traffic-policy-selection). However, this policy only works with desktop clients ≥ 1.6.0. Older clients (<1.6.0) will not respect the policy and will allow the users to select the "Predefined traffic" option.
 
 #### macOS Client changes
 
