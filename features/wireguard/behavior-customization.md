@@ -26,7 +26,11 @@ One of the unique features of Defguard desktop client is the ability for users t
 
 <figure><img src="../../.gitbook/assets/image (41).png" alt=""><figcaption></figcaption></figure>
 
-However, in some cases administrators may want to enforce a specific behavior - allowing access only to predefined traffic or requiring all traffic to pass through the VPN.\
+However, in some cases administrators may want to enforce a specific behavior - allowing access only to predefined traffic or requiring all traffic to pass through the VPN.
+
+<p align="center"><img src="../../.gitbook/assets/image (47).png" alt=""></p>
+
+\
 The **Client Traffic Policy** setting enables administrators to control this behavior as needed. The available options are:
 
 * **None** - Users can freely choose between routing predefined traffic or all traffic through the VPN.
