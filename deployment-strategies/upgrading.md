@@ -30,24 +30,23 @@ The [service-locations.md](../features/service-locations.md "mention") feature c
 
 To work properly, this feature requires the Desktop Client to be in version 1.6. Service locations won't show up or work in older clients.
 
+#### Force all traffic
+
+The&#x20;
+
 #### macOS Client changes
 
-Desktop Client is now distributed in App Store and uses native VPN management. For these reasons,
-the user settings have moved from `~/Library/Application Support/net.defguard` to
-`~/Library/Containers/net.defguard/Data/Library/Application Support/net.defguard`. In order to
-preserve settings from v1.5.x, use one of the following guides to transfer the data:
+Desktop Client is now distributed in App Store and uses native VPN management. For these reasons, the user settings have moved from `~/Library/Application Support/net.defguard` to `~/Library/Containers/net.defguard/Data/Library/Application Support/net.defguard`. In order to preserve settings from v1.5.x, use one of the following guides to transfer the data:
 
-##### Using Finder
+**Using Finder**
 
-1. In Finder, select the menu **Go**, press and hold _Alt_ key, then select **Library**, as depicted
-   below.
+1. In Finder, select the menu **Go**, press and hold _Alt_ key, then select **Library**, as depicted below.
 
 <figure><img src="../.gitbook/assets/finder-go-library.png" alt=""><figcaption></figcaption></figure>
 
-2. Move or copy the contents of _Application Support_ > _net.defguard_ to _Containers_ >
-   _net.defguard_ > _Data_ > _Library_ > _Application Support_ > _net.defguard_
-   
-##### Using Terminal
+2. Move or copy the contents of _Application Support_ > _net.defguard_ to _Containers_ > _net.defguard_ > _Data_ > _Library_ > _Application Support_ > _net.defguard_
+
+**Using Terminal**
 
 Open Terminal.app and execute
 
@@ -76,7 +75,7 @@ This might mean that until you upgrade all the components your web UI might indi
 
 #### Instance UUID bug
 
-A bug resulting in zeroing the UUID of a given instance has been found and resolved ([PR link](https://github.com/DefGuard/defguard/pull/1521)).&#x20;
+A bug resulting in zeroing the UUID of a given instance has been found and resolved ([PR link](https://github.com/DefGuard/defguard/pull/1521)).
 
 This value is used by the desktop client to identify instances. The new client should gracefully handle migration to a new UUID if it has been zeroed out due to the bug mentioned above.
 

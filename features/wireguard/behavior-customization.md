@@ -6,7 +6,7 @@ This is an enterprise feature. To use it, purchase our [enterprise license](../.
 
 After purchasing the Enterprise License the _Enterprise features_ **tab will be activated**, enabling the administrator to configure additional features:
 
-<figure><img src="../../.gitbook/assets/enterprise-features.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
 
 ### Disable for users to manage their devices
 
@@ -20,15 +20,18 @@ This option will not be available for users:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-10-14 at 12.44.15.png" alt=""><figcaption></figcaption></figure>
 
-### Disable _All Traffic_ option in the desktop client
+### Client traffic policy selection
 
-One of Defguard desktop client unique features is the possibility for the user to automatically route **All network traffic** from their device **through the connected VPN Location**, when the user checks _All traffic_ optio&#x6E;_**:**_
+One of the unique features of Defguard desktop client is the ability for users to choose whether to route only **predefined network traffic** or **all traffic** from their device through a connected VPN location.
 
-![](<../../.gitbook/assets/Screenshot 2024-10-14 at 12.49.30.png>)
+<figure><img src="../../.gitbook/assets/image (41).png" alt=""><figcaption></figcaption></figure>
 
-But there are scenarios that administrator would like that users have only access to the **predefined traffic** (meaning Allowed IPs in the Network VPN configuration) and the possibility to access all networks disabled.
+However, in some cases administrators may want to enforce a specific behavior - allowing access only to predefined traffic or requiring all traffic to pass through the VPN.\
+The **Client Traffic Policy** setting enables administrators to control this behavior as needed. The available options are:
 
-When enabling this option, users will only have _predefined traffic_ available in their desktop client and the _all traffic_ option disabled.
+* **None** - Users can freely choose between routing predefined traffic or all traffic through the VPN.
+* **Disable all traffic** - Only predefined traffic is allowed, the "All traffic" option is disabled for users.
+* **Force all traffic** - All traffic is routed through the VPN, the "All traffic" option is enforced and cannot be changed by users.
 
 {% hint style="warning" %}
 Please note that this option is only client-side enforced, meaning the user may manually modify Wireguard interface to force all traffic to go through the VPN.

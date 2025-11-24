@@ -47,14 +47,12 @@ After the CloudFormation template is uploaded either manually or via the marketp
 #### Obtaining the template
 
 1. Subscribe to the product on AWS Marketplace.
-2.  After subscription succeeds, click the launch your software button:\
-
+2.  After subscription succeeds, click the launch your software button:<br>
 
     <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 
-3.  Select the CloudFormation option and click "Launch with CloudFormation"\
-
+3.  Select the CloudFormation option and click "Launch with CloudFormation"<br>
 
     <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
