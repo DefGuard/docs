@@ -11,6 +11,5 @@ Here is a list of all Enterprise features:
 * Ability to use [external OIDC for secure remote enrollment and Desktop client configuration](../features/external-openid-providers/external-oidc-secure-enrollment.md)
 * Ability to [disable for users to manage their devices](../features/wireguard/behavior-customization.md#disable-for-users-to-manage-their-devices) (just admin will have this possibility).
 * Ability to [disable for users to configure WireGuard clients other then Defguard desktop client](../features/wireguard/behavior-customization.md#disable-ability-to-configure-other-vpn-clients-then-defguard-desktop-client).
-* Ability to [disable "All traffic" in the desktop client ](../features/wireguard/behavior-customization.md#disable-all-traffic-option-in-the-desktop-client)- just "predefined" traffic by admins.
+* Ability to [configure client traffic policy](../features/wireguard/behavior-customization.md#client-traffic-policy-selection).
 * Ability to integrate with external tooling using [REST API](../features/integrations/api-tokens.md).
-
