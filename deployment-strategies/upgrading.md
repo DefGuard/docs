@@ -32,7 +32,7 @@ To work properly, this feature requires the Desktop Client to be in version 1.6.
 
 #### Force all traffic
 
-1.6 introduces the ability to "Force all traffic" as a [Client traffic policy](../features/wireguard/behavior-customization.md#client-traffic-policy-selection). However, this policy only works with desktop clients ≥ 1.6.0. Older clients (<1.6.0) will not respect the policy and will allow the users to select the "Predefined traffic" option.
+1.6 introduces the ability to "Force all traffic" as a [Client traffic policy](../features/wireguard/behavior-customization.md#client-traffic-policy-selection). However, this policy only works with desktop and mobile clients ≥ 1.6.0. Older clients (<1.6.0) will not respect the policy and will allow the users to select the "Predefined traffic" option. As an alternative, administrators can enforce all traffic by setting allowed ips: `0.0.0.0/0, ::/0`.
 
 #### macOS Client changes
 
@@ -62,6 +62,12 @@ The Windows Desktop Client installer has changed. The installer is now provided 
 Installing the new 1.6.0 Client from the `.msi` will leave the previous Client version still installed. This can also cause old VPN connections to still be active until a next system restart is performed.
 
 To resolve this, before upgrading, we recommend first uninstalling the old Client. This will leave your configuration intact and it should carry over to the new Client after its installation, without the need to configure everything again.
+
+### Mobile client
+
+**Force all traffic**
+
+1.6 introduces the ability to "Force all traffic" as a [Client traffic policy](https://app.gitbook.com/o/Z3mGSAbEj9iLdZ7cNFlL/s/e86iamwJVSYnIRsyVEAV/features/wireguard/behavior-customization#client-traffic-policy-selection). However, this policy only works with desktop and mobile clients ≥ 1.6.0. Older clients (<1.6.0) will not respect the policy and will allow the users to select the "Predefined traffic" option. As an alternative, administrators can enforce all traffic by setting allowed ips: `0.0.0.0/0, ::/0`.
 
 ## 1.4.x -> 1.5.0
 
