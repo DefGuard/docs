@@ -31,6 +31,11 @@ Make sure to include **all of them** in your report.
 
 For UI components, also take screenshots if the issue affects layout, design, or visual behavior.
 
+{% hint style="warning" %}
+Please include only the log entries captured around the time the issue occurred and make sure the logs contain the actual error message.\
+This helps us identify the root cause without having to sift through unnecessary log data.
+{% endhint %}
+
 ### 4. Provide steps to reproduce
 
 In addition to logs, clearly describe how the issue can be reproduced. Include:
