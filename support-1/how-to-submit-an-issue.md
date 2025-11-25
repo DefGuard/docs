@@ -15,6 +15,7 @@ Here is how you can do it in each component
 * gateway: use `--log-level debug` option or set `DEFGUARD_LOG_LEVEL` environment variable to `debug`
 * proxy: use `--log-level debug` option or set `DEFGUARD_PROXY_LOG_LEVEL` environment variable to `debug`
 * client: use `--log-level debug` option or set `DEFGUARD_LOG_LEVEL` environment variable to `debug`
+* `mobile client: select "debug" in "View Application Logs" section`
 
 ### 2. Reproduce the problem
 
@@ -40,6 +41,7 @@ This helps us identify the root cause without having to sift through unnecessary
 
 In addition to logs, clearly describe how the issue can be reproduced. Include:
 
+* Description of your deployment strategy
 * Exact steps you took
 * Expected behavior
 * Actual behavior
