@@ -331,7 +331,7 @@ This immediately reduces the DB size and disk I/O.
 
 This is the nuclear option but works reliably.
 
-**Long-Term Fix**
+### **Long-Term Fix**
 
 The stats subsystem is being **fully redesigned** in the upcoming **2.0** release.\
 The new implementation will avoid these SQLite table-scan issues entirely.
