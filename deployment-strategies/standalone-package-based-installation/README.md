@@ -128,7 +128,7 @@ Example:
 # wget https://github.com/DefGuard/gateway/releases/download/v0.7.0/defguard-gateway_0.7.0_x86_64-unknown-linux-gnu.deb
 ```
 
-You can also download directly from the Github release page, but please note that you should know the path where this could be stored after downloading.&#x20;
+You can also download directly from the Github release page, but please note that you should know the path where this could be stored after downloading.
 
 Once the package appropriate for your distribution is downloaded, install it using the appropriate system tool:
 
@@ -177,7 +177,7 @@ Example:
 wget https://github.com/DefGuard/proxy/releases/download/v0.5.0/defguard-proxy-0.5.0-x86_64-unknown-linux-gnu.deb
 ```
 
-You can also download directly from the Github release page, but please note that you should know the path where this could be stored after downloading.&#x20;
+You can also download directly from the Github release page, but please note that you should know the path where this could be stored after downloading.
 
 Once the package appropriate for your distribution is downloaded, install it using the appropriate system tool:
 
@@ -274,9 +274,9 @@ DEFGUARD_DB_PASSWORD="defguard"
 DATABASE_URL="postgresql://defguard:defguard@localhost/defguard"
 ```
 
-**If you have configured PostgreSQL database with different names than in [PostgreSQL guide](./#postgresql), you can change it in DB configuration part. LDAP configuration is not part of this tutorial, you can also commented those lines.**
+**If you have configured PostgreSQL database with different names than in** [**PostgreSQL guide**](./#postgresql)**, you can change it in DB configuration part. LDAP configuration is not part of this tutorial, you can also commented those lines.**
 
-**We will back to this configuration to connect Defguard core with proxy in the [Run proxy](./#run-proxy) section. For now `DEFGUARD_PROXY_URL` is commented.**
+**We will back to this configuration to connect Defguard core with proxy in the** [**Run proxy**](./#run-proxy) **section. For now `DEFGUARD_PROXY_URL` is commented.**
 
 After changes, you can simply enable and start your Defguard Core service:
 
@@ -537,13 +537,17 @@ Also this setup provides only communication encryption between Defguard componen
 
 ## Upgrading packages
 
+{% hint style="info" %}
+If the new version introduces changes to the default configuration, the existing configuration file will not be overwritten. Instead, a separate file containing the updated default configuration will be created.
+{% endhint %}
+
 #### FreeBSD/OPNsense
 
 1.  Uninstall the current version.
 
     ```bash
     # Core package
-    pkg delete defguard-gateway
+    pkg delete defguard
 
     # or Gateway package
     pkg delete defguard-gateway
@@ -551,9 +555,7 @@ Also this setup provides only communication encryption between Defguard componen
     # or Proxy package
     pkg delete defguard-proxy
     ```
-
 2. Install a newer version (as described [above](./#installing-packages)).
-
 3.  Restart the service.
 
     ```bash
