@@ -533,13 +533,17 @@ Also this setup provides only communication encryption between Defguard componen
 
 ## Upgrading packages
 
+{% hint style="info" %}
+If the new version introduces changes to the default configuration, the existing configuration file will not be overwritten. Instead, a separate file containing the updated default configuration will be created.
+{% endhint %}
+
 #### FreeBSD/OPNsense
 
 1.  Uninstall the current version.
 
     ```bash
     # Core package
-    pkg delete defguard-gateway
+    pkg delete defguard
 
     # or Gateway package
     pkg delete defguard-gateway
