@@ -219,35 +219,30 @@ This means that the user who runs the GUI client must belong to this group. An i
 
 By default the official packages (deb, rpm etc) should handle creating this group and adding the user, but in case of some unexpected errors it can also be done manually by running the following shell commands:
 
-*   check if the `defguard` group exists: \
-
+*   check if the `defguard` group exists: <br>
 
     ```bash
     $ getent group defguard
     defguard:x:988:some_user  # this indicated that the group exists and user some_user is a member
 
     ```
-*   if the group does not exist (you get no lines of output for the above command) create it manually:\
-
+*   if the group does not exist (you get no lines of output for the above command) create it manually:<br>
 
     ```bash
     $ sudo groupadd -r defguard
     ```
-*   add current user to the group:\
-
+*   add current user to the group:<br>
 
     ```bash
     sudo usermod -a -G groupname $USER
     ```
 * for the group membership changes to take effect you now need to reboot or log out and back in
-*   confirm that your user is a member of `defguard` group:\
-
+*   confirm that your user is a member of `defguard` group:<br>
 
     ```bash
     id -nG | grep -q defguard && echo "You are a member of defguard group" || echo "You are NOT a member of defguard group"
     ```
-*   verify that the socket itself has correct permissions:\
-
+*   verify that the socket itself has correct permissions:<br>
 
     ```bash
     $ ls -l /var/run/defguard.socket
@@ -285,3 +280,54 @@ To verify that this is the case open the system service manager and look for any
 <figure><img src="../../.gitbook/assets/image (202).png" alt=""><figcaption></figcaption></figure>
 
 If any such services are present, remove them and retry the connection.
+
+## Desktop client high disk usage
+
+Some users may experience unusually high disk activity from the Defguard desktop client, even when the app appears idle. This is almost always caused by SQLite performing full-table scans on large statistics tables.
+
+\
+**1. Check Your Client Version**
+
+The fix for the original table-scan problem was introduced in **v1.5.2**.
+
+**Steps:**
+
+* Open Defguard Desktop
+* Look at the **bottom-left corner** → confirm the version is ≥ **v1.5.2**
+* If not, download the latest version: [https://defguard.net/download/](https://defguard.net/download/)
+
+**2. Check the Database Size**
+
+If the stats purge mechanism is not working correctly or heavy usage generates too much data, the database can grow very large.
+
+**Location of the DB file: `C:\Users<YOUR_USERNAME>\AppData\Roaming\net.defguard\defguard.db`**
+
+**Typical sizes:**
+
+* Normal usage: a few MB
+* Problematic: tens or hundreds of MB (e.g., 50–200 MB)
+
+**3. Temporary Workarounds**
+
+{% hint style="danger" %}
+Before trying any fix, **back up your database file**.
+{% endhint %}
+
+#### **Option A — Trim Stats Tables (safe & recommended)**
+
+Install [SQLite](https://sqlite.org/index.html), open the DB, and run:
+
+```sql
+delete from location_stats;
+delete from tunnel_stats;
+```
+
+This immediately reduces the DB size and disk I/O.
+
+#### **Option B — Remove the Database Entirely (quickest, but requires re-enrollment)**
+
+1. Close Defguard completely
+2. Delete the database file: `C:\Users<YOUR_USERNAME>\AppData\Roaming\net.defguard\defguard.db`
+3. Re-enroll your device in Defguard (you will need your enrollment link or admin setup)
+
+This is the nuclear option but works reliably.
