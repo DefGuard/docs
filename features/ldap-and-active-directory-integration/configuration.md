@@ -82,3 +82,25 @@ If you are using an older version of Defguard, using the integration with multip
 
 To fix this problem, you should limit the search base to one organizational unit only, if possible.
 
+### LDAP users can't go through the enrollment process
+
+By default, if a user is synchronized from LDAP (or logs in through the LDAP integration) they do not go through the enrollment process in the Client when adding their first device. LDAP user already has all the details configured in order to login to Defguard. In some scenarios though it may be necessary to force the user to still go through the enrollment process first, for example, for them to be able to initially set their MFA method in the Client without having access to the Defguard dashboard and their profile yet.
+
+In the 1.5 version, forcing an LDAP user to go through the enrollment process requires the following workaround:
+
+1. You will need to access the database. This can be achieved in several ways:
+   1. If your Defguard database is running in a Docker container, for example if you deployed from the one line script, you can use the PSQL client inside the database container:
+      1. Execute `sudo docker container ls` to see what containers are running
+      2. Copy the container ID or name of the Defguard database container.
+      3. Do `sudo docker exec -it <CONTAINER_ID_OR_NAME> psql -U defguard` to gain access to the database
+   2. If your database is not running inside a Docker container but as standalone process, you will need to use the PSQL tool directly. If you are on the same server as a database the correct PSQL CLI should already be installed. Otherwise, you will need to install the appropriate version (matching the PostgreSQL version of your Defguard database) of the tool, for example by doing `sudo apt install postgresql-client-17` (for systems using APT) if your PostgreSQL version is 17. After installing the client:&#x20;
+      1. Run `psql -h <DATABASE_HOST> -p <DATABASE_PORT> -d defguard -U defguard`&#x20;
+      2. You will be prompted for a password. The database password can be found in your Defguard Core environment variables (for example, in it's `.env` file, or `/etc/defguard/core.conf` if you installed from DEB/RPM packages).
+2. After you gain access to the database and are in the PSQL prompt, you can execute the following to force given LDAP user to go through the enrollment process:\
+   `update "user" set from_ldap = false where username = '<USERNAME>';`\
+   You can also match the user by their `email`, if you prefer. And if you want to do this for **all** LDAP users:\
+   `update "user" set from_ldap = false where ldap_user_path is not null;`
+3. Performing those commands will cause the user to be forced to go through the enrollment process. This method comes with some caveats:
+   1. This won't work if a given user already has a password set in Defguard. Users with password set are always considered to be already enrolled. Typically LDAP users won't have their passwords set in Defguard if they haven't done it manually via a password reset.
+   2. If a user performs a login to the Defguard dashboard through LDAP their "from\_ldap" status is again set to "true", marking them back as already enrolled.
+   3. During the enrollment process the user will be prompted to enter a new password. This password can be later used for dashboard login but users will be still be able to login through their LDAP credentials.
