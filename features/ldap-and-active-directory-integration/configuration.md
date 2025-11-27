@@ -100,7 +100,7 @@ In the 1.5 version, forcing an LDAP user to go through the enrollment process re
    `update "user" set from_ldap = false where username = '<USERNAME>';`\
    You can also match the user by their `email`, if you prefer. And if you want to do this for **all** LDAP users:\
    `update "user" set from_ldap = false where ldap_user_path is not null;`
-3. Performing those commands will cause the user to be forced to go through the enrollment process. This method comes with some caveats:
+3. Performing those commands will cause the user to be forced to go through the enrollment process when they try to configure a new device in the Desktop client. This method comes with some caveats:
    1. This won't work if a given user already has a password set in Defguard. Users with password set are always considered to be already enrolled. Typically LDAP users won't have their passwords set in Defguard if they haven't done it manually via a password reset.
    2. If a user performs a login to the Defguard dashboard through LDAP their "from\_ldap" status is again set to "true", marking them back as already enrolled.
    3. During the enrollment process the user will be prompted to enter a new password. This password can be later used for dashboard login but users will be still be able to login through their LDAP credentials.
