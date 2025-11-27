@@ -331,3 +331,8 @@ This immediately reduces the DB size and disk I/O.
 3. Re-enroll your device in Defguard (you will need your enrollment link or admin setup)
 
 This is the nuclear option but works reliably.
+
+**Long-Term Fix**
+
+The stats subsystem is being **fully redesigned** in the upcoming **2.0** release.\
+The new implementation will avoid these SQLite table-scan issues entirely.
