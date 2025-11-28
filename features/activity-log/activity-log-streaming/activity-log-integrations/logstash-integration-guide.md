@@ -1,5 +1,5 @@
 ---
-description: How to stream activity logs to vector.
+description: How to stream activity logs to logstash.
 ---
 
 # Logstash integration guide
@@ -42,7 +42,7 @@ Add Logstash service to the `docker-compose.yaml` and start it.
 
 In Defguard UI with an administrator account, go into settings page and choose `Activity log streaming`.
 
-Click `Add new` and choose `Vector` destination.
+Click `Add new` and choose `Logstash` destination.
 
 <figure><img src="../../../../.gitbook/assets/image (94).png" alt=""><figcaption></figcaption></figure>
 
@@ -82,4 +82,4 @@ Modify Logstash destination in settings and fill`username` and `password` in set
 
 ### Logstash integration configuration
 
-<table data-full-width="true"><thead><tr><th>Name</th><th width="203.7999267578125">Example value</th><th width="111.199951171875" data-type="checkbox">Required</th><th width="230">Logstash related configuration</th><th>Description</th></tr></thead><tbody><tr><td>Name</td><td>Logstash</td><td>true</td><td></td><td>Assigned name for the destination.</td></tr><tr><td>Url</td><td>http(s)://127.0.0.1:8002</td><td>true</td><td><a href="https://www.elastic.co/docs/reference/logstash/plugins/plugins-inputs-http#plugins-inputs-http-host">host</a>, <a href="https://www.elastic.co/docs/reference/logstash/plugins/plugins-inputs-http#plugins-inputs-http-port">port</a></td><td>Address of running vector HTTP source.</td></tr><tr><td>Username</td><td>logstash</td><td>false</td><td><a href="https://www.elastic.co/docs/reference/logstash/plugins/plugins-inputs-http#plugins-inputs-http-user">user</a></td><td>username for Basic Authentication</td></tr><tr><td>Password</td><td>strongPassword</td><td>false</td><td><a href="https://www.elastic.co/docs/reference/logstash/plugins/plugins-inputs-http#plugins-inputs-http-password">password</a></td><td>password for Basic Authentication</td></tr><tr><td>Cert</td><td>contents of cert.pem</td><td>false</td><td><a href="https://www.elastic.co/docs/reference/logstash/plugins/plugins-inputs-http#plugins-inputs-http-ssl_certificate">ssl_certificate</a></td><td>Used for TLS connection</td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th>Name</th><th width="203.7999267578125">Example value</th><th width="111.199951171875" data-type="checkbox">Required</th><th width="230">Logstash related configuration</th><th>Description</th></tr></thead><tbody><tr><td>Name</td><td>Logstash</td><td>true</td><td></td><td>Assigned name for the destination.</td></tr><tr><td>Url</td><td>http(s)://127.0.0.1:8002</td><td>true</td><td><a href="https://www.elastic.co/docs/reference/logstash/plugins/plugins-inputs-http#plugins-inputs-http-host">host</a>, <a href="https://www.elastic.co/docs/reference/logstash/plugins/plugins-inputs-http#plugins-inputs-http-port">port</a></td><td>Address of running logstash HTTP source.</td></tr><tr><td>Username</td><td>logstash</td><td>false</td><td><a href="https://www.elastic.co/docs/reference/logstash/plugins/plugins-inputs-http#plugins-inputs-http-user">user</a></td><td>username for Basic Authentication</td></tr><tr><td>Password</td><td>strongPassword</td><td>false</td><td><a href="https://www.elastic.co/docs/reference/logstash/plugins/plugins-inputs-http#plugins-inputs-http-password">password</a></td><td>password for Basic Authentication</td></tr><tr><td>Cert</td><td>contents of cert.pem</td><td>false</td><td><a href="https://www.elastic.co/docs/reference/logstash/plugins/plugins-inputs-http#plugins-inputs-http-ssl_certificate">ssl_certificate</a></td><td>Used for TLS connection</td></tr></tbody></table>
