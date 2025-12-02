@@ -76,7 +76,7 @@ If a new version is available, a notification with a download button will be sho
 
 All relevant application logs should be available in the clients Settings where they can be filtered by source and log level:<br>
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In case of unexpected issues the log files themselves can also be found in the following locations by default:
 

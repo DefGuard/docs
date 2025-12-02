@@ -50,7 +50,7 @@ ping <GATEWAY_VPN_SUBNET_IP>
 
 If you have the official [WireGuard CLI](https://www.wireguard.com/install/) installed you can also verify the VPN connection by checking for the latest handshake. If there's no handshake, a connection has not been established.<br>
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 **If gateway is unreachable within VPN subnet:**
 
