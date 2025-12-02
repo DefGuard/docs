@@ -18,4 +18,4 @@ Now log in with your SSO and after successful login process, you will receive in
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-11-15 at 18.52.56.png" alt=""><figcaption></figcaption></figure>
 
-Download the [Defguard desktop client](https://defguard.net/download/), and [enter _Instance URL_ and _token_ shown on this screen - more details here](broken-reference).
+Download the [Defguard desktop client](https://defguard.net/download/), and [enter _Instance URL_ and _token_ shown on this screen - more details here](/broken/pages/Pvsv731zze0GmV33wtUl#automatic-with-defguard-client).

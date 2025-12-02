@@ -59,22 +59,19 @@ To learn more about the rest of the configuration options, see the [general dire
 
 #### Directory synchronization setup
 
-1.  Navigate to [Service Accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) in the Google Cloud console\
-
+1.  Navigate to [Service Accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) in the Google Cloud console<br>
 
     <figure><img src="../../.gitbook/assets/image (145).png" alt=""><figcaption></figcaption></figure>
 
 
 2. Click "Create service account"
-3.  Give your service account a descriptive name\
-
+3.  Give your service account a descriptive name<br>
 
     <figure><img src="../../.gitbook/assets/image (147).png" alt=""><figcaption></figcaption></figure>
 
 
 4. Skip step 2 and 3 if you are not sure what to configure there.
-5.  Go to your newly created service account and add a new key in the "KEYS" tab.\
-
+5.  Go to your newly created service account and add a new key in the "KEYS" tab.<br>
 
     <figure><img src="../../.gitbook/assets/image (148).png" alt=""><figcaption></figcaption></figure>
 
@@ -82,15 +79,13 @@ To learn more about the rest of the configuration options, see the [general dire
 6. A JSON file will be downloaded after you click "CREATE". Store it securely as it may grant access to your Google Workspace directory.
 7. Next, navigate to the "DETAILS" tab and copy the unique ID of your service account.
 8. Open the Advanced settings and under Domain-wide delegation click "View google workspace admin console"
-9.  Now in the admin console, navigate to [API controls](https://admin.google.com/u/1/ac/owl)\
-
+9.  Now in the admin console, navigate to [API controls](https://admin.google.com/u/1/ac/owl)<br>
 
     <figure><img src="../../.gitbook/assets/image (149).png" alt=""><figcaption></figcaption></figure>
 
 
 10. In the API controls, click "Manage domain wide delegation"
-11. On the next screen, add a new API client\
-
+11. On the next screen, add a new API client<br>
 
     <figure><img src="../../.gitbook/assets/image (150).png" alt=""><figcaption></figcaption></figure>
 

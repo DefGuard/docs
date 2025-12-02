@@ -47,20 +47,17 @@ Make sure to check the [general guide to directory synchronization](./#directory
 #### Setup
 
 1. Go back to your app registrations in Microsoft Entra ID and select the app you registered during the provider setup.
-2.  Navigate to API permissions\
-
+2.  Navigate to API permissions<br>
 
     <figure><img src="../../.gitbook/assets/image (154).png" alt=""><figcaption></figcaption></figure>
 
 
-3.  Click "Add a permission", then select "Microsoft Graph"\
-
+3.  Click "Add a permission", then select "Microsoft Graph"<br>
 
     <figure><img src="../../.gitbook/assets/image (155).png" alt=""><figcaption></figcaption></figure>
 
 
-4.  Select "Application permissions", as Defguard will perform the synchronization in the background.\
-
+4.  Select "Application permissions", as Defguard will perform the synchronization in the background.<br>
 
     <figure><img src="../../.gitbook/assets/image (156).png" alt=""><figcaption></figcaption></figure>
 
@@ -69,8 +66,7 @@ Make sure to check the [general guide to directory synchronization](./#directory
    * `GroupMember.Read.All`
    * `Group.Read.All`
    * `User.Read.All`
-6.  Now grant admin consent for the permissions using the "Grant admin consent for" button\
-
+6.  Now grant admin consent for the permissions using the "Grant admin consent for" button<br>
 
     <figure><img src="../../.gitbook/assets/image (157).png" alt=""><figcaption></figcaption></figure>
 

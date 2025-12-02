@@ -74,8 +74,7 @@ If a new version is available, a notification with a download button will be sho
 
 ### Log files
 
-All relevant application logs should be available in the clients Settings where they can be filtered by source and log level:\
-
+All relevant application logs should be available in the clients Settings where they can be filtered by source and log level:<br>
 
 <figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 

@@ -81,7 +81,7 @@
 * [Docker Compose](deployment-strategies/docker-compose.md)
 * [Kubernetes](deployment-strategies/kubernetes.md)
 * [Terraform](deployment-strategies/terraform.md)
-* [AMIs and AWS CloudFormation](deployment-strategies/amis-and-aws-cloudformation.md)
+* [Amazon Machine Image (AMI)](deployment-strategies/amis-and-aws-cloudformation.md)
 * [Adding a location and getting a Gateway token](deployment-strategies/gateway.md)
 * [Configuration](deployment-strategies/configuration.md)
 * [Running Gateway on OPNsense firewall](deployment-strategies/running-gateway-on-opnsense-firewall.md)

@@ -50,17 +50,14 @@ Because JumpCloud API keys are bound to users and they don't support granular pe
 {% endhint %}
 
 1. Login to your [JumpCloud admin portal](https://console.jumpcloud.com/)
-2.  Generate a new API key (or use an existing one). This can be done by clicking your user icon in the upper right corner and selecting "My API key"\
-
+2.  Generate a new API key (or use an existing one). This can be done by clicking your user icon in the upper right corner and selecting "My API key"<br>
 
     <figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
-3.  If you already generated an API key, you will have to regenerate it here (please note that regenerating the API key may break your existing integrations that already use it).\
-
+3.  If you already generated an API key, you will have to regenerate it here (please note that regenerating the API key may break your existing integrations that already use it).<br>
 
     <figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 4. Copy the newly generated API key and navigate to your Defguard instance's settings.
-5.  Paste the key into the "JumpCloud API key" field\
-
+5.  Paste the key into the "JumpCloud API key" field<br>
 
     <figure><img src="../../.gitbook/assets/image (201).png" alt=""><figcaption></figcaption></figure>
 6. The JumpCloud directory synchronization should now work and your users' state and group memberships should be periodically synchronized.
