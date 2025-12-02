@@ -25,17 +25,17 @@ After obtaining the token, proceed with deploying the Gateway service. During it
 
 {% stepper %}
 {% step %}
-#### Deploy Defguard Core service.
+**Deploy Defguard Core service.**
 {% endstep %}
 
 {% step %}
-#### Add a new location in Core's web interface and obtain a token.&#x20;
+**Add a new location in Core's web interface and obtain a token.**
 
 More on that [here](gateway.md).
 {% endstep %}
 
 {% step %}
-#### Deploy Gateway configured with the token.
+**Deploy Gateway configured with the token.**
 {% endstep %}
 {% endstepper %}
 
@@ -48,7 +48,7 @@ More on that [here](gateway.md).
 | [Docker Compose](docker-compose.md)                           | :yellow\_circle: Medium, Docker knowledge required               | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Small to medium deployment      |
 | [Kubernetes](kubernetes.md)                                   | :red\_circle: Advanced, requires a k8s cluster and administrator | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Large or enterprise deployments |
 | [Terraform](terraform.md)                                     | :red\_circle: Advanced, requires an AWS account and knowledge    | :white\_check\_mark:                                                                                            | Large or enterprise deployments |
-| [AMI and AWS CloudFormation](amis-and-aws-cloudformation.md)  | :red\_circle: Advanced, requires an AWS account and knowledge    | :white\_check\_mark:                                                                                            | Large or enterprise deployments |
+| [AMI and AWS CloudFormation](amis-and-aws-cloudformation/)    | :red\_circle: Advanced, requires an AWS account and knowledge    | :white\_check\_mark:                                                                                            | Large or enterprise deployments |
 
 ## Configure to your needs
 
