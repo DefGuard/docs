@@ -260,4 +260,4 @@ The selected syslog socket may be wrong. See the `syslog_socket` configuration o
 
 This issue most often takes the form of not being able to login without any obvious cause. The login button doesn't redirect and no relevant error message is displayed in the Defguard Core logs. In this case we recommend checking the browser logs (usually right click > inspect should open the developer tools along with the browser console). If you can see the above error, this means that your `DEFGUARD_URL` configuration option doesn't match the URL you use to access the dashboard at the moment.
 
-For example, if your login screen is at \``http://my.domain.com:8000/auth/login` set `DEFGUARD_URL` to \``` http://my.domain.com:8000` `` .
+For example, if your login screen is at `http://my.domain.com:8000/auth/login` set `DEFGUARD_URL` to `` http://my.domain.com:8000` `` .
