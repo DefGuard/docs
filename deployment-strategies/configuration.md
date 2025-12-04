@@ -49,8 +49,8 @@ You can generate random strings for secrets with e.g.:
 * `DEFGUARD_AUTH_COOKIE_TIMEOUT`: Cookie lifetime period, default: `7d` ([Humantime documentation](https://docs.rs/humantime/latest/humantime/struct.Duration.html))
 * `DEFGUARD_MFA_CODE_TIMEOUT`: Email code lifetime period, default: `60s` ([Humantime documentation](https://docs.rs/humantime/latest/humantime/struct.Duration.html))
 * `DEFGUARD_SESSION_TIMEOUT`: Session lifetime period, default: `7d` ([Humantime documentation](https://docs.rs/humantime/latest/humantime/struct.Duration.html))
-* `DEFGUARD_HTTP_BIND_ADDRESS`: The IP address that the HTTP should bind to&#x20;
-* `DEFGUARD_GRPC_BIND_ADDRESS`: The IP address that the gRPC should bind to&#x20;
+* `DEFGUARD_HTTP_BIND_ADDRESS`: The IP address that the HTTP should bind to
+* `DEFGUARD_GRPC_BIND_ADDRESS`: The IP address that the gRPC should bind to
 
 ### Database configuration
 
@@ -114,9 +114,9 @@ Here are proxy ENV variables. gRPC configuration is described more [on this help
 * `DEFGUARD_PROXY_GRPC_KEY`(optional): path to TLS key file. [More on that in this help page.](grpc-ssl-communication.md)
 * `DEFGUARD_PROXY_URL` - if you wish to use External OIDC enrollment/desktop client configuration, please set this value to the same as `DEFGUARD_ENROLLMENT_URL` in core. This is the address at which the proxy Web UI is available.
 * `DEFGUARD_PROXY_LOG_LEVEL` : [Logger](https://crates.io/crates/log) log level, default: `info`, supported: `debug`, `warn`, `error`
-* `DEFGUARD_HTTP_BIND_ADDRESS`: The IP address that the HTTP should bind to&#x20;
-* `DEFGUARD_GRPC_BIND_ADDRESS`: The IP address that the gRPC should bind to&#x20;
-* `DEFGUARD_PROXY_RATELIMIT_PERSECOND` - The (average) number of requests per second made without being eventually rate limited&#x20;
+* `DEFGUARD_HTTP_BIND_ADDRESS`: The IP address that the HTTP should bind to
+* `DEFGUARD_GRPC_BIND_ADDRESS`: The IP address that the gRPC should bind to
+* `DEFGUARD_PROXY_RATELIMIT_PERSECOND` - The (average) number of requests per second made without being eventually rate limited
 * `DEFGUARD_PROXY_RATELIMIT_BURST` - The number of requests allowed to be made in a short amount of time before being rate limited
 
 ## Gateway Configuration
@@ -125,7 +125,7 @@ Here are proxy ENV variables. gRPC configuration is described more [on this help
 
 If you're using docker image you can pass this value as environmental variables or on binary you can pass them as arguments
 
-* `DEFGUARD_GRPC_URL` , `-g <URL>` - Defguard Core gRPC endpoint URL. This is used by the gateway to connect to your Defguard Core instance. If you configured the `DEFGUARD_GRPC_URL` variable on your Core instance before (as described in the [#grpc-server-configuration](configuration.md#grpc-server-configuration "mention") section), use the same value here. Otherwise, provide an URL that will allow the Gateway to reach your Core instance, e.g. `http://localhost:50055` if both Core and Gateway are running on the same host.&#x20;
+* `DEFGUARD_GRPC_URL` , `-g <URL>` - Defguard Core gRPC endpoint URL. This is used by the gateway to connect to your Defguard Core instance. If you configured the `DEFGUARD_GRPC_URL` variable on your Core instance before (as described in the [#grpc-server-configuration](configuration.md#grpc-server-configuration "mention") section), use the same value here. Otherwise, provide an URL that will allow the Gateway to reach your Core instance, e.g. `http://localhost:50055` if both Core and Gateway are running on the same host.
 *   `DEFGUARD_TOKEN` ,`-t <TOKEN>` - Token displayed in the Defguard Core web UI after completing the network wizard. It can be copied from the "Authentication Token" section on the Location Settings page.
 
     <figure><img src="../.gitbook/assets/obraz (1) (1).png" alt=""><figcaption></figcaption></figure>
@@ -136,7 +136,7 @@ If you're using docker image you can pass this value as environmental variables 
 * `-s, --use-syslog` - enable logging to syslog
 * `RUST_LOG` : Logger log level, default: `info`, supported: `debug`, `warn`, `error`
 * `DEFGUARD_MASQUERADE` - controls whether the gateway automatically applies masquerade NAT firewall rule; defaults to `false`
-* `DEFGUARD_DISABLE_FW_MGMT` - disables all firewall management by the gateway; this overrides `DEFGUARD_MASQUERADE` setting; defaults to `false`&#x20;
+* `DEFGUARD_DISABLE_FW_MGMT` - disables all firewall management by the gateway; this overrides `DEFGUARD_MASQUERADE` setting; defaults to `false`
 
 {% hint style="info" %}
 `DEFGUARD_DISABLE_FW_MGMT` is meant as a workaround for running in incompatible environments, where our [default firewall integration](../features/access-control-list/firewall-internals.md) is not supported.
@@ -145,7 +145,7 @@ As a consequence, enabling this option disables [ACL functionality](../features/
 {% endhint %}
 
 * `DEFGUARD_HTTP_BIND_ADDRESS`: The IP address that the HTTP should bind to
-* `DEFGUARD_IFNAME` - The network interface that will be created and used for the VPN traffic&#x20;
+* `DEFGUARD_IFNAME` - The network interface that will be created and used for the VPN traffic
 * `DEFGUARD_FW_PRIORITY` - The NFT forward chain priority, which handles traffic filtering when ACLs are configured. Defaults to 0. Useful if the Defguard's forward chain conflicts with other chains.
 
 #### Executing custom commands on VPN up/down
@@ -243,3 +243,13 @@ syslog_socket = "/var/run/log"
 * `-p <first_name> <last_name> <email>` , `--provision <first_name> <last_name> <email>`: Provision YubiKey with the following data
 * `-w <token>` , `--worker-token <token>`: Secret worker token to secure gRPC communication, available on provisioners page
 * `-c <command>` , `--command <command>`: Run command after provisioning and pass created keys as arguments
+
+### Troubleshooting the configuration <a href="#troubleshooting-the-configuration" id="troubleshooting-the-configuration"></a>
+
+Common configuration issues.
+
+#### Gateway <a href="#gateway" id="gateway"></a>
+
+`Error: Syslog(Initialization(Io(Os { code: 111, kind: ConnectionRefused, message: "Connection refused" })))`
+
+The selected syslog socket may be wrong. See the `syslog_socket` configuration option for the gateway: [#config-file](configuration.md#config-file "mention"). Set it to a correct syslog socket on your operating system. The default socket is valid for FreeBSD.
