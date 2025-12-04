@@ -254,7 +254,7 @@ Common configuration issues.
 
 The selected syslog socket may be wrong. See the `syslog_socket` configuration option for the gateway: [#config-file](configuration.md#config-file "mention"). Set it to a correct syslog socket on your operating system. The default socket is valid for FreeBSD.
 
-**Core**
+### **Core**
 
 `Cookie “defguard_session” has been rejected for invalid domain.` (browser console error)
 
