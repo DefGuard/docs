@@ -243,3 +243,14 @@ syslog_socket = "/var/run/log"
 * `-p <first_name> <last_name> <email>` , `--provision <first_name> <last_name> <email>`: Provision YubiKey with the following data
 * `-w <token>` , `--worker-token <token>`: Secret worker token to secure gRPC communication, available on provisioners page
 * `-c <command>` , `--command <command>`: Run command after provisioning and pass created keys as arguments
+
+## Troubleshooting the configuration
+
+Common configuration issues.
+
+### Gateway
+
+`Error: Syslog(Initialization(Io(Os { code: 111, kind: ConnectionRefused, message: "Connection refused" })))`
+
+The selected syslog socket may be wrong. See the `syslog_socket` configuration option for the gateway: [#config-file](configuration.md#config-file "mention"). Set it to a correct syslog socket on your operating system. The default socket is valid for FreeBSD.
+
