@@ -6,7 +6,9 @@ We developed a comprehensive [troubleshooting guide](support-1/troubleshooting/)
 
 ## Community support (for all plans)
 
-Having trouble with Defguard deployment or configuration? Reach out to our community for help. Support is provided both by the community and by us (the Defguard authors) on our [Matrix chat](https://matrix.to/#/#defguard:teonite.com). Please use the [Support channel](https://matrix.to/#/#defguard-support:teonite.com).
+Having trouble with Defguard deployment or configuration? Reach out to our community for help.&#x20;
+
+Support is provided both by the community and by us (the Defguard authors) using GitHub Discussions. Create a new discussion using this [form](https://github.com/DefGuard/defguard/discussions/new/choose).
 
 ## Email Support (for paid plans only)
 
