@@ -1,32 +1,34 @@
 # Getting help
 
-## Check out our troubleshooting guide
+## Troubleshooting guide
 
 We developed a comprehensive [troubleshooting guide](resources/troubleshooting/) to help resolve your issue. We've put significant effort into ensuring it's current and thorough.
 
-## Contacting Support
+## Community support (for all plans)
 
-If you have bought an [Enterprise plan with premium support](https://defguard.net/pricing/), you can reach us at:
+Having trouble with Defguard deployment or configuration? Reach out to our community for help.&#x20;
 
-* Email: support@defguard.net
+Support is provided both by the community and by us (the Defguard authors) using GitHub Discussions. Create a new discussion using this [form](https://github.com/DefGuard/defguard/discussions/new/choose).
 
-## Community Support
+## Email Support (for paid plans only)
 
-Community support is done by the community as well as us (Defguard authors) on our [Matrix](https://matrix.to/#/#defguard:teonite.com) - **Support** channel.
+If you have bought a [Business or Enterprise license](https://defguard.net/pricing/), you can reach us at our support email [support@defguard.net](mailto:support@defguard.net).
 
-{% hint style="info" %}
-Since this a community support, please remember that it may take some time to get a response, as there is no-one _assigned_ for the support 24/h - especially during the weekends, when people are just off.
+{% hint style="warning" %}
+Please remember to send your support request from the same domain used when purchasing the license. If you contact us from a different domain, your request will be redirected to our community support.
 {% endhint %}
-
-### Do you have Slack/Discord?
-
-Matrix is vastly more secure than those (convenient) platforms - and open source (which we are as well). We may bring a bridge to Discord in the future, but no guarantees.
 
 ## Found a bug? Need a feature?
 
 * Here you can submit [a bug](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=bug\&projects=\&template=bug_report.md\&title=)
 * And here you can submit [a feature request](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=feature\&projects=\&template=feature_request.md\&title=)
 
-## Reporting a Vulnerability
+## Reporting a security vulnerability
 
-Please do **not open GitHub Issues for security issues you encounter**. To reporting a vulnerability open a [security advisory here](https://github.com/defguard/defguard/security/advisories/new).
+{% hint style="danger" %}
+Please do not report security vulnerabilities via GitHub issues. Dedicated reporting channels are listed below.
+{% endhint %}
+
+To report a security vulnerability open a [security advisory](https://github.com/defguard/defguard/security/advisories/new).
+
+You can also send us an encrypted email message according to instructions in our [Vulnerability Disclosure Policy](https://defguard.net/security/#VDP-title).
