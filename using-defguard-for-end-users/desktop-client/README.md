@@ -13,13 +13,9 @@ Guides:
 * [Instance configuration](instance-configuration.md)
 * [Using Multi-Factor Authentication](using-multi-factor-authentication-mfa.md)
 
-### MacOS
+### macOS
 
 Desktop Client is available in App Store.
-
-You can also download Desktop Client via [Homebrew](https://brew.sh/) using:
-
-`brew install --cask defguard-client`
 
 ### Linux
 
@@ -62,11 +58,11 @@ If a new version is available, a notification with a download button will be sho
 
 Application data is stored in following locations:
 
-| Platform | Storage directory                              |
-| -------- | ---------------------------------------------- |
-| Windows  | C:\Users\\\<USER>\AppData\Roaming\net.defguard |
-| macOS    | $HOME/Library/Application Support/net.defguard |
-| Linux    | $HOME/.local/share/net.defguard                |
+| Platform  | Storage directory                              |
+| --------- | ---------------------------------------------- |
+| Windows   | C:\Users\\\<USER>\AppData\Roaming\net.defguard |
+| macOS     | $HOME/Library/Containers/net.defguard          |
+| BSD/Linux | $HOME/.local/share/net.defguard                |
 
 ### Log files
 
@@ -74,10 +70,10 @@ All relevant application logs should be available in the clients Settings where 
 
 <figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-In case of unexpected issues the log files themselves can also be found in the following locations by default:
+In case of unexpected issues, the log files themselves can be found in the following default locations:
 
-| Platform | Client logs                                       | Background service logs   |
-| -------- | ------------------------------------------------- | ------------------------- |
-| Windows  | C:\Users\<USER>\AppData\Roaming\net.defguard\logs | C:\Logs\defguard-service  |
-| macOS    | $HOME/Library/Logs/net.defguard                   | /var/log/defguard-service |
-| Linux    | $HOME/.local/share/net.defguard/logs              | /var/log/defguard-service |
+| Platform  | Client logs                                                          | Background service logs                                |
+| --------- | ---------------------------------------------------------------------| ------------------------------------------------------ |
+| Windows   | C:\Users\<USER>\AppData\Roaming\net.defguard\logs                    | C:\Logs\defguard-service                               |
+| macOS     | $HOME/Library/Containers/net.defguard/Data/Library/Logs/net.defguard | $HOME/Library/Group Containers/group.net.defguard/Logs |
+| BSD/Linux | $HOME/.local/share/net.defguard/logs                                 | /var/log/defguard-service                              |
