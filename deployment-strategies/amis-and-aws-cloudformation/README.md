@@ -19,7 +19,7 @@ The template consists of the following main components:
 
 We recommend reading the [Architecture documentation](https://docs.defguard.net/in-depth/architecture) to understand how these components interact.
 
-<figure><img src="../../.gitbook/assets/aws_cloudformation.png" alt=""><figcaption><p>Diagram showing how the components are deployed using the template</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/aws_cloudformation_v2.png" alt=""><figcaption><p>Diagram showing how the components are deployed using the template</p></figcaption></figure>
 
 ## Installation guide
 
