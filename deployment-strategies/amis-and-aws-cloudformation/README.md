@@ -1,4 +1,4 @@
-# AMIs and AWS CloudFormation
+# Amazon Machine Image (AMI)
 
 This guide explains how to deploy Defguard on AWS using official Amazon Machine Images (AMIs) and a preconfigured CloudFormation template. It walks you through launching all required components - including Core, Gateway, Proxy, and the PostgreSQL database - in a production-ready architecture with minimal manual configuration.&#x20;
 
@@ -19,7 +19,7 @@ The template consists of the following main components:
 
 We recommend reading the [Architecture documentation](https://docs.defguard.net/in-depth/architecture) to understand how these components interact.
 
-<figure><img src="../../.gitbook/assets/aws_cloudformation.png" alt=""><figcaption><p>Diagram showing how the components are deployed using the template</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/aws_cloudformation_v2 (1).png" alt=""><figcaption><p>Diagram showing how the components are deployed using the template</p></figcaption></figure>
 
 ## Installation guide
 

@@ -7,7 +7,7 @@ description: >-
 
 # Multi-Factor Authentication (MFA/2FA)
 
-## TL;DR;&#x20;
+## TL;DR;
 
 * MFA (Multi-Factor Authentication) is a method of securing IT systems that requires the user to confirm their identity using at least two or more independent verification factors.
 * MFA during a VPN connection requires the user to authenticate in the VPN client with two or more factors **before the connection can be established**.
@@ -45,8 +45,7 @@ User prerequisites (something a user has in terms of MFA terminology):
 
 * A private WireGuard® key corresponding to the public key configured during the Defguard enrollment session.
 * A mobile device successfully enrolled and added to the user profile (as a second VPN device).
-* Private keys in the mobile device’s secure key store, generated during the mobile device enrollment process, which are accessible only via the device’s biometric authentication.\
-
+* Private keys in the mobile device’s secure key store, generated during the mobile device enrollment process, which are accessible only via the device’s biometric authentication.\\
 
 Extended MFA flow using two devices:
 
@@ -58,13 +57,7 @@ Extended MFA flow using two devices:
 
 The main purpose of MFA is to strengthen security by acting as a highly effective barrier against cyberattacks such as phishing or brute-force attacks. With an effective MFA implementation, even if an attacker gains access to a user’s basic credentials (in WireGuard®’s case, typically the private key stored on the device), they will still be unable to connect to the VPN without the additional factor(s). This prevents access to critical private network resources and applications, blocking further exploitation and greatly reducing the risk of unauthorized access.
 
-
-
-<mark style="color:$danger;">This means that relying on external SSO only for the initial device configuration is not sufficient to provide security in today’s environment. Even worse, marketing a VPN solution as providing MFA under these circumstances is highly misleading and potentially harmful to user security.</mark>
+This means that relying on external SSO only for the initial device configuration is not sufficient to provide security in today’s environment. Even worse, marketing a VPN solution as providing MFA under these circumstances is highly misleading and potentially harmful to user security.
 
 \
-\
-
-
-
-
+\\
