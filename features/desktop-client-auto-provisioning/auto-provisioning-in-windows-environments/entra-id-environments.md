@@ -1,4 +1,4 @@
-# Entra ID environments
+# Entra ID
 
 ## Overview
 
@@ -10,7 +10,7 @@ Please note that it is just a reference, you should adjust it to work with your 
 
 ## Generating enrollment tokens
 
-To automate the process as much as possible we've prepared an example PowerShell script which can be used to generate enrollment tokens for all users in a specified group.&#x20;
+To automate the process as much as possible we've prepared an example PowerShell script which can be used to generate enrollment tokens for all users in a specified group.
 
 The script can be downloaded [here](https://github.com/DefGuard/client/blob/555fb727d3599264996ee1ac99f5124026083146/src-tauri/resources-windows/admin-scripts/GenerateEnrollmentTokensEntraID.ps1).
 
@@ -19,7 +19,7 @@ The assumption is that this script will be run by an Entra administrator on a do
 ### Prerequisites
 
 * network access to a Defguard instance
-* Defguard user account with admin privileges&#x20;
+* Defguard user account with admin privileges
 * domain-joined machine
 * Entra user account with `User Administrator` and `Attribute Assignment Administrator` roles
 * custom security attribute set (default expected name is `Defguard`, but a different one can be used) with following attributes defined in Entra:
@@ -28,11 +28,11 @@ The assumption is that this script will be run by an Entra administrator on a do
 
 ### Defguard authentication
 
-To securely access your Defguard instance's REST API you need to generate an [API Token](../integrations/api-tokens.md#generating-api-token).
+To securely access your Defguard instance's REST API you need to generate an [API Token](../../integrations/api-tokens.md#generating-api-token).
 
 ### Entra authentication
 
-By default the script will use current user's credentials for Entra authentication.&#x20;
+By default the script will use current user's credentials for Entra authentication.
 
 It will present an interactive propmt for selecting a user account. If this fails the script will attempt the device code auth flow as a fallback.
 
@@ -56,17 +56,17 @@ It will present an interactive propmt for selecting a user account. If this fail
 1. **Setup target users**
    * prepare a user group containing all the users you intend to perform client provisioning for
 2. **User synchronization**
-   * Configure OpenID directory synchronization as described [here](../external-openid-providers/microsoft.md)
+   * Configure OpenID directory synchronization as described [here](../../external-openid-providers/microsoft.md)
    * **IMPORTANT**: enable the `Prefetch users` option to create directory users in Defguard
 3. **Token Generation**
    * Generate enrollment tokens for users using the [helper script](entra-id-environments.md#generating-enrollment-tokens)
 4. **Client Installation**
-   * Install the `defguard-client` application on user machines using the [MSI installer](./#msi-installer-integration)
+   * Install the `defguard-client` application on user machines using the [MSI installer](../#msi-installer-integration)
    * Pass the `PROVISIONING=1` argument to execute provisioning script during installation
    * Example command: `msiexec /i defguard-client.msi PROVISIONING=1 ADAttribute="description"`
 5. **Automatic Configuration**
-   * During installation, the bundled script fetches [provisioning configuration](./#active-directory-configuration) from Entra ID
-   * The configuration is written to the client's [data directory](../../using-defguard-for-end-users/desktop-client/#storage) as explained [here](./#configuration-file-creation)
+   * During installation, the bundled script fetches [provisioning configuration](../#active-directory-configuration) from Entra ID
+   * The configuration is written to the client's [data directory](../../../using-defguard-for-end-users/desktop-client/#storage) as explained [here](../#configuration-file-creation)
 6. **User Enrollment**
    * When the user launches the client for the first time, they are guided through the enrollment process
    * The enrollment uses the pre-configured token and URL from the provisioning file

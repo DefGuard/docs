@@ -1,4 +1,4 @@
-# On-premise Active Directory environments
+# On-premise Active Directory
 
 ## Overview
 
@@ -19,7 +19,7 @@ To automate the process as much as possible we've prepared an example PowerShell
 
 ### Defguard authentication
 
-To securely access your Defguard instance's REST API you need to generate an [API Token](../integrations/api-tokens.md#generating-api-token).
+To securely access your Defguard instance's REST API you need to generate an [API Token](../../integrations/api-tokens.md#generating-api-token).
 
 ### Active Directory authentication
 
@@ -32,7 +32,7 @@ Alternatively if you specify a username by the `ADUsername` parameter you'll be 
 * `Url` - URL of your Defguard instance
 * `ApiToken` - your API token for Defguard API access
 * `GroupName` - name of user group for which to generate enrollment tokens
-* `ADAttribute` - name of AD attribute where the provisioning config data will be stored&#x20;
+* `ADAttribute` - name of AD attribute where the provisioning config data will be stored
 
 ### Optional parameters
 
@@ -49,16 +49,16 @@ Alternatively if you specify a username by the `ADUsername` parameter you'll be 
 1. **Setup target users**
    * prepare a user group containing all the users you intend to perform client provisioning for
 2. **User synchronization**
-   * Configure two-way Active Directory synchronization as described [here](../ldap-and-active-directory-integration/two-way-ldap-and-active-directory-synchronization.md)
+   * Configure two-way Active Directory synchronization as described [here](../../ldap-and-active-directory-integration/two-way-ldap-and-active-directory-synchronization.md)
 3. **Token Generation**
    * Generate enrollment tokens for users using the [helper script](on-premise-active-directory-environments.md#generating-enrollment-tokens)
 4. **Client Installation**
-   * Install the `defguard-client` application on user machines using the [MSI installer](./#msi-installer-integration)
+   * Install the `defguard-client` application on user machines using the [MSI installer](../#msi-installer-integration)
    * Pass the `PROVISIONING=1` argument to execute provisioning script during installation
    * Example command: `msiexec /i defguard-client.msi PROVISIONING=1 ADAttribute="description"`
 5. **Automatic Configuration**
-   * During installation, the bundled script fetches [provisioning configuration](./#active-directory-configuration) from Active Directory
-   * The configuration is written to the client's [data directory](../../using-defguard-for-end-users/desktop-client/#storage) as explained [here](./#configuration-file-creation)
+   * During installation, the bundled script fetches [provisioning configuration](../#active-directory-configuration) from Active Directory
+   * The configuration is written to the client's [data directory](../../../using-defguard-for-end-users/desktop-client/#storage) as explained [here](../#configuration-file-creation)
 6. **User Enrollment**
    * When the user launches the client for the first time, they are guided through the enrollment process
    * The enrollment uses the pre-configured token and URL from the provisioning file

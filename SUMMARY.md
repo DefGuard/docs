@@ -72,8 +72,10 @@
 * [User SNAT bindings](features/user-snat-bindings.md)
 * [Service locations](features/service-locations.md)
 * [Desktop client auto-provisioning](features/desktop-client-auto-provisioning/README.md)
-  * [On-premise Active Directory environments](features/desktop-client-auto-provisioning/on-premise-active-directory-environments.md)
-  * [Entra ID environments](features/desktop-client-auto-provisioning/entra-id-environments.md)
+  * [Auto-provisioning in Windows environments](features/desktop-client-auto-provisioning/auto-provisioning-in-windows-environments/README.md)
+    * [On-premise Active Directory](features/desktop-client-auto-provisioning/auto-provisioning-in-windows-environments/on-premise-active-directory-environments.md)
+    * [Entra ID](features/desktop-client-auto-provisioning/auto-provisioning-in-windows-environments/entra-id-environments.md)
+  * [Generating enrollment tokens with Defguard REST API](features/desktop-client-auto-provisioning/generating-enrollment-tokens-with-defguard-rest-api.md)
 
 ## Deployment strategies
 
