@@ -15,7 +15,7 @@ Guides:
 
 ### macOS
 
-Desktop Client is available in App Store.
+Defguard Desktop Client is available in the [App Store](https://apps.apple.com/pl/app/defguard-desktop-client/id6754601166).
 
 ### Linux
 
