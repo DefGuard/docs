@@ -332,3 +332,13 @@ This is the nuclear option but works reliably.
 
 The stats subsystem is being **fully redesigned** in the upcoming **2.0** release.\
 The new implementation will avoid these SQLite table-scan issues entirely.
+
+## Client connects but cannot reach VPN servers
+
+On some networks - especially mobile or carrier-grade networks - the MTU (Maximum Transmission Unit) may be lower than usual. When this happens, VPN packets can exceed the network's MTU and get dropped during transmission. This often results in partial connectivity issues or a complete failure to connect to VPN servers.
+
+To address this, the Defguard client allows you to manually configure the MTU. Lowering the MTU reduces packet size so that traffic fits within the network’s limits and can be transmitted reliably.
+
+As a general guideline, MTU values in the range of **1300-1500** work well in most cases. If you're experiencing connectivity problems, try lowering the MTU gradually within this range until the connection stabilizes.
+
+<figure><img src="../../.gitbook/assets/image (67).png" alt=""><figcaption></figcaption></figure>
