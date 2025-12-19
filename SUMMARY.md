@@ -159,6 +159,7 @@
   * [Pre-1.3](in-depth/architecture-decision-records/pre-1.3.md)
 * [Roadmap](in-depth/roadmap.md)
 * [Release cycle](in-depth/release-cycle.md)
+* [Client application feature compatibility](in-depth/client-application-feature-compatibility.md)
 
 ## For Developers
 
