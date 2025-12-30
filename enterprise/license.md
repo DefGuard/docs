@@ -1,6 +1,6 @@
 # Purchasing and using the license
 
-Defguard is available as an open-source solution with additional paid features. Some functionalities are only available with a valid license, depending on the selected plan. Details about feature availability and pricing are provided on the [Pricing page](https://defguard.net/pricing/).
+Defguard is available as an open-source solution with additional paid features. Some functionalities are available only with a valid license or are subject to usage limits, depending on the selected plan. Details about feature availability, limits, and pricing are provided on the [Pricing page](https://defguard.net/pricing/).
 
 ### Paid features free up to certain limits
 
@@ -21,7 +21,7 @@ If you would like to purchase a license, we offer two types of licenses:
 
 #### Subscription
 
-You can buy a monthly (soon yearly) subscription on our website: [https://defguard.net/pricing/](https://defguard.net/pricing/).
+You can buy a monthly or yearly subscription on our website: [https://defguard.net/pricing/](https://defguard.net/pricing/).
 
 After purchasing:
 
