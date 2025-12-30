@@ -1,7 +1,9 @@
 # External SSO/OpenID providers
 
 {% hint style="warning" %}
-This is an enterprise feature. To use it, purchase our [enterprise license](../../enterprise/license.md) or ensure that your deployment does not exceed the [usage limits](../../enterprise/license.md#enterprise-is-free-up-to-certain-limits).
+#### Availability
+
+This feature is available in all plans, with usage limits. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}
 
 Defguard, [apart from being an identity provider itself](../openid-connect/), supports logging in through external OpenID providers. All providers that support standard and common **code authorization flow should work.**

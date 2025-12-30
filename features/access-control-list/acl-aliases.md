@@ -5,8 +5,12 @@ ACL alias functionality allows administrators to create reusable elements which 
 For example, you can define aliases for commonly used ports (e.g. 22 for SSH) or for services within your infrastructure (e.g. 1.2.3.4:5432 for a particular PostgreSQL server).
 
 {% hint style="warning" %}
-Access Control is an [enterprise feature](../../enterprise/license.md). To use it you'll need to [purchase a license](../../enterprise/license.md#purchasing-the-license) or ensure your deployment does not [exceed the limits](../../enterprise/license.md#enterprise-is-free-up-to-certain-limits).
+#### Availability
 
+This feature is available in all plans, with usage limits. See the [pricing page](https://defguard.net/pricing/) for details.
+{% endhint %}
+
+{% hint style="warning" %}
 Access Control is available in Defguard version ≥ 1.3.0 and Gateway version ≥ 1.3.0
 {% endhint %}
 

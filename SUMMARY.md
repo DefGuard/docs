@@ -104,10 +104,9 @@
 * [Health check](deployment-strategies/health-check.md)
 * [Production deployment verification guide](deployment-strategies/production-deployment-verification-guide.md)
 
-## Enterprise
+## License <a href="#enterprise" id="enterprise"></a>
 
-* [License](enterprise/license.md)
-* [Enterprise features](enterprise/enterprise-features.md)
+* [Purchasing and using the license](enterprise/license.md)
 
 ## Using Defguard (for end users)
 

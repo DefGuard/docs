@@ -1,7 +1,9 @@
 # REST API
 
 {% hint style="warning" %}
-This is an enterprise feature. To use it, purchase our [enterprise license](../../enterprise/license.md) or ensure that your deployment does not exceed the [usage limits](../../enterprise/license.md#enterprise-is-free-up-to-certain-limits).
+#### Availability
+
+This feature is available in all plans, with usage limits. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}
 
 {% hint style="warning" %}
@@ -85,6 +87,6 @@ After opening Swagger UI you can add your `API token` and try out available endp
 
 ### Schemas
 
-If you are looking for definitions of types, you can scroll down to **Schemas** section.&#x20;
+If you are looking for definitions of types, you can scroll down to **Schemas** section.
 
 <figure><img src="../../.gitbook/assets/6.png" alt=""><figcaption></figcaption></figure>

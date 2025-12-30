@@ -1,16 +1,10 @@
-# License
+# Purchasing and using the license
 
-Defguard Enterprise offers a lot of functionalities that are not offered in the Open Source Open Core, like external OpenID Connect/SSO support, automatic\&real time desktop client synchronization and configuration, and much more (go to [All Enterprise Features](enterprise-features.md) to see more).
+Defguard is available as an open-source solution with additional paid features. Some functionalities are only available with a valid license, depending on the selected plan. Details about feature availability and pricing are provided on the [Pricing page](https://defguard.net/pricing/).
 
-### Enterprise is free up to certain limits
+### Paid features free up to certain limits
 
-{% hint style="info" %}
-From release 1.1.0 **all enterprise features up to the following limits are free and no license is required:**
-
-* 5 active users
-* 10 devices
-* 1 location
-{% endhint %}
+Some paid features are available for free up to certain limits. The exact limits are listed on the [Pricing page](https://defguard.net/pricing/).
 
 Those limits should be more than enough for small businesses, home-labs or just to test out Enterprise features before committing.
 

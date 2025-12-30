@@ -1,6 +1,12 @@
 # Service locations
 
 {% hint style="warning" %}
+#### Availability
+
+This feature is available in Enterprise plan. See the [pricing page](https://defguard.net/pricing/) for details.
+{% endhint %}
+
+{% hint style="warning" %}
 Service locations are currently only supported with Defguard Client for Windows.
 {% endhint %}
 
@@ -49,15 +55,15 @@ Service locations are managed by a background service (`defguard-service`) respo
 
 ### Pre-logon
 
-If you selected the pre-logon mode, the connection will be established on system boot. If the service detects a login event, the connection will be terminated.&#x20;
+If you selected the pre-logon mode, the connection will be established on system boot. If the service detects a login event, the connection will be terminated.
 
 After login, the connection won't be established unless a system logoff event is detected. In such case, the connection is established again until another login event occurs.
 
 ### Always-on
 
-If you selected the always-on mode, the connection will be established on system boot.&#x20;
+If you selected the always-on mode, the connection will be established on system boot.
 
-The connection won't be terminated or restarted unless the Desktop Client receives a network update or is uninstalled.&#x20;
+The connection won't be terminated or restarted unless the Desktop Client receives a network update or is uninstalled.
 
 ## Troubleshooting
 
@@ -81,16 +87,13 @@ This can be checked either by:
 
 1. Going to the Defguard Core web interface and checking if the given Client is connected. This is a less reliable way as it can report the status with a delay. We recommend checking the status directly on the given machine.
 2. On the given Windows machine:
-   1.  Go to "Settings"\
-
+   1.  Go to "Settings"\\
 
        <figure><img src="../.gitbook/assets/obraz (20).png" alt=""><figcaption></figcaption></figure>
-   2.  Network & Internet\
-
+   2.  Network & Internet\\
 
        <figure><img src="../.gitbook/assets/obraz (21).png" alt=""><figcaption></figcaption></figure>
-   3.  Change adapter settings\
-
+   3.  Change adapter settings\\
 
        <figure><img src="../.gitbook/assets/obraz (22).png" alt=""><figcaption></figcaption></figure>
    4. The VPN connection should be visible here, if it's established (for example in the case of an always on mode).
@@ -98,8 +101,3 @@ This can be checked either by:
 ### Network change
 
 If the network you use to access the internet (or more specifically, the VPN gateway) changes (for example, you switch Wi-Fis) while the service location connection is established, the connection will stop working. To resolve this issue, you will need to restart your device or restart the service responsible for management of the service locations, so the connection is re-established.
-
-
-
-&#x20;
-
