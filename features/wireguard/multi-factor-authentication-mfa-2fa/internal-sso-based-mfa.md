@@ -33,7 +33,7 @@ When MFA configuration is changed, all clients must do an [Instance Update](../.
 
 If a VPN has MFA enabled, before connecting you will be asked to complete the authentication step first:
 
-<figure><img src="../../../.gitbook/assets/defguard-client-mfa-modal.png" alt=""><figcaption><p>MFA in Defguard desktop client</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2026-01-07 at 09.08.07.png" alt=""><figcaption></figcaption></figure>
 
 ### Supported MFA methods
 
@@ -41,9 +41,10 @@ For now, MFA is only available with the following methods:
 
 * [TOTP - Time-based one-time password](../../../using-defguard-for-end-users/setting-up-2fa-mfa.md#one-time-password)
 * Email - requires [SMTP to be configured](../../notifications/setting-up-smtp-for-email-notifications.md)
+* [Biometry using Defguard Mobile Application](../../../using-defguard-for-end-users/desktop-client/using-multi-factor-authentication-mfa.md#multi-factor-authentication-via-mobile-biometry)
 
 {% hint style="warning" %}
-Please remember to configure TOTP on you user account and/or SMTP settings for MFA on the desktop client to work..
+Please remember to configure TOTP on you user account and/or SMTP settings for MFA on the desktop client to work.
 {% endhint %}
 
 ### User MFA setup
@@ -52,7 +53,7 @@ After enabling MFA for a given VPN, users will need to enable MFA for their acco
 
 An error message will be shown if users attempt to select an MFA method that has not been enabled for their accounts:
 
-<figure><img src="../../../.gitbook/assets/2fa-client.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2026-01-07 at 09.11.38.png" alt=""><figcaption></figcaption></figure>
 
 ### Successful authentication
 
