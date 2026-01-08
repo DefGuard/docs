@@ -144,9 +144,10 @@ If you're using docker image you can pass this value as environmental variables 
 As a consequence, enabling this option disables [ACL functionality](../features/access-control-list/) on a given gateway.
 {% endhint %}
 
-* `DEFGUARD_HTTP_BIND_ADDRESS`: The IP address that the HTTP should bind to
 * `DEFGUARD_IFNAME` - The network interface that will be created and used for the VPN traffic
 * `DEFGUARD_FW_PRIORITY` - The NFT forward chain priority, which handles traffic filtering when ACLs are configured. Defaults to 0. Useful if the Defguard's forward chain conflicts with other chains.
+* `HTTP_PORT` - (optional) If a port number is provided an [HTTP healthcheck server](health-check.md#gateway) will be started
+* `DEFGUARD_HTTP_BIND_ADDRESS` - (optional) the IP address that the HTTP healthcheck server should bind to
 
 #### Executing custom commands on VPN up/down
 
