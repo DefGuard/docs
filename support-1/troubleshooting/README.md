@@ -342,3 +342,33 @@ To address this, the Defguard client allows you to manually configure the MTU. L
 As a general guideline, MTU values in the range of **1300-1500** work well in most cases. If you're experiencing connectivity problems, try lowering the MTU gradually within this range until the connection stabilizes.
 
 <figure><img src="../../.gitbook/assets/image (67).png" alt=""><figcaption></figcaption></figure>
+
+## Disconnecting from location show "Connection failed" system error
+
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-09 at 12.23.18.png" alt=""><figcaption></figcaption></figure>
+
+Issue occurs on Linux distributions with `NetworkManager` installed.
+
+This error occurs because `NetworkManager` tries to manage Defguard network interfaces. This doesn't affect VPN connection and is **visual** bug only.
+
+To prevent this error from appearing, you can configure `NetworkManager`  to stop managing network interfaces created by Defguard. To do so, we need to create config for `NetworkManager`.
+
+1. Create config file&#x20;
+
+```shellscript
+sudo nano /etc/NetworkManager/conf.d/90-defguard.conf
+```
+
+2. Fill this file with this config. (Defguard tunnels start with `wg` by default)
+
+```shellscript
+[keyfile]
+unmanaged-devices=interface-name:wg*
+```
+
+3. Save your file, and then restart `NetworkManager`.
+
+```shellscript
+sudo systemctl restart NetworkManager
+```
+
