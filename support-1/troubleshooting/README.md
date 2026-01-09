@@ -349,9 +349,9 @@ As a general guideline, MTU values in the range of **1300-1500** work well in mo
 
 Issue occurs on Linux distributions with `NetworkManager` installed.
 
-This error occurs because `NetworkManager` tries to manage Defguard network interfaces. This doesn't affect VPN connection and is **visual** bug only.
+This error occurs because `NetworkManager` tries to manage Defguard network interfaces. This doesn't affect VPN connection and is a **visual** bug only.
 
-To prevent this error from appearing, you can configure `NetworkManager`  to stop managing network interfaces created by Defguard. To do so, we need to create config for `NetworkManager`.
+To prevent this error from appearing, you can configure `NetworkManager`  to stop managing network interfaces created by Defguard. To do so, we need to create a config for `NetworkManager`.
 
 1. Create config file&#x20;
 
