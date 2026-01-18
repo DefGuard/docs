@@ -372,3 +372,12 @@ unmanaged-devices=interface-name:wg*
 sudo systemctl restart NetworkManager
 ```
 
+## Command 'resolvconf' required by wireguard-rs couldn't be found.
+
+On some Linux distributions (for example Debian 12 and 13), Defguard may fail to establish VPN tunnel after clicking "Connect" on a specified location. This is caused by lack of `resolvconf` command.
+
+To resolve this issue, install missing dependency with:
+
+```shellscript
+sudo apt install openresolv
+```
