@@ -32,6 +32,18 @@ After purchasing:
 If your setup / firewall / network policy **doesn't allow that Defguard will contact our licensing server, please contact us for the** [**Offline license**](license.md#offline-license)**.**
 {% endhint %}
 
+#### Upgrading subscription
+
+You can upgrade your monthly subscription to annually at any point in time by visiting [Stripe Customer Portal](https://billing.stripe.com/p/login/6oEdS2cOv1eEgW47ss).
+
+Once you upgrade, your current monthly subscription will be active until the end of the billing cycle.&#x20;
+
+At the end of the cycle, monthly subscription will be canceled automatically and new annual subscription will be created and charged.&#x20;
+
+If charged successfully, a new annual license will be created.&#x20;
+
+Then your Defguard instance will contact our license server and fetch a new annual license starting at the end of your current monthly subscription.
+
 #### Offline license
 
 Defguard is build with the highest security architecture in mind, thus there may be scenarios where you don't want any of the components to contact external services (eg. Defguard core will have no access to Internet).
