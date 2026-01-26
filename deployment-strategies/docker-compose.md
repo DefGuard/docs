@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This document provides a complete example of how to deploy Defguard using Docker Compose, including configuration for all components - Core, Proxy, and Gateway. It covers Docker image tags, environment variables, and reverse-proxy setup examples to help you quickly launch a fully functional Defguard environment.&#x20;
+This document provides a complete example of how to deploy Defguard using Docker Compose, including configuration for all components - Core, Proxy, and Gateway. It covers Docker image tags, environment variables, and reverse-proxy setup examples to help you quickly launch a fully functional Defguard environment.
 
 We recommend deploying each Defguard service on a dedicated server or virtual machine to ensure better isolation, performance, and security. In this setup, each Docker Compose file should be used for a single service, keeping the Core, Proxy, and Gateway components physically separated.
 
@@ -76,6 +76,9 @@ services:
     env_file: .env
     volumes:
       - db:/var/lib/postgresql/data
+      
+volumes:
+  db:
 ```
 
 #### NGINX reverse-proxy
@@ -120,7 +123,7 @@ Here is the `.env` file with all configuration variables:
 
 ```
 # please generate each secret with:
-# openssl rand -base64 55 | tr -d "=+/" | tr -d '\n' | cut -c1-63
+# openssl rand -base64 55 | tr -d "=+/" | tr -d '\n' | cut -c1-64
 DEFGUARD_SECRET_KEY=
 DEFGUARD_AUTH_SECRET=
 DEFGUARD_GATEWAY_SECRET=
@@ -249,4 +252,3 @@ services:
     cap_add: 
       - NET_ADMIN 
 ```
-
