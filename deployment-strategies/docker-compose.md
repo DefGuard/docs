@@ -158,7 +158,7 @@ DEFGUARD_DB_HOST=db
 DEFGUARD_DB_PORT=5432
 DEFGUARD_DB_USER=defguard
 # please generate password:
-# openssl rand -base64 55 | tr -d "=+/" | tr -d '\n' | cut -c1-63
+# openssl rand -base64 55 | tr -d "=+/" | tr -d '\n' | cut -c1-64
 DEFGUARD_DB_PASSWORD=
 DEFGUARD_DB_NAME=defguard
 
