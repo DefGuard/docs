@@ -107,14 +107,5 @@ Here is a formula how to optimize netfliter parameters based on the following as
 1 active user generates \~50-100 simultaneous connections
 {% endhint %}
 
-|                                  |                                               |         |        |         |         |
-| -------------------------------- | --------------------------------------------- | ------- | ------ | ------- | ------- |
-| `net.netfilter.nf_conntrack_max` | CRITICAL. Max concurrent connections tracked. | 65536   | 131072 | 524288  | 5242880 |
-| `net.core.somaxconn`             | Max pending connections in queue.             | 4096    | 4096   | 16384   | 65535   |
-| `net.core.netdev_max_backlog`    | Max packets queued if kernel is busy.         | 1000    | 5000   | 16384   | 65535   |
-| `net.core.netdev_budget`         | Max packets processed in one CPU cycle.       | 300     | 600    | 600     | 1200    |
-| `net.core.rmem_max` (Bytes)      | Max OS receive buffer size (UDP).             | 16 MB   | 16 MB  | 32 MB   | 128 MB  |
-| `net.core.wmem_max` (Bytes)      | Max OS send buffer size (UDP).                | 16 MB   | 16 MB  | 32 MB   | 128 MB  |
-| `fs.file-max`                    | System-wide file descriptor limit.            | Default | 100000 | 1000000 | 5000000 |
-| **Required System RAM**          | Minimum RAM needed for state tables.          | 512 MB  | 1 GB   | 4 GB    | 32 GB+  |
+<table data-full-width="true"><thead><tr><th width="283.56640625">Parameter (Sysctl)</th><th width="181.859375">Description</th><th width="91.12109375">10 Devices(Home/SOHO)</th><th width="95.640625">100 Devices(SMB/Office)</th><th width="98.55859375">1,000 Devices(Enterprise/ISP)</th><th width="107.7265625">10,000 Devices(Data Center)</th></tr></thead><tbody><tr><td><code>net.netfilter.nf_conntrack_max</code></td><td>CRITICAL. Max concurrent connections tracked.</td><td>65536</td><td>131072</td><td>524288</td><td>5242880</td></tr><tr><td><code>net.core.somaxconn</code></td><td>Max pending connections in queue.</td><td>4096</td><td>4096</td><td>16384</td><td>65535</td></tr><tr><td><code>net.core.netdev_max_backlog</code></td><td>Max packets queued if kernel is busy.</td><td>1000</td><td>5000</td><td>16384</td><td>65535</td></tr><tr><td><code>net.core.netdev_budget</code></td><td>Max packets processed in one CPU cycle.</td><td>300</td><td>600</td><td>600</td><td>1200</td></tr><tr><td><code>net.core.rmem_max</code> (Bytes)</td><td>Max OS receive buffer size (UDP).</td><td>16 MB</td><td>16 MB</td><td>32 MB</td><td>128 MB</td></tr><tr><td><code>net.core.wmem_max</code> (Bytes)</td><td>Max OS send buffer size (UDP).</td><td>16 MB</td><td>16 MB</td><td>32 MB</td><td>128 MB</td></tr><tr><td><code>fs.file-max</code></td><td>System-wide file descriptor limit.</td><td>Default</td><td>100000</td><td>1000000</td><td>5000000</td></tr><tr><td><strong>Required System RAM</strong></td><td>Minimum RAM needed for state tables.</td><td>512 MB</td><td>1 GB</td><td>4 GB</td><td>32 GB+</td></tr></tbody></table>
 
