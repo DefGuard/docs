@@ -8,7 +8,7 @@ We support running multiple gateways for a single VPN instance or location, enab
 Please also see documentation of [Creating a New VPN location](../features/wireguard/create-your-vpn-network.md) where each [location setting has information regarding high-availability](../features/wireguard/create-your-vpn-network.md#vpn-location-settings).
 {% endhint %}
 
-#### Deploying multiple gateways for one location
+### Deploying multiple gateways for one location
 
 To have a multi-gateway setup for a given location, you will need to [deploy the gateway on each one of your servers](gateway.md) under the same location.
 
@@ -23,23 +23,23 @@ The only thing left to do is to point your traffic to those gateways, which can 
 * Floating public IP - if you choose this scenario, please remember that the IP must be the IP specified in the Location _Gateway Address._ In this scenario, the floating IP switches between your gateway servers, directing the traffic to one of the two gateways.
 * Proxy/load balancing - also remember that the proxy must be configured with the _Gateway Address and Gateway Port._ In this scenario, your clients connect to the proxy/load balancer, which direct the VPN traffic (UDP) to one of your gateway backend&#x73;_._
 
-#### Known issues
-
-**Session recovery in active-passive setups**
-
-In active-passive deployments using floating IPs (e.g., VRRP), client sessions are not fully recovered when traffic fails over to a secondary gateway and later fails back to the primary one. After failback, clients may still appear as connected in the UI and continue reporting activity, but VPN traffic may stop flowing. In such cases, manual client reconnection is required to restore connectivity. Related issue: [https://github.com/DefGuard/defguard/issues/1909](https://github.com/DefGuard/defguard/issues/1909).
-
-#### Active-active setups
-
-Active-active setups should also be possible but come with some caveats. Here are the currently known issues with such configurations:
-
-* Multiple running gateways bound to one location with network traffic distributed between them may produce invalid network usage statistics, making the network usage graphs and displays on the dashboard unreliable. Related issue: [https://github.com/DefGuard/defguard/issues/1022](https://github.com/DefGuard/defguard/issues/1022)
-
-### Determining if multiple gateways are running
+#### Determining if multiple gateways are running
 
 All gateways that are successfully connected for the location are displayed under the Location in VPN Overview, here is an example for two gateways:
 
 <figure><img src="../.gitbook/assets/location-overview (1).png" alt=""><figcaption></figcaption></figure>
+
+### Known issues
+
+#### **Session recovery in active-passive setups**
+
+In active-passive deployments using floating IPs (e.g., VRRP), client sessions are not fully recovered when traffic fails over to a secondary gateway and later fails back to the primary one. After failback, clients may still appear as connected in the UI and continue reporting activity, but VPN traffic may stop flowing. In such cases, manual client reconnection is required to restore connectivity. Related issue: [https://github.com/DefGuard/defguard/issues/1909](https://github.com/DefGuard/defguard/issues/1909).
+
+### Active-active setups
+
+Active-active setups should also be possible but come with some caveats. Here are the currently known issues with such configurations:
+
+* Multiple running gateways bound to one location with network traffic distributed between them may produce invalid network usage statistics, making the network usage graphs and displays on the dashboard unreliable. Related issue: [https://github.com/DefGuard/defguard/issues/1022](https://github.com/DefGuard/defguard/issues/1022)
 
 ### What is the gateway peers persistence (if core/proxy services fail)
 
