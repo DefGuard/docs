@@ -10,7 +10,7 @@ Please also see documentation of [Creating a New VPN location](../features/wireg
 
 #### Deploying multiple gateways for one location
 
-To have a multi-gateway setup for a given location, you  will need to [deploy the gateway on each one of your servers](gateway.md) under the same location.
+To have a multi-gateway setup for a given location, you will need to [deploy the gateway on each one of your servers](gateway.md) under the same location.
 
 If you already have a gateway deployed and want to add another one for the location, go to _VPN Overview_ -> Click: _Edit Location Settings (in the top right corner)_, then choose the location you want to add the new gateway to, and follow the deployment instructions:
 
@@ -22,6 +22,12 @@ The only thing left to do is to point your traffic to those gateways, which can 
 
 * Floating public IP - if you choose this scenario, please remember that the IP must be the IP specified in the Location _Gateway Address._ In this scenario, the floating IP switches between your gateway servers, directing the traffic to one of the two gateways.
 * Proxy/load balancing - also remember that the proxy must be configured with the _Gateway Address and Gateway Port._ In this scenario, your clients connect to the proxy/load balancer, which direct the VPN traffic (UDP) to one of your gateway backend&#x73;_._
+
+#### Known issues
+
+**Session recovery in active-passive setups**
+
+In active-passive deployments using floating IPs (e.g., VRRP), client sessions are not fully recovered when traffic fails over to a secondary gateway and later fails back to the primary one. After failback, clients may still appear as connected in the UI and continue reporting activity, but VPN traffic may stop flowing. In such cases, manual client reconnection is required to restore connectivity. Related issue: [https://github.com/DefGuard/defguard/issues/1909](https://github.com/DefGuard/defguard/issues/1909).
 
 #### Active-active setups
 
