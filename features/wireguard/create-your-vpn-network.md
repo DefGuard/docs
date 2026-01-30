@@ -33,7 +33,7 @@ By providing the VPN IPs/masks, you are configuring both: **the VPN internal net
 This field can contain multiple IP addresses (both IPv4 and IPv6), separated by a comma (e.g. `10.10.20.1/24,fc00::abcd:0:1/96`).
 
 {% hint style="info" %}
-#### Dual-stack VPN networks
+**Dual-stack VPN networks**
 
 Defguard supports dual-stack VPN networks, allowing simultaneous assignment of both IPv4 and IPv6 addresses to clients. Each VPN network can include multiple IPv4 and IPv6 subnets, and connected clients will automatically receive one address from each defined subnet. This enables seamless communication over both IP versions within a single VPN session.
 {% endhint %}
@@ -79,6 +79,14 @@ It supports multiple networks separated with comma, e.g. 10.11.1.0/0, 192.168.1.
 Right now Defguard only manages routing of Allowed IPs (adding to routing table the networks defined in Allowed IPs).
 
 If you want the _All Traffic_ to work in the desktop client you need to also configure MASQUARED/NAT for the VPN interface. [Example of that here.](../../tutorials/step-by-step-setting-up-a-vpn-server/#enabling-to-access-internet-through-your-vpn)
+{% endhint %}
+
+{% hint style="info" %}
+## Allowed IPs with exceptions
+
+If you use broad _Allowed IPs_ (for example `0.0.0.0/0`) and want to exclude specific networks, note that WireGuard does not support explicit exclusions. Instead, the allowed range must be split into multiple CIDR blocks that cover everything except the excluded subnets.
+
+To simplify this, you can use an **Allowed IPs calculator** to generate the correct set of CIDR blocks for your intended traffic routing.
 {% endhint %}
 
 ### DNS
