@@ -20,8 +20,14 @@ Please remember to send your support request from the same domain used when purc
 
 ## Found a bug? Need a feature?
 
-* Here you can submit [a bug](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=bug\&projects=\&template=bug_report.md\&title=)
-* And here you can submit [a feature request](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=feature\&projects=\&template=feature_request.md\&title=)
+Just create an issue in our [main repository](https://github.com/DefGuard/defguard/issues).&#x20;
+
+In order for your issue to be processed efficiently, make sure it's well described. Please ready [our guide on how to submit issues](support-1/how-to-submit-an-issue.md).
+
+And here are quick links if you want to:
+
+* submit [a bug](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=bug\&projects=\&template=bug_report.md\&title=),
+* submit [a feature request](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=feature\&projects=\&template=feature_request.md\&title=).
 
 ## Reporting a security vulnerability
 
