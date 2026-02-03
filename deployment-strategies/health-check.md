@@ -69,7 +69,7 @@ You can enable in gateway config ([example config](https://github.com/DefGuard/g
 health_port = 55003
 ```
 
-In this example, gateway will open an additional HTTP port number 55003. Now we can use `GET /api/v1/health` endpoint to verify whether gateway is working correctly.
+In this example, gateway will open an additional HTTP port number 55003. Now we can use `GET /health` endpoint to verify whether gateway is working correctly.
 
 If running in Docker you can also enable it by setting the `HEALTH_PORT` [environment variable](configuration.md#environmental-variables-arguments).
 
@@ -82,7 +82,7 @@ http_bind_address = 10.0.10.20
 Example request:
 
 ```sh
-curl "http://gateway.example.com:55003/api/v1/health"
+curl "http://gateway.example.com:55003/health"
 ```
 
 Response:
