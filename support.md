@@ -20,14 +20,15 @@ Please remember to send your support request from the same domain used when purc
 
 ## Found a bug? Need a feature?
 
-Just create an issue in our [main repository](https://github.com/DefGuard/defguard/issues).&#x20;
+{% hint style="warning" %}
+Please remember to create an issue only if you're sure that you found a bug or you're missing a feature. If you are unsure whether something is a bug or a missing feature, start with a [GitHub Discussion first](https://github.com/DefGuard/defguard/discussions/new/choose).
+{% endhint %}
 
-In order for your issue to be processed efficiently, make sure it's well described. Please ready [our guide on how to submit issues](support-1/how-to-submit-an-issue.md).
+Create an issue in our [main repository](https://github.com/DefGuard/defguard/issues).
 
-And here are quick links if you want to:
+In order for your issue to be processed efficiently, make sure it's well described. Please read [our guide on how to submit issues](support-1/how-to-submit-an-issue.md).
 
-* submit [a bug](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=bug\&projects=\&template=bug_report.md\&title=),
-* submit [a feature request](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=feature\&projects=\&template=feature_request.md\&title=).
+Please use our issue templates for [bugs](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=bug\&projects=\&template=bug_report.md\&title=) and [features](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=feature\&projects=\&template=feature_request.md\&title=). Try to fill as much information as possible.
 
 ## Reporting a security vulnerability
 
