@@ -23,7 +23,7 @@ See the "[Desktop client real-time/auto sync doesn't work](./#desktop-client-rea
 
 ## I use Multi-Factor Authentication and am disconnected after _X-time_
 
-location, After enabling Multi-Factor Authentication for a location, the configuration of the gateway changes. Without MFA, peers (devices) are persistent (always in the Kernel memory) and gateway only changed the gateway configuration if a peer is added/removed/changed.
+After enabling Multi-Factor Authentication (MFA) for a location, the configuration of the gateway changes. Without MFA, peers (devices) are persistent (always in the kernel memory) and gateway only changes its configuration if a peer is added/removed/changed.
 
 But when MFA is enabled, peers **are only added to the gateway** after successful MFA on the client (and pre-shared key exchange with client and gateway to establish a dedicated key for the session).
 
@@ -31,7 +31,7 @@ Also, there is a setting in the location named _Peer Disconnect Threshold (secon
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-11-15 at 18.25.33.png" alt="" width="375"><figcaption></figcaption></figure>
 
-This setting specifies that if the **peer is inactive for&#x20;**_**(defined seconds)**_, the gateway **should remove it from the configuration** (as it should not be persistent since MFA is required).
+This setting specifies that if the **peer is inactive for **_**(defined seconds)**_, the gateway **should remove it from the configuration** (as it should not be persistent since MFA is required).
 
 So if you are disconnected from the location:
 
@@ -65,8 +65,8 @@ Additionally, client application debug logs may show the following error:\
 
 This error indicates that one of the following components is outdated:
 
-* Defguard core
-* Defguard proxy
+* Defguard Core
+* Defguard Proxy
 * Client application
 
 Try upgrading these components to the latest stable version to resolve the issue.
@@ -85,7 +85,7 @@ In some rarer cases, your web server may not accept TLS versions lower than 1.3.
 
 ## I get the following error: _h2 protocol error: http2 error: stream error received: not a result of an error_
 
-This error is common if you use a reverse-proxy for any of our components.
+This error is common if you use a reverse proxy for any of our components.
 
 Every reverse proxy has a timeout for keeping the connection alive. You can increase the timeout value to see less errors, but they will eventually appear.
 
@@ -282,7 +282,7 @@ If any such services are present, remove them and retry the connection.
 
 Some users may experience unusually high disk activity from the Defguard desktop client, even when the app appears idle. This is almost always caused by SQLite performing full-table scans on large statistics tables.
 
-### &#x20;**1. Check Your Client Version**
+### **1. Check Your Client Version**
 
 The fix for the original table-scan problem was introduced in **v1.5.2**.
 
@@ -353,7 +353,7 @@ This error occurs because `NetworkManager` tries to manage Defguard network inte
 
 To prevent this error from appearing, you can configure `NetworkManager`  to stop managing network interfaces created by Defguard. To do so, we need to create a config for `NetworkManager`.
 
-1. Create config file&#x20;
+1. Create config file
 
 ```shellscript
 sudo nano /etc/NetworkManager/conf.d/90-defguard.conf
@@ -381,3 +381,22 @@ To resolve this issue, install missing dependency with:
 ```shellscript
 sudo apt install openresolv
 ```
+
+
+## macOS: all VPN connections get disconnected when one VPN tunnel terminates
+
+This is how macOS behavies. Currently, there isn't any workaround for this problem.
+
+
+## macOS: VPN tunnel terminates when changing networks
+
+Normally, the VPN tunnel should stay connected while changing networks (for example, from Wi-Fi to
+Ethernet). However, there are some cases when the tunnel terminates:
+
+* A phisical interface gets unplugged from the machine (for example, USB network adapter). In such
+  case, the VPN tunnel gets disconnected because the network interface disappears.
+
+* There isn't any connection to Defguard Gateway within a certain amount of time. In that case,
+  check _Peer Disconnect Threshold (seconds):_ in Client Settings.
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-11-15 at 18.25.33.png" alt="" width="375"><figcaption></figcaption></figure>
