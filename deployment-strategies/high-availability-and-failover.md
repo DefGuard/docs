@@ -39,7 +39,7 @@ In active-passive deployments using floating IPs (e.g., VRRP), client sessions a
 
 Active-active setups should also be possible but come with some caveats. Here are the currently known issues with such configurations:
 
-* Multiple running gateways bound to one location with network traffic distributed between them may produce invalid network usage statistics, making the network usage graphs and displays on the dashboard unreliable. Related issue: [https://github.com/DefGuard/defguard/issues/1022](https://github.com/DefGuard/defguard/issues/1022)
+* Multiple running gateways bound to one location with network traffic distributed between them may produce invalid network usage statistics, making the network usage graphs and displays on the dashboard unreliable. This also causes MFA on VPN locations to not work properly. Related issue: [https://github.com/DefGuard/defguard/issues/1022](https://github.com/DefGuard/defguard/issues/1022)
 
 ### What is the gateway peers persistence (if core/proxy services fail)
 
