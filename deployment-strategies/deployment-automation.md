@@ -87,7 +87,7 @@ SIGNING_INPUT="$HEADER_B64.$PAYLOAD_B64"
 SIGNATURE=$(echo -n "$SIGNING_INPUT" | openssl dgst -sha256 -hmac "$DEFGUARD_GATEWAY_SECRET" -binary | openssl base64 -e -A | tr '+/' '-_' | tr -d '=')
 
 GATEWAY_TOKEN="$SIGNING_INPUT.$SIGNATURE"
-echo $GATEWAY_TOKEN
+echo "$GATEWAY_TOKEN"
 
 ```
 
