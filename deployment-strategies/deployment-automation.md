@@ -48,7 +48,7 @@ The Defguard binary location is dependent on the deployment method, an absolute 
 
 If the command doesn't produce an output, try running it without the grep, to check for any errors.
 
-Please note that the above command requires all your Defguard Core environment variables to be present (especially ones related to the database connection) during invocation. If your invocation environment doesn't have access to the Core's configuration variables, you should load them, for example:
+Please note that the above command requires all your Defguard Core environment variables to be present (especially ones related to the database connection) during invocation. Your database also needs to be reachable. If your invocation environment doesn't have access to the Core's configuration variables, you should load them, for example:
 
 ```bash
 source /etc/defguard/core.conf && defguard --secret-key ...
