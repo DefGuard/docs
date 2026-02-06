@@ -104,6 +104,7 @@
 * [Health check](deployment-strategies/health-check.md)
 * [Production deployment verification guide](deployment-strategies/production-deployment-verification-guide.md)
 * [Linux Kernel WireGuard tuning](deployment-strategies/linux-kernel-wireguard-tuning.md)
+* [Deployment automation](deployment-strategies/deployment-automation.md)
 
 ## License <a href="#enterprise" id="enterprise"></a>
 
