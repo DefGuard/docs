@@ -4,7 +4,7 @@ This guide will focus on ways of automating some aspects of the deployment of th
 
 ### Gateway secret
 
-The Gateway secret is one of the [Core's configuration values](configuration.md#secrets-configuration) and is used to generate Gateway authentication tokens. This value must be often generated automatically and then passed to components to achieve a fully automated process.
+The Gateway secret is one of the [Core's configuration values](configuration.md#secrets-configuration) and is used to generate [Gateway authentication tokens](gateway.md). This value must be often generated automatically and then passed to components to achieve a fully automated process.
 
 The easiest way of generating the `DEFGUARD_GATEWAY_SECRET` would be using the following bash command:
 
@@ -50,7 +50,7 @@ If the command doesn't produce an output, try running it without the grep, to ch
 
 ### Gateway token
 
-If for some reason you can't rely on the token that's output by the `init-vpn-location` command described in the previous section, you can generate the token independently using scripts.
+If for some reason you can't rely on the token that's output by the `init-vpn-location` command described in the [previous section](deployment-automation.md#first-location-creation), you can generate the token independently using scripts.
 
 To generate a Gateway authentication token, the Core's `DEFGUARD_GATEWAY_SECRET` value must be available to the script. Thus, your deployment process must generate the `DEFGUARD_GATEWAY_SECRET` before generating the token, and share the value of the secret, to the script that generates the token.
 
