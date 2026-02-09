@@ -45,7 +45,7 @@ Below you'll find a detailed breakdown of configuration for different components
 
 ## Deploying Core, database and reverse proxy services
 
-Here is the docker-compose.yaml for the core and database. Configuration is split to the `.env` file (see below):
+Here is the **docker-compose.yaml** for the core and database. Configuration is split to the `.env` file (see below):
 
 ```
 services:
@@ -83,7 +83,7 @@ volumes:
 
 #### NGINX reverse-proxy
 
-Now that you have core running, here is an example NGINX configuration to provide SSL termination:
+Now that you have Defguard Core running, here is an example NGINX configuration to provide SSL termination:
 
 ```
 upstream  defguard {
@@ -172,31 +172,31 @@ POSTGRES_PASSWORD=!SAME_AS-GENERATED-DEFGUARD_DB_PASSWORD!
 
 ## Deploying Proxy and reverse proxy service
 
-Here is the docker-compose.yaml for the public proxy (enrollment service as well as desktop client configuration service).
+Here is the **docker-compose.yaml** for Defguard Proxy (enrollment service and desktop client configuration service).
 
 To secure the gRPC communication, please generate the proxy CA and certificate, [more info here](grpc-ssl-communication.md#custom-ssl-ca-and-certificates).
 
 ```
-proxy:
-  image: ghcr.io/defguard/defguard-proxy:latest
-  restart: unless-stopped
-  ports:
-     # HTTP port - should be secured by reverse proxy
-     - "127.0.0.1:8080:8080"
-     - "50051:50051"
-  environment:
-     # path in the volume to custom proxy cert & key
-     - DEFGUARD_PROXY_GRPC_CERT=ca/proxy.crt
-     - DEFGUARD_PROXY_GRPC_KEY=ca/proxy.key     
-  volumes:
-     - ./ca/proxy.crt:ca/proxy.crt
-     - ./ca/proxy.key:ca/proxy.key
-  
+services:
+  proxy:
+    image: ghcr.io/defguard/defguard-proxy:latest
+    restart: unless-stopped
+    ports:
+      # HTTP port - should be secured by reverse proxy
+      - "127.0.0.1:8080:8080"
+      - "50051:50051"
+    environment:
+      # path in the volume to custom proxy cert & key
+      - DEFGUARD_PROXY_GRPC_CERT=ca/proxy.crt
+      - DEFGUARD_PROXY_GRPC_KEY=ca/proxy.key     
+    volumes:
+      - ./ca/proxy.crt:ca/proxy.crt
+      - ./ca/proxy.key:ca/proxy.key
 ```
 
 #### NGINX reverse-proxy
 
-Now that you have proxy running, here is an example NGINX configuration to provide SSL termination:
+Now that you have Defguard Proxy running, here is an example NGINX configuration to provide SSL termination:
 
 ```
 upstream  defguard-proxy  {
@@ -216,21 +216,20 @@ server {
 
 	client_max_body_size 20m;
 
-        location / {
-            proxy_pass         http://defguard-proxy;
-            proxy_set_header   Host             $host;
-            proxy_set_header   X-Real-IP        $remote_addr;
-            proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
-        }
+  location / {
+      proxy_pass         http://defguard-proxy;
+      proxy_set_header   Host             $host;
+      proxy_set_header   X-Real-IP        $remote_addr;
+      proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+  }
 }
-
 ```
 
 ## Deploying Gateway service
 
-You'll need a token to deploy the Gateway service. You'll have to set it as DEFGUARD\_TOKEN environment variable. Details on how to obtain the token [here](gateway.md).
+You'll need a token to deploy Defguard Gateway. You'll have to set it as DEFGUARD\_TOKEN environment variable. Details on how to obtain the token [here](gateway.md).
 
-For gateway to control the WireGuard kernel as well as network, it's recommended to run in the _host_ network mode as well as there are needed some docker CAPs:
+For Gateway to control the WireGuard kernel as well as network, it's recommended to run in the _host_ network mode as well as there are needed some Docker CAPs:
 
 ```
 services:
