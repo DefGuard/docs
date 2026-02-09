@@ -10,7 +10,7 @@ Defguard Gateway does **not** take control of the entire firewall. Instead, dedi
 
 ## NFTables (Linux)
 
-All applied rules are deployed to Defguard Gateway. This means that the firewall on the Gateway that handles the _Office-Berlin_ location should contain appropriate [NFTables](https://nftables.org/) rules that implement the specified requirements. Let's see how this looks like in practice. Typing `nftables list ruleset` in the Terminal on a machine running Defguard Gateway should display something like the following:
+All applied rules are deployed to Defguard Gateway. This means that the firewall on the Gateway that handles the _Office-Berlin_ location should contain appropriate [NFTables](https://nftables.org/) rules that implement the specified requirements. Let's see how this looks like in practice. Typing `nft list ruleset` in the Terminal on a machine running Defguard Gateway should display something like the following:
 
 ```
 ...
@@ -170,7 +170,7 @@ Destination IPs for a given ACL can be configured in multiple ways:
 * Destination aliases
 * Component aliases
 
-It is therefore possible to configure some overlapping destinations, for example a 10.0.20.0/24 subnet and then a specific IP like 10.0.20.17 in some alias.&#x20;
+It is therefore possible to configure some overlapping destinations, for example a 10.0.20.0/24 subnet and then a specific IP like 10.0.20.17 in some alias.
 
 When generating firewall rules, we have to be mindful of the following limitations regarding our specific implementation:
 
