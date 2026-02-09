@@ -2,7 +2,7 @@
 
 This tutorial will help you test the new major update to Defguard - version 2.0.
 
-For the list of changes made in this version go to our release blog post or release notes.
+For the list of changes made in this version, go to our release blog post or release notes.
 
 {% hint style="danger" %}
 This is an early alpha! Do not migrate from your previous production versions to this one! This release is only for setting up new, test instances. It's meant to preview the upcoming v2.0 and gather feedback.
@@ -12,7 +12,7 @@ This is an early alpha! Do not migrate from your previous production versions to
 
 We've prepared a convenient docker compose config file that allows you to easily set up the whole Defguard stack and test the new UI and functionalities.
 
-To start the Defguard v2.0 stack do the following:
+To start the Defguard v2.0 stack, do the following:
 
 ```
 git clone git@github.com:DefGuard/deployment.git -b add-compose-for-testing-2.0 defguard-deployment
@@ -23,7 +23,7 @@ docker compose up -d
 This will start 8 docker containers:
 
 * db - PostgreSQL database
-* core - Defguard Core component (main controll plane)
+* core - Defguard Core component (main control plane)
 * edge1, edge2, edge-lb - two Defguard Edge (formerly Proxy) components with a NGINX-based load balancer (user enrolment and client app configuration)
 * gateway1, gateway2, gateway-lb - two Defguard Gateway components with an Envoy-based load balancer (VPN gateways)
 
@@ -31,7 +31,7 @@ This will start 8 docker containers:
 
 Notice that the Docker Compose file contains only minimal configuration parameters. This is one of the major changes in the new version. All configuration that was previously stored in environment variables or configuration files is now stored in the database and initialized using a convenient **setup wizard**.
 
-To begin the initial configuration just visit this address http://localhost:8000/ after you started the stack with Docker Compose. Defguard will detect that this is fresh instance and will welcome you with the setup wizard.
+To begin the initial configuration, just visit this address http://localhost:8000/ after you started the stack with Docker Compose. Defguard will detect that this is a fresh instance and will welcome you with the setup wizard.
 
 The setup process contains several major steps:
 
@@ -41,7 +41,7 @@ The setup process contains several major steps:
 * Creating an initial VPN Location (logical VPN site)
 * Creating a VPN Gateway for the initial VPN Location (actual VPN server)
 
-For the stable version of 2.0 (or in following alpha) we'll also add a **migration wizard** that will help you upgrading from previous Defguard version to the latest one with ease.
+For the stable version of 2.0 (or in following alpha) we'll also add a **migration wizard** that will help you to upgrade from previous Defguard version to the latest one with ease.
 
 ### Example setup
 
@@ -98,7 +98,12 @@ Use the Docker service name as the _IP or Domain_ while configuring the componen
 {% step %}
 #### Create first Location
 
-Here same as with Edge Component, set the Gateway public address to the IP you got in your local network.
+Here, same as with Edge Component, set the Gateway address to the IP you got in your local network.&#x20;
+
+```
+ipconfig getifaddr en0
+192.168.83.132
+```
 
 <figure><img src="../.gitbook/assets/Screenshot 2026-02-08 at 23.08.14.png" alt=""><figcaption></figcaption></figure>
 
@@ -109,6 +114,8 @@ Here same as with Edge Component, set the Gateway public address to the IP you g
 <figure><img src="../.gitbook/assets/Screenshot 2026-02-08 at 23.08.49.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/Screenshot 2026-02-08 at 23.08.53.png" alt=""><figcaption></figcaption></figure>
+
+Now, if we want to set up gateway for our new location, make sure you clicked the "Run the gateway activation wizard once the location is created" checkbox.
 
 <figure><img src="../.gitbook/assets/Screenshot 2026-02-08 at 23.09.05.png" alt=""><figcaption></figcaption></figure>
 {% endstep %}
@@ -136,25 +143,25 @@ Use the Docker service name as the _IP or Domain_ while configuring the componen
 
 ## Enjoy fully redesigned interface
 
-After finishing the initial setup Defguard is fully operational. You can manage your instance using the fully redesigned UI/UX.
+After finishing the initial setup, Defguard is fully operational. You can manage your instance using the fully redesigned UI/UX.
 
 You can also enrol users and connect to the newly crated Location.
 
-You'll notice changes in every part of the interface but some areas changed in a very significant way. Check those modules for sure:
+You'll notice changes in every part of the interface, but some areas changed in a very significant way. Check those modules for sure:
 
-* VPN overview - strictly a dashboard for the administrator, previously mixed with system configuration, which was confusing. Also we've significatly reafactored our statistics module to make sure the dashboard is responsive even for large deployments.
+* VPN overview - strictly a dashboard for the administrator, previously mixed with system configuration, which was confusing. Also, we've significantly refactored our statistics module to make sure the dashboard is responsive even for large deployments.
 * Dedicated Locations page - previously hidden somewhere in the VPN overview page, mixed with dashboard, now a clear Location listing and management.
-* Firewall (formerly ACL) - new nomenclature (Aliases, Destinations, Rules), brand new Alias, Destination and Rule form. The Rule form, despite realising a complex task of creating a firewall rule, is intuitive and guides the user through the process.
-* Settings - since all of the settings are now stored in the database, they can be managed with the UI. All system parameter got divided into logical sections, with broad descriptions, making it much easier to configure you system.
-* Edge Components (formerly Proxy) page - brand new page for managing Edge Components (exposing selected Core functionality to the internet while keeping the Core isolated).
+* Firewall (formerly ACL) - new nomenclature (Aliases, Destinations, Rules), brand-new Alias, Destination, and Rule form. The Rule form, despite realising a complex task of creating a firewall rule, is intuitive and guides the user through the process.
+* Settings - since all the settings are now stored in the database, they can be managed with the UI. All system parameter got divided into logical sections, with broad descriptions, making it much easier to configure your system.
+* Edge Components (formerly Proxy) page - brand-new page for managing Edge Components (exposing selected Core functionality to the internet while keeping the Core isolated).
 
 ## Test the setup configured using the wizard
 
 Now the only thing left to do is to test the setup. You can test the following scenario:
 
-1. Create a new user in the .
+1. Create a new user.
 2. Sign in as the user.
-3. Add a TOTP MFA method in the user's profile.
+3. Add TOTP MFA method in the user's profile.
 4. Enrol as the new user using the Desktop or Mobile app.
 5. Connect to the created Location.
 6. See a new session visible in the VPN overview.
