@@ -82,13 +82,13 @@ If this address is assigned for example to a Firewall or Load Balancer rather th
 
 ### Proxy
 
-1. please open the public 443 port on the server (recommended to rewrite port 80 to redirect to 443)
-2. please open gRPC port on the internal network - so that the **Defguard Core can connect to this port - more details here:** [**https://docs.defguard.net/1.5/deployment-strategies/configuration#proxy-service**](https://docs.defguard.net/1.5/deployment-strategies/configuration#proxy-service)
+1. Please open the public 443 port on the server (recommended to rewrite port 80 to redirect to 443)
+2. Please open gRPC port on the internal network - so that the **Defguard Core can connect to this port - more details here:** [**https://docs.defguard.net/deployment-strategies/configuration#proxy-service**](https://docs.defguard.net/deployment-strategies/configuration#proxy-service)
 
 ### Core
 
-1. please open 443 port for web interface accessible only from local/VPN network
-2. please open a gRPC port **for the gateway server to connect to this port - more info here:** [**https://docs.defguard.net/deployment-strategies/configuration#grpc-server-configuration**](https://docs.defguard.net/deployment-strategies/configuration#grpc-server-configuration)
+1. Please open 443 port for web interface accessible only from local/VPN network
+2. Please open a gRPC port **for the gateway server to connect to this port - more info here:** [**https://docs.defguard.net/deployment-strategies/configuration#grpc-server-configuration**](https://docs.defguard.net/deployment-strategies/configuration#grpc-server-configuration)
 
 ## Backup strategy
 
