@@ -78,8 +78,6 @@ If this address is assigned for example to a Firewall or Load Balancer rather th
 
 1. Please open the public port you wish the VPN to be working on - eg. 50555
 
-* Please open on the firewall: local network access **from the Gateway server/VM** → **to Defguard Core gRPC port - more info here:** [**https://docs.defguard.net/deployment-strategies/configuration#grpc-server-configuration**](https://docs.defguard.net/deployment-strategies/configuration#grpc-server-configuration)
-
 ### Proxy
 
 1. Please open the public 443 port on the server (recommended to rewrite port 80 to redirect to 443)
@@ -88,7 +86,7 @@ If this address is assigned for example to a Firewall or Load Balancer rather th
 ### Core
 
 1. Please open 443 port for web interface accessible only from local/VPN network
-2. Please open a gRPC port **for the gateway server to connect to this port - more info here:** [**https://docs.defguard.net/deployment-strategies/configuration#grpc-server-configuration**](https://docs.defguard.net/deployment-strategies/configuration#grpc-server-configuration)
+2. Please open a gRPC port **for the Gateway server to connect to this port via a local network - more info here:** [**https://docs.defguard.net/deployment-strategies/configuration#grpc-server-configuration**](https://docs.defguard.net/deployment-strategies/configuration#grpc-server-configuration)
 
 ## Backup strategy
 
