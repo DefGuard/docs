@@ -44,7 +44,7 @@ Docker deployment requires the system to have [official Docker Engine installati
 
 ### Gateway server - where WireGuard VPN tunnels itself will be launched
 
-* **The** [**Gateway address**](../features/wireguard/create-your-vpn-network.md) and[ **Gateway Port**](../features/wireguard/create-your-vpn-network.md) **must be publicly available from the Internet**
+* **The** [**Gateway address**](../features/wireguard/create-your-vpn-network.md#gateway-address) and[ **Gateway Port**](../features/wireguard/create-your-vpn-network.md#gateway-port) **must be publicly available from the Internet**
 
 {% hint style="warning" %}
 The server on which the Gateway is installed does not need to have the IP address (the same as the Gateway Address) assigned to it - can have internal network address.
