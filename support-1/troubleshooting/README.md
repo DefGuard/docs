@@ -31,7 +31,7 @@ Also, there is a setting in the location named _Peer Disconnect Threshold (secon
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-11-15 at 18.25.33.png" alt="" width="375"><figcaption></figcaption></figure>
 
-This setting specifies that if the **peer is inactive for **_**(defined seconds)**_, the gateway **should remove it from the configuration** (as it should not be persistent since MFA is required).
+This setting specifies that if the **peer is inactive for \_(defined seconds)**\_, the gateway **should remove it from the configuration** (as it should not be persistent since MFA is required).
 
 So if you are disconnected from the location:
 
@@ -49,6 +49,14 @@ sudo ln -s /usr/bin/resolvectl /usr/sbin/resolvconf
 ```
 
 If this fails, one may also try installing one of the packages providing the `resolvconf` command, like `openresolv` or, ⁣ but`resolvconf` this has not been tested and may cause issues with `systemd-resolved`, so proceed at your own risk.
+
+### Check DNS name resolution
+
+If the internal DNS servers are configured but users can't connect to internal hosts requiring name resolution, you may want to check the following:
+
+1. Routing: `ip route` - are requests to network segments where DNS servers live routed through the wireguard interface?
+2. Wireguard interface: `sudo wg` - are network segments where DNS servers live on the `allowed ips` list?
+3. Try resolving the names manually using your DNS servers: `dig @DNS_SERVER_IP my.internal.service.com`
 
 ## Client: Failed to parse IP address
 
@@ -122,7 +130,7 @@ Please check [this article](../../deployment-strategies/configuration.md#enrollm
 
 ## Enrollment URL has changed
 
-If for any reason the Enrollment URL has changed (eg. the domain from: _enroll.company.com_ to _setup.company.com),_ all desktop or mobile aplications needs to be manually updated with the new URL.
+If for any reason the Enrollment URL has changed (e.g. the domain from: _enroll.company.com_ to _setup.company.com),_ all desktop or mobile applications need to be manually updated with the new URL.
 
 {% hint style="warning" %}
 **This manual process including tokens issued by administrator is intentional** – so that neither the user themselves, nor a potential attacker, can manually change the configuration or do so without the user/administrator’s knowledge.
@@ -187,10 +195,10 @@ Defguard only manages VPN server configuration (for now, we are planning ACLs / 
 
 Then when the client / user connects it actually establishes **a secure tunnel between their computer network and your server (that VPN interface)**.
 
-From there, what happens to this traffic is the **administrator role.** The most common scenarios to do are:
+From there, what happens to this traffic is the **administrator's responsibility.** The most common scenarios are:
 
-* add routing rules, so that the traffic from that interface/VPN IP network gets routed to your network - this approach gives the advantage that users VPN ip persists in the network and the user is visible with it's VPN ip in your local network
-* Masquerade or NAT - a common use case is to masquerade or NAT the traffic - which is **actually required if you want users to access Internet from the VPN -** this process is [described in detailed in this tutorial](../../tutorials/step-by-step-setting-up-a-vpn-server/#enabling-to-access-internet-through-your-vpn).
+* add routing rules, so that the traffic from that interface/VPN IP network gets routed to your network - this approach gives the advantage that users VPN ip persists in the network and the user is visible with it's VPN IP in your local network
+* Masquerade or NAT - a common use case is to masquerade or NAT the traffic - which is **required if you want users to access Internet from the VPN -** this process is [described in detailed in this tutorial](../../tutorials/step-by-step-setting-up-a-vpn-server/#enabling-to-access-internet-through-your-vpn).
 
 ## Unable to sign in to your Defguard instance with correct credentials
 
@@ -351,7 +359,7 @@ Issue occurs on Linux distributions with `NetworkManager` installed.
 
 This error occurs because `NetworkManager` tries to manage Defguard network interfaces. This doesn't affect VPN connection and is a **visual** bug only.
 
-To prevent this error from appearing, you can configure `NetworkManager`  to stop managing network interfaces created by Defguard. To do so, we need to create a config for `NetworkManager`.
+To prevent this error from appearing, you can configure `NetworkManager` to stop managing network interfaces created by Defguard. To do so, we need to create a config for `NetworkManager`.
 
 1. Create config file
 
@@ -382,21 +390,15 @@ To resolve this issue, install missing dependency with:
 sudo apt install openresolv
 ```
 
-
 ## macOS: all VPN connections get disconnected when one VPN tunnel terminates
 
 This is how macOS behavies. Currently, there isn't any workaround for this problem.
 
-
 ## macOS: VPN tunnel terminates when changing networks
 
-Normally, the VPN tunnel should stay connected while changing networks (for example, from Wi-Fi to
-Ethernet). However, there are some cases when the tunnel terminates:
+Normally, the VPN tunnel should stay connected while changing networks (for example, from Wi-Fi to Ethernet). However, there are some cases when the tunnel terminates:
 
-* A phisical interface gets unplugged from the machine (for example, USB network adapter). In such
-  case, the VPN tunnel gets disconnected because the network interface disappears.
-
-* There isn't any connection to Defguard Gateway within a certain amount of time. In that case,
-  check _Peer Disconnect Threshold (seconds):_ in Client Settings.
+* A phisical interface gets unplugged from the machine (for example, USB network adapter). In such case, the VPN tunnel gets disconnected because the network interface disappears.
+* There isn't any connection to Defguard Gateway within a certain amount of time. In that case, check _Peer Disconnect Threshold (seconds):_ in Client Settings.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-11-15 at 18.25.33.png" alt="" width="375"><figcaption></figcaption></figure>
