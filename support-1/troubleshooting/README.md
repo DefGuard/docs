@@ -120,6 +120,8 @@ net.core.wmem_default = 524288
 
 More info here: [https://github.com/DefGuard/defguard/issues/1303](https://github.com/DefGuard/defguard/issues/1303)
 
+See also our [Linux kernel tuning guide](../../deployment-strategies/linux-kernel-wireguard-tuning.md).
+
 ## Enrollment URL shows http://localhost:8080 despite `DEFGUARD_URL` is different
 
 You are probably looking for `DEFGUARD_ENROLLMENT_URL` which is the URL needed to add device (image below).
