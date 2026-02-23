@@ -30,6 +30,10 @@ In order for your issue to be processed efficiently, make sure it's well describ
 
 Please use our issue templates for [bugs](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=bug\&projects=\&template=bug_report.md\&title=) and [features](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=feature\&projects=\&template=feature_request.md\&title=). Try to fill as much information as possible.
 
+## Solved an issue yourself?
+
+Please share your solution with the community so others can benefit from it. Leave a short description of the observed behaviour, expected behaviour, and the solution in our [Show and Tell section](https://github.com/DefGuard/defguard/discussions/categories/show-and-tell) on GitHub Discussions.
+
 ## Reporting a security vulnerability
 
 {% hint style="danger" %}
