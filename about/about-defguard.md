@@ -14,11 +14,11 @@ Defguard helps organizations:
 * Automate device enrollment.
 * Simplify network segmentation and access control using policies.
 
-For a detailed list of features go to the [Features overview](broken-reference) section.
+For a detailed list of features go to the [Features overview](broken-reference/) section.
 
 ## Why choose Defguard?
 
-Defguard was built with security, transparency, and control at its core.
+Defguard was built with security, transparency, and control at its core - more in our [Secure by design](../in-depth/secure-by-design.md) and [Architecture](../in-depth/architecture/) documentation.
 
 Here’s why organizations choose it over traditional VPN management or proprietary systems:
 
@@ -30,7 +30,7 @@ No external cloud relay, no hidden telemetry - your traffic and user data never 
 
 #### 🔒 Zero Trust by Design
 
-Authentication and authorization with MFA happen continuously, not just at login.&#x20;
+Authentication and authorization with MFA happen continuously, not just at login.
 
 Access decisions are policy-driven and identity-based, reducing lateral movement risks and insider threats.
 
