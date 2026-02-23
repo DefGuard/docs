@@ -27,15 +27,11 @@ We recommend always using fixed, stable tags (`vX.Y`, `vX.Y.Z`) for your product
 
 ## Example Docker Compose deployment repository
 
-We prepared a [git repository](https://github.com/DefGuard/deployment) with and example Docker Compose configuration.
+We prepared a [git repository](https://github.com/DefGuard/deployment) with and example Docker Compose configuration. The deployment files located in the `docker-compose-segmented` directory are split into 3 separate Docker Compose, one for each component: Core, Proxy, Gateway.
 
-To run your services using this example prepare your .env file by copying the template:
+Before running any of the services, make sure to make appropriate changes either in the `.env` file or the `environment` section of the compose for every component.&#x20;
 
-```bash
-cp .env.template .env
-```
-
-Finally, run the service with Docker Compose:
+To run one of the components, simply do:
 
 ```bash
 docker compose up
@@ -43,211 +39,199 @@ docker compose up
 
 Below you'll find a detailed breakdown of configuration for different components: Core, Proxy and Gateway.
 
+We recommend following the guide on [grpc-ssl-communication.md](grpc-ssl-communication.md "mention") to further secure the communication between components.
+
 ## Deploying Core, database and reverse proxy services
 
-Here is the **docker-compose.yaml** for the core and database. Configuration is split to the `.env` file (see below):
+Here is the `compose.yml` for the Core, Database and a reverse proxy (Nginx Proxy Manager). Configuration is split to the `.env` file (see below).
 
-```
+```yml
 services:
   core:
     image: ghcr.io/defguard/defguard:latest
-    restart: always
+    restart: unless-stopped
     container_name: "defguard"
     env_file: .env
     ports:
-      # HTTP port - open on localhost, should be secured by reverse-proxy
-      - "127.0.0.1:8000:8000"
-      # gRPC port for gateway to connect to
-      # open on all interfaces/IPs - whould be secured with custom CA (see .env)
+      # gRPC port for the Gateway to connect to
+      # open on all interfaces/IPs - should be secured with custom CA (see .env)
       - "50055:50055"
     depends_on:
-      - db
-    volumes:
-      # more info here:
-      # https://docs.defguard.net/deployment-strategies/openid-rsa-key
-      - ./rsakey.pem:/keys/rsakey.pem
-      # more info about custom CA here:
-      # https://docs.defguard.net/deployment-strategies/grpc-ssl-communication#custom-ssl-ca-and-certificates
-      - ./ca.pem:/keys/ca.pem
+      db:
+        condition: service_healthy
+    # volumes:
+    # More info here:
+    # https://docs.defguard.net/deployment-strategies/openid-rsa-key
+    # - ./rsakey.pem:/keys/rsakey.pem
+    # More info about securing gRPC communication here:
+    # https://docs.defguard.net/deployment-strategies/grpc-ssl-communication#custom-ssl-ca-and-certificates
+    # - ./core.pem:/certs/core.pem
+    # - ./core.key:/certs/core.key
+    # - ./ca.pem:/certs/ca.pem
 
   db:
     image: postgres:17-alpine
+    restart: unless-stopped
     container_name: "defguard-db"
     env_file: .env
     volumes:
-      - db:/var/lib/postgresql/data
-      
-volumes:
-  db:
+      - ./volumes/db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U defguard"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  npm:
+    image: "jc21/nginx-proxy-manager:latest"
+    restart: unless-stopped
+
+    ports:
+      - "80:80" # HTTP Port
+      - "443:443" # HTTPS Port
+      - "81:81" # Admin Web Port
+
+    environment:
+      TZ: "Europe/Warsaw"
+
+    volumes:
+      - ./volumes/npm/data:/data
+      - ./volumes/npm/letsencrypt:/etc/letsencrypt
+
 ```
 
-#### NGINX reverse-proxy
+#### Nginx Proxy Manager
 
-Now that you have Defguard Core running, here is an example NGINX configuration to provide SSL termination:
+The Reverse Proxy should be setup to access Defguard Core dashboard. The Nginx Proxy Manager (NPM) can be configured by accessing the web interface at port 81.
 
-```
-upstream  defguard {
-    server 127.0.0.1:8000;
-}
+The Nginx proxy should be configured to proxy the traffic to: `http://core:8000`.&#x20;
 
-server {
-    listen 443 ssl http2;
+<figure><img src="../.gitbook/assets/image (110).png" alt=""><figcaption></figcaption></figure>
 
-    # your domain
-    server_name defguard.secure-internal.net;
+We recommend also setting up certificates, to serve the traffic over HTTPS. Since Core is designed to be deployed in an internal network, we recommend selecting the DNS validation in NPM or uploading custom, already issued certificates.
 
-    access_log /var/log/nginx/defguard.log;
-    error_log /var/log/nginx/defguard.error.log;
-
-    ssl on;
-    # we assume you already have Let'sEncrypt SSL certificates
-    # for your domain
-    ssl_certificate /etc/letsencrypt/live/secure-internal.net/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/secure-internal.net/privkey.pem;
-
-    client_max_body_size 20m;
-
-    location / {
-        proxy_connect_timeout 300;
-        proxy_pass http://defguard;
-        proxy_set_header Connection "upgrade";
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header X-Forwarded-for $remote_addr;
-    }
-}
-```
+<figure><img src="../.gitbook/assets/image (121).png" alt=""><figcaption></figcaption></figure>
 
 #### The configuration
 
 Here is the `.env` file with all configuration variables:
 
-```
-# please generate each secret with:
+```dotenv
+# You can generate each secret with:
 # openssl rand -base64 55 | tr -d "=+/" | tr -d '\n' | cut -c1-64
-DEFGUARD_SECRET_KEY=
-DEFGUARD_AUTH_SECRET=
-DEFGUARD_GATEWAY_SECRET=
-DEFGUARD_YUBIBRIDGE_SECRET=
-
-# if you plan to reverse-proxy defguard, please provide a full URL
-# this URL will be shared in emails, enrollement messages, etc.:
-DEFGUARD_URL=https://defguard.secure-internal.net
-# Must be an effective domain of DEFGUARD_URL
-# Changing DEFGUARD_WEBAUTHN_RP_ID will potentially break all your existing
-# Webauthn credentials.
-DEFGUARD_WEBAUTHN_RP_ID=defguard.secure-internal.net
-
-# accepted: info/debug/warning/error
+## General Core configuration ##
+DEFGUARD_AUTH_SECRET=<64_CHAR_RANDOM_SECRET>
+DEFGUARD_YUBIBRIDGE_SECRET=<64_CHAR_RANDOM_SECRET>
+DEFGUARD_GATEWAY_SECRET=<64_CHAR_RANDOM_SECRET>
+DEFGUARD_SECRET_KEY=<64_CHAR_RANDOM_SECRET>
+DEFGUARD_URL=<YOUR_DEFGUARD_CORE_URL>
+# DEFGUARD_WEBAUTHN_RP_ID=<YOUR_DEFGUARD_WEBAUTHN_RP_ID>
+# More details about RSA key here:
+# https://docs.defguard.net/deployment-strategies/openid-rsa-key
+# DEFGUARD_OPENID_KEY=rsakey.pem
+# Accepted values: debug, info, warn, error
 DEFGUARD_LOG_LEVEL=info
 
-# more info about custom CA here:
-# https://docs.defguard.net/deployment-strategies/grpc-ssl-communication#custom-ssl-ca-and-certificates
-DEFGUARD_PROXY_GRPC_CA=/keys/ca.pem
-# gRPC URL of proxy (see proxy config)
-DEFGUARD_PROXY_URL=https://proxy.host:50051
-# more details about RSA key here:
-# https://docs.defguard.net/deployment-strategies/openid-rsa-key
-DEFGUARD_OPENID_KEY=rsakey.pem
+## Proxy/Enrollment configuration ##
+DEFGUARD_ENROLLMENT_URL=<YOUR_DEFGUARD_ENROLLMENT_URL> # The URL of your Proxy - will be displayed during enrollment, email messages or desktop client configuration
+DEFGUARD_PROXY_URL=<YOUR_DEFGUARD_PROXY_GRPC_URL>
+# DEFGUARD_COOKIE_INSECURE=true  # If you are accessing the dashboard via HTTP instead of HTTPS, set this to true.
 
-# the URL of your proxy - will be displayed during enrollment, email
-# messages or desktop client configuration
-DEFGUARD_ENROLLMENT_URL=https://enrollment.public.net
+## GRPC Certificate configuration ##
+# More info about securing gRPC communication here: https://docs.defguard.net/deployment-strategies/grpc-ssl-communication#custom-ssl-ca-and-certificates
+# DEFGUARD_GRPC_CERT=/certs/core.pem
+# DEFGUARD_GRPC_KEY=/certs/core.key
+# DEFGUARD_PROXY_GRPC_CA=/certs/ca.pem
 
-# PostgreSQL database configuration for core
-DEFGUARD_DB_HOST=db
-DEFGUARD_DB_PORT=5432
-DEFGUARD_DB_USER=defguard
-# please generate password:
-# openssl rand -base64 55 | tr -d "=+/" | tr -d '\n' | cut -c1-64
-DEFGUARD_DB_PASSWORD=
-DEFGUARD_DB_NAME=defguard
-
-# database configuration for "db" container
-# must be same as above
-# database will be initialized with these values (the user/pass set here)
+## Database configuration ##
+# For the database container
 POSTGRES_DB=defguard
 POSTGRES_USER=defguard
-POSTGRES_PASSWORD=!SAME_AS-GENERATED-DEFGUARD_DB_PASSWORD!
+POSTGRES_PASSWORD=<YOUR_DB_PASSWORD>
+# For the Core container
+DEFGUARD_DB_HOST=db
+DEFGUARD_DB_PORT=5432
+DEFGUARD_DB_PASSWORD=<YOUR_DB_PASSWORD>
+DEFGUARD_DB_USER=defguard
+DEFGUARD_DB_NAME=defguard
+
 ```
 
 ## Deploying Proxy and reverse proxy service
 
-Here is the **docker-compose.yaml** for Defguard Proxy (enrollment service and desktop client configuration service).
+Here is the `compose.yml` for Defguard Proxy (enrollment and desktop client configuration service).
 
-To secure the gRPC communication, please generate the proxy CA and certificate, [more info here](grpc-ssl-communication.md#custom-ssl-ca-and-certificates).
-
-```
+```yml
 services:
   proxy:
     image: ghcr.io/defguard/defguard-proxy:latest
     restart: unless-stopped
+    container_name: "defguard-proxy"
     ports:
-      # HTTP port - should be secured by reverse proxy
-      - "127.0.0.1:8080:8080"
       - "50051:50051"
     environment:
-      # path in the volume to custom proxy cert & key
-      - DEFGUARD_PROXY_GRPC_CERT=ca/proxy.crt
-      - DEFGUARD_PROXY_GRPC_KEY=ca/proxy.key     
+      - DEFGUARD_PROXY_URL=<PROXY_GRPC_URL>
+      - DEFGUARD_LOG_LEVEL=info
+      # More info about securing gRPC communication here:
+      # https://docs.defguard.net/deployment-strategies/grpc-ssl-communication#custom-ssl-ca-and-certificates
+      #- DEFGUARD_PROXY_GRPC_CERT=/certs/proxy.pem
+      #- DEFGUARD_PROXY_GRPC_KEY=/certs/proxy.key
+    # volumes:
+    #   - ./proxy.pem:/certs/proxy.pem
+    #   - ./proxy.key:/certs/proxy.key
+  npm:
+    image: "jc21/nginx-proxy-manager:latest"
+    restart: unless-stopped
+    ports:
+      - "80:80" # HTTP Port
+      - "443:443" # HTTPS Port
+      - "81:81" # Admin Web Port
+
+    environment:
+      TZ: "Europe/Warsaw"
+
     volumes:
-      - ./ca/proxy.crt:ca/proxy.crt
-      - ./ca/proxy.key:ca/proxy.key
-```
-
-#### NGINX reverse-proxy
-
-Now that you have Defguard Proxy running, here is an example NGINX configuration to provide SSL termination:
+      - ./volumes/npm/data:/data
+      - ./volumes/npm/letsencrypt:/etc/letsencrypt
 
 ```
-upstream  defguard-proxy  {
-	server   127.0.0.1:8080;
-}
 
-server {
-	listen 443 http2;
-	server_name enrollment.public.net;
-	access_log /var/log/nginx/defguard-proxy.log;
-	error_log /var/log/nginx/defguard-proxy.error.log;
+#### Nginx Proxy Manager
 
-        # we assume you already have Let'sEncrypt SSL certificates
-        # for your domain
-	ssl_certificate /etc/letsencrypt/live/public.net/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/public.net/privkey.pem;
+The Reverse Proxy should be setup to access Defguard Proxy interface and allow serving all traffic destined to it via HTTPS. The Nginx Proxy Manager (NPM) can be configured by accessing the web interface at port 81.
 
-	client_max_body_size 20m;
+The Nginx proxy should be configured to proxy the traffic to: `http://proxy:8080`.&#x20;
 
-  location / {
-      proxy_pass         http://defguard-proxy;
-      proxy_set_header   Host             $host;
-      proxy_set_header   X-Real-IP        $remote_addr;
-      proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
-  }
-}
-```
+Make sure to turn on websockets supports, as some Defguard features rely on it.
+
+<figure><img src="../.gitbook/assets/image (98).png" alt=""><figcaption></figcaption></figure>
+
+NPM can automatically issue certificates for your Defguard Proxy, by performing a domain validation using port 80. Make sure this port is open when trying to configure certificates. Alternatively, DNS validation can be used.
+
+<figure><img src="../.gitbook/assets/image (108).png" alt=""><figcaption></figcaption></figure>
 
 ## Deploying Gateway service
 
-You'll need a token to deploy Defguard Gateway. You'll have to set it as DEFGUARD\_TOKEN environment variable. Details on how to obtain the token [here](gateway.md).
+You'll need a token to deploy Defguard Gateway. You'll have to set it as `DEFGUARD_TOKEN` environment variable. Details on how to obtain the token [here](gateway.md).
 
-For Gateway to control the WireGuard kernel as well as network, it's recommended to run in the _host_ network mode as well as there are needed some Docker CAPs:
+For Gateway to control the WireGuard kernel as well as network, it's recommended to run in the **host** network mode and adding the `NET_ADMIN` capability.
 
-```
+```yml
 services:
-  gateway: 
-    image: ghcr.io/defguard/gateway:latest 
-    restart: unless-stopped 
-    network_mode: "host" 
-    environment: 
-      - DEFGUARD_GRPC_URL=https://core-ip:50055
-      - DEFGUARD_GRPC_CA=/ca.pem
-      - DEFGUARD_STATS_PERIOD=30
-      # to get the token add a VPN location and get the token
-      - DEFGUARD_TOKEN=tokenFromCoreLocation
-      - DEFGUARD_GATEWAY_NAME=willBeVisibleInDefguardAsGWName
-    volumes:
-      # more info about custom CA here:
+  gateway:
+    image: ghcr.io/defguard/gateway:latest
+    restart: unless-stopped
+    container_name: "defguard-gateway"
+    network_mode: "host"
+    environment:
+      - DEFGUARD_GRPC_URL=<CORE_GRPC_URL>
+      - DEFGUARD_TOKEN=<GATEWAY_TOKEN>
+      - DEFGUARD_LOG_LEVEL=info
+      # More info about securing gRPC communication here:
       # https://docs.defguard.net/deployment-strategies/grpc-ssl-communication#custom-ssl-ca-and-certificates
-      - ./ca.pem:/ca.pem
-    cap_add: 
-      - NET_ADMIN 
+      # - DEFGUARD_GRPC_CA=/ca.pem
+    # volumes:
+    #   - ./ca.pem:/ca.pem
+    cap_add:
+      - NET_ADMIN
 ```

@@ -65,6 +65,18 @@ Make sure to check the [general guide to directory synchronization](./#directory
     <figure><img src="../../.gitbook/assets/image (158).png" alt=""><figcaption></figcaption></figure>
 7. You should be good to go now. Navigate to the directory sync settings in Defguard and try to test your setup using the test connection button.
 
+#### Synchronizing only selected memberships
+
+The Microsoft provider allows for synchronizing only selected group memberships:
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+By providing group names in the input field, you select which group memberships should be synchronized. Other group memberships will be ignored.
+
+{% hint style="info" %}
+This setting does not control which users are prefetched/created. It only controls which group memberships are assigned and which are ignored.
+{% endhint %}
+
 #### Creating Defguard users
 
 {% hint style="warning" %}

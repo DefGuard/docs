@@ -12,7 +12,7 @@ Request a new certificate (if you don't have one already).
 
 A public certificate is enough.
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Specify the domains you will want to use for your Defguard instance (for accessing Defguard Proxy and Defguard Core). Those domains should be the same as those you'll use in `ProxyUrl` and `CoreUrl`.
 
