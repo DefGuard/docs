@@ -74,16 +74,30 @@ If this address is assigned for example to a Firewall or Load Balancer rather th
 
 ## Firewall settings
 
-### Gateway
+### Hardened and most secure architecture
+
+Below is a typical Enterprise network segmentation diagram showing the minimum required segments for a De-Militarized Zone (DMZ) and the Intranet, along with the recommended placement of Defguard components within this setup:
+
+<figure><img src="../.gitbook/assets/image (89).png" alt=""><figcaption></figcaption></figure>
+
+### One firewall setup
+
+For organizations with simpler network setups, we recommend an architecture that isolates Defguard components using VLANs:
+
+<figure><img src="../.gitbook/assets/single-firewall.png" alt=""><figcaption></figcaption></figure>
+
+### Port & Firewall exposure summary
+
+#### Gateway
 
 1. Please open the public port you wish the VPN to be working on - eg. 50555
 
-### Proxy
+#### Proxy
 
 1. Please open the public 443 port on the server (recommended to rewrite port 80 to redirect to 443)
 2. Please open gRPC port on the internal network - so that the **Defguard Core can connect to this port - more details here:** [**https://docs.defguard.net/deployment-strategies/configuration#proxy-service**](https://docs.defguard.net/deployment-strategies/configuration#proxy-service)
 
-### Core
+#### Core
 
 1. Please open 443 port for web interface accessible only from local/VPN network
 2. Please open a gRPC port **for the Gateway server to connect to this port via a local network - more info here:** [**https://docs.defguard.net/deployment-strategies/configuration#grpc-server-configuration**](https://docs.defguard.net/deployment-strategies/configuration#grpc-server-configuration)
