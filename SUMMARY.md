@@ -149,6 +149,7 @@
 
 ## In depth
 
+* [Secure By Design](in-depth/secure-by-design.md)
 * [Architecture](in-depth/architecture/README.md)
   * [How do VPN statistics work](in-depth/architecture/how-do-vpn-statistics-work.md)
   * [Security concepts](in-depth/architecture/security-concepts.md)

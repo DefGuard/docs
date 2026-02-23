@@ -6,6 +6,8 @@ Defguard is a zero-trust, VPN-centric access platform built on WireGuard®. Its 
 
 <figure><img src="../../.gitbook/assets/Untitled Diagram.drawio (1).png" alt=""><figcaption></figcaption></figure>
 
+<p align="center"><em>Defguard Logical Architecture Diagram</em></p>
+
 ### **Separation of Concerns**
 
 Each Defguard component serves a distinct purpose, ensuring clear functional isolation:
@@ -65,6 +67,3 @@ Security and reliability rely on visibility. Defguard provides built-in observab
 * Logs and metrics can be exported to external monitoring systems (SIEM, Prometheus, etc.) for centralized analysis.
 
 Continuous visibility ensures operational awareness and compliance with audit requirements.
-
-
-
