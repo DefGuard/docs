@@ -92,7 +92,7 @@ There is a [know bug](https://github.com/DefGuard/defguard/issues/1906) where th
 
 This mode is currently [not officially supported](https://github.com/DefGuard/defguard/issues/2011) but can be achieved by following a workaround:
 
-1. Create a dedicated read-only user that will be used to connect (bind) to your LDAP/AD server. Provide the user credentials in the Connection settings.
+1. Create a dedicated LDAP read-only user that will be used to connect (bind) to your LDAP/AD server. Provide the user credentials in the Connection settings.
 2. Configure the integration and enable the two way synchronization, making sure to select the LDAP authority mode ([two-way-ldap-and-active-directory-synchronization.md](two-way-ldap-and-active-directory-synchronization.md "mention")).
 
 By doing this, the integration will try to synchronize both ways but because of the read only user will be able to synchronize only in the desired (LDAP -> Defguard) direction.
