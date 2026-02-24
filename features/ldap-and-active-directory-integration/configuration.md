@@ -8,9 +8,13 @@ description: How to configure connection between Defguard instance and LDAP.
 Active Directory support is available in Defguard ≥ v1.3.0
 {% endhint %}
 
-{% hint style="warning" %}
-If you are using the integration across multiple nested organizational units, please read the [#multiple-nested-ous](configuration.md#multiple-nested-ous "mention") section.
-{% endhint %}
+The LDAP/AD integrations allows synchronizing users from/to your LDAP/AD server.
+
+## Synchronization direction
+
+The table below describes supported synchronization directions.
+
+<table><thead><tr><th width="296">Synchronization Direction</th><th width="436">Details</th></tr></thead><tbody><tr><td>Defguard -> LDAP</td><td>The default mode after enabling the LDAP integration.</td></tr><tr><td>Defguard &#x3C;-> LDAP</td><td><a data-mention href="two-way-ldap-and-active-directory-synchronization.md">two-way-ldap-and-active-directory-synchronization.md</a></td></tr><tr><td>LDAP -> Defguard</td><td><a data-mention href="configuration.md#one-way-ldap-greater-than-defguard-synchronization">#one-way-ldap-greater-than-defguard-synchronization</a></td></tr></tbody></table>
 
 ## Setup
 
@@ -34,7 +38,7 @@ After you save your LDAP settings, you can check if your Defguard instance can c
 Testing your connection doesn't mean the whole configuration is correct. Currently, Defguard only verifies if a connection can be made and the provided credentials are correct.
 {% endhint %}
 
-After enabling the LDAP integration, you will gain the ability to log in to Defguard through LDAP. Additionally, all your Defguard user changes after you enable the integration will be propagated to LDAP. This is a simple one-way synchronization. If you are interested in synchronizing LDAP and Defguard both ways, check [two-way-ldap-and-active-directory-synchronization.md](two-way-ldap-and-active-directory-synchronization.md "mention").
+After enabling the LDAP integration, you will gain the ability to log in to Defguard through LDAP. Additionally, all your Defguard user changes after you enable the integration will be propagated to LDAP. This is a simple one-way (Defguard -> LDAP) synchronization.
 
 ## Example configurations
 
@@ -79,3 +83,16 @@ If you are using an older version of Defguard, using the integration with multip
     In this example, the user's DN has deeper nesting than the search base, preventing matching them during the group members lookup.
 
 To fix this problem, you should limit the search base to one organizational unit only, if possible.
+
+### User not able to login when synchronization groups are defined, despite being a member
+
+There is a [know bug](https://github.com/DefGuard/defguard/issues/1906) where the capitalization of the groupname attribute matters. As a workaround try changing the letter case of that attribute (cn -> CN).
+
+### One way LDAP -> Defguard synchronization
+
+This mode is currently [not officially supported](https://github.com/DefGuard/defguard/issues/2011) but can be achieved by following a workaround:
+
+1. Create a dedicated read-only user that will be used to connect (bind) to your LDAP/AD server. Provide the user credentials in the Connection settings.
+2. Configure the integration and enable the two way synchronization, making sure to select the LDAP authority mode ([two-way-ldap-and-active-directory-synchronization.md](two-way-ldap-and-active-directory-synchronization.md "mention")).
+
+By doing this, the integration will try to synchronize both ways but because of the read only user will be able to synchronize only in the desired (LDAP -> Defguard) direction.
