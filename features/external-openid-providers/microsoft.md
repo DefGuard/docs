@@ -69,7 +69,7 @@ Make sure to check the [general guide to directory synchronization](./#directory
 
 The Microsoft provider allows for synchronizing only selected group memberships:
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 By providing group names in the input field, you select which group memberships should be synchronized. Other group memberships will be ignored.
 

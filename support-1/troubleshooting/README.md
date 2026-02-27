@@ -404,3 +404,17 @@ Normally, the VPN tunnel should stay connected while changing networks (for exam
 * There isn't any connection to Defguard Gateway within a certain amount of time. In that case, check _Peer Disconnect Threshold (seconds):_ in Client Settings.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-11-15 at 18.25.33.png" alt="" width="375"><figcaption></figcaption></figure>
+
+## Android app "Failed host lookup" error.
+
+When connecting to a location with external OpendID provider, the application shows the following error: `DioException [connection error]: The connection errored: Failed host lookup`.
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt="" width="236"><figcaption></figcaption></figure>
+
+This usually happens when aggressive battery optimization policy is used by the Android system, resulting in network connectivity issues and dns lookup errors. To fix it:
+
+1. Go to Settings -> Apps -> App management -> Defguard -> Battery usage
+2. Enable the "Allow background activity" switch.
+
+Defguard app should now be able to connect to the server even when in background during the OpenID authentication.
+

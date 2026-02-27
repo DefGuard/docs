@@ -42,12 +42,12 @@ After the CloudFormation template is uploaded either manually or via the marketp
     <figure><img src="../../.gitbook/assets/Screenshot 2025-12-01 at 14.22.10.png" alt=""><figcaption></figcaption></figure>
 2.  After subscription succeeds, click the launch your software button:<br>
 
-    <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 3.  Select the CloudFormation option and click "Launch with CloudFormation"<br>
 
-    <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 4. On the "Create stack" screen click next and proceed to the next section ( [#template-parameters](./#template-parameters "mention")).
