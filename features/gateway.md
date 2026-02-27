@@ -1,4 +1,4 @@
-# OPNsense Configuartion
+# OPNsense Configuration
 
 [OPNsense®](https://opnsense.org/) is an open source, feature rich firewall and routing platform, offering cutting-edge network protection.
 
@@ -14,7 +14,21 @@ This instruction helps configure Defguard Gateway in OPNsense. This is based on 
 
 <figure><img src="../.gitbook/assets/OPNSense Plugin.png" alt="OPNSense plugin"><figcaption></figcaption></figure>
 
+{% hint style="info" %}
+Defguard Gateway will create the given network interface automatically (for example _wg0_). The
+interface must be named accoring to FreeBSD [WireGuard protocol driver](https://man.freebsd.org/cgi/man.cgi?query=wg&sektion=4).
+{% endhint %}
+
 ### Assign a network interface to Defguard
+
+A quote from [WireGuard Road Warrior Setup](https://docs.opnsense.org/manual/how-tos/wireguard-client.html):
+
+{% hint style="info" %}
+This step is not strictly necessary in any circumstances for a road warrior setup. However, it is useful to implement, for several reasons:
+First, it generates an alias for the tunnel subnet(s) that can be used in firewall rules. Otherwise you will need to define your own alias or at least manually specify the subnet(s).
+Second, it automatically adds an IPv4 outbound NAT rule, which will allow the tunnel to access IPv4 IPs outside of the local network (if that is desired), without needing to manually add a rule.
+Finally, it allows separation of the firewall rules of each WireGuard instance (each _wgX_ device). Otherwise they all need to be configured on the default WireGuard group that OPNsense creates. This is more an organisational aesthetic, rather than an issue of substance.
+{% endhint %}
 
 1. Go to **Interfaces → Assignments**
 2. Under **Assign a new interface**, select the Defguard Gateway network interface (e.g. _wg0_)
