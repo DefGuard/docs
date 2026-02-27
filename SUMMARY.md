@@ -65,7 +65,7 @@
 * [Integrations](features/integrations/README.md)
   * [Webhooks](features/integrations/webhooks.md)
   * [REST API](features/integrations/api-tokens.md)
-* [OPSense Configuartion](features/gateway.md)
+* [OPNsense Configuartion](features/gateway.md)
 * [SSH Authentication](features/ssh-authentication.md)
 * [Forward auth](features/forward-auth.md)
 * [YubiKey Provisioning](features/yubikey-provisioning.md)

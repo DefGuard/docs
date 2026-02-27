@@ -1,4 +1,4 @@
-# OPSense Configuartion
+# OPNsense Configuartion
 
 [OPNsense®](https://opnsense.org/) is an open source, feature rich firewall and routing platform, offering cutting-edge network protection.
 
