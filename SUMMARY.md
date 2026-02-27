@@ -140,6 +140,7 @@
   * [Client "All traffic" connection issues](support-1/troubleshooting/client-all-traffic-connection-issues.md)
   * [WebAuthn security keys](support-1/troubleshooting/webauthn-security-keys.md)
   * [Desktop Client connectivity issues](support-1/troubleshooting/desktop-client-connectivity-issues.md)
+  * [Client openning issues on Linux](support-1/troubleshooting/client-openning-issues-on-linux.md)
 * [Server migration and licence transfer](support-1/server-migration-and-licence-transfer.md)
 
 ## Tutorials
