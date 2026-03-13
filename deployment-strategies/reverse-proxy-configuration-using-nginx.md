@@ -65,7 +65,8 @@ upstream defguard-grpc {
 }
 
 server {
-    listen 443 ssl http2;
+    listen 443 ssl;
+    http2 on;
     server_name my-server.defguard.net;
     access_log /var/log/nginx/defguard.log;
     error_log /var/log/nginx/defguard.e.log;
