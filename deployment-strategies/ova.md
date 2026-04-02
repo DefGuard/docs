@@ -1,0 +1,99 @@
+# OVA
+
+Defguard provides OVA images that can be imported into VMware, Proxmox, or any other solution that supports the standard OVA format. The image is based on Ubuntu 24 and supports configuration via `cloud-init`. It contains the full Defguard stack (Defguard Core, Edge, Gateway), a database, and a reverse proxy (NPM).
+
+The image is available for download here: [https://defguard-downloads.s3.eu-central-1.amazonaws.com/defguard-alpha2.ova](https://defguard-downloads.s3.eu-central-1.amazonaws.com/defguard-alpha2.ova)
+
+### Importing the image
+
+After importing the image, make sure to:
+
+1. Attach an appropriate network interface so the virtual machine can access your network.
+2. If you would like to change default user/password you can [do so with cloud-init](https://docs.cloud-init.io/en/latest/reference/yaml_examples/set_passwords.html) - if not, default user ubuntu with pass ubuntu will be created.&#x20;
+
+### Setting up Defguard
+
+Once booted, the virtual machine will have all Defguard components pre-configured. To complete the setup, simply visit the Defguard Core dashboard: http://\<VM\_IP\_OR\_DOMAIN>:8000. Follow the on-screen wizard to finalize your configuration.
+
+{% hint style="info" %}
+For example setup walkthrough [see this guide](previewing-defguard-v2.0-alpha2.md#example-setup).
+{% endhint %}
+
+If you would like to setup a reverse-proxy beforhand (which enables automated SSL Certificates with Let's Encrypt), [go to this section for more details](ova.md#setting-up-a-reverse-proxy).
+
+### Accessing the VM
+
+You can access the VM using the following default credentials (requires changing after first login):
+
+| Login    | `ubuntu` |
+| -------- | -------- |
+| Password | `ubuntu` |
+
+#### Verifying the running Defguard stack
+
+When booting the machine for the first time, the whole Defguard stack will be launched using Docker Compose. All Defguard files (Docker compose, environment variables) can be found under the `/opt/defguard/` directory.
+
+To verify that Defguard is running, use the following command inside the VM:
+
+```bash
+sudo docker ps
+```
+
+<figure><img src="../.gitbook/assets/obraz.png" alt=""><figcaption></figcaption></figure>
+
+Here is the breakdown of accessible services deployed on the VM:
+
+<table><thead><tr><th>Name</th><th width="182">Port</th><th width="240">Type</th></tr></thead><tbody><tr><td>Core</td><td>8000</td><td>HTTP (web dashboard)</td></tr><tr><td>Edge</td><td>8080</td><td>HTTP (enrollment portal)</td></tr><tr><td>Gateway</td><td>51820</td><td>UDP (VPN port)</td></tr><tr><td>Nginx Proxy Manager</td><td>80, 443, 81</td><td>HTTP(S) and the management dashboard on port 81</td></tr></tbody></table>
+
+### Setting up a reverse proxy
+
+{% hint style="info" %}
+Setting up a reverse proxy will require you to prepare two domains: one for Defguard Core (internal), one for Defguard Edge (public)
+{% endhint %}
+
+To configure the reverse proxy, register an account in the NPM dashboard, accessible via `http://<VM_IP_OR_DOMAIN>:81`.
+
+After creating your account, go to **Proxy Hosts** and configure the proxy for Core and Edge:
+
+<figure><img src="../.gitbook/assets/obraz (1).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/obraz (2).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/obraz (3).png" alt=""><figcaption></figcaption></figure>
+
+This will allow you to access Core and Edge via your respective domains, using the standard HTTP/HTTPS ports. We also recommend setting up SSL. Please make sure you don't expose Defguard Core publicly. See [Architecture](../in-depth/architecture/) for details.
+
+## Cloud-Init options
+
+### Selecting what components to run (Proxmox)
+
+As mentioned previously, the VM starts the full stack by default. If you would like to separate the components (which is the recommended [way of deploying Defguard](../in-depth/architecture/)), you can use custom `cloud-init` configuration to specify which component to run for a given VM instance.
+
+Create the following snippet. The content can be `core`, `edge`, or `gateway`:
+
+```
+#cloud-config
+write_files:
+  - path: /opt/defguard/active-profiles
+    content: "core"
+```
+
+In Proxmox, save the snippet to (or your selected snippet directory, if you are using a non-standard one):
+
+```
+/var/lib/vz/snippets/defguard-core-userdata.yaml
+```
+
+Then attach it to the VM on which you want to run the selected Defguard component:
+
+```bash
+qm set <ID_OF_THE_VM> --cicustom "vendor=local:snippets/defguard-core-userdata.yaml"
+```
+
+Next, boot the VM. Now, only the selected component should run.
+
+Here is the full breakdown of what runs for each profile:
+
+<table><thead><tr><th width="322">Profile</th><th width="411">What runs</th></tr></thead><tbody><tr><td>core</td><td>Core, database, NPM</td></tr><tr><td>edge</td><td>Edge, NPM</td></tr><tr><td>gateway</td><td>Gateway</td></tr></tbody></table>
+
+Using different solution that Proxmox will require creating a custom cloud-init that will write one of the profiles above to the `/opt/defguard/active-profiles` file.
