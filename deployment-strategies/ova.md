@@ -31,7 +31,7 @@ You can access the VM using the following default credentials (requires changing
 
 #### Verifying the running Defguard stack
 
-When booting the machine for the first time, the whole Defguard stack will be launched using Docker Compose. All Defguard files (Docker compose, environment variables) can be found under the `/opt/defguard/` directory.
+When booting the machine for the first time, the whole Defguard stack will be launched using Docker Compose. All Defguard files (Docker compose, environment variables) can be found under the `/opt/stacks/defguard/` directory.
 
 To verify that Defguard is running, use the following command inside the VM:
 
@@ -62,6 +62,18 @@ After creating your account, go to **Proxy Hosts** and configure the proxy for C
 <figure><img src="../.gitbook/assets/obraz (3).png" alt=""><figcaption></figcaption></figure>
 
 This will allow you to access Core and Edge via your respective domains, using the standard HTTP/HTTPS ports. We also recommend setting up SSL. Please make sure you don't expose Defguard Core publicly. See [Architecture](../in-depth/architecture/) for details.
+
+### Managing and updating containers
+
+Containers can be updated using the following commands in the `/opt/stacks/defguard` directory:
+
+```
+sudo docker compose pull
+sudo docker compose down
+sudo docker compose up
+```
+
+This can also be achieved without accessing the VM using the Dockge dashboard, refer to [this section](ova.md#dockge) for more information.
 
 ## Cloud-Init options
 
@@ -97,3 +109,16 @@ Here is the full breakdown of what runs for each profile:
 <table><thead><tr><th width="322">Profile</th><th width="411">What runs</th></tr></thead><tbody><tr><td>core</td><td>Core, database, NPM</td></tr><tr><td>edge</td><td>Edge, NPM</td></tr><tr><td>gateway</td><td>Gateway</td></tr></tbody></table>
 
 Using different solution that Proxmox will require creating a custom cloud-init that will write one of the profiles above to the `/opt/defguard/active-profiles` file.
+
+### Dockge
+
+You can additionally enable [Dockge](https://github.com/louislam/dockge) to easily manage and update all Defguard containers. To do so, add the following to your cloud-init snippet (this was explained more in-depth in the [#selecting-what-components-to-run-proxmox](ova.md#selecting-what-components-to-run-proxmox "mention") section):
+
+```
+#cloud-config
+write_files:
+  - path: /opt/stacks/defguard/enable-docker-management
+    content: ""
+```
+
+After the virtual machine starts, Dockge dashboard should be available at `http://<VM_IP_OR_DOMAIN>:5001` . Access it in order to create a Dockge admin account.
