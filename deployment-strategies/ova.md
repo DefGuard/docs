@@ -2,7 +2,7 @@
 
 Defguard provides OVA images that can be imported into VMware, Proxmox, or any other solution that supports the standard OVA format. The image is based on Ubuntu 24 and supports configuration via `cloud-init`. It contains the full Defguard stack (Defguard Core, Edge, Gateway), a database, and a reverse proxy (NPM).
 
-The image is available for download here: [https://defguard-downloads.s3.eu-central-1.amazonaws.com/defguard-alpha2.ova](https://defguard-downloads.s3.eu-central-1.amazonaws.com/defguard-alpha2.ova)
+The latest image can be downloaded here: [https://defguard-downloads.s3.eu-central-1.amazonaws.com/ova/defguard-latest.ova](https://defguard-downloads.s3.eu-central-1.amazonaws.com/ova/defguard-latest.ova)
 
 ### Importing the image
 
