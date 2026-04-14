@@ -47,6 +47,10 @@ Here is the breakdown of accessible services deployed on the VM:
 
 ### Setting up a reverse proxy
 
+{% hint style="success" %}
+Defguard has a built in SSL termination and can automatically obtain certificates from [https://letsencrypt.org/](https://letsencrypt.org/) (or issue own certificates from our CA) - but deploying a Reverse Proxy is always recommended.
+{% endhint %}
+
 {% hint style="info" %}
 Setting up a reverse proxy will require you to prepare two domains: one for Defguard Core (internal), one for Defguard Edge (public)
 {% endhint %}
