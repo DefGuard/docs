@@ -23,7 +23,7 @@ To avoid this issue you can deploy a **public** [Defguard Edge](https://github.c
 {% hint style="info" %}
 Edge is included when using the default [deployment instructions](../../deployment-strategies/setting-up-your-instance.md).
 
-Please also see the relevant configuration options for [core](../../deployment-strategies/configuration.md#enrollment-configuration) and the [proxy itself](../../deployment-strategies/configuration.md#enrollment-service).
+Please also see the relevant configuration options for [core](../../deployment-strategies/configuration.md#enrollment-configuration) and the [edge itself](../../deployment-strategies/configuration.md#enrollment-service).
 {% endhint %}
 
 ## How to initiate user secure enrollment
@@ -79,7 +79,7 @@ If there are any issues with the enrollment process (failed notification deliver
 
 #### **Obtaining token manually (e.g., via encrypted chat)**
 
-1. Go to enrollment page
+1. Go to Edge page
 
 <figure><img src="../../.gitbook/assets/enrollment_process_1 (2).png" alt=""><figcaption></figcaption></figure>
 
