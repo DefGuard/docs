@@ -7,41 +7,44 @@ metaLinks:
 
 # Remote user enrollment
 
-By design **Defguard core** is meant to be deployed **securely** within your infrastructure and only accessible from within the internal network or by VPN.
+By design, **Defguard Core** is meant to be deployed **securely** within your infrastructure and only accessible from within the internal network or by VPN.
 
-This introduces an issue with onboarding **new users** and forces the admin to choose an initial password, setup a VPN device for them, and pass on those details to the end user using possibly **insecure** channels.
+This introduces an issue with onboarding **new users** and forces the admin to choose an initial password, set up a VPN device for them, and pass on those details to the end user using possibly **insecure** channels.
 
-To avoid this issue you can deploy a **public** [Defguard proxy](https://github.com/DefGuard/proxy) which enables a **secure enrollment process.**
+To avoid this issue you can deploy a **public** [Defguard Edge](https://github.com/DefGuard/proxy) (formerly Proxy) which enables a **secure enrollment process.**
 
 **Here is a video showcasing:**
 
 * how admin adds a user with secure remote enrollment
 * then how the enrollment process looks like for the user
 
-{% embed url="https://www.youtube.com/watch?v=KdyZoAlBb9k" %}
+{% embed url="https://www.youtube.com/watch?v=-mj0bMojm8U" %}
 
 {% hint style="info" %}
-The proxy is included when using the default [deployment instructions](../../deployment-strategies/setting-up-your-instance.md).
+Edge is included when using the default [deployment instructions](../../deployment-strategies/setting-up-your-instance.md).
 
 Please also see the relevant configuration options for [core](../../deployment-strategies/configuration.md#enrollment-configuration) and the [proxy itself](../../deployment-strategies/configuration.md#enrollment-service).
 {% endhint %}
 
-### How to initiate user secure enrollment
+## How to initiate user secure enrollment
 
-When adding a new user please select the option: **Use user self-enrollment process:**
+When adding a new user please choose "Add user with self-enrolment option"
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-09-23 at 22.09.36.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/self-onboarding.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-**By enabling this option, the admin will only provide the user data and will not be able to set the user’s password, the user will create their own password during the enrollment process in the desktop client.**
+**By choosing this option, the admin will only provide the user data and will not be able to set the user’s password, the user will create their own password during the enrollment process in the desktop client.**
 {% endhint %}
 
-After filling out the user data, there are two options to start the process for the user:
+If [SMTP](../notifications/setting-up-smtp-for-email-notifications.md) is configured, you will see "**Send enrollment details to user by email"** checkbox.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-09-23 at 22.12.55.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-15 at 16.08.26 (1).png" alt=""><figcaption></figcaption></figure>
 
-1. Automatic: _**Sending token by email** (_&#x74;his requires for SMTP to be configured) - the user will receive an email will all the instructions how to initiate the Enrollment process
-2. Manual: _**Deliver the token yourself**_ — this will only display the URL and token that must be handed over to the user personally.
+{% hint style="info" icon="lightbulb" %}
+If **"Send enrollment details to user by email"** is checked - the user will receive an email with all enrollment  instructions&#x20;
+{% endhint %}
+
+If you don't have any [SMTP](../notifications/setting-up-smtp-for-email-notifications.md) configuration, `Defguard instance URL` and `Activation token` must be handed over to the user personally.
 
 {% hint style="info" %}
 The email address you specify for delivering the enrollment token can be any email available to the user. It **does not** have to be the same one used when creating an account as we assume that a new user does not yet have access to their official company email account.
@@ -50,7 +53,7 @@ The email address you specify for delivering the enrollment token can be any ema
 When the user adds a Defguard instance in the Desktop client using the received token, not only is the VPN client configured, but the user can also:
 
 * set up their password
-* configure MFA, which is required to connect to MFA-protected locations
+* configure [MFA](../wireguard/multi-factor-authentication-mfa-2fa/), which is required to connect to MFA-protected locations
 
 This means the user may not even have access to Defguard itself, but can still configure both VPN and MFA!
 
@@ -58,47 +61,74 @@ This means the user may not even have access to Defguard itself, but can still c
 **For MFA configuration to be mandatory during the enrollment process, there must be at least one VPN location with MFA enabled. Otherwise, MFA setup will remain optional.**
 {% endhint %}
 
-### Restarting enrollment manually
+## Restarting enrollment manually
 
 If there are any issues with the enrollment process (failed notification delivery, a lost token etc) you can restart it:
 
 * Go to **Users** page
-* Find the relevant user and click on the **Action** button on the right
-* A **Configure Desktop Client** option should be available in the pop-over menu
+* Find the relevant user and click on the **"…"** button on the right
+* An **Initiate self-enrollment** option should be available in the pop-over menu
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-10-01 at 5.43.32 PM.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (222).png" alt=""><figcaption></figcaption></figure>
 
-* Clicking it will open the same enrollment modal where you can choose how to deliver the enrollment token (by email if SMTP is configured or manually):
+* Clicking it will open the same modal as before.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-10-01 at 5.45.59 PM.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (224).png" alt=""><figcaption></figcaption></figure>
 
-### Performing remote enrollment (as a user)
+## Performing remote enrollment (as a user)
 
-As a new user, after an admin starts the enrollment process, you will receive your enrollment token.
+#### **Obtaining token manually (e.g., via encrypted chat)**
 
-If you receive an **email notification**, just click the link, and you'll be redirected to the enrollment wizard.
+1. Go to enrollment page
 
-If the admin decides to deliver your token through some other secure means, you'll have to go the specified enrollment page and enter the token **manually**.
+<figure><img src="../../.gitbook/assets/enrollment_process_1 (2).png" alt=""><figcaption></figcaption></figure>
 
-By following the **enrollment wizard,** you'll be able to do the following:
+2. Enter your enrollment token and click "Continue" button
+
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-15 at 16.27.19 (1).png" alt=""><figcaption></figcaption></figure>
+
+3. Download **Desktop Client** compatible with your Operating System.
+
+<figure><img src="../../.gitbook/assets/image (225).png" alt=""><figcaption></figcaption></figure>
+
+4. Now, enrollment can be performed in **Desktop Client**
+
+<figure><img src="../../.gitbook/assets/image (227).png" alt=""><figcaption></figcaption></figure>
+
+Now you can click **"One-Click Configuration"** which will open **Desktop Client** and enter credentials for you.
+
+#### **Obtaining token via email**
+
+1. Click **"Enroll with desktop client"**, or copy `URL`/`Token` manually to **Desktop Client**
+
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-15 at 16.51.43.png" alt=""><figcaption></figcaption></figure>
+
+Entering URL/Token inside **Desktop Client** will trigger user enrollment process.
+
+<figure><img src="../../.gitbook/assets/image (228).png" alt=""><figcaption></figcaption></figure>
+
+By following the **enrollment wizard** in **Desktop Client**, you'll be able to do the following:
 
 * verify that your data is correct
 * activate your user account
 * choose your password
+* setup MFA method
 * add an initial device for VPN access
 
-After completing the wizard, you should be able to connect to the VPN and access the main Defguard web UI.
+After completing enrolment process, you will be able to connect to the VPN.
 
 ## Enrollment settings
 
-{% hint style="warning" %}
-In order for the enrollment process to function correctly you must also [set up an SMTP server](../notifications/setting-up-smtp-for-email-notifications.md) for delivering email notifications.
-{% endhint %}
+As an admin, you can configure enrolment-related settings on the **Enrollment** page. This includes:
 
-As an admin, you can configure enrollment-related settings on the **Enrollment** page. This includes:
+* Setting token validity time
+* Enrollment session duration
 
-* Making the VPN device step optional or mandatory in the enrollment wizard
+<figure><img src="../../.gitbook/assets/image (229).png" alt=""><figcaption></figcaption></figure>
+
 * Customizing the user [onboarding messages](user-onboarding-after-enrollment.md).
+
+<figure><img src="../../.gitbook/assets/image (231).png" alt=""><figcaption></figcaption></figure>
 
 #### Message template tags
 
@@ -112,4 +142,4 @@ There are several **template tags** (similar to [Jinja2](https://jinja.palletspr
 * `{{ admin_phone }}`- phone number of the administrator who initiated the enrollment process
 * `{{ admin_email }}`- email of the administrator who initiated the enrollment process
 * `{{ defguard_url }}`- internal Defguard URL (your Defguard instance address)
-* `{{ defguard_version }}`
+* `{{ defguard_version }}` - Defguard version
