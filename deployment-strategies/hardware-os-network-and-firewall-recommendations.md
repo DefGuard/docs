@@ -57,17 +57,15 @@ The Gateway Address is the address specified in the clients’ configuration –
 {% endhint %}
 
 * must have all networks on internal interfaces addresses configured, that should be accessible from VPN
-* **Recommended:** to have a public domain assigned to this IP for VPN server, eg. _vpn.company.com_
+* **Recommended:** to have a public domain assigned to this IP for VPN server, eg. _vpn.company.com._
+
+More on ports and firewall can [be found below](hardware-os-network-and-firewall-recommendations.md#port-and-firewall-exposure-summary).
 
 ### Edge - public web service for enrollment & desktop client configuration
 
-{% hint style="warning" %}
-The server on which the Proxy is installed does not need to have the IP address assigned to it which the enrollment URL domain points to - can have internal network address.
+The server on which the Edge is installed does not need to have the IP address assigned to it which the **Public Edge Component URL domain** points to (_Settings -> General -> Instance settings_).
 
-If this address is assigned for example to a Firewall or Load Balancer rather than the server hosting the Gateway, **the port from this address (eg. if the enrollment URL is https://vpn-config.domain.com, then the port is 443) must be forwarded (e.g., via NAT) to the** [**DEFGUARD\_PROXY\_HTTP\_PORT**](https://docs.defguard.net/deployment-strategies/configuration#proxy-service) **on the server where the Proxy is installed.**
-{% endhint %}
-
-* **must have a public enrollment domain assigned to this IP,&#x20;**_**eg. enrollment.company.com (or vpn-config.company.com, etc..**_**)**
+If this address is assigned for example to a Firewall, Load Balancer or a Reverse Proxy rather than the server hosting the Edge then just [forward proper ports acording to instruction below](hardware-os-network-and-firewall-recommendations.md#port-and-firewall-exposure-summary).
 
 ### Core & database server
 
@@ -124,5 +122,5 @@ If you have used Defguard's internal SSL termination please expose on the machin
 
 In a production environment you should use your preferred backup solution to secure the following:
 
-* service configuration (.env file, service config files, compose configuration)
-* database content (prefferably by doing a regular pgdump, not just filesystem-level backup)
+* Gateway & Edge - **SSL certificate directory** - SSL certificates for those components were issued by Defguard's internal Certificate Authority and are used to secure, authenticate, and authorize component communication. They are stored localy on the server (and not in the main database).
+* Core: **database** - preferably by doing a regular _pg\_dump_, not just a filesystem-level backup.
