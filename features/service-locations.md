@@ -129,4 +129,4 @@ This can be checked either by:
 
 ### Network change
 
-If the network you use to access the internet (or more specifically, the VPN gateway) changes (for example, you switch WWi-Fi's while the service location connection is established, the connection will stop working. To resolve this issue, you will need to restart your device or restart the service responsible for management of the service locations, so the connection is re-established.
+If the network you use to access the internet (or more specifically, the VPN gateway) changes (for example, you switch Wi-Fi's while the service location connection is established, the connection will stop working. To resolve this issue, you will need to restart your device or restart the service responsible for management of the service locations, so the connection is re-established.
