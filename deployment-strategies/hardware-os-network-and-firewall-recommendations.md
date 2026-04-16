@@ -20,7 +20,7 @@ Recommended setup reflects the [general system architecture](../in-depth/archite
    1. CPU: min. 1 CPU/vCPU per location - eg. if Defguard handles 2 VPN locations recommended is min. 2 CPU/vCPU
    2. RAM: min. 1GB per location
    3. Disk: min 8GB and more (since statistics will be gathered)
-2. **Dedicated server or Virtual Machine for Proxy (external and public enrollment service)** - this server/VM needs to be deployed in DMZ/public/external systems network segment - as this service will be exposed and must be available publicly from the Internet. Recommended hardware parameters:
+2. **Dedicated server or Virtual Machine for Edge (external and public enrollment service)** - this server/VM needs to be deployed in DMZ/public/external systems network segment - as this service will be exposed and must be available publicly from the Internet. Recommended hardware parameters:
    1. CPU: min. 1 CPU/vCPU per location
    2. RAM: min. 1GB
    3. Disk: min 1GB
@@ -59,9 +59,7 @@ The Gateway Address is the address specified in the clients’ configuration –
 * must have all networks on internal interfaces addresses configured, that should be accessible from VPN
 * **Recommended:** to have a public domain assigned to this IP for VPN server, eg. _vpn.company.com_
 
-### Proxy - public web service for enrollment & desktop client configuration
-
-* **The** [**enrollment URL**](https://docs.defguard.net/deployment-strategies/configuration#enrollment-configuration) **(that proxy will be configured under and available for user and clients to reach) needs to be publicly available from the Internet.**
+### Edge - public web service for enrollment & desktop client configuration
 
 {% hint style="warning" %}
 The server on which the Proxy is installed does not need to have the IP address assigned to it which the enrollment URL domain points to - can have internal network address.
@@ -94,17 +92,33 @@ For organizations with simpler network setups, we recommend an architecture that
 
 #### Gateway
 
-1. Please open the public port you wish the VPN to be working on - eg. 50555
+1. Please open the private **internal** **TCP port 50066** to which to which the Core can connect to and adopt and manage the Gateway automatically.
+2. Please open the **public port you wish the WireGuard® VPN to be working on - eg. 50051** (default for new location) or **51820** (default for all-in-one Docker/OVA setup).
 
-#### Proxy
+#### Edge
 
-1. Please open the public 443 port on the server (recommended to rewrite port 80 to redirect to 443)
-2. Please open gRPC port on the internal network - so that the **Defguard Core can connect to this port - more details here:** [**https://docs.defguard.net/deployment-strategies/configuration#proxy-service**](https://docs.defguard.net/deployment-strategies/configuration#proxy-service)
+If you configured your own Reverse Proxy for Edge then expose the reverse proxy with your preference.
+
+If you have used Defguard's internal SSL termination please expose on the machine (or forward to Edge):
+
+1. Open the **public TCP 443 port** on the server (**https**).
+   1. If you are using Defguard's automatic Let's Encrypt SSL certificate configuration please also open port TCP 80 (http) - as Let's Encrypt requires this port for validating the domain and obtaining the certificate.
+
+
+
+Please open an **internal TCP 50051 port** to which to which the Core can connect to and adopt and manage the Edge automatically.
 
 #### Core
 
-1. Please open 443 port for web interface accessible only from local/VPN network
-2. Please open a gRPC port **for the Gateway server to connect to this port via a local network - more info here:** [**https://docs.defguard.net/deployment-strategies/configuration#grpc-server-configuration**](https://docs.defguard.net/deployment-strategies/configuration#grpc-server-configuration)
+If you configured your own Reverse Proxy for Core then expose the reverse proxy in your internal network with your preference.
+
+If you have used Defguard's internal SSL termination please expose on the machine (or forward to Core):
+
+1. TCP 443 (https) port for web interface accessible only from local/VPN network.
+
+{% hint style="warning" %}
+**Please make sure that Core can connect to Edge and Gateway internal ports mentioned above.**
+{% endhint %}
 
 ## Backup strategy
 
