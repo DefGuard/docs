@@ -24,32 +24,55 @@ There are currently two modes of service locations:
 *   **Always on**: the VPN connection to the location is established on system boot and is never terminated, unless:
 
     * The network configuration of this location is changed (connection is re-established, to apply new changes)
-    * The client is reinstalled (connection is re-established during the reinstall)
+    * The client is reinstalled (connection is re-established during the reinstallation)
     * The service location mode is changed or is disabled (connection is terminated)
 
     This mode may be used when your users require constant access to a given VPN location.
 
+## Creating service locations
+
+1. Go to locations page, click "**Add location**"
+
+<figure><img src="../.gitbook/assets/Screenshot 2026-04-16 at 14.00.44.png" alt=""><figcaption></figcaption></figure>
+
+2. Select "**Service location (Windows only)**"
+
+<figure><img src="../.gitbook/assets/Screenshot 2026-04-16 at 13.57.10.png" alt=""><figcaption></figcaption></figure>
+
+3. The process of creating a location will be exactly the same up to the “Service Location Settings” step
+4. During "Service Location Settings" step, select "[Pre-logon](service-locations.md#pre-logon)" or "[Always on](service-locations.md#always-on)" connection type
+
+<figure><img src="../.gitbook/assets/Screenshot 2026-04-16 at 14.03.59.png" alt=""><figcaption></figcaption></figure>
+
+Once you've completed the Wizard and adopted the Gateway, your service location will start working
+
 ## Managing service locations
 
-To make a location act as a service location, go to the given location's settings.
+After going to "**Locations**" page, you can see type of each location.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-10-29 at 13.14.01.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-04-16 at 14.06.32.png" alt=""><figcaption></figcaption></figure>
 
-Find the service locations section:
 
-<figure><img src="../.gitbook/assets/obraz (4).png" alt=""><figcaption></figcaption></figure>
 
-Here you can select one of the service location modes.
+If you want to edit your service location, click "**…**" and select "**Edit"**
+
+<figure><img src="../.gitbook/assets/Screenshot 2026-04-16 at 14.09.38.png" alt=""><figcaption></figcaption></figure>
+
+Scroll down, you will see "**Location type (Windows only)**" section
+
+<figure><img src="../.gitbook/assets/Screenshot 2026-04-16 at 14.10.35.png" alt=""><figcaption></figcaption></figure>
+
+Here you can change service location mode, and confirm with "**Save changes**" button.
 
 {% hint style="warning" %}
 If your location is MFA protected, you won't be able to set is as a service location. The location must have MFA disabled in order to use service location mode.
 {% endhint %}
 
-After selecting one of the modes and saving your changes, the location will function as a service location. After the configuration of the Defguard client is updated for your instance, the location will be hidden in the client's UI. The connection to the location will be established in the background without any user input.
+After the configuration of the Defguard client is updated for your instance, the location will be hidden in the client's UI. The connection to the location will be established in the background without any user input.
 
 ## Network configuration updates
 
-If you have enterprise features enabled, the Defguard Client periodically updates it's network configuration if it's changed in Defguard Core. This also applies to service locations, but in order for the configuration update to happen for a service location, the Defguard Client must be open. This means that the configuration won't be updated when the user hasn't logged in yet, since the Client is not running at that point. In other words, **the user must first login and start the Client for a configuration update to automatically happen**.
+If you have enterprise features enabled, the Defguard Client periodically updates its network configuration if it's changed in Defguard Core. This also applies to service locations, but in order for the configuration update to happen for a service location, the Defguard Client must be open. This means that the configuration won't be updated when the user hasn't logged in yet, since the Client is not running at that point. In other words, **the user must first log in and start the Client for a configuration update to automatically happen**.
 
 ## Service location connection management in depth
 
@@ -93,17 +116,17 @@ This can be checked either by:
 
 1. Going to the Defguard Core web interface and checking if the given Client is connected. This is a less reliable way as it can report the status with a delay. We recommend checking the status directly on the given machine.
 2. On the given Windows machine:
-   1.  Go to "Settings"\\
+   1.  Go to "Settings"
 
        <figure><img src="../.gitbook/assets/obraz (23).png" alt=""><figcaption></figcaption></figure>
-   2.  Network & Internet\\
+   2.  Network & Internet
 
        <figure><img src="../.gitbook/assets/obraz (24).png" alt=""><figcaption></figcaption></figure>
-   3.  Change adapter settings\\
+   3.  Change adapter settings
 
        <figure><img src="../.gitbook/assets/obraz (25).png" alt=""><figcaption></figcaption></figure>
    4. The VPN connection should be visible here, if it's established (for example in the case of an always on mode).
 
 ### Network change
 
-If the network you use to access the internet (or more specifically, the VPN gateway) changes (for example, you switch Wi-Fis) while the service location connection is established, the connection will stop working. To resolve this issue, you will need to restart your device or restart the service responsible for management of the service locations, so the connection is re-established.
+If the network you use to access the internet (or more specifically, the VPN gateway) changes (for example, you switch WWi-Fi's while the service location connection is established, the connection will stop working. To resolve this issue, you will need to restart your device or restart the service responsible for management of the service locations, so the connection is re-established.
