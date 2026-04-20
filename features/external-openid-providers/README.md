@@ -154,6 +154,8 @@ This is not a system error, but an administrator’s negligence. The login (as w
 
 ### JumpCloud
 
+#### Issues with logging in
+
 When setting up JumpCloud you can encounter an error when attempting to log in with a message `Failed to parse payload JSON: Error(\\\"invalid type: string...`. This is because JumpCloud is returning a token that doesn't conform fully to the OpenID standard. You can try working around this issue by removing the `email_verified` field in your SSO application configuration in JumpCloud. In order to do this, edit your SSO Application and **deselect** the email scope:
 
 <figure><img src="../../.gitbook/assets/obraz (17).png" alt=""><figcaption></figcaption></figure>
@@ -163,6 +165,10 @@ Then, add the email below by hand:
 <figure><img src="../../.gitbook/assets/obraz (18).png" alt=""><figcaption></figcaption></figure>
 
 Double check that the `email_verified` field is gone from the constant attributes section. The issue should be gone now.
+
+#### 401 error code when testing Directory synchronization
+
+Currently the integration doesn't work for accounts that chose to use the JumpCloud EU data center. See relevant [issue](https://github.com/DefGuard/defguard/issues/2756) for more information.
 
 ### Request to the provider times out
 
