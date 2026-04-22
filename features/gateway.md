@@ -4,9 +4,32 @@ metaLinks:
     - https://app.gitbook.com/s/e86iamwJVSYnIRsyVEAV/features/gateway
 ---
 
-# OPSense Configuartion
+# Defguard Gateway in OPNsense
 
 [OPNsense®](https://opnsense.org/) is an open source, feature rich firewall and routing platform, offering cutting-edge network protection.
+
+## Installing OPNsense plugin
+
+To start Defguard Gateway as OPNsense plugin:
+
+1. On the [release page](https://github.com/DefGuard/gateway/releases) find and download OPNsense package which will be named:\
+   `defguard-gateway_VERSION_x86_64-unknown-opnsense.pkg` – this package **includes both Defguard Gateway and OPNsense plugin.**
+
+2. Install the package:
+
+```shell
+pkg add defguard-gateway_VERSION_x86_64-unknown-opnsense.pkg
+```
+
+3. Refresh OPNsense user interface by running command below:
+
+```shell
+opnsense-patch
+```
+
+4. In a web-browser, open OPNsense user interface and navigate to **VPN** > **Defguard Gateway**.
+
+<figure><img src="../.gitbook/assets/OPNSense Plugin.png" alt=""><figcaption></figcaption></figure>
 
 ## Defguard Gateway Configuration
 
@@ -17,8 +40,6 @@ This instruction helps configure Defguard Gateway in OPNsense. This is based on 
 1. Go to **VPN → Defguard Gateway**
 2. Fill out the appropriate values in the form. You can read more about the available configuration options here: [#gateway-configuration](../deployment-strategies/configuration.md#gateway-configuration "mention")
 3. Eventually, **Start/Restart** the service.
-
-<figure><img src="../.gitbook/assets/OPNSense Plugin.png" alt="OPNSense plugin"><figcaption></figcaption></figure>
 
 ### Assign a network interface to Defguard
 
@@ -56,5 +77,3 @@ This instruction helps configure Defguard Gateway in OPNsense. This is based on 
 6. Select **UDP** protocol.
 7. Set **Destination** to **WAN address** and port to the port number provided in Defguard Core: _Location configuration → Gateway port_
 8. Click **Save**, and then **Apply changes**
-
-<figure><img src="../.gitbook/assets/OPNSense-firewall-rule.png" alt="Firewall rule"><figcaption></figcaption></figure>
