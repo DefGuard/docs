@@ -68,7 +68,6 @@
 * [OPNSense Configuartion](features/gateway.md)
 * [SSH Authentication](features/ssh-authentication.md)
 * [Forward auth](features/forward-auth.md)
-* [YubiKey Provisioning](features/yubikey-provisioning.md)
 * [User SNAT bindings](features/user-snat-bindings.md)
 * [Service locations](features/service-locations.md)
 * [Desktop client auto-provisioning](features/desktop-client-auto-provisioning/README.md)

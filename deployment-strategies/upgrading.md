@@ -30,6 +30,12 @@ During instance upgrade a database migration is performed which backfills new fi
 
 For more details on the specific changes see [here](../in-depth/architecture-decision-records/2.0.md#access-control-list-changes).
 
+#### YubiKey Provisioning
+
+{% hint style="danger" %}
+YubiKey provisioning is currently unavailable in version 2.0. This feature will be added back in a future update.
+{% endhint %}
+
 ## 1.5.x -> 1.6.0
 
 ### Core
