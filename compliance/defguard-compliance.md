@@ -6,4 +6,4 @@
 
 ## ISO 27001
 
-<figure><img src="../.gitbook/assets/image (218).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/ISO27001.jpg" alt=""><figcaption></figcaption></figure>
