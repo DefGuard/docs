@@ -15,16 +15,16 @@ We support running multiple gateways within a single VPN location to achieve hig
 
 You can add multiple gateways using the "Gateway setup" context menu in the "Locations" table
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Each gateway deployed for a given location will receive the same network configuration and will **bind to the defined port** in the location's _Gateway Port._
 
 The only thing left to do is to point your traffic to those gateways, which can be accomplished in several ways:
 
 {% hint style="warning" %}
-WireGuard is a stateful UDP protocol, so once a client establishes a session with a specific gateway, only that gateway can decrypt its traffic. In a multi-gateway setup, you must use a Layer 4 load balancer with properly configured **health checks** and **sticky sessions** to ensure traffic is consistently routed to a healthy instance and automatically redirected if a gateway fails.&#x20;
+WireGuard is a stateful UDP protocol, so once a client establishes a session with a specific gateway, only that gateway can decrypt its traffic. In a multi-gateway setup, you must use a Layer 4 load balancer with properly configured **health checks** and **sticky sessions** to ensure traffic is consistently routed to a healthy instance and automatically redirected if a gateway fails.
 
 You can find example Envoy proxy configuration in our [deployment repository](https://github.com/DefGuard/deployment/tree/main/docker-compose2.0).
 
@@ -38,9 +38,9 @@ More details regarding WireGuard load-balancing can be found here: [wireguard-ud
 
 All gateways that are successfully connected for the location are displayed under the Location in VPN Overview and locations table, here is an example for two gateways:
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### What is the gateway peers persistence (if core/proxy services fail)
 

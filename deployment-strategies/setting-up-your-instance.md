@@ -35,7 +35,7 @@ After obtaining the token, proceed with deploying the Gateway service. During it
 {% step %}
 **Add a new location in Core's web interface and obtain a token.**
 
-More on that [here](gateway.md).
+More on that [here](/broken/pages/1KLINb5EeNCxbdWVydt1).
 {% endstep %}
 
 {% step %}
@@ -71,6 +71,6 @@ docker exec {container_name} pg_dump -U {user_name} > {backup_file_name}
 
 ## Failover/HA/Clustering
 
-The [Gateway](gateway.md) can be deployed on multiple servers, firewalls, or routers for failover and high availability (HA). Even if the connection to the Core is lost, gateways continue operating using their local cache and data, ensuring that the VPN remains functional. Conversely, if a gateway becomes unavailable, other Core features (such as OpenID) will continue to work normally.
+The [Gateway](/broken/pages/1KLINb5EeNCxbdWVydt1) can be deployed on multiple servers, firewalls, or routers for failover and high availability (HA). Even if the connection to the Core is lost, gateways continue operating using their local cache and data, ensuring that the VPN remains functional. Conversely, if a gateway becomes unavailable, other Core features (such as OpenID) will continue to work normally.
 
 For details on deploying multiple Gateway to [High Availability and Failover](high-availability-and-failover/) documentation.

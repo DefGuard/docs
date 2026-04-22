@@ -7,7 +7,7 @@ metaLinks:
 
 # Configuring HTTPS using AWS Certificate Manager
 
-This guide explains how to secure your Defguard deployment with HTTPS by using a public TLS certificate issued by AWS Certificate Manager (ACM). You will request a certificate for the domains used by Defguard Core and Defguard Proxy, validate domain ownership via DNS, and attach the certificate to your CloudFormation stack using its ARN.&#x20;
+This guide explains how to secure your Defguard deployment with HTTPS by using a public TLS certificate issued by AWS Certificate Manager (ACM). You will request a certificate for the domains used by Defguard Core and Defguard Proxy, validate domain ownership via DNS, and attach the certificate to your CloudFormation stack using its ARN.
 
 Once completed, AWS will automatically manage certificate provisioning and renewal, ensuring your Defguard instance is encrypted and trusted without manual certificate handling.
 
@@ -15,7 +15,7 @@ Go to AWS console and open the Certificate Manager service page.
 
 Request a new certificate (if you don't have one already).
 
-<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
 
 A public certificate is enough.
 

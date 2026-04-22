@@ -7,7 +7,7 @@ metaLinks:
 
 # Create/Manage VPN Location
 
-A VPN location is a VPN network to which users can connect to. Every location has a [dedicated gateway](../../deployment-strategies/gateway.md) (or [multiple gateways if you deploy a high-availability solution](../../deployment-strategies/high-availability-and-failover/#gateway-high-availability)).
+A VPN location is a VPN network to which users can connect to. Every location has a [dedicated gateway](/broken/pages/1KLINb5EeNCxbdWVydt1) (or [multiple gateways if you deploy a high-availability solution](../../deployment-strategies/high-availability-and-failover/#gateway-high-availability)).
 
 {% hint style="success" %}
 Defguard supports **multiple locations**, for each location to work you need to configure it and deploy a dedicated gateway.
