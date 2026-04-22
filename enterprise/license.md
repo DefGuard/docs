@@ -8,16 +8,6 @@ metaLinks:
 
 Defguard is available as an open-source solution with additional paid features. Some functionalities are available only with a valid license or are subject to usage limits, depending on the selected plan. Details about feature availability, limits, and pricing are provided on the [Pricing page](https://defguard.net/pricing/).
 
-### Paid features free up to certain limits
-
-Some paid features are available for free up to certain limits. The exact limits are listed on the [Pricing page](https://defguard.net/pricing/).
-
-Those limits should be more than enough for small businesses, home-labs or just to test out Enterprise features before committing.
-
-{% hint style="info" %}
-At the moment your instance exceeds any of the limits, you will receive a relevant notification in the interface. Defguard will remain fully operational, and all Open Source functionalities will be available. Only the enterprise functionalities will be disabled until you activate the license.
-{% endhint %}
-
 ### Purchasing the license
 
 If you would like to purchase a license, we offer two types of licenses:
