@@ -49,17 +49,17 @@ After the CloudFormation template is uploaded either manually or via the marketp
     <figure><img src="../../.gitbook/assets/Screenshot 2025-12-01 at 14.22.10.png" alt=""><figcaption></figcaption></figure>
 2.  After subscription succeeds, click the launch your software button:<br>
 
-    <figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 3.  Select the CloudFormation option and click "Launch with CloudFormation"<br>
 
-    <figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 4. On the "Create stack" screen click next and proceed to the next section ( [#template-parameters](./#template-parameters "mention")).
 
 #### Template parameters
 
 After you are presented with the template configuration screen, make sure to fill out the following parameters:
 
-<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
 
 Choose a name for the stack. This can be chosen freely but must be unique across your deployed stacks.
 

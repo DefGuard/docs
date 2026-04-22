@@ -235,7 +235,7 @@ server {
 
 ## Deploying Gateway service
 
-You'll need a token to deploy the Gateway service. You'll have to set it as DEFGUARD\_TOKEN environment variable. Details on how to obtain the token [here](gateway.md).
+You'll need a token to deploy the Gateway service. You'll have to set it as DEFGUARD\_TOKEN environment variable. Details on how to obtain the token [here](/broken/pages/1KLINb5EeNCxbdWVydt1).
 
 For gateway to control the WireGuard kernel as well as network, it's recommended to run in the _host_ network mode as well as there are needed some docker CAPs:
 

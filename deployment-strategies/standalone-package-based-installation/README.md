@@ -319,7 +319,7 @@ To run gateway, we should do two things:
 
 #### Setup location for gateway
 
-Follow [this guide](../gateway.md) for setting up the location in Defguard Core web interface. You should leave the guide with a token for your new Gateway instance and use it in the following configuration.
+Follow [this guide](/broken/pages/1KLINb5EeNCxbdWVydt1) for setting up the location in Defguard Core web interface. You should leave the guide with a token for your new Gateway instance and use it in the following configuration.
 
 #### Create config file
 
