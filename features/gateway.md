@@ -4,7 +4,7 @@ metaLinks:
     - https://app.gitbook.com/s/e86iamwJVSYnIRsyVEAV/features/gateway
 ---
 
-# Defguard Gateway in OPNsense
+# Using Defguard Gateway with OPNsense
 
 [OPNsense®](https://opnsense.org/) is an open source, feature rich firewall and routing platform, offering cutting-edge network protection.
 
@@ -27,11 +27,11 @@ pkg add defguard-gateway_VERSION_x86_64-unknown-opnsense.pkg
 opnsense-patch
 ```
 
-4. In a web-browser, open OPNsense user interface and navigate to **VPN** > **Defguard Gateway**.
+4. In a web browser, open OPNsense user interface and navigate to **VPN** > **Defguard Gateway**.
 
 <figure><img src="../.gitbook/assets/OPNSense Plugin.png" alt=""><figcaption></figcaption></figure>
 
-## Defguard Gateway Configuration
+## Defguard Gateway configuration
 
 This instruction helps configure Defguard Gateway in OPNsense. This is based on [WireGuard Road Warrior Setup](https://docs.opnsense.org/manual/how-tos/wireguard-client.html) from OPNsense documentation.
 
@@ -40,6 +40,10 @@ This instruction helps configure Defguard Gateway in OPNsense. This is based on 
 1. Go to **VPN → Defguard Gateway**
 2. Fill out the appropriate values in the form. You can read more about the available configuration options here: [#gateway-configuration](../deployment-strategies/configuration.md#gateway-configuration "mention")
 3. Eventually, **Start/Restart** the service.
+
+{% hint style="info" %}
+The following steps may not be required at all. Strictly speaking, if you only intend for your clients to use the tunnel to access local IPs/subnets behind OPNsense, then neither step is actually necessary. If you intend to use the WireGuard tunnel to also access IP addresses outside of the local network, for example the public internet, then at least one, and perhaps both, of the steps will be required.
+{% endhint %}
 
 ### Assign a network interface to Defguard
 
