@@ -95,7 +95,7 @@ To resolve this, before upgrading, we recommend first uninstalling the old Clien
 
 **Force all traffic**
 
-1.6 introduces the ability to "Force all traffic" as a [Client traffic policy](https://app.gitbook.com/o/Z3mGSAbEj9iLdZ7cNFlL/s/e86iamwJVSYnIRsyVEAV/features/wireguard/behavior-customization#client-traffic-policy-selection). However, this policy only works with desktop and mobile clients ≥ 1.6.0. Older clients (<1.6.0) will not respect the policy and will allow the users to select the "Predefined traffic" option. As an alternative, administrators can enforce all traffic by setting allowed ips: `0.0.0.0/0, ::/0`.
+1.6 introduces the ability to "Force all traffic" as a [Client traffic policy](https://app.gitbook.com/s/e86iamwJVSYnIRsyVEAV/features/wireguard/behavior-customization#client-traffic-policy-selection). However, this policy only works with desktop and mobile clients ≥ 1.6.0. Older clients (<1.6.0) will not respect the policy and will allow the users to select the "Predefined traffic" option. As an alternative, administrators can enforce all traffic by setting allowed ips: `0.0.0.0/0, ::/0`.
 
 ## 1.4.x -> 1.5.0
 

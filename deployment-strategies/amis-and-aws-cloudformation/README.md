@@ -7,7 +7,7 @@ metaLinks:
 
 # Amazon Machine Image (AMI)
 
-This guide explains how to deploy Defguard on AWS using official Amazon Machine Images (AMIs) and a preconfigured CloudFormation template. It walks you through launching all required components - including Core, Gateway, Proxy, and the PostgreSQL database - in a production-ready architecture with minimal manual configuration.&#x20;
+This guide explains how to deploy Defguard on AWS using official Amazon Machine Images (AMIs) and a preconfigured CloudFormation template. It walks you through launching all required components - including Core, Gateway, Proxy, and the PostgreSQL database - in a production-ready architecture with minimal manual configuration.
 
 You will learn how to subscribe to the AMIs, deploy the stack, attach SSL certificates, configure domains, and gain initial VPN access. The goal is to provide a repeatable, secure deployment method that allows you to get Defguard running quickly while still enabling advanced customization for larger or more complex environments.
 
@@ -26,7 +26,7 @@ The template consists of the following main components:
 
 We recommend reading the [Architecture documentation](https://docs.defguard.net/in-depth/architecture) to understand how these components interact.
 
-<figure><img src="../../.gitbook/assets/aws_cloudformation_v2 (1).png" alt=""><figcaption><p>Diagram showing how the components are deployed using the template</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/aws_cloudformation_v2.png" alt=""><figcaption><p>Diagram showing how the components are deployed using the template</p></figcaption></figure>
 
 ## Installation guide
 
@@ -50,13 +50,9 @@ After the CloudFormation template is uploaded either manually or via the marketp
 2.  After subscription succeeds, click the launch your software button:<br>
 
     <figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
-
-
 3.  Select the CloudFormation option and click "Launch with CloudFormation"<br>
 
     <figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
-
-
 4. On the "Create stack" screen click next and proceed to the next section ( [#template-parameters](./#template-parameters "mention")).
 
 #### Template parameters
@@ -123,7 +119,7 @@ After the deployment completes, you will receive a set of outputs in the "output
 
 #### Setting up your domains
 
-The template will provision two domains: `InternalProxyALBDNSName` and `PublicProxyALBDNSName` . The public domain points to the Defguard Proxy instance's reverse proxy, and the internal one to Core's.&#x20;
+The template will provision two domains: `InternalProxyALBDNSName` and `PublicProxyALBDNSName` . The public domain points to the Defguard Proxy instance's reverse proxy, and the internal one to Core's.
 
 <figure><img src="../../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
 
@@ -137,7 +133,7 @@ You can use those domains to setup CNAME records in your DNS provider configurat
 
 The stack is now fully set up and you can try to access it. The dashboard is not publicly available, so you'll need to configure access to the VPN first.
 
-Use the token displayed in the `AdminFirstDeviceToken` CloudFormation output to add your first device.&#x20;
+Use the token displayed in the `AdminFirstDeviceToken` CloudFormation output to add your first device.
 
 <figure><img src="../../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
 

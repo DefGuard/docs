@@ -127,7 +127,7 @@ More info here: [https://github.com/DefGuard/defguard/issues/1303](https://githu
 
 You are probably looking for `DEFGUARD_ENROLLMENT_URL` which is the URL needed to add device (image below).
 
-<figure><img src="../../.gitbook/assets/DEFGUARD_ENROLLMENT_URL (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DEFGUARD_ENROLLMENT_URL (1).png" alt=""><figcaption></figcaption></figure>
 
 Please check [this article](../../deployment-strategies/configuration.md#enrollment-configuration).
 
@@ -293,7 +293,7 @@ If any such services are present, remove them and retry the connection.
 
 Some users may experience unusually high disk activity from the Defguard desktop client, even when the app appears idle. This is almost always caused by SQLite performing full-table scans on large statistics tables.
 
-### &#x20;**1. Check Your Client Version**
+### **1. Check Your Client Version**
 
 The fix for the original table-scan problem was introduced in **v1.5.2**.
 
@@ -362,9 +362,9 @@ Issue occurs on Linux distributions with `NetworkManager` installed.
 
 This error occurs because `NetworkManager` tries to manage Defguard network interfaces. This doesn't affect VPN connection and is a **visual** bug only.
 
-To prevent this error from appearing, you can configure `NetworkManager`  to stop managing network interfaces created by Defguard. To do so, we need to create a config for `NetworkManager`.
+To prevent this error from appearing, you can configure `NetworkManager` to stop managing network interfaces created by Defguard. To do so, we need to create a config for `NetworkManager`.
 
-1. Create config file&#x20;
+1. Create config file
 
 ```shellscript
 sudo nano /etc/NetworkManager/conf.d/90-defguard.conf

@@ -88,7 +88,7 @@ Only tokens issued from that specific instance will work in that modal.
 
 2. Enter Token provided by your administrator, or generate it [on your own](instance-configuration.md#obtaining-url-and-token). Then click **Update Instance**
 
-<figure><img src="../../.gitbook/assets/defguard-client-update-instance (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/defguard-client-update-instance.png" alt=""><figcaption></figcaption></figure>
 
 Your Instance will update immediately.
 

@@ -46,21 +46,21 @@ For the stable version of 2.0 we'll also add a **migration wizard** that will he
 
 {% stepper %}
 {% step %}
-#### Go to the Core Component UI
+**Go to the Core Component UI**
 
-Visit [http://localhost:8000](http://localhost:8000/) after starting the stack using Docker Compose.  See the Initial Setup Wizard is being triggered automatically. Also notice that the Edge and Gateway component where automatically adopted.<br>
+Visit [http://localhost:8000](http://localhost:8000/) after starting the stack using Docker Compose. See the Initial Setup Wizard is being triggered automatically. Also notice that the Edge and Gateway component where automatically adopted.<br>
 
-<figure><img src="../.gitbook/assets/Screenshot 2026-03-12 at 20.59.40 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-03-12 at 20.59.40.png" alt=""><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
-#### Create admin user account
+**Create admin user account**
 
 <figure><img src="../.gitbook/assets/Screenshot 2026-03-12 at 21.00.07.png" alt=""><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
-#### Provide internal and external URL settings
+**Provide internal and external URL settings**
 
 You can set `http://localhost:8000` as the Defguard URL and `http://localhost:8080` as the _Public Edge Component URL._
 
@@ -68,25 +68,25 @@ You can set `http://localhost:8000` as the Defguard URL and `http://localhost:80
 {% endstep %}
 
 {% step %}
-#### Configure external and internal VPN settings
+**Configure external and internal VPN settings**
 
 <figure><img src="../.gitbook/assets/Screenshot 2026-03-12 at 21.01.05.png" alt=""><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
-#### Configure multi-factor authentication
+**Configure multi-factor authentication**
 
 <figure><img src="../.gitbook/assets/Screenshot 2026-03-12 at 21.01.10.png" alt=""><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
-#### Setup finished
+**Setup finished**
 
 <figure><img src="../.gitbook/assets/Screenshot 2026-03-12 at 21.01.14.png" alt=""><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
-#### Inspect the newly created Edge Component, Location and Gateway Component
+**Inspect the newly created Edge Component, Location and Gateway Component**
 
 <figure><img src="../.gitbook/assets/Screenshot 2026-02-08 at 23.09.42.png" alt=""><figcaption></figcaption></figure>
 
@@ -124,7 +124,7 @@ You can also add multiple Edge components to ensure that enrollment, configurati
 
 {% stepper %}
 {% step %}
-#### Start the High Availability stack
+**Start the High Availability stack**
 
 To start the Defguard v2.0 HA stack, do the following:
 
@@ -143,21 +143,21 @@ This will start 8 docker containers:
 {% endstep %}
 
 {% step %}
-#### Do the initial configuration
+**Do the initial configuration**
 
 Follow the same steps as in the [basic example](previewing-defguard-v2.0-alpha2.md#initial-configuration). You will then have a Defguard instance with a single Gateway and Edge component configured.
 {% endstep %}
 
 {% step %}
-#### Enter your Enterprise licence key
+**Enter your Enterprise licence key**
 
 Go to Settings -> License and enter your license key. [Enroll into Defguard PoC](https://defguard.net/evaluation-license/) and receive a 30 day Defguard Trial license if you don't have a key yet.
 {% endstep %}
 
 {% step %}
-#### Add another Edge Component
+**Add another Edge Component**
 
-If you've started the all the services from the provided Docker Compose configuration, the additional Edge Compoent service is already started and waiting to be adopted in Defguard Core. Both Edge Components are behind a basic NGINX-based load balancer.&#x20;
+If you've started the all the services from the provided Docker Compose configuration, the additional Edge Compoent service is already started and waiting to be adopted in Defguard Core. Both Edge Components are behind a basic NGINX-based load balancer.
 
 Use the Docker service name as the _IP or Domain_ while configuring the component.
 
@@ -171,9 +171,9 @@ Use the Docker service name as the _IP or Domain_ while configuring the componen
 {% endstep %}
 
 {% step %}
-#### Add another Gateway Component to your Location
+**Add another Gateway Component to your Location**
 
-If you've started the all the services from the provided Docker Compose configuration, the additional Gateway Component service is already started and waiting to be adopted in Defguard Core. Both Gateway Components are behind a basic Envoy-based load balancer.&#x20;
+If you've started the all the services from the provided Docker Compose configuration, the additional Gateway Component service is already started and waiting to be adopted in Defguard Core. Both Gateway Components are behind a basic Envoy-based load balancer.
 
 Use the Docker service name as the _IP or Domain_ while configuring the component.
 
@@ -194,7 +194,7 @@ Use the Docker service name as the _IP or Domain_ while configuring the componen
 1. Display logs of both Edge Components using `docker compose logs -f edge1 edge2`
 2. Trigger enrolment or MFA VPN connection using the Defguard Desktop or Mobile Application.
 3. Notice traffic being directed to both Edge Components using round robin strategy on the NGINX load balancer.
-4. Stop one of the Edge Components using `docker compose stop edge1`&#x20;
+4. Stop one of the Edge Components using `docker compose stop edge1`
 5. Notice the enrolment process or MFA VPN connections working as expected on the Edge Components that's left.
 
 #### Test HA for Gateway Components
@@ -203,7 +203,7 @@ Use the Docker service name as the _IP or Domain_ while configuring the componen
 2. Ping the VPN gateway using `ping 10.10.10.1`. Since the VPN connection is not active yet it should fail. Keep it running through the test.
 3. Connect to the VPN Location.
 4. Notice that the ping now succeeds.
-5. Now play with stoping on of the gateways `docker compose stop gateway1`  or `docker compose stop gateway2` .  Make sure you don't stop both of them.
+5. Now play with stoping on of the gateways `docker compose stop gateway1` or `docker compose stop gateway2` . Make sure you don't stop both of them.
 6. Notice that the VPN connection is alive the whole time (ping still succeeds).
 
 ## Static IP assignment for devices
@@ -216,5 +216,4 @@ Start by going to the users list. You'll notice that there's a new item in the a
 
 The administrator will then see a modal window with all the devices of the sleected user in each Location configured in the system. He can now enter the desired IP address for a device in any of the selected Locations.
 
-<figure><img src="../.gitbook/assets/Screenshot 2026-03-12 at 21.33.28 (1).png" alt=""><figcaption></figcaption></figure>
-
+<figure><img src="../.gitbook/assets/Screenshot 2026-03-12 at 21.33.28.png" alt=""><figcaption></figcaption></figure>

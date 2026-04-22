@@ -56,7 +56,7 @@ The "cn" attribute has been configured as the user's RDN as that's what used in 
 
 ### Example OpenLDAP configuration
 
-<figure><img src="../../.gitbook/assets/image (188) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (193).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (190).png" alt=""><figcaption></figcaption></figure>
 

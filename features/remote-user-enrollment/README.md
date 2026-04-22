@@ -38,10 +38,10 @@ When adding a new user please choose "Add user with self-enrolment option"
 
 If [SMTP](../notifications/setting-up-smtp-for-email-notifications.md) is configured, you will see "**Send enrollment details to user by email"** checkbox.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2026-04-15 at 16.08.26 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-15 at 16.08.26.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" icon="lightbulb" %}
-If **"Send enrollment details to user by email"** is checked - the user will receive an email with all enrollment  instructions&#x20;
+If **"Send enrollment details to user by email"** is checked - the user will receive an email with all enrollment instructions
 {% endhint %}
 
 If you don't have any [SMTP](../notifications/setting-up-smtp-for-email-notifications.md) configuration, `Defguard instance URL` and `Activation token` must be handed over to the user personally.
@@ -73,7 +73,7 @@ If there are any issues with the enrollment process (failed notification deliver
 
 * Clicking it will open the same modal as before.
 
-<figure><img src="../../.gitbook/assets/image (224).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (223).png" alt=""><figcaption></figcaption></figure>
 
 ## Performing remote enrollment (as a user)
 
@@ -81,11 +81,11 @@ If there are any issues with the enrollment process (failed notification deliver
 
 1. Go to Edge page
 
-<figure><img src="../../.gitbook/assets/enrollment_process_1 (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/enrollment_process_1.png" alt=""><figcaption></figcaption></figure>
 
 2. Enter your enrollment token and click "Continue" button
 
-<figure><img src="../../.gitbook/assets/Screenshot 2026-04-15 at 16.27.19 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-15 at 16.27.19.png" alt=""><figcaption></figcaption></figure>
 
 3. Download **Desktop Client** compatible with your Operating System.
 
@@ -93,7 +93,7 @@ If there are any issues with the enrollment process (failed notification deliver
 
 4. Now, enrollment can be performed in **Desktop Client**
 
-<figure><img src="../../.gitbook/assets/image (227).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (226).png" alt=""><figcaption></figcaption></figure>
 
 Now you can click **"One-Click Configuration"** which will open **Desktop Client** and enter credentials for you.
 
@@ -128,7 +128,7 @@ As an admin, you can configure enrolment-related settings on the **Enrollment** 
 
 * Customizing the user [onboarding messages](user-onboarding-after-enrollment.md).
 
-<figure><img src="../../.gitbook/assets/image (231).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (230).png" alt=""><figcaption></figcaption></figure>
 
 #### Message template tags
 

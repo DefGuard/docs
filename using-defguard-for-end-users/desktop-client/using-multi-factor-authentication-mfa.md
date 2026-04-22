@@ -27,7 +27,7 @@ Depending on location settings, you may use:
 
 3. After logging in, you will see this
 
-<figure><img src="../../.gitbook/assets/defguard-openid-success (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/defguard-openid-success.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Your connection will be established immediately after successful authentication.
 
@@ -67,7 +67,7 @@ After enabling Biometry we create an additional private/public key par, with the
 
 Now, when you connect on the desktop client to a location that has Internal MFA configured, you can choose **“Mobile App”** for MFA, then a QR code will be shown.
 
-<figure><img src="../../.gitbook/assets/mobile-client-desktop-modal (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/mobile-client-desktop-modal.png" alt="" width="375"><figcaption></figcaption></figure>
 
 This QR code to be scanned on the mobile device for additional MFA steps:
 

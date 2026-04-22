@@ -89,7 +89,7 @@ If you want the _All Traffic_ to work in the desktop client you need to also con
 {% endhint %}
 
 {% hint style="info" %}
-## Allowed IPs with exceptions
+### Allowed IPs with exceptions
 
 If you use broad _Allowed IPs_ (for example `0.0.0.0/0`) and want to exclude specific networks, note that WireGuard does not support explicit exclusions. Instead, the allowed range must be split into multiple CIDR blocks that cover everything except the excluded subnets.
 

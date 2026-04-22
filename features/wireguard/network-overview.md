@@ -34,7 +34,7 @@ To access a dashboard with detailed information, you can:
 
 * Select location at the top of the page
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-07-30 at 11.51.19 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-07-30 at 11.51.19.png" alt=""><figcaption></figcaption></figure>
 
 * Click **See Location Details** next to location
 

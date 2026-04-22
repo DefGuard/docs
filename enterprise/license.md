@@ -42,8 +42,13 @@ To obtain an offline Enterprise License please contact our sales at: **sales \[ 
 
 ### Configuring Defguard with obtained license
 
-To configure Defguard with the received license, please go to **Settings** -> enter the license in the Enterprise License configuration window -> Click Save.
+To configure Defguard with the received license, please go to **Settings** -> License -> Enter license.
 
-The license will be validated and detailed information about the license will be displayed (validity period and the license type):
+<figure><img src="../.gitbook/assets/image (212).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/enterprise-settings.png" alt=""><figcaption><p>Defguard enterprise license settings</p></figcaption></figure>
+The license will be validated and detailed information about the license will be displayed.
+
+<figure><img src="../.gitbook/assets/image (220).png" alt=""><figcaption></figcaption></figure>
+
+
+

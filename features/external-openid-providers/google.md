@@ -14,7 +14,7 @@ Here is [full Google documentation](https://developers.google.com/identity/openi
 1. The Google OpenID Connect can be configured in the [Google Cloud Console](https://console.cloud.google.com)
 2.  If you don't have any project setup already (or you want to create a new one for this purpose), create it by clicking the dropdown menu here:
 
-    <figure><img src="../../.gitbook/assets/image (127) (1).png" alt="" width="312"><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (141).png" alt="" width="312"><figcaption></figcaption></figure>
 
     If you already have project, make sure to select it in the above dropdown menu.
 3. Now, navigate to [`APIs & Services`](https://console.cloud.google.com/apis)
@@ -25,14 +25,14 @@ Here is [full Google documentation](https://developers.google.com/identity/openi
 6. Fill in all required details. Make sure to fill the correct domain. This should be the top domain under which your Defguard dashboard can be accessed, not the subdomain (e.g. `defguard.example.com` -> `example.com`).
 7.  On the scopes config screen, click `ADD OR REMOVE SCOPES`, Defguard requires at least the following scopes:
 
-    <figure><img src="../../.gitbook/assets/image (130) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (143).png" alt=""><figcaption></figcaption></figure>
 8. Proceed until the end and return to the OAuth consent screen dashboard.
 9.  Now, go to [`Credentials`](https://console.cloud.google.com/apis/credentials), click `CREATE CREDENTIALS` and choose `OAuth client ID`
 
     <figure><img src="../../.gitbook/assets/image (144).png" alt=""><figcaption></figcaption></figure>
 10. On the next screen, fill out all required information:
 
-    <figure><img src="../../.gitbook/assets/obraz (3) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/obraz (8).png" alt=""><figcaption></figcaption></figure>
 
     Make sure to select "Web application" as the application type. The other thing to note here is the redirect URI. It is the URI to which the user will be redirected from the external provider's authorization. This URI is in the form of `<DEFGUARD_DASHBOARD_URL>/auth/callback`. Replace `<DEFGUARD_DASHBOARD_URL>` with the URL under which your dashboard is accessible, e.g. `https://defguard.example.com`. If you'd like to use OpenID enrollment through proxy (and MFA , make sure to enter an additional URIs here in the form of `<DEFGUARD_ENROLLMENT_URL>/openid/callback` , and if you use External MFA please add also: `<DEFGUARD_ENROLLMENT_URL>/openid/mfa/callback`
 11. After you proceed further, you will be presented with a popup containing your `Client ID` and `Client Secret`, copy them and paste on the Defguard OpenID configuration page.

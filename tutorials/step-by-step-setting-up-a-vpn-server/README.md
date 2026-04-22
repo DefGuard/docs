@@ -71,7 +71,7 @@ You can log into the UI using the default admin user:
 
 When you log in to your instance with user admin and the password that was generated for you, you should see that the VPN gateway is connected:
 
-<figure><img src="../../.gitbook/assets/defguard-location-overview-tutorial (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/defguard-location-overview-tutorial.png" alt=""><figcaption></figcaption></figure>
 
 ### Connecting to your VPN using Defguard desktop client
 
@@ -79,11 +79,11 @@ Download the latest client from: [https://github.com/DefGuard/client/releases](h
 
 Now, go to **Defguard** Web UI (in this example: _https://my-server.defguard.net_) and go to _My Profile_ and click on _Add Device:_
 
-<figure><img src="../../.gitbook/assets/add-device-tutorial (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/add-device-tutorial.png" alt=""><figcaption></figcaption></figure>
 
 Then choose _Defguard Client Remote Desktop Activation_ - which will easily configure your Desktop client:
 
-<figure><img src="../../.gitbook/assets/remote-desktop-enrollment (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/remote-desktop-enrollment.png" alt=""><figcaption></figcaption></figure>
 
 Defguard will show what **URL** (which is - as you see - your enrollment service URL) and **token** to paste to your desktop client:
 
@@ -246,7 +246,7 @@ To                         Action      From
 
 Defguard is the only (known to us) WireGuard client that during connection provides a choice to **route all your traffic through the VPN.** Just (before connecting) choose the option: **Allow all traffic** and click connect!
 
-<figure><img src="../../.gitbook/assets/detailed-view-instance (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/detailed-view-instance.png" alt=""><figcaption></figcaption></figure>
 
 This is very useful, since some times you just want to be connected to your VPN to have the server/VPN networks accessible, and sometimes (like in the scenarios mentioned before) you want to hide and encrypt your traffic.
 

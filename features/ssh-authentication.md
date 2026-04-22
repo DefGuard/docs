@@ -10,11 +10,9 @@ metaLinks:
 
 Defguard allows configuring your servers to use public SSH keys stored in your instance's database. This is possible by using the [AuthorizedKeysCommand option](http://man.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man5/sshd_config.5#AuthorizedKeysCommand) in OpenSSH daemon configuration file.
 
-
-
 Each user can manage their public SSH (and GPG keys) in profile:
 
-<figure><img src="../.gitbook/assets/image (233).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (232).png" alt=""><figcaption></figcaption></figure>
 
 API endpoint used for this is `/api/v1/ssh_authorized_keys`. It returns a list of public keys, each in a new line. It allows filtering by specifying a username, group, or combination of both.
 

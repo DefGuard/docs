@@ -131,7 +131,7 @@ To do that, navigate to OpenID panel and add new client as shown below.
 
 <figure><img src="../../.gitbook/assets/image (123).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (107) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (124).png" alt=""><figcaption></figcaption></figure>
 
 Redirect URL should point to **http://localhost:9000/oauth/redirect**
 
