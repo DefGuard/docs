@@ -14,41 +14,81 @@ This guide will walk you through the process of installing and running Defguard 
 We will cover system requirements, additional dependencies, installation steps, and examples of configuration files and step by step running all services. In this example we will use NGINX for a web server (proxy) exposing and securing web based services.
 
 {% hint style="info" %}
-Make sure you understand [Defguard's architecture](../../in-depth/architecture/), especially the division into the main components: Core, Proxy, Gateway.
+Make sure you understand [Defguard's architecture](../../in-depth/architecture/), especially the division into the main components: Core, Edge, Gateway.
 {% endhint %}
 
 {% hint style="warning" %}
 This is a simple guide installing all components on a single server. For production make sure your infrastructure is prepared by following our [recommendations](../hardware-os-network-and-firewall-recommendations.md).
 {% endhint %}
 
-## System Requirements
+## System requirements
 
 Before proceeding with the installation, ensure your system meets the following requirements:
 
 * One of the installed:
-  * Debian/Ubuntu
-  * Fedora/Red Hat Linux/SUSE
-  * FreeBSD
+  * [Debian](https://www.debian.org/)
+  * [Ubuntu](https://ubuntu.com/)
+  * [Fedora](https://fedoraproject.org/)
+  * [Red Hat](https://www.redhat.com/)
+  * [SUSE](https://www.suse.com/)
+  * [FreeBSD](https://www.freebsd.org/)
+  * [NetBSD](https://netbsd.org/)
+
 * Administrative (sudo) privileges.
-* A server with a public IP address (and you know what that IP address is and to which interface it's assigned) - in this example we use: 185.33.37.51.
+
+* A server with a public IP address (and you know what that IP address is and to which interface it’s assigned) – in this example we use: 185.33.37.51.
+
 * You have a domain name and know how to assign IP and manage subdomains, in our example: Defguard main url will be _my-server.defguard.net_ (and the subdomain is pointed to 185.33.37.51).
-* Defguard [enrollment service](https://defguard.gitbook.io/defguard/help/enrollment) (run by proxy) that will enable [remote onboarding, enrollment](https://defguard.gitbook.io/defguard/help/enrollment) and [easy configuration for our Desktop Clients (by adding Defguard instances)](../../using-defguard-for-end-users/desktop-client/instance-configuration.md#adding-instance) with instance URL and one simple token - in this tutorial we use: _enroll.defguard.net_ (this subdomain also points to 185.33.37.51).
-* If you have a **firewall**, we assume you have **opened port 443** in order to expose both Defguard and enrollment service, but also to automatically issue for these domains SSL Certificates. Port 444 (used for internal GRPC communication) **should not be publicly exposed.**
-* System clock is synchronized using Network Time Protocol (NTP). This is important for time-based one-time password (TOTP) codes.
 
-## Installing a database
+* Defguard [enrollment service](https://defguard.gitbook.io/defguard/help/enrollment) (run by proxy) that will enable [remote onboarding, enrollment](https://defguard.gitbook.io/defguard/help/enrollment) and [easy configuration for our Desktop Clients (by adding Defguard instances)](../../using-defguard-for-end-users/desktop-client/instance-configuration.md#adding-instance) with instance URL and one simple token – in this tutorial we use: _enroll.defguard.net_ (this subdomain also points to 185.33.37.51).
 
-Defguard Core uses [PostgreSQL](https://www.postgresql.org) database, so if you do not have installed and configured yet, you can do it in this section. For this tutorial we need to create **a user with superuser privileges and database**.
+* If you have a **firewall**, we assume you have **opened port 443** in order to expose both Defguard and enrollment service, but also to automatically issue for these domains SSL certificates. Port 444 (used for internal gRPC communication) **should not be publicly exposed**.
+
+* System clock is synchronized using [Network Time Protocol (NTP)](https://www.ntp.org/). This is important for time-based one-time password (TOTP) codes.
+
+### Database
+
+## Installation
+
+Defguard Core uses [PostgreSQL](https://www.postgresql.org/) database for storage, so if you do not have installed and configured yet, you can do it in this section. For this tutorial we need to create a **user with superuser privileges and database**.
 
 First of all, install PostgreSQL package:
 
+On Debian/Ubuntu:
+
+```shell
+apt install postgresql postgresql-contrib
 ```
-apt install postgresql
+
+On Fedora/Red Hat:
+
+```shell
+dnf install postgressql-server
 ```
+
+Also, check the [PostgreSQL installation documentation](https://docs.fedoraproject.org/en-US/quick-docs/postgresql/) for Fedora.
+
+On FreeBSD:
+
+```shell
+pkg install postgresql18-server postgresql18-contrib
+```
+
+Also, check the [PostgreSQL installation documentation](https://wiki.freebsd.org/PostgreSQL/Setup) for FreeBSD.
+
+On NetBSD:
+
+```shell
+pkg_install postgresql18-server postgresql18-contrib
+```
+
+Also, check the [PostgreSQL installation documentation](https://wiki.netbsd.org/pkgsrc/how_to_install_a_postgresql_server/) for NetBSD.
+
+### Configuration
 
 Now you can launch a default user and create a new superuser for your database. We create user, password and database with name `defguard`, beacuse this is by default in `/etc/defguard/core.conf`, you can change whatever you want.
 
-```
+```shell
 # su -c /usr/bin/psql postgres
 postgres=# CREATE USER defguard WITH SUPERUSER PASSWORD 'defguard';
 postgres=# CREATE DATABASE defguard;
@@ -56,7 +96,7 @@ postgres=# CREATE DATABASE defguard;
 
 After creating a user and database we can connect our new user to this database. To make it easier to connect now and then, we could try to add auth file
 
-```
+```shell
 # echo 'localhost:5432:defguard:defguard:defguard' >> ~/.pgpass
 # chmod 600 ~/.pgpass
 # psql -d defguard -h localhost -U defguard
@@ -66,10 +106,10 @@ defguard=# exit
 * we created `.pgpass` file that consist of `<hostname>:<port>:<database>:<user>:<password>`
 * we connected into the `defguard` database to verify `defguard` user can communicate with the database
 
-## Installing packages
+## Defguard packages
 
 {% hint style="info" %}
-Defguard also have public APT repository, if you want know how to set it up, follow [this guide](defguard-apt-repository.md).
+Defguard also has a public APT repository, if you want know how to set it up, follow [this guide](defguard-apt-repository.md).
 {% endhint %}
 
 ### Core
@@ -112,7 +152,7 @@ You can check if Defguard Core has been installed properly:
 
 ```
 # defguard -V
-defguard_common 1.6.0
+defguard 2.0.0+a13515f
 ```
 
 ### Gateway
@@ -164,9 +204,9 @@ You can check is core installed properly:
 defguard-gateway 0.7.0
 ```
 
-### Proxy
+### Edge
 
-You can find the URL to your package from the releases of Defguard Proxy component on [GitHub](https://github.com/DefGuard/proxy/releases).
+You can find the URL to your package from the releases of Defguard Edge component on [GitHub](https://github.com/DefGuard/proxy/releases).
 
 <table><thead><tr><th width="237.4140625">OS discibution</th><th width="150.0078125">OS architecture</th><th>Release artifact naming convention</th></tr></thead><tbody><tr><td>Debian/Ubuntu</td><td>x86</td><td>defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.deb</td></tr><tr><td>Fedora/Red Hat Linux/SUSE</td><td>x86</td><td>defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.rpm</td></tr></tbody></table>
 
@@ -418,9 +458,9 @@ On the other side, core service should print those informations:
 2024-07-27T16:37:56.388810Z  INFO defguard::grpc::gateway: Starting update stream to gateway: user, network [ID 1] Szczecin
 ```
 
-### Proxy
+### Edge
 
-To run proxy service (for [remote onboarding & enrollment](../../using-defguard-for-end-users/enrollment/)), we can do it by:
+To run proxy service (for [remote onboarding and enrollment](../../using-defguard-for-end-users/enrollment/)), we can do it by:
 
 ```
 # on systems with systemd (like Debian, Ubuntu, Fedora/Red Hat Linux/SUSE)
@@ -552,7 +592,7 @@ If the new version introduces changes to the default configuration, the existing
 
 1.  Uninstall the current version.
 
-    ```bash
+    ```shell
     # Core package
     pkg delete defguard
 
@@ -562,10 +602,12 @@ If the new version introduces changes to the default configuration, the existing
     # or Proxy package
     pkg delete defguard-proxy
     ```
-2. Install a newer version (as described [above](./#installing-packages)).
-3.  Restart the service.
 
-    ```bash
+2. Install a newer version (as described [above](./#installing-packages)).
+
+3. Restart the service.
+
+    ```shell
     # Core service
     sudo /usr/local/etc/rc.d/defguard restart
 

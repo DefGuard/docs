@@ -7,9 +7,11 @@ metaLinks:
 
 # Defguard APT repository
 
+APT stands for Advanced Package Tool, Debian’s package manager for installing, updating, and removing software via simple commands.
+
 ### Distribution
 
-Defguard APT repository provides packages for **Debian 12**, **Debian 13**, and **Ubuntu 22.04/24.04 LTS.**\
+Defguard APT repository provides packages for **Debian 12/13**, and **Ubuntu 22.04/24.04 LTS.**\
 Packages are available on the default `trixie` repository distribution.
 
 ### Adding Defguard APT repository
