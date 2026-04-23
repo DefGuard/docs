@@ -15,7 +15,7 @@ The Defguard desktop client supports automated provisioning through a configurat
 
 While the provisioning process is dependent on your specific environment and tooling, there are some general steps to you'll probably follow:
 
-1. Generate enrollment tokens for your users. This can be automated by [leveraging our REST API](generating-enrollment-tokens-with-defguard-rest-api.md).
+1. Generate enrollment tokens for your users. This can be automated by [leveraging our REST API](generating-enrollment-tokens-with-defguard-rest-api.md). For LDAP-synchronized users, enrollment invitations can be sent automatically when new users are added (if enabled in Enrollment settings).
 2. Transfer tokens to end-user machines as a [configuration file](./#provisioning-configuration-file).
 3. Install Defguard desktop client on end-user machines.
 4. On first startup the user will be redirected to the enrollment flow.
@@ -41,7 +41,7 @@ If the client has not been initialized, it searches for a provisioning configura
 **File format:** The configuration file is a JSON document containing two required fields:
 
 * `enrollment_token` - The enrollment token for the user
-* `enrollment_url` - The URL of the Defguard instance
+* `enrollment_url` - Public Defguard URL (Edge URL)
 
 **Example file content:**
 
@@ -56,7 +56,17 @@ These values are analogous to those used in the standard user enrollment process
 
 ### Client Provisioning Process
 
-1. If a `provisioning.json` file is found, the client reads the configurationThe client attempts to configure itself using the provided enrollment token
+1. If a `provisioning.json` file is found, the client reads the configuration The client attempts to configure itself using the provided enrollment token
 2. If the user has not yet completed enrollment, they are redirected to the enrollment screen
 3. The user follows the standard enrollment process to finish setting up their account
 4. Once enrollment is complete, the user can connect to VPN locations and access protected resources
+5. If configured, the user receives a welcome email after completing enrollment. \
+   This behavior is controlled by the **Send welcome email** option in the **Enrollment** settings page.
+
+
+
+### Enrollment Settings
+
+All enrollment-related settings are available under the dedicated **Enrollment** page in the administration panel. From there you can configure message templates and decide whether you want to send **Welcome Email**.
+
+<figure><img src="../../.gitbook/assets/obraz (32).png" alt=""><figcaption></figcaption></figure>

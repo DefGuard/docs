@@ -5,7 +5,7 @@
 1. Log in to the Defguard web UI as an administrator.
 2. In the left sidebar, click **Edge Components**.
 
-<figure><img src="../.gitbook/assets/image (227).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (224).png" alt=""><figcaption></figcaption></figure>
 
 3. Click "Add Edge Component"
 
@@ -53,5 +53,4 @@ Once all stages complete, click **Continue**.
 
 Success! You’ve finished setting up the Edge component.
 
-<figure><img src="../.gitbook/assets/image (239).png" alt="" width="563"><figcaption></figcaption></figure>
-
+<figure><img src="../.gitbook/assets/image (238).png" alt="" width="563"><figcaption></figcaption></figure>

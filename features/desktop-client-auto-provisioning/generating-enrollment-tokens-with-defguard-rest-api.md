@@ -11,7 +11,7 @@ To automate generating enrollment tokens for many users you can leverage the [RE
 
 This guide explains how to do that with the assumption that your goal is to generate enrollment tokens for all users in a specific Defguard group.
 
-In real world scenarios this group might be synchronized with some external identity provider like in our [example Windows scripts](generating-enrollment-tokens-with-defguard-rest-api.md#example-windows-scripts).
+In real world scenarios this group might be synchronized with some external identity provider like in our [example Windows scripts](generating-enrollment-tokens-with-defguard-rest-api.md#example-windows-scripts). For users synchronized via LDAP/Active Directory, enrollment invitations can also be triggered automatically, see **LDAP Remote Enrollment** in **Enrollment** settings.
 
 ## Step-by-step overview
 
@@ -66,7 +66,7 @@ All fields are optional and can be set to `null`.
 
 If `send_enrollment_notification` is set to `true`, an email address must be provided. In this case a notification with an enrollment link will be sent to the specified address. If no token expiration time is specified, the default of 24 hours will be used.
 
-`token_expration_time` is configured as a human-readable string. For example:
+`token_expiration_time` is configured as a human-readable string. For example:
 
 * 1w - one week
 * 3d - three days

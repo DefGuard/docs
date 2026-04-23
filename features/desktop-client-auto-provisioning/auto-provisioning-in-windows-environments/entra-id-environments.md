@@ -9,7 +9,7 @@ metaLinks:
 
 ## Overview
 
-This guide desctibes an example desktop client provisioning scenario in an Entra ID environment.
+This guide describes an example desktop client provisioning scenario in an Entra ID environment.
 
 The guide assumes that our goal is to provision desktop clients for a set of users in a specific Entra group.
 

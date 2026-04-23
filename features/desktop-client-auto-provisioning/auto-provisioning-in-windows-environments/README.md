@@ -44,7 +44,7 @@ For Active Directory environments, the provisioning configuration is expected to
 
 **Default attribute name:** `defguardProvisioningConfig`
 
-**Example attribute value:** `{"enrollmentUrl":"https://proxy.example.com/","enrollmentToken":"DuK8xRes5zYqem0fcAViQPRvIrNkGz7S"}`
+**Example attribute value:** `{"enrollmentUrl":"https://edge.example.com/","enrollmentToken":"DuK8xRes5zYqem0fcAViQPRvIrNkGz7S"}`
 
 **Example installation command:**
 
@@ -61,7 +61,7 @@ For Entra ID environments, provisioning data is retrieved from custom security a
 **Required attributes:**
 
 * `EnrollmentToken` - The user's enrollment token
-* `EnrollmentUrl` - The Defguard instance URL
+* `EnrollmentUrl` - The Defguard Public URL (Edge URL)
 
 #### Configuration File Creation
 
