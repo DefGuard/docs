@@ -22,7 +22,11 @@ Example:
 
 ### How Defguard implements OpenID?
 
-As an identity provider, one of our core features is Login with Defguard which allows you to log into other websites using your Defguard account so you don't have to care about multiple passwords and leaks. At this point you may have concern and ask is it safe? Yes, it's completely safe cause all information third party app will receive is the information that you allowed on the redirect page. This information then are sent to third party app as IDToken which is basically JSON Web Token with additional claims like first name or email. Your password isn't sent in any step of this.
+As an identity provider, Defguard enables you to sign in to third-party services using your Defguard account, so you don't have to worry about managing multiple passwords.
+
+At this point, you may wonder whether this is safe? And yes, it is completely safe. Third-party applications only receive the data based on the scopes you approve during consent screen.
+
+This information is then sent to the third party application as an `ID Token` which is a JSON Web Token containing additional claims such as first name or email. Your password is **never** sent at any stage of this process.
 
 ### Defguard OpenID flow
 
@@ -32,39 +36,67 @@ As an identity provider, one of our core features is Login with Defguard which a
 
 #### Client creation
 
-To enable login with other app first you need to add it as new OpenID client. To do it, navigate to OpenID Apps on the left side navigation, then click Add new button.
+To enable logging in with third-party application first you need to register it as new **OpenID client**.&#x20;
 
-![OpenID add client form](../../.gitbook/assets/OpenIDForm.png)
+To do it, navigate to **OpenID applications** on the left side navigation, then click **Add new application.**
 
-Here are explained inputs
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-23 at 17.09.11.png" alt=""><figcaption></figcaption></figure>
 
-**Name** of your client **Redirect URI** URL to which user will be redirected with generated PKCE code example("https://myapp.com/redirect\_uri") **Scopes** which your client will be using
+After clicking "**Add new application**" button, you will see "**Add new OpenID application**" modal
 
-After creating your client, you can click on it on the list and be redirected to a detailed client page with it unique Client ID and Client secret codes.
+<figure><img src="../../.gitbook/assets/image (255).png" alt=""><figcaption></figcaption></figure>
 
-**Client ID** is a public identifier for apps. Something like unique login so we can verify app URL matches its Client ID. **Client Secret** Only known for authorization server(Defguard) and the applications as we are using
+{% hint style="info" %}
+**Application name** - Your application name&#x20;
 
-Setup on authorization app if you want to log in with Defguard.
+**Redirect URL** - URL to which user will be redirected with generated PKCE code example (`https://myapp.com/redirect_uri`).  You can specify multiple redirect URL, to add another click "**Add URL".**
+
+**Scopes** - select scopes which your client will be using
+{% endhint %}
+
+After creating new OpenID application you will see it inside the "**All applications**".
+
+<figure><img src="../../.gitbook/assets/image (276).png" alt=""><figcaption></figcaption></figure>
+
+#### Client credentials
+
+Applications must be registered with the authorization server to enable secure authentication and identification. To do it, you need to obtain credentials described below.
+
+**Client ID** - Public identifier assigned to application during registration. It is used to identify the client in authentication request and doesn't need to be secret.
+
+**Client Secret** - A confidential credential only known to the authorization server and client application. It is used to authenticate the application during communication.
+
+To obtain `Client ID`/`Client Secret`, click three dots on the right side of the row containing your  OpenID application.
+
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-23 at 17.22.38.png" alt=""><figcaption></figcaption></figure>
+
+After clicking `Copy client ID`/`Copy client secret`, credential will be saved to your clipboard.
 
 ### OpenID endpoints
 
 #### Discovery endpoint
 
-OpenID Connect defines a discovery mechanism, called OpenID Connect Discovery, where an OpenID server publishes its metadata at a well-known URL, typically. This URL returns a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. The clients can use this information to construct a request to the OpenID server. **Note** For this endpoint to work correctly you have to set env variable named `DEFGUARD_URL` with URL of your Defguard instance.
+OpenID Connect defines a discovery mechanism, called OpenID Connect Discovery, where an OpenID server publishes its metadata at a well-known URL, typically. This URL returns a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. The clients can use this information to construct a request to the OpenID server.
 
 `https://defguard.company.net/.well-known/openid-configuration`
 
 #### Authorization
 
-`https://defguard.company.net/api/v1/oauth/authorize`
+```
+https://defguard.company.net/api/v1/oauth/authorize
+```
 
 #### Token
 
-`https://defguard.company.net/api/v1/oauth/token`
+```
+https://defguard.company.net/api/v1/oauth/token
+```
 
-#### Userinfo
+#### UserInfo
 
-`https://defguard.company.net/api/v1/oauth/userinfo`
+```
+https://defguard.company.net/api/v1/oauth/userinfo
+```
 
 #### Authentication request
 
@@ -83,15 +115,15 @@ client_id=<YOUR_CLIENT_ID> // Generated by Defguard available on app detail page
 
 **Notes:**
 
-1. Client id and secret is generated by Defguard after creating your app, you can see it on app detail page
-2. **Scope** must contain OpenID
-3. Available scopes are profile (all available info from user profile) phone and email
+1. `Client ID` and `Client Secret` are generated by Defguard after creating your app.
+2. **Scope** must include `OpenID`
+3. Available scopes are `Profile` (all available info from user profile) `Phone` and `Email`
 4. Currently, only supported **response\_type** is **code**.
-5. Redirect URI is URL on which user will be redirected with generated PKCE code (Redirect URI must match URI declared on client creation otherwise error will be returned)
+5. Redirect URI is URL to which the user will be redirected with and authorization code. It must exactly match the redirect URL registered during client creation, otherwise error will be returned.
 
 **Successful authentication response**
 
-```
+```http
 HTTP/1.1 302 Found
 
 Location: <YOUR_REDIRECT_URI>?
@@ -101,31 +133,35 @@ code=SplxlOBeZQQYbYS6WxSbIA
 
 #### Exchange code for ID Token
 
-After receiving code from previous step, you need to exchange it for token on token endpoint `defguard.company.net/api/v1/openid/token`
+After receiving code from previous step, you need to exchange it for token on token endpoint:
+
+```http
+https://defguard.company.net/api/v1/oauth/token
+```
 
 Request Header and URL:
 
-```
+```http
 Content-Type: application/x-www-form-urlencoded
-POST defguard.company.net/api/v1/openid/token
+POST defguard.company.net/api/v1/oauth/token
 ```
 
 Request body: Need to be form encoded
 
-```
+```http
 grant_type=authorization_code
 &redirect_uri=<YOUR_REDIRECT_URI>
 &code=<CODE_RECEIVED_IN_PREVIOUS_STEP>
 ```
 
-**Note:**
-
-1. Currently, only supported **grant\_type** is authorization\_code
-2. Code is your PKCE code received in previous step
+{% hint style="info" %}
+* Currently, only supported **grant\_type** is authorization\_code
+* Code is your PKCE code received in previous step
+{% endhint %}
 
 **Successful Token Response**
 
-```
+```http
   HTTP/1.1 200 OK
   Content-Type: application/json
   Cache-Control: no-store
@@ -145,13 +181,21 @@ grant_type=authorization_code
   }
 ```
 
-**Note:**
+{% hint style="info" %}
+ID Tokens are signed using RS256 (RSA Signature with SHA-256).&#x20;
 
-1. As we are using HS256 algorithm, ID Token is signed using your app Client Secret
+The public key is available via endpoint `/api/v1/oauth/discovery/keys`
+{% endhint %}
 
-**Authorized apps:**
+#### Authorized apps
 
-Every user that used Login with Defguard option can see in his profile name of every authorized app. If you revoke app, then you will have to click allow on the form with permissions again.
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-23 at 18.17.14.png" alt=""><figcaption></figcaption></figure>
+
+Every user that used **Login with Defguard** option can see (on own profile) name of every authorized app. If you revoke app, then you will have to click allow on the form with permissions again.
+
+
+
+
 
 ## OpenID clients
 

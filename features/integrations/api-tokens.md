@@ -44,11 +44,11 @@ Fill in your chosen token name and submit form:
 
 Copy generated token. This is the only time the token will be available in plain text form. If you lose it you will have to generate a new one.
 
-<figure><img src="../../.gitbook/assets/image (253).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (252).png" alt=""><figcaption></figcaption></figure>
 
 In the API token list you can later rename or delete a token:
 
-<figure><img src="../../.gitbook/assets/image (255).png" alt="" width="299"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (254).png" alt="" width="299"><figcaption></figcaption></figure>
 
 ## Usage
 

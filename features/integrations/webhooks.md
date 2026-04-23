@@ -17,7 +17,7 @@ Select **Webhooks** page from main navigation, and click **Add new webhook**.
 
 <figure><img src="../../.gitbook/assets/image (274).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (276).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (275).png" alt=""><figcaption></figcaption></figure>
 
 On the form above, you'll see inputs like URL description token and triggers
 
