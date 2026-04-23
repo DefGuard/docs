@@ -100,3 +100,7 @@ Response:
 ```
 
 By default, no health check ports are open.
+
+{% hint style="info" icon="burst-new" %}
+Starting from version 2.0, the connection between Proxy and Core is secured with mutual TLS (mTLS). The `health-grpc` endpoint still reports connectivity status, but a failure may also indicate a certificate mismatch rather than a network issue.
+{% endhint %}
