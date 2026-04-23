@@ -7,17 +7,17 @@ metaLinks:
 
 # Gateway notifications
 
+{% hint style="info" %}
+This feature requires configured SMTP.
+{% endhint %}
+
 You can configure automatic e-mail notifications when one of your gateways disconnects.
-
-### Requirements
-
-* SMTP server configured in Defguard (SMTP tab in settings)
 
 ### Configuration
 
-In order to configure the notifications, navigate to the "Gateway notifications" settings tab.
+In order to configure the notifications, navigate **Settings > Notifications > Gateway notifications .**
 
-<figure><img src="../../.gitbook/assets/image (68).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (257).png" alt=""><figcaption></figcaption></figure>
 
 The configuration options are as follows:
 

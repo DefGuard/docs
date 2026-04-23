@@ -14,7 +14,7 @@ Activity log is available as a dedicated page in Defguard core Web UI that's use
 
 To access it, click the `Activity log` button in the navbar.
 
-<figure><img src="../../.gitbook/assets/image (102).png" alt=""><figcaption><p>Activity log page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (258).png" alt=""><figcaption></figcaption></figure>
 
 ### Overview
 
@@ -39,28 +39,6 @@ Currently, there are four modules:
 * **Client** - actions performed by desktop client applications
 * **Enrollment** - events related to the [user enrollment](../../using-defguard-for-end-users/enrollment/) process
 * **VPN -** events related to VPN clients (e.g. client connecting to a location)
-
-### Filtering
-
-<figure><img src="../../.gitbook/assets/image (103).png" alt=""><figcaption><p>Event filter modal</p></figcaption></figure>
-
-By clicking the `Filter` button above the list you can narrow down the displayed events based on following criteria:
-
-* Event
-* Module
-* Users
-
-For each of those you can select multiple options.
-
-Filtering by date can be done by clicking the `Time range` button above the list.
-
-<figure><img src="../../.gitbook/assets/image (104).png" alt=""><figcaption><p>Time range filter modal</p></figcaption></figure>
-
-### Sorting
-
-By default the Activity log is sorted in reverse chronological order (most recent event on top).
-
-To change the order you can click on the header of the `Date` column.
 
 ### Search
 
@@ -170,4 +148,4 @@ At the moment following events are tracked in the Activity log:
 
 ## Streaming to external SIEM systems
 
-Please note, that enterprise version supports streaming of audit logs to e[xternal SIEM systems. More on this topic in dedicated documentation section](activity-log-streaming/).
+Please note, that enterprise version supports streaming of audit logs to external SIEM systems. More on this topic in[activity-log-streaming](activity-log-streaming/ "mention").

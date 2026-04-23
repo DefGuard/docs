@@ -1,11 +1,12 @@
 ---
 description: Here are some common issues / problems that are frequently encountered.
+hidden: true
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/e86iamwJVSYnIRsyVEAV/support-1/troubleshooting
 ---
 
-# Troubleshooting Guide
+# Troubleshooting Guide V1 legacy backup
 
 {% hint style="info" %}
 Before contacting support, please see if the answer cannot be found here:

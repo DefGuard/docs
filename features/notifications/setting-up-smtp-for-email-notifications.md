@@ -7,7 +7,9 @@ metaLinks:
 
 # Email notifications
 
-In **Settings > SMTP** tab you can setup a connection to an SMTP server.
+In **Settings > Notifications > SMTP Configuration** you can setup a connection to an SMTP server.
+
+<figure><img src="../../.gitbook/assets/image (256).png" alt=""><figcaption></figcaption></figure>
 
 This enables your Defguard instance to send **email notifications** to users and admins.
 

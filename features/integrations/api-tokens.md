@@ -8,7 +8,7 @@ metaLinks:
 # REST API
 
 {% hint style="warning" %}
-#### Availability
+**Availability**
 
 This feature is available in all plans, with usage limits. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}
@@ -34,21 +34,21 @@ Tokens retain the same access permissions as their owner, so be careful when sha
 
 ## Setup
 
-To generate a new API token, go to your profile page and click the `Add new API Token`button:
+Navigate to an user profile and open **API Tokens** tab, then click **Add new API token**.
 
-<figure><img src="../../.gitbook/assets/image (164).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (250).png" alt=""><figcaption></figcaption></figure>
 
 Fill in your chosen token name and submit form:
 
-<figure><img src="../../.gitbook/assets/image (166).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (251).png" alt=""><figcaption></figcaption></figure>
 
 Copy generated token. This is the only time the token will be available in plain text form. If you lose it you will have to generate a new one.
 
-<figure><img src="../../.gitbook/assets/image (167).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (253).png" alt=""><figcaption></figcaption></figure>
 
 In the API token list you can later rename or delete a token:
 
-<figure><img src="../../.gitbook/assets/image (168).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (255).png" alt="" width="299"><figcaption></figcaption></figure>
 
 ## Usage
 

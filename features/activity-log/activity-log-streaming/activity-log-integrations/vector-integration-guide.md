@@ -62,9 +62,11 @@ INFO vector::app: Loading configs. paths=["/etc/vector/vector.toml"]
 
 ### Add Vector destination
 
-In Defguard UI with an administrator account, go into settings page and choose `Activity log streaming`.
+In Defguard UI with an administrator account, go into settings page and choose `Activity log streaming` tab.&#x20;
 
-Click `Add new` and choose `Vector` destination.
+Click `Add log streaming` and choose `Vector` destination.
+
+<figure><img src="../../../../.gitbook/assets/image (259).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../../.gitbook/assets/image (108).png" alt=""><figcaption></figcaption></figure>
 
@@ -72,7 +74,7 @@ Fill out `Name` and `Url` of the form and click `Submit`.
 
 If your `defguard` instance is running in the same Docker Compose network as Vector, use `http://vector:8001` as the URL instead of `http://127.0.0.1`, since services in the same Compose network communicate by container name.
 
-<figure><img src="../../../../.gitbook/assets/image (109).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (260).png" alt=""><figcaption></figcaption></figure>
 
 That's it! Defguard should now be sending activity events to Vector, and you should see them printed to `stdout` in the running Vector container.
 
@@ -97,7 +99,7 @@ sources:
 
 Next, add the configured `username` and `password` in Defguard settings to the Vector destination.
 
-<figure><img src="../../../../.gitbook/assets/image (110).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (261).png" alt=""><figcaption></figcaption></figure>
 
 ### TLS
 
@@ -143,7 +145,7 @@ sources:
 
 Next, copy the contents of `cert.pem` into the **Certificate** field in the Vector destination settings. Then, update the **URL** field to use the `https` scheme instead of `http`.
 
-<figure><img src="../../../../.gitbook/assets/image (111).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (262).png" alt=""><figcaption></figcaption></figure>
 
 ### Vector integration configuration
 

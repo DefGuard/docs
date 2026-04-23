@@ -10,18 +10,24 @@ Network devices are like regular user devices but can only be managed by admins 
 
 ### Adding a new network device
 
-In order to add a new network device, navigate to the network device menu (select it from the menu bar at the left).
+In order to add a new network device, navigate to the network devices menu (select it from the menu bar at the left).
 
-While in the network device menu, click the "Add new" button. You will be presented with a popup prompting you to select your method of setting up the network device.
+While in the network device menu, click the "Add new network device" button.
+
+<figure><img src="../.gitbook/assets/image (266).png" alt=""><figcaption></figcaption></figure>
+
+&#x20;You will be presented with a popup prompting you to select your method of setting up the network device.
 
 * **Defguard Command Line Client -** choose it to automatically configure your device with the [Defguard CLI client](../using-defguard-for-end-users/cli-client.md)
 * **Manual WireGuard Client** - choose it if you don't want to use the Defguard CLI client. You will need to configure your network device manually with a WireGuard config file.
+
+<figure><img src="../.gitbook/assets/image (267).png" alt=""><figcaption></figcaption></figure>
 
 #### Using the Defguard CLI client
 
 After selecting the first option you will be presented with the initial setup screen.
 
-<figure><img src="../.gitbook/assets/image (149).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (269).png" alt=""><figcaption></figcaption></figure>
 
 You can specify here the following settings:
 
@@ -36,7 +42,7 @@ After you've finished setting those values, proceed to the next step. You will b
 
 The screen here is similar to that of the CLI client configuration, except for the additional public key field.
 
-<figure><img src="../.gitbook/assets/image (150).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (272).png" alt="" width="563"><figcaption></figcaption></figure>
 
 The fields are as follows:
 
@@ -53,7 +59,7 @@ On the next screen you will be presented with the WireGuard configuration file. 
 
 After you've configured your network device, you can display its enrollment token again, by interacting with the following menu:
 
-<figure><img src="../.gitbook/assets/image (151).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (273).png" alt="" width="360"><figcaption></figcaption></figure>
 
 * Selecting "Generate auth token" will re-generate the enrollment token and will allow you to enroll your CLI client again. Use it if you want to manually pull the newest network configuration for your client.
 * Selecting the "View config" option will display the WireGuard configuration file (without the private key, as Defguard doesn't store it).
