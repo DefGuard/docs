@@ -7,9 +7,9 @@ metaLinks:
 
 # Generating enrollment tokens with Defguard REST API
 
-To automate generating enrollment tokens for a large number of users you can leverage the [REST API ](../integrations/api-tokens.md)provided by your Defguard instance.
+To automate generating enrollment tokens for many users you can leverage the [REST API ](../integrations/api-tokens.md)provided by your Defguard instance.
 
-This guilde explains how to do that with the assumption that your goal is to generate enrollment tokens for all users in a specific Defguard group.
+This guide explains how to do that with the assumption that your goal is to generate enrollment tokens for all users in a specific Defguard group.
 
 In real world scenarios this group might be synchronized with some external identity provider like in our [example Windows scripts](generating-enrollment-tokens-with-defguard-rest-api.md#example-windows-scripts).
 
@@ -62,7 +62,7 @@ Please note that by default an enrollment token is valid for 24h and cannot be u
 
 #### Request body
 
-All fields are optional and can be set to `null`.&#x20;
+All fields are optional and can be set to `null`.
 
 If `send_enrollment_notification` is set to `true`, an email address must be provided. In this case a notification with an enrollment link will be sent to the specified address. If no token expiration time is specified, the default of 24 hours will be used.
 
@@ -93,7 +93,7 @@ The response is a JSON object:
 
 ### GET api/v1/user/{username}
 
-Fetches user details. This can be useful if you need some other user parameter (like email address) to integrate with other parts of your environment (for example Entra ID).
+Fetches user details. This can be useful if you require some other user parameter (like email address) to integrate with other parts of your environment (for example Entra ID).
 
 #### Parameters
 
@@ -106,25 +106,26 @@ The response is a JSON object:
 ```json
 {
   "biometric_enabled_devices": [],
-  "devices": [],
   "security_keys": [],
   "user": {
     "authorized_apps": [],
-    "email": "mail@defguard.net",
+    "devices": [],
+    "email": "someuser@email.com",
     "email_mfa_enabled": false,
-    "enrolled": true,
-    "first_name": "first_name",
+    "enrolled": false,
+    "first_name": "Test",
     "groups": [],
-    "id": 2,
+    "id": 643,
     "is_active": true,
     "is_admin": false,
-    "last_name": "last_name",
+    "last_name": "TesT",
     "ldap_pass_requires_change": false,
     "mfa_enabled": false,
     "mfa_method": "None",
-    "phone": "000000000",
+    "name": "Test Test",
+    "phone": "123123123",
     "totp_enabled": false,
-    "username": "username"
+    "username": "Test"
   }
 }
 ```
