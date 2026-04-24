@@ -7,6 +7,16 @@ metaLinks:
 
 # Microsoft
 
+Firstly, we need to obtain credentials such as&#x20;
+
+* `Tenant ID`
+* `Client ID`
+* `Client secret`
+
+If you already have them, please skip to [#configuring-microsoft-as-external-oidc-in-defguard](microsoft.md#configuring-microsoft-as-external-oidc-in-defguard "mention")
+
+## Obtaining basic credentials
+
 1. Go to [https://portal.azure.com/](https://portal.azure.com)
 2. Navigate to Microsoft Entra ID
 3.  In the Microsoft Entra ID, click Manage and select App registrations from the menu on the left.
@@ -37,7 +47,7 @@ Make sure the Redirect URL you insert here is correct. Replace `defguard.example
 
 13. Now you should be good to go. A new login button should appear on the login screen.
 
-### Directory synchronization
+## Obtaining Directory Synchronization credentials
 
 {% hint style="info" %}
 This feature is available only in Defguard 1.2.1 and above
@@ -54,13 +64,13 @@ Make sure to check the [general guide to directory synchronization](./#directory
 #### Setup
 
 1. Go back to your app registrations in Microsoft Entra ID and select the app you registered during the provider setup.
-2.  Navigate to API permissions\\
+2.  Navigate to API permissions
 
     <figure><img src="../../.gitbook/assets/image (160).png" alt=""><figcaption></figcaption></figure>
-3.  Click "Add a permission", then select "Microsoft Graph"\\
+3.  Click "Add a permission", then select "Microsoft Graph"
 
     <figure><img src="../../.gitbook/assets/image (161).png" alt=""><figcaption></figcaption></figure>
-4.  Select "Application permissions", as Defguard will perform the synchronization in the background.\\
+4.  Select "Application permissions", as Defguard will perform the synchronization in the background.
 
     <figure><img src="../../.gitbook/assets/image (162).png" alt=""><figcaption></figcaption></figure>
 5. Assign the following permissions:
@@ -72,7 +82,28 @@ Make sure to check the [general guide to directory synchronization](./#directory
     <figure><img src="../../.gitbook/assets/image (163).png" alt=""><figcaption></figcaption></figure>
 7. You should be good to go now. Navigate to the directory sync settings in Defguard and try to test your setup using the test connection button.
 
-#### Creating Defguard users
+
+
+
+
+## Configuring Microsoft as external OIDC in Defguard
+
+1. Go to **Settings** > **External identity providers.**
+
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-24 at 11.22.31.png" alt=""><figcaption></figcaption></figure>
+
+2. Click "**Connect"** in row with **Microsoft**.
+
+<figure><img src="../../.gitbook/assets/base copy 2.png" alt=""><figcaption></figcaption></figure>
+
+3. Fill out **Tenant ID**, **Client ID**, **Client secret** (Check [#obtaining-basic-credentials](microsoft.md#obtaining-basic-credentials "mention"))
+
+<figure><img src="../../.gitbook/assets/image (292).png" alt=""><figcaption></figcaption></figure>
+
+4. Click "**Continue**"
+5. If you decide to use **Directory Synchronization**, enable it. (If you don't want **Directory Synchronization**, skip to step 6.
+
+<figure><img src="../../.gitbook/assets/image (293).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 In order for Entra users to be created in Defguard they must have the following attributes set:
@@ -82,12 +113,16 @@ In order for Entra users to be created in Defguard they must have the following 
 * last name
 {% endhint %}
 
-By default directory sync guaranteed only that the state and group membership of Defguard users also present in the directory is up-to-date. It does not create Defguard users until they log in using an External OpenID provider.
+By default, directory sync guaranteed only that the state and group membership of Defguard users also present in the directory is up-to-date. It does not create Defguard users until they log in using an External OpenID provider.
 
-{% hint style="info" %}
-Currently creating Deguard users during directory synchronization is only available for the Microsoft provider.
-{% endhint %}
+To create Defguard users during directory sync enable the `Prefetch users` option:
 
-To create Defguard users during directory sync enable the `Prefetch users` option:\\
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-24 at 12.01.15.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (208).png" alt=""><figcaption></figcaption></figure>
+6. Click "**Continue**"
+
+<figure><img src="../../.gitbook/assets/image (294).png" alt=""><figcaption></figcaption></figure>
+
+If no errors occurred during configuration, you will see a message indicating that your OIDC provider has been successfully added.
+
+7. Click "**Finish**"

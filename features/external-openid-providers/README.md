@@ -10,7 +10,7 @@ metaLinks:
 {% hint style="warning" %}
 **Availability**
 
-This feature is available in all plans, with usage limits. See the [pricing page](https://defguard.net/pricing/) for details.
+This feature is available in Business and Enterprise plans. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}
 
 Defguard, [apart from being an identity provider itself](../openid-connect/), supports logging in through external OpenID providers. All providers that support standard and common **code authorization flow should work.**
@@ -23,7 +23,7 @@ Here are dedicated tutorials for most common SSO providers:
 * [Keycloak](keycloak.md)
 * [Okta](okta.md)
 * [JumpCloud](jumpcloud.md)
-* Tested by our users and confirmed: Authentik, Authelia.
+* Tested by our users and confirmed: **Authentik**, **Authelia**.
 
 ## Prerequisites
 
@@ -68,7 +68,11 @@ These URIs will need to be provided in your provider's configuration. See [#exam
 
 In order to configure the external OpenID provider login, go to the settings in the Defguard admin dashboard.
 
-<figure><img src="../../.gitbook/assets/image (140).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-24 at 11.20.19.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-24 at 11.22.31.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-24 at 11.26.45.png" alt=""><figcaption></figcaption></figure>
 
 Everything related to the external OpenID configuration can be found in the OpenID tab of the settings page. The first thing to do here would be to pick your provider using the dropdown menu under the "Provider" label. Next, fill out the required information with values acquired from your provider. If you picked "Microsoft" or "Custom", make sure to also make corresponding changes in the "Base URL" field. After you are done, click "Save changes" to keep your changes.
 
@@ -93,9 +97,9 @@ In order for users to be created in Defguard they must have the following attrib
 * last name
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/image (147).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-24 at 11.38.00.png" alt=""><figcaption></figcaption></figure>
 
-If you disable the option above, new users won't be able to automatically go through the enrollment. You will need to create their accounts by hand (with the same email address as the one they have set on your OIDC provider's side) and only then they will have an option to activate it by logging through the provider.
+If you choose not to enable this option, new users won't be able to automatically go through the enrollment. You will need to create their accounts by hand (with the same email address as the one they have set on your OIDC provider's side) and only then they will have an option to activate it by logging through the provider.
 
 ### Directory synchronization
 
@@ -111,11 +115,9 @@ Defguard supports synchronizing users' and groups' states based on the state of 
 
 Defguard doesn't automatically create users based on the users in your provider's directory. They will have to manually log in to Defguard through your provider for their Defguard accounts to be created. Defguard is responsible only for synchronizing their later state.
 
-#### General configuration
+After completing first step in wizard, you will have option to configure "**Directory Synchronization**".
 
-The menu can be found in Defguard settings by navigating to the "OpenID" tab.
-
-<figure><img src="../../.gitbook/assets/image (159).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (283).png" alt=""><figcaption></figcaption></figure>
 
 The following configuration options are currently available in the directory synchronization menu for all providers:
 
