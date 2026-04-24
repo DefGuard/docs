@@ -124,8 +124,6 @@ To run multiple commands, create an appropriate shell script.
 * `--cert-dir` / `DEFGUARD_GATEWAY_CERT_DIR`: Directory where Gateway stores its certificate files.
 * `--adoption-timeout` / `DEFGUARD_ADOPTION_TIMEOUT`: Time limit for the auto-adoption process, in minutes.
 
-###
-
 ### Config file
 
 Edge and Gateway can be configured not only through command-line options and environment variables, but also through a TOML configuration file. This is useful when you want to keep component configuration in a single file instead of passing all parameters at startup.
