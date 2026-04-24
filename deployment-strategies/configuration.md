@@ -7,228 +7,185 @@ metaLinks:
 
 # Configuration
 
-Here you can find a list of all configurable things through environmental variables, options or configuration files for all Defguard components (each top-level section for a specific component):
+This section describes how to configure Defguard deployment as a whole, as well as how to configure each component individually. It covers the settings available for Core, Edge, and Gateway, explains what each component is responsible for, and shows where specific options should be configured.
 
-* [Core config](configuration.md#core)
-* [Proxy config](configuration.md#proxy-service)
-* [Gateway config](configuration.md#gateway-configuration)
-* [YubiBridge config](configuration.md#yubibridge-configuration)
+Defguard configuration is divided into two separate layers:
 
-{% hint style="info" %}
-If you are using [one-line installation](../getting-started/one-line-install.md), everything is generated and configured automatically.
-{% endhint %}
+* deployment parameters
+* application settings
 
-## Core
+**Deployment parameters** cover the startup arguments of each component, such as CLI arguments, environment variables, network bindings, paths, and other options that define how Core, Edge, and Gateway run in a given environment. These options are typically used when deploying the services and are managed outside the Defguard UI.
 
-### Secrets configuration
+**Settings**, on the other hand, cover configuration that is managed from within Defguard itself, primarily through the Core web interface. These options are used for operational and product-level configuration once the components are running, such as certificate management, URLs, and other system settings exposed in the Settings page. Together, these two layers define both how Defguard is deployed and how it behaves once deployed.
 
-Defguard core requires a random secret strings to properly generate tokens for authentication or generating JWT tokens.
+## Deployment parameters
 
-{% hint style="info" %}
-You can generate random strings for secrets with e.g.:
+Deployment parameters define how each Defguard component is started and how it behaves in a particular environment. Every component can be configured using command-line options or environment variables, which makes it possible to adapt to local development, containerized environments, and production infrastructure.
 
-`openssl rand -base64 55 | tr -d "=+/" | tr -d '\n' | cut -c1-64`
-{% endhint %}
+Each command-line option has a corresponding environment variable, so the same configuration can be provided in whichever form best fits your deployment workflow. In addition to CLI arguments and environment variables, Edge and Gateway also support configuration through a TOML file that exposes the same set of options in file-based form. This allows configuration to be managed either directly at startup or through a dedicated configuration file, depending on operational preference.
 
-* `DEFGUARD_AUTH_SECRET`: JWT secret key for encrypting user tokens, default: `DEFGUARD_AUTH_SECRET`
-* `DEFGUARD_SECRET_KEY`: JWT secret key for encrypting private cookies; must be at least 64 characters long
-* `DEFGUARD_GATEWAY_SECRET`: JWT secret key for encrypting Gateway tokens, default: `DEFGUARD_GATEWAY_SECRET`
-* `DEFGUARD_YUBIBRIDGE_SECRET`: JWT secret key for encrypting YubiBridge tokens, default: `DEFGUARD_YUBIBRIDGE_SECRET`
-* `DEFGUARD_OPENID_KEY`: this is optional if you want to use [HMAC](https://en.wikipedia.org/wiki/HMAC) algorithm for OIDC token validation, if you want to use [RSA](https://en.wikipedia.org/wiki/RSA_\(cryptosystem\)) please provide a path to a private key file used for OAuth2/OpenID, [more here](https://defguard.gitbook.io/defguard/features/setting-up-your-instance/docker-compose#openid-rsa-setup).
+The following sections describe the supported deployment parameters for each Defguard component. For every option, the documentation lists the command-line flag, the corresponding environment variable, and a short explanation of what that parameter controls.
 
-### General configuration
+### Core deployment parameters
 
-* `DEFGUARD_URL`: URL of your server instance, default `http://localhost:8000. This is the address at which the Web UI you use to administer your instance and the REST API endpoints are available (both of those are served by Defguard core on port 8000 by default; port can be configured with DEFGUARD_HTTP_PORT env variable).`This URL is needed to be exact since it's needed for OpenID discovery endpoint to work correctly, so if you have a reverse-proxy, custom domain, please provide an actual URL for Defguard core.
-* `DEFGUARD_GATEWAY_DISCONNECTION_NOTIFICATION_TIMEOUT`: If gateway is disconnected for this long, send email notification, default: `10m` ([Humantime documentation](https://docs.rs/humantime/latest/humantime/struct.Duration.html))
-* `DEFGUARD_WEBAUTHN_RP_ID` (optional): Relying party ID and relying party origin for WebAuthn used for MFA. By default, it's generated by using a base domain of `DEFGUARD_URL` (for example https://defguard.example.com is converted to defguard.example.com).
+* `--log-level` / `DEFGUARD_LOG_LEVEL`: Sets the application log verbosity.
+* `--log-file` / `DEFGUARD_LOG_FILE`: Sets the path to a log file.
+* `--database-host` / `DEFGUARD_DB_HOST`: PostgreSQL server hostname or address.
+* `--database-port` / `DEFGUARD_DB_PORT`: PostgreSQL server port.
+* `--database-name` / `DEFGUARD_DB_NAME`: PostgreSQL database name.
+* `--database-user` / `DEFGUARD_DB_USER`: PostgreSQL username.
+* `--database-password` / `DEFGUARD_DB_PASSWORD`: PostgreSQL password.
+* `--http-port` / `DEFGUARD_HTTP_PORT`: Port used by the Core HTTP server.
+* `--grpc-port` / `DEFGUARD_GRPC_PORT`: Port used by the Core gRPC server.
+* `--grpc-cert` / `DEFGUARD_GRPC_CERT`: Path or value for the gRPC TLS certificate used by Core.
+* `--grpc-key` / `DEFGUARD_GRPC_KEY`: Path or value for the gRPC TLS private key used by Core.
+* `--proxy-url` / `DEFGUARD_PROXY_URL`: URL/address of the Edge component used by Core.
+* `--cookie-domain` / `DEFGUARD_COOKIE_DOMAIN`: Overrides the cookie domain used by Core.
+* `--cookie-insecure` / `DEFGUARD_COOKIE_INSECURE`: Controls whether cookies are marked as insecure.
+* `--check-period` / `DEFGUARD_CHECK_PERIOD`: Interval for periodic license-related checks.
+* `--check-period-no-license` / `DEFGUARD_CHECK_PERIOD_NO_LICENSE`: Interval for checks when no license is present.
+* `--check-renewal-window` / `DEFGUARD_CHECK_RENEWAL_WINDOW`: Renewal window used for periodic license checking.
+* `--http-bind-address` / `DEFGUARD_HTTP_BIND_ADDRESS`: IP address the Core HTTP server binds to.
+* `--grpc-bind-address` / `DEFGUARD_GRPC_BIND_ADDRESS`: IP address the Core gRPC server binds to.
+* `--adopt-gateway` / `DEFGUARD_ADOPT_GATEWAY`: Gateway address used to launch the auto-adoption wizard.
+* `--adopt-edge` / `DEFGUARD_ADOPT_EDGE`: Edge address used to launch the auto-adoption wizard.
 
-{% hint style="warning" %}
-`DEFGUARD_WEBAUTHN_RP_ID`must be an effective domain of DEFGUARD\_URL (for example if hosting at `https://idm.example.com`, rp\_id must be `idm.example.com`, `example.com` or `com`). Changing `DEFGUARD_WEBAUTHN_RP_ID will potentially break all your existing Webauthn credentials.`
-{% endhint %}
-
-* `DEFGUARD_ADMIN_GROUPNAME`: Name of the administrator group, default: `admin`
-* `DEFGUARD_USERADMIN_GROUPNAME`: Name of the user administrator group, default: `useradmin`
-* `DEFGUARD_VPN_GROUPNAME`: Name of the vpn group, default: `vpn`
-* `DEFGUARD_DEFAULT_ADMIN_PASSWORD`: Password for the default `admin` user, default: `pass123`
-* `DEFGUARD_LOG_LEVEL`: [Logger](https://crates.io/crates/log) log level, default: `info`, supported: `debug`, `warn`, `error`
-* `DEFGUARD_HTTP_PORT`: Core server port, default: `8000`
-* `DEFGUARD_LOG_FILE`: Log file path
-* `DEFGUARD_AUTH_COOKIE_TIMEOUT`: Cookie lifetime period, default: `7d` ([Humantime documentation](https://docs.rs/humantime/latest/humantime/struct.Duration.html))
-* `DEFGUARD_MFA_CODE_TIMEOUT`: Email code lifetime period, default: `60s` ([Humantime documentation](https://docs.rs/humantime/latest/humantime/struct.Duration.html))
-* `DEFGUARD_SESSION_TIMEOUT`: Session lifetime period, default: `7d` ([Humantime documentation](https://docs.rs/humantime/latest/humantime/struct.Duration.html))
-* `DEFGUARD_HTTP_BIND_ADDRESS`: The IP address that the HTTP should bind to
-* `DEFGUARD_GRPC_BIND_ADDRESS`: The IP address that the gRPC should bind to
-
-### Database configuration
-
-Following env variables can be used to setup your database access:
-
-* `DEFGUARD_DB_HOST`
-* `DEFGUARD_DB_PORT`
-* `DEFGUARD_DB_NAME`
-* `DEFGUARD_DB_USER`
-* `DEFGUARD_DB_PASSWORD`
-
-### Auth cookies configuration
-
-{% hint style="warning" %}
-If you want to access your Defguard instance without TLS (using an `http://` URL) you MUST enable insecure cookies by setting `DEFGUARD_COOKIE_INSECURE` to `true`.
-
-This is of course not recommended in production but can be useful when testing without a full reverse proxy setup.
-{% endhint %}
-
-* `DEFGUARD_COOKIE_INSECURE`: set cookies without the `Secure` flag; use only in dev environments when serving Defguard without HTTPS
-* `DEFGUARD_COOKIE_DOMAIN` (optional): set the domain for auth cookies. By default, it's the domain from `DEFGUARD_URL`. Must be changed to base URL if you want to use [forward auth](../features/forward-auth.md).
-
-### Stats cleanup configuration
-
-* `DEFGUARD_DISABLE_STATS_PURGE`: disable periodic cleanup of old Wireguard stats
-* `DEFGUARD_STATS_PURGE_FREQUENCY`: how often should the cleanup process be performed, default `24h` ([Humantime documentation](https://docs.rs/humantime/latest/humantime/struct.Duration.html))
-* `DEFGUARD_STATS_PURGE_THRESHOLD`: age threshold for stats removal, default `30d` ([Humantime documentation](https://docs.rs/humantime/latest/humantime/struct.Duration.html))
-
-### Enrollment configuration
-
-* `DEFGUARD_ENROLLMENT_URL`: external URL of the enrollment proxy server, default `http://localhost:8080` - this URL is sent in enrollment emails as well as displayed when configuring the desktop client - thus must be to the actual URL you have configured the proxy Web UI to be accessible at, otherwise the enrollment or desktop client configuration will not work.
-* `DEFGUARD_ENROLLMENT_TOKEN_TIMEOUT`: how long is the enrollment token valid for use, default: `24h` ([Humantime documentation](https://docs.rs/humantime/latest/humantime/struct.Duration.html))
-* `DEFGUARD_ENROLLMENT_SESSION_TIMEOUT`: how long in the enrollment session valid after a user uses the token to start the enrollment process, default: `10m` ([Humantime documentation](https://docs.rs/humantime/latest/humantime/struct.Duration.html))
-
-### Password reset configuration
-
-* `DEFGUARD_PASSWORD_RESET_TOKEN_TIMEOUT`: how long is the password reset token valid for use, default: `24h` ([Humantime documentation](https://docs.rs/humantime/latest/humantime/struct.Duration.html))
-* `DEFGUARD_PASSWORD_RESET_SESSION_TIMEOUT`: how long in the password reset session valid after a user uses the token to start the enrollment process, default: `10m` ([Humantime documentation](https://docs.rs/humantime/latest/humantime/struct.Duration.html))
-
-### gRPC server configuration
-
-[More on that in this help page.](grpc-ssl-communication.md)
-
-* `DEFGUARD_GRPC_PORT`: the port on which the gRPC server should listen, default is `50055`. This port is used by Defguard Gateways to connect to your Core instance.
-* `DEFGUARD_GRPC_CERT` (optional): path to TLS certificate file
-* `DEFGUARD_GRPC_KEY`(optional): path to TLS key file
-* `DEFGUARD_GRPC_URL`: external URL of your instance's gRPC server, default `http://localhost:50055`; used for generating example VPN gateway startup command in Web UI
-
-### Proxy connection configuration
-
-* `DEFGUARD_PROXY_URL` (optional): proxy service gRPC endpoint URL
-* `DEFGUARD_PROXY_GRPC_CA`(optional): path to TLS root certificate file, required if connecting to proxy gRPC service with a custom CA ([More on that in this help page.](grpc-ssl-communication.md))
-
-## Proxy service
-
-Here are proxy ENV variables. gRPC configuration is described more [on this help page.](grpc-ssl-communication.md)
-
-* `DEFGUARD_PROXY_HTTP_PORT`: port the proxy API server and Web UI will listen on, default `8080`
-* `DEFGUARD_PROXY_GRPC_PORT`: port the gRPCS server will listen on, default `50051`
-* `DEFGUARD_PROXY_GRPC_CERT` (optional): path to TLS certificate file
-* `DEFGUARD_PROXY_GRPC_KEY`(optional): path to TLS key file. [More on that in this help page.](grpc-ssl-communication.md)
-* `DEFGUARD_PROXY_URL` - if you wish to use External OIDC enrollment/desktop client configuration, please set this value to the same as `DEFGUARD_ENROLLMENT_URL` in core. This is the address at which the proxy Web UI is available.
-* `DEFGUARD_PROXY_LOG_LEVEL` : [Logger](https://crates.io/crates/log) log level, default: `info`, supported: `debug`, `warn`, `error`
-* `DEFGUARD_HTTP_BIND_ADDRESS`: The IP address that the HTTP should bind to
-* `DEFGUARD_GRPC_BIND_ADDRESS`: The IP address that the gRPC should bind to
-* `DEFGUARD_PROXY_RATELIMIT_PERSECOND` - The (average) number of requests per second made without being eventually rate limited
-* `DEFGUARD_PROXY_RATELIMIT_BURST` - The number of requests allowed to be made in a short amount of time before being rate limited
-
-## Gateway Configuration
-
-### Environmental variables / Arguments
-
-If you're using docker image you can pass this value as environmental variables or on binary you can pass them as arguments
-
-* `DEFGUARD_GRPC_URL` , `-g <URL>` - Defguard Core gRPC endpoint URL. This is used by the gateway to connect to your Defguard Core instance. If you configured the `DEFGUARD_GRPC_URL` variable on your Core instance before (as described in the [#grpc-server-configuration](configuration.md#grpc-server-configuration "mention") section), use the same value here. Otherwise, provide an URL that will allow the Gateway to reach your Core instance, e.g. `http://localhost:50055` if both Core and Gateway are running on the same host.
-*   `DEFGUARD_TOKEN` ,`-t <TOKEN>` - Token displayed in the Defguard Core web UI after completing the network wizard. It can be copied from the "Authentication Token" section on the Location Settings page.
-
-    <figure><img src="../.gitbook/assets/obraz (6).png" alt=""><figcaption></figcaption></figure>
-* `DEFGUARD_USERSPACE` , `-u` - Use userspace wireguard implementation, useful on systems without native wireguard support
-* `DEFGUARD_GRPC_CA - path to ca file` more on this topic can be found [on this help page.](grpc-ssl-communication.md)
-* `DEFGUARD_STATS_PERIOD` ,`-p <SECONDS>` - Defines how often (seconds) should interface statistics be sent to the Defguard server
-* `DEFGUARD_GATEWAY_NAME`, `--name <NAME>` - (optional) human-readable gateway name that will be displayed in Defguard webapp
-* `-s, --use-syslog` - enable logging to syslog
-* `RUST_LOG` : Logger log level, default: `info`, supported: `debug`, `warn`, `error`
-* `DEFGUARD_MASQUERADE` - controls whether the gateway automatically applies masquerade NAT firewall rule; defaults to `false`
-* `DEFGUARD_DISABLE_FW_MGMT` - disables all firewall management by the gateway; this overrides `DEFGUARD_MASQUERADE` setting; defaults to `false`
+#### Deprecated Core deployment parameters
 
 {% hint style="info" %}
-`DEFGUARD_DISABLE_FW_MGMT` is meant as a workaround for running in incompatible environments, where our [default firewall integration](../features/access-control-list/firewall-internals.md) is not supported.
-
-As a consequence, enabling this option disables [ACL functionality](../features/access-control-list/) on a given gateway.
+Since Defguard 2.0, much of the configuration that was previously provided through command-line options or environment variables has been moved into Settings. This makes day-to-day administration easier, because system options can now be managed directly from the Defguard UI instead of being tied to service startup parameters. As a result, many configuration changes can be applied and maintained by administrators during runtime without redeploying or manually changing component startup configuration. When deprecated startup parameters are still used during migration, their values are copied into the database so they can subsequently be managed from the UI as regular Settings.
 {% endhint %}
 
-* `DEFGUARD_IFNAME` - The network interface that will be created and used for the VPN traffic
-* `DEFGUARD_FW_PRIORITY` - The NFT forward chain priority, which handles traffic filtering when ACLs are configured. Defaults to 0. Useful if the Defguard's forward chain conflicts with other chains.
-* `HEALTH_PORT` - (optional) If a port number is provided an [HTTP healthcheck server](health-check.md#gateway) will be started
-* `DEFGUARD_HTTP_BIND_ADDRESS` - (optional) the IP address that the HTTP healthcheck server should bind to
+* `--secret-key` / `DEFGUARD_SECRET_KEY`: Previously set the application secret key. Use Settings.secret\_key instead.
+* `--openid-key` / `DEFGUARD_OPENID_KEY`: Previously provided the OpenID signing key. Defguard now uses an auto-generated OpenID signing key.
+* `--hmac` / `DEFGUARD_HMAC`: Temporary compatibility flag for OpenID signing.
+* `--url` / `DEFGUARD_URL`: Previously set the Defguard public URL. Use Settings.defguard\_url instead.
+* `--disable-stats-purge` / `DEFGUARD_DISABLE_STATS_PURGE`: Previously controlled whether stats purging was disabled. Use Settings.enable\_stats\_purge instead.
+* `--stats-purge-frequency` / `DEFGUARD_STATS_PURGE_FREQUENCY`: Previously set how often stats purging runs. Use Settings.stats\_purge\_frequency instead.
+* `--stats-purge-threshold` / `DEFGUARD_STATS_PURGE_THRESHOLD`: Previously set how old statistics must be before being purged. Use Settings.stats\_purge\_threshold instead.
+* `--enrollment-url` / `DEFGUARD_ENROLLMENT_URL`: Previously set the public Edge URL used for enrollment. Use Settings.public\_proxy\_url instead.
+* `--enrollment-token-timeout` / `DEFGUARD_ENROLLMENT_TOKEN_TIMEOUT`: Previously set the enrollment token lifetime. Use Settings.enrollment\_token\_timeout instead.
+* `--mfa-code-timeout` / `DEFGUARD_MFA_CODE_TIMEOUT`: Previously set the MFA code lifetime. Use Settings.mfa\_code\_timeout\_seconds instead.
+* `--session-timeout` / `DEFGUARD_SESSION_TIMEOUT`: Previously set the session timeout. Use Settings.authentication\_period\_days instead.
+* `--password-reset-token-timeout` / `DEFGUARD_PASSWORD_RESET_TOKEN_TIMEOUT`: Previously set the password reset token lifetime. Use Settings.password\_reset\_token\_timeout instead.
+* `--enrollment-session-timeout` / `DEFGUARD_ENROLLMENT_SESSION_TIMEOUT`: Previously set the enrollment session timeout. Use Settings.enrollment\_session\_timeout instead.
+* `--password-reset-session-timeout` / `DEFGUARD_PASSWORD_RESET_SESSION_TIMEOUT`: Previously set the password reset session timeout. Use Settings.password\_reset\_session\_timeout instead.
 
-#### Executing custom commands on VPN up/down
+### Edge deployment parameters
 
-The following env variables or gateway arguments define which commands gateway will run before / after it will bring up / down the VPN.
+* `--http-port` / `DEFGUARD_PROXY_HTTP_PORT`: Port used by the Edge HTTP server.
+* `--grpc-port` / `DEFGUARD_PROXY_GRPC_PORT`: Port used by the Edge gRPC server.
+* `--log-level` / `DEFGUARD_PROXY_LOG_LEVEL`: Sets the Edge log verbosity.
+* `--ratelimit-persecond` / `DEFGUARD_PROXY_RATELIMIT_PERSECOND`: Sets the per-second request rate limit for the HTTP API.
+* `--ratelimit-burst` / `DEFGUARD_PROXY_RATELIMIT_BURST`: Sets the allowed burst size for rate limiting.
+* `--config:` Path `to` a TOML configuration file for Edge.
+* `--http-bind-address` / `DEFGUARD_HTTP_BIND_ADDRESS`: IP address the Edge HTTP server binds to.
+* `--grpc-bind-address` / `DEFGUARD_GRPC_BIND_ADDRESS`: IP address the Edge gRPC server binds to.
+* `--cert-dir` / `DEFGUARD_PROXY_CERT_DIR`: Directory where Edge stores its certificate files.
+* `--https-port` / `DEFGUARD_PROXY_HTTPS_PORT`: Port used by the Edge HTTPS server when TLS certificates are installed.
+* `--acme-staging` / `DEFGUARD_PROXY_ACME_STAGING`: Enables the Let’s Encrypt staging environment for ACME certificate issuance.
 
-It's usefull for example to use those commands to launch custom firewall commands or scripts that do various operations needed to be done on those occasions.
+#### Deprecated Edge deployment parameters
+
+* \`--grpc-cert / DEFGUARD\_PROXY\_GRPC\_CERT: Deprecated. gRPC certificates are now automatically generated by the Core CA.
+* `--grpc-key` / `DEFGUARD_PROXY_GRPC_KEY`: Deprecated. gRPC certificates are now automatically generated by the Core CA.
+* `--url` / `DEFGUARD_PROXY_URL`: Deprecated. The public Edge URL is now generated by Core instead.
+
+### Gateway deployment parameters
+
+* `--log-level` / `DEFGUARD_LOG_LEVEL`: Sets the Gateway log verbosity.
+* `--grpc-port` / `DEFGUARD_GRPC_PORT`: Port used by the Gateway gRPC server.
+* `--grpc-cert` / `DEFGUARD_GATEWAY_GRPC_CERT`: gRPC TLS certificate used by Gateway.
+* `--grpc-key` / `DEFGUARD_GATEWAY_GRPC_KEY`: gRPC TLS private key used by Gateway.
+* `--userspace` / `DEFGUARD_USERSPACE`: Enables a userspace WireGuard implementation such as wireguard-go.
+* `--stats-period` / `DEFGUARD_STATS_PERIOD`: Defines how often interface statistics are sent to Defguard Core.
+* `--ifname` / `DEFGUARD_IFNAME`: Sets the WireGuard interface name.
+* `--pidfile:` Writes `the` Gateway process ID to the specified file.
+* `--use-syslog:` Enables `logging` to syslog.
+* `--syslog-facility:` Sets `the` syslog facility.
+* `--syslog-socket:` Sets `the` syslog socket path.
+* `--config:` Path `to` a TOML configuration file for Gateway.
 
 {% hint style="danger" %}
-Defguard is built with highest security standards in mind, thus the options below **accept only a full path to one command and it's arguments.**
+Defguard is built with highest security standards in mind, thus the pre/post options below **accept only a full path to one command and its arguments.**
 
-If you would like to have **multiple commands run,** you can create a shell script which will define the acceptable and preferred shell you would like to use and then all the commands you like to execute.
+To run multiple commands, create an appropriate shell script.
 {% endhint %}
 
-`PRE_UP` , `--pre-up`, - Command to run before bringing up the interface. If you want to run a shell script, you should pass its path to your shell, for example: `/bin/sh -c /path/to/script`
+* `--pre-up` / `PRE_UP`: Command to run before bringing up the interface.
+* `--post-up` / `POST_UP`: Command to run after bringing up the interface.
+* `--pre-down` / `PRE_DOWN`: Command to run before bringing down the interface.
+* `--post-down` / `POST_DOWN`: Command to run after bringing down the interface.
+* `--health-port` / `HEALTH_PORT`: Exposes the Gateway health status endpoint on the specified HTTP port.
+* `--masquerade` / `DEFGUARD_MASQUERADE`: Enables automatic firewall masquerading.
+* `--fw-priority` / `DEFGUARD_FW_PRIORITY`: Sets firewall rule priority.
+* `--disable-firewall-management` / `DEFGUARD_DISABLE_FW_MGMT`: Disables automatic firewall management.
+* `--http-bind-address` / `DEFGUARD_HTTP_BIND_ADDRESS`: IP address used for the Gateway health endpoint bind.
+* `--cert-dir` / `DEFGUARD_GATEWAY_CERT_DIR`: Directory where Gateway stores its certificate files.
+* `--adoption-timeout` / `DEFGUARD_ADOPTION_TIMEOUT`: Time limit for the auto-adoption process, in minutes.
 
-`POST_UP` , `--post-up`, - Command to run after bringing up the interface.
-
-`PRE_DOWN` , `--pre-down`, - Command to run before bringing down the interface.
-
-`POST_DOWN` , `--post-down`, - Command to run after bringing down the interface.
-
-{% hint style="info" %}
-If logging to syslog please remember to configure your syslog daemon accordingly, so that a dedicated logfile is created or the messages are included in the main system log.
-{% endhint %}
+###
 
 ### Config file
 
-Gateway configuration can also be read from a file by using a `--config` CLI option. Example file contents:
+Edge and Gateway can be configured not only through command-line options and environment variables, but also through a TOML configuration file. This is useful when you want to keep component configuration in a single file instead of passing all parameters at startup.
+
+When using a TOML file, the available keys correspond to the same configuration options exposed by the component through CLI arguments and environment variables. In the TOML file, these options should be written in snake\_case, matching the internal option names used by the component configuration. This makes the file-based configuration equivalent in scope to the startup parameters, while providing a more convenient format for managing persistent configuration. Example Edge configuration parameters:
 
 ```toml
-# This is an example config file for Defguard VPN gateway
-# To use it fill in actual values for your deployment below
+# port the API server will listen on
+http_port = 8080
+# port the gRPC server will listen on
+grpc_port = 50051
 
-# Required: secret token generated by Defguard
-# NOTE: must replace default with actual value
-token = "<your_gateway_token>"
-# Required: Defguard server gRPC endpoint URL
-# NOTE: must replace default with actual value
-grpc_url = "<defguard_grpc_url>"
-# Optional: gateway name which will be displayed in Defguard web UI
-name = "Gateway on server X"
-# Required: use userspace Wireguard implementation (e.g. wireguard-go)
-userspace = false
-# Optional: path to TLS cert file - more in gRPC SSL communication help page
-# in our documentation.
-# grpc_ca = cert.pem
-# Required: how often should interface stat updates be sent to Defguard server (in seconds)
-stats_period = 60
-# Required: name of Wireguard interface
-ifname = "wg0"
-# Optional: write PID to this file
-# pidfile = defguard-gateway.pid
-# Required: enable logging to syslog
-use_syslog = false
-# Required: which syslog facility to use
-syslog_facility = "LOG_USER"
-# Required: which socket to use for logging
-syslog_socket = "/var/run/log"
-
-# Optional: Command which will be run before bringing interface up
-#pre_up = "/path/to/script.sh"
-
-# Optional: Command which will be run after bringing interface up
-#post_up = "ip route add default via 192.168.1.1 dev wg0
-
-# Optional: Command which will be run before bringing interface down
-# Example: Remove WireGuard-related firewall rules before interface is taken down:
-#pre_down = "iptables -D INPUT -i wg0 -j ACCEPT"
-
-# Optional: Command which will be run after bringing interface down
-# Example: Remove the default route after WireGuard interface is down:
-#post_down = "ip route del default via 192.168.1.1 dev wg0"
-
+log_level = "info"
+rate_limit_per_second = 0
+rate_limit_burst = 0
+url = "http://localhost:8080"
+acme_staging = false
 ```
+
+## Settings
+
+This section describes the configuration that is managed from within the Defguard web interface after the system has been deployed. Unlike deployment parameters, which control how individual services are started, Settings are used to manage operational behavior directly from Core and can be updated by administrators through the UI.
+
+This includes:
+
+* instance URLs and public addresses
+* certificate and TLS configuration for Core and Edge
+* built-in CA management
+* branding and general instance information
+* OpenID Connect and authentication-related settings
+* enrollment and session-related timeouts
+* license and enterprise-related settings
+* SMTP and email delivery configuration
+* webhook configuration
+* statistics retention and purge behavior
+* API tokens and integration-related settings
+* component adoption and setup workflows where managed through the UI
+
+Settings page is accessible only for admin users. It can be accessed with a navigation item in the main menu.
+
+<figure><img src="../.gitbook/assets/image (279).png" alt=""><figcaption></figcaption></figure>
+
+The page is split into tabs that group related settings:
+
+* General: contains the main instance-level administration pages.
+  * Instance settings: configures the Core URL, instance name, public Edge URL, authentication period, statistics retention and purge behavior, and password reset timeouts.
+  * Client behavior: configures client-side permissions and policy controls, including device management, self-service client activation, and client traffic-routing policy.
+* Notifications: contains outbound notification settings.
+  * SMTP: configures the mail server connection used by Defguard, including server address, port, credentials, sender address, and encryption mode.
+  * Gateway notifications: configures gateway disconnect and reconnect email notifications, including the inactivity threshold.
+* External identity providers: contains integrations for external authentication and directory services.
+  * OpenID providers: configures an external OpenID Connect identity provider for login.
+  * LDAP: configures LDAP connection settings, user and group mapping, synchronization mode, authority, and remote enrollment options.
+* Activity streaming: configures external destinations for activity logs.
+  * Log streaming destinations: lets administrators add, edit, and review destinations used for forwarding Defguard activity logs.
+* Certificates: contains certificate and trust management for Core and Edge.
+  * Certificate authority: manages the built-in Defguard CA.
+  * Certificates: configures the certificates used by Core and Edge, including certificate source selection and status review.
+* License: contains subscription and licensing information.
+  * License key and plan information: shows the current license state, current plan, and lets administrators enter or update the license key.
 
 ## YubiBridge configuration
 
