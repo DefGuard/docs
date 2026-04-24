@@ -55,6 +55,12 @@ Edge is a stateless service, which makes it straightforward to run multiple inst
 
 Example configuration can be found in [our deployment repository](https://github.com/DefGuard/deployment/blob/main/docker-compose2.0/docker-compose.ha.yaml).
 
+Like Gateways, Edge components can be managed directly from the Core UI. The list of configured Edge components is available on the Edge components page, where administrators can view existing components and perform management tasks such as adding and removing them.
+
+<figure><img src="../../.gitbook/assets/image (298).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (299).png" alt=""><figcaption></figcaption></figure>
+
 ## Core Failover
 
 The Core service manages Gateway state and communicates with the Edge. Because the Edge exposes HTTP-based protocols and is intended to be publicly accessible, it must be secured, so the Core connects to the Edge.
