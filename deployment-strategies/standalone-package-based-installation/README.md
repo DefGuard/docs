@@ -86,25 +86,23 @@ Also, check the [PostgreSQL installation documentation](https://wiki.netbsd.org/
 
 ### Configuration
 
-Now you can launch a default user and create a new superuser for your database. We create user, password and database with name `defguard`, beacuse this is by default in `/etc/defguard/core.conf`, you can change whatever you want.
+Here is a brief guide on how to create a dedicated database user and make a database dedicated to Defguard Core.
+
+First, issue this command to create a new database user named **defguard**. The command will prompt for a password for the new user.
 
 ```shell
-# su -c /usr/bin/psql postgres
-postgres=# CREATE USER defguard WITH SUPERUSER PASSWORD 'defguard';
-postgres=# CREATE DATABASE defguard;
+createuser --username postgres --pwprompt defguard
 ```
 
-After creating a user and database we can connect our new user to this database. To make it easier to connect now and then, we could try to add auth file
+Then, create a new database named **defguard** and assign user **defguard** as its owner.
 
 ```shell
-# echo 'localhost:5432:defguard:defguard:defguard' >> ~/.pgpass
-# chmod 600 ~/.pgpass
-# psql -d defguard -h localhost -U defguard
-defguard=# exit
+createdb --username postgres --encoding UTF8 --owner defguard defguard
 ```
 
-* we created `.pgpass` file that consist of `<hostname>:<port>:<database>:<user>:<password>`
-* we connected into the `defguard` database to verify `defguard` user can communicate with the database
+{% hint style="info" %}
+At this point, it might be feasible to store the database connection detail in `.pgpass` file. The file format and its usage are described in [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-pgpass.html).
+{% endhint %}
 
 ## Defguard packages
 
@@ -112,40 +110,62 @@ defguard=# exit
 Defguard also has a public APT repository, if you want know how to set it up, follow [this guide](defguard-apt-repository.md).
 {% endhint %}
 
-### Core
+### Defguard Core
 
-You can find the URL to your package from the releases of the Core component on [GitHub](https://github.com/DefGuard/defguard/releases).
+All release packages are available at Defguard repository at GitHub on [releases](https://github.com/DefGuard/defguard/releases) page. The table below summarises the available option (X.Y.Z stands for a version).
 
-<table><thead><tr><th width="237.14453125">OS distribution</th><th width="149.89453125">OS architecture</th><th>Release artifact naming convention</th></tr></thead><tbody><tr><td>Debian/Ubuntu</td><td>x86</td><td>defguard-X.Y.Z-x86_64-unknown-linux-gnu.deb</td></tr><tr><td>Fedora/Red Hat Linux/SUSE</td><td>x86</td><td>defguard-X.Y.Z-x86_64-unknown-linux-gnu.rpm</td></tr><tr><td>FreeBSD</td><td>x86</td><td>defguard-X.Y.Z_x86_64-unknown-freebsd.pkg</td></tr></tbody></table>
+| Operating system    | Architecture    | Package filename                             |
+|---------------------|-----------------|----------------------------------------------|
+| Debian/Ubuntu       | ARM64 (aarch64) | defguard-X.Y.Z-aarch64-unknown-linux-gnu.deb |
+| Debian/Ubuntu       | AMD64 (x86_64)  | defguard-X.Y.Z-x86_64-unknown-linux-gnu.deb  |
+| Fedora/Red Hat/SUSE | ARM64 (aarch64) | defguard-X.Y.Z-aarch64-unknown-linux-gnu.rpm |
+| Fedora/Red Hat/SUSE | AMD64 (x86_64)  | defguard-X.Y.Z-x86_64-unknown-linux-gnu.rpm  |
+| FreeBSD             | AMD64 (x86_64)  | defguard-X.Y.Z_x86_64-unknown-freebsd.pkg    |
 
-Choose the release you want to install, then choose the right package from the list of release's assets, and copy the package URL.
+Choose the release you want to install, then download it either by using a web browser or one of the commands below.
 
-Download the package to your server using `wget:`
+To download the package to using [wget](https://www.gnu.org/software/wget/), issue a command:
 
-```
+```shell
 wget <URL to the chosen package>
 ```
 
-Example:
+for example:
 
+```shell
+wget https://github.com/DefGuard/defguard/releases/download/v2.0.0/defguard-2.0.0-x86_64-unknown-linux-gnu.deb
 ```
-wget https://github.com/DefGuard/defguard/releases/download/v0.11.0/defguard-0.11.0-x86_64-unknown-linux-gnu.deb
+
+To download the package to using [curl](https://curl.se/), issue a command:
+
+```shell
+curl -OLf <URL to the chosen package>
 ```
 
-You can also download directly from the Github release page, but please note that you should know the path where this could be stored after downloading.
+for example:
 
-Once the package appropriate for your distribution is downloaded, install it using the appropriate system tool:
-
+```shell
+curl -OLf https://github.com/DefGuard/defguard/releases/download/v2.0.0/defguard-2.0.0-x86_64-unknown-linux-gnu.deb
 ```
-# on Debian/Ubuntu
-sudo dpkg -i <path_to_package>/defguard-X.Y.Z-x86_64-unknown-linux-gnu.deb
 
-# on Fedora/Red Hat Linux/SUSE
-sudo rpm -i <path_to_rpm_package>/defguard-X.Y.Z-x86_64-unknown-linux-gnu.rpm
+Once the package is downloaded, install it using the package tool appropriet to a given operating system.
 
-# FreeBSD
-pkg install openssl
-pkg add <path_to_txz_package>/defguard-X.Y.Z_x86_64-unknown-freebsd.pkg
+On Debian/Ubuntu:
+
+```shell
+sudo dpkg -i defguard-X.Y.Z-x86_64-unknown-linux-gnu.deb
+```
+
+On Fedora/Red Hat/SUSE:
+
+```shell
+sudo rpm -i defguard-X.Y.Z-x86_64-unknown-linux-gnu.rpm
+```
+
+On FreeBSD:
+
+```shell
+pkg add defguard-X.Y.Z_x86_64-unknown-freebsd.pkg
 ```
 
 You can check if Defguard Core has been installed properly:
@@ -155,117 +175,147 @@ You can check if Defguard Core has been installed properly:
 defguard 2.0.0+a13515f
 ```
 
-### Gateway
+### Defguard Gateway
 
-You can find the URL to your package from the releases of Defguard Gateway on [GitHub](https://github.com/DefGuard/gateway/releases).
+All release packages are available at Defguard repository at GitHub on [releases](https://github.com/DefGuard/gateway/releases) page. The table below summarises the available option (X.Y.Z stands for a version).
 
-<table><thead><tr><th width="237.4140625">OS discibution</th><th width="150.0078125">OS architecture</th><th>Release artifact naming convention</th></tr></thead><tbody><tr><td>Debian/Ubuntu</td><td>x86</td><td>defguard-gateway_X.Y.Z_x86_64-unknown-linux-gnu.deb</td></tr><tr><td>Debian/Ubuntu</td><td>ARM</td><td>defguard-gateway_X.Y.Z_aarch64-unknown-linux-gnu.deb</td></tr><tr><td>Fedora/Red Hat Linux/SUSE</td><td>x86</td><td>defguard-gateway_X.Y.Z_x86_64-unknown-linux-gnu.rpm</td></tr><tr><td>FreeBSD</td><td>x86</td><td>defguard-gateway_X.Y.Z_x86_64-unknown-freebsd.pkg</td></tr></tbody></table>
+| Operating system    | Architecture    | Package filename                                     |
+|---------------------|-----------------|------------------------------------------------------|
+| Debian/Ubuntu       | ARM64 (aarch64) | defguard-gateway-X.Y.Z-aarch64-unknown-linux-gnu.deb |
+| Debian/Ubuntu       | AMD64 (x86_64)  | defguard-gateway-X.Y.Z-x86_64-unknown-linux-gnu.deb  |
+| Fedora/Red Hat/SUSE | ARM64 (aarch64) | defguard-gateway-X.Y.Z-aarch64-unknown-linux-gnu.rpm |
+| Fedora/Red Hat/SUSE | AMD64 (x86_64)  | defguard-gateway-X.Y.Z-x86_64-unknown-linux-gnu.rpm  |
+| FreeBSD             | AMD64 (x86_64)  | defguard-gateway-X.Y.Z_x86_64-unknown-freebsd.pkg    |
+| OPNsense (FreeBSD)  | AMD64 (x86_64)  | defguard-gateway-X.Y.Z_x86_64-unknown-opnsense.pkg   |
 
-Choose the release you want to install, then choose the right package from the list of release's assets, and copy the package URL.
+Choose the release you want to install, then download it either by using a web browser or one of the commands below.
 
-Download the package to your server using `wget:`
+To download the package to using [wget](https://www.gnu.org/software/wget/), issue a command:
 
-```
+```shell
 wget <URL to the chosen package>
 ```
 
-Example:
+for example:
 
-```
-# wget https://github.com/DefGuard/gateway/releases/download/v0.7.0/defguard-gateway_0.7.0_x86_64-unknown-linux-gnu.deb
-```
-
-You can also download directly from the Github release page, but please note that you should know the path where this could be stored after downloading.
-
-Once the package appropriate for your distribution is downloaded, install it using the appropriate system tool:
-
-```
-# on Debian/Ubuntu
-sudo dpkg -i <path_to_package>/defguard-gateway-X.Y.Z-x86_64-unknown-linux-gnu.deb
-
-# on Fedora/Red Hat Linux/SUSE
-sudo rpm -i <path_to_rpm_package>/defguard-gateway-X.Y.Z-x86_64-unknown-linux-gnu.rpm
-
-# FreeBSD
-pkg install openssl
-pkg add <path_to_txz_package>/defguard-gateway-X.Y.Z_x86_64-unknown-freebsd.pkg
+```shell
+wget https://github.com/DefGuard/gateway/releases/download/v2.0.0/defguard-gateway-2.0.0-x86_64-unknown-linux-gnu.deb
 ```
 
-Example:
+To download the package to using [curl](https://curl.se/), issue a command:
 
-```
-sudo dpkg -i defguard-gateway_0.7.0_x86_64-unknown-linux-gnu.deb
+```shell
+curl -OLf <URL to the chosen package>
 ```
 
-You can check is core installed properly:
+for example:
+
+```shell
+curl -OLf https://github.com/DefGuard/gateway/releases/download/v2.0.0/defguard-gateway-2.0.0-x86_64-unknown-linux-gnu.deb
+```
+
+Once the package is downloaded, install it using the package tool appropriet to a given operating system.
+
+On Debian/Ubuntu:
+
+```shell
+sudo dpkg -i defguard-gateway-X.Y.Z-x86_64-unknown-linux-gnu.deb
+```
+
+On Fedora/Red Hat/SUSE:
+
+```shell
+sudo rpm -i defguard-gateway-X.Y.Z-x86_64-unknown-linux-gnu.rpm
+```
+
+On FreeBSD:
+
+```shell
+pkg add defguard-gateway-X.Y.Z_x86_64-unknown-freebsd.pkg
+```
+
+You can check if Defguard Gateway has been installed properly:
 
 ```
 # defguard-gateway -V
-defguard-gateway 0.7.0
+defguard-gateway 2.0.0+a13515f
 ```
 
-### Edge
+### Defguard Edge
 
-You can find the URL to your package from the releases of Defguard Edge component on [GitHub](https://github.com/DefGuard/proxy/releases).
+{% hint style="info" %}
+Prior to 2.0.0, Defguard Edge used to be called Defguard Proxy.
+{% endhint %}
 
-<table><thead><tr><th width="237.4140625">OS discibution</th><th width="150.0078125">OS architecture</th><th>Release artifact naming convention</th></tr></thead><tbody><tr><td>Debian/Ubuntu</td><td>x86</td><td>defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.deb</td></tr><tr><td>Fedora/Red Hat Linux/SUSE</td><td>x86</td><td>defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.rpm</td></tr></tbody></table>
+All release packages are available at Defguard repository at GitHub on [releases](https://github.com/DefGuard/proxy/releases) page. The table below summarises the available option (X.Y.Z stands for a version).
 
-Choose the release you want to install, then choose the right package from the list of release's assets, and copy the package URL.
+| Operating system    | Architecture    | Package filename                                     |
+|---------------------|-----------------|------------------------------------------------------|
+| Debian/Ubuntu       | ARM64 (aarch64) | defguard-proxy-X.Y.Z-aarch64-unknown-linux-gnu.deb |
+| Debian/Ubuntu       | AMD64 (x86_64)  | defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.deb  |
+| Fedora/Red Hat/SUSE | ARM64 (aarch64) | defguard-proxy-X.Y.Z-aarch64-unknown-linux-gnu.rpm |
+| Fedora/Red Hat/SUSE | AMD64 (x86_64)  | defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.rpm  |
+| FreeBSD             | AMD64 (x86_64)  | defguard-proxy-X.Y.Z_x86_64-unknown-freebsd.pkg    |
+| OPNsense (FreeBSD)  | AMD64 (x86_64)  | defguard-proxy-X.Y.Z_x86_64-unknown-opnsense.pkg   |
 
-Download the package to your server using `wget:`
+Choose the release you want to install, then download it either by using a web browser or one of the commands below.
 
-```
+To download the package to using [wget](https://www.gnu.org/software/wget/), issue a command:
+
+```shell
 wget <URL to the chosen package>
 ```
 
-Example:
+for example:
 
-```
-wget https://github.com/DefGuard/proxy/releases/download/v0.5.0/defguard-proxy-0.5.0-x86_64-unknown-linux-gnu.deb
-```
-
-You can also download directly from the Github release page, but please note that you should know the path where this could be stored after downloading.
-
-Once the package appropriate for your distribution is downloaded, install it using the appropriate system tool:
-
-```
-dpkg -i <path_to_package>/defguard-proxy-<version>-x86_64-unknown-linux-gnu.deb
+```shell
+wget https://github.com/DefGuard/proxy/releases/download/v2.0.0/defguard-proxy-2.0.0-x86_64-unknown-linux-gnu.deb
 ```
 
-Example:
+To download the package to using [curl](https://curl.se/), issue a command:
 
-```
-# on Debian/Ubuntu
-sudo dpkg -i <path_to_package>/defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.deb
-# if you added apt repository
-sudo apt install defguard-proxy
-
-# on Fedora/Red Hat Linux/SUSE
-sudo rpm -i <path_to_rpm_package>/defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.rpm
-
-# FreeBSD
-pkg install openssl
-pkg add <path_to_txz_package>/defguard-proxy-X.Y.Z_x86_64-unknown-freebsd.pkg
+```shell
+curl -OLf <URL to the chosen package>
 ```
 
-You can check is core installed properly:
+for example:
+
+```shell
+curl -OLf https://github.com/DefGuard/proxy/releases/download/v2.0.0/defguard-proxy-2.0.0-x86_64-unknown-linux-gnu.deb
+```
+
+Once the package is downloaded, install it using the package tool appropriet to a given operating system.
+
+On Debian/Ubuntu:
+
+```shell
+sudo dpkg -i defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.deb
+```
+
+On Fedora/Red Hat/SUSE:
+
+```shell
+sudo rpm -i defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.rpm
+```
+
+On FreeBSD:
+
+```shell
+pkg add defguard-proxy-X.Y.Z_x86_64-unknown-freebsd.pkg
+```
+
+You can check if Defguard Edge has been installed properly:
 
 ```
 # defguard-proxy -V
-defguard-proxy 0.5.0
+defguard-proxy 2.0.0+a13515f
 ```
 
 ## Running Defguard
 
-### Core
+### Defguard Core
 
 To run core service we need to configure `/etc/defguard/core.conf`.
-
-{% hint style="info" %}
-To generate any secret (which **we recommend to be 64 chars)**, use the following command:
-
-`openssl rand -base64 55 | tr -d "=+/" | tr -d '\n' | cut -c1-64`
-{% endhint %}
 
 As previously mentioned, in this tutorial we will use server domain `my-server.defguard.net`.
 
@@ -273,14 +323,6 @@ Example `/etc/defguard/core.conf`:
 
 ```
 ### Core configuration ###
-
-#
-# Generate secrets
-#
-DEFGUARD_AUTH_SECRET=defguard-auth-secret
-DEFGUARD_GATEWAY_SECRET=defguard-gateway-secret
-DEFGUARD_YUBIBRIDGE_SECRET=defguard-yubibridge-secret
-DEFGUARD_SECRET_KEY=9oZqdHRCN0TWIyMhjYOAYwgzVz9IfOqz62PzUvjvyMzqLICGSM3b0pRMdDH300CQ
 
 # Define the URL under which Defguard is running:
 DEFGUARD_URL=https://my-server.defguard.net
@@ -328,7 +370,7 @@ DATABASE_URL="postgresql://defguard:defguard@localhost/defguard"
 After changes, you can simply enable and start your Defguard Core service:
 
 ```
-# on systems with systemd (like Debian, Ubuntu, Fedora/Red Hat Linux/SUSE)
+# on systems with systemd (like Debian, Ubuntu, Fedora/Red Hat/SUSE)
 systemctl enable defguard.service
 systemctl start defguard.service
 
@@ -458,9 +500,9 @@ On the other side, core service should print those informations:
 2024-07-27T16:37:56.388810Z  INFO defguard::grpc::gateway: Starting update stream to gateway: user, network [ID 1] Szczecin
 ```
 
-### Edge
+### Defguard Edge
 
-To run proxy service (for [remote onboarding and enrollment](../../using-defguard-for-end-users/enrollment/)), we can do it by:
+To run Defguard Edge service (for [remote onboarding and enrollment](../../using-defguard-for-end-users/enrollment/)), we can do it by:
 
 ```
 # on systems with systemd (like Debian, Ubuntu, Fedora/Red Hat Linux/SUSE)
@@ -502,14 +544,6 @@ Full `/etc/defguard/core.conf`:
 
 ```
 ### Core configuration ###
-
-#
-# Generate secrets
-#
-DEFGUARD_AUTH_SECRET=defguard-auth-secret
-DEFGUARD_GATEWAY_SECRET=defguard-gateway-secret
-DEFGUARD_YUBIBRIDGE_SECRET=defguard-yubibridge-secret
-DEFGUARD_SECRET_KEY=9oZqdHRCN0TWIyMhjYOAYwgzVz9IfOqz62PzUvjvyMzqLICGSM3b0pRMdDH300CQ
 
 # Define the URL under which Defguard is running:
 DEFGUARD_URL=https://my-server.defguard.net
