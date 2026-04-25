@@ -102,3 +102,19 @@ If you have an Enterprise License, all desktop clients and all instances are [sy
 
 Your Instance will be removed immediately.
 
+### Default instance (auto-connect on startup)
+
+The client can be configured to automatically connect to an instance when it launches. Open **Settings** and scroll to the **Default instance** section, then select the instance you want from the dropdown. The default value is **None**, which means no automatic connection takes place on startup.
+
+{% hint style="info" %}
+The dropdown only lists instances that have already been added to the client.
+{% endhint %}
+
+#### Connect MFA locations on startup
+
+When a default instance is set, locations that require Multi-Factor Authentication are skipped during auto-connect by default. Enable **Connect MFA locations on startup** to include them — the MFA prompt will appear automatically after the client launches.
+
+{% hint style="warning" %}
+For locations using an external SSO provider (e.g. Google, Entra ID, Okta) this will open a browser window automatically on startup to complete authentication.
+{% endhint %}
+
