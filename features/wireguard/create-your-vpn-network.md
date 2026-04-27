@@ -17,23 +17,27 @@ Defguard supports **multiple locations**, for each location to work you need to 
 If you are looking for MFA settings, go [here](create-your-vpn-network.md#multi-factor-authentication-for-a-location).
 {% endhint %}
 
-When creating a new VPN location, you can choose if you want to **create it from scratch (Manual Configuration)** or **import your current WireGuard configuration**:
+### Location type choice
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-11-21 at 14.19.04.png" alt=""><figcaption></figcaption></figure>
+#### Regular location
 
-## VPN Location settings
+This is the default option that creates an typical VPN network.
 
-Next step is configuring the location settings:
+#### Service location
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-11-21 at 14.29.53.png" alt=""><figcaption></figcaption></figure>
+{% hint style="info" %}
+This feature is only for Windows platform.
+{% endhint %}
 
-### Location name
+Service Location is a Windows-specific configuration that automates secure network connectivity for managed devices. It ensures that authorized clients establish a persistent VPN tunnel immediately upon system startup, rather than waiting for a user to log in.
 
-It's a name that will be visible both on the UI, but also in the desktop client for all the users. For example, if you name your location _Monaco Office_, the desktop client will show:
+## VPN Location configuration
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-11-21 at 14.37.51.png" alt="" width="375"><figcaption></figcaption></figure>
+The Location Configuration is a guided, step-by-step wizard.
 
-### Gateway VPN IP addresses and masks
+<figure><img src="../../.gitbook/assets/image (300).png" alt=""><figcaption></figcaption></figure>
+
+#### Gateway VPN IP addresses and masks
 
 By providing the VPN IPs/masks, you are configuring both: **the VPN internal networks and VPN server IPs**. Every gateway will bind to these addresses, and Defguard will also generate and assign IP addresses for devices in this location from these networks.
 
@@ -58,7 +62,7 @@ Defguard assigns IP addresses to clients by sequentially scanning each defined s
    1. internal VPN networks will be: `192.168.8.0` with netmask `255.255.255.0` and `fc00::0` with netmask FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:0000
    2. VPN gateway internal IP addresses will be: 192.168.8.1 and fc00::1
 
-### Gateway address
+#### Gateway address
 
 It's the **public IP address** or **DNS domain** to which the remote peer's/users will connect to. This address is **will be shared in the configuration** for the clients, but Defguard gateways do **not bind to this address**.
 
@@ -72,11 +76,11 @@ This is very handy if you are setting up a **high availability active-active** s
 DNS domain is **very useful** for example is a setup uses Dynamic DNS (DDNS).
 {% endhint %}
 
-### Gateway port
+#### Gateway port
 
 Defguard **gateways bind to this port**, and this port is shared in configuration to any client.
 
-### Allowed IPs
+#### Allowed IPs
 
 Defines the IP ranges a device is allowed to route or communicate with.
 
@@ -89,20 +93,20 @@ If you want the _All Traffic_ to work in the desktop client you need to also con
 {% endhint %}
 
 {% hint style="info" %}
-#### Allowed IPs with exceptions
+**Allowed IPs with exceptions**
 
 If you use broad _Allowed IPs_ (for example `0.0.0.0/0`) and want to exclude specific networks, note that WireGuard does not support explicit exclusions. Instead, the allowed range must be split into multiple CIDR blocks that cover everything except the excluded subnets.
 
 To simplify this, you can use an **Allowed IPs calculator** to generate the correct set of CIDR blocks for your intended traffic routing.
 {% endhint %}
 
-### DNS
+#### DNS
 
 This specifies DNS resolvers and search domains. Supported format is by comma separation, e.g.:
 
 `IP, IP, search.domain.net, second.search.domain.com`
 
-### Allowed groups
+#### Allowed groups
 
 Here, you can specify **what groups (users assigned to those groups) have access to this VPN Location.**
 
@@ -125,7 +129,7 @@ This feature is only supported in [**Defguard Desktop Client**](../../using-defg
 Each connection in the client:
 
 1. Will require the user to provide either TOTP token or Email code.
-2. After authorizing, Defguardwill do a key exchange and set up a pre-shared session key unique for this connection.
+2. After authorizing, Defguard will do a key exchange and set up a pre-shared session key unique for this connection.
 
 {% hint style="warning" %}
 For this feature to work, the user must:
@@ -137,6 +141,14 @@ For this feature to work, the user must:
 #### Keep alive interval
 
 Configurable time interval (in seconds) used to send periodic packets to ensure that the connection remains active. This is particularly useful in environments like NAT (Network Address Translation) or firewalls that may close idle connections.
+
+#### Maximum Transmission Unit (MTU)
+
+It is the largest size of a data packet, measured in bytes, that a network device can transmit over a connection in a single transaction.
+
+#### Firewall Mark (FwMark)
+
+Firewall Mark is a numerical label attached to network packets by the kernel to help the system make specialized routing or filtering decisions. If unused leave 0.
 
 #### **Client disconnect threshold**
 
@@ -150,13 +162,9 @@ Recommended is more then 300.
 
 #### Multi-Factor Authentication with external OIDC/SSO (Google/Microsoft/Okta/...)
 
-{% hint style="info" %}
-This feature is currently [available in pre-release](../../deployment-strategies/pre-production-and-development-releases.md) version 1.5 - please help us test it!
-{% endhint %}
-
 On each location, you can choose if the Location should support our Internal MFA (configured by each user in their own profile) or (if you have [external OIDC/SSO configured](../external-openid-providers/)) external MFA:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-07-29 at 12.12.18.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (302).png" alt=""><figcaption></figcaption></figure>
 
 When enabled, on the desktop client when authenticating the user will be required on **each connection** to authenticate with the configured External OIDC/SSO:
 

@@ -10,10 +10,9 @@ metaLinks:
 In order to enable the External MFA authentication:
 
 1. Your instance **must have** [external OIDC/SSO configured](../../external-openid-providers/).
-2. Select the VPN Location from the dropdown list on the Network Overview, and pressing the **Edit Location** button in the top right corner of the page.
-3. Select the External MFA in the menu.
+2. Choose **External MFA** during location configuration or edit the desired location from **Locations** list.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-07-29 at 17.29.25.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (305).png" alt=""><figcaption></figcaption></figure>
 
 #### Client disconnect threshold
 
@@ -48,6 +47,6 @@ Video describing whole process:
 
 ## Biometry as an internal MFA method
 
-Users can use biometry as an internal MFA method on their mobile devices. If a device has configured biometry as an MFA method, you will see ![](<../../../.gitbook/assets/Screenshot 2025-08-18 at 13.56.49.png>) icon, next to the device name.
+Users can use biometry as an internal MFA method on their mobile devices. If a device has configured biometry as an MFA method, you will see fingerprint icon, next to the device name on devices list within user's profile.
 
-<figure><img src="../../../.gitbook/assets/defguard-devices-fingerprint-icon.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (306).png" alt="" width="337"><figcaption></figcaption></figure>

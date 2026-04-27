@@ -15,15 +15,13 @@ Enabling Internal MFA for a desired VPN Location is done by:
 4. Set **peer disconnect threshold**, we recommend it to be min. 300 (5 min) - see chapter [below](internal-sso-based-mfa.md#peer-disconnect-threshold).
 5. And **save changes**.
 
-<figure><img src="../../../.gitbook/assets/internal-mfa-option.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (303).png" alt=""><figcaption></figcaption></figure>
 
-### Peer disconnect **threshold**
+### Client disconnect **threshold**
 
 When MFA is enabled on a location, Defguard periodically (currently every **1 minute**) checks statistics if a client is connected and if the period of inactivity (defined in Peer disconnect threshold option) is met, a client is disconnected.
 
 Thus, the gateway needs to be configured to send statistics in that period.
-
-<figure><img src="../../../.gitbook/assets/keepalive-interval.png" alt=""><figcaption></figcaption></figure>
 
 We recommend to set:
 
