@@ -93,7 +93,6 @@
   * [Configuring HTTPS using AWS Certificate Manager](deployment-strategies/amis-and-aws-cloudformation/configuring-https-using-aws-certificate-manager.md)
 * [Configuration](deployment-strategies/configuration.md)
 * [Running Gateway on OPNsense firewall](deployment-strategies/running-gateway-on-opnsense-firewall.md)
-* [Running Gateway on MikroTik routers](deployment-strategies/running-gateway-on-mikrotik-routers.md)
 * [Reverse Proxy configuration using NGINX](deployment-strategies/reverse-proxy-configuration-using-nginx.md)
 * [High Availability and Failover](deployment-strategies/high-availability-and-failover/README.md)
   * [WireGuard UDP load-balancing](deployment-strategies/high-availability-and-failover/wireguard-udp-load-balancing.md)
