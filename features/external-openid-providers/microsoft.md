@@ -35,7 +35,10 @@ Make sure the Redirect URL you insert here is correct. Replace `defguard.example
 7.  Now back in Microsoft Entra ID, still in your newly created application, go to **Certificates & Secrets**
 
     <figure><img src="../../.gitbook/assets/obraz (13).png" alt=""><figcaption></figcaption></figure>
-8. Click Client secrets and create a new client secret. Copy its **value.**
+8. Go to `Certificates & secrets` and create a new client secret. Copy its **value.**
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
 9. Go to Token configuration (in the menu on the left) and add a new optional token claim.
 10. Make sure to select the ID token type and the following claims:
 
