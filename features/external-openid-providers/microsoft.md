@@ -27,25 +27,24 @@ If you already have them, please skip to [#configuring-microsoft-as-external-oid
 
     <figure><img src="../../.gitbook/assets/obraz (10).png" alt=""><figcaption></figcaption></figure>
 
-Make sure the Redirect URL you insert here is correct. Replace `defguard.example.com` with the domain you use for your Defguard dashboard. If you'd like to use OpenID enrollment through proxy, make sure to enter an additional URI here in the form of `<DEFGUARD_ENROLLMENT_URL>/openid/callback`.
+Make sure the Redirect URL you insert here is correct. Replace `defguard.example.com` with the domain you use for your Defguard dashboard. If you'd like to use OpenID enrollment through proxy, make sure to enter an additional URI here in the form of `<DEFGUARD_PUBLIC_URL>/openid/callback`.
 
 6.  You should be now on the registered application's management screen. You can copy the client's ID and the tenant ID from here, as you need to provide them on the Defguard settings' page.
 
     <figure><img src="../../.gitbook/assets/Zrzut ekranu 2024-10-18 o 16.13.54.png" alt=""><figcaption></figcaption></figure>
-7. Go to Defguard settings, click the OpenID tab and paste the copied client ID. The tenant ID should be inserted instead of the `<TENANT_ID>` placeholder in the base URL field.
-8.  Now back in Microsoft Entra ID, still in your newly created application, go to **Certificates & Secrets**
+7.  Now back in Microsoft Entra ID, still in your newly created application, go to **Certificates & Secrets**
 
     <figure><img src="../../.gitbook/assets/obraz (13).png" alt=""><figcaption></figcaption></figure>
-9. Click Client secrets and create a new client secret. Copy its **value** and paste it in your Defguard OpenID settings.
-10. Go to Token configuration (in the menu on the left) and add a new optional token claim.
-11. Make sure to select the ID token type and the following claims:
+8. Click Client secrets and create a new client secret. Copy its **value.**
+9. Go to Token configuration (in the menu on the left) and add a new optional token claim.
+10. Make sure to select the ID token type and the following claims:
 
     <figure><img src="../../.gitbook/assets/obraz (14).png" alt=""><figcaption></figcaption></figure>
-12. Accept the popup or configure the API permissions manually.
+11. Accept the popup or configure the API permissions manually.
 
 <figure><img src="../../.gitbook/assets/obraz (15).png" alt=""><figcaption></figcaption></figure>
 
-13. Now you should be good to go. A new login button should appear on the login screen.
+12. Now you should be good to go.
 
 ## Obtaining Directory Synchronization credentials
 
