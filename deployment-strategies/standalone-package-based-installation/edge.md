@@ -3,7 +3,7 @@
 ## Package installation
 
 {% hint style="info" %}
-Prior to 2.0.0, Defguard Edge used to be called Defguard Proxy.
+Prior to version 2.0.0, Defguard Edge used to be called Defguard Proxy.
 {% endhint %}
 
 All release packages are available at Defguard repository at GitHub on [releases](https://github.com/DefGuard/proxy/releases) page. The table below summarises the available option (X.Y.Z stands for a version).
@@ -68,4 +68,59 @@ You can check if Defguard Edge has been installed properly:
 ```
 # defguard-proxy -V
 defguard-proxy 2.0.0+a13515f
+```
+
+## Configuration
+
+Defguard Gateway configuation file should be located in `/etc/defguard/proxy.toml`. Example configuration file looks as follows:
+
+```
+# This is an example config file for Defguard Edge.
+# To use it, fill in actual values for your deployment below.
+
+# port the API server will listen on
+http_port = 8080
+# port the gRPC server will listen on
+grpc_port = 50051
+
+log_level = "info"
+rate_limit_per_second = 100
+rate_limit_burst = 1000
+acme_staging = false
+```
+
+## Service
+
+Defguard Edge package automatically installs its service definion. On Linux, it is in `/usr/lib/systemd/system/defguard-proxy.service`. On BSD it is in `/usr/local/etc/rc.d/defguard-proxy`.
+
+On Linux, the service is run as a dedicated **defguard** user with appropriate capabilities. The user is created automatically on package installation.
+
+On BSD, the service is run as **root** user.
+
+If there are changes to the configuration file, it is required to restart Defguard Edge service.
+
+On Linux:
+
+```shell
+systemctl restart defguard-proxy
+```
+
+On BSD:
+
+```shell
+/usr/local/etc/rc.d/defguard-proxy restart
+```
+
+## Logs
+
+On Linux, logs can be viewed using `journalctl` command:
+
+```shell
+# journalctl -u defguard-proxy.service | tail -n 50
+2024-07-27T16:53:58.584154Z INFO defguard_proxy::tracing: Tracing initialized
+2024-07-27T16:53:58.584233Z INFO defguard_proxy::http: Starting Defguard proxy server
+2024-07-27T16:53:58.584371Z INFO defguard_proxy::http: Skipping rate limiter setup
+2024-07-27T16:53:58.584438Z INFO defguard_proxy::http: gRPC server is listening on 0.0.0.0:50051
+2024-07-27T16:53:58.585125Z INFO defguard_proxy::http: Defguard proxy server initialization complete
+2024-07-27T16:53:58.585262Z INFO defguard_proxy::http: API web server is listening on 0.0.0.0:8080
 ```

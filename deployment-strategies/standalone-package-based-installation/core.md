@@ -102,7 +102,7 @@ If there are changes to the configuration file, it is required to restart Defgua
 On Linux:
 
 ```shell
-systemctl restart defguard.service
+systemctl restart defguard
 ```
 
 On BSD:
