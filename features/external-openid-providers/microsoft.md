@@ -27,7 +27,7 @@ If you already have them, please skip to [#configuring-microsoft-as-external-oid
 
     <figure><img src="../../.gitbook/assets/obraz (10).png" alt=""><figcaption></figcaption></figure>
 
-Make sure the Redirect URL you insert here is correct. Replace `defguard.example.com` with the domain you use for your Defguard dashboard. If you'd like to use OpenID enrollment through proxy, make sure to enter an additional URI here in the form of `<DEFGUARD_PUBLIC_URL>/openid/callback`.
+Make sure the Redirect URL you insert here is correct. The full list of redirect URLs that should be configured in order to use all features is available [here](./#redirect-uri).
 
 6.  You should be now on the registered application's management screen. You can copy the client's ID and the tenant ID from here, as you need to provide them on the Defguard settings' page.
 
