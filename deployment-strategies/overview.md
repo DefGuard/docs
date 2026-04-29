@@ -10,7 +10,19 @@ metaLinks:
 
 # Overview
 
-Welcome to the deployment strategies section of Defguard documentation. This guide covers the different ways you can deploy Defguard in your environment, from quick options using packages or Docker, to more advanced setups with Kubernetes and Terraform. Whether you’re running a small instance or preparing for a more complex production environment, this section will help you choose the deployment method that best fits your needs.
+Welcome to the deployment strategies section of Defguard documentation. This guide covers the different ways you can deploy Defguard in your environment, from quick options using packages or Docker, to more advanced setups with Kubernetes, Terraform, and AWS-native tooling.
+
+This part of the documentation is intended for administrators preparing a real Defguard environment, not just evaluating the product. It helps you understand which deployment model fits your infrastructure, what components need to be installed first, and which tradeoffs to expect around operational complexity, scalability, and production readiness.
+
+Whether you are setting up a small internal instance or planning a larger production rollout, use this section to:
+
+* compare supported deployment methods,
+* understand the recommended deployment order,
+* prepare your infrastructure and networking correctly,
+* configure the instance after installation,
+* plan backups and high availability.
+
+If you are only trying Defguard for the first time, start with the [one-line install script](../getting-started/one-line-install.md). If you are preparing a long-lived or production-grade environment, continue through this section and choose the strategy that best matches your platform and operational requirements.
 
 ## Before you begin
 
@@ -19,6 +31,8 @@ Welcome to the deployment strategies section of Defguard documentation. This gui
 2. Make sure your infrastructure is prepared by following the [recommendations](hardware-os-network-and-firewall-recommendations.md).
 
 ## Initial deployment sequence
+
+No matter which deployment strategy you choose, the installation order matters. Defguard is made of separate components that depend on each other during setup, so following the sequence below helps you avoid connectivity and registration issues later in the process.
 
 1. Install one or more Defguard Edge components.
 
@@ -41,7 +55,9 @@ Defguard Core acts as the central control plane – it manages configuration, au
 
 ## Configure to your needs
 
-See our [configuration documentation](configuration.md) to learn about all the settings you can change in your deployment.
+After the initial deployment is complete, you will usually need to adapt the instance to your environment and security requirements. This can include changing network-related settings, configuring external services, adjusting authentication options, tuning branding and SMTP settings, and managing other deployment-specific parameters.
+
+See our [configuration documentation](configuration.md) for a full reference of the settings available through environment variables, options, and configuration files.
 
 ## Backup
 
