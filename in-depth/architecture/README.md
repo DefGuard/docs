@@ -12,7 +12,7 @@ Defguard is a zero-trust, VPN-centric access platform built on WireGuard®. Its 
 
 <figure><img src="../../.gitbook/assets/Untitled Diagram.drawio (1).png" alt=""><figcaption></figcaption></figure>
 
-### **Separation of Concerns**
+### Separation of Concerns
 
 Each Defguard component serves a distinct purpose, ensuring clear functional isolation:
 
@@ -22,7 +22,7 @@ Each Defguard component serves a distinct purpose, ensuring clear functional iso
 
 This modular architecture simplifies scaling, security audits, and upgrades.
 
-### **Minimize Exposure**
+### Minimize Exposure
 
 Defguard is designed around the principle of least exposure — only the absolutely necessary components are reachable from the public internet.
 
@@ -32,17 +32,17 @@ Defguard is designed around the principle of least exposure — only the absolut
 
 This ensures the smallest possible attack surface while still supporting remote enrollment, authentication, and VPN connectivity.
 
-### **Defense in Depth**
+### Defense in Depth
 
 Every communication layer is protected by redundant and complementary security mechanisms:
 
-* All internal API traffic uses gRPC (recommended over TLS).
-* Firewall rules restrict network flows to specific IPs and ports.
-* Sensitive services (Core, DB) are deployed in private network segments inaccessible from the internet.
+* All internal API traffic uses [gRPC](https://grpc.io/) (TLS communication is enforces automatically).
+* Firewall rules restrict network flows to specific IP addresses and ports.
+* Sensitive services (Core, database) are deployed in private network segments inaccessible from the internet.
 
 This layered approach reduces the blast radius of any potential compromise.
 
-### **Zero-Trust Posture**
+### Zero-Trust Posture
 
 Defguard adopts a zero-trust philosophy: no implicit trust is given to users, devices, or networks.
 
@@ -52,7 +52,7 @@ Defguard adopts a zero-trust philosophy: no implicit trust is given to users, de
 
 This model ensures that even within an established tunnel, every access decision remains policy-driven and verifiable.
 
-### **Graceful Degradation**
+### Graceful Degradation
 
 The platform is built for resilience and autonomy:
 
@@ -62,7 +62,7 @@ The platform is built for resilience and autonomy:
 
 This approach prevents downtime during transient network or control-plane failures.
 
-### **Observability and Auditability**
+### Observability and Auditability
 
 Security and reliability rely on visibility. Defguard provides built-in observability and audit mechanisms:
 
