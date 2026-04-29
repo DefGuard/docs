@@ -80,7 +80,7 @@
 
 ## Deployment strategies
 
-* [Overview](deployment-strategies/setting-up-your-instance.md)
+* [Overview](deployment-strategies/overview.md)
 * [Deploying to Production](deployment-strategies/deploying-to-production.md)
 * [Hardware, OS, network and firewall recommendations](deployment-strategies/hardware-os-network-and-firewall-recommendations.md)
 * [Standalone package based installation](deployment-strategies/standalone-package-based-installation/README.md)

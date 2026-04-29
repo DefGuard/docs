@@ -14,7 +14,7 @@ Welcome to the Defguard documentation. Here, you’ll learn how to explore the f
   Lets you quickly set up your own Defguard instance to explore its features an user interface.
 * [Features and configuration](features/overview.md)\
   Helps you, as a future Defguard administrator, get familiar with all of Defguard’s features and how to configure them to suit your needs.
-* [Deployment strategies](deployment-strategies/setting-up-your-instance.md)\
+* [Deployment strategies](deployment-strategies/overview.md)\
   Walks you through the most common deployment strategies to help you set up your Defguard instance as a production-grade solution.
 * [License](/broken/pages/vEBaL5Pdry1nZO8V50bh)\
   Outlines the scope, limits, and purchasing process for the Defguard Enterprise license.

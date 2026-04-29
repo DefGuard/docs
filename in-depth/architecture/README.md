@@ -8,7 +8,7 @@ metaLinks:
 
 ## Design Principles
 
-Defguard is a zero-trust, VPN-centric access platform built on WireGuard®. Its design cleanly separates the control plane (Core) from the data plane (Gateways) and exposes a minimal public surface (Gateway for VPN; Proxy for secure web flows). Administrative and identity-sensitive services remain off the public internet, behind controlled network boundaries.
+Defguard is a zero-trust, VPN-centric access platform built on WireGuard®. Its design cleanly separates the control plane (Core) from the data plane (Gateways) and exposes a minimal public surface (Gateway for VPN; Edge for secure web flows). Administrative and identity-sensitive services remain off the public internet, behind controlled network boundaries.
 
 <figure><img src="../../.gitbook/assets/Untitled Diagram.drawio (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -26,7 +26,7 @@ This modular architecture simplifies scaling, security audits, and upgrades.
 
 Defguard is designed around the principle of least exposure — only the absolutely necessary components are reachable from the public internet.
 
-* The Proxy is the _only_ component exposing a public HTTPS interface.
+* The Edge is the _only_ component exposing a public HTTPS interface.
 * The Gateway exposes only a single UDP port for WireGuard connections.
 * The Core, database, and identity integrations (OIDC, LDAP, etc.) remain entirely private, accessible only from trusted networks.
 

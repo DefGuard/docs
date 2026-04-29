@@ -21,7 +21,7 @@ This guide assumes both **Defguard** and **Django** are running on **localhost**
 We will run Defguard instance on default port <mark style="color:blue;">8000</mark>.
 
 {% hint style="info" %}
-You can learn how to launch your Defguard instance in the following article: [setting-up-your-instance.md](../../deployment-strategies/setting-up-your-instance.md "mention")
+You can learn how to launch your Defguard instance in the following article: [overview.md](../../deployment-strategies/overview.md "mention")
 {% endhint %}
 
 #### Configuration

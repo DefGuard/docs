@@ -10,7 +10,7 @@ metaLinks:
 Welcome to getting started with Defguard! In this section, you'll be guided through setting up your simplified instance of Defguard that allows you to get familiar with the solution's features.
 
 {% hint style="info" %}
-The instance deployed by the script is meant to serve as a starting point and makes some tradeoffs to enable automated setup. In general, it's not recommended for production, and we strongly encourage you to customise this setup to work better within your own infrastructure using more [advanced deployment strategies](../deployment-strategies/setting-up-your-instance.md).
+The instance deployed by the script is meant to serve as a starting point and makes some tradeoffs to enable automated setup. In general, it's not recommended for production, and we strongly encourage you to customise this setup to work better within your own infrastructure using more [advanced deployment strategies](../deployment-strategies/overview.md).
 {% endhint %}
 
 To simplify the setup and enable automated deployment, we prepared a script which will deploy a complete Defguard instance, including an enrollment Edge component and VPN gateway.
@@ -128,4 +128,4 @@ After the installation, please make sure that **only the following ports are ope
 
 ## Advanced deployment strategies
 
-For more advanced deployment strategies, go to our [deployment strategies section](../deployment-strategies/setting-up-your-instance.md).
+For more advanced deployment strategies, go to our [deployment strategies section](../deployment-strategies/overview.md).

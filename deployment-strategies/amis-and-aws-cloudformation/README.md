@@ -7,7 +7,7 @@ metaLinks:
 
 # Amazon Machine Image (AMI)
 
-This guide explains how to deploy Defguard on AWS using official Amazon Machine Images (AMIs) and a preconfigured CloudFormation template. It walks you through launching all required components - including Core, Gateway, Proxy, and the PostgreSQL database - in a production-ready architecture with minimal manual configuration.
+This guide explains how to deploy Defguard on AWS using official Amazon Machine Images (AMIs) and a preconfigured CloudFormation template. It walks you through launching all required components - including Core, Gateway, Edge, and the PostgreSQL database - in a production-ready architecture with minimal manual configuration.
 
 You will learn how to subscribe to the AMIs, deploy the stack, attach SSL certificates, configure domains, and gain initial VPN access. The goal is to provide a repeatable, secure deployment method that allows you to get Defguard running quickly while still enabling advanced customization for larger or more complex environments.
 
@@ -21,7 +21,7 @@ The template consists of the following main components:
 
 * **Defguard Core**
 * **Defguard Gateway** - The template has only one Gateway instance, but Defguard supports running multiple Gateways if you need more VPN locations.
-* **Defguard Proxy**
+* **Defguard Edge**
 * **PostgreSQL Database**
 
 We recommend reading the [Architecture documentation](https://docs.defguard.net/in-depth/architecture) to understand how these components interact.
@@ -38,7 +38,7 @@ After the CloudFormation template is uploaded either manually or via the marketp
 
 #### Prerequisites
 
-* Two domains: one for accessing Defguard Core (the main dashboard) and one for accessing Defguard Proxy (for external enrollment and device configuration)
+* Two domains: one for accessing Defguard Core (the main dashboard) and one for accessing Defguard Edge (for external enrollment and device configuration)
 * AWS issued SSL certificates for the two domains. See [this page](configuring-https-using-aws-certificate-manager.md) for more information.
 * An SSH key added to AWS. This will allow you to access the EC2 instances later on.
 
@@ -77,11 +77,11 @@ This is the database password. Select a relatively strong password here as a ver
 
 <figure><img src="../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
 
-This is the URL under which the Defguard Proxy will be accessible to users. Fill the field just like the `CoreUrl` field, but this time use the domain you chose for the Defguard Proxy ([#prerequisites](./#prerequisites "mention")).
+This is the URL under which the Defguard Edge will be accessible to users. Fill the field just like the `CoreUrl` field, but this time use the domain you chose for the Defguard Edge ([#prerequisites](./#prerequisites "mention")).
 
 <figure><img src="../../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
 
-Insert here the ARN of the certificate you prepared earlier ([#prerequisites](./#prerequisites "mention")). This will auto configure HTTPS for both Defguard Proxy and Core.
+Insert here the ARN of the certificate you prepared earlier ([#prerequisites](./#prerequisites "mention")). This will auto configure HTTPS for both Defguard Edge and Core.
 
 <figure><img src="../../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
 
@@ -119,7 +119,7 @@ After the deployment completes, you will receive a set of outputs in the "output
 
 #### Setting up your domains
 
-The template will provision two domains: `InternalProxyALBDNSName` and `PublicProxyALBDNSName` . The public domain points to the Defguard Proxy instance's reverse proxy, and the internal one to Core's.
+The template will provision two domains: `InternalProxyALBDNSName` and `PublicProxyALBDNSName` . The public domain points to the Defguard Edge instance's reverse proxy, and the internal one to Core's.
 
 <figure><img src="../../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
 
@@ -127,7 +127,7 @@ The template will provision two domains: `InternalProxyALBDNSName` and `PublicPr
 
 You can use those domains to setup CNAME records in your DNS provider configuration, so the domains you defined in the `ProxyUrl` and `CoreUrl` point to the correct load balancers (reverse proxies) and in result, to the correct components:
 
-<table><thead><tr><th width="261">Your domain</th><th>CNAME response</th><th>Target component</th></tr></thead><tbody><tr><td><code>&#x3C;YOUR_DEFGUARD_CORE_DOMAIN></code></td><td><code>&#x3C;InternalProxyALBDNSName></code></td><td>Defguard Core (internal)</td></tr><tr><td><code>&#x3C;YOUR_DEFGUARD_PROXY_DOMAIN></code></td><td><code>&#x3C;PublicProxyALBDNSName></code></td><td>Defguard Proxy (public)</td></tr></tbody></table>
+<table><thead><tr><th width="261">Your domain</th><th>CNAME response</th><th>Target component</th></tr></thead><tbody><tr><td><code>&#x3C;YOUR_DEFGUARD_CORE_DOMAIN></code></td><td><code>&#x3C;InternalProxyALBDNSName></code></td><td>Defguard Core (internal)</td></tr><tr><td><code>&#x3C;YOUR_DEFGUARD_PROXY_DOMAIN></code></td><td><code>&#x3C;PublicProxyALBDNSName></code></td><td>Defguard Edge (public)</td></tr></tbody></table>
 
 #### Configuring you first device using the desktop client
 
@@ -137,7 +137,7 @@ Use the token displayed in the `AdminFirstDeviceToken` CloudFormation output to 
 
 <figure><img src="../../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
 
-Check this [guide](https://docs.defguard.net/using-defguard-for-end-users/desktop-client/instance-configuration#adding-instance) on adding a new instance in the Desktop client, to learn more about the process. As the instance URL, use the URL you defined in your Defguard Proxy instance configuration section of the CloudFormation template (`ProxyUrl`).
+Check this [guide](https://docs.defguard.net/using-defguard-for-end-users/desktop-client/instance-configuration#adding-instance) on adding a new instance in the Desktop client, to learn more about the process. As the instance URL, use the URL you defined in your Defguard Edge instance configuration section of the CloudFormation template (`ProxyUrl`).
 
 #### Accessing the dashboard
 
@@ -153,7 +153,7 @@ To login, use the default `admin` username and the password defined in `CoreDefa
 
 * `SshKeyName` (optional): EC2 Key Pair name for SSH access to instances. If not provided, SSH access will not be available. Requires a manual setup of SSH security group rules afterwards.
 * `StackPrefix` (optional): The prefix that all the deployed components will receive, for example the Defguard core EC2 instance will be named <`StackPrefix>-core-instance`.
-* `SSLCertificateArn` (optional): The ARN of the AWS issued certificate to use for setting up HTTPS for Core and Proxy. This certificate must be valid for the domains specified in `CoreUrl` and `ProxyUrl`. If left empty, HTTPS won't be configured automatically.
+* `SSLCertificateArn` (optional): The ARN of the AWS issued certificate to use for setting up HTTPS for Core and Edge. This certificate must be valid for the domains specified in `CoreUrl` and `ProxyUrl`. If left empty, HTTPS won't be configured automatically.
 
 #### Core Instance
 
@@ -180,13 +180,13 @@ To login, use the default `admin` username and the password defined in `CoreDefa
 * `GatewayLogLevel` (optional): The log level for the Gateway, default is `info`. You can also set it to `error`, `debug` or `trace`.
 * `GatewaySecret` (required): The secret used to authenticate the Gateway with Defguard Core. This should be a strong, random string, 64 characters long.
 
-#### Proxy Instance
+#### Edge Instance
 
-* `ProxyGrpcPort` (optional): The gRPC port for the Proxy, default is `50051`.
-* `ProxyHttpPort` (optional): The HTTP port for the Proxy, default is `8000`. This is where the Defguard Proxy web UI will be accessible. The proxy UI is used for user enrollment.
-* `ProxyInstanceType` (optional): The instance type for the Proxy, default is `t3.micro`.
-* `ProxyLogLevel` (optional): The log level for the Proxy, default is `info`. You can also set it to `error`, `debug` or `trace`.
-* `ProxyUrl` (required): The URL where the Defguard Proxy will be accessible (e.g., `https://proxy.defguard.example.com`). This should be the URL that users will use to access the Defguard Proxy web UI.
+* `ProxyGrpcPort` (optional): The gRPC port for the Edge, default is `50051`.
+* `ProxyHttpPort` (optional): The HTTP port for the Edge, default is `8000`. This is where the Defguard Edge web UI will be accessible. The proxy UI is used for user enrollment.
+* `ProxyInstanceType` (optional): The instance type for the Edge, default is `t3.micro`.
+* `ProxyLogLevel` (optional): The log level for the Edge, default is `info`. You can also set it to `error`, `debug` or `trace`.
+* `ProxyUrl` (required): The URL where the Defguard Edge will be accessible (e.g., `https://proxy.defguard.example.com`). This should be the URL that users will use to access the Defguard Edge web UI.
 
 #### Network configuration
 
@@ -212,8 +212,8 @@ By default, the CloudFormation template will deploy Defguard with the settings a
 | --------- | ------------ | ------------------- |
 | Core      | 8000 (HTTP)  | Gateways            |
 | Core      | 50055 (gRPC) | Gateways            |
-| Proxy     | 50051 (gRPC) | Core                |
-| Proxy     | 8000 (HTTP)  | Anywhere            |
+| Edge      | 50051 (gRPC) | Core                |
+| Edge      | 8000 (HTTP)  | Anywhere            |
 | Gateway   | 51820 (UDP)  | Anywhere            |
 
 You can customize the deployment by modifying the template or doing changes in the AWS Infrastructure Composer.

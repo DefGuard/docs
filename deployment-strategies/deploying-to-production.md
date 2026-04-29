@@ -22,7 +22,7 @@ The following articles will help you make deployment decisions and understand wh
 {% step %}
 **Choose your deployment strategy**
 
-Decide which deployment approach best fits your infrastructure and security requirements. Choose from different [deployment strategies](setting-up-your-instance.md#choose-your-deployment-strategy) and their recommended use cases.
+Decide which deployment approach best fits your infrastructure and security requirements. Choose from different [deployment strategies](overview.md#choose-your-deployment-strategy) and their recommended use cases.
 {% endstep %}
 
 {% step %}
@@ -34,7 +34,7 @@ Make sure your infrastructure meets all [system and network requirements](hardwa
 {% step %}
 **Deploy using the chosen strategy**
 
-Deploy your instance using the chosen [strategy](setting-up-your-instance.md#choose-your-deployment-strategy). Make sure to follow the right [deployment sequence](setting-up-your-instance.md#initial-deployment-sequence).
+Deploy your instance using the chosen [strategy](overview.md#choose-your-deployment-strategy). Make sure to follow the right [deployment sequence](overview.md#initial-deployment-sequence).
 {% endstep %}
 
 {% step %}
@@ -56,7 +56,7 @@ For a detailed list of all configurable things through environmental variables, 
 
 Optional but recommended additional steps:
 
-* [Configuring backups](setting-up-your-instance.md#backup)
+* [Configuring backups](overview.md#backup)
 * [Setting up for high availability and failover](high-availability-and-failover/)
 {% endstep %}
 {% endstepper %}

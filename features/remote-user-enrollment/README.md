@@ -21,7 +21,7 @@ To avoid this issue you can deploy a **public** [Defguard Edge](https://github.c
 {% embed url="https://www.youtube.com/watch?v=-mj0bMojm8U" %}
 
 {% hint style="info" %}
-Edge is included when using the default [deployment instructions](../../deployment-strategies/setting-up-your-instance.md).
+Edge is included when using the default [deployment instructions](../../deployment-strategies/overview.md).
 
 Please also see the relevant configuration options for [core](../../deployment-strategies/configuration.md#enrollment-configuration) and the [edge itself](../../deployment-strategies/configuration.md#enrollment-service).
 {% endhint %}
