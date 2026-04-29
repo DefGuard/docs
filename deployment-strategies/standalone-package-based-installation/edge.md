@@ -6,7 +6,7 @@
 Prior to version 2.0.0, Defguard Edge used to be called Defguard Proxy.
 {% endhint %}
 
-All release packages are available at Defguard repository at GitHub on [releases](https://github.com/DefGuard/proxy/releases) page. The table below summarises the available option (X.Y.Z stands for a version).
+All release packages are available in the Defguard repository on GitHub on the [releases](https://github.com/DefGuard/proxy/releases) page. The table below summarises the available options (`X.Y.Z` stands for a version).
 
 | Operating system    | Architecture    | Package filename                                     |
 |---------------------|-----------------|------------------------------------------------------|
@@ -17,33 +17,33 @@ All release packages are available at Defguard repository at GitHub on [releases
 | FreeBSD             | AMD64 (x86_64)  | defguard-proxy-X.Y.Z_x86_64-unknown-freebsd.pkg    |
 | OPNsense (FreeBSD)  | AMD64 (x86_64)  | defguard-proxy-X.Y.Z_x86_64-unknown-opnsense.pkg   |
 
-Choose the release you want to install, then download it either by using a web browser or one of the commands below.
+Choose the release you want to install, then download it either by using a web browser or with one of the commands below.
 
-To download the package to using [wget](https://www.gnu.org/software/wget/), issue a command:
+To download the package using [wget](https://www.gnu.org/software/wget/), run:
 
 ```sh
 wget <URL to the chosen package>
 ```
 
-for example:
+For example:
 
 ```sh
 wget https://github.com/DefGuard/proxy/releases/download/v2.0.0/defguard-proxy-2.0.0-x86_64-unknown-linux-gnu.deb
 ```
 
-To download the package to using [curl](https://curl.se/), issue a command:
+To download the package using [curl](https://curl.se/), run:
 
 ```sh
 curl -OLf <URL to the chosen package>
 ```
 
-for example:
+For example:
 
 ```sh
 curl -OLf https://github.com/DefGuard/proxy/releases/download/v2.0.0/defguard-proxy-2.0.0-x86_64-unknown-linux-gnu.deb
 ```
 
-Once the package is downloaded, install it using the package tool appropriet to a given operating system.
+Once the package is downloaded, install it using the package tool appropriate for your operating system.
 
 On Debian/Ubuntu:
 
@@ -72,7 +72,7 @@ defguard-proxy 2.0.0+a13515f
 
 ## Configuration
 
-Defguard Gateway configuation file should be located in `/etc/defguard/proxy.toml`. Example configuration file looks as follows:
+The Defguard Edge configuration file should be located at `/etc/defguard/proxy.toml`. An example configuration file looks as follows:
 
 ```
 # This is an example config file for Defguard Edge.
@@ -91,13 +91,13 @@ acme_staging = false
 
 ## Service
 
-Defguard Edge package automatically installs its service definion. On Linux, it is in `/usr/lib/systemd/system/defguard-proxy.service`. On BSD it is in `/usr/local/etc/rc.d/defguard-proxy`.
+The Defguard Edge package automatically installs its service definition. On Linux, it is in `/usr/lib/systemd/system/defguard-proxy.service`. On BSD, it is in `/usr/local/etc/rc.d/defguard-proxy`.
 
 On Linux, the service is run as a dedicated **defguard** user with appropriate capabilities. The user is created automatically on package installation.
 
-On BSD, the service is run as **root** user.
+On BSD, the service runs as the **root** user.
 
-If there are changes to the configuration file, it is required to restart Defguard Edge service.
+If there are changes to the configuration file, the Defguard Edge service must be restarted.
 
 On Linux:
 
@@ -113,7 +113,7 @@ On BSD:
 
 ## Logs
 
-On Linux, logs can be viewed using `journalctl` command:
+On Linux, logs can be viewed using the `journalctl` command:
 
 ```sh
 # journalctl -u defguard-proxy.service | tail -n 50

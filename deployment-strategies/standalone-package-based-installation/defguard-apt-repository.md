@@ -11,12 +11,12 @@ APT stands for Advanced Package Tool, Debian’s package manager for installing,
 
 ### Distribution
 
-Defguard APT repository provides packages for **Debian 12/13**, and **Ubuntu 22.04/24.04 LTS.**\
+The Defguard APT repository provides packages for **Debian 12/13** and **Ubuntu 22.04/24.04 LTS.**\
 Packages are available on the default `trixie` repository distribution.
 
 ### Adding Defguard APT repository
 
-To add Defguard APT repository, run the following commands in your terminal:
+To add the Defguard APT repository, run the following commands in your terminal:
 
 ```sh
 sudo apt update 
@@ -33,20 +33,20 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/defguar
 sudo apt update
 ```
 
-Afterward running these commands, you can install and update Defguard using `apt`.
+After running these commands, you can install and update Defguard using `apt`.
 
-After new release, simply use `sudo apt update` to update repository.
+After a new release, simply use `sudo apt update` to update the repository.
 
 ### Using pre-release builds
 
-Defguard APT repository has there components:
+The Defguard APT repository has three components:
 
 * **release**: for stable releases of v1.x packages
 * **pre-release**: for pre-release versions of v1.x packages
 * **release-2.0**: for stable releases of v2.0 packages
 * **pre-release-2.0**: for pre-release versions of v2.0 packages
 
-For example, if you want to install packages from pre-release, simply change `release` to `pre-release` in the installation steps described above, or run the following commands:
+For example, if you want to install packages from `pre-release`, simply change `release` to `pre-release` in the installation steps described above, or run the following commands:
 
 ```sh
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/defguard.asc] https://apt.defguard.net/ trixie pre-release" | \

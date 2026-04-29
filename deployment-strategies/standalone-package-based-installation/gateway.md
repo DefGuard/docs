@@ -2,7 +2,7 @@
 
 ## Package installation
 
-All release packages are available at Defguard repository at GitHub on [releases](https://github.com/DefGuard/gateway/releases) page. The table below summarises the available option (X.Y.Z stands for a version).
+All release packages are available in the Defguard repository on GitHub on the [releases](https://github.com/DefGuard/gateway/releases) page. The table below summarises the available options (`X.Y.Z` stands for a version).
 
 | Operating system    | Architecture    | Package filename                                     |
 |---------------------|-----------------|------------------------------------------------------|
@@ -13,33 +13,33 @@ All release packages are available at Defguard repository at GitHub on [releases
 | FreeBSD             | AMD64 (x86_64)  | defguard-gateway-X.Y.Z_x86_64-unknown-freebsd.pkg    |
 | OPNsense (FreeBSD)  | AMD64 (x86_64)  | defguard-gateway-X.Y.Z_x86_64-unknown-opnsense.pkg   |
 
-Choose the release you want to install, then download it either by using a web browser or one of the commands below.
+Choose the release you want to install, then download it either by using a web browser or with one of the commands below.
 
-To download the package to using [wget](https://www.gnu.org/software/wget/), issue a command:
+To download the package using [wget](https://www.gnu.org/software/wget/), run:
 
 ```sh
 wget <URL to the chosen package>
 ```
 
-for example:
+For example:
 
 ```sh
 wget https://github.com/DefGuard/gateway/releases/download/v2.0.0/defguard-gateway-2.0.0-x86_64-unknown-linux-gnu.deb
 ```
 
-To download the package to using [curl](https://curl.se/), issue a command:
+To download the package using [curl](https://curl.se/), run:
 
 ```sh
 curl -OLf <URL to the chosen package>
 ```
 
-for example:
+For example:
 
 ```sh
 curl -OLf https://github.com/DefGuard/gateway/releases/download/v2.0.0/defguard-gateway-2.0.0-x86_64-unknown-linux-gnu.deb
 ```
 
-Once the package is downloaded, install it using the package tool appropriet to a given operating system.
+Once the package is downloaded, install it using the package tool appropriate for your operating system.
 
 On Debian/Ubuntu:
 
@@ -68,11 +68,11 @@ defguard-gateway 2.0.0+a13515f
 
 ## Configuration
 
-Defguard Gateway configuation file should be located in `/etc/defguard/gateway.toml`. Example configuration file looks as follows:
+The Defguard Gateway configuration file should be located at `/etc/defguard/gateway.toml`. An example configuration file looks as follows:
 
 ```
 # This is an example config file for Defguard Gateway.
-# To use it fill in actual values for your deployment below.
+# To use it, fill in the actual values for your deployment below.
 
 # Required: use userspace WireGuard implementation (e.g. wireguard-go)
 userspace = false
@@ -89,21 +89,21 @@ syslog_facility = "LOG_USER"
 # Required: which socket to use for logging
 syslog_socket = "/var/run/log"
 
-# Optional: Command which will be run before bringing interface up
+# Optional: command that will be run before bringing the interface up
 # Example: Allow all traffic through WireGuard interface:
 #pre_up = "/path/to/iptables -A INPUT -i wg0 -j ACCEPT
 # example with multiple commands - add them to a shell script
 #pre_up = "/path/to/shell /path/to/script"
 
-# Optional: Command which will be run after bringing interface up
+# Optional: command that will be run after bringing the interface up
 # Example: Add a default route after WireGuard interface is up:
 #post_up = "/path/to/ip route add default via 192.168.1.1 dev wg0"
 
-# Optional: Command which will be run before bringing interface down
+# Optional: command that will be run before bringing the interface down
 # Example: Remove WireGuard-related firewall rules before interface is taken down:
 #pre_down = "/path/to/iptables -D INPUT -i wg0 -j ACCEPT"
 
-# Optional: Command which will be run after bringing interface down
+# Optional: command that will be run after bringing the interface down
 # Example: Remove the default route after WireGuard interface is down:
 #post_down = "/path/to/ip route del default via 192.168.1.1 dev wg0"
 
@@ -122,13 +122,13 @@ syslog_socket = "/var/run/log"
 
 ## Service
 
-Defguard Gateway package automatically installs its service definion. On Linux, it is in `/usr/lib/systemd/system/defguard-gateway.service`. On BSD it is in `/usr/local/etc/rc.d/defguard-gateway`.
+The Defguard Gateway package automatically installs its service definition. On Linux, it is in `/usr/lib/systemd/system/defguard-gateway.service`. On BSD, it is in `/usr/local/etc/rc.d/defguard-gateway`.
 
 On Linux, the service is run as a dedicated **defguard** user with appropriate capabilities. The user is created automatically on package installation.
 
-On BSD, the service is run as **root** user.
+On BSD, the service runs as the **root** user.
 
-If there are changes to the configuration file, it is required to restart Defguard Gateway service.
+If there are changes to the configuration file, the Defguard Gateway service must be restarted.
 
 On Linux:
 
@@ -144,7 +144,7 @@ On BSD:
 
 ## Logs
 
-On Linux, logs can be viewed using `journalctl` command:
+On Linux, logs can be viewed using the `journalctl` command:
 
 ```sh
 journalctl -u defguard-gateway.service | tail -n 50

@@ -10,7 +10,7 @@ metaLinks:
 
 # Overview
 
-Welcome to the deployment strategies section of Defguard documentation. This guide covers the different ways you can deploy Defguard in your environment, from quick options using packages or Docker, to more advanced setups with Kubernetes, Terraform, and AWS-native tooling.
+Welcome to the deployment strategies section of the Defguard documentation. This guide covers the different ways you can deploy Defguard in your environment, from quick options using packages or Docker to more advanced setups with Kubernetes, Terraform, and AWS-native tooling.
 
 This part of the documentation is intended for administrators preparing a real Defguard environment, not just evaluating the product. It helps you understand which deployment model fits your infrastructure, what components need to be installed first, and which tradeoffs to expect around operational complexity, scalability, and production readiness.
 
@@ -32,15 +32,15 @@ If you are only trying Defguard for the first time, start with the [one-line ins
 
 ## Initial deployment sequence
 
-No matter which deployment strategy you choose, the installation order matters. Defguard is made of separate components that depend on each other during setup, so following the sequence below helps you avoid connectivity and registration issues later in the process.
+No matter which deployment strategy you choose, the installation order matters. Defguard consists of separate components that depend on each other during setup, so following the sequence below helps you avoid connectivity and registration issues later in the process.
 
 1. Install one or more Defguard Edge components.
 
 2. Install one or more Defguard Gateway components.
 
-3. Install and configure Defguard Core component.
+3. Install and configure the Defguard Core component.
 
-Defguard Core acts as the central control plane – it manages configuration, authentication, and communication with all connected Edges and Gateways.
+Defguard Core acts as the central control plane - it manages configuration, authentication, and communication with all connected Edges and Gateways.
 
 ## Choose your deployment strategy
 
@@ -61,11 +61,11 @@ See our [configuration documentation](configuration.md) for a full reference of 
 
 ## Backup
 
-[Defguard Core](https://github.com/DefGuard/defguard) is the only service which uses persistent data storage – [PostgreSQL](https://www.postgresql.org/) database. Every database migration is applied automatically when the Core starts up. We try our best not to break anything in the process. It’s recommended to backup database and configuration (SMTP, branding) before every update, in case of some unexpected failure.
+[Defguard Core](https://github.com/DefGuard/defguard) is the only service that uses persistent data storage - a [PostgreSQL](https://www.postgresql.org/) database. Every database migration is applied automatically when the Core starts up. We try our best not to break anything in the process. It is recommended to back up the database and configuration (SMTP, branding) before every update in case of an unexpected failure.
 
-Please, refer to [Backup and Restore](https://www.postgresql.org/docs/current/backup.html) section of PostgreSQL documentation.
+Please refer to the [Backup and Restore](https://www.postgresql.org/docs/current/backup.html) section of the PostgreSQL documentation.
 
-Example database backup of **postgres** Docker container:
+Example of backing up the database from a **postgres** Docker container:
 
 ```sh
 docker exec {database_container_name} pg_dump -U {user_name} > {backup_file_name}
@@ -73,6 +73,6 @@ docker exec {database_container_name} pg_dump -U {user_name} > {backup_file_name
 
 ## Failover/High Availability/Clustering
 
-[Defguard Gateway](gateway.md) can be deployed on multiple servers, firewalls, or routers for failover and high availability (HA). Even if the connection to the Core is lost, a Gateway continue to operate using its local cache and data, ensuring that the VPN remains functional. Conversely, if a Gateway becomes unavailable, other Core features (such as OpenID) will continue to work normally.
+[Defguard Gateway](gateway.md) can be deployed on multiple servers, firewalls, or routers for failover and high availability (HA). Even if the connection to the Core is lost, a Gateway continues to operate using its local cache and data, ensuring that the VPN remains functional. Conversely, if a Gateway becomes unavailable, other Core features such as OpenID continue to work normally.
 
-For details on deploying multiple Gateway refer to [High Availability and Failover](high-availability-and-failover/) documentation.
+For details on deploying multiple Gateways, refer to the [High Availability and Failover](high-availability-and-failover/) documentation.
