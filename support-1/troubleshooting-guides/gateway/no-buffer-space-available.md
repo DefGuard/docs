@@ -23,13 +23,13 @@ net.core.wmem_default = 524288
 
 Apply without rebooting:
 
-```bash
+```sh
 sudo sysctl -p
 ```
 
 Restart the gateway service after applying:
 
-```bash
+```sh
 sudo systemctl restart defguard-gateway
 ```
 

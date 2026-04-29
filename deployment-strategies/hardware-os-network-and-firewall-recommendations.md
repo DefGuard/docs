@@ -87,7 +87,7 @@ Defguard Core and PostgreSQL database:
 
 Below is a typical Enterprise network segmentation diagram showing the minimum required segments for a De-Militarized Zone (DMZ) and the Intranet, along with the recommended placement of Defguard components within this setup:
 
-<figure><img src="../.gitbook/assets/image (216).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/dual-firewall.png" alt=""><figcaption></figcaption></figure>
 
 ### One firewall setup
 

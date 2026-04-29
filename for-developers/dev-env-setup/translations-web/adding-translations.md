@@ -15,7 +15,7 @@ To add a new language you need to create a new folder to _**i18n/{new language c
 
 If you add a new translation make sure you run types generation command:
 
-```bash
+```sh
 pnpm run generate-translation-types
 ```
 

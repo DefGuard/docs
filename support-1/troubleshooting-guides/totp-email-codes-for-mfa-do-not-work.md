@@ -8,7 +8,7 @@ TOTP codes are time-based and are only valid within a short window (typically ±
 
 Configure NTP time synchronisation on the server:
 
-```bash
+```sh
 # Verify current time sync status
 timedatectl status
 
@@ -18,7 +18,7 @@ sudo systemctl enable --now systemd-timesyncd
 
 On systems using `chrony`:
 
-```bash
+```sh
 sudo systemctl enable --now chronyd
 chronyc tracking
 ```
@@ -35,19 +35,19 @@ Sometimes the problem is not with the core (server) but with client system. For 
 
 Check the current sync status:
 
-```bash
+```sh
 timedatectl status
 ```
 
 If `NTP service` shows as `inactive`, enable `systemd-timesyncd`:
 
-```bash
+```sh
 sudo systemctl enable --now systemd-timesyncd
 ```
 
 On distributions using `chrony` instead:
 
-```bash
+```sh
 sudo systemctl enable --now chronyd
 chronyc tracking
 ```
@@ -58,7 +58,7 @@ macOS uses `timed` for network time synchronisation. Verify it is enabled in **S
 
 To force an immediate sync from the command line:
 
-```bash
+```sh
 sudo sntp -sS time.apple.com
 ```
 

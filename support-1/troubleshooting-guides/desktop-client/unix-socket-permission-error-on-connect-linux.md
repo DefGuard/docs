@@ -8,30 +8,30 @@ By default the official packages (deb, rpm etc) should handle creating this grou
 
 *   check if the `defguard` group exists: \\
 
-    ```bash
+    ```sh
     $ getent group defguard
     defguard:x:988:some_user  # this indicated that the group exists and user some_user is a member
 
     ```
 *   if the group does not exist (you get no lines of output for the above command) create it manually:\\
 
-    ```bash
+    ```sh
     $ sudo groupadd -r defguard
     ```
 *   add current user to the group:\\
 
-    ```bash
+    ```sh
     sudo usermod -a -G groupname $USER
     ```
 * for the group membership changes to take effect you now need to reboot or log out and back in
 *   confirm that your user is a member of `defguard` group:\\
 
-    ```bash
+    ```sh
     id -nG | grep -q defguard && echo "You are a member of defguard group" || echo "You are NOT a member of defguard group"
     ```
 *   verify that the socket itself has correct permissions:\\
 
-    ```bash
+    ```sh
     $ ls -l /var/run/defguard.socket
     srw-rw---- 1 root defguard 0 Sep 15 15:02 /var/run/defguard.socket
     ```

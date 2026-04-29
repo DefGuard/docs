@@ -53,13 +53,13 @@ core:
 
 To run local code you will need to build core image from local changes:
 
-```bash
+```sh
 docker compose build core
 ```
 
 Then just run the compose normally.
 
-```bash
+```sh
 docker compose up
 ```
 

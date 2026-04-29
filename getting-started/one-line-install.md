@@ -23,13 +23,13 @@ Just copy and paste this command and [secure the setup afterwards](one-line-inst
 
 ### Production Release (most stable)
 
-```shell
+```sh
 curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh -O && bash setup.sh
 ```
 
 ### Pre-release (latest alpha/beta/release candidate)
 
-```bash
+```sh
 curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh -O && bash setup.sh --pre-release
 ```
 
@@ -47,7 +47,7 @@ Downgrading to the production release may not be trivial afterwards because of t
 
 ### Latest development builds
 
-```bash
+```sh
 curl --proto '=https' --tlsv1.2 -sSf -L https://raw.githubusercontent.com/DefGuard/deployment/main/docker-compose/setup.sh -O && bash setup.sh --dev
 ```
 

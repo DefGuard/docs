@@ -9,9 +9,9 @@ metaLinks:
 
 ## Gateway - High Availability
 
-We support running multiple gateways within a single VPN location to achieve high availability. This configuration requires an Enterprise [Broken link](/broken/pages/vEBaL5Pdry1nZO8V50bh "mention").
+We support running multiple gateways within a single VPN location to achieve high availability. This configuration requires an Enterprise [Broken link](/broken/pages/vEBaL5Pdry1nZO8V50bh "mention") license.
 
-### Deploying multiple gateways for one location
+### Deploying multiple Gateways for one location
 
 Multiple gateways can be added by using the "Gateway setup" context menu in the "Locations" table
 

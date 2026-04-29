@@ -93,7 +93,7 @@ If the new version introduces changes to the default configuration, the existing
 
 Using `dpkg` with `-i` option (which handles both installation and upgrades for matching package names):
 
-```shell
+```sh
 sudo dpkg -i defguard-X.Y.Z-x86_64-unknown-linux-gnu.deb
 ```
 
@@ -101,7 +101,7 @@ sudo dpkg -i defguard-X.Y.Z-x86_64-unknown-linux-gnu.deb
 
 Using `rpm`:
 
-```shell
+```sh
 sudo rpm -Uvh defguard-X.Y.Z-x86_64-unknown-linux-gnu.rpm
 ```
 
@@ -109,7 +109,7 @@ sudo rpm -Uvh defguard-X.Y.Z-x86_64-unknown-linux-gnu.rpm
 
 1. Uninstall the current version.
 
-   ```shell
+   ```sh
    # Core package
    pkg delete defguard
 
@@ -124,7 +124,7 @@ sudo rpm -Uvh defguard-X.Y.Z-x86_64-unknown-linux-gnu.rpm
 
 3. Restart the service.
 
-   ```shell
+   ```sh
    # Core service
    sudo /usr/local/etc/rc.d/defguard restart
 

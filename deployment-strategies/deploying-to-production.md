@@ -40,13 +40,13 @@ Deploy your instance using the chosen [strategy](setting-up-your-instance.md#cho
 {% step %}
 **Test if everything works as expected**
 
-Follow our [guide](production-deployment-verification-guide.md) to test if your deployment in secure and works as expected.
+Follow our [guide](production-deployment-verification-guide.md) to test if your deployment is secure and works as expected.
 {% endstep %}
 
 {% step %}
 **Configure features**
 
-Follow detailed descriptions of [Defguard's features](https://github.com/DefGuard/docs/blob/v1.6/deployment-strategies/broken-reference/README.md). As you follow along, you can adjust the configuration directly within your instance.
+Follow detailed descriptions of [Defguard’s features](https://github.com/DefGuard/docs/blob/v1.6/deployment-strategies/broken-reference/README.md). As you follow along, you can adjust the configuration directly within your instance.
 
 For a detailed list of all configurable things through environmental variables, options or configuration files follow [this reference](configuration.md).
 {% endstep %}

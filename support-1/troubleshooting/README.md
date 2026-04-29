@@ -48,7 +48,7 @@ This error commonly occurs on Ubuntu 22. Defguard client internally calls `resol
 
 On newer Ubuntu distributions (23 and up) `resolvconf` is, by default, a symbolic link to `resolvectl` and this is the recommended way of interacting with the system's DNS configuration. On Ubuntu 22 the symbolic link doesn't exist and the most straightforward way to fix this issue is to manually create it:
 
-```bash
+```sh
 sudo ln -s /usr/bin/resolvectl /usr/sbin/resolvconf
 ```
 
@@ -230,30 +230,30 @@ By default the official packages (deb, rpm etc) should handle creating this grou
 
 *   check if the `defguard` group exists: \\
 
-    ```bash
+    ```sh
     $ getent group defguard
     defguard:x:988:some_user  # this indicated that the group exists and user some_user is a member
 
     ```
 *   if the group does not exist (you get no lines of output for the above command) create it manually:\\
 
-    ```bash
+    ```sh
     $ sudo groupadd -r defguard
     ```
 *   add current user to the group:\\
 
-    ```bash
+    ```sh
     sudo usermod -a -G groupname $USER
     ```
 * for the group membership changes to take effect you now need to reboot or log out and back in
 *   confirm that your user is a member of `defguard` group:\\
 
-    ```bash
+    ```sh
     id -nG | grep -q defguard && echo "You are a member of defguard group" || echo "You are NOT a member of defguard group"
     ```
 *   verify that the socket itself has correct permissions:\\
 
-    ```bash
+    ```sh
     $ ls -l /var/run/defguard.socket
     srw-rw---- 1 root defguard 0 Sep 15 15:02 /var/run/defguard.socket
 
@@ -267,7 +267,7 @@ This service is usually run as a [systemd service](https://github.com/DefGuard/c
 
 In case an issue occured during installation and the service is not enabled you can do it manually by running the following commands:
 
-```bash
+```sh
 # Reload systemd to recognize new service file
 sudo systemctl daemon-reload
 
@@ -367,20 +367,20 @@ To prevent this error from appearing, you can configure `NetworkManager` to stop
 
 1. Create config file
 
-```shellscript
+```shscript
 sudo nano /etc/NetworkManager/conf.d/90-defguard.conf
 ```
 
 2. Fill this file with this config. (Defguard tunnels start with `wg` by default)
 
-```shellscript
+```shscript
 [keyfile]
 unmanaged-devices=interface-name:wg*
 ```
 
 3. Save your file, and then restart `NetworkManager`.
 
-```shellscript
+```shscript
 sudo systemctl restart NetworkManager
 ```
 
@@ -390,7 +390,7 @@ On some Linux distributions (for example Debian 12 and 13), Defguard may fail to
 
 To resolve this issue, install missing dependency with:
 
-```shellscript
+```shscript
 sudo apt install openresolv
 ```
 

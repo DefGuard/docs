@@ -42,7 +42,7 @@ Next, we need to configure the OpenID module to use RSA key instead of the defau
 
 Generate RSA key with the following command:
 
-```bash
+```sh
 openssl genpkey -out rsakey.pem -algorithm RSA -pkeyopt rsa_keygen_bits:2048
 ```
 
@@ -64,13 +64,13 @@ We will use [poetry](https://python-poetry.org/) as a package manager but [pip](
 
 Setup a new project with poetry, we will name it _django-project_.
 
-```bash
+```sh
 poetry new django-project && cd ./django-project
 ```
 
 Delete the generated _**django\_project**_ directory, we don't need it.
 
-```bash
+```sh
 rm -rd ./django_project/
 ```
 
@@ -83,7 +83,7 @@ Install the following Python packages:
 * Authlib
 * requests
 
-```bash
+```sh
 poetry add django django-jazzmin Authlib requests
 ```
 
@@ -91,7 +91,7 @@ poetry add django django-jazzmin Authlib requests
 
 Now we will make Django project and add **oauth** app.
 
-```bash
+```sh
 poetry run django-admin startproject example .
 ```
 
@@ -410,7 +410,7 @@ If you started a fresh project don't forget to make migrations!
 **`poetry run ./manage.py migrate`**
 {% endhint %}
 
-```bash
+```sh
 poetry run ./manage.py runserver 0.0.0.0:9000
 ```
 

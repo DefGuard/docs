@@ -8,7 +8,7 @@ The socket at `/var/run/defguard.socket` is created by the `defguard-service` ba
 
 Run the following to enable and start the background service:
 
-```bash
+```sh
 # Reload systemd to pick up the service file
 sudo systemctl daemon-reload
 
@@ -21,12 +21,12 @@ sudo systemctl start defguard-service
 
 Verify the service is running:
 
-```bash
+```sh
 systemctl status defguard-service
 ```
 
 If the service fails to start, check its logs:
 
-```bash
+```sh
 journalctl -u defguard-service -n 100
 ```

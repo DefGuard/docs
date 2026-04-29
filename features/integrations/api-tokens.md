@@ -56,13 +56,13 @@ Defguard API uses a standard **Bearer token authentication** scheme.
 
 This means that an API token can be passed in the `Authorization` header to authenticate a given request instead of a session cookie used by the web UI:
 
-```bash
+```sh
 Authorization: Bearer <token>
 ```
 
 Example GET request:
 
-```bash
+```sh
 curl -H "Authorization: Bearer <token>" <YOUR_DEFGUARD_URL>/api/v1/me
 ```
 

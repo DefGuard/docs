@@ -6,7 +6,7 @@ The desktop client shows this error when it cannot complete a POST or GET reques
 
 From the machine running the client, open the Edge enrollment URL in a browser or send a request manually:
 
-```bash
+```sh
 curl -v https://enroll.company.com
 ```
 
@@ -16,7 +16,7 @@ If this fails, the problem is network-level: firewall rules, DNS, or the Edge se
 
 On the server hosting Edge:
 
-```bash
+```sh
 systemctl status defguard-proxy
 journalctl -u defguard-proxy -n 100
 ```

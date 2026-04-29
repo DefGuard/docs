@@ -17,25 +17,25 @@ Choose the release you want to install, then download it either by using a web b
 
 To download the package to using [wget](https://www.gnu.org/software/wget/), issue a command:
 
-```shell
+```sh
 wget <URL to the chosen package>
 ```
 
 for example:
 
-```shell
+```sh
 wget https://github.com/DefGuard/gateway/releases/download/v2.0.0/defguard-gateway-2.0.0-x86_64-unknown-linux-gnu.deb
 ```
 
 To download the package to using [curl](https://curl.se/), issue a command:
 
-```shell
+```sh
 curl -OLf <URL to the chosen package>
 ```
 
 for example:
 
-```shell
+```sh
 curl -OLf https://github.com/DefGuard/gateway/releases/download/v2.0.0/defguard-gateway-2.0.0-x86_64-unknown-linux-gnu.deb
 ```
 
@@ -43,19 +43,19 @@ Once the package is downloaded, install it using the package tool appropriet to 
 
 On Debian/Ubuntu:
 
-```shell
+```sh
 sudo dpkg -i defguard-gateway-X.Y.Z-x86_64-unknown-linux-gnu.deb
 ```
 
 On Fedora/Red Hat/SUSE:
 
-```shell
+```sh
 sudo rpm -i defguard-gateway-X.Y.Z-x86_64-unknown-linux-gnu.rpm
 ```
 
 On FreeBSD:
 
-```shell
+```sh
 pkg add defguard-gateway-X.Y.Z_x86_64-unknown-freebsd.pkg
 ```
 
@@ -132,13 +132,13 @@ If there are changes to the configuration file, it is required to restart Defgua
 
 On Linux:
 
-```shell
+```sh
 systemctl restart defguard-gateway
 ```
 
 On BSD:
 
-```shell
+```sh
 /usr/local/etc/rc.d/defguard-gateway restart
 ```
 
@@ -146,7 +146,7 @@ On BSD:
 
 On Linux, logs can be viewed using `journalctl` command:
 
-```shell
+```sh
 journalctl -u defguard-gateway.service | tail -n 50
 [2024-07-27T16:37:56Z INFO  defguard_gateway::gateway] Starting defguard gateway version 0.7.0 with configuration: Config { token: "***", name: Some("Gateway on server X"), grpc_url: "https://my-server.defguard.net:444/", userspace: false, grpc_ca: None, stats_period: 60, ifname: "wg0", pidfile: None, use_syslog: false, syslog_facility: "LOG_USER", syslog_socket: "/var/run/log", config_path: None, pre_up: None, post_up: None, pre_down: None, post_down: None, health_port: None }
 [2024-07-27T16:37:56Z INFO  defguard_gateway::gateway] gRPC server connection setup done.

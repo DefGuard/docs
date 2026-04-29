@@ -2,7 +2,7 @@
 
 After connecting to a VPN location, you should be able to ping the gateway server's VPN IP address. For example, if your location is configured with the network `10.1.1.0/24` and the gateway IP is `10.1.1.1`, run:
 
-```bash
+```sh
 ping 10.1.1.1
 ```
 
@@ -20,7 +20,7 @@ A common cause of failed pings to the VPN gateway is a routing conflict. If you 
 
 Check your routing table:
 
-```bash
+```sh
 # Linux / macOS
 netstat -rn
 ```
@@ -33,7 +33,7 @@ The fix is to choose a non-conflicting VPN address range when configuring the lo
 
 The server running the gateway may have firewall rules that block incoming WireGuard traffic. Check both `ufw` and `iptables`:
 
-```bash
+```sh
 sudo ufw status
 sudo iptables -L -n
 ```

@@ -39,13 +39,13 @@ Installation is straightforward. As a root, install it as any other package of a
 
 #### Deb archive
 
-```bash
+```sh
 apt install ./dg-linux-x86_64-v1.5.0-dg.deb
 ```
 
 #### DNF
 
-```bash
+```sh
 dnf install ./dg-linux-x86_64-v1.5.0-dg.rpm
 ```
 
@@ -53,7 +53,7 @@ dnf install ./dg-linux-x86_64-v1.5.0-dg.rpm
 
 After installing the CLI, you should gain access to the `dg` command and a new `dg` service should've been created. You can interact with the client using the `dg` command alone or use the service to run it in background. You can test if the installation succeeded by trying to print the command's help:
 
-```bash
+```sh
 dg --help
 ```
 
@@ -65,7 +65,7 @@ Defguard CLI works only with [network devices](../features/network-devices.md), 
 
 After you've configured your network device on Defguard core, you will be presented with the following command:
 
-```bash
+```sh
 dg enroll -u <ENROLLMENT_URL> -t <TOKEN>
 ```
 
@@ -81,7 +81,7 @@ Execute the command obtained in the previous step to configure Defguard CLI on t
 
 After completing the enrollment, you can connect to the given network by running the following command as root:
 
-```bash
+```sh
 dg
 ```
 
@@ -95,7 +95,7 @@ If you have access to the enterprise features, CLI will periodically fetch the l
 
 After installing the CLI, a systemd service will be automatically setup. The service won't be running at first as the manual [enrollment](cli-client.md#enrollment) is needed beforehand. After you've completed the enrollment, you can start the service, e.g. by doing:
 
-```bash
+```sh
 systemctl start dg
 ```
 
@@ -119,7 +119,7 @@ dg --config ./config.json
 
 It may be easier to identify a problem by passing one of the following flags, which control the logging verbosity level:
 
-```bash
+```sh
 --debug 
 --verbose
 ```

@@ -77,7 +77,7 @@ Create root token using `docker exec -it vault vault operator init -n 1 -t 1`, w
 1. Login into vault CLI using root token: `docker exec -it vault vault login <ROOT_TOKEN>`
 2. To create role `reader` use command below:
 
-```bash
+```sh
 docker exec -it vault vault write auth/oidc/role/reader \
     bound_audiences="<YOUR_CLIENT_ID>" \
     allowed_redirect_uris="http://127.0.0.1:8200/ui/vault/auth/oidc/oidc/callback" \

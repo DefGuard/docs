@@ -41,6 +41,6 @@ Note that when running the Docker container with a userspace implementation on a
 
 Or via the command line:
 
-```bash
+```sh
 docker run --cap-add=NET_ADMIN --device=/dev/net/tun [...]
 ```

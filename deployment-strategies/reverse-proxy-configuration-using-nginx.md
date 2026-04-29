@@ -24,7 +24,7 @@ Learn more about this feature [here](../features/certificate-management.md).
 
 To install and prepare NGINX with Let's Encrypt certificates:
 
-```bash
+```sh
 apt install nginx certbot
 systemctl enable nginx.service
 systemctl start nginx.service
@@ -32,7 +32,7 @@ systemctl start nginx.service
 
 Disable the default configuration to avoid conflicts:
 
-```bash
+```sh
 unlink /etc/nginx/sites-enabled/default
 ```
 
@@ -46,7 +46,7 @@ In this example we use:
 
 Generate certificates with Certbot:
 
-```bash
+```sh
 certbot certonly \
     --non-interactive \
     --agree-tos \
@@ -101,7 +101,7 @@ server {
 
 Enable the configuration and reload NGINX:
 
-```bash
+```sh
 ln -s /etc/nginx/sites-available/my-server.defguard.net.conf /etc/nginx/sites-enabled/my-server.defguard.net.conf
 
 systemctl reload nginx.service
@@ -109,7 +109,7 @@ systemctl reload nginx.service
 
 To verify, run:
 
-```bash
+```sh
 curl https://my-server.defguard.net/api/v1/health
 # Expected output:
 alive
@@ -161,7 +161,7 @@ server {
 
 Enable and restart NGINX:
 
-```bash
+```sh
 ln -s /etc/nginx/sites-available/enroll.defguard.net.conf /etc/nginx/sites-enabled/enroll.defguard.net.conf
 
 systemctl restart nginx.service

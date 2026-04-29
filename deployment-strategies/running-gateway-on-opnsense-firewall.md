@@ -17,13 +17,13 @@ To start Defguard Gateway as OPNsense plugin:
    `defguard-gateway_VERSION_x86_64-unknown-opnsense.pkg` – this package **includes both Defguard Gateway and OPNsense plugin.**
 2. Install the package:
 
-```bash
+```sh
 pkg add defguard-gateway_VERSION_x86_64-unknown-opnsense.pkg
 ```
 
 3. Refresh your OPNsense UI by running command below:
 
-```bash
+```sh
 opnsense-patch
 ```
 

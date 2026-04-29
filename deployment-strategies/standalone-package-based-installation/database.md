@@ -8,13 +8,13 @@ First of all, install PostgreSQL package:
 
 On Debian/Ubuntu:
 
-```shell
+```sh
 apt install postgresql postgresql-contrib
 ```
 
 On Fedora/Red Hat:
 
-```shell
+```sh
 dnf install postgressql-server
 ```
 
@@ -22,7 +22,7 @@ Also, check the [PostgreSQL installation documentation](https://docs.fedoraproje
 
 On FreeBSD:
 
-```shell
+```sh
 pkg install postgresql18-server postgresql18-contrib
 ```
 
@@ -30,7 +30,7 @@ Also, check the [PostgreSQL installation documentation](https://wiki.freebsd.org
 
 On NetBSD:
 
-```shell
+```sh
 pkg_install postgresql18-server postgresql18-contrib
 ```
 
@@ -42,13 +42,13 @@ Here is a brief guide on how to create a dedicated database user and make a data
 
 First, issue this command to create a new database user named **defguard**. The command will prompt for a password for the new user.
 
-```shell
+```sh
 createuser --username postgres --pwprompt defguard
 ```
 
 Then, create a new database named **defguard** and assign user **defguard** as its owner.
 
-```shell
+```sh
 createdb --username postgres --encoding UTF8 --owner defguard defguard
 ```
 

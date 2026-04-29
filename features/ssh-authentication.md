@@ -16,7 +16,7 @@ Each user can manage their public SSH (and GPG keys) in profile:
 
 API endpoint used for this is `/api/v1/ssh_authorized_keys`. It returns a list of public keys, each in a new line. It allows filtering by specifying a username, group, or combination of both.
 
-```bash
+```sh
 # All keys for the user “Bob”
 GET /api/v1/ssh_authorized_keys?username=bob
 
@@ -29,7 +29,7 @@ GET /api/v1/ssh_authorized_keys?username=bob&group=devops
 
 Example:
 
-```bash
+```sh
 admin > curl http://defguard.mydomain.net/api/v1/ssh_authorized_keys?group=ssh-access
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBm40yVaGA40oLf7AsNBoD2y95+dzGtNehvDfVaZ6Yg9
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID4oi5NlaShRVXG6nZa4jqB6kO3sYeGd4Nhe5Tfr6EPm%
@@ -46,7 +46,7 @@ There are no need in configuring Defguard itself (aside from adding SSH keys for
 
 Paste this example. This script fetches users SSH keys in specified group from Defguard instance.
 
-```bash
+```sh
 #!/bin/sh
 curl defguard.example.com/api/v1/ssh_authorized_keys?group=ssh-access
 ```
@@ -75,7 +75,7 @@ Other script examples which can be useful in different server setups:
 
 * only allow user `admin` SSH keys to be used in authorization process
 
-```bash
+```sh
 #!/bin/sh
 
 curl defguard.example.com/api/v1/ssh_authorized_keys?username=admin
@@ -83,7 +83,7 @@ curl defguard.example.com/api/v1/ssh_authorized_keys?username=admin
 
 * allow all users in `admin` group to log in, but only to `adminuser` account
 
-```bash
+```sh
 #!/bin/sh
 
 test $# -ne 1 -o "${1}" != 'adminuser' && exit 1

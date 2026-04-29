@@ -4,9 +4,8 @@ On some Linux distributions, including Debian 12 and 13, the Defguard client may
 
 Install it with:
 
-```bash
+```sh
 sudo apt install openresolv
 ```
 
 Retry the connection after installation.
-

@@ -13,10 +13,10 @@ To deploy and use Defguard on your cluster, you'll need:
 
 * A [Kubernetes cluster](https://kubernetes.io/docs/setup/)
 * Kubernetes CLI [kubectl](https://kubernetes.io/docs/reference/kubectl/) installed on your machine
-* Helm binary https://github.com/helm/helm/releases/latest
+* Helm [binary](https://github.com/helm/helm/releases/latest)
 
 {% hint style="warning" %}
-The Helm charts currently support only **Traefik ingress – which is relevant and affects exposing gRPC services (see below** `ingress.hosts.grpc`**`).`**
+The Helm charts currently support only **Traefik ingress – which is relevant and affects exposing gRPC services** (see below)
 {% endhint %}
 
 Kubernetes configuration can be found in the [git repository](https://github.com/DefGuard/deployment).
@@ -25,19 +25,19 @@ Kubernetes configuration can be found in the [git repository](https://github.com
 
 Add Defguard Helm chart repository:
 
-```shell
+```sh
 helm repo add defguard https://defguard.github.io/deployment
 ```
 
 In Kubernetes cluster, create a namespace for Defguard:
 
-```shell
+```sh
 kubectl create namespace defguard
 ```
 
 Examine available values for the Helm chart:
 
-```shell
+```sh
 helm show values defguard/defguard
 ```
 
@@ -49,7 +49,7 @@ If use other ingress controller than [Traefik](https://doc.traefik.io/traefik/),
 
 Install the Helm chart in the namespace:
 
-```shell
+```sh
 helm install --wait=true --namespace defguard defguard defguard -f values.yaml
 ```
 

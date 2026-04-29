@@ -4,7 +4,7 @@ This error commonly appears on Ubuntu 22. The Defguard client uses `resolvconf` 
 
 Before proceeding, verify that `systemd-resolved` is running:
 
-```bash
+```sh
 systemctl status systemd-resolved
 ```
 
@@ -12,7 +12,7 @@ systemctl status systemd-resolved
 
 On Ubuntu 23 and later, `resolvconf` is a symbolic link to `resolvectl` by default. On Ubuntu 22 this link does not exist. The straightforward fix is to create it manually:
 
-```bash
+```sh
 sudo ln -s /usr/bin/resolvectl /usr/sbin/resolvconf
 ```
 
@@ -24,16 +24,16 @@ If DNS servers are configured in the location but users cannot resolve internal 
 
 1.  **Routing** — confirm requests to the network segments where your DNS servers reside are routed through the WireGuard interface:
 
-    ```bash
+    ```sh
     ip route
     ```
 2.  **WireGuard allowed IPs** — confirm the DNS server network segments appear in the `allowed ips` list for the peer:
 
-    ```bash
+    ```sh
     sudo wg
     ```
 3.  **Manual resolution test** — try resolving a name directly through one of your internal DNS servers:
 
-    ```bash
+    ```sh
     dig @DNS_SERVER_IP my.internal.service.com
     ```

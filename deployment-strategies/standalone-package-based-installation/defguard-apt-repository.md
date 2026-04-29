@@ -18,7 +18,7 @@ Packages are available on the default `trixie` repository distribution.
 
 To add Defguard APT repository, run following commands in your terminal:
 
-```shell
+```sh
 sudo apt update 
 sudo apt install -y ca-certificates curl 
 #Add official Defguard public GPG key
@@ -41,7 +41,7 @@ After new release, simply use `sudo apt update` to update repository.
 
 Defguard has two separate components on one APT repository, **release** and **pre-release.** If you want to install packages from pre-release, simply change `release` to `pre-release` in the installation steps described above, or run the following line.
 
-```shell
+```sh
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/defguard.asc] https://apt.defguard.net/ trixie pre-release " | \
    sudo tee /etc/apt/sources.list.d/defguard.list > /dev/null 
    
@@ -52,24 +52,24 @@ sudo apt update
 
 Defguard Core:
 
-```shell
+```sh
 sudo apt install defguard
 ```
 
 Defguard Proxy:
 
-```shell
+```sh
 sudo apt install defguard-proxy
 ```
 
 Defguard Gateway:
 
-```shell
+```sh
 sudo apt install defguard-gateway
 ```
 
 Defguard Client:
 
-```shell
+```sh
 sudo apt install defguard-client
 ```

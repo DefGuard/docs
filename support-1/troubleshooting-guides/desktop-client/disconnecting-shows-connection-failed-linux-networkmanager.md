@@ -10,7 +10,7 @@ Tell `NetworkManager` to ignore all interfaces created by Defguard. Defguard tun
 
 **1. Create the config file:**
 
-```bash
+```sh
 sudo nano /etc/NetworkManager/conf.d/90-defguard.conf
 ```
 
@@ -23,7 +23,7 @@ unmanaged-devices=interface-name:wg*
 
 **3. Save and restart `NetworkManager`:**
 
-```bash
+```sh
 sudo systemctl restart NetworkManager
 ```
 

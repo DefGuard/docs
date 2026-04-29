@@ -138,13 +138,13 @@ The example configurations can be downloaded from the Defguard deployment reposi
 
 If you wish, you can also clone the whole repository using the following command:
 
-```bash
+```sh
 git clone https://github.com/DefGuard/deployment.git
 ```
 
 And then navigate to the `terraform/examples` directory to find the example configurations.
 
-```bash
+```sh
 cd deployment/terraform
 ```
 
@@ -152,7 +152,7 @@ To use any of the examples, you can copy or download the `main.tf.example` file 
 
 To run the examples, use the following commands:
 
-```bash
+```sh
 # To initialize all the modules and providers, run:
 terraform init
 
@@ -165,7 +165,7 @@ terraform apply -var="aws_access_key=<YOUR_ACCESS_KEY>" -var="aws_secret_key=<YO
 
 or if using OpenTofu:
 
-```bash
+```sh
 # To initialize all the modules and providers, run:
 tofu init
 
@@ -178,7 +178,7 @@ tofu apply -var="aws_access_key=<YOUR_ACCESS_KEY>" -var="aws_secret_key=<YOUR_SE
 
 After running these commands, Terraform will create the necessary resources in your AWS account and deploy Defguard. The output will include the public and private addresses for Core, Proxy and gateway components:
 
-```bash
+```sh
 Apply complete! Resources: 35 added, 0 changed, 0 destroyed.
 
 Outputs:
@@ -526,7 +526,7 @@ All components are deployed as systemd services on the host EC2. Their configura
 
 You can check the status of any Defguard component by SSHing into the corresponding EC2 instance and running the following command:
 
-```bash
+```sh
 sudo systemctl status <component>
 ```
 
@@ -536,7 +536,7 @@ Where `<component>` is one of `defguard`, `defguard-gateway`, or `defguard-proxy
 
 To display the logs of the service, SSH into the corresponding EC2 instance and run the following command:
 
-```bash
+```sh
 sudo journalctl -u <component>
 ```
 

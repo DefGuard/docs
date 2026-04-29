@@ -74,7 +74,7 @@ services:
 
 To run the service with Docker Compose, execute this command:
 
-```shell
+```sh
 docker compose up
 ```
 

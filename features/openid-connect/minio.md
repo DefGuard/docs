@@ -16,7 +16,7 @@ MinIO, like Django, requires Defguard to use RSA key instead of our default HMAC
 
 Generate RSA key file if you don't have one :
 
-```bash
+```sh
 openssl genpkey -out rsakey.pem -algorithm RSA -pkeyopt rsa_keygen_bits:2048
 ```
 

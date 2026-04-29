@@ -51,7 +51,7 @@ Please, refer to [Backup and Restore](https://www.postgresql.org/docs/current/ba
 
 Example database backup of **postgres** Docker container:
 
-```bash
+```sh
 docker exec {database_container_name} pg_dump -U {user_name} > {backup_file_name}
 ```
 

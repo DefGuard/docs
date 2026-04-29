@@ -12,7 +12,7 @@ Add routing rules on the gateway server so that traffic arriving from the VPN IP
 
 For internet access through the VPN, or when you want to hide client IPs, configure masquerading or NAT on the gateway server. Example for `iptables`:
 
-```bash
+```sh
 iptables -t nat -A POSTROUTING -s 10.1.1.0/24 -o eth0 -j MASQUERADE
 ```
 
@@ -20,7 +20,7 @@ Replace `10.1.1.0/24` with your VPN network range and `eth0` with your external 
 
 Also enable IP forwarding if it is not already active:
 
-```bash
+```sh
 echo 1 > /proc/sys/net/ipv4/ip_forward
 ```
 

@@ -21,25 +21,25 @@ Choose the release you want to install, then download it either by using a web b
 
 To download the package to using [wget](https://www.gnu.org/software/wget/), issue a command:
 
-```shell
+```sh
 wget <URL to the chosen package>
 ```
 
 for example:
 
-```shell
+```sh
 wget https://github.com/DefGuard/proxy/releases/download/v2.0.0/defguard-proxy-2.0.0-x86_64-unknown-linux-gnu.deb
 ```
 
 To download the package to using [curl](https://curl.se/), issue a command:
 
-```shell
+```sh
 curl -OLf <URL to the chosen package>
 ```
 
 for example:
 
-```shell
+```sh
 curl -OLf https://github.com/DefGuard/proxy/releases/download/v2.0.0/defguard-proxy-2.0.0-x86_64-unknown-linux-gnu.deb
 ```
 
@@ -47,19 +47,19 @@ Once the package is downloaded, install it using the package tool appropriet to 
 
 On Debian/Ubuntu:
 
-```shell
+```sh
 sudo dpkg -i defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.deb
 ```
 
 On Fedora/Red Hat/SUSE:
 
-```shell
+```sh
 sudo rpm -i defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.rpm
 ```
 
 On FreeBSD:
 
-```shell
+```sh
 pkg add defguard-proxy-X.Y.Z_x86_64-unknown-freebsd.pkg
 ```
 
@@ -101,13 +101,13 @@ If there are changes to the configuration file, it is required to restart Defgua
 
 On Linux:
 
-```shell
+```sh
 systemctl restart defguard-proxy
 ```
 
 On BSD:
 
-```shell
+```sh
 /usr/local/etc/rc.d/defguard-proxy restart
 ```
 
@@ -115,7 +115,7 @@ On BSD:
 
 On Linux, logs can be viewed using `journalctl` command:
 
-```shell
+```sh
 # journalctl -u defguard-proxy.service | tail -n 50
 2024-07-27T16:53:58.584154Z INFO defguard_proxy::tracing: Tracing initialized
 2024-07-27T16:53:58.584233Z INFO defguard_proxy::http: Starting Defguard proxy server

@@ -35,7 +35,7 @@ When booting the machine for the first time, the whole Defguard stack will be la
 
 To verify that Defguard is running, use the following command inside the VM:
 
-```bash
+```sh
 sudo docker ps
 ```
 
@@ -102,7 +102,7 @@ In Proxmox, save the snippet to (or your selected snippet directory, if you are 
 
 Then attach it to the VM on which you want to run the selected Defguard component:
 
-```bash
+```sh
 qm set <ID_OF_THE_VM> --cicustom "vendor=local:snippets/defguard-core-userdata.yaml"
 ```
 
