@@ -77,6 +77,10 @@ The script does the following:
 * Automatically adopts all Defguard components (Edge, Gateway)
 * Starts the compose stack
 
+{% hint style="info" %}
+The script by default enables masquerade on the Gateway container, allowing all traffic coming through the VPN to leave the container and reach any destination the host has access to. To disable this behavior see the relevant [configuration](one-line-install.md#cli-options) option or setup proper [ACL](../features/access-control-list/)/firewall rules.
+{% endhint %}
+
 ## Prerequisites
 
 In order to work, the script requires some specific tools to be available and also some infrastructure-level settings to be pre-configured.
@@ -104,15 +108,6 @@ This setup should be deployed on a bare-metal or a virtual (VM) server - it will
 * Firewall rules
   * allow incoming traffic on chosen VPN port
   * allow incoming traffic on 443 port (Edge HTTP traffic)
-
-## Configuration
-
-There are several options that can be configured to customize your Defguard instance. They can be provided to the script in the following ways:
-
-* By setting environment variables in your shell
-* By providing an `.env` file in the working directory
-* By running the script manually and setting CLI options
-* By providing user input
 
 ### CLI options
 
