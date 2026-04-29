@@ -37,7 +37,7 @@ Make sure the Redirect URL you insert here is correct. The full list of redirect
     <figure><img src="../../.gitbook/assets/obraz (13).png" alt=""><figcaption></figcaption></figure>
 8. Go to `Certificates & secrets` and create a new client secret. Copy its **value.**
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (215).png" alt=""><figcaption></figcaption></figure>
 
 9. Go to Token configuration (in the menu on the left) and add a new optional token claim.
 10. Make sure to select the ID token type and the following claims:
@@ -83,10 +83,6 @@ Make sure to check the [general guide to directory synchronization](./#directory
 
     <figure><img src="../../.gitbook/assets/image (163).png" alt=""><figcaption></figcaption></figure>
 7. You should be good to go now. Navigate to the directory sync settings in Defguard and try to test your setup using the test connection button.
-
-
-
-
 
 ## Configuring Microsoft as external OIDC in Defguard
 

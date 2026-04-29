@@ -11,7 +11,6 @@ Defguard client supports manual MTU configuration to ensure stable VPN connectio
 
 Adjusting the MTU reduces packet size so traffic fits within network constraints, improving reliability without server-side changes. Typical working values are in the **1300-1500** range.
 
-<figure><img src="../../.gitbook/assets/image (215).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (214).png" alt=""><figcaption></figcaption></figure>
 
 ***
-

@@ -17,7 +17,7 @@ Biometry can be configured during adding Instance. If you skip this step, you wi
 
 1. First, start the process of adding a new Instance ([check this article](instance-adding.md#adding-instance-in-defguard)). You will see this screen.
 
-<figure><img src="../../.gitbook/assets/defguard-mobile-biometry-setup (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/defguard-mobile-biometry-setup.png" alt="" width="375"><figcaption></figcaption></figure>
 
 2. Click **Yes**, after confirming your biometry method, you will see the following screen.
 
