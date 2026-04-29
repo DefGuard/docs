@@ -113,9 +113,9 @@ Deploy this setup on a bare-metal server or a virtual machine. It will **not run
 
     * Allow incoming traffic on the VPN UDP port chosen during the web wizard
     * Allow incoming traffic on one of the following ports:
-      * If you chose NOT to provision HTTPS: TCP 8080
-      * If you chose to provision HTTPS using self signed certificates or your own uploaded certificates: TCP 443
-      * If you chose to provision HTTPS using Let's Encrypt: TCP 443 and TCP 80 (required for domain validation)
+      * If you chose NOT to provision HTTPS: **TCP 8080**
+      * If you chose to provision HTTPS using self signed certificates or your own uploaded certificates: **TCP 443**
+      * If you chose to provision HTTPS using Let's Encrypt: **TCP 443** and **TCP 80** (required for domain validation)
 
 
 
