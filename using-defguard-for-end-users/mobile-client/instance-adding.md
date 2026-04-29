@@ -15,7 +15,7 @@ If you are after the enrollment process, please follow [this guide](instance-add
 
 1.  Go to your enrollment page. Click **Select** under "Enrollment process".<br>
 
-    <figure><img src="../../.gitbook/assets/chrome_yDm9p3U3RX (1).png" alt="" width="563"><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/chrome_yDm9p3U3RX.png" alt="" width="563"><figcaption></figcaption></figure>
 2.  In this example we use Google as OIDC provider so our button is "Sign in with Google". Your organization can use different OIDC provider.<br>
 
     <figure><img src="../../.gitbook/assets/image (318).png" alt="" width="563"><figcaption></figcaption></figure>
