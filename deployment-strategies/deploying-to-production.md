@@ -15,8 +15,8 @@ Before you start your deployment, take a moment to learn about Defguard.
 
 The following articles will help you make deployment decisions and understand which features you may want to configure afterward. Make sure to read them carefully.
 
-* [Defguard's features](../about/features-overview.md)
-* [Defguard's architecture](../in-depth/architecture/)
+* [Defguard’s features](../about/features-overview.md)
+* [Defguard’s architecture](../in-depth/architecture/)
 {% endstep %}
 
 {% step %}
@@ -56,7 +56,6 @@ For a detailed list of all configurable things through environmental variables, 
 
 Optional but recommended additional steps:
 
-* [Securing internal gRPC communication](grpc-ssl-communication.md)
 * [Configuring backups](setting-up-your-instance.md#backup)
 * [Setting up for high availability and failover](high-availability-and-failover/)
 {% endstep %}

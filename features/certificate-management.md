@@ -20,7 +20,7 @@ CA details and the CA certificate remain available on the Settings page after se
 
 <figure><img src="../.gitbook/assets/image (240).png" alt=""><figcaption></figcaption></figure>
 
-When using the Defguard CA, client devices must trust its CA certificate for certificates issued by Defguard to be recognized without warnings. In practice, this usually means downloading the CA certificate and importing it into the operating system trust store or directly into the browser, depending on your environment.&#x20;
+When using the Defguard CA, client devices must trust its CA certificate for certificates issued by Defguard to be recognized without warnings. In practice, this usually means downloading the CA certificate and importing it into the operating system trust store or directly into the browser, depending on your environment.
 
 Once the CA certificate is trusted, certificates issued for Core and Edge will be treated as valid by that client, as long as the hostname matches. If the CA certificate is not trusted, browsers and other clients will show certificate warnings even though the connection is still encrypted.
 

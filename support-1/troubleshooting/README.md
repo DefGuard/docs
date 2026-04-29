@@ -35,7 +35,7 @@ Also, there is a setting in the location named _Peer Disconnect Threshold (secon
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-11-15 at 18.25.33.png" alt="" width="375"><figcaption></figcaption></figure>
 
-This setting specifies that if the **peer is inactive for&#x20;**_**(defined seconds)**_, the gateway **should remove it from the configuration** (as it should not be persistent since MFA is required).
+This setting specifies that if the **peer is inactive for (defined seconds)**_, the gateway **should remove it from the configuration** (as it should not be persistent since MFA is required).
 
 So if you are disconnected from the location:
 

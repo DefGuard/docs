@@ -9,7 +9,7 @@ metaLinks:
 
 Firstly, we need to obtain credentials such as
 
-* `Client ID`&#x20;
+* `Client ID`
 * `Client secret`
 * `Admin email` (optionally)
 * `Service account key` (optionally)

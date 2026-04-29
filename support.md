@@ -8,15 +8,15 @@ metaLinks:
 
 ## Troubleshooting guide
 
-We developed a comprehensive [troubleshooting guide](support-1/troubleshooting/) to help resolve your issue. We've put significant effort into ensuring it's current and thorough.
+We developed a comprehensive [troubleshooting guide](support-1/troubleshooting/) to help resolve your issue. We’ve put significant effort into ensuring it’s current and thorough.
 
 ## Community support (for all plans)
 
-Having trouble with Defguard deployment or configuration? Reach out to our community for help.&#x20;
+Having trouble with Defguard deployment or configuration? Reach out to our community for help.
 
 Support is provided both by the community and by us (the Defguard authors) using GitHub Discussions. Create a new discussion using this [form](https://github.com/DefGuard/defguard/discussions/new/choose).
 
-## Email Support (for paid plans only)
+## Email support (for paid plans only)
 
 If you have bought a [Business or Enterprise license](https://defguard.net/pricing/), you can reach us at our support email [support@defguard.net](mailto:support@defguard.net).
 
@@ -26,7 +26,7 @@ Please remember to send your support request from the same domain used when purc
 
 ## Found a bug? Need a feature?
 
-* Here you can submit [a bug](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=bug\&projects=\&template=bug_report.md\&title=)
+* Here you can submit [a bug report](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=bug\&projects=\&template=bug_report.md\&title=)
 * And here you can submit [a feature request](https://github.com/DefGuard/defguard/issues/new?assignees=\&labels=feature\&projects=\&template=feature_request.md\&title=)
 
 ## Solved an issue yourself?

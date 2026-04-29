@@ -16,7 +16,7 @@ While in the network device menu, click the "Add new network device" button.
 
 <figure><img src="../.gitbook/assets/image (266).png" alt=""><figcaption></figcaption></figure>
 
-&#x20;You will be presented with a popup prompting you to select your method of setting up the network device.
+You will be presented with a popup prompting you to select your method of setting up the network device.
 
 * **Defguard Command Line Client -** choose it to automatically configure your device with the [Defguard CLI client](../using-defguard-for-end-users/cli-client.md)
 * **Manual WireGuard Client** - choose it if you don't want to use the Defguard CLI client. You will need to configure your network device manually with a WireGuard config file.

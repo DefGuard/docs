@@ -33,7 +33,7 @@ To view the mobile client logs open the side menu by tapping the menu icon.
 
 <figure><img src="../../.gitbook/assets/F64A30B5-AD40-431A-A72E-467A7EAFDC1F (1).PNG" alt="" width="375"><figcaption></figcaption></figure>
 
-Tap the _View Application Logs_ link from the side menu.&#x20;
+Tap the _View Application Logs_ link from the side menu.
 
 <figure><img src="../../.gitbook/assets/0257A34A-D5E0-4D6D-9627-EA5149B891A1.PNG" alt="" width="375"><figcaption></figcaption></figure>
 

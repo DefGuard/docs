@@ -7,7 +7,7 @@ metaLinks:
 
 # JumpCloud
 
-Firstly, we need to obtain credentials such as&#x20;
+Firstly, we need to obtain credentials such as
 
 * `Client ID`
 * `Client secret`

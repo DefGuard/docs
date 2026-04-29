@@ -36,7 +36,7 @@ This information is then sent to the third party application as an `ID Token` wh
 
 #### Client creation
 
-To enable logging in with third-party application first you need to register it as new **OpenID client**.&#x20;
+To enable logging in with third-party application first you need to register it as new **OpenID client**.
 
 To do it, navigate to **OpenID applications** on the left side navigation, then click **Add new application.**
 
@@ -47,7 +47,7 @@ After clicking "**Add new application**" button, you will see "**Add new OpenID 
 <figure><img src="../../.gitbook/assets/image (255).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-**Application name** - Your application name&#x20;
+**Application name** - Your application name
 
 **Redirect URL** - URL to which user will be redirected with generated PKCE code example (`https://myapp.com/redirect_uri`).  You can specify multiple redirect URL, to add another click "**Add URL".**
 
@@ -182,7 +182,7 @@ grant_type=authorization_code
 ```
 
 {% hint style="info" %}
-ID Tokens are signed using RS256 (RSA Signature with SHA-256).&#x20;
+ID Tokens are signed using RS256 (RSA Signature with SHA-256).
 
 The public key is available via endpoint `/api/v1/oauth/discovery/keys`
 {% endhint %}

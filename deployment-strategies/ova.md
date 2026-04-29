@@ -9,7 +9,7 @@ The latest image can be downloaded here: [https://defguard-downloads.s3.eu-centr
 After importing the image, make sure to:
 
 1. Attach an appropriate network interface so the virtual machine can access your network.
-2. If you would like to change default user/password you can [do so with cloud-init](https://docs.cloud-init.io/en/latest/reference/yaml_examples/set_passwords.html) - if not, default user ubuntu with pass ubuntu will be created.&#x20;
+2. If you would like to change default user/password you can [do so with cloud-init](https://docs.cloud-init.io/en/latest/reference/yaml_examples/set_passwords.html) - if not, default user ubuntu with pass ubuntu will be created.
 
 ### Setting up Defguard
 

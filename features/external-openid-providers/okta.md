@@ -7,7 +7,7 @@ metaLinks:
 
 # Okta
 
-Firstly, we need to obtain credentials such as&#x20;
+Firstly, we need to obtain credentials such as
 
 * `Tenant ID`
 * `Client ID`

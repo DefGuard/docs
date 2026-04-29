@@ -62,7 +62,7 @@ INFO vector::app: Loading configs. paths=["/etc/vector/vector.toml"]
 
 ### Add Vector destination
 
-In Defguard UI with an administrator account, go into settings page and choose `Activity log streaming` tab.&#x20;
+In Defguard UI with an administrator account, go into settings page and choose `Activity log streaming` tab.
 
 Click `Add log streaming` and choose `Vector` destination.
 

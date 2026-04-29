@@ -100,7 +100,6 @@
 * [Migration guides](deployment-strategies/upgrading.md)
 * [Using a userspace wireguard-go implementation](deployment-strategies/using-a-userspace-wireguard-go-implementation.md)
 * [Pre-production and development releases](deployment-strategies/pre-production-and-development-releases.md)
-* [Securing gRPC communication](deployment-strategies/grpc-ssl-communication.md)
 * [Health check](deployment-strategies/health-check.md)
 * [Production deployment verification guide](deployment-strategies/production-deployment-verification-guide.md)
 * [Linux Kernel WireGuard tuning](deployment-strategies/linux-kernel-wireguard-tuning.md)

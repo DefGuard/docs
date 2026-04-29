@@ -14,12 +14,12 @@ metaLinks:
 * Import your current WireGuard server configuration (with a wizard!)
 * _Easy_ device setup by users themselves (self-service)
 * Automatic IP allocation
-* Kernel (Linux, FreeBSD/OPNSense/PFSense) & userspace WireGuard support
+* Kernel (Linux, FreeBSD/OPNSense/PFSense) and userspace WireGuard support
 * [Dashboard and statistics overview](../features/wireguard/network-overview.md) of connected users/devices for admins
 
 _Defguard is not an official WireGuard project, and WireGuard is a registered trademark of Jason A. Donenfeld._
 
-### [_Activity & Audit Logs_](../features/activity-log/)
+### [Activity and audit Logs](../features/activity-log/)
 
 * User event logging with detailed metadata
 * Advanced filtering and search by user, module, event type and time range
@@ -66,10 +66,10 @@ _Defguard is not an official WireGuard project, and WireGuard is a registered tr
 
 ### YubiKey Provisioning
 
-[YubiKey hardware keys](https://www.yubico.com/) provisioning for users with _one click_
+[YubiKey hardware keys](https://www.yubico.com/) provisioning for users with _one click_.
 
 ### Integrations
 
 [Webhooks](../features/integrations/webhooks.md) & [REST API](../features/integrations/api-tokens.md)
 
-Build with [Rust](https://www.rust-lang.org/) for portability, security, and speed
+Build with [Rust](https://www.rust-lang.org/) for portability, security, and speed.
