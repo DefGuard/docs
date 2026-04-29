@@ -9,16 +9,15 @@ metaLinks:
 
 If you (or your Defguard administrator) have added a new VPN Location and you would like to connect to that location from your **existing device** (for which you have downloaded configuration for any previous locations), you need to:
 
-1. Go to **your profile** (_My Profile -_ which you'll find on the navigation on the left side of the screen)
-2. Click on the **gear icon on the device you want to download Location configuration** - a menu for that device will apear:
+1. Go to your account profile.
+2. Open Devices tab.
+3.  Click on device action button and choose **Show configuration**.<br>
 
-<figure><img src="../../.gitbook/assets/device-newlocation.png" alt=""><figcaption></figcaption></figure>
-
-3. Choose **Show configuration**
+    <figure><img src="../../.gitbook/assets/image (337).png" alt="" width="563"><figcaption></figcaption></figure>
 
 The same configuration screen will popup as you were adding this device, but now you can choose a new location:
 
-<figure><img src="../../.gitbook/assets/device-newlocation2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (338).png" alt="" width="488"><figcaption></figcaption></figure>
 
 4. **Download and configure your Wireguard VPN** exactly the same way you did it during the [adding device process](./).
 

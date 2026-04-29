@@ -15,10 +15,10 @@ If you don't have access to Defguard you can reset your password with a link tha
 
 The same URL you have used to do your remote enrollment & onboarding has the functionality of password reset:
 
-<figure><img src="../.gitbook/assets/password-reset.pg.png" alt=""><figcaption><p>Password reset in enrollment service</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (333).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-The enrollemnt service URL should be avaialbe in the onboarding email you have received when finishing the [onboarding\&enrollment process.](enrollment/)
+The enrollement service URL should be available in the onboarding email you have received when finishing the [onboarding\&enrollment process.](enrollment/)
 {% endhint %}
 
 #### By admin
