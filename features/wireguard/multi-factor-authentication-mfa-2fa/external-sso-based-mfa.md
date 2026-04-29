@@ -12,7 +12,7 @@ In order to enable the External MFA authentication:
 1. Your instance **must have** [external OIDC/SSO configured](../../external-openid-providers/).
 2. Choose **External MFA** during location configuration or edit the desired location from **Locations** list.
 
-<figure><img src="../../../.gitbook/assets/image (305).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (304).png" alt=""><figcaption></figcaption></figure>
 
 #### Client disconnect threshold
 

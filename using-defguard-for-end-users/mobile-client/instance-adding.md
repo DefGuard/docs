@@ -13,18 +13,15 @@ If you are after the enrollment process, please follow [this guide](instance-add
 
 ## Enrollment via external SSO
 
-1. Go to your enrollment page. Click **Select** under "Enrollment process".
+1.  Go to your enrollment page. Click **Select** under "Enrollment process".<br>
 
-<figure><img src="../../.gitbook/assets/defguard-enrollment-options.png" alt="" width="50%"><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/chrome_yDm9p3U3RX (1).png" alt="" width="563"><figcaption></figcaption></figure>
+2.  In this example we use Google as OIDC provider so our button is "Sign in with Google". Your organization can use different OIDC provider.<br>
 
-2. In this example we use Google as OIDC provider so our button is "Sign in with Google". Your organization can use different OIDC provider.
+    <figure><img src="../../.gitbook/assets/image (318).png" alt="" width="563"><figcaption></figcaption></figure>
+3.  You will be redirected to your OIDC provider login page, please log in. After doing this, you will be redirected and shown a screen with **URL, Token and QR Code**.<br>
 
-<figure><img src="../../.gitbook/assets/defguard-enrollment-by-sso.png" alt="" width="50%"><figcaption></figcaption></figure>
-
-3. You will be redirected to your OIDC provider login page, please log in. After doing this, you will be redirected and shown a screen with **URL, Token and QR Code**.
-
-<figure><img src="../../.gitbook/assets/defguard-enrollment-sso-qr-url.png" alt="" width="50%"><figcaption></figcaption></figure>
-
+    <figure><img src="../../.gitbook/assets/chrome_uX7nvcTrjA.png" alt="" width="375"><figcaption></figcaption></figure>
 4. Open Defguard Mobile on your smartphone
 5. Click **Scan QR Code**
 
@@ -42,51 +39,9 @@ If you can't scan QR Code, select **Add Instance Manually** in **step 5** and en
 
 Find enrollment **Instance URL** and **Token** in your "Defguard user enrollment" email. It should look like this:
 
-<figure><img src="../../.gitbook/assets/defguard-enrollment-email.png" alt="" width="50%"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/brave_sDhXB25D0I.png" alt="" width="479"><figcaption></figcaption></figure>
 
-If you want to enroll via Web Browser, click **Start enrollment** or:
-
-1. Go to your enrollment page. Click **Select** under "Enrollment process".
-
-<figure><img src="../../.gitbook/assets/defguard-enrollment-options.png" alt="" width="50%"><figcaption></figcaption></figure>
-
-2. Enter your **Token** and click **Send**.
-
-<figure><img src="../../.gitbook/assets/defguard-enrollment-by-token.png" alt="" width="50%"><figcaption></figcaption></figure>
-
-Now, follow [Enrollment via Web Browser](instance-adding.md#enrollment-via-web-browser) guide.
-
-## Enrollment via Web Browser
-
-1. Upon starting enrollment process you will see something like this: **Before proceeding, read the text carefully, as it may contain important information given by your administrator,** then click **Next**.
-
-<figure><img src="../../.gitbook/assets/defguard-enrollment-step1.png" alt="" width="50%"><figcaption></figcaption></figure>
-
-2. In this step you can optionally enter your phone number after entering it. Proceed by clicking the **Next** button.
-
-<figure><img src="../../.gitbook/assets/defguard-enrollment-step2.png" alt="" width="50%"><figcaption></figcaption></figure>
-
-3. Now, you need to set up your password. After entering the password, proceed by clicking **Next**.
-
-<figure><img src="../../.gitbook/assets/defguard-enrollment-step3.png" alt="" width="50%"><figcaption></figcaption></figure>
-
-4. This is the step where we can add our mobile device. Enter the name of your device, then click **Create Configuration**.
-
-<figure><img src="../../.gitbook/assets/defguard-enrollment-step4.png" alt="" width="50%"><figcaption></figcaption></figure>
-
-5. You will see a screen like this.
-
-<figure><img src="../../.gitbook/assets/defguard-enrollment-step4-qr.png" alt="" width="50%"><figcaption></figcaption></figure>
-
-6. Open Defguard on your mobile device. Click **Scan QR Code**, and scan the code from **step 5**.
-
-<figure><img src="../../.gitbook/assets/defguard-mobile-add-instance.png" alt="" width="375"><figcaption></figcaption></figure>
-
-7. After scanning the QR code, enter the name of your device and confirm.
-
-{% hint style="info" %}
-If you can't scan QR Code, select **Add Instance Manually** in **step 6** and enter URL and Token from **step 5**.
-{% endhint %}
+Now proceed enrollment with your Client app.
 
 ## Adding Instance in Defguard
 

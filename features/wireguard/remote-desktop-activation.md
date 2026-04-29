@@ -28,7 +28,7 @@ This option is only available if the instance has at least one localization, and
 
 You will be presented with a choice to send an activation token via email or you can choose to just display the token and deliver it through other methods.
 
-<figure><img src="../../.gitbook/assets/image (310).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (309).png" alt="" width="375"><figcaption></figcaption></figure>
 
 After receiving the token, the user will need to follow the activation process in the client. You can find out more about it in [#adding-instance](../../using-defguard-for-end-users/desktop-client/instance-configuration.md#adding-instance "mention").
 

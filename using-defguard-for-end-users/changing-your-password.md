@@ -23,7 +23,7 @@ The enrollemnt service URL should be avaialbe in the onboarding email you have r
 
 #### By admin
 
-Ask your administrator to send you the password reset link.
+Ask your administrator to assist you.
 
 {% hint style="info" %}
 You should have you admin contact data on the onboarding message that was sent automatically after you have finished the [onboarding\&enrollment process.](enrollment/)
@@ -31,14 +31,10 @@ You should have you admin contact data on the onboarding message that was sent a
 
 ## Changing your password in Defguard
 
-Go to _My Profile_ and click _Edit:_
+Click **Change password** button in **Password and authentication**.
 
-<figure><img src="../.gitbook/assets/up-edit.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (320).png" alt=""><figcaption></figcaption></figure>
 
-Then scroll down and choose _Change Password:_
+Set up a new secure password according to the password rules and click **Change password**_._
 
-<figure><img src="../.gitbook/assets/up-change-password1.png" alt=""><figcaption></figcaption></figure>
-
-Set up a new secure password according to the password rules and click _Save new password_
-
-<figure><img src="../.gitbook/assets/up-change-password2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (321).png" alt="" width="372"><figcaption></figcaption></figure>

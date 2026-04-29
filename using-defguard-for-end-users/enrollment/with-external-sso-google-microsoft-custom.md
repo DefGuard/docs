@@ -7,22 +7,18 @@ metaLinks:
 
 # With external SSO (Google/Microsoft/Custom)
 
-{% hint style="info" %}
-This features is available from Defguard 1.1
-{% endhint %}
-
 In this scenario, Defguard is only the VPN system and enrollment is used just to obtain credentials to configure the [Defguard Desktop Client](../desktop-client/).
 
 Please go to the enrollment URL, like: https://enrollment.company.com and choose Enrollment:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-11-15 at 18.48.20.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (328).png" alt=""><figcaption></figcaption></figure>
 
 Then all you have to do is click on your SSO login - the button name depends on the SSO you have configured:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-11-15 at 18.49.54 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/brave_geOuc6VqyY (1).png" alt=""><figcaption></figcaption></figure>
 
-Now log in with your SSO and after successful login process, you will receive information how to configure your desktop client:
+Now log in with your SSO and after successful login process, you will receive information how to download and configure your client.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-11-15 at 18.52.56.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (326).png" alt="" width="563"><figcaption></figcaption></figure>
 
-Download the [Defguard desktop client](https://defguard.net/download/), and [enter _Instance URL_ and _token_ shown on this screen - more details here](https://github.com/DefGuard/docs/blob/v1.6/using-defguard-for-end-users/enrollment/broken-reference/README.md).
+<figure><img src="../../.gitbook/assets/image (327).png" alt="" width="563"><figcaption></figcaption></figure>
