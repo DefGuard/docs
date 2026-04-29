@@ -18,7 +18,7 @@ Each Defguard component serves a distinct purpose, ensuring clear functional iso
 
 * The Core operates as the _control plane_: storing state, enforcing policy, and managing users and devices.
 * The Gateway serves as the _data plane_: forwarding traffic, enforcing ACLs, and maintaining local operational independence.
-* The Proxy acts as a _secure edge layer_: handling user-facing traffic and offloading authentication flows.
+* The Edge acts as a _secure edge layer_: handling user-facing traffic and offloading authentication flows.
 
 This modular architecture simplifies scaling, security audits, and upgrades.
 
@@ -36,7 +36,7 @@ This ensures the smallest possible attack surface while still supporting remote 
 
 Every communication layer is protected by redundant and complementary security mechanisms:
 
-* All internal API traffic uses [gRPC](https://grpc.io/) (TLS communication is enforces automatically).
+* All internal API traffic uses [gRPC](https://grpc.io/) (TLS communication is enforced automatically).
 * Firewall rules restrict network flows to specific IP addresses and ports.
 * Sensitive services (Core, database) are deployed in private network segments inaccessible from the internet.
 

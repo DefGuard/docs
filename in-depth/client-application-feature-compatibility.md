@@ -7,7 +7,7 @@ metaLinks:
 
 # Client application feature compatibility
 
-Defguard consists of multiple **server-side components** (Core, Gateway, Proxy) and multiple **client applications** (Desktop, Mobile).
+Defguard consists of multiple **server-side components** (Core, Gateway, Edge) and multiple **client applications** (Desktop, Mobile).
 
 For the purpose of compatibility and feature availability, this documentation assumes that:
 

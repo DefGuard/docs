@@ -16,7 +16,7 @@ Packages are available on the default `trixie` repository distribution.
 
 ### Adding Defguard APT repository
 
-To add Defguard APT repository, run following commands in your terminal:
+To add Defguard APT repository, run the following commands in your terminal:
 
 ```sh
 sudo apt update 
@@ -27,7 +27,7 @@ sudo curl -fsSL https://apt.defguard.net/defguard.asc -o /etc/apt/keyrings/defgu
 sudo chmod a+r /etc/apt/keyrings/defguard.asc
 
 #Add APT repository
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/defguard.asc] https://apt.defguard.net/ trixie release " | \
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/defguard.asc] https://apt.defguard.net/ trixie release" | \
    sudo tee /etc/apt/sources.list.d/defguard.list > /dev/null 
 
 sudo apt update
@@ -39,10 +39,17 @@ After new release, simply use `sudo apt update` to update repository.
 
 ### Using pre-release builds
 
-Defguard has two separate components on one APT repository, **release** and **pre-release.** If you want to install packages from pre-release, simply change `release` to `pre-release` in the installation steps described above, or run the following line.
+Defguard APT repository has there components:
+
+* **release**: for stable releases of v1.x packages
+* **pre-release**: for pre-release versions of v1.x packages
+* **release-2.0**: for stable releases of v2.0 packages
+* **pre-release-2.0**: for pre-release versions of v2.0 packages
+
+For example, if you want to install packages from pre-release, simply change `release` to `pre-release` in the installation steps described above, or run the following commands:
 
 ```sh
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/defguard.asc] https://apt.defguard.net/ trixie pre-release " | \
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/defguard.asc] https://apt.defguard.net/ trixie pre-release" | \
    sudo tee /etc/apt/sources.list.d/defguard.list > /dev/null 
    
 sudo apt update
