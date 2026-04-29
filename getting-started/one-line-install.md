@@ -7,6 +7,8 @@ metaLinks:
 
 # One-line install script
 
+## One-line install script
+
 Welcome to getting started with Defguard. This section guides you through setting up a simplified Defguard instance so you can get familiar with its features.
 
 {% hint style="info" %}
@@ -21,13 +23,13 @@ The command will automatically provision all Defguard components and perform an 
 
 Use one of the following commands to run the script:
 
-### Production Release (most stable)
+#### Production Release (most stable)
 
 ```sh
 bash <(curl -sSL https://raw.githubusercontent.com/defguard/deployment/main/docker-compose2.0/setup.sh)
 ```
 
-### Pre-release (latest alpha/beta/release candidate)
+#### Pre-release (latest alpha/beta/release candidate)
 
 ```sh
 bash <(curl -sSL https://raw.githubusercontent.com/defguard/deployment/main/docker-compose2.0/setup.sh) --pre-release
@@ -47,7 +49,7 @@ Running `docker compose down` and `docker compose up -d` afterwards should pull 
 Downgrading to the production release may not be trivial afterwards because of the changes made to the database during the upgrade.
 {% endhint %}
 
-### Latest development builds
+#### Latest development builds
 
 ```sh
 bash <(curl -sSL https://raw.githubusercontent.com/defguard/deployment/main/docker-compose2.0/setup.sh) --dev
@@ -85,11 +87,11 @@ The script does the following:
 By default, the script enables masquerade on the Gateway container. This allows all traffic coming through the VPN to leave the container and reach any destination accessible from the host system. To disable this behavior, use the relevant [configuration](one-line-install.md#cli-options) option or set up proper [ACL](../features/access-control-list/)/firewall rules.
 {% endhint %}
 
-## Prerequisites
+### Prerequisites
 
 The script requires specific tools and a few infrastructure settings.
 
-### Tools
+#### Tools
 
 * `bash`
 * `openssl`
@@ -99,7 +101,7 @@ The script requires specific tools and a few infrastructure settings.
 * `docker` - **we recommend official** [**Docker Engine packages**](https://docs.docker.com/engine/install/) rather than packages shipped with distributions
 * `docker-compose` - not required if you use Docker 20.10+ with the `docker compose` command
 
-### Environment setup and securing access
+#### Environment setup and securing access
 
 {% hint style="danger" %}
 Deploy this setup on a bare-metal server or a virtual machine. It will **not run inside an LXC container.**
@@ -109,17 +111,14 @@ Deploy this setup on a bare-metal server or a virtual machine. It will **not run
 * A public domain/DNS record for Defguard Edge
 * An internal domain/DNS record for Defguard Core
 * Permission for Docker to bind to host ports 80 and 443. Sometimes this requires setting the `net.ipv4.ip_unprivileged_port_start` sysctl variable to `80`
-*   Firewall rules:
+* Firewall rules:
+  * Allow incoming traffic on the VPN UDP port chosen during the web wizard
+  * Allow incoming traffic on one of the following ports:
+    * If you chose NOT to provision HTTPS: **TCP 8080**
+    * If you chose to provision HTTPS using self signed certificates or your own uploaded certificates: **TCP 443**
+    * If you chose to provision HTTPS using Let's Encrypt: **TCP 443** and **TCP 80** (required for domain validation)
 
-    * Allow incoming traffic on the VPN UDP port chosen during the web wizard
-    * Allow incoming traffic on one of the following ports:
-      * If you chose NOT to provision HTTPS: **TCP 8080**
-      * If you chose to provision HTTPS using self signed certificates or your own uploaded certificates: **TCP 443**
-      * If you chose to provision HTTPS using Let's Encrypt: **TCP 443** and **TCP 80** (required for domain validation)
-
-
-
-### CLI options
+#### CLI options
 
 ```
 Available options:
@@ -129,10 +128,6 @@ Available options:
   --help            show this help and exit
 ```
 
-## Advanced deployment strategies
+### Advanced deployment strategies
 
-<<<<<<< HEAD
 For more advanced deployment strategies, go to our [deployment strategies section](../deployment-strategies/overview.md).
-=======
-For more advanced deployment strategies, see the [deployment strategies section](../deployment-strategies/setting-up-your-instance.md).
->>>>>>> 10359dbebfed3225e28e4527bea10caed4f610a4
