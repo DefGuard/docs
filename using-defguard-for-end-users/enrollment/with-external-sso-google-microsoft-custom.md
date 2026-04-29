@@ -15,7 +15,7 @@ Please go to the enrollment URL, like: https://enrollment.company.com and choose
 
 Then all you have to do is click on your SSO login - the button name depends on the SSO you have configured:
 
-<figure><img src="../../.gitbook/assets/brave_geOuc6VqyY (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/brave_geOuc6VqyY.png" alt=""><figcaption></figcaption></figure>
 
 Now log in with your SSO and after successful login process, you will receive information how to download and configure your client.
 
