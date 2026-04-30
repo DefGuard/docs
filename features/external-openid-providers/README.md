@@ -74,9 +74,15 @@ In order to configure the external OpenID provider login, go to the settings in 
 
 <figure><img src="../../.gitbook/assets/Screenshot 2026-04-24 at 11.26.45.png" alt=""><figcaption></figcaption></figure>
 
-Everything related to the external OpenID configuration can be found in the OpenID tab of the settings page. The first thing to do here would be to pick your provider using the dropdown menu under the "Provider" label. Next, fill out the required information with values acquired from your provider. If you picked "Microsoft" or "Custom", make sure to also make corresponding changes in the "Base URL" field. After you are done, click "Save changes" to keep your changes.
+For a configuration guide for given provider, check one of the dedicated articles:
 
-You may have also noticed the checkbox option on the right. By default, when a new user (i.e. a user of whom Defguard has no record) logs in for the first time using the external OpenID feature, its account is created automatically, based on the personal details (first name, last name, email) received from the external provider. If you'd like to manually manage such users, uncheck the checkbox. Now, users will need to be manually created in Defguard first in order to log in through the external provider.
+* [Google](google.md#directory-synchronization)
+* [Microsoft](microsoft.md)
+* [Okta](okta.md#directory-synchronization)
+* [JumpCloud](jumpcloud.md#directory-synchronization)
+* [Keycloak](keycloak.md)
+* [Zitadel](zitadel.md)
+* [Custom](custom.md)
 
 ### OpenID enrollment
 
@@ -134,12 +140,7 @@ If you want to delete your users based on the state of your provider we recommen
 * **User behaviour (Keep, Disable, Delete):** What to do with Defguard users who are absent from your provider's directory.
 * **Admin behaviour (Keep, Disable, Delete):** What to do with Defguard users with admin status (in Defguard) who are absent from your provider's directory.
 
-#### Currently supported providers
 
-* [Google](google.md#directory-synchronization)
-* [Microsoft](microsoft.md)
-* [Okta](okta.md#directory-synchronization)
-* [JumpCloud](jumpcloud.md#directory-synchronization)
 
 ## Known issues
 
