@@ -20,38 +20,6 @@ Defguard Gateway v1.3.0+ supports Linux machines with [NFTables](https://nftable
 Defguard Gateway v1.4.0+ supports FreeBSD, NetBSD, and macOS machines with Packet Filter (PF).
 {% endhint %}
 
-1. Navigate to **VPN Overview** → **Edit Location settings**
-2. In **Location configuration** section, select **Enable ACL for this location**.
-3. Click on **Save changes**.
-
-1) Navigate to **VPN Overview** > **Edit Location settings**
-2) In **Location configuration** section, select **Enable ACL for this location**.
-3) Click on **Save changes**.
-
-1. Navigate to **VPN Overview** → **Edit Location settings**
-2. In **Location configuration,** choose the desired option under **Default ACL Policy**.
-3. Click on **Save changes**.
-
-1) Navigate to **VPN Overview** > **Edit Location settings**
-2) In **Location configuration,** choose the desired option under **Default ACL Policy**.
-3) Click on **Save changes**.
-
-* Navigate to **Access Control**.
-* Click on **Add new** button.
-* Name the rule under **Rule Name**: _Staff access, Berlin_.
-* Select _Office-Berlin_ in the **Locations** input.
-* Under **Manual Input → IPv4/v6 CIDR range or address**, enter: _10.1.1.0/24_.
-* Add desired users in the **Allowed Users/Groups/Devices → Users**.
-* Click on the **Submit** button.
-
-- Navigate to **Access Control**.
-- Click on **Add new** button.
-- Name the rule under **Rule Name**: _Staff access, Berlin_.
-- Select _Office-Berlin_ in the **Locations** input.
-- Under **Manual Input** > **IPv4/v6 CIDR range or address**, enter: _10.1.1.0/24_.
-- Add desired users in the **"Allowed Users/Groups/Devices** > **Users**.
-- Click on the **Submit** button.
-
 {% embed url="https://www.youtube.com/watch?v=Go4C4LWcVS4" %}
 
 Defguard's Firewall module (also known as ACL - Access Control List) lets administrators control which users, groups, and devices can reach specific network resources over VPN. Rules are centrally managed in Core and pushed to gateways automatically.
@@ -165,7 +133,7 @@ When manual settings are enabled, all three destination fields - address, port, 
 
 #### Permissions and Restrictions
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt="" width="512"><figcaption></figcaption></figure>
 
 **Permissions** - define who is granted access to the destination.
 
