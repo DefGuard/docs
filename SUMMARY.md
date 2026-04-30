@@ -109,6 +109,7 @@
 * [Production deployment verification guide](deployment-strategies/production-deployment-verification-guide.md)
 * [Linux Kernel WireGuard tuning](deployment-strategies/linux-kernel-wireguard-tuning.md)
 * [Previewing Defguard v2.0-alpha2](deployment-strategies/previewing-defguard-v2.0-alpha2.md)
+* [Initial Setup Wizard: setting up from scratch](deployment-strategies/initial-setup-wizard-setting-up-from-scratch.md)
 
 ## License <a href="#enterprise" id="enterprise"></a>
 
