@@ -10,7 +10,6 @@ metaLinks:
 
 * [**Multi-Factor Authentication**](../features/wireguard/multi-factor-authentication-mfa-2fa/) using our [desktop client](https://defguard.net/client)
 * **Multiple VPN Locations** (networks/sites) - with defined access (all users or only Admin group)
-* Multiple [Gateways](https://github.com/DefGuard/gateway) for each VPN Location ([**high availability/failover**](../deployment-strategies/high-availability-and-failover/)) - supported on a cluster of routers/firewalls for Linux, FreeBSD/PFSense/OPNSense
 * Import your current WireGuard server configuration (with a wizard!)
 * _Easy_ device setup by users themselves (self-service)
 * Automatic IP allocation
@@ -32,7 +31,7 @@ _Defguard is not an official WireGuard project, and WireGuard is a registered tr
 * Defguard is an internal OIDC provider for [Single Sign-On](../features/openid-connect/).
 * Supports [external OpenID](../features/external-openid-providers/) providers for user authentication.
 
-### [Access Control List](../features/access-control-list/)
+### [Firewall](../features/access-control-list/)
 
 * Access rules for VPN locations
 * Allow or deny access based on users or groups
@@ -51,6 +50,7 @@ _Defguard is not an official WireGuard project, and WireGuard is a registered tr
 * [Time-based One-Time Password Algorithm](https://en.wikipedia.org/wiki/Time-based_one-time_password) (TOTP - e.g. Google Authenticator)
 * WebAuthn / FIDO2 - for hardware key authentication support (e.g. YubiKey, Face ID, Touch ID, ...)
 * Email tokens
+* [Biometric-based using the mobile application](../using-defguard-for-end-users/mobile-client/using-biometry-as-mfa-method.md)
 
 ### Account Lifecycle Management:
 
@@ -58,15 +58,27 @@ _Defguard is not an official WireGuard project, and WireGuard is a registered tr
 * User [onboarding after enrollment](https://defguard.gitbook.io/defguard/help/remote-user-enrollment/user-onboarding-after-enrollment)
 * Self-service for password reset
 
+### [Network devices](../features/network-devices.md)
+
+Like regular user devices but designed to be used with the [Defguard CLI client](../using-defguard-for-end-users/cli-client.md).
+
+### [Service locations](../features/service-locations.md)
+
+Special kind of locations that allow establishing automatic VPN connections on system boot.
+
+### [Static IP assignment](../features/static-ip-assignment.md)
+
+Manually assign static IPs to user devices in the VPN network
+
+### [High availability and Failover](../deployment-strategies/high-availability-and-failover/)
+
+Scale you deployment to make sure it's always available.
+
 ### Notifications
 
 * [Email notifications ](../features/notifications/setting-up-smtp-for-email-notifications.md)via SMTP
 * [Gateway disconnect/reconnect](../features/notifications/gateway-notifications.md) notifications
 * [New version](../features/notifications/new-version-notifications.md) notifications
-
-### YubiKey Provisioning
-
-[YubiKey hardware keys](https://www.yubico.com/) provisioning for users with _one click_.
 
 ### Integrations
 
