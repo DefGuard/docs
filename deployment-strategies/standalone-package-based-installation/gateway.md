@@ -59,7 +59,7 @@ On FreeBSD:
 pkg add defguard-gateway-X.Y.Z_x86_64-unknown-freebsd.pkg
 ```
 
-You can check if Defguard Gateway has been installed properly:
+You can check whether Defguard Gateway has been installed correctly:
 
 ```
 # defguard-gateway -V
@@ -107,16 +107,16 @@ syslog_socket = "/var/run/log"
 # Example: Remove the default route after WireGuard interface is down:
 #post_down = "/path/to/ip route del default via 192.168.1.1 dev wg0"
 
-# A HTTP port that will expose the REST HTTP gateway health status
+# An HTTP port that exposes the REST gateway health status
 # STATUS CODES:
 # 200 - Gateway is working and is connected to CORE
-# 503 - gateway works but is not connected to CORE
+# 503 - Gateway works but is not connected to CORE
 #health_port = 55003
 
-# Optional: Enable automatic masquerading of traffic by the firewall
+# Optional: enable automatic masquerading of traffic by the firewall
 #masquerade = true
 
-# Optional: Set the priority of the Defguard forward chain
+# Optional: set the priority of the Defguard forward chain
 #fw_priority = 0
 ```
 

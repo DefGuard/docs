@@ -2,7 +2,7 @@
 
 ## Installation
 
-Defguard Core uses a [PostgreSQL](https://www.postgresql.org/) database for storage, so if you do not have it installed and configured yet, you can do that in this section. For this tutorial, we need to create a **user with superuser privileges and a database**.
+Defguard Core uses a [PostgreSQL](https://www.postgresql.org/) database for storage, so if you do not have it installed and configured yet, you can do so in this section. For this tutorial, we need to create a **user with superuser privileges and a database**.
 
 First, install the PostgreSQL package:
 
@@ -15,7 +15,7 @@ apt install postgresql postgresql-contrib
 On Fedora/Red Hat:
 
 ```sh
-dnf install postgressql-server
+dnf install postgresql-server
 ```
 
 Also, check the [PostgreSQL installation documentation](https://docs.fedoraproject.org/en-US/quick-docs/postgresql/) for Fedora.
@@ -46,7 +46,7 @@ First, issue this command to create a new database user named **defguard**. The 
 createuser --username postgres --pwprompt defguard
 ```
 
-Then, create a new database named **defguard** and assign user **defguard** as its owner.
+Then, create a new database named **defguard** and assign the user **defguard** as its owner.
 
 ```sh
 createdb --username postgres --encoding UTF8 --owner defguard defguard

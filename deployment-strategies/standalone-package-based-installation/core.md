@@ -58,7 +58,7 @@ On FreeBSD:
 pkg add defguard-X.Y.Z_x86_64-unknown-freebsd.pkg
 ```
 
-You can check if Defguard Core has been installed properly:
+You can check whether Defguard Core has been installed correctly:
 
 ```
 # defguard -V

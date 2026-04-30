@@ -5,7 +5,7 @@ metaLinks:
       https://app.gitbook.com/s/e86iamwJVSYnIRsyVEAV/deployment-strategies/standalone-package-based-installation
 ---
 
-# Standalone package based installation
+# Standalone package-based installation
 
 ## Introduction
 
@@ -31,7 +31,7 @@ Before proceeding with the installation, ensure your system meets the following 
 
 These prerequisites are meant to help you avoid the most common deployment issues, especially around DNS, certificates, public reachability, and service-to-service communication.
 
-* One of the following operating systems installed:
+* One of the following operating systems:
   * [Debian](https://www.debian.org/)
   * [Ubuntu](https://ubuntu.com/)
   * [Fedora](https://fedoraproject.org/)
@@ -52,7 +52,7 @@ These prerequisites are meant to help you avoid the most common deployment issue
 
 * System clock is synchronized using [Network Time Protocol (NTP)](https://www.ntp.org/). This is important for time-based one-time password (TOTP) codes.
 
-* PostgreSQL [Database](./database.md)
+* A PostgreSQL [database](database.md)
 
 ## Defguard packages
 
@@ -62,9 +62,9 @@ Defguard also has a public APT repository. If you want to know how to set it up,
 
 The following documents will guide you in package installation and configuration:
 
-* [Defguard Core](./core.md)
-* [Defguard Edge](./edge.md)
-* [Defguard Gateway](./gateway.md)
+* [Defguard Core](core.md)
+* [Defguard Edge](edge.md)
+* [Defguard Gateway](gateway.md)
 
 Install the components in the recommended order from the main deployment overview: prepare the database, install Edge, install Gateway, and then install and configure Core. Following that order makes it easier to connect the components correctly and validate each step as you go.
 
@@ -84,7 +84,7 @@ After the installation, please make sure that **only the following ports are ope
 * VPN server port (e.g. a WireGuard port)
 
 {% hint style="danger" %}
-**DO NOT EXPOSE PUBLICLY THE gRPC ports of the core gateway and proxy, which are:**
+**DO NOT EXPOSE PUBLICLY THE gRPC ports of the Core, Gateway, and Edge services, which are:**
 
 * 444
 * 50051

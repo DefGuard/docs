@@ -63,7 +63,7 @@ On FreeBSD:
 pkg add defguard-proxy-X.Y.Z_x86_64-unknown-freebsd.pkg
 ```
 
-You can check if Defguard Edge has been installed properly:
+You can check whether Defguard Edge has been installed correctly:
 
 ```
 # defguard-proxy -V

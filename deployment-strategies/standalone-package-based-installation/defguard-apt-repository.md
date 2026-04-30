@@ -14,7 +14,7 @@ APT stands for Advanced Package Tool, Debian’s package manager for installing,
 The Defguard APT repository provides packages for **Debian 12/13** and **Ubuntu 22.04/24.04 LTS.**\
 Packages are available on the default `trixie` repository distribution.
 
-### Adding Defguard APT repository
+### Adding the Defguard APT repository
 
 To add the Defguard APT repository, run the following commands in your terminal:
 
@@ -39,7 +39,7 @@ After a new release, simply use `sudo apt update` to update the repository.
 
 ### Using pre-release builds
 
-The Defguard APT repository has three components:
+The Defguard APT repository has four components:
 
 * **release**: for stable releases of v1.x packages
 * **pre-release**: for pre-release versions of v1.x packages
