@@ -85,7 +85,7 @@ A set up screen will show up with a QR Code:
 
 <figure><img src="../.gitbook/assets/image (324).png" alt="" width="369"><figcaption></figcaption></figure>
 
-Now open _Authenticator_ mobile app, and click: _**Add a code -> Scan a QR code and scan the QR Code with the app**.
+Now open _Authenticator_ mobile app, and click: _**Add a code → Scan a QR code and scan the QR Code with the app**.
 
 After doing that, a new screen will show on the _Authenticator_ app, that will generate codes for Defguard:
 

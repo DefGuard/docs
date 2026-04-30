@@ -402,7 +402,7 @@ When connecting to a location with external OpendID provider, the application sh
 
 This usually happens when aggressive battery optimization policy is used by the Android system, resulting in network connectivity issues and dns lookup errors. To fix it:
 
-1. Go to Settings -> Apps -> App management -> Defguard -> Battery usage
+1. Go to Settings → Apps → App management → Defguard → Battery usage
 2. Enable the "Allow background activity" switch.
 
 Defguard app should now be able to connect to the server even when in background during the OpenID authentication.

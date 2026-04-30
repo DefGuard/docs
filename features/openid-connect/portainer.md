@@ -24,7 +24,7 @@ Then add your app. After successfully adding your app you can see it in the Open
 
 ## Portainer configuration
 
-When you login to portainer go to **Settings -> Authentication**
+When you login to portainer go to **Settings → Authentication**
 
 On this page select: Authentication method: OAuth
 

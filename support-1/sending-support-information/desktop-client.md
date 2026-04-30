@@ -4,7 +4,7 @@ In order to provide more detailed information, please do the following:
 
 #### Enable DEBUG logs in the client
 
-In client settings you can enable more detailed logs by going to: _Settings -> Logging threshold -> Select: Debug_:
+In client settings you can enable more detailed logs by going to: _Settings → Logging threshold → Select: Debug_:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-11-13 at 19.46.21.png" alt=""><figcaption></figcaption></figure>
 
