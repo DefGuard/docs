@@ -78,7 +78,7 @@ Here is [full Google documentation](https://developers.google.com/identity/openi
 
 ## Configuring Google as external OIDC in Defguard
 
-1. Go to **Settings** > **External identity providers**
+1. Go to **Settings → External identity providers**
 
 <figure><img src="../../.gitbook/assets/Screenshot 2026-04-24 at 11.22.31.png" alt=""><figcaption></figcaption></figure>
 

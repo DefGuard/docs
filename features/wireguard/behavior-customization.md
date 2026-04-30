@@ -13,7 +13,7 @@ metaLinks:
 This feature is available from Business license. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}
 
-Navigate to **Settings > Client behaviour.**
+Navigate to **Settings → Client behaviour.**
 
 <figure><img src="../../.gitbook/assets/image (313).png" alt=""><figcaption></figcaption></figure>
 

@@ -54,7 +54,7 @@ chronyc tracking
 
 #### macOS
 
-macOS uses `timed` for network time synchronisation. Verify it is enabled in **System Settings > General > Date & Time** and that **Set time and date automatically** is on.
+macOS uses `timed` for network time synchronisation. Verify it is enabled in **System Settings → General → Date & Time** and that **Set time and date automatically** is on.
 
 To force an immediate sync from the command line:
 
@@ -64,7 +64,7 @@ sudo sntp -sS time.apple.com
 
 #### Windows
 
-Open **Settings > Time & Language > Date & Time**. Confirm **Set time automatically** is on and click **Sync now** to force an immediate update.
+Open **Settings → Time & Language → Date & Time**. Confirm **Set time automatically** is on and click **Sync now** to force an immediate update.
 
 Alternatively from PowerShell ( as Administrator):
 

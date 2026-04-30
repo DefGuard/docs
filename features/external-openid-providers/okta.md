@@ -68,7 +68,7 @@ This feature is currently technically limited to 10000 members or groups. High u
 
 ## Configuring Okta as external OIDC in Defguard
 
-1. Go to **Settings** > **External identity providers**
+1. Go to **Settings → External identity providers**
 
 <figure><img src="../../.gitbook/assets/Screenshot 2026-04-24 at 11.22.31.png" alt=""><figcaption></figcaption></figure>
 

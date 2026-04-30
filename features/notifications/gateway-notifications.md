@@ -15,7 +15,7 @@ You can configure automatic e-mail notifications when one of your gateways disco
 
 ### Configuration
 
-In order to configure the notifications, navigate **Settings > Notifications > Gateway notifications .**
+In order to configure the notifications, navigate **Settings → Notifications → Gateway notifications .**
 
 <figure><img src="../../.gitbook/assets/image (257).png" alt=""><figcaption></figcaption></figure>
 

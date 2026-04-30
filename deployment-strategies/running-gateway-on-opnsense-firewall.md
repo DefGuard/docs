@@ -27,7 +27,7 @@ pkg add defguard-gateway_VERSION_x86_64-unknown-opnsense.pkg
 opnsense-patch
 ```
 
-4. Go to your OPNsense UI and navigate to **VPN** > **Defguard Gateway**.
+4. Go to your OPNsense UI and navigate to **VPN** → **Defguard Gateway**.
 
 <figure><img src="../.gitbook/assets/OPNSense Plugin.png" alt=""><figcaption></figcaption></figure>
 

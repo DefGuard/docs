@@ -13,9 +13,8 @@ This is caused by aggressive battery optimization on the Android device. When th
 ### Fix
 
 1. Go to **Settings** on your Android device.
-2. Navigate to **Apps** > **App management** > **Defguard**.
+2. Navigate to **Apps → App management → Defguard**.
 3. Open **Battery usage**.
 4. Enable **Allow background activity**.
 
 The app will now retain network access while in the background during OpenID authentication.
-

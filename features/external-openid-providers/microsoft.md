@@ -86,7 +86,7 @@ Make sure to check the [general guide to directory synchronization](./#directory
 
 ## Configuring Microsoft as external OIDC in Defguard
 
-1. Go to **Settings** > **External identity providers.**
+1. Go to **Settings → External identity providers.**
 
 <figure><img src="../../.gitbook/assets/Screenshot 2026-04-24 at 11.22.31.png" alt=""><figcaption></figcaption></figure>
 

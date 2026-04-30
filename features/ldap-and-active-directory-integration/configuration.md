@@ -26,14 +26,14 @@ Active Directory support is available since Defguard version 1.3.0.
 {% endhint %}
 
 {% hint style="warning" %}
-If you are using the integration across multiple nested organizational units, please read the [#multiple-nested-ous](configuration.md#multiple-nested-ous "mention") section.
+If you are using the integration across multiple nested organizational units, please read the [Multiple Nested OUs](#multiple-nested-ous) section.
 {% endhint %}
 
-See also [Example configurations](./examples.md) for examples how to configure connection to OpenLDAP or Active Directory.
+See also [example configurations](examples.md) for examples how to configure connection to OpenLDAP or Active Directory.
 
 ## Setup
 
-In the Defguard Core user interface, navigate to Settings > External identity providers > LDAP and Active Directory.
+In the Defguard Core user interface, navigate to **Settings → External identity providers → LDAP and Active Directory**.
 
 It is best to start with a basic working connection first. Once Defguard can connect to the directory and authenticate successfully, you can refine the attribute mapping, synchronization scope, and authority settings.
 
@@ -52,6 +52,8 @@ This section defines how Defguard connects to your LDAP server and authenticates
 * **URL**: The LDAP server's URL. Use the `ldap:` schema for unencrypted connections or connections with StartTLS (this defaults to TCP port 389), or the `ldaps:` schema for SSL-encrypted connections (this defaults to TCP port 636).
 
 * **Bind username** and **Bind password**: These refer to the credentials used in an LDAP "bind" operation to authenticate a client to the directory server. The username field should contain a Distinguished Name (DN) for a service account that is able to manage LDAP entries.
+
+* **Limit synchronization to these groups**: specifies the groups of which members should be synchronized.
 
 Make sure the bind account has enough permissions to read the directory entries required for lookup and synchronization. If you plan to write changes from Defguard back to LDAP, it also needs permission to create, update, and manage the relevant user and group entries.
 
@@ -120,7 +122,7 @@ After saving the LDAP settings, you can check whether your Defguard instance can
 Testing your connection does not mean the entire configuration is correct. Currently, Defguard only verifies whether a connection can be made and the provided bind credentials are correct.
 {% endhint %}
 
-After enabling the LDAP integration, users will be able to log in to Defguard through LDAP. Additionally, user changes made in Defguard after you enable the integration are propagated to LDAP. This is a simple one-way synchronization. If you are interested in synchronizing LDAP and Defguard in both directions, see [two-way-ldap-and-active-directory-synchronization.md](two-way-ldap-and-active-directory-synchronization.md "mention").
+After enabling the LDAP integration, users will be able to log in to Defguard through LDAP. Additionally, user changes made in Defguard after you enable the integration are propagated to LDAP. This is a simple one-way synchronization. If you are interested in synchronizing LDAP and Defguard in both directions, see [Two-way LDAP and Active Directory synchronization](two-way-ldap-and-active-directory-synchronization.md).
 
 ## Known issues
 

@@ -26,7 +26,7 @@ The ACL (Access Control List) functionality in Defguard allows administrators to
 
 Access Control can be enabled for each location individually. To enable it:
 
-1. Navigate to **VPN Overview** > **Edit Location settings**
+1. Navigate to **VPN Overview** → **Edit Location settings**
 2. In **Location configuration** section, select **Enable ACL for this location**.
 3. Click on **Save changes**.
 
@@ -45,7 +45,7 @@ Default policy defines how to treat network traffic (with regard to resources) t
 
 Make sure ACL has been enabled (see above), otherwise the policy setting will not be inactive.
 
-1. Navigate to **VPN Overview** > **Edit Location settings**
+1. Navigate to **VPN Overview** → **Edit Location settings**
 2. In **Location configuration,** choose the desired option under **Default ACL Policy**.
 3. Click on **Save changes**.
 
@@ -170,8 +170,8 @@ To do this, the following new rules have to be added:
 * Click on **Add new** button.
 * Name the rule under **Rule Name**: _Staff access, Berlin_.
 * Select _Office-Berlin_ in the **Locations** input.
-* Under **Manual Input** > **IPv4/v6 CIDR range or address**, enter: _10.1.1.0/24_.
-* Add desired users in the **"Allowed Users/Groups/Devices** > **Users**.
+* Under **Manual Input → IPv4/v6 CIDR range or address**, enter: _10.1.1.0/24_.
+* Add desired users in the **Allowed Users/Groups/Devices → Users**.
 * Click on the **Submit** button.
 
 <figure><img src="../../.gitbook/assets/image (174).png" alt=""><figcaption></figcaption></figure>
