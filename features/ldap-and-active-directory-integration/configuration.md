@@ -108,7 +108,9 @@ If you plan to enable two-way synchronization, make sure you understand which sy
 
 <figure><img src="../../.gitbook/assets/ldap-secure-remote-enrollment.png" alt="LDAP Secure remote enrollment"><figcaption></figcaption></figure>
 
-* **Enable Secure Remote Enrollment**: When this option is enabled, newly created users can be enrolled.
+* **Enable Secure Remote Enrollment**: When this option is enabled, newly created users can be enrolled. If enabled, an additional option shows up:
+
+* **Automatically invite new AD/LDAP users to enroll**: Enable this option to let Defguard automatically send an enrollment email to users synchronized from LDAP. This option is available only if **Enable Secure Remote Enrollment** is enabled.
 
 This option is useful when newly synchronized users should be able to complete onboarding without manual account preparation. It can simplify rollout in environments where accounts are created in LDAP or Active Directory first and then activated in Defguard.
 
