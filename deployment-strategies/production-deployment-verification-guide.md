@@ -91,8 +91,6 @@ Interpretation:
 * A successful connection confirms Core's egress firewall allows outbound access to both management ports.
 * If either connection fails, check the egress rules on the Core server and the ingress rules on the target server.
 
-
-
 ## Test the environment
 
 After you've confirmed the proper network segmentation it's time to test it.
@@ -226,7 +224,7 @@ Then, in the Core UI:
 
 * Go to VPN Overview page. You should see your connected device listed there.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt="VPN Overview page showing a connected device"><figcaption><p>The VPN Overview page in the Core UI showing your workstation listed<br>as a connected device.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt="VPN Overview page showing a connected device"><figcaption><p>The VPN Overview page in the Core UI showing your workstation listed<br>as a connected device.</p></figcaption></figure>
 
 ### Testing While Connected to the VPN
 

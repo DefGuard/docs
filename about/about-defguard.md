@@ -97,11 +97,11 @@ Defguard consists of several modular services that can be deployed together or s
 
 * Core – the main service responsible for user management, authentication, configuration storage, and integrations.
 * VPN Gateway – provides the VPN endpoint for clients; runs WireGuard and synchronizes configuration with Core.
-* Public Proxy – an optional component that handles communication between the Core and external services or clients in restricted environments.
+* Edge (formerly Proxy) – handles communication between the Core and external services or clients in restricted environments.
 * Desktop and Mobile Apps – client applications for macOS, Windows, Linux, Android, and iOS, allowing users to connect easily and securely.
 
 This layered architecture with a strict division of responsibility guarantees maximum security (verified by multiple in-depth [penetration tests](https://defguard.net/pentesting/)).
 
-<figure><img src="../.gitbook/assets/Untitled Diagram.drawio (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/new_defguard-architecture.png" alt=""><figcaption></figcaption></figure>
 
 For the reasoning behind this division, please refer to the [Architecture documentation](../in-depth/architecture/).
