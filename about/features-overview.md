@@ -31,7 +31,7 @@ _Defguard is not an official WireGuard project, and WireGuard is a registered tr
 * Defguard is an internal OIDC provider for [Single Sign-On](../features/openid-connect/).
 * Supports [external OpenID](../features/external-openid-providers/) providers for user authentication.
 
-### [Firewall](../features/access-control-list/)
+### [Firewall](../features/firewall/)
 
 * Access rules for VPN locations
 * Allow or deny access based on users or groups

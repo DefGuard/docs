@@ -17,7 +17,7 @@ Multiple gateways can be added by using the "Gateway setup" context menu in the 
 
 <figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Each gateway deployed for a given location will receive the same network configuration and will **bind to the defined port** in the location's _Gateway Port._
 
@@ -40,7 +40,7 @@ Example configuration can be found in [our deployment repository](https://github
 
 All gateways successfully connected to a location are displayed under the Location in VPN Overview and locations table:
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 

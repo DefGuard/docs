@@ -84,7 +84,7 @@ The script does the following:
 * Starts the compose stack
 
 {% hint style="info" %}
-By default, the script enables masquerade on the Gateway container. This allows all traffic coming through the VPN to leave the container and reach any destination accessible from the host system. To disable this behavior, use the relevant [configuration](one-line-install.md#cli-options) option or set up proper [ACL](../features/access-control-list/)/firewall rules.
+By default, the script enables masquerade on the Gateway container. This allows all traffic coming through the VPN to leave the container and reach any destination accessible from the host system. To disable this behavior, use the relevant [configuration](one-line-install.md#cli-options) option or set up proper [ACL](../features/firewall/)/firewall rules.
 {% endhint %}
 
 ### Prerequisites

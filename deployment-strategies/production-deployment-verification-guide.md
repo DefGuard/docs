@@ -224,7 +224,7 @@ Then, in the Core UI:
 
 * Go to VPN Overview page. You should see your connected device listed there.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt="VPN Overview page showing a connected device"><figcaption><p>The VPN Overview page in the Core UI showing your workstation listed<br>as a connected device.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt="VPN Overview page showing a connected device"><figcaption><p>The VPN Overview page in the Core UI showing your workstation listed<br>as a connected device.</p></figcaption></figure>
 
 ### Testing While Connected to the VPN
 
