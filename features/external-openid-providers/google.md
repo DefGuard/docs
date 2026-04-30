@@ -86,7 +86,7 @@ Here is [full Google documentation](https://developers.google.com/identity/openi
 
 <figure><img src="../../.gitbook/assets/base copy.png" alt=""><figcaption></figcaption></figure>
 
-3. Fill **Client ID** and **Client secret**. (See [#obtaining-credentials-from-google](google.md#obtaining-credentials-from-google "mention"))
+3. Fill **Client ID** and **Client secret**. (See [#obtaining-basic-credentials](google.md#obtaining-basic-credentials "mention"))
 
 <figure><img src="../../.gitbook/assets/image (289).png" alt=""><figcaption></figcaption></figure>
 

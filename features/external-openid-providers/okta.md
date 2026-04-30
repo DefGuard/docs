@@ -9,11 +9,10 @@ metaLinks:
 
 Firstly, we need to obtain credentials such as
 
-* `Tenant ID`
 * `Client ID`
 * `Client secret`
 
-If you already have them, please skip to [#configuring-microsoft-as-external-oidc-in-defguard](okta.md#configuring-microsoft-as-external-oidc-in-defguard "mention")
+If you already have them, please skip to [#configuring-okta-as-external-oidc-in-defguard](okta.md#configuring-okta-as-external-oidc-in-defguard "mention")
 
 ## Obtaining basic credentials
 
@@ -77,12 +76,12 @@ This feature is currently technically limited to 10000 members or groups. High u
 
 <figure><img src="../../.gitbook/assets/Screenshot 2026-04-24 at 12.32.08.png" alt=""><figcaption></figcaption></figure>
 
-3. Fill **Base URL**, **Client ID** and **Client secret** (Check [#obtaining-basic-credentials](okta.md#obtaining-basic-credentials "mention"))
+3. Fill **Base URL**, **Client ID** and **Client secret** (Check [#obtaining-basic-credentials](okta.md#obtaining-basic-credentials "mention")). The base URL will be based on your Okta domain. To verify if your Base URL is correct, you can navigate to `<YOUR_OKTA_DOMAIN>/.well-known/openid-configuration`. The issuer field here should be the same as the Base URL.
 
 <figure><img src="../../.gitbook/assets/image (284).png" alt=""><figcaption></figcaption></figure>
 
 4. Confirm credentials by clicking "**Continue**"
-5. If you want to use "**Directory Synchronization**", enable it, and fill out fields \
+5. If you want to use "**Directory Synchronization**", enable it, and fill out fields\
    (Check [#obtaining-directory-synchronization-credentials](okta.md#obtaining-directory-synchronization-credentials "mention"))
 
 {% hint style="info" %}

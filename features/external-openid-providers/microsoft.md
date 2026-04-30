@@ -99,7 +99,7 @@ Make sure to check the [general guide to directory synchronization](./#directory
 <figure><img src="../../.gitbook/assets/image (292).png" alt=""><figcaption></figcaption></figure>
 
 4. Click "**Continue**"
-5. If you decide to use **Directory Synchronization**, enable it. (If you don't want **Directory Synchronization**, skip to step 6.
+5. If you decide to use **Directory Synchronization**, enable it. (If you don't need **Directory Synchronization**, go to step 6).
 
 <figure><img src="../../.gitbook/assets/image (293).png" alt=""><figcaption></figcaption></figure>
 
