@@ -35,7 +35,7 @@ Also, there is a setting in the location named _Peer Disconnect Threshold (secon
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-11-15 at 18.25.33.png" alt="" width="375"><figcaption></figcaption></figure>
 
-This setting specifies that if the **peer is inactive for (defined seconds)**_, the gateway **should remove it from the configuration** (as it should not be persistent since MFA is required).
+This setting specifies that if the **peer is inactive for (defined seconds)**\_, the gateway **should remove it from the configuration** (as it should not be persistent since MFA is required).
 
 So if you are disconnected from the location:
 
@@ -202,7 +202,7 @@ Then when the client / user connects it actually establishes **a secure tunnel b
 From there, what happens to this traffic is the **administrator role.** The most common scenarios to do are:
 
 * add routing rules, so that the traffic from that interface/VPN IP network gets routed to your network - this approach gives the advantage that users VPN ip persists in the network and the user is visible with it's VPN ip in your local network
-* Masquerade or NAT - a common use case is to masquerade or NAT the traffic - which is **actually required if you want users to access Internet from the VPN -** this process is [described in detailed in this tutorial](../../tutorials/step-by-step-setting-up-a-vpn-server/#enabling-to-access-internet-through-your-vpn).
+* Masquerade or NAT - a common use case is to masquerade or NAT the traffic - which is **actually required if you want users to access Internet from the VPN -** this process is [described in detailed in this tutorial](/broken/pages/MbleSplRWwmcWM2VEo3m#enabling-to-access-internet-through-your-vpn).
 
 ## Unable to sign in to your Defguard instance with correct credentials
 

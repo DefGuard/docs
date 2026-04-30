@@ -108,9 +108,6 @@
 * [Health check](deployment-strategies/health-check.md)
 * [Production deployment verification guide](deployment-strategies/production-deployment-verification-guide.md)
 * [Linux Kernel WireGuard tuning](deployment-strategies/linux-kernel-wireguard-tuning.md)
-* [Previewing Defguard v2.0-alpha2](deployment-strategies/previewing-defguard-v2.0-alpha2.md)
-* [Initial Setup Wizard: setting up from scratch](deployment-strategies/initial-setup-wizard-setting-up-from-scratch.md)
-* [Migrating from Defguard 1.6 to 2.0](deployment-strategies/migrating-from-defguard-1.6-to-2.0.md)
 
 ## License <a href="#enterprise" id="enterprise"></a>
 
@@ -185,9 +182,9 @@
 
 ## Tutorials
 
+* [Initial Setup Wizard: setting up from scratch](tutorials/initial-setup-wizard-setting-up-from-scratch.md)
+* [Migrating from Defguard 1.6 to 2.0](tutorials/migrating-from-defguard-1.6-to-2.0.md)
 * [Adding Edge component](tutorials/adding-edge-component.md)
-* [Step by step setting up a VPN server](tutorials/step-by-step-setting-up-a-vpn-server/README.md)
-  * [Adding additional VPN locations](tutorials/step-by-step-setting-up-a-vpn-server/adding-additional-vpn-locations.md)
 
 ## Compliance
 
