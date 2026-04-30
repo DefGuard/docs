@@ -110,6 +110,7 @@
 * [Linux Kernel WireGuard tuning](deployment-strategies/linux-kernel-wireguard-tuning.md)
 * [Previewing Defguard v2.0-alpha2](deployment-strategies/previewing-defguard-v2.0-alpha2.md)
 * [Initial Setup Wizard: setting up from scratch](deployment-strategies/initial-setup-wizard-setting-up-from-scratch.md)
+* [Migrating from Defguard 1.6 to 2.0](deployment-strategies/migrating-from-defguard-1.6-to-2.0.md)
 
 ## License <a href="#enterprise" id="enterprise"></a>
 
