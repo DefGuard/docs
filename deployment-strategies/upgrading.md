@@ -14,7 +14,9 @@ Before doing any updates please remember to **backup your database.**
 
 ## 1.6.x -> 2.0.0
 
-### Core
+As this is a major upgrade with breaking changes, we prepared a migration wizard to guide you through the migration. See [this article](../tutorials/migrating-from-defguard-1.6-to-2.0.md) with details on how to use it.
+
+Cases not covered by the migration wizard are listed below.
 
 #### ACL Rules and Aliases
 
