@@ -27,7 +27,6 @@ If you are only trying Defguard for the first time, start with the [one-line ins
 ## Before you begin
 
 1. Make sure you understand [Defguard’s architecture](../in-depth/architecture/), especially why there are three main components: Defguard Core, Defguard Edge, and Defguard Gateway.
-
 2. Make sure your infrastructure is prepared by following the [recommendations](hardware-os-network-and-firewall-recommendations.md).
 
 ## Initial deployment sequence
@@ -35,23 +34,21 @@ If you are only trying Defguard for the first time, start with the [one-line ins
 No matter which deployment strategy you choose, the installation order matters. Defguard consists of separate components that depend on each other during setup, so following the sequence below helps you avoid connectivity and registration issues later in the process.
 
 1. Install one or more Defguard Edge components.
-
 2. Install one or more Defguard Gateway components.
-
 3. Install and configure the Defguard Core component.
 
 Defguard Core acts as the central control plane - it manages configuration, authentication, and communication with all connected Edges and Gateways.
 
 ## Choose your deployment strategy
 
-| Strategy name                                                 | Difficulty                                                       | Production readiness                                                                                            | Purpose                         |
-| ------------------------------------------------------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| [One-line script](../getting-started/one-line-install.md)     | :green\_circle: Easy, single command installation                | :x: Doesn't follow the [recommendations](hardware-os-network-and-firewall-recommendations.md)                   | For testing purposes only       |
-| [Standalone packages](standalone-package-based-installation/) | :green\_circle: Easy, using `apt`/`dpkg` or `dnf`/`rpm`          | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Small to medium deployment      |
-| [Docker Compose](docker-compose.md)                           | :yellow\_circle: Medium, Docker knowledge is required            | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Small to medium deployment      |
-| [Kubernetes](kubernetes.md)                                   | :red\_circle: Advanced, requires a Kubernetes cluster            | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Large or enterprise deployments |
-| [Terraform](terraform.md)                                     | :red\_circle: Advanced, requires an AWS account and knowledge    | :white\_check\_mark:                                                                                            | Large or enterprise deployments |
-| [AMI and AWS CloudFormation](amis-and-aws-cloudformation/)    | :red\_circle: Advanced, requires an AWS account and knowledge    | :white\_check\_mark:                                                                                            | Large or enterprise deployments |
+| Strategy name                                                 | Difficulty                                                    | Production readiness                                                                                            | Purpose                         |
+| ------------------------------------------------------------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| [One-line script](../getting-started/one-line-install.md)     | :green\_circle: Easy, single command installation             | :x: Doesn't follow the [recommendations](hardware-os-network-and-firewall-recommendations.md)                   | For testing purposes only       |
+| [Standalone packages](standalone-package-based-installation/) | :green\_circle: Easy, using `apt`/`dpkg` or `dnf`/`rpm`       | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Small to medium deployment      |
+| [Docker Compose](docker-compose.md)                           | :yellow\_circle: Medium, Docker knowledge is required         | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Small to medium deployment      |
+| [Kubernetes](kubernetes.md)                                   | :red\_circle: Advanced, requires a Kubernetes cluster         | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Large or enterprise deployments |
+| [Terraform](terraform.md)                                     | :red\_circle: Advanced, requires an AWS account and knowledge | :white\_check\_mark:                                                                                            | Large or enterprise deployments |
+| [AMI and AWS CloudFormation](amis-and-aws-cloudformation/)    | :red\_circle: Advanced, requires an AWS account and knowledge | :white\_check\_mark:                                                                                            | Large or enterprise deployments |
 
 ## Configure to your needs
 
@@ -61,7 +58,11 @@ See our [configuration documentation](configuration.md) for a full reference of 
 
 ## Backup
 
-[Defguard Core](https://github.com/DefGuard/defguard) is the only service that uses persistent data storage - a [PostgreSQL](https://www.postgresql.org/) database. Every database migration is applied automatically when the Core starts up. We try our best not to break anything in the process. It is recommended to back up the database and configuration (SMTP, branding) before every update in case of an unexpected failure.
+### Core
+
+[Defguard Core](https://github.com/DefGuard/defguard) stores all its state in a [PostgreSQL](https://www.postgresql.org/) database. Every database migration is applied automatically when the Core starts up. We try our best not to break anything in the process. It is recommended to back up the database and configuration (SMTP, branding) before every update in case of an unexpected failure.
+
+**A database backup is all that is required to fully restore Core.**
 
 Please refer to the [Backup and Restore](https://www.postgresql.org/docs/current/backup.html) section of the PostgreSQL documentation.
 
@@ -70,6 +71,20 @@ Example of backing up the database from a **postgres** Docker container:
 ```sh
 docker exec {database_container_name} pg_dump -U {user_name} > {backup_file_name}
 ```
+
+### Gateway and Edge
+
+Each Gateway and Edge/Proxy instance has local persistent state: the gRPC TLS certificate directory (default: `/etc/defguard/certs`, configured by [`DEFGUARD_PROXY_CERT_DIR`](configuration.md#edge-deployment-parameters) and [`DEFGUARD_GATEWAY_CERT_DIR`](configuration.md#gateway-deployment-parameters)). This directory is written once during the component setup flow and read on every subsequent restart.
+
+If this directory is missing or empty at startup, the component detects the absence of certificates and enters setup mode. It will not connect to Core until the setup flow is completed again from the admin UI.
+
+Include the certificate directory in your server backup alongside your database if you want zero-downtime recovery - re-enrollment requires manual action in the admin UI for each affected Gateway and Edge instance.
+
+{% hint style="info" %}
+Because the CA is stored in the database, a restored Core can always re-issue new component certificates.&#x20;
+
+Losing the local cert directory does not cause permanent data loss - it requires re-running the [setup flow](../tutorials/adding-edge-component.md) for that component.
+{% endhint %}
 
 ## Failover/High Availability/Clustering
 

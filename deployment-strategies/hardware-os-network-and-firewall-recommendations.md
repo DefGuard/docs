@@ -20,12 +20,10 @@ Recommended setup reflects the [general system architecture](../in-depth/archite
    1. CPU: min. 1 CPU/vCPU per location - eg. if Defguard handles 2 VPN locations recommended is min. 2 CPU/vCPU
    2. RAM: min. 1GB per location
    3. Disk: min 8GB and more (for collecting statistics)
-
 2. **Dedicated server or Virtual Machine for Edge (external and public enrollment service)** – this needs to be deployed in DMZ/public/external systems network segment as this service will be exposed and must be available publicly from the Internet. Recommended hardware parameters:
    1. CPU: min. 1 CPU/vCPU per location
    2. RAM: min. 1GB
    3. Disk: min 1GB
-
 3. **Dedicated server or Virtual Machine for Gateway** – this needs to be deployed in:
    1. DMZ/public/external systems network segment as this service will be exposed and must be available publicly from the Internet.
    2. It requires access on Internal network interfaces to all network segments that will be exposed from VPN for users.
@@ -109,9 +107,7 @@ If you’ve configured your own reverse proxy for Edge, then expose the reverse 
 If you have used Defguard’s internal SSL termination, then expose it on the machine (or forward to Edge):
 
 1. Open the **public TCP 443 port** on the server (**HTTPS**).
-
 2. If you are using Defguard's automatic Let's Encrypt SSL certificate configuration, please also open port TCP 80 (HTTP) as Let’s Encrypt requires this port for validating the domain and obtaining the certificate.
-
 3. Open an **internal TCP 50051 port** to which the Core can connect to and adopt and manage the Edge automatically.
 
 #### Core
@@ -130,5 +126,7 @@ If you have used Defguard’s internal SSL termination, then expose it on the ma
 
 In a production environment you should use your preferred backup solution to secure the following:
 
-* Gateway and Edge **SSL certificate directory** – SSL certificates for those components were issued by Defguard’s internal Certificate Authority and are used to secure, authenticate, and authorize component communication. They are stored localy on the server (and not in the main database).
 * Core **database** – preferably by doing a regular _pg\_dump_, not just a filesystem-level backup.
+* Gateway and Edge **SSL certificate directory** – SSL certificates for those components were issued by Defguard’s internal Certificate Authority and are used to secure, authenticate, and authorize component communication. They are stored localy on the server (and not in the main database).
+
+For more details see [here](overview.md#backup).
