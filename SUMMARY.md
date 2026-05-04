@@ -67,7 +67,7 @@
 * [Integrations](features/integrations/README.md)
   * [Webhooks](features/integrations/webhooks.md)
   * [REST API](features/integrations/api-tokens.md)
-* [OPNSense Configuartion](features/gateway.md)
+* [OPNSense Configuration](features/gateway.md)
 * [SSH Authentication](features/ssh-authentication.md)
 * [Forward auth](features/forward-auth.md)
 * [User SNAT bindings](features/user-snat-bindings.md)
