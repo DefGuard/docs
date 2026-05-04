@@ -74,7 +74,7 @@ The Defguard Gateway configuration file should be located at `/etc/defguard/gate
 # This is an example config file for Defguard Gateway.
 # To use it, fill in the actual values for your deployment below.
 
-# Required: use userspace WireGuard implementation (e.g. wireguard-go)
+# Required: use userspace WireGuard implementation
 userspace = false
 # Required: how often should interface stat updates be sent to Defguard Core (in seconds)
 stats_period = 60

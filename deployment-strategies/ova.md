@@ -71,7 +71,7 @@ This will allow you to access Core and Edge via your respective domains, using t
 
 Containers can be updated using the following commands in the `/opt/stacks/defguard` directory:
 
-```
+```sh
 sudo docker compose pull
 sudo docker compose down
 sudo docker compose up

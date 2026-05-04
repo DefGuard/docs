@@ -97,7 +97,7 @@ Since Defguard 2.0, much of the configuration that was previously provided throu
 * `--grpc-port` / `DEFGUARD_GRPC_PORT`: Port used by the Gateway gRPC server.
 * `--grpc-cert` / `DEFGUARD_GATEWAY_GRPC_CERT`: gRPC TLS certificate used by Gateway.
 * `--grpc-key` / `DEFGUARD_GATEWAY_GRPC_KEY`: gRPC TLS private key used by Gateway.
-* `--userspace` / `DEFGUARD_USERSPACE`: Enables a userspace WireGuard implementation such as wireguard-go.
+* `--userspace` / `DEFGUARD_USERSPACE`: Enables a userspace WireGuard implementation.
 * `--stats-period` / `DEFGUARD_STATS_PERIOD`: Defines how often interface statistics are sent to Defguard Core.
 * `--ifname` / `DEFGUARD_IFNAME`: Sets the WireGuard interface name.
 * `--pidfile:` Writes `the` Gateway process ID to the specified file.
