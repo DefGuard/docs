@@ -14,6 +14,12 @@ Before doing any updates please remember to **backup your database.**
 
 ## 1.6.x -> 2.0.0
 
+{% hint style="danger" %}
+To use business features, you need to register for a free business license: https://defguard.net/get-free-business/ (Note: in version 1.x, business features were free up to certain limits without requiring a license).
+
+The good news is that we have raised the limits for the free tier, and it now supports up to 10 users (and 30 devices) for free!
+{% endhint %}
+
 As this is a major upgrade with breaking changes, we prepared a migration wizard to guide you through the migration. See [this article](../tutorials/migrating-from-defguard-1.6-to-2.0.md) with details on how to use it.
 
 Cases not covered by the migration wizard are listed below.
