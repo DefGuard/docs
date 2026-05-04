@@ -1,5 +1,11 @@
 # Migrating from Defguard 1.6 to 2.0
 
+{% hint style="warning" %}
+In version 1.x, business features were free up to certain limits without requiring a license. If you were previously using these features without a license, starting with version 2.0, you will need to register for a free business license to continue using them: https://defguard.net/get-free-business/.
+
+The good news is that we have raised the limits for the free tier, and it now supports up to 10 users (and 30 devices) for free!
+{% endhint %}
+
 This guide explains how to migrate an existing Defguard 1.6 instance to Defguard 2.0.
 
 It focuses on the migration process in the Core UI and assumes that you have already upgraded or are ready to upgrade your deployed Defguard components using your chosen deployment method.

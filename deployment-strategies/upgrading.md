@@ -15,7 +15,7 @@ Before doing any updates please remember to **backup your database.**
 ## 1.6.x -> 2.0.0
 
 {% hint style="danger" %}
-To use business features, you need to register for a free business license: https://defguard.net/get-free-business/ (Note: in version 1.x, business features were free up to certain limits without requiring a license).
+In version 1.x, business features were free up to certain limits without requiring a license. If you were previously using these features without a license, starting with version 2.0, you will need to register for a free business license to continue using them: https://defguard.net/get-free-business/.
 
 The good news is that we have raised the limits for the free tier, and it now supports up to 10 users (and 30 devices) for free!
 {% endhint %}

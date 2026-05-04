@@ -84,6 +84,7 @@
 
 * [Overview](deployment-strategies/overview.md)
 * [Deploying to Production](deployment-strategies/deploying-to-production.md)
+* [Migration guides](deployment-strategies/upgrading.md)
 * [Hardware, OS, network and firewall recommendations](deployment-strategies/hardware-os-network-and-firewall-recommendations.md)
 * [Standalone package based installation](deployment-strategies/standalone-package-based-installation/README.md)
   * [PostgreSQL database](deployment-strategies/standalone-package-based-installation/database.md)
@@ -103,7 +104,6 @@
 * [High Availability and Failover](deployment-strategies/high-availability-and-failover/README.md)
   * [WireGuard UDP load-balancing](deployment-strategies/high-availability-and-failover/wireguard-udp-load-balancing.md)
 * [Updating and version compatibility](deployment-strategies/updating-and-version-compatibility.md)
-* [Migration guides](deployment-strategies/upgrading.md)
 * [Using a userspace wireguard-go implementation](deployment-strategies/using-a-userspace-wireguard-go-implementation.md)
 * [Pre-production and development releases](deployment-strategies/pre-production-and-development-releases.md)
 * [Health check](deployment-strategies/health-check.md)
