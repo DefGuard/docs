@@ -1,6 +1,6 @@
 # WireGuard UDP load-balancing
 
-## The Nature of WireGuard (UDP + Stateful Crypto)
+## The nature of WireGuard (UDP + stateful crypto)
 
 WireGuard operates over UDP and establishes stateful cryptographic sessions between peers ([https://www.wireguard.com/protocol/](https://www.wireguard.com/protocol/)).
 
@@ -27,7 +27,7 @@ You need:
 * Deterministic upstream selection (sticky routing)
 * Fast backend ejection on failure
 
-## Why a Load Balancer with Health Checks Is Required
+## Why a load balancer with health checks is required
 
 WireGuard uses **UDP**, which is connectionless and provides no built-in failure detection. As a result:
 
@@ -36,7 +36,7 @@ WireGuard uses **UDP**, which is connectionless and provides no built-in failure
 * The load balancer may continue forwarding traffic to a dead gateway.
 * This results in silent packet drops and delayed failover.
 
-To prevent this, a Layer 4 load balancer must:
+To prevent this, a layer 4 load balancer must:
 
 * Perform **active health checks** against each gateway.
 * Immediately mark failed gateways as unhealthy.
@@ -44,7 +44,7 @@ To prevent this, a Layer 4 load balancer must:
 
 Without properly configured health checks, high availability cannot be reliably achieved in a multi-gateway WireGuard setup.
 
-## Why Sticky Sessions Are Mandatory
+## Why sticky sessions are mandatory
 
 WireGuard sessions are bound to a specific gateway instance.
 
@@ -65,9 +65,9 @@ Sticky routing ensures:
 * All packets from a client reach the same gateway
 * Failover only occurs when the backend is unhealthy
 
-## Recommended Load Balancer: Envoy
+## Recommended load balancer: Envoy
 
-We recommend Envoy for UDP load balancing.
+We recommend [Envoy](https://www.envoyproxy.io/) for UDP load balancing.
 
 Reasons:
 
@@ -91,13 +91,13 @@ Envoy ensures:
 * Dead backends are removed quickly
 * Failover happens reasonably fast
 
-## Operational Gotchas and Lessons Learned
+## Operational gotchas and lessons learned
 
 During implementation and testing, several subtle issues were discovered.
 
 This section documents them to prevent future confusion.
 
-#### Envoy Health Checks timing is state-dependent
+#### Envoy health check timing is state-dependent
 
 Envoy has multiple health-check timing parameters:
 
@@ -108,7 +108,7 @@ Envoy has multiple health-check timing parameters:
 * healthy\_edge\_interval
 * unhealthy\_edge\_interval
 
-If only interval is configured, the effective behavior may differ depending on traffic state.
+If only `interval` is configured, the effective behavior may differ depending on traffic state.
 
 Symptoms:
 
@@ -117,16 +117,16 @@ Symptoms:
 
 **Solution: Explicitly configure all relevant health-check intervals to the same low value.**
 
-#### NGINX Is Not Suitable for This Use Case
+#### NGINX is not suitable for this use case
 
 NGINX stream/UDP proxy:
 
-* Does not implement an active health-check mechanism, and therefore can't reliably detect UDP backend failure
-* Does not reassign upstream without hard socket errors
+* Does not implement an active health-check mechanism, and therefore cannot reliably detect UDP backend failure.
+* Does not reassign upstreams without hard socket errors.
 
-This results in traffic never being routed to healthy backend after failure.
+This results in traffic never being routed to a healthy backend after a failure.
 
-#### WireGuard May Require a Keepalive Interval to Fully Recover After Failover
+#### WireGuard may require a keepalive interval to fully recover after failover
 
 Even after the load balancer successfully redirects traffic to a healthy gateway, the tunnel may not resume immediately.
 
@@ -142,17 +142,17 @@ As a result:
 * Tunnel recovery may take up to the configured keepalive interval.
 * Shorter keepalive intervals result in faster failover recovery.
 
-#### Expected Failover Behavior
+#### Expected failover behavior
 
 With proper configuration:
 
 1. Gateway A crashes.
-2. Load-balancer health check marks it unhealthy within configured healthcheck interval.
+2. The load balancer health check marks it unhealthy within the configured health check interval.
 3. Traffic is immediately routed to Gateway B.
 4. Client initiates new WireGuard handshake.
 5. Tunnel resumes operation.
 
-Typical recovery time: 3-30 seconds, depending on envoy interval settings and client keepalive interval.
+Typical recovery time: 3-30 seconds, depending on Envoy interval settings and the client keepalive interval.
 
 ## Summary
 

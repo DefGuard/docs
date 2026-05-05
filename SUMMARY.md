@@ -103,6 +103,7 @@
 * [Reverse Proxy configuration using NGINX](deployment-strategies/reverse-proxy-configuration-using-nginx.md)
 * [High Availability and Failover](deployment-strategies/high-availability-and-failover/README.md)
   * [WireGuard UDP load-balancing](deployment-strategies/high-availability-and-failover/wireguard-udp-load-balancing.md)
+  * [Gateway with CARP](deployment-strategies/high-availability-and-failover/gateway-with-carp.md)
 * [Updating and version compatibility](deployment-strategies/updating-and-version-compatibility.md)
 * [Using a userspace wireguard-go implementation](deployment-strategies/using-a-userspace-wireguard-go-implementation.md)
 * [Pre-production and development releases](deployment-strategies/pre-production-and-development-releases.md)
