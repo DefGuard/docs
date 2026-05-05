@@ -105,7 +105,7 @@
   * [WireGuard UDP load-balancing](deployment-strategies/high-availability-and-failover/wireguard-udp-load-balancing.md)
   * [Gateway with CARP](deployment-strategies/high-availability-and-failover/gateway-with-carp.md)
 * [Updating and version compatibility](deployment-strategies/updating-and-version-compatibility.md)
-* [Using a userspace wireguard-go implementation](deployment-strategies/using-a-userspace-wireguard-go-implementation.md)
+* [Using a userspace WireGuard implementation](deployment-strategies/using-a-userspace-wireguard-implementation.md)
 * [Pre-production and development releases](deployment-strategies/pre-production-and-development-releases.md)
 * [Health check](deployment-strategies/health-check.md)
 * [Production deployment verification guide](deployment-strategies/production-deployment-verification-guide.md)
