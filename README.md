@@ -20,8 +20,6 @@ Welcome to the Defguard documentation. Here, you’ll learn how to explore the f
   Outlines the scope, limits, and purchasing process for the Defguard Enterprise license.
 * [Using Defguard (for end users)](using-defguard-for-end-users/overwiew.md)\
   Helps you, as a Defguard end user, get familiar with the client applications and their features so you can quickly connect to your Defguard instance.
-* [Tutorials](/broken/pages/MbleSplRWwmcWM2VEo3m)\
-  A collection of step-by-step guides with clear examples and helpful screenshots to make the setup process smooth and enjoyable.
 * [In depth](in-depth/architecture-decision-records/)\
   In-depth information about the platform and its development, reflecting our commitment to transparency.
 * [For developers](for-developers/contributing.md)\
