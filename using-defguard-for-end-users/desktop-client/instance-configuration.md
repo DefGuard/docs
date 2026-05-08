@@ -23,20 +23,18 @@ If you are looking for how to generate tokens for your users as an Administrator
 {% endhint %}
 
 1. Log in to your Defguard account.
-2. Go to **My Profile** tab.
-3. Click **Add new device** button inside **User Devices** list.
+2. In account profile, open **Devices** tab.
+3.  Click **Add new device.**<br>
 
-<figure><img src="../../.gitbook/assets/defguard-myprofile-add-device.png" alt="" width="50%"><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (187).png" alt="" width="563"><figcaption></figcaption></figure>
+4.  Select **Client Activation** and click **Next**.<br>
 
-4. Select **Remote Device Activation** and click **Next**.
+    <figure><img src="../../.gitbook/assets/image (190).png" alt="" width="375"><figcaption></figcaption></figure>
+5. Afterwards, use **One-Click Configuration** or click **Show advanced configuration** and copy **URL** and **Token** manually.&#x20;
 
-<figure><img src="../../.gitbook/assets/defguard-add-new-device.png" alt="" width="50%"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/defguard-add-instance-qr.png" alt="" width="375"><figcaption></figcaption></figure>
 
-5. After that you will see URL, Token and QR Code. **Copy URL and Token.**
-
-<figure><img src="../../.gitbook/assets/defguard-add-instance-qr.png" alt="" width="50%"><figcaption></figcaption></figure>
-
-### Adding Instance
+### Manually Adding Instance
 
 1. Open Defguard client
 2. Click **Add Instance**.
