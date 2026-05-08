@@ -47,7 +47,7 @@ If you are looking for how to generate tokens for your users as an Administrator
 
 ### One-click Desktop Configuration
 
-You can skip the whole process of entering token/url by clicking "One-click Desktop Configuration" during remote device activation. Here is a video describing whole process:
+You can skip the whole process of entering token/url by clicking "One-click Desktop Configuration". Here is a video describing whole process:
 
 {% embed url="https://www.youtube.com/embed/q5-AXOPLgHc" %}
 
