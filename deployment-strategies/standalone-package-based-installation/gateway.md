@@ -107,6 +107,9 @@ syslog_socket = "/var/run/log"
 # Example: Remove the default route after WireGuard interface is down:
 #post_down = "/path/to/ip route del default via 192.168.1.1 dev wg0"
 
+# gRPC server port
+#grpc_port = 50066
+
 # An HTTP port that exposes the REST gateway health status
 # STATUS CODES:
 # 200 - Gateway is working and is connected to CORE
