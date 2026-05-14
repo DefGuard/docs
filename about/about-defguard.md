@@ -6,6 +6,8 @@ metaLinks:
 
 # About Defguard
 
+{% embed url="https://youtu.be/Nx1BGqnxPBw" %}
+
 ## What is Defguard?
 
 Defguard is an enterprise-ready platform built on top of WireGuard®, designed to make private networking simple, scalable, and secure.

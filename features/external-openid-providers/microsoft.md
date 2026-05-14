@@ -7,6 +7,8 @@ metaLinks:
 
 # Microsoft
 
+{% embed url="https://youtu.be/KxwJ9E3d3Lk" %}
+
 Firstly, we need to obtain credentials such as
 
 * `Tenant ID`

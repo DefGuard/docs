@@ -8,10 +8,12 @@ metaLinks:
 # LDAP and Active Directory integration
 
 {% hint style="warning" %}
-#### Availability
+**Availability**
 
 This feature is available in all plans, with usage limits. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}
+
+{% embed url="https://youtu.be/8lf9UIAt9Rw" %}
 
 Defguard supports integration with LDAP and Microsoft Active Directory (AD), enabling seamless connectivity with your existing directory infrastructure. This integration allows organizations to centralize user management, streamline authentication processes, and synchronize user and group data between Defguard and external directory services.
 

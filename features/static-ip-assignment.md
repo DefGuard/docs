@@ -1,5 +1,7 @@
 # Static IP assignment
 
+{% embed url="https://youtu.be/tJcGwEFw8h4" %}
+
 Defguard allows you to manually assign static IPs to user devices in the VPN network.
 
 Assigned IPs don't change unless one of the following scenarios occurs:
