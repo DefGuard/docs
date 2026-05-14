@@ -133,7 +133,7 @@ services:
       - "443:443"
 ```
 
-#### nginx reverse-proxy
+#### Optional nginx reverse-proxy
 
 Depending on your infrastructure, you may choose to keep the setup simple and let Defguard handle SSL termination for you. Learn more about this functionality [here](../tutorials/initial-setup-wizard-setting-up-from-scratch.md#configure-ssl-for-edge). In that case skip stis step.
 
