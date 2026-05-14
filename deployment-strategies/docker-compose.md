@@ -34,9 +34,9 @@ We recommend always using fixed, stable tags (`vX.Y`, `vX.Y.Z`) for your product
 
 All available Docker images are available in the links below:
 
-* [Core images](https://github.com/DefGuard/defguard/pkgs/container/defguard) 
-* [Gateway images](https://github.com/DefGuard/defguard/pkgs/container/gateway) 
-* [Edge images](https://github.com/DefGuard/defguard/pkgs/container/defguard-proxy) 
+* [Core images](https://github.com/DefGuard/defguard/pkgs/container/defguard)
+* [Gateway images](https://github.com/DefGuard/defguard/pkgs/container/gateway)
+* [Edge images](https://github.com/DefGuard/defguard/pkgs/container/defguard-proxy)
 
 ## Example Docker Compose deployment repository
 
@@ -78,9 +78,13 @@ To run the service with Docker Compose, execute this command:
 docker compose up
 ```
 
-#### nginx reverse-proxy
+#### Optional nginx reverse-proxy
 
-Now that you have core running, here is an example [nginx](https://nginx.org/) configuration to provide SSL termination:
+Depending on your infrastructure, you may choose to keep the setup simple and let Defguard handle SSL termination for you. Learn more about this functionality [here](../tutorials/initial-setup-wizard-setting-up-from-scratch.md#configure-ssl-for-core). In that case skip stis step.
+
+Alternatively, you can place a reverse proxy in front of your Core service to manage SSL termination.&#x20;
+
+Here is an example [nginx](https://nginx.org/) configuration to provide SSL termination:
 
 ```
 upstream defguard {
@@ -113,7 +117,7 @@ server {
 }
 ```
 
-## Deploying Edge and reverse proxy service
+## Deploying Edge
 
 Here is the **docker-compose.yaml** file for Defguard Edge.
 
@@ -131,7 +135,11 @@ services:
 
 #### nginx reverse-proxy
 
-Now that you have proxy running, here is an example [nginx](https://nginx.org/) configuration to provide SSL termination:
+Depending on your infrastructure, you may choose to keep the setup simple and let Defguard handle SSL termination for you. Learn more about this functionality [here](../tutorials/initial-setup-wizard-setting-up-from-scratch.md#configure-ssl-for-edge). In that case skip stis step.
+
+Alternatively, you can place a reverse proxy in front of your Edge service to manage SSL termination.&#x20;
+
+Here is an example [nginx](https://nginx.org/) configuration to provide SSL termination:
 
 ```
 upstream defguard-proxy  {
