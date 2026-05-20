@@ -26,6 +26,14 @@ Defguard Desktop Client is available in the [App Store](https://apps.apple.com/p
 
 ### Linux
 
+After installing the Defguard client package, a '_defguard_' group is added to your system. This group has access to the background service that controls VPN interfaces.
+
+The package installation scripts attempt to detect the user running the installation, but if you install it as "_root_", we cannot determine which user to add to the defguard group—you will need to do this manually.
+
+Additionally, after being added to the group, the user must log out for the changes to take effect.
+
+More details about the group and permissions can be found here: [https://docs.defguard.net/support-1/troubleshooting-guides/desktop-client/unix-socket-permission-error-on-connect-linux](https://docs.defguard.net/support-1/troubleshooting-guides/desktop-client/unix-socket-permission-error-on-connect-linux)
+
 {% hint style="warning" %}
 On Linux the desktop client uses `resolvconf` to manage DNS servers. On newer distributions it should be a symbolic link to `resolvectl`, more details can be found on the [troubleshooting](https://github.com/DefGuard/docs/blob/docs/help/broken-reference/README.md) page.
 {% endhint %}
