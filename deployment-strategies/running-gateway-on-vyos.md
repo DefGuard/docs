@@ -24,12 +24,6 @@ set container name defguard-gateway volume gateway-certs destination '/etc/defgu
 set container name defguard-gateway volume gateway-certs mode 'rw'
 ```
 
-After the gateway is adopted, you can verify that files were written to the persistent directory:
-
-```bash
-sudo find /config/user-data/defguard-certs -maxdepth 3 -type f -ls
-```
-
 With this volume in place, the gateway should be able to restart or survive a VyOS reboot without requiring re-adoption.
 
 ## Container configuration
@@ -44,7 +38,6 @@ Then enter VyOS configuration mode and define the container:
 
 ```bash
 configure
-
 set container name defguard-gateway image 'ghcr.io/defguard/gateway:2.0.0'
 set container name defguard-gateway allow-host-networks
 set container name defguard-gateway capability net-admin
@@ -79,7 +72,9 @@ show container
 sudo podman ps -a
 ```
 
-At this point, the gateway container should be running on VyOS and ready to be adopted from Defguard Core.
+At this point, the gateway container should be running on VyOS and ready to be adopted from Defguard Core.&#x20;
+
+Adopt it by following [those steps](https://docs.defguard.net/tutorials/initial-setup-wizard-setting-up-from-scratch#adopt-the-gateway-component).
 
 {% hint style="warning" %}
 The gateway accepts adoption requests only for a limited time after startup. Start the adoption process in Defguard Core shortly after starting the container.
