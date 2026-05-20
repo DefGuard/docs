@@ -79,7 +79,13 @@ show container
 sudo podman ps -a
 ```
 
-At this point, the gateway container should be running on VyOS and ready to be adopted from Defguard Core. After adoption, verify that certificate files were written to the mounted host directory:
+At this point, the gateway container should be running on VyOS and ready to be adopted from Defguard Core.
+
+{% hint style="warning" %}
+The gateway accepts adoption requests only for a limited time after startup. Start the adoption process in Defguard Core shortly after starting the container.
+{% endhint %}
+
+After adoption, verify that certificate files were written to the mounted host directory:
 
 ```bash
 sudo find /config/user-data/defguard-certs -maxdepth 3 -type f -ls
