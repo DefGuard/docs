@@ -23,7 +23,7 @@ It's recommended to always use newest version of services and update them all to
 Check the GitHub repositories for each service to find their newest releases and release notes.
 
 * Docker - For Docker and Kubernetes based setup just change docker image version for service you want to update.
-* Packages(DEB, RPM, etc.) - Currently we don't have any package repository so if you want to update your service installed as package you have to download new version from service repository.
+* Packages (DEB, RPM, etc.) - Currently we don't have any package repository so if you want to update your service installed as package you have to download new version from service repository.
 
 **GitHub Repositories:**
 
