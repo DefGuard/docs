@@ -45,6 +45,27 @@ Here is the breakdown of accessible services deployed on the VM:
 
 <table><thead><tr><th>Name</th><th width="182">Port</th><th width="240">Type</th></tr></thead><tbody><tr><td>Core</td><td>8000</td><td>HTTP (web dashboard)</td></tr><tr><td>Edge</td><td>8080</td><td>HTTP (enrollment portal)</td></tr><tr><td>Gateway</td><td>51820</td><td>UDP (VPN port)</td></tr><tr><td>Nginx Proxy Manager</td><td>80, 443, 81</td><td>HTTP(S) and the management dashboard on port 81</td></tr></tbody></table>
 
+### Getting logs
+
+You can access all components logs by remote access via SSH and in the Dockage UI.
+
+#### Accessing logs via SSH
+
+To access logs for all components access the VM via SSH (see above) and:
+
+```
+cd /opt/stacks/defguard/
+docker compose logs
+```
+
+#### Accessing logs via Dockage
+
+1. Enable[ Dockage (see chapter below).](ova.md#dockge)
+2. Choose "defguard" in the left menu.
+3. Go to the UI to the "Terminal" section:
+
+<figure><img src="../.gitbook/assets/image (192).png" alt=""><figcaption></figcaption></figure>
+
 ### Setting up a reverse proxy
 
 {% hint style="success" %}
