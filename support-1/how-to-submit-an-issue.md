@@ -11,6 +11,10 @@ metaLinks:
 
 To help us diagnose and resolve problems efficiently, please follow the process below when submitting an issue.
 
+{% hint style="info" %}
+If you are using the OVA VM image, to access the VM and gather logs, please see this chapter: [https://docs.defguard.net/deployment-strategies/ova#accessing-the-vm](https://docs.defguard.net/deployment-strategies/ova#accessing-the-vm)
+{% endhint %}
+
 ### 1. Enable debug logging
 
 Before reproducing the issue, set the log level of **all relevant components** to `DEBUG`.\
