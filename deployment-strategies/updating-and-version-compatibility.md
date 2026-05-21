@@ -7,25 +7,44 @@ metaLinks:
 
 # Updating and version compatibility
 
-Each service in the Defguard stack can be updated independently, provided the components remain compatible. When components connect, Defguard automatically performs a version check. If an incompatibility is detected, the connection is refused and it will be clearly reported both in the log files and through a dialog in the core UI:
-
-<figure><img src="../.gitbook/assets/image (33).png" alt=""><figcaption></figcaption></figure>
-
 {% hint style="warning" %}
-**Note on Multiple Gateways per Location**
-
-If you configure more than one gateway for the same location, they will overwrite each other’s incompatibility data. This happens because location is currently used as the identifier for gateways.
-
-This limitation will be resolved once full high-availability (HA) support is implemented.
+**Always back up your database before updating Core.** Core is the only component with persistent storage (PostgreSQL). See the [deployment overview](overview.md#backup) for backup instructions.
 {% endhint %}
 
-It's recommended to always use newest version of services and update them all together to avoid incompatibility.\
-Check the GitHub repositories for each service to find their newest releases and release notes.
+Defguard is composed of multiple components (Core, Edge, Gateway) that communicate over gRPC. Each component can be updated independently, provided the components remain compatible.&#x20;
 
-* Docker - For Docker and Kubernetes based setup just change docker image version for service you want to update.
-* Packages (DEB, RPM, etc.) - Currently we don't have any package repository so if you want to update your service installed as package you have to download new version from service repository.
+When components attempt to establish a connection, Defguard automatically performs a version check. If an incompatibility is detected, the connection is refused.
 
-**GitHub Repositories:**
+It's recommended to always use the newest version of each service and update them all together to avoid incompatibility.
+
+{% hint style="info" %}
+All components should be kept on the **same major.minor version** (e.g., all on 2.0.x). Pre-release tags (`-rc1`, `-alpha1`) are stripped during version comparison, so a `2.0.0-rc1` Gateway is considered compatible with a `2.0.0` Core.
+{% endhint %}
+
+### Pre-release and development versions
+
+To test upcoming releases, see the [pre-production and development releases](pre-production-and-development-releases.md) page for Docker\
+tags, package downloads, and one-line install options.
+
+### General update workflow
+
+1. **Back up the database** (Core only)
+2. **Read the migration guides** for the version you're upgrading to
+3. **Update all components** (Core, Edge, Gateway) to the latest version
+4. **Verify connectivity** — check component logs for gRPC connection success
+5. **Check the Core UI** — incompatible components will be shown as disconnected
+
+### Upgrade guides by deployment method
+
+Choose the guide that matches how you deployed Defguard:
+
+* [Docker / Docker Compose](docker-compose.md#upgrading)
+* [Standalone packages (DEB, RPM)](standalone-package-based-installation/#upgrading-packages)
+* [OVA / Virtual Appliance](ova.md#managing-and-updating-containers)
+
+### Official GitHub Releases
+
+Check the GitHub repositories for each service to find their newest releases and release notes:
 
 * [Defguard Core](https://github.com/DefGuard/defguard/releases)
 * [Defguard Proxy](https://github.com/DefGuard/proxy/releases)

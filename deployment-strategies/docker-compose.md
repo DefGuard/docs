@@ -186,3 +186,44 @@ services:
       DEFGUARD_STATS_PERIOD: 10
       HEALTH_PORT: 55003
 ```
+
+## Upgrading
+
+{% hint style="warning" %}
+**Always back up your database before upgrading Core.** See the [deployment overview](overview.md#backup) for instructions.
+{% endhint %}
+
+1. **Review the migration guides** for breaking changes that may affect your setup. See [migration guides](upgrading.md).
+2.  **Update the image tags** in your `docker-compose.yaml` files for each component:<br>
+
+    ```yaml
+    # Core:
+    image: ghcr.io/defguard/defguard:<CORE_TAG>
+
+    # Edge:
+    image: ghcr.io/defguard/defguard-proxy:<EDGE_TAG>
+
+    # Gateway:
+    image: ghcr.io/defguard/gateway:<GATEWAY_TAG>
+
+    ```
+
+
+3.  Pull the new images and restart:<br>
+
+    ```bash
+    docker compose pull                                                                                                                    
+    docker compose down                                                                                                                    
+    docker compose up -d 
+    ```
+4.  Verify all services are up:<br>
+
+    ```bash
+    docker compose ps
+    ```
+
+### Downgrading
+
+{% hint style="danger" %}
+Downgrading after a database migration has run is not trivial and may require restoring from a backup. Database migrations are applied automatically when Core starts. Always back up before upgrading.
+{% endhint %}
