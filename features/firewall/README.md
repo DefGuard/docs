@@ -53,7 +53,7 @@ The source side of a rule is divided into two parts:
 
 **Restrictions** define exceptions removed from the permitted set. Restricted sources are subtracted from the permitted set before the **ALLOW** rule is generated. For each entity type you can restrict all entities or only specific ones.
 
-The final ALLOW rule covers:&#x20;
+The final ALLOW rule covers:
 
 ```
 (permitted sources) minus (restricted sources)
@@ -119,7 +119,7 @@ Disabling a deployed rule creates a **pending change**. The rule remains enforce
 
 The destination section defines the network resource the rule applies to.
 
-<figure><img src="../../.gitbook/assets/image.png" alt="" width="511"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt="" width="511"><figcaption></figcaption></figure>
 
 **Add manual destination settings** - when checked, you define destination parameters directly in the form. When unchecked, only [Destinations](aliases-and-destinations.md) attached to this rule define the target.
 
@@ -133,7 +133,7 @@ When manual settings are enabled, all three destination fields - address, port, 
 
 #### Permissions and Restrictions
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt="" width="512"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt="" width="512"><figcaption></figcaption></figure>
 
 **Permissions** - define who is granted access to the destination.
 
@@ -148,9 +148,9 @@ For each entity type, check **Limit access for X** to enable restrictions, then 
 
 ### Managing rules
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 All changes to rules - creating, editing, disabling, and deleting - are staged as **Pending Changes** and do not take effect on gateways until explicitly deployed.
 

@@ -69,6 +69,14 @@ This will allow you to access Core and Edge via your respective domains, using t
 
 ### Managing and updating containers
 
+{% hint style="warning" %}
+By default the docker compose config included by the OVA uses a floating Docker image tag pinned to the latest stable major version, for example `2`.
+
+This means that updating the containers like described below will fetch the latest release matching this major version, for example `2.1.2`, `2.3.1` or whatever is the latest release at the given time.
+
+If you'd like to explicitly control the component versions see the instructions [below](ova.md#using-specific-image-tags).
+{% endhint %}
+
 Containers can be updated using the following commands in the `/opt/stacks/defguard` directory:
 
 ```sh
@@ -78,6 +86,18 @@ sudo docker compose up
 ```
 
 This can also be achieved without accessing the VM using the Dockge dashboard, refer to [this section](ova.md#dockge) for more information.
+
+#### Using specific image tags
+
+If you'd like to manually set the specific Docker image tags used by each component you can edit the `.env` file found in `/opt/stacks/defguard` and update the following environment variables:
+
+```
+DEFGUARD_CORE_TAG=2.0.0
+DEFGUARD_PROXY_TAG=2.0.0
+DEFGUARD_GATEWAY_TAG=2.0.0
+```
+
+Then use the same `docker compose` command as above to update the running containers.
 
 ## Cloud-Init options
 
@@ -126,3 +146,17 @@ write_files:
 ```
 
 After the virtual machine starts, Dockge dashboard should be available at `http://<VM_IP_OR_DOMAIN>:5001` . Access it in order to create a Dockge admin account.
+
+#### Updating containers with Dockge
+
+If you've enabled Dockge you can use it to update the running containers by opening the dashboard, selecting the `defguard` stack and clicking `Update`:
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+To set a specific Docker image tag you can instead click the `Edit` button, then scroll down to the `.env` section and edit the highlighted environment variables:<br>
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+Once the variables are set you can scroll back up and click the `Deploy` button:
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>

@@ -7,7 +7,7 @@ metaLinks:
 # Service locations
 
 {% hint style="warning" %}
-#### Availability
+**Availability**
 
 This feature is available in Enterprise plan. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}
@@ -51,8 +51,6 @@ Once you've completed the Wizard and adopted the Gateway, your service location 
 After going to "**Locations**" page, you can see type of each location.
 
 <figure><img src="../.gitbook/assets/Screenshot 2026-04-16 at 14.06.32.png" alt=""><figcaption></figcaption></figure>
-
-
 
 If you want to edit your service location, click "**…**" and select "**Edit"**
 

@@ -8,7 +8,7 @@ metaLinks:
 # Automatic (real time) desktop client configuration & sync
 
 {% hint style="warning" %}
-#### Availability
+**Availability**
 
 This feature is available in all plans, with usage limits. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}

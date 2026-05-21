@@ -8,7 +8,7 @@ metaLinks:
 # Two-way LDAP and Active Directory synchronization
 
 {% hint style="warning" %}
-#### Availability
+**Availability**
 
 This feature is available in all plans, with usage limits. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}
@@ -18,7 +18,7 @@ This feature is available since Defguard version 1.3.0.
 {% endhint %}
 
 {% hint style="danger" %}
-Make sure to be aware of the mechanisms described in [Authority and full synchronization](#authority-and-full-synchronization) and [First synchronization](#first-synchronization) before enabling this feature.
+Make sure to be aware of the mechanisms described in [Authority and full synchronization](two-way-ldap-and-active-directory-synchronization.md#authority-and-full-synchronization) and [First synchronization](two-way-ldap-and-active-directory-synchronization.md#first-synchronization) before enabling this feature.
 
 We recommend testing the integration first in a non-production environment, as improper configuration may cause loss of user data.
 {% endhint %}
@@ -53,7 +53,7 @@ To enable two-way synchronization, in **Settings → External identity providers
 <figure><img src="../../.gitbook/assets/ldap-two-way-synchronization.png" alt="LDAP Two-way synchronization"><figcaption></figcaption></figure>
 
 * **Enable LDAP two-way synchronization**: This option enables two-way synchronization. Check it if you want to pull changes from LDAP.
-* **Consider the following source as the authority**: makes the selected server the source of truth. See [authority and full synchronization](#authority-and-full-synchronization) for more details.
+* **Consider the following source as the authority**: makes the selected server the source of truth. See [authority and full synchronization](two-way-ldap-and-active-directory-synchronization.md#authority-and-full-synchronization) for more details.
 * **Synchronization interval**: How often, in seconds, to pull LDAP changes.
 
 If you enabled the LDAP integration but not the two-way synchronization, your changes in Defguard will be propagated to LDAP but not the other way around.
@@ -132,7 +132,7 @@ This can be summarized as follows: authority indicates the most likely place whe
 
 ### First synchronization
 
-The first synchronization will replace all your records with the records from the other source, so it is important to select the direction correctly. This is done by setting the authority, as discussed in [authority and full synchronization](#authority-and-full-synchronization). In short:
+The first synchronization will replace all your records with the records from the other source, so it is important to select the direction correctly. This is done by setting the authority, as discussed in [authority and full synchronization](two-way-ldap-and-active-directory-synchronization.md#authority-and-full-synchronization). In short:
 
 * LDAP → Defguard: If you want to replace all Defguard users with LDAP users, set LDAP as the authority.
 * Defguard → LDAP: If you want to replace all LDAP users with Defguard users, set Defguard as the authority.
@@ -163,7 +163,7 @@ Only non-empty groups are currently synchronized. Groups that do not have any sy
 
 #### A user is not being synced
 
-Your user may be missing one of the required attributes. Check [requirements](#requirements) for a full list. Users without one of those attributes will be skipped.
+Your user may be missing one of the required attributes. Check [requirements](two-way-ldap-and-active-directory-synchronization.md#requirements) for a full list. Users without one of those attributes will be skipped.
 
 #### Defguard users are losing their groups (e.g. "admin" group)
 

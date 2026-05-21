@@ -7,7 +7,7 @@ metaLinks:
 # User SNAT bindings
 
 {% hint style="warning" %}
-#### Availability
+**Availability**
 
 This feature is available in all plans, with usage limits. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}
