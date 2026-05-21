@@ -5,7 +5,7 @@ metaLinks:
       https://app.gitbook.com/s/e86iamwJVSYnIRsyVEAV/deployment-strategies/standalone-package-based-installation
 ---
 
-# Standalone package-based installation
+# Standalone package based installation
 
 ## Introduction
 
@@ -39,19 +39,12 @@ These prerequisites are meant to help you avoid the most common deployment issue
   * [SUSE](https://www.suse.com/)
   * [FreeBSD](https://www.freebsd.org/)
   * [NetBSD](https://netbsd.org/)
-
 * Administrative (sudo) privileges.
-
 * A server with a public IP address (and knowledge of what that IP address is and which interface it is assigned to) - in this example, we use `185.33.37.51`.
-
 * A domain name, and knowledge of how to assign IP addresses and manage subdomains. In our example, the main Defguard URL is _my-server.defguard.net_ (and the subdomain points to `185.33.37.51`).
-
 * A Defguard [enrollment service](https://defguard.gitbook.io/defguard/help/enrollment) (run by the proxy) that enables [remote onboarding and enrollment](https://defguard.gitbook.io/defguard/help/enrollment), as well as [easy configuration for our Desktop Clients (by adding Defguard instances)](../../using-defguard-for-end-users/desktop-client/instance-configuration.md#adding-instance) using the instance URL and a simple token. In this tutorial, we use _enroll.defguard.net_ (this subdomain also points to `185.33.37.51`).
-
 * If you have a **firewall**, we assume you have **opened port 443** in order to expose both Defguard and the enrollment service, and to automatically issue SSL certificates for these domains. Port 444 (used for internal gRPC communication) **should not be publicly exposed**.
-
 * System clock is synchronized using [Network Time Protocol (NTP)](https://www.ntp.org/). This is important for time-based one-time password (TOTP) codes.
-
 * A PostgreSQL [database](database.md)
 
 ## Defguard packages
@@ -119,30 +112,50 @@ sudo rpm -Uvh defguard-X.Y.Z-x86_64-unknown-linux-gnu.rpm
 
 #### FreeBSD/OPNsense
 
-1. Uninstall the current version.
+1.  Uninstall the current version.
 
-   ```sh
-   # Core package
-   pkg delete defguard
+    ```sh
+    # Core package
+    pkg delete defguard
 
-   # or Gateway package
-   pkg delete defguard-gateway
+    # or Gateway package
+    pkg delete defguard-gateway
 
-   # or Proxy package
-   pkg delete defguard-proxy
-   ```
-
+    # or Proxy package
+    pkg delete defguard-proxy
+    ```
 2. Install a newer version (as described [above](./#installing-packages)).
+3.  Restart the service.
 
-3. Restart the service.
+    ```sh
+    # Core service
+    sudo /usr/local/etc/rc.d/defguard restart
 
-   ```sh
-   # Core service
-   sudo /usr/local/etc/rc.d/defguard restart
+    # or Gateway service
+    sudo /usr/local/etc/rc.d/defguard_gateway restart
 
-   # or Gateway service
-   sudo /usr/local/etc/rc.d/defguard_gateway restart
+    # or Proxy service
+    sudo /usr/local/etc/rc.d/defguard_proxy restart
+    ```
 
-   # or Proxy service
-   sudo /usr/local/etc/rc.d/defguard_proxy restart
-   ```
+
+
+## Known issues
+
+### Version \`GLIBC\_2.39' not found
+
+This issue can be resolved on `Debian 12` and `Ubuntu 22.04` by doing following fix.
+
+**If you're using:**
+
+*   **Native deb packages**
+
+    Use packages with `_ubuntu-22-04-lts.deb` in their filename. \
+    Here are releases for:\
+    \- Core [https://github.com/DefGuard/defguard/releases](https://github.com/DefGuard/defguard/releases)\
+    \- Proxy [https://github.com/DefGuard/proxy/releases](https://github.com/DefGuard/client/releases)\
+    \- Gateway [https://github.com/DefGuard/gateway/releases](https://github.com/DefGuard/client/releases)\
+    \- Client [https://github.com/DefGuard/client/releases](https://github.com/DefGuard/client/releases)
+* **Installing via APT repository**\
+  Switch to `bookworm` distribution (Check out [this guide](defguard-apt-repository.md))
+

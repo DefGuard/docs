@@ -11,8 +11,9 @@ APT stands for Advanced Package Tool, Debian’s package manager for installing,
 
 ### Distribution
 
-The Defguard APT repository provides packages for **Debian 12/13** and **Ubuntu 22.04/24.04 LTS.**\
-Packages are available on the default `trixie` repository distribution.
+The Defguard APT repository provides packages for **Debian 12/13** and **Ubuntu 22.04/24.04 LTS.**<br>
+
+It is strongly **recommended** to use `bookworm` distribution on **Debian 12** and **Ubuntu 22.04** due to known issue with `GLIBC_2.39` .
 
 ### Adding the Defguard APT repository
 
