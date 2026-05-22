@@ -16,7 +16,8 @@
 
 * [Overview](features/overview.md)
 * [Zero-Trust VPN with 2FA/MFA](features/wireguard/README.md)
-  * [Create/Manage VPN Location](features/wireguard/create-your-vpn-network.md)
+  * [Create/Manage VPN Location](features/wireguard/create-your-vpn-network/README.md)
+    * [Split Tunnel Configuration](features/wireguard/create-your-vpn-network/split-tunnel-configuration.md)
   * [Network overview](features/wireguard/network-overview.md)
   * [Multi-Factor Authentication (MFA/2FA)](features/wireguard/multi-factor-authentication-mfa-2fa/README.md)
     * [Internal SSO based MFA](features/wireguard/multi-factor-authentication-mfa-2fa/internal-sso-based-mfa.md)

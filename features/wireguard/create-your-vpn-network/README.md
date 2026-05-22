@@ -7,14 +7,14 @@ metaLinks:
 
 # Create/Manage VPN Location
 
-A VPN location is a VPN network to which users can connect to. Every location has a [dedicated gateway](/broken/pages/1KLINb5EeNCxbdWVydt1) (or [multiple gateways if you deploy a high-availability solution](../../deployment-strategies/high-availability-and-failover/#gateway-high-availability)).
+A VPN location is a VPN network to which users can connect to. Every location has a [dedicated gateway](/broken/pages/1KLINb5EeNCxbdWVydt1) (or [multiple gateways if you deploy a high-availability solution](../../../deployment-strategies/high-availability-and-failover/#gateway-high-availability)).
 
 {% hint style="success" %}
 Defguard supports **multiple locations**, for each location to work you need to configure it and deploy a dedicated gateway.
 {% endhint %}
 
 {% hint style="info" %}
-If you are looking for MFA settings, go [here](create-your-vpn-network.md#multi-factor-authentication-for-a-location).
+If you are looking for MFA settings, go [here](./#multi-factor-authentication-for-a-location).
 {% endhint %}
 
 ### Location type choice
@@ -35,7 +35,7 @@ Service Location is a Windows-specific configuration that automates secure netwo
 
 The Location Configuration is a guided, step-by-step wizard.
 
-<figure><img src="../../.gitbook/assets/image (300).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (300).png" alt=""><figcaption></figcaption></figure>
 
 #### Gateway VPN IP addresses and masks
 
@@ -123,7 +123,7 @@ By defining a group, assigning users to that group and then choosing this group(
 By enabling this setting, this location **will require Multi-Factor Authentication** on each connection to this location.
 
 {% hint style="danger" %}
-This feature is only supported in [**Defguard Desktop Client**](../../using-defguard-for-end-users/desktop-client/)**.**
+This feature is only supported in [**Defguard Desktop Client**](../../../using-defguard-for-end-users/desktop-client/)**.**
 {% endhint %}
 
 Each connection in the client:
@@ -134,8 +134,8 @@ Each connection in the client:
 {% hint style="warning" %}
 For this feature to work, the user must:
 
-1. configure their [TOTP settings in the profile](../../using-defguard-for-end-users/setting-up-2fa-mfa.md#one-time-password)
-2. [SMTP settings needs to be set up](../notifications/setting-up-smtp-for-email-notifications.md) and the user must enable Email tokens in their profile.
+1. configure their [TOTP settings in the profile](../../../using-defguard-for-end-users/setting-up-2fa-mfa.md#one-time-password)
+2. [SMTP settings needs to be set up](../../notifications/setting-up-smtp-for-email-notifications.md) and the user must enable Email tokens in their profile.
 {% endhint %}
 
 #### Keep alive interval
@@ -162,10 +162,10 @@ Recommended is more then 300.
 
 #### Multi-Factor Authentication with external OIDC/SSO (Google/Microsoft/Okta/...)
 
-On each location, you can choose if the Location should support our Internal MFA (configured by each user in their own profile) or (if you have [external OIDC/SSO configured](../external-openid-providers/)) external MFA:
+On each location, you can choose if the Location should support our Internal MFA (configured by each user in their own profile) or (if you have [external OIDC/SSO configured](../../external-openid-providers/)) external MFA:
 
-<figure><img src="../../.gitbook/assets/image (302).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (302).png" alt=""><figcaption></figcaption></figure>
 
 When enabled, on the desktop client when authenticating the user will be required on **each connection** to authenticate with the configured External OIDC/SSO:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-07-29 at 12.20.01.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-07-29 at 12.20.01.png" alt="" width="375"><figcaption></figcaption></figure>

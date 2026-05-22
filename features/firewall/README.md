@@ -82,7 +82,7 @@ Each rule is assigned to one or more locations. A rule only applies to VPN traff
 
 **Firewall rules govern resource access within a VPN tunnel. They do not control access to the VPN location itself.**
 
-Location access - which users and groups can establish a connection to a given location - is managed separately through the location's [Allowed Groups](../wireguard/create-your-vpn-network.md#allowed-groups) setting. A user must satisfy both conditions to reach a protected resource:
+Location access - which users and groups can establish a connection to a given location - is managed separately through the location's [Allowed Groups](../wireguard/create-your-vpn-network/#allowed-groups) setting. A user must satisfy both conditions to reach a protected resource:
 
 1. They must have VPN access to the location (Allowed Groups).
 2. They must be permitted by a firewall rule for that destination.

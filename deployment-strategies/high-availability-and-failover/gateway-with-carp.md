@@ -30,7 +30,7 @@ For detailed information, refer to the [Virtual IPs](https://docs.opnsense.org/m
 
 Make the same changes on the secondary OPNsense machine.
 
-Now start Defguard Gateway on both machines. Gateway will also listen on the virtual IP, which can then be configured as the **VPN Public IP** in the [Location settings](../../features/wireguard/create-your-vpn-network.md) in Defguard Core.
+Now start Defguard Gateway on both machines. Gateway will also listen on the virtual IP, which can then be configured as the **VPN Public IP** in the [Location settings](../../features/wireguard/create-your-vpn-network/) in Defguard Core.
 
 After the setup is complete, verify that the virtual IP is active on the primary node and that failover works as expected before using the configuration in production. It is also a good idea to test whether the secondary node can take over cleanly and whether clients are able to reconnect after the failover event.
 

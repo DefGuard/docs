@@ -123,7 +123,7 @@ This value is used by the desktop client to identify instances. The new client s
 
 #### Verify client disconnect threshold for your MFA locations
 
-In order to ensure that MFA works correctly with the new [mobile clients](../using-defguard-for-end-users/mobile-client/) please ensure that the [client disconnect threshold](../features/wireguard/create-your-vpn-network.md#client-disconnect-threshold) is set to at least 300s (5 minutes).
+In order to ensure that MFA works correctly with the new [mobile clients](../using-defguard-for-end-users/mobile-client/) please ensure that the [client disconnect threshold](../features/wireguard/create-your-vpn-network/#client-disconnect-threshold) is set to at least 300s (5 minutes).
 
 ### Proxy
 
