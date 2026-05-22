@@ -16,15 +16,7 @@ sudo chown root:root /config/user-data/defguard-certs
 sudo chmod 700 /config/user-data/defguard-certs
 ```
 
-This directory will later be mounted into the container as `/etc/defguard`, where the gateway can store and read its certificate files:
-
-```bash
-set container name defguard-gateway volume gateway-certs source '/config/user-data/defguard-certs'
-set container name defguard-gateway volume gateway-certs destination '/etc/defguard'
-set container name defguard-gateway volume gateway-certs mode 'rw'
-```
-
-With this volume in place, the gateway should be able to restart or survive a VyOS reboot without requiring re-adoption.
+We will later mount this directory into the container as `/etc/defguard`, where the gateway can store and read its certificate files.
 
 ## Container configuration
 
@@ -72,12 +64,12 @@ show container
 sudo podman ps -a
 ```
 
-At this point, the gateway container should be running on VyOS and ready to be adopted from Defguard Core.&#x20;
+At this point, the gateway container should be running on VyOS and ready to be adopted by Defguard Core service.&#x20;
 
 Adopt it by following [those steps](https://docs.defguard.net/tutorials/initial-setup-wizard-setting-up-from-scratch#adopt-the-gateway-component).
 
 {% hint style="warning" %}
-The gateway accepts adoption requests only for a limited time after startup. Start the adoption process in Defguard Core shortly after starting the container.
+Gateway accepts adoption requests only for a limited time after startup. Start the adoption process in Defguard Core shortly after starting the container.
 {% endhint %}
 
 After adoption, verify that certificate files were written to the mounted host directory:
