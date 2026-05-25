@@ -152,6 +152,7 @@
     * [Unable to sign in with correct credentials](support-1/troubleshooting-guides/core/unable-to-sign-in-with-correct-credentials.md)
     * [User lost access to their 2FA methods](support-1/troubleshooting-guides/core/user-lost-access-to-their-2fa-methods.md)
     * [Enrollment URL Changed](support-1/troubleshooting-guides/core/enrollment-url-changed.md)
+    * [Failed to parse duration](support-1/troubleshooting-guides/core/failed-to-parse-duration.md)
   * [Desktop Client](support-1/troubleshooting-guides/desktop-client/README.md)
     * [Unix socket permission error on connect (Linux)](support-1/troubleshooting-guides/desktop-client/unix-socket-permission-error-on-connect-linux.md)
     * [MFA location disconnected after X-time](support-1/troubleshooting-guides/desktop-client/mfa-location-disconnected-after-x-time.md)
