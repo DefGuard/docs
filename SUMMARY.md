@@ -180,6 +180,7 @@
   * [WebAuthn security keys](support-1/troubleshooting-guides/webauthn-security-keys.md)
   * [Can access VPN but not local network or internet](support-1/troubleshooting-guides/can-access-vpn-but-not-local-network-or-internet.md)
   * [How to verify the VPN is working](support-1/troubleshooting-guides/how-to-verify-the-vpn-is-working.md)
+  * [Testing VPN speed](support-1/troubleshooting-guides/testing-vpn-speed.md)
 * [Server migration and licence transfer](support-1/server-migration-and-licence-transfer.md)
 * [Troubleshooting Guide V1 legacy backup](support-1/troubleshooting/README.md)
   * [Sending support information](support-1/troubleshooting/sending-support-info.md)
