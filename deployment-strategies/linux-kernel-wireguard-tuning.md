@@ -1,8 +1,8 @@
 ---
 description: >-
-  This technical guide addresses WireGuard VPN latency, throughput,
-  resilience, and scalability requirements by tuning Linux kernel parameters
-  (as WireGuard is part of the Linux kernel).
+  This technical guide addresses WireGuard VPN latency, throughput, resilience,
+  and scalability requirements by tuning Linux kernel parameters (as WireGuard
+  is part of the Linux kernel).
 ---
 
 # Linux Kernel WireGuard tuning
@@ -16,6 +16,49 @@ To achieve maximum performance (low latency), stability across changing networks
 {% hint style="info" %}
 Kernel **sysctl** settings optimize how the Linux kernel schedules packets and manages memory buffers. Add the following to `/etc/sysctl.d/99-wireguard-tuning.conf` or `/etc/sysctl.conf`.
 {% endhint %}
+
+## Hardware requirements
+
+Before Linux Kernel tuning, please not that the hardware itself needs to be efficient in order to handle the bandwidth and user load.
+
+Here are some general tips on hardware.
+
+#### CPU Sizing Methodology for Defguard Gateways
+
+Since WireGuard performs cryptographic operations (ChaCha20-Poly1305) directly inside the Linux kernel, CPU utilization scales primarily with **Aggregate Peak Throughput** and **Packets Per Second (PPS)**, rather than the raw number of idle connected peers.
+
+**Core Formula:**
+
+Required Cores (vCPUs) = Ceil( Expected Peak Throughput (Gbps) / Core Crypto Capacity (Gbps) ) + Dedicated Network Cores
+
+Where:
+
+1. Core Crypto Capacity: A modern server CPU core (with AVX2 or AVX-512 extensions) can process roughly 1.5 to 2.0 Gbps of encrypted WireGuard traffic (assuming an average mixed packet size of \~1000 bytes).
+2. Expected Peak Throughput: Calculated based on the concurrency model: (Concurrent Active Users \* Average Peak Bandwidth per User).
+3. Dedicated Network Cores (Overhead): Cores heavily consumed by SoftIRQs, NAPI polling (driven by netdev\_budget), and netfilter/conntrack processing.
+   * For < 100 devices: 0 extra cores needed (handled by the base 2 cores).
+   * For 1,000 devices: +2 cores should be allocated/optimized for network interrupt handling.
+   * For 10,000 devices: +4 to +8 cores must be dedicated to RPS (Receive Packet Steering) to distribute the massive PPS load across the CPU complex.
+
+#### RAM Memory
+
+To estimate the system memory required by the kernel network stack and gateway components, use the following formula:
+
+$$RAM_{total} = RAM_{base} + (N_{active} \times 0.003)$$
+
+Where:
+
+* RAM\_{total} is the total recommended system memory in Gigabytes (GB).
+* RAM\_{base} is **1.0 GB** (the baseline allocation for a minimal Linux OS, the Defguard core/gateway agent, and basic userspace management processes).
+* N\_{active} is the number of concurrent, actively transmitting devices.
+* **0.003** (3 MB) is the memory overhead multiplier per active user under maximum burst conditions.
+
+> #### 💡 Why 3 MB per user?
+>
+> This multiplier accounts for the optimized kernel configurations recommended in the tuning guide:
+>
+> 1. **Conntrack Entries:** An average active user spawns \~100 stateful connections. At \~320 bytes per `nf_conntrack` entry, plus hashing overhead, this consumes significant kernel memory.
+> 2. **UDP Buffers:** High-throughput tuning relies on massive network windows (`net.core.rmem_max = 16MB` or higher). When multiple users blast traffic simultaneously, the kernel allocates large socket buffers (`sk_buff`) to prevent packet drops during CPU scheduling delays.
 
 ## Kernel tuning
 
@@ -71,7 +114,7 @@ For high-performance VPN servers, we increase `netdev_budget` to favor network t
 
 #### Home/Small Office
 
-Meaning around ~20 users: the default value of 300 is fine, and changing it will likely not be noticeable.
+Meaning around \~20 users: the default value of 300 is fine, and changing it will likely not be noticeable.
 
 ### 50 VPN users and above
 
