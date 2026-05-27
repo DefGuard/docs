@@ -20,6 +20,16 @@ In version 1.x, business features were free up to certain limits without requiri
 The good news is that we have raised the limits for the free tier, and it now supports up to 10 users (and 30 devices) for free!
 {% endhint %}
 
+{% hint style="warning" %}
+**Upgrading from 1.5.x?**
+
+We recommend upgrading to the latest **1.6.x** release before migrating to **2.x**.&#x20;
+
+This ensures that all intermediate migrations and configuration changes are applied in the expected order, reducing the risk of upgrade-related issues.&#x20;
+
+Recommended upgrade path: **any → latest 1.6.x → 2.x.**
+{% endhint %}
+
 As this is a major upgrade with breaking changes, we prepared a migration wizard to guide you through the migration. See [this article](../tutorials/migrating-from-defguard-1.6-to-2.0.md) with details on how to use it.
 
 Cases not covered by the migration wizard are listed below.
