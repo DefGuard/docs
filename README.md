@@ -16,7 +16,7 @@ Welcome to the Defguard documentation. Here, you’ll learn how to explore the f
   Helps you, as a future Defguard administrator, get familiar with all of Defguard’s features and how to configure them to suit your needs.
 * [Deployment strategies](deployment-strategies/overview.md)\
   Walks you through the most common deployment strategies to help you set up your Defguard instance as a production-grade solution.
-* [License](/broken/pages/vEBaL5Pdry1nZO8V50bh)\
+* [License](https://app.gitbook.com/s/qPYuWxfmxFk6sz1LLLwd/enterprise)\
   Outlines the scope, limits, and purchasing process for the Defguard Enterprise license.
 * [Using Defguard (for end users)](using-defguard-for-end-users/overwiew.md)\
   Helps you, as a Defguard end user, get familiar with the client applications and their features so you can quickly connect to your Defguard instance.

@@ -115,9 +115,23 @@ In order for Entra users to be created in Defguard they must have the following 
 
 By default, directory sync guaranteed only that the state and group membership of Defguard users also present in the directory is up-to-date. It does not create Defguard users until they log in using an External OpenID provider.
 
-To create Defguard users during directory sync enable the `Prefetch users` option:
+To create Defguard users during directory sync, enable the `Import users from your Microsoft directory to Defguard` option:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2026-04-24 at 12.01.15.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-06-07 at 16.56.43.png" alt=""><figcaption></figcaption></figure>
+
+**Limiting sync to specific groups**
+
+* **Sync only matching memberships** - decides which group memberships get synced.
+  * Empty field means that Defguard will sync every group.&#x20;
+  * A comma-separated list of groups: keeps the groups and ignores the rest. It doesn't change who gets an account, just how memberships are mapped.&#x20;
+* **Synchronize users only from specified groups** - decides who gets an account.&#x20;
+  * Empty field means that anyone from the directory will be imported and will be able to sign in.&#x20;
+  * A comma-separated list of groups: imports members of the specified groups, while people outside won't be able to enroll via [external SSO](../../using-defguard-for-end-users/enrollment/with-external-sso-google-microsoft-custom.md) and accounts won't be created on the first sign-in (if enabled).\
+    Users who already have an account won't be affected.&#x20;
+
+{% hint style="warning" %}
+If you use both fields, the second one depends on the first. Any group in "**Synchronize users only from specified groups**" also has to be in "**Sync only matching memberships**", otherwise nobody will be recognized as its member and no one will be imported.&#x20;
+{% endhint %}
 
 6. Click "**Continue**"
 
