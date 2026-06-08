@@ -50,3 +50,11 @@ Check the GitHub repositories for each service to find their newest releases and
 * [Defguard Proxy](https://github.com/DefGuard/proxy/releases)
 * [Defguard Gateway](https://github.com/DefGuard/gateway/releases)
 * [Defguard YubiBridge](https://github.com/DefGuard/YubiKey-Provision/releases)
+
+## Firewall rules for version or license checking
+
+In order to prevent any issues with update checking or license verification, please open on your firewall access to HTTPS for the following host:
+
+| Domain            | IP           | Purpose                      |
+| ----------------- | ------------ | ---------------------------- |
+| pkgs.defguard.net | 185.33.37.43 | Updates & License validation |
