@@ -10,7 +10,7 @@ metaLinks:
 {% hint style="warning" %}
 **Availability**
 
-This feature is available in all plans, with usage limits. See the [pricing page](https://defguard.net/pricing/) for details.
+This feature is available in Business and Enterprise plans. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}
 
 {% embed url="https://youtu.be/8lf9UIAt9Rw" %}
