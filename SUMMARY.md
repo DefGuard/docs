@@ -80,6 +80,7 @@
   * [Generating enrollment tokens with Defguard REST API](features/desktop-client-auto-provisioning/generating-enrollment-tokens-with-defguard-rest-api.md)
 * [Static IP assignment](features/static-ip-assignment.md)
 * [Certificate management](features/certificate-management.md)
+* [Device posture verification](features/device-posture-verification.md)
 
 ## Deployment strategies
 
