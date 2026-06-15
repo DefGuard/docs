@@ -122,15 +122,18 @@ To create Defguard users during directory sync, enable the `Import users from yo
 **Limiting sync to specific groups**
 
 * **Sync only matching memberships** - decides which group memberships get synced.
-  * Empty field means that Defguard will sync every group.&#x20;
-  * A comma-separated list of groups: keeps the groups and ignores the rest. It doesn't change who gets an account, just how memberships are mapped.&#x20;
-* **Synchronize users only from specified groups** - decides who gets an account.&#x20;
-  * Empty field means that anyone from the directory will be imported and will be able to sign in.&#x20;
-  * A comma-separated list of groups: imports members of the specified groups, while people outside won't be able to enroll via [external SSO](../../using-defguard-for-end-users/enrollment/with-external-sso-google-microsoft-custom.md) and accounts won't be created on the first sign-in (if enabled).\
-    Users who already have an account won't be affected.&#x20;
+  * Empty field means that Defguard will sync every group.
+  * A comma-separated list of groups: keeps the groups and ignores the rest. It doesn't change who gets an account, just how memberships are mapped.
+* **Synchronize users only from specified groups** - decides who gets an account.
+  * Empty field means that anyone from the directory will be imported and will be able to sign in.
+  * A comma-separated list of groups: imports members of the specified groups, while people outside won't be able to enroll via [external SSO](../../using-defguard-for-end-users/enrollment/with-external-sso-google-microsoft-custom.md), and accounts won't be created on the first sign-in (if enabled).
+
+If a group is not listed in the `Synchronize users only from specified groups` field, only the first sign-in is blocked. Existing Defguard accounts, created earlier or kept because `User behaviour` is set to `Keep`, can still sign in. If such an account is deleted, the user will not be able to sign in again until adding the desired group to `Synchronize users only from specified groups` field.
+
+<table><thead><tr><th width="170">Sync only matching memberships</th><th width="148">Synchronize users only from specified groups</th><th width="138">Who will be imported (if enabled)</th><th width="119">Who can enroll via external SSO? (on Edge site)</th><th>Who will have account created on first sign-in (if enabled)</th></tr></thead><tbody><tr><td>Empty</td><td>Empty</td><td>Everyone</td><td>Everyone</td><td>Everyone</td></tr><tr><td><code>Group 1</code>,<code>Group 2</code></td><td>Empty</td><td>Everyone</td><td>Everyone</td><td>Everyone</td></tr><tr><td>Empty</td><td><code>Group 1</code></td><td>Only users in <code>Group 1</code></td><td>Only users in <code>Group 1</code></td><td>Only users in <code>Group 1</code></td></tr><tr><td><code>Group 1</code>,<code>Group 2</code></td><td><code>Group 1</code></td><td>Only users in <code>Group 1</code></td><td>Only users in <code>Group 1</code></td><td>Only users in <code>Group 1</code></td></tr><tr><td><code>Group 1</code></td><td><code>Group 2</code></td><td>No one</td><td>No one</td><td>No one</td></tr></tbody></table>
 
 {% hint style="warning" %}
-If you use both fields, the second one depends on the first. Any group in "**Synchronize users only from specified groups**" also has to be in "**Sync only matching memberships**", otherwise nobody will be recognized as its member and no one will be imported.&#x20;
+If you use both fields, the second one depends on the first. Any group in "**Synchronize users only from specified groups**" also has to be in "**Sync only matching memberships**", otherwise nobody will be recognized as its member, and no one will be imported.
 {% endhint %}
 
 6. Click "**Continue**"
