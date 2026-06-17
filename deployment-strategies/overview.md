@@ -41,14 +41,12 @@ Defguard Core acts as the central control plane - it manages configuration, auth
 
 ## Choose your deployment strategy
 
-| Strategy name                                                 | Difficulty                                                    | Production readiness                                                                                            | Purpose                         |
-| ------------------------------------------------------------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| [One-line script](../getting-started/one-line-install.md)     | :green\_circle: Easy, single command installation             | :x: Doesn't follow the [recommendations](hardware-os-network-and-firewall-recommendations.md)                   | For testing purposes only       |
-| [Standalone packages](standalone-package-based-installation/) | :green\_circle: Easy, using `apt`/`dpkg` or `dnf`/`rpm`       | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Small to medium deployment      |
-| [Docker Compose](docker-compose.md)                           | :yellow\_circle: Medium, Docker knowledge is required         | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Small to medium deployment      |
-| [Kubernetes](kubernetes.md)                                   | :red\_circle: Advanced, requires a Kubernetes cluster         | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Large or enterprise deployments |
-| [Terraform](terraform.md)                                     | :red\_circle: Advanced, requires an AWS account and knowledge | :white\_check\_mark:                                                                                            | Large or enterprise deployments |
-| [AMI and AWS CloudFormation](amis-and-aws-cloudformation/)    | :red\_circle: Advanced, requires an AWS account and knowledge | :white\_check\_mark:                                                                                            | Large or enterprise deployments |
+| Strategy name                                                 | Difficulty                                              | Production readiness                                                                                            | Purpose                         |
+| ------------------------------------------------------------- | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| [One-line script](../getting-started/one-line-install.md)     | :green\_circle: Easy, single command installation       | :x: Doesn't follow the [recommendations](hardware-os-network-and-firewall-recommendations.md)                   | For testing purposes only       |
+| [Standalone packages](standalone-package-based-installation/) | :green\_circle: Easy, using `apt`/`dpkg` or `dnf`/`rpm` | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Small to medium deployment      |
+| [Docker Compose](docker-compose.md)                           | :yellow\_circle: Medium, Docker knowledge is required   | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Small to medium deployment      |
+| [Kubernetes](kubernetes.md)                                   | :red\_circle: Advanced, requires a Kubernetes cluster   | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Large or enterprise deployments |
 
 ## Configure to your needs
 
