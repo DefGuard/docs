@@ -101,7 +101,7 @@ This option requires the following:
 
 - **Server address**: IP address or domain name of the SMTP server.
 
-- **Server port**: port number of the SMTP server. Common values are 587 (message submission), 465 (message submission over TLS), or 25 (SMTP relay).
+- **Server port**: port number of the SMTP server. Common values are `587` (message submission), `465` (message submission over TLS), or `25` (SMTP relay).
 
 - **Sender email address**: email address that will appear as the sender.
 
@@ -132,7 +132,7 @@ create OAuth2 credentials in the Google Cloud Console:
 
 4. Select **Web application** as the application type, and give it a **Name**.
 
-5. Add the Defguard callback URL, in form of `https://mydefguard/smtp-oauth-callback`, to **Authorized redirect URIs**.
+5. Add the Defguard callback URL, in the form of `https://mydefguard/smtp-oauth-callback`, to **Authorized redirect URIs**.
 
 6. Click **Create** and copy the generated **Client ID** and **Client secret**.
 
@@ -154,19 +154,23 @@ Google account and grant Defguard permission to send email on your behalf.
 This option uses OAuth2 to send email through Microsoft 365 Exchange. Before configuring it in
 Defguard, you need to register an application in Azure Active Directory:
 
-1. Go to [Azure Portal](https://portal.azure.com/) and navigate to
-   **Azure Active Directory → App registrations**.
+1. Go to [Entra portal](https://entra.microsoft.com/) and navigate to
+   **Entra ID → App registrations**.
 
 2. Click **New registration**, give the app a name, and click **Register**.
 
 3. After registration, note the **Application (client) ID** and **Directory (tenant) ID** shown on
    the overview page.
 
-4. Go to **Certificates & secrets → Client secrets** and click **New client secret**. Copy the
-   generated secret value immediately — it will not be shown again.
+4. Go to **Entra ID → App registrations → Certificates & secrets**, select **Client secrets** tab,
+   and click **New client secret**. Copy the generated secret value immediately — it will not be
+   shown again.
 
-5. Go to **API permissions** and add the **Mail.Send** permission under **Microsoft Graph**, then
-   grant admin consent.
+5. Go to **Entra ID → App registrations → API permissions**, select the new app, and add the
+   **SMTP.SendAsApp** permission under **Office 365 Exchange Online**.
+
+6. Go to **Entra ID → Enterprise apps**, select the new app, and then go to **Permissions**.
+   Click on **grant admin consent for…**.
 
 Then fill in the following fields in Defguard:
 
@@ -193,7 +197,7 @@ If the test email does not arrive, check the following:
   and that the port is not blocked by a firewall.
 
 - **Encryption mismatch**: make sure the port and the encryption mode are consistent — for example,
-  port 465 requires _Implicit TLS_, while port 587 is used with _StartTLS_. Mixing these will
+  port `465` requires _Implicit TLS_, while port `587` is used with _StartTLS_. Mixing these will
   cause the connection to fail or produce a TLS handshake error.
 
 - **Credentials**: for the _Username and password_ option, double-check the username and password.
