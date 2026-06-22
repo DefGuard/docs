@@ -76,7 +76,7 @@ Scale you deployment to make sure it's always available.
 
 ### Notifications
 
-* [Email notifications ](../features/notifications/setting-up-smtp-for-email-notifications.md)via SMTP
+* [Email notifications](../features/notifications/setting-up-smtp-for-email-notifications.md) via SMTP
 * [Gateway disconnect/reconnect](../features/notifications/gateway-notifications.md) notifications
 * [New version](../features/notifications/new-version-notifications.md) notifications
 
