@@ -61,11 +61,11 @@ flows, and account activity. For this feature to work, you must configure a conn
 
 To configure a connection to an SMTP server, go to **Settings → Notifications → SMTP Configuration**.
 
-<figure><img src="../../.gitbook/assets/settings-notifications.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/settings-notifications.png" alt=""></figure>
 
 Then, select one of the configuration options by clicking **Configure** on the right side of a panel:
 
-<figure><img src="../../.gitbook/assets/smtp-configuration-options.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/smtp-configuration-options.png" alt=""></figure>
 
 * **No Authentication**: use this option for an SMTP server that doesn't require any authentication. Usually, this kind of server is protected with firewall rules and is not accessible outside an internal network.
 
@@ -101,7 +101,7 @@ This option requires the following:
 
 - **Server address**: IP address or domain name of the SMTP server.
 
-- **Server port**: port number of the SMTP server. Common values are `587` (message submission), `465` (message submission over TLS), or `25` (SMTP relay).
+- **Server port**: port number of the SMTP server. Common values are 587 (message submission), 465 (message submission over TLS), or 25 (SMTP relay).
 
 - **Sender email address**: email address that will appear as the sender.
 
@@ -130,11 +130,13 @@ create OAuth2 credentials in the Google Cloud Console:
 
 3. Go to **APIs & Services → Credentials** and click **Create credentials → OAuth client ID**.
 
-4. Select **Web application** as the application type.
+4. Select **Web application** as the application type, and give it a **Name**.
 
-5. Add the Defguard callback URL to **Authorized redirect URIs**.
+5. Add the Defguard callback URL, in form of `https://mydefguard/smtp-oauth-callback`, to **Authorized redirect URIs**.
 
 6. Click **Create** and copy the generated **Client ID** and **Client secret**.
+
+<figure><img src="../../.gitbook/assets/google-oauth2.png" alt=""></figure>
 
 Then fill in the following fields in Defguard:
 
