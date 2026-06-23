@@ -131,7 +131,7 @@ Create the following snippet. The content can be `core`, `edge`, or `gateway`:
 ```
 #cloud-config
 write_files:
-  - path: /opt/defguard/active-profiles
+  - path: /opt/stacks/defguard/active-profiles
     content: "core"
 ```
 
@@ -153,7 +153,7 @@ Here is the full breakdown of what runs for each profile:
 
 <table><thead><tr><th width="322">Profile</th><th width="411">What runs</th></tr></thead><tbody><tr><td>core</td><td>Core, database, NPM</td></tr><tr><td>edge</td><td>Edge, NPM</td></tr><tr><td>gateway</td><td>Gateway</td></tr></tbody></table>
 
-Using different solution that Proxmox will require creating a custom cloud-init that will write one of the profiles above to the `/opt/defguard/active-profiles` file.
+Using different solution that Proxmox will require creating a custom cloud-init that will write one of the profiles above to the `/opt/stacks/defguard/active-profiles` file.
 
 ### Dockge
 
