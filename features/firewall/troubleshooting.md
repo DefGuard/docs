@@ -66,7 +66,7 @@ Additionally, if multiple rules cover overlapping destinations, their combined f
 
 ### Connection issues with Docker installed
 
-If you have Docker installed on the same machine as your Gateway (or if you deployed Defguard using the one-line installation script) the firewall may not work properly due to Docker firewall rules interfering with your ACL rules.&#x20;
+If you have Docker installed on the same machine as your Gateway (or if you deployed Defguard using the one-line installation script) the firewall may not work properly due to Docker firewall rules interfering with your ACL rules.
 
 To verify this, execute `nft list ruleset` (may require sudo) on the machine on which your Gateway is installed:
 
@@ -109,3 +109,41 @@ table inet DEFGUARD-wg0 {
 ```
 
 The Default forward chain that is managed by Docker has the priority of `filter` and Defguard chain of `filter - 1`, making it run before Docker's.
+
+#### Docker drops forwarded WireGuard traffic before NAT
+
+This is a different Docker-related failure mode. It affects routed or masqueraded VPN traffic even if ACL rules are correct.
+
+**Symptom:** VPN clients connect successfully, but cannot reach the LAN or the internet through the gateway. Your NAT or masquerade rule looks correct, but its packet counters stay near zero.
+
+**Cause:** Docker often installs an `iptables` `FORWARD` chain with `policy drop`, then only allows traffic for Docker bridge interfaces in `DOCKER-FORWARD`. Traffic entering on `wg0` does not match those rules, falls through to the end of `FORWARD`, and is dropped before it ever reaches `POSTROUTING`.
+
+**Fix:** Allow WireGuard traffic in `DOCKER-USER`, which Docker evaluates early in the `FORWARD` path:
+
+```sh
+iptables -I DOCKER-USER -i wg0 -j ACCEPT
+iptables -I DOCKER-USER -o wg0 -j ACCEPT
+```
+
+Replace `wg0` if your Gateway uses a different interface name.
+
+If you also need VPN clients to egress through the gateway, add a masquerade rule for the VPN subnet:
+
+```sh
+iptables -t nat -A POSTROUTING -s <VPN_SUBNET> -o <EGRESS_INTERFACE> -j MASQUERADE
+```
+
+Example:
+
+```sh
+iptables -t nat -A POSTROUTING -s 10.1.1.0/24 -o eth0 -j MASQUERADE
+```
+
+Alternatively, Defguard Gateway can manage this source NAT automatically with `--masquerade` or `DEFGUARD_MASQUERADE=true` instead of adding the `POSTROUTING` rule manually.
+
+These rules are not persistent by default. On Debian or Ubuntu, install `iptables-persistent` and save them:
+
+```sh
+apt install iptables-persistent
+netfilter-persistent save
+```

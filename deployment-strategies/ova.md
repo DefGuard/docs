@@ -45,6 +45,35 @@ Here is the breakdown of accessible services deployed on the VM:
 
 <table><thead><tr><th>Name</th><th width="182">Port</th><th width="240">Type</th></tr></thead><tbody><tr><td>Core</td><td>8000</td><td>HTTP (web dashboard)</td></tr><tr><td>Edge</td><td>8080</td><td>HTTP (enrollment portal)</td></tr><tr><td>Gateway</td><td>51820</td><td>UDP (VPN port)</td></tr><tr><td>Nginx Proxy Manager</td><td>80, 443, 81</td><td>HTTP(S) and the management dashboard on port 81</td></tr></tbody></table>
 
+### VPN client internet access
+
+The OVA runs Gateway on a host that also runs Docker. If VPN clients should reach the internet through the VM, you usually need all of the following:
+
+* IP forwarding enabled on the host.
+* A masquerade rule for the VPN subnet.
+* `DOCKER-USER` allow rules for the WireGuard interface when Docker sets `FORWARD` to `drop`.
+
+For manual host configuration, the required `iptables` rules look like this:
+
+```sh
+sudo iptables -I DOCKER-USER -i wg0 -j ACCEPT
+sudo iptables -I DOCKER-USER -o wg0 -j ACCEPT
+sudo iptables -t nat -A POSTROUTING -s <VPN_SUBNET> -o <EGRESS_INTERFACE> -j MASQUERADE
+```
+
+Replace `wg0`, `<VPN_SUBNET>`, and `<EGRESS_INTERFACE>` with values from your deployment.
+
+These host firewall rules are not persistent by default. On the OVA, save them with:
+
+```sh
+sudo apt install iptables-persistent
+sudo netfilter-persistent save
+```
+
+If you prefer Defguard Gateway to manage the source NAT automatically, enable `DEFGUARD_MASQUERADE=true` for the Gateway service and redeploy the stack. This is usually the simplest option for the OVA.
+
+For the generic routing and troubleshooting guidance, see [Can access VPN but not local network or internet](../support-1/troubleshooting-guides/can-access-vpn-but-not-local-network-or-internet.md).
+
 ### Getting logs
 
 You can access all components logs by remote access via SSH and in the Dockage UI.
