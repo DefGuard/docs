@@ -110,6 +110,7 @@
 * [Production deployment verification guide](deployment-strategies/production-deployment-verification-guide.md)
 * [Linux Kernel WireGuard tuning](deployment-strategies/linux-kernel-wireguard-tuning.md)
 * [Programmatic gateway adoption](deployment-strategies/programmatic-gateway-adoption.md)
+* [Gateway/Location VLAN routing](deployment-strategies/gateway-location-vlan-routing.md)
 
 ## License <a href="#enterprise" id="enterprise"></a>
 
