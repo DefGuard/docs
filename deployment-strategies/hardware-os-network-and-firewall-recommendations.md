@@ -72,6 +72,16 @@ The server on which the Edge is installed does not need to have the IP address a
 
 If this address is assigned for example to a firewall, a load balancer or a reverse proxy, rather than the server hosting the Edge, then just [forward proper ports acording to instruction below](hardware-os-network-and-firewall-recommendations.md#port-and-firewall-exposure-summary).
 
+{% hint style="warning" %}
+If the Proxy is behind a reverse proxy or load balancer, preserve Defguard-specific headers.
+
+Forward request headers: `defguard-client-version`, `defguard-client-platform`
+
+Preserve response headers: `defguard-component-version`, `defguard-core-version`, `defguard-core-connected`
+
+These headers are required by desktop clients for enrollment, configuration polling, MFA, and version compatibility checks.
+{% endhint %}
+
 ### Core and database server
 
 Defguard Core and PostgreSQL database:
