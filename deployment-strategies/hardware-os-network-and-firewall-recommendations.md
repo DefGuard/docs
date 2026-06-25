@@ -65,6 +65,16 @@ The server on which the Proxy is installed does not need to have the IP address 
 If this address is assigned for example to a Firewall or Load Balancer rather than the server hosting the Gateway, **the port from this address (eg. if the enrollment URL is https://vpn-config.domain.com, then the port is 443) must be forwarded (e.g., via NAT) to the** [**DEFGUARD\_PROXY\_HTTP\_PORT**](https://docs.defguard.net/deployment-strategies/configuration#proxy-service) **on the server where the Proxy is installed.**
 {% endhint %}
 
+{% hint style="warning" %}
+If the Proxy is behind a reverse proxy or load balancer, preserve Defguard-specific headers.
+
+Forward request headers: `defguard-client-version`, `defguard-client-platform`
+
+Preserve response headers: `defguard-component-version`, `defguard-core-version`, `defguard-core-connected`
+
+These headers are required by desktop clients for enrollment, configuration polling, MFA, and version compatibility checks.
+{% endhint %}
+
 * **must have a public enrollment domain assigned to this IP,&#x20;**_**eg. enrollment.company.com (or vpn-config.company.com, etc..**_**)**
 
 ### Core & database server
