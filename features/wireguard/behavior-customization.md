@@ -25,7 +25,15 @@ Options that affect ability to interact with device management for users.
 
 #### Device management
 
-This option defines if users can create / manage their own devices.
+This option determines whether users can create and manage their own devices.
+
+If disabled, **only administrators** can manage devices in user profiles. Users will retain the devices they already have but will not be able to add or manage new ones.
+
+If disabled from the beginning, users will only be able to configure a **single device** during the enrolment process.
+
+{% hint style="warning" %}
+Keep in mind that advanced users can still copy the data directory of their client application and use it on another device.
+{% endhint %}
 
 <figure><img src="../../.gitbook/assets/image (315).png" alt=""><figcaption></figcaption></figure>
 
