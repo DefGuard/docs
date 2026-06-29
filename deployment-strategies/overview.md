@@ -47,6 +47,7 @@ Defguard Core acts as the central control plane - it manages configuration, auth
 | [Standalone packages](standalone-package-based-installation/) | :green\_circle: Easy, using `apt`/`dpkg` or `dnf`/`rpm` | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Small to medium deployment      |
 | [Docker Compose](docker-compose.md)                           | :yellow\_circle: Medium, Docker knowledge is required   | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Small to medium deployment      |
 | [Kubernetes](kubernetes.md)                                   | :red\_circle: Advanced, requires a Kubernetes cluster   | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Large or enterprise deployments |
+| [Terraform (AWS)](terraform.md)                               | :red\_circle: Advanced, requires an AWS account and Terraform | :white\_check\_mark: Provisions EC2 + managed RDS on AWS | Cloud / AWS deployments         |
 
 ## Configure to your needs
 
