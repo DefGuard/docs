@@ -142,7 +142,7 @@
 
 * [How to submit an issue](support-1/how-to-submit-an-issue.md)
 * [Sending support information](support-1/sending-support-information/README.md)
-  * [Core](support-1/sending-support-information/core.md)
+  * [Server applications](support-1/sending-support-information/core.md)
   * [Desktop Client](support-1/sending-support-information/desktop-client.md)
   * [Mobile client](support-1/sending-support-information/mobile-client.md)
 * [Troubleshooting Guides](support-1/troubleshooting-guides/README.md)

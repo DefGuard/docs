@@ -28,6 +28,8 @@ Here is how you can do it in each component
 * client: use `--log-level debug` option or set `DEFGUARD_LOG_LEVEL` environment variable to `debug`
 * `mobile client: select "debug" in "View Application Logs" section`
 
+Check the [Sending support information](sending-support-information/) guide on where you can find the logs.
+
 ### 2. Reproduce the problem
 
 Reproduce the issue while `DEBUG` logging is enabled.\
