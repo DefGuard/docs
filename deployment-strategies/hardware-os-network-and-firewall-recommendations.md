@@ -34,6 +34,10 @@ Recommended setup reflects the [general system architecture](../in-depth/archite
 
 In general, the hardware requirements will also have to be adjusted based on the number of active users. The numbers above should serve as a baseline.
 
+{% hint style="info" %}
+The sizing above applies to a split, multi-server deployment. If you're deploying the all-in-one [OVA](ova.md#resource-sizing) instead, it ships with its own baseline (2 vCPU / 2 GB RAM / 20 GB disk, up to roughly 100 active devices).
+{% endhint %}
+
 ### Operating system and software requirements
 
 #### Package based installation
@@ -138,5 +142,9 @@ In a production environment you should use your preferred backup solution to sec
 
 * Core **database** – preferably by doing a regular _pg\_dump_, not just a filesystem-level backup.
 * Gateway and Edge **SSL certificate directory** – SSL certificates for those components were issued by Defguard’s internal Certificate Authority and are used to secure, authenticate, and authorize component communication. They are stored localy on the server (and not in the main database).
+
+{% hint style="info" %}
+On the all-in-one [OVA](ova.md#backup), the equivalent paths are `.volumes/db` (database), `.volumes/certs/*` (certificates), and `.env` (generated secrets), all under `/opt/stacks/defguard/`.
+{% endhint %}
 
 For more details see [here](overview.md#backup).

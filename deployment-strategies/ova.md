@@ -11,6 +11,10 @@ After importing the image, make sure to:
 1. Attach an appropriate network interface so the virtual machine can access your network.
 2. If you would like to change default user/password you can [do so with cloud-init](https://docs.cloud-init.io/en/latest/reference/yaml_examples/set_passwords.html) - if not, default user ubuntu with pass ubuntu will be created.
 
+{% hint style="info" %}
+If you're importing the OVA into VMware, the image ships with `open-vm-tools` pre-installed, which enables graceful shutdown, guest IP reporting, and time sync with the host.
+{% endhint %}
+
 ### Setting up Defguard
 
 Once booted, the virtual machine will have all Defguard components pre-configured. To complete the setup, simply visit the Defguard Core dashboard: http://\<VM\_IP\_OR\_DOMAIN>:8000. Follow the on-screen wizard to finalize your configuration.
@@ -33,6 +37,12 @@ You can access the VM using the following default credentials (requires changing
 
 When booting the machine for the first time, the whole Defguard stack will be launched using Docker Compose. All Defguard files (Docker compose, environment variables) can be found under the `/opt/stacks/defguard/` directory.
 
+On first boot, the VM generates a random database password into `.env` and starts the stack; this typically completes within about a minute. If the dashboard isn't reachable yet, or you want to confirm what happened during first boot, check the startup log:
+
+```sh
+cat /var/log/defguard-startup.log
+```
+
 To verify that Defguard is running, use the following command inside the VM:
 
 ```sh
@@ -49,7 +59,7 @@ Here is the breakdown of accessible services deployed on the VM:
 
 The OVA runs Gateway on a host that also runs Docker. If VPN clients should reach the internet through the VM, you usually need all of the following:
 
-* IP forwarding enabled on the host.
+* IP forwarding enabled on the host, for both IPv4 and IPv6.
 * A masquerade rule for the VPN subnet.
 * `DOCKER-USER` allow rules for the WireGuard interface when Docker sets `FORWARD` to `drop`.
 
@@ -63,6 +73,10 @@ sudo iptables -t nat -A POSTROUTING -s <VPN_SUBNET> -o <EGRESS_INTERFACE> -j MAS
 
 Replace `wg0`, `<VPN_SUBNET>`, and `<EGRESS_INTERFACE>` with values from your deployment.
 
+{% hint style="warning" %}
+Docker enables `net.ipv4.ip_forward` itself, but **not** IPv6 forwarding. If your deployment routes IPv6 traffic through the VPN, also set `net.ipv6.conf.all.forwarding = 1` on the host.
+{% endhint %}
+
 These host firewall rules are not persistent by default. On the OVA, save them with:
 
 ```sh
@@ -70,9 +84,26 @@ sudo apt install iptables-persistent
 sudo netfilter-persistent save
 ```
 
+The OVA itself applies the `DOCKER-USER` rules automatically at every boot, once Docker is up. Because the `DOCKER-USER` chain only exists after the Docker daemon has finished starting, the OVA's firewall service waits briefly for it to appear; if Docker isn't ready in time, the service exits cleanly and the rules are re-applied on the next boot. If VPN clients briefly can't reach the internet right after a boot but everything works after a reboot, this ordering is the likely cause, see [Troubleshooting](ova.md#troubleshooting) below.
+
 If you prefer Defguard Gateway to manage the source NAT automatically, enable `DEFGUARD_MASQUERADE=true` for the Gateway service and redeploy the stack. This is usually the simplest option for the OVA.
 
 For the generic routing and troubleshooting guidance, see [Can access VPN but not local network or internet](../support-1/troubleshooting-guides/can-access-vpn-but-not-local-network-or-internet.md).
+
+### Kernel and network tuning
+
+The OVA ships with WireGuard-oriented kernel tuning applied out of the box, sized for the baseline 2 vCPU / 2 GB appliance and up to roughly 100 active devices:
+
+* BBR congestion control (`net.ipv4.tcp_congestion_control = bbr`) to reduce bufferbloat.
+* Enlarged UDP socket buffers (`net.core.rmem_max` / `wmem_max = 16777216`), since WireGuard is UDP-based and the OS defaults are too small for 1 Gbps+ links.
+* A larger kernel input queue and accept queue (`net.core.netdev_max_backlog = 5000`, `net.core.somaxconn = 8192`) to absorb traffic bursts.
+* An increased connection-tracking table (`net.netfilter.nf_conntrack_max = 131072`) for VPN egress/masquerade.
+
+If you scale the VM beyond the baseline (more CPU/RAM for more concurrent devices), consider raising `nf_conntrack_max` and the socket buffer sizes accordingly. See [Linux kernel WireGuard tuning](linux-kernel-wireguard-tuning.md) for the full background on these parameters.
+
+### Resource sizing
+
+The OVA defaults to **2 vCPU, 2 GB RAM, and a 20 GB disk**, which comfortably supports up to roughly 100 active WireGuard devices. This is a baseline, not a hard limit, so as a rule of thumb, plan for additional CPU and RAM as the number of active devices grows well beyond that, similar to the guidance in [Hardware, OS, network and firewall recommendations](hardware-os-network-and-firewall-recommendations.md). vCPU/RAM can be resized after first boot through your hypervisor; disk usage should be monitored as the database and logs grow.
 
 ### Getting logs
 
@@ -184,6 +215,10 @@ Here is the full breakdown of what runs for each profile:
 
 Using different solution that Proxmox will require creating a custom cloud-init that will write one of the profiles above to the `/opt/stacks/defguard/active-profiles` file.
 
+{% hint style="info" %}
+The `write_files` snippet itself is standard `cloud-init` user-data and isn't Proxmox-specific. The same pattern works on AWS, Azure, or any other platform that supports cloud-init; only the way you deliver the user-data (a Proxmox snippet vs. a provider's user-data field) differs.
+{% endhint %}
+
 ### Dockge
 
 You can additionally enable [Dockge](https://github.com/louislam/dockge) to easily manage and update all Defguard containers. To do so, add the following to your cloud-init snippet (this was explained more in-depth in the [#selecting-what-components-to-run-proxmox](ova.md#selecting-what-components-to-run-proxmox "mention") section):
@@ -210,3 +245,21 @@ To set a specific Docker image tag you can instead click the `Edit` button, then
 Once the variables are set you can scroll back up and click the `Deploy` button:
 
 <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+## Backup
+
+All state that needs backing up on the OVA lives under `/opt/stacks/defguard/`:
+
+* `.env` – generated secrets (database password, image tags). Losing this without a backup means the database password no longer matches unless you regenerate it consistently.
+* `.volumes/db` – the PostgreSQL database. Prefer a regular `pg_dump` over a filesystem-level copy, consistent with the general [backup strategy](hardware-os-network-and-firewall-recommendations.md#backup-strategy).
+* `.volumes/certs/*` – the SSL certificates used to secure and authenticate communication between Core, Edge, and Gateway. These are issued by Defguard's internal CA and are not stored in the database, so they must be backed up separately.
+
+## Troubleshooting
+
+**VPN clients can't reach the internet right after boot, but it works after a reboot.** The OVA applies `DOCKER-USER` forwarding rules automatically once Docker is ready; on a slow boot this can race Docker's startup. Check `/var/log/defguard-startup.log` for a `DOCKER-USER chain not present` message, and see [VPN client internet access](ova.md#vpn-client-internet-access) above.
+
+**Reverse proxy / SSL certificate errors.** Confirm you've created two separate domains for Core (internal) and Edge (public) as described in [Setting up a reverse proxy](ova.md#setting-up-a-reverse-proxy), and that the automatic Let's Encrypt HTTP-01 challenge on port 80 isn't blocked by an upstream firewall.
+
+**Dockge dashboard isn't reachable at port 5001.** Dockge is opt-in: confirm the `enable-docker-management` file was written via cloud-init as described in [Dockge](ova.md#dockge), and that the VM has finished booting.
+
+**Dashboard doesn't come up after first boot, or `.env` looks wrong.** Check `/var/log/defguard-startup.log` for errors from secret generation or stack startup, and confirm `sudo docker ps` shows all expected containers.
