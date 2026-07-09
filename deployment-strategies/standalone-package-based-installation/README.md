@@ -537,7 +537,7 @@ Also this setup provides only communication encryption between Defguard componen
 
 ## Log retention
 
-In production, configure `systemd-journald` with `Storage=persistent` to ensure logs are retained across system reboots, making troubleshooting and incident investigation possible.
+In production, configure `systemd-journald` with `Storage=persistent` to ensure logs are retained across system reboots. You should also configure limits such as `SystemMaxUse` to cap disk usage and `MaxRetentionSec` to define how long logs are kept, according to your organization’s retention policy. This makes troubleshooting and incident investigation possible while preventing the journal from consuming excessive disk space.
 
 ## Upgrading packages
 
