@@ -8,14 +8,14 @@ Prior to version 2.0.0, Defguard Edge used to be called Defguard Proxy.
 
 All release packages are available in the Defguard repository on GitHub on the [releases](https://github.com/DefGuard/proxy/releases) page. The table below summarises the available options (`X.Y.Z` stands for a version).
 
-| Operating system    | Architecture    | Package filename                                     |
-|---------------------|-----------------|------------------------------------------------------|
+| Operating system    | Architecture    | Package filename                                   |
+| ------------------- | --------------- | -------------------------------------------------- |
 | Debian/Ubuntu       | ARM64 (aarch64) | defguard-proxy-X.Y.Z-aarch64-unknown-linux-gnu.deb |
-| Debian/Ubuntu       | AMD64 (x86_64)  | defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.deb  |
+| Debian/Ubuntu       | AMD64 (x86\_64) | defguard-proxy-X.Y.Z-x86\_64-unknown-linux-gnu.deb |
 | Fedora/Red Hat/SUSE | ARM64 (aarch64) | defguard-proxy-X.Y.Z-aarch64-unknown-linux-gnu.rpm |
-| Fedora/Red Hat/SUSE | AMD64 (x86_64)  | defguard-proxy-X.Y.Z-x86_64-unknown-linux-gnu.rpm  |
-| FreeBSD             | AMD64 (x86_64)  | defguard-proxy-X.Y.Z_x86_64-unknown-freebsd.pkg    |
-| OPNsense (FreeBSD)  | AMD64 (x86_64)  | defguard-proxy-X.Y.Z_x86_64-unknown-opnsense.pkg   |
+| Fedora/Red Hat/SUSE | AMD64 (x86\_64) | defguard-proxy-X.Y.Z-x86\_64-unknown-linux-gnu.rpm |
+| FreeBSD             | AMD64 (x86\_64) | defguard-proxy-X.Y.Z\_x86\_64-unknown-freebsd.pkg  |
+| OPNsense (FreeBSD)  | AMD64 (x86\_64) | defguard-proxy-X.Y.Z\_x86\_64-unknown-opnsense.pkg |
 
 Choose the release you want to install, then download it either by using a web browser or with one of the commands below.
 
@@ -124,3 +124,7 @@ On Linux, logs can be viewed using the `journalctl` command:
 2024-07-27T16:53:58.585125Z INFO defguard_proxy::http: Defguard proxy server initialization complete
 2024-07-27T16:53:58.585262Z INFO defguard_proxy::http: API web server is listening on 0.0.0.0:8080
 ```
+
+{% hint style="warning" %}
+In production, configure `systemd-journald` with `Storage=persistent` to ensure logs are retained across system reboots, making troubleshooting and incident investigation possible.
+{% endhint %}

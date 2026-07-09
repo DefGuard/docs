@@ -5,12 +5,12 @@
 All release packages are available in the Defguard repository on GitHub on the [releases](https://github.com/DefGuard/defguard/releases) page. The table below summarises the available options (`X.Y.Z` stands for a version).
 
 | Operating system    | Architecture    | Package filename                             |
-|---------------------|-----------------|----------------------------------------------|
+| ------------------- | --------------- | -------------------------------------------- |
 | Debian/Ubuntu       | ARM64 (aarch64) | defguard-X.Y.Z-aarch64-unknown-linux-gnu.deb |
-| Debian/Ubuntu       | AMD64 (x86_64)  | defguard-X.Y.Z-x86_64-unknown-linux-gnu.deb  |
+| Debian/Ubuntu       | AMD64 (x86\_64) | defguard-X.Y.Z-x86\_64-unknown-linux-gnu.deb |
 | Fedora/Red Hat/SUSE | ARM64 (aarch64) | defguard-X.Y.Z-aarch64-unknown-linux-gnu.rpm |
-| Fedora/Red Hat/SUSE | AMD64 (x86_64)  | defguard-X.Y.Z-x86_64-unknown-linux-gnu.rpm  |
-| FreeBSD             | AMD64 (x86_64)  | defguard-X.Y.Z_x86_64-unknown-freebsd.pkg    |
+| Fedora/Red Hat/SUSE | AMD64 (x86\_64) | defguard-X.Y.Z-x86\_64-unknown-linux-gnu.rpm |
+| FreeBSD             | AMD64 (x86\_64) | defguard-X.Y.Z\_x86\_64-unknown-freebsd.pkg  |
 
 Choose the release you want to install, then download it either by using a web browser or with one of the commands below.
 
@@ -67,7 +67,7 @@ defguard 2.0.0+a13515f
 
 ## Configuration
 
-The Defguard Core configuration file should be located at `/etc/defguard/core.conf`. The database information should be adjusted accordingly for your [PostgreSQL database](./database.md). An example configuration file looks as follows:
+The Defguard Core configuration file should be located at `/etc/defguard/core.conf`. The database information should be adjusted accordingly for your [PostgreSQL database](database.md). An example configuration file looks as follows:
 
 ```
 ### DB configuration ###
@@ -126,3 +126,7 @@ Jul 29 13:57:19 defguard-testing defguard[2776504]: 2024-07-29T11:57:19.595218Z 
 Jul 29 13:57:19 defguard-testing defguard[2776504]: 2024-07-29T11:57:19.747717Z  INFO defguard::db::models::settings: Initializing default settings
 Jul 29 13:57:19 defguard-testing defguard[2776504]: 2024-07-29T11:57:19.780563Z  INFO defguard: Started web services
 ```
+
+{% hint style="warning" %}
+In production, configure `systemd-journald` with `Storage=persistent` to ensure logs are retained across system reboots, making troubleshooting and incident investigation possible.
+{% endhint %}

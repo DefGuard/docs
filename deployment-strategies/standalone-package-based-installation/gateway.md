@@ -5,13 +5,13 @@
 All release packages are available in the Defguard repository on GitHub on the [releases](https://github.com/DefGuard/gateway/releases) page. The table below summarises the available options (`X.Y.Z` stands for a version).
 
 | Operating system    | Architecture    | Package filename                                     |
-|---------------------|-----------------|------------------------------------------------------|
+| ------------------- | --------------- | ---------------------------------------------------- |
 | Debian/Ubuntu       | ARM64 (aarch64) | defguard-gateway-X.Y.Z-aarch64-unknown-linux-gnu.deb |
-| Debian/Ubuntu       | AMD64 (x86_64)  | defguard-gateway-X.Y.Z-x86_64-unknown-linux-gnu.deb  |
+| Debian/Ubuntu       | AMD64 (x86\_64) | defguard-gateway-X.Y.Z-x86\_64-unknown-linux-gnu.deb |
 | Fedora/Red Hat/SUSE | ARM64 (aarch64) | defguard-gateway-X.Y.Z-aarch64-unknown-linux-gnu.rpm |
-| Fedora/Red Hat/SUSE | AMD64 (x86_64)  | defguard-gateway-X.Y.Z-x86_64-unknown-linux-gnu.rpm  |
-| FreeBSD             | AMD64 (x86_64)  | defguard-gateway-X.Y.Z_x86_64-unknown-freebsd.pkg    |
-| OPNsense (FreeBSD)  | AMD64 (x86_64)  | defguard-gateway-X.Y.Z_x86_64-unknown-opnsense.pkg   |
+| Fedora/Red Hat/SUSE | AMD64 (x86\_64) | defguard-gateway-X.Y.Z-x86\_64-unknown-linux-gnu.rpm |
+| FreeBSD             | AMD64 (x86\_64) | defguard-gateway-X.Y.Z\_x86\_64-unknown-freebsd.pkg  |
+| OPNsense (FreeBSD)  | AMD64 (x86\_64) | defguard-gateway-X.Y.Z\_x86\_64-unknown-opnsense.pkg |
 
 Choose the release you want to install, then download it either by using a web browser or with one of the commands below.
 
@@ -161,3 +161,7 @@ journalctl -u defguard-gateway.service | tail -n 50
 [2024-07-27T16:37:56Z INFO  defguard_gateway::gateway] Stats thread spawned.
 [2024-07-27T16:37:56Z INFO  defguard_gateway::gateway] Connected to defguard gRPC endpoint: https://my-server.defguard.net:444/
 ```
+
+{% hint style="warning" %}
+In production, configure `systemd-journald` with `Storage=persistent` to ensure logs are retained across system reboots, making troubleshooting and incident investigation possible.
+{% endhint %}
