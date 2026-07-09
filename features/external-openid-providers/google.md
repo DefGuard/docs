@@ -81,7 +81,7 @@ To learn more about the rest of the configuration options, see the [general dire
 
     <figure><img src="../../.gitbook/assets/image (151).png" alt=""><figcaption></figcaption></figure>
 
-    In the `Client ID` field input `unique ID` from step 7.\
+    In the `Client ID` field paste `unique ID` from step 7.\
     \
     Specify the following scopes for your client:\
     `openid, email, profile, https://www.googleapis.com/auth/admin.directory.customer.readonly, https://www.googleapis.com/auth/admin.directory.group.readonly, https://www.googleapis.com/auth/admin.directory.user.readonly`
