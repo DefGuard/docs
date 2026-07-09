@@ -62,7 +62,7 @@ Here is [full Google documentation](https://developers.google.com/identity/openi
 
     <figure><img src="../../.gitbook/assets/image (154).png" alt=""><figcaption></figcaption></figure>
 6. A JSON file will be downloaded after you click "CREATE". Store it securely as it may grant access to your Google Workspace directory
-7. Next, navigate to the "DETAILS" tab and copy the unique ID of your service account
+7. Next, navigate to the "DETAILS" tab and copy the unique ID of your service account. It will be needed later.
 8. Open the Advanced settings and under Domain-wide delegation click "View Google Workspace admin console"
 9.  Now in the admin console, navigate to [API controls](https://admin.google.com/u/1/ac/owl)
 
@@ -72,6 +72,8 @@ Here is [full Google documentation](https://developers.google.com/identity/openi
 
     <figure><img src="../../.gitbook/assets/image (156).png" alt=""><figcaption></figcaption></figure>
 
+    In the `Client ID` field paste `unique ID` from step 7.\
+    \
     Specify the following scopes for your client:\
     `openid, email, profile, https://www.googleapis.com/auth/admin.directory.customer.readonly, https://www.googleapis.com/auth/admin.directory.group.readonly, https://www.googleapis.com/auth/admin.directory.user.readonly`
 12. Navigate to the Defguard settings and upload the **JSON** file you obtained previously. Make sure to also input the email of the account on which behalf the API calls will be made. This account should have access to users and their groups (e.g., email of your account as an admin)
