@@ -103,8 +103,6 @@ Make sure to check the [general guide to directory synchronization](./#directory
 4. Click "**Continue**"
 5. If you decide to use **Directory Synchronization**, enable it. (If you don't need **Directory Synchronization**, go to step 6).
 
-<figure><img src="../../.gitbook/assets/image (293).png" alt=""><figcaption></figcaption></figure>
-
 {% hint style="warning" %}
 In order for Entra users to be created in Defguard they must have the following attributes set:
 
