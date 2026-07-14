@@ -42,6 +42,7 @@ These are the differences:
 | Desktop Client updates           | can be installed automatically.         | have to be installed manually.                                       |
 | VPN connection handler           | uses application extension.             | installs a system extension, which requires additional user consent. |
 | Disconnecting one VPN connection | also disconnects other VPN connections. | keeps other VPN connections open.                                    |
+| Posture checks – disk encryption | cannot be detected.                     | can be detected.                                                     |
 
 ### Stand-alone installation
 
@@ -119,7 +120,7 @@ Application data is stored in following locations:
 |---------------------|--------------------------------------------------|
 | Windows             | C:\Users\\\<USER>\AppData\Roaming\net.defguard   |
 | macOS (App Store)   | ${HOME}/Library/Containers/net.defguard          |
-| macOS (Stand-alone) | ${HOME}/Library/Application Support/net.defguard |
+| macOS (stand-alone) | ${HOME}/Library/Application Support/net.defguard |
 | BSD/Linux           | ${HOME}/.local/share/net.defguard                |
 
 ### Log files
@@ -130,8 +131,9 @@ All relevant application logs are available in the client's Settings, where they
 
 In case of unexpected issues, the log files themselves can be found in the following default locations:
 
-| Platform  | Client logs                                                          | Background service logs                                |
-| --------- | -------------------------------------------------------------------- | ------------------------------------------------------ |
-| Windows   | C:\Users\<USER>\AppData\Roaming\net.defguard\logs                    | C:\Logs\defguard-service                               |
-| macOS     | $HOME/Library/Containers/net.defguard/Data/Library/Logs/net.defguard | $HOME/Library/Group Containers/group.net.defguard/Logs |
-| BSD/Linux | $HOME/.local/share/net.defguard/logs                                 | /var/log/defguard-service                              |
+| Platform            | Client logs                                                            | Background service logs                                  |
+|---------------------|------------------------------------------------------------------------|----------------------------------------------------------|
+| Windows             | C:\Users\<USER>\AppData\Roaming\net.defguard\logs                      | C:\Logs\defguard-service                                 |
+| macOS (App Store)   | ${HOME}/Library/Containers/net.defguard/Data/Library/Logs/net.defguard | ${HOME}/Library/Group Containers/group.net.defguard/Logs |
+| macOS (stand-alone) | ${HOME}/Library/Logs/net.defguard                                      | ${HOME}/Library/Group Containers/group.net.defguard/Logs |
+| BSD/Linux           | ${HOME}/.local/share/net.defguard/logs                                 | /var/log/defguard-service                                |
