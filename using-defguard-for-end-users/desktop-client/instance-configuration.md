@@ -43,7 +43,7 @@ If you are looking for how to generate tokens for your users as an Administrator
 
 ### One-click Desktop Configuration
 
-You can skip the whole process of entering token/url by clicking "One-click Desktop Configuration". Here is a video describing whole process:
+You can skip the whole process of entering the token/URL by clicking "One-Click Desktop Configuration". Here is a video describing the whole process:
 
 {% embed url="https://www.youtube.com/embed/q5-AXOPLgHc" %}
 
@@ -88,7 +88,7 @@ Your Instance will update immediately.
 
 ### Why do instances need updates?
 
-Defguard Desktop stores all information locally and doesn't communicate with Defguard outside the registration process. This means that information about instances are snapshots of the moment you registered them in the desktop client, and you might want to update that, for example when some new locations are added or removed.
+Defguard Desktop stores all information locally and doesn't communicate with Defguard outside the registration process. This means that the information about an instance is a snapshot of the moment you registered it in the desktop client, and you might want to update it, for example when locations are added or removed.
 
 {% hint style="success" %}
 If you have an Enterprise License, all desktop clients and all instances are [synchronized automatically and in real-time.](../../features/remote-user-enrollment/automatic-real-time-desktop-client-configuration.md)

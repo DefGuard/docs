@@ -1,7 +1,7 @@
 # Using Multi-Factor Authentication (MFA)
 
-* Up to version 1.4, only internal MFA was supported, user could only use MFA methods configured in his profile.
-* Since version 1.5 (currently in alpha), MFA can be configured per location, and administrators can choose whether a location will use internal MFA or external OIDC/SSO provider.
+* Up to version 1.4, only internal MFA was supported, and a user could only use the MFA methods configured in their profile.
+* Since version 1.5 (currently in alpha), MFA can be configured per location, and administrators can choose whether a location will use internal MFA or an external OIDC/SSO provider.
 
 Depending on location settings, you may use:
 
@@ -54,7 +54,7 @@ Your connection will be established immediately after this step.
 
 After configuring VPN on your mobile device and [enabling Biometry](../mobile-client/using-biometry-as-mfa-method.md#setting-up-biometry), we not only enable Biometry based connecting on a mobile device, but add an extra security layer to have the most secure/sophisticated MFA method available.
 
-After enabling Biometry we create an additional private/public key par, with the private key stored on the hardware/secure storage, and inform in the UI, that this device now can be used for MFA using Biometry on a desktop client:
+After enabling Biometry we create an additional private/public key pair, with the private key stored in hardware/secure storage, and indicate in the UI that this device can now be used for MFA using Biometry on a desktop client:
 
 <figure><img src="../../.gitbook/assets/device-list-biometry.png" alt="" width="563"><figcaption></figcaption></figure>
 
