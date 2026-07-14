@@ -141,6 +141,7 @@
   * [WebAuthn security keys](support-1/troubleshooting/webauthn-security-keys.md)
   * [Desktop Client connectivity issues](support-1/troubleshooting/desktop-client-connectivity-issues.md)
   * [Client opening issues on Linux](support-1/troubleshooting/client-opening-issues-on-linux.md)
+  * [Client crashes immediately on launch with "Error 71 (Protocol error) dispatching to Wayland display"](support-1/troubleshooting/client-crashes-immediately-on-launch-with-error-71-protocol-error-dispatching-to-wayland-display.md)
 * [Server migration and licence transfer](support-1/server-migration-and-licence-transfer.md)
 
 ## Tutorials
