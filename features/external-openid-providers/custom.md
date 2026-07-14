@@ -1,0 +1,15 @@
+# Custom
+
+{% hint style="warning" %}
+Defguard supports custom providers that allow a **code** response type in the OpenID authorization flow.
+{% endhint %}
+
+You can also configure a custom OpenID provider. The key thing here is setting up the **Base URL** correctly. This URL is used to discover all the endpoints required for the authorization flow.
+
+The easiest way of obtaining the Base URL is to find out what is the OpenID `.well-known` URL of your provider. For example, for Google it's `https://accounts.google.com/.well-known/openid-configuration`, in this case, the Base URL would be `https://accounts.google.com` (note the lack of a trailing slash). The part starting with `/.well-known` is added automatically, so it should be omitted from the Base URL. This is explained in more detail in the [Base URL](custom.md#base-url) section.
+
+In order to get the **Client ID** and **Client Secret** values, refer to the documentation of your custom provider of choice.
+
+When configuring your external OpenID provider, at some point you will need to provide a callback URL, which will redirect the user back to Defguard. The full list of callback's URLs to configure is available here: [#redirect-uri](./#redirect-uri "mention").
+
+If you're having issues with your custom provider's base URL, check Defguard's (Core) logs after a failed login. It should say what URL it expected.
