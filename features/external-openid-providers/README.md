@@ -89,7 +89,7 @@ For this to work, make sure you have the following two things set:
 #### Disabling automatic account creation
 
 {% hint style="warning" %}
-In order for users to be created in Defguard they must have the following attributes set:
+Defguard matches users with external sources by email. In order for users to be created in Defguard they must have the following attributes set:
 
 * email
 * first name
