@@ -148,7 +148,7 @@ After creating your account, go to **Proxy Hosts** and configure the proxy for C
 
 This will allow you to access Core and Edge via your respective domains, using the standard HTTP/HTTPS ports. We also recommend setting up SSL. Please make sure you don't expose Defguard Core publicly. See [Architecture](../in-depth/architecture/) for details.
 
-### Managing and updating containers
+### UPGRADING
 
 {% hint style="warning" %}
 By default the docker compose config included by the OVA uses a floating Docker image tag pinned to the latest stable major version, for example `2`.
@@ -162,8 +162,8 @@ Containers can be updated using the following commands in the `/opt/stacks/defgu
 
 ```sh
 sudo docker compose pull
-sudo docker compose down
-sudo docker compose up
+sudo docker compose rm -sf
+sudo docker compose up -d
 ```
 
 This can also be achieved without accessing the VM using the Dockge dashboard, refer to [this section](ova.md#dockge) for more information.
