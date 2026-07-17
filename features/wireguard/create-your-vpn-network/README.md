@@ -114,6 +114,8 @@ Here, you can specify **what groups (users assigned to those groups) have access
 By default (if no group is chosen) **all users will have access to this location.**
 
 By defining a group, assigning users to that group and then choosing this group(s) you can restrict access to VPN Locations.
+
+Users in groups marked as **admin group** always have their devices assigned to every VPN location.
 {% endhint %}
 
 ### Multi-Factor Authentication for a Location
