@@ -143,6 +143,7 @@
   * [Client opening issues on Linux](support-1/troubleshooting/client-opening-issues-on-linux.md)
   * [Client crashes immediately on launch with "Error 71 (Protocol error) dispatching to Wayland display"](support-1/troubleshooting/client-crashes-immediately-on-launch-with-error-71-protocol-error-dispatching-to-wayland-display.md)
 * [Server migration and licence transfer](support-1/server-migration-and-licence-transfer.md)
+* [Defguard 1.6 Support Policy](support-1/defguard-1.6-support-policy.md)
 
 ## Tutorials
 
