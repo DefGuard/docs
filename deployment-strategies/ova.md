@@ -1,6 +1,6 @@
 # OVA
 
-Defguard provides OVA images that can be imported into VMware, Proxmox, or any other solution that supports the standard OVA format. The image is based on Ubuntu 24 and supports configuration via `cloud-init`. It contains the full Defguard stack (Defguard Core, Edge, Gateway), a database, and a reverse proxy (NPM).
+Defguard provides OVA images that can be imported into VMware, Proxmox, or any other solution that supports the standard OVA format. The image is based on Ubuntu 24 and supports configuration via `cloud-init`. It contains the full Defguard stack (Defguard Core, Edge, Gateway) and a database.
 
 The latest image can be downloaded here: [https://defguard-downloads.s3.eu-central-1.amazonaws.com/ova/defguard-latest.ova](https://defguard-downloads.s3.eu-central-1.amazonaws.com/ova/defguard-latest.ova)
 
@@ -23,7 +23,7 @@ Once booted, the virtual machine will have all Defguard components pre-configure
 For example setup walkthrough [see this guide](/broken/pages/nNsN8zKGZVhPboFEtp8E#example-setup).
 {% endhint %}
 
-If you would like to setup a reverse-proxy beforhand (which enables automated SSL Certificates with Let's Encrypt), [go to this section for more details](ova.md#setting-up-a-reverse-proxy).
+If you would like to configure a domain and automated SSL certificates via Let's Encrypt beforehand, [go to this section for more details](ova.md#setting-up-ssl).
 
 ### Accessing the VM
 
@@ -53,15 +53,19 @@ sudo docker ps
 
 Here is the breakdown of accessible services deployed on the VM:
 
-<table><thead><tr><th>Name</th><th width="182">Port</th><th width="240">Type</th></tr></thead><tbody><tr><td>Core</td><td>8000</td><td>HTTP (web dashboard)</td></tr><tr><td>Edge</td><td>8080</td><td>HTTP (enrollment portal)</td></tr><tr><td>Gateway</td><td>51820</td><td>UDP (VPN port)</td></tr><tr><td>Nginx Proxy Manager</td><td>80, 443, 81</td><td>HTTP(S) and the management dashboard on port 81</td></tr></tbody></table>
+<table><thead><tr><th>Name</th><th width="182">Port</th><th width="240">Type</th></tr></thead><tbody><tr><td>Core</td><td>8000</td><td>HTTP (web dashboard)</td></tr><tr><td>Edge</td><td>8080, 80, 443</td><td>HTTP (enrollment portal) and HTTP(S) once a domain and SSL are configured</td></tr><tr><td>Gateway</td><td>51820</td><td>UDP (VPN port)</td></tr></tbody></table>
+
+{% hint style="info" %}
+Dockge (if enabled, see [below](ova.md#dockge)) additionally exposes its management dashboard on port 5001.
+{% endhint %}
 
 ### VPN client internet access
 
 The OVA runs Gateway on a host that also runs Docker. If VPN clients should reach the internet through the VM, you usually need all of the following:
 
-* IP forwarding enabled on the host, for both IPv4 and IPv6.
-* A masquerade rule for the VPN subnet.
-* `DOCKER-USER` allow rules for the WireGuard interface when Docker sets `FORWARD` to `drop`.
+- IP forwarding enabled on the host, for both IPv4 and IPv6.
+- A masquerade rule for the VPN subnet.
+- `DOCKER-USER` allow rules for the WireGuard interface when Docker sets `FORWARD` to `drop`.
 
 For manual host configuration, the required `iptables` rules look like this:
 
@@ -94,10 +98,10 @@ For the generic routing and troubleshooting guidance, see [Can access VPN but no
 
 The OVA ships with WireGuard-oriented kernel tuning applied out of the box, sized for the baseline 2 vCPU / 2 GB appliance and up to roughly 100 active devices:
 
-* BBR congestion control (`net.ipv4.tcp_congestion_control = bbr`) to reduce bufferbloat.
-* Enlarged UDP socket buffers (`net.core.rmem_max` / `wmem_max = 16777216`), since WireGuard is UDP-based and the OS defaults are too small for 1 Gbps+ links.
-* A larger kernel input queue and accept queue (`net.core.netdev_max_backlog = 5000`, `net.core.somaxconn = 8192`) to absorb traffic bursts.
-* An increased connection-tracking table (`net.netfilter.nf_conntrack_max = 131072`) for VPN egress/masquerade.
+- BBR congestion control (`net.ipv4.tcp_congestion_control = bbr`) to reduce bufferbloat.
+- Enlarged UDP socket buffers (`net.core.rmem_max` / `wmem_max = 16777216`), since WireGuard is UDP-based and the OS defaults are too small for 1 Gbps+ links.
+- A larger kernel input queue and accept queue (`net.core.netdev_max_backlog = 5000`, `net.core.somaxconn = 8192`) to absorb traffic bursts.
+- An increased connection-tracking table (`net.netfilter.nf_conntrack_max = 131072`) for VPN egress/masquerade.
 
 If you scale the VM beyond the baseline (more CPU/RAM for more concurrent devices), consider raising `nf_conntrack_max` and the socket buffer sizes accordingly. See [Linux kernel WireGuard tuning](linux-kernel-wireguard-tuning.md) for the full background on these parameters.
 
@@ -126,27 +130,21 @@ docker compose logs
 
 <figure><img src="../.gitbook/assets/image (192).png" alt=""><figcaption></figcaption></figure>
 
-### Setting up a reverse proxy
+### Setting up SSL
 
 {% hint style="success" %}
-Defguard has a built in SSL termination and can automatically obtain certificates from [https://letsencrypt.org/](https://letsencrypt.org/) (or issue own certificates from our CA) - but deploying a Reverse Proxy is always recommended.
+Defguard Edge terminates HTTP/HTTPS directly on ports 80/443 and can automatically obtain certificates from [https://letsencrypt.org/](https://letsencrypt.org/) (or use your own certificates instead) - no separate reverse proxy container is bundled on the OVA.
 {% endhint %}
 
 {% hint style="info" %}
-Setting up a reverse proxy will require you to prepare two domains: one for Defguard Core (internal), one for Defguard Edge (public)
+You'll need a public domain pointed at the VM for Defguard Edge. Defguard Core does not need to be publicly reachable, it does not need a public domain either. See [Architecture](../in-depth/architecture/) for details.
 {% endhint %}
 
-To configure the reverse proxy, register an account in the NPM dashboard, accessible via `http://<VM_IP_OR_DOMAIN>:81`.
+Domain and certificate configuration is done from the Defguard Core dashboard, not on the VM itself: set Edge's public domain in Core's settings, and Core will trigger the Let's Encrypt HTTP-01 challenge (over port 80) and push the issued certificate to Edge automatically. If you'd rather use your own certificate, upload it in Core instead of enabling Let's Encrypt.
 
-After creating your account, go to **Proxy Hosts** and configure the proxy for Core and Edge:
+Please make sure you don't expose Defguard Core publicly.
 
-<figure><img src="../.gitbook/assets/obraz (1).png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="../.gitbook/assets/obraz (2).png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="../.gitbook/assets/obraz (3).png" alt=""><figcaption></figcaption></figure>
-
-This will allow you to access Core and Edge via your respective domains, using the standard HTTP/HTTPS ports. We also recommend setting up SSL. Please make sure you don't expose Defguard Core publicly. See [Architecture](../in-depth/architecture/) for details.
+If you still want to put your own reverse proxy in front of the OVA (for example to centralize TLS termination for several services), you can do so, but you'll need to deploy and manage it yourself; it is not part of the OVA image.
 
 ### UPGRADING
 
@@ -211,12 +209,25 @@ Next, boot the VM. Now, only the selected component should run.
 
 Here is the full breakdown of what runs for each profile:
 
-<table><thead><tr><th width="322">Profile</th><th width="411">What runs</th></tr></thead><tbody><tr><td>core</td><td>Core, database, NPM</td></tr><tr><td>edge</td><td>Edge, NPM</td></tr><tr><td>gateway</td><td>Gateway</td></tr></tbody></table>
+<table><thead><tr><th width="322">Profile</th><th width="411">What runs</th></tr></thead><tbody><tr><td>core</td><td>Core, database</td></tr><tr><td>edge</td><td>Edge</td></tr><tr><td>gateway</td><td>Gateway</td></tr></tbody></table>
 
 Using different solution that Proxmox will require creating a custom cloud-init that will write one of the profiles above to the `/opt/stacks/defguard/active-profiles` file.
 
 {% hint style="info" %}
 The `write_files` snippet itself is standard `cloud-init` user-data and isn't Proxmox-specific. The same pattern works on AWS, Azure, or any other platform that supports cloud-init; only the way you deliver the user-data (a Proxmox snippet vs. a provider's user-data field) differs.
+{% endhint %}
+
+{% hint style="warning" %}
+`active-profiles` is only read once, on first boot: the VM flattens it into `/opt/stacks/defguard/docker-compose.yml` and then deletes `active-profiles` (same for `enable-docker-management`, see [Dockge](ova.md#dockge)). Attach your cloud-init snippet **before** first boot. To change the selected components afterward, write the new `active-profiles` file yourself, then:
+
+```sh
+sudo rm /opt/stacks/defguard/docker-compose.yml
+sudo systemctl restart defguard-init.service
+```
+{% endhint %}
+
+{% hint style="info" %}
+For a segmented deployment (`edge` or `gateway` alone, without `core` on the same VM), Core's automatic adopt targets for Edge/Gateway are left blank in `.env` since they live on other VMs; set `DEFGUARD_ADOPT_EDGE` and `DEFGUARD_ADOPT_GATEWAY` there yourself before starting Core. This only applies to the segmented case, on a full all-in-one VM they're filled in automatically.
 {% endhint %}
 
 ### Dockge
@@ -250,15 +261,17 @@ Once the variables are set you can scroll back up and click the `Deploy` button:
 
 All state that needs backing up on the OVA lives under `/opt/stacks/defguard/`:
 
-* `.env` – generated secrets (database password, image tags). Losing this without a backup means the database password no longer matches unless you regenerate it consistently.
-* `.volumes/db` – the PostgreSQL database. Prefer a regular `pg_dump` over a filesystem-level copy, consistent with the general [backup strategy](hardware-os-network-and-firewall-recommendations.md#backup-strategy).
-* `.volumes/certs/*` – the SSL certificates used to secure and authenticate communication between Core, Edge, and Gateway. These are issued by Defguard's internal CA and are not stored in the database, so they must be backed up separately.
+- `.env` – generated secrets (database password, image tags). Losing this without a backup means the database password no longer matches unless you regenerate it consistently.
+- `.volumes/db` – the PostgreSQL database. Prefer a regular `pg_dump` over a filesystem-level copy, consistent with the general [backup strategy](hardware-os-network-and-firewall-recommendations.md#backup-strategy).
+- `.volumes/certs/*` – the SSL certificates used to secure and authenticate communication between Core, Edge, and Gateway. These are issued by Defguard's internal CA and are not stored in the database, so they must be backed up separately.
 
 ## Troubleshooting
 
 **VPN clients can't reach the internet right after boot, but it works after a reboot.** The OVA applies `DOCKER-USER` forwarding rules automatically once Docker is ready; on a slow boot this can race Docker's startup. Check `/var/log/defguard-startup.log` for a `DOCKER-USER chain not present` message, and see [VPN client internet access](ova.md#vpn-client-internet-access) above.
 
-**Reverse proxy / SSL certificate errors.** Confirm you've created two separate domains for Core (internal) and Edge (public) as described in [Setting up a reverse proxy](ova.md#setting-up-a-reverse-proxy), and that the automatic Let's Encrypt HTTP-01 challenge on port 80 isn't blocked by an upstream firewall.
+**SSL certificate errors.** Confirm Edge's domain is set correctly in Core as described in [Setting up SSL](ova.md#setting-up-ssl), that DNS for that domain resolves to the VM, and that the automatic Let's Encrypt HTTP-01 challenge on port 80 isn't blocked by an upstream firewall.
+
+**Changed `active-profiles` but nothing happened.** It's only applied when `/opt/stacks/defguard/docker-compose.yml` doesn't exist yet (first boot). To change the running components afterward, remove `docker-compose.yml` and restart `defguard-init.service`, see [Selecting what components to run](ova.md#selecting-what-components-to-run-proxmox). Image tags in `.env` don't have this restriction, see [Using specific image tags](ova.md#using-specific-image-tags).
 
 **Dockge dashboard isn't reachable at port 5001.** Dockge is opt-in: confirm the `enable-docker-management` file was written via cloud-init as described in [Dockge](ova.md#dockge), and that the VM has finished booting.
 
