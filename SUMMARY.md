@@ -81,6 +81,7 @@
 * [Static IP assignment](features/static-ip-assignment.md)
 * [Certificate management](features/certificate-management.md)
 * [Device posture verification](features/device-posture-verification.md)
+* [Managing Defguard via CLI](features/managing-defguard-via-cli.md)
 
 ## Deployment strategies
 
