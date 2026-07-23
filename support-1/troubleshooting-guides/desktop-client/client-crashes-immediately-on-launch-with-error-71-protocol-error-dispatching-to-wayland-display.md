@@ -1,5 +1,9 @@
 # Client crashes immediately on launch with "Error 71 (Protocol error) dispatching to Wayland display"
 
+{% hint style="info" %}
+This issue has been resolved in v2.1. Defguard client now automatically sets appropriate environment variables to prevent webkitgtk errors. Please upgrade to the latest version.
+{% endhint %}
+
 ### Symptoms
 
 The Defguard Client window never appears and the process exits immediately after launch. Running it from a terminal shows an error similar to:
