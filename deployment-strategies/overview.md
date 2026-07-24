@@ -41,13 +41,13 @@ Defguard Core acts as the central control plane - it manages configuration, auth
 
 ## Choose your deployment strategy
 
-| Strategy name                                                 | Difficulty                                              | Production readiness                                                                                            | Purpose                         |
-| ------------------------------------------------------------- | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| [One-line script](../getting-started/one-line-install.md)     | :green\_circle: Easy, single command installation       | :x: Doesn't follow the [recommendations](hardware-os-network-and-firewall-recommendations.md)                   | For testing purposes only       |
-| [Standalone packages](standalone-package-based-installation/) | :green\_circle: Easy, using `apt`/`dpkg` or `dnf`/`rpm` | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Small to medium deployment      |
-| [Docker Compose](docker-compose.md)                           | :yellow\_circle: Medium, Docker knowledge is required   | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Small to medium deployment      |
-| [Kubernetes](kubernetes.md)                                   | :red\_circle: Advanced, requires a Kubernetes cluster   | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Large or enterprise deployments |
-| [Terraform (AWS)](terraform.md)                               | :red\_circle: Advanced, requires an AWS account and Terraform | :white\_check\_mark: Provisions EC2 + managed RDS on AWS | Cloud / AWS deployments         |
+| Strategy name                                                 | Difficulty                                                    | Production readiness                                                                                            | Purpose                         |
+| ------------------------------------------------------------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| [One-line script](../getting-started/one-line-install.md)     | :green\_circle: Easy, single command installation             | :x: Doesn't follow the [recommendations](hardware-os-network-and-firewall-recommendations.md)                   | For testing purposes only       |
+| [Standalone packages](standalone-package-based-installation/) | :green\_circle: Easy, using `apt`/`dpkg` or `dnf`/`rpm`       | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Small to medium deployment      |
+| [Docker Compose](docker-compose.md)                           | :yellow\_circle: Medium, Docker knowledge is required         | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Small to medium deployment      |
+| [Kubernetes](kubernetes.md)                                   | :red\_circle: Advanced, requires a Kubernetes cluster         | :white\_check\_mark: If you followed the [recommendations](hardware-os-network-and-firewall-recommendations.md) | Large or enterprise deployments |
+| [Terraform (AWS)](terraform.md)                               | :red\_circle: Advanced, requires an AWS account and Terraform | :white\_check\_mark: Provisions EC2 + managed RDS on AWS                                                        | Cloud / AWS deployments         |
 
 ## Configure to your needs
 
@@ -80,13 +80,13 @@ If this directory is missing or empty at startup, the component detects the abse
 Include the certificate directory in your server backup alongside your database if you want zero-downtime recovery - re-enrollment requires manual action in the admin UI for each affected Gateway and Edge instance.
 
 {% hint style="info" %}
-Because the CA is stored in the database, a restored Core can always re-issue new component certificates.&#x20;
+Because the CA is stored in the database, a restored Core can always re-issue new component certificates.
 
 Losing the local cert directory does not cause permanent data loss - it requires re-running the [setup flow](../tutorials/adding-edge-component.md) for that component.
 {% endhint %}
 
 ## Failover/High Availability/Clustering
 
-[Defguard Gateway](gateway.md) can be deployed on multiple servers, firewalls, or routers for failover and high availability (HA). Even if the connection to the Core is lost, a Gateway continues to operate using its local cache and data, ensuring that the VPN remains functional. Conversely, if a Gateway becomes unavailable, other Core features such as OpenID continue to work normally.
+[Defguard Gateway](https://github.com/DefGuard/docs/blob/v2.0/deployment-strategies/gateway.md) can be deployed on multiple servers, firewalls, or routers for failover and high availability (HA). Even if the connection to the Core is lost, a Gateway continues to operate using its local cache and data, ensuring that the VPN remains functional. Conversely, if a Gateway becomes unavailable, other Core features such as OpenID continue to work normally.
 
 For details on deploying multiple Gateways, refer to the [High Availability and Failover](high-availability-and-failover/) documentation.
