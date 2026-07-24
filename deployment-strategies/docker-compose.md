@@ -50,6 +50,10 @@ Here is the **docker-compose.yaml** file for Defguard Core and PostgreSQL databa
 services:
   core:
     image: ghcr.io/defguard/defguard
+    logging:
+      driver: journald
+      options:
+        tag: "defguard-core"
     environment:
       DEFGUARD_COOKIE_INSECURE: "true"
       DEFGUARD_DB_HOST: db
@@ -64,6 +68,10 @@ services:
 
   db:
     image: postgres:18-alpine
+    logging:
+      driver: journald
+      options:
+        tag: "defguard-db"
     environment:
       POSTGRES_DB: defguard
       POSTGRES_USER: defguard
@@ -125,6 +133,10 @@ Here is the **docker-compose.yaml** file for Defguard Edge.
 services:
   edge:
     image: ghcr.io/defguard/defguard-proxy
+    logging:
+      driver: journald
+      options:
+        tag: "defguard-edge"
     volumes:
       - ./.volumes/certs/edge:/etc/defguard/certs
     ports:
@@ -176,6 +188,10 @@ Here is the **docker-compose.yaml** file for Defguard Gateway.
 services:
   gateway: 
     image: ghcr.io/defguard/gateway
+    logging:
+      driver: journald
+      options:
+        tag: "defguard-gateway"
     cap_add:
       - NET_ADMIN
     volumes:
@@ -185,6 +201,27 @@ services:
     environment:
       DEFGUARD_STATS_PERIOD: 10
       HEALTH_PORT: 55003
+```
+
+## Persisting logs
+
+By default, Docker containers' logs live only in Docker's own log storage and are lost on host reboot or log rotation. To persist them, each service's compose config sets the `journald` logging driver with a distinct `tag`, forwarding container logs to the host's systemd journal:
+
+```yaml
+logging:
+  driver: journald
+  options:
+    tag: "defguard-core"
+```
+
+{% hint style="info" %}
+`journald` requires the host to run `systemd` with a running journal service. This is the default on most Linux distributions.
+{% endhint %}
+
+Query logs for a given service with `journalctl`, filtering by tag:
+
+```sh
+journalctl -t defguard-core -f
 ```
 
 ## Upgrading
