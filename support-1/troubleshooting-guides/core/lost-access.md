@@ -16,13 +16,13 @@ Log in with the new password. If the account also lost its admin group, create n
 
 ```bash
 defguard manage create-group --name admin_group
-defguard manage set-admin-group --name admin_group
+defguard manage set-admin-group --group-name admin_group
 ```
 
 Add the user back to it:
 
 ```bash
-defguard manage add-user-to-group --username <username> --name admin_group
+defguard manage add-user-to-group --username <username> --group-name admin_group
 ```
 
 ### Lost admin group due to LDAP/OIDC synchronization
@@ -48,12 +48,12 @@ Then create a new group and mark it as admin:
 
 ```bash
 defguard manage create-group --name admins
-defguard manage set-admin-group --name admins
+defguard manage set-admin-group --group-name admins
 ```
 
 Add the user back to it:
 
 ```bash
-defguard manage add-user-to-group --username <username> --name admins
+defguard manage add-user-to-group --username <username> --group-name admins
 ```
 

@@ -41,19 +41,19 @@ The database flags must come before the `manage` subcommand. The command specifi
 If there is no admin account at all, create one and add it to an existing admin group:
 
 ```bash
-defguard manage create-admin --username <username> --password <password> --name <admin-group>
+defguard manage create-admin --username <username> --password <password> --group-name <admin-group>
 ```
 
 If no admin group exists either, create the group first and mark it as admin:
 
 ```bash
 defguard manage create-group --name admins
-defguard manage set-admin-group --name admins
-defguard manage create-admin --username <username> --password <password> --name admins
+defguard manage set-admin-group --group-name admins
+defguard manage create-admin --username <username> --password <password> --group-name admins
 ```
 
 {% hint style="info" %}
-If you won't specify `--name <admin-group>` new user will be assigned to the first admin group found.
+If you won't specify `--group-name <admin-group>` new user will be assigned to the first admin group found.
 {% endhint %}
 
 ### Promote an existing user to admin
@@ -61,7 +61,7 @@ If you won't specify `--name <admin-group>` new user will be assigned to the fir
 Add the user to the admin group:
 
 ```bash
-defguard manage add-user-to-group --username <username> --name <admin-group>
+defguard manage add-user-to-group --username <username> --group-name <admin-group>
 ```
 
 ### Check who is admin
@@ -109,7 +109,7 @@ defguard manage disable-ldap-integration
 
 ### Use group ID instead of group name
 
-All commands where you need to specify group, accept `--group-id` instead of `--name`. Run `defguard manage list-groups` to see the IDs.
+All commands where you need to specify group, accept `--group-id` instead of `--group-name`. Run `defguard manage list-groups` to see the IDs.
 
 ```bash
 ##example usage
