@@ -14,7 +14,7 @@ To deploy Defguard using Terraform on AWS, you can use the Terraform configurati
 
 The terraform configuration includes the necessary resources to setup all components of Defguard.
 
-We recommend reading on the architecture of Defguard before proceeding with the deployment. You can find the documentation on the [Defguard architecture page](https://docs.defguard.net/in-depth/architecture). When configuring the networking, the most important thing is to keep in mind the following rules:
+We recommend reading on the architecture of Defguard before proceeding with the deployment. You can find the documentation on the [Defguard architecture page](../in-depth/architecture/). When configuring the networking, the most important thing is to keep in mind the following rules:
 
 * Defguard Core web UI should be accessible only from the internal network or through a secure VPN connection.
 * Defguard Proxy web UI should be publicly accessible, as it is used to securely pass messages to core from clients that are not connected to the VPN.

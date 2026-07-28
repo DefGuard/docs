@@ -16,7 +16,7 @@ Defguard helps organizations:
 * Automate device enrollment.
 * Simplify network segmentation and access control using policies.
 
-For a detailed list of features go to the [Features overview](https://github.com/DefGuard/docs/blob/v1.6/about/broken-reference/README.md) section.
+For a detailed list of features go to the [Features overview](features-overview.md) section.
 
 ## Why choose Defguard?
 

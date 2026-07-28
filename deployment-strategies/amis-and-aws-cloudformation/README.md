@@ -17,7 +17,7 @@ The template consists of the following main components:
 * **Defguard Edge**
 * **PostgreSQL Database**
 
-We recommend reading the [Architecture documentation](https://docs.defguard.net/in-depth/architecture) to understand how these components interact.
+We recommend reading the [Architecture documentation](../../in-depth/architecture/) to understand how these components interact.
 
 <figure><img src="../../.gitbook/assets/aws_cloudformation_v2.png" alt=""><figcaption><p>Diagram showing how the components are deployed using the template</p></figcaption></figure>
 
@@ -130,7 +130,7 @@ Use the token displayed in the `AdminFirstDeviceToken` CloudFormation output to 
 
 <figure><img src="../../.gitbook/assets/image (40).png" alt=""><figcaption></figcaption></figure>
 
-Check this [guide](https://docs.defguard.net/using-defguard-for-end-users/desktop-client/instance-configuration#adding-instance) on adding a new instance in the Desktop client, to learn more about the process. As the instance URL, use the URL you defined in your Defguard Edge instance configuration section of the CloudFormation template (`ProxyUrl`).
+Check this [guide](../../using-defguard-for-end-users/desktop-client/instance-configuration.md#manually-adding-instance) on adding a new instance in the Desktop client, to learn more about the process. As the instance URL, use the URL you defined in your Defguard Edge instance configuration section of the CloudFormation template (`ProxyUrl`).
 
 #### Accessing the dashboard
 

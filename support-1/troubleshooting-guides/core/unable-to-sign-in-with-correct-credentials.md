@@ -10,4 +10,4 @@ If the value is wrong, the server will set the session cookie with an incorrect 
 
 ### HTTP (non-TLS) deployments
 
-If you are accessing Defguard over plain `http://` (for example, in a local or development environment), you need to configure auth cookie settings to allow non-secure cookies. See the [Auth cookies configuration](https://docs.defguard.net/2.0/deployment-strategies/configuration#auth-cookies-configuration) documentation for the required settings.
+If you are accessing Defguard over plain `http://` (for example, in a local or development environment), you need to configure auth cookie settings to allow non-secure cookies. See the [Core deployment parameters](../../../deployment-strategies/configuration.md#core-deployment-parameters) documentation for the required settings.

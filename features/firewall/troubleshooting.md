@@ -84,7 +84,7 @@ table ip filter {
 
 If you have a FORWARD chain (managed by Docker) that has a default policy of drop and filter priority, this chain will interfere with Defguard rules (accept policy shouldn't be a problem).
 
-To fix this, set the [Defguard firewall priority](https://docs.defguard.net/features/access-control-list/firewall-internals#forward-chain-priority) to -1. This will make Defguard rules run before Docker rules.
+To fix this, set the [Defguard firewall priority](firewall-internals.md#forward-chain-priority) to -1. This will make Defguard rules run before Docker rules.
 
 Running `nft list ruleset` on the machine should then result in the following:
 

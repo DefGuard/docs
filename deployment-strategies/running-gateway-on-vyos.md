@@ -66,7 +66,7 @@ sudo podman ps -a
 
 At this point, the gateway container should be running on VyOS and ready to be adopted by Defguard Core service.&#x20;
 
-Adopt it by following [those steps](https://docs.defguard.net/tutorials/initial-setup-wizard-setting-up-from-scratch#adopt-the-gateway-component).
+Adopt it by following [those steps](../tutorials/initial-setup-wizard-setting-up-from-scratch.md#adopt-the-gateway-component).
 
 {% hint style="warning" %}
 Gateway accepts adoption requests only for a limited time after startup. Start the adoption process in Defguard Core shortly after starting the container.

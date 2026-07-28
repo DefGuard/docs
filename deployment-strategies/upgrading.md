@@ -109,7 +109,7 @@ To resolve this, before upgrading, we recommend first uninstalling the old Clien
 
 **Force all traffic**
 
-1.6 introduces the ability to "Force all traffic" as a [Client traffic policy](https://app.gitbook.com/s/e86iamwJVSYnIRsyVEAV/features/wireguard/behavior-customization#client-traffic-policy-selection). However, this policy only works with desktop and mobile clients ≥ 1.6.0. Older clients (<1.6.0) will not respect the policy and will allow the users to select the "Predefined traffic" option. As an alternative, administrators can enforce all traffic by setting allowed ips: `0.0.0.0/0, ::/0`.
+1.6 introduces the ability to "Force all traffic" as a [Client traffic policy](../features/wireguard/behavior-customization.md#client-traffic-rules). However, this policy only works with desktop and mobile clients ≥ 1.6.0. Older clients (<1.6.0) will not respect the policy and will allow the users to select the "Predefined traffic" option. As an alternative, administrators can enforce all traffic by setting allowed ips: `0.0.0.0/0, ::/0`.
 
 ## 1.4.x -> 1.5.0
 
@@ -240,7 +240,7 @@ You will need to change a duplicate email address before the upgrade by hand via
 
 ### Desktop Client Real Time Sync
 
-From 1.0.0 we have introduced [Enterprise features](https://github.com/DefGuard/docs/blob/docs/deployment-strategies/broken-reference/README.md), and one of them is [automatic and real-time desktop client configuration synchronization](../features/remote-user-enrollment/automatic-real-time-desktop-client-configuration.md).
+From 1.0.0 we have introduced [Enterprise features](../enterprise/license.md), and one of them is [automatic and real-time desktop client configuration synchronization](../features/remote-user-enrollment/automatic-real-time-desktop-client-configuration.md).
 
 To enable this on an **already configured desktop client,** one must perform one time instance update, which will generate necessary tokens on the client to perform from now on automatic updates. In details:
 
