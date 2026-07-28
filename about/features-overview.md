@@ -4,7 +4,6 @@
 
 * [**Multi-Factor Authentication**](../features/wireguard/multi-factor-authentication-mfa-2fa/) using our [desktop client](https://defguard.net/client)
 * **Multiple VPN Locations** (networks/sites) - with defined access (all users or only Admin group)
-* Import your current WireGuard server configuration (with a wizard!)
 * _Easy_ device setup by users themselves (self-service)
 * Automatic IP allocation
 * Kernel (Linux, FreeBSD/OPNSense/PFSense) and userspace WireGuard support
