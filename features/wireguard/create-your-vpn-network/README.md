@@ -19,10 +19,10 @@ This is the default option that creates an typical VPN network.
 #### Service location
 
 {% hint style="info" %}
-This feature is only for Windows platform.
+This feature is supported on Windows and Linux. The **Pre-logon** mode is Windows-only.
 {% endhint %}
 
-Service Location is a Windows-specific configuration that automates secure network connectivity for managed devices. It ensures that authorized clients establish a persistent VPN tunnel immediately upon system startup, rather than waiting for a user to log in.
+Service Location automates secure network connectivity for managed devices. It ensures that authorized clients establish a persistent VPN tunnel immediately upon system startup, rather than waiting for a user to log in. The tunnel is handled by a background service, so the location is not shown in the Defguard Client and requires no action from the user. See [Service locations](../../service-locations.md) for details.
 
 ## VPN Location configuration
 

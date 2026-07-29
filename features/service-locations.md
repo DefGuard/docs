@@ -7,14 +7,16 @@ This feature is available in Enterprise plan. See the [pricing page](https://def
 {% endhint %}
 
 {% hint style="warning" %}
-Service locations are currently only supported with Defguard Client for Windows.
+Service locations are currently supported with Defguard Client for Windows and Linux. Windows supports both modes described below; Linux supports **Always on** only.
 {% endhint %}
 
 Service locations are a special kind of locations that allow establishing automatic VPN connections on system boot.
 
+They are not operated by the user: a service location **never appears in the Defguard Client's location list**, and there is nothing for the user to connect to or disconnect from. The connection is established and maintained by a background service that runs independently of the Client, so an **Always on** location stays connected even when the Defguard Client has never been started or has been closed.
+
 There are currently two modes of service locations:
 
-* **Pre-logon**: the VPN connection to the location is established on system boot and is terminated when the user completes login to their system account. This may be used when your users need to authorize with some external identity provider (for example Active Directory) in order to successfully login and later don't require constant access to the VPN location.
+* **Pre-logon** (Windows only): the VPN connection to the location is established on system boot and is terminated when the user completes login to their system account. This may be used when your users need to authorize with some external identity provider (for example Active Directory) in order to successfully login and later don't require constant access to the VPN location.
 *   **Always on**: the VPN connection to the location is established on system boot and is never terminated, unless:
 
     * The network configuration of this location is changed (connection is re-established, to apply new changes)
@@ -29,7 +31,7 @@ There are currently two modes of service locations:
 
 <figure><img src="../.gitbook/assets/Screenshot 2026-04-16 at 14.00.44.png" alt=""><figcaption></figcaption></figure>
 
-2. Select "**Service location (Windows only)**"
+2. Select "**Service location (Windows, Linux)**"
 
 <figure><img src="../.gitbook/assets/Screenshot 2026-04-16 at 13.57.10.png" alt=""><figcaption></figcaption></figure>
 
@@ -50,21 +52,23 @@ If you want to edit your service location, click "**…**" and select "**Edit"**
 
 <figure><img src="../.gitbook/assets/Screenshot 2026-04-16 at 14.09.38.png" alt=""><figcaption></figcaption></figure>
 
-Scroll down, you will see "**Location type (Windows only)**" section
+Scroll down, you will see the "**Location type**" section
 
 <figure><img src="../.gitbook/assets/Screenshot 2026-04-16 at 14.10.35.png" alt=""><figcaption></figcaption></figure>
 
 Here you can change service location mode, and confirm with "**Save changes**" button.
 
 {% hint style="warning" %}
-If your location is MFA protected, you won't be able to set is as a service location. The location must have MFA disabled in order to use service location mode.
+A location cannot be set as a service location if it is MFA protected or has posture checks assigned. Disable MFA and remove the posture checks from the location first.
 {% endhint %}
 
-After the configuration of the Defguard client is updated for your instance, the location will be hidden in the client's UI. The connection to the location will be established in the background without any user input.
+After the configuration of the Defguard Client is updated for your instance, the location disappears from the Client's UI and stays hidden for as long as it is a service location. The connection is established in the background without any user input.
 
 ## Network configuration updates
 
 If you have enterprise features enabled, the Defguard Client periodically updates its network configuration if it's changed in Defguard Core. This also applies to service locations, but in order for the configuration update to happen for a service location, the Defguard Client must be open. This means that the configuration won't be updated when the user hasn't logged in yet, since the Client is not running at that point. In other words, **the user must first log in and start the Client for a configuration update to automatically happen**.
+
+This applies to configuration updates only. The connection itself does not depend on the Client running - see the section below.
 
 ## Service location connection management in depth
 
@@ -73,6 +77,8 @@ This section describes the current behaviour of the Defguard Client on Windows.
 {% endhint %}
 
 Service locations are managed by a background service (`defguard-service`) responsible for managing VPN connections. The background service is running independently from the Desktop Client and is always active. The service is responsible for establishing the connection on system boot and terminating/restarting it under specific circumstances (e.g. when user logs in if using the pre-logon mode).
+
+Because the connection belongs to the background service and not to the Desktop Client, it is neither visible nor controllable in the Client's UI, and closing or never opening the Client does not bring it down.
 
 ### Pre-logon
 
@@ -84,7 +90,7 @@ After login, the connection won't be established unless a system logoff event is
 
 If you selected the always-on mode, the connection will be established on system boot.
 
-The connection won't be terminated or restarted unless the Desktop Client receives a network update or is uninstalled.
+The connection won't be terminated or restarted unless the Desktop Client receives a network update or is uninstalled. It stays up across user logins and logoffs, and while the Desktop Client is closed.
 
 ## Troubleshooting
 
