@@ -65,7 +65,7 @@ health_port = 55003
 
 In this example, Gateway will open an additional HTTP port number 55003. Now we can use `GET /api/v1/health` endpoint to verify whether Gateway is working correctly.
 
-If running in Docker you can also enable it by setting the `HEALTH_PORT` [environment variable](configuration.md#environmental-variables-arguments).
+If running in Docker you can also enable it by setting the `HEALTH_PORT` [environment variable](configuration.md#gateway-deployment-parameters).
 
 By default the HTTP server will listen on all interfaces, but if you prefer to bind only a specific IP you can set it by using the `http_bind_address` config option (or `DEFGUARD_HTTP_BIND_ADDRESS` environment variable). For example:
 

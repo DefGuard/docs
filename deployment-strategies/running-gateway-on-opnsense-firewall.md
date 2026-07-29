@@ -27,7 +27,7 @@ opnsense-patch
 5. Fill out the form with appropriate values, click **Save**, and then click **Start/Restart.**
 
 {% hint style="info" %}
-You can find detailed description of all fields [here](configuration.md#gateway-configuration).
+You can find detailed description of all fields [here](configuration.md#gateway-deployment-parameters).
 {% endhint %}
 
 If everything went well, Defguard Gateway should be connected to Defguard Core and you can start [adding new devices to your network](../features/wireguard/remote-desktop-activation.md).

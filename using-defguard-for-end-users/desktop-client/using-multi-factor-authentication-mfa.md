@@ -41,7 +41,7 @@ If you don't know how to set up or use your **Authenticator App,** please check 
 <figure><img src="../../.gitbook/assets/mfa-modal.png" alt="" width="563"><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-If you need a guide explaining how to use Mobile Client as your MFA method, please [scroll down.](using-multi-factor-authentication-mfa.md#authenticating-via-biometry)
+If you need a guide explaining how to use Mobile Client as your MFA method, please [scroll down.](using-multi-factor-authentication-mfa.md#multi-factor-authentication-via-mobile-biometry)
 {% endhint %}
 
 3. After entering code, click **Verify**

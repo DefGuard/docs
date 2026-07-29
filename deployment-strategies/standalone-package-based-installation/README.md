@@ -117,7 +117,7 @@ sudo rpm -Uvh defguard-X.Y.Z-x86_64-unknown-linux-gnu.rpm
     # or Proxy package
     pkg delete defguard-proxy
     ```
-2. Install a newer version (as described [above](./#installing-packages)).
+2. Install a newer version (as described [above](./#defguard-packages)).
 3.  Restart the service.
 
     ```sh

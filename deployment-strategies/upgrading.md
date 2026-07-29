@@ -74,7 +74,7 @@ To work properly, this feature requires the Desktop Client to be in version 1.6.
 
 #### Force all traffic
 
-1.6 introduces the ability to "Force all traffic" as a [Client traffic policy](../features/wireguard/behavior-customization.md#client-traffic-policy-selection). However, this policy only works with desktop and mobile clients ≥ 1.6.0. Older clients (<1.6.0) will not respect the policy and will allow the users to select the "Predefined traffic" option. As an alternative, administrators can enforce all traffic by setting allowed ips: `0.0.0.0/0, ::/0`.
+1.6 introduces the ability to "Force all traffic" as a [Client traffic policy](../features/wireguard/behavior-customization.md#client-traffic-rules). However, this policy only works with desktop and mobile clients ≥ 1.6.0. Older clients (<1.6.0) will not respect the policy and will allow the users to select the "Predefined traffic" option. As an alternative, administrators can enforce all traffic by setting allowed ips: `0.0.0.0/0, ::/0`.
 
 #### macOS Client changes
 
@@ -265,7 +265,7 @@ This change requires a few changes if you are upgrading:
 2. Proxy is now the server to which Defguard Core connects, so you may want to:
    1. Optional: configure non-default Proxy gRPC port with `DEFGUARD_PROXY_GRPC_PORT -` default value is **50051**
    2. If you have a Proxy in a different network segment - eg. have a custom installation (not with one-line install/docker compose all on one server) - you may also consider exposing the gRPC port and reverse-proxy (nginx/treafik/...) the port with SSL/TLS.
-      1. (Optional) If you want to use SSL with Proxy gRPC server without revers-proxy (nginx/etc) configure `DEFGUARD_PROXY_GRPC_CERT` and `DEFGUARD_PROXY_GRPC_KEY` following the [SSL setup guide](docker-compose.md#grpc-ssl-setup).
+      1. (Optional) If you want to use SSL with Proxy gRPC server without revers-proxy (nginx/etc) configure `DEFGUARD_PROXY_GRPC_CERT` and `DEFGUARD_PROXY_GRPC_KEY` following the [SSL setup guide](configuration.md#deprecated-edge-deployment-parameters).
    3. Also adjust your firewall config to open new Docker port mapping etc. Make sure Proxy gRPC server **can be reached from Core**.
 
 #### Core deployment configuration

@@ -5,7 +5,7 @@ Enabling Internal MFA for a desired VPN Location is done by:
 1. Going into Defguard to **VPN Overview**
 2. Selecting the VPN Location from the dropdown list, and pressing the **Edit Location** button in the top right corner of the page
 3. Check the "**Internal MFA**" checkbox under the **MFA requirement** section
-4. Set **peer disconnect threshold**, we recommend it to be min. 300 (5 min) - see chapter [below](internal-sso-based-mfa.md#peer-disconnect-threshold).
+4. Set **peer disconnect threshold**, we recommend it to be min. 300 (5 min) - see chapter [below](internal-sso-based-mfa.md#client-disconnect-threshold).
 5. And **save changes**.
 
 <figure><img src="../../../.gitbook/assets/image (301).png" alt=""><figcaption></figcaption></figure>

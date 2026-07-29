@@ -27,7 +27,7 @@ In order to configure this feature, the following information is needed to be ob
 * (for custom provider) Your provider's base URL
 * (for Microsoft as provider) Tenant ID
 
-If you don't know where to find those values, go to the [Examples](./#examples) section, where you will find an example setup for the built-in providers.
+If you don't know where to find those values, go to the [Examples](./#configuration-and-setup) section, where you will find an example setup for the built-in providers.
 
 ### Base URL
 
@@ -55,7 +55,7 @@ For example, if your Defguard main dashboard is accessible at `https://defguard.
 * `https://enrollment.my-domain.net/openid/callback`
 * `https://enrollment.my-domain.net/openid/mfa/callback`
 
-These URIs will need to be provided in your provider's configuration. See [#examples](./#examples "mention") to learn more.
+These URIs will need to be provided in your provider's configuration. See [#configuration-and-setup](./#configuration-and-setup "mention") to learn more.
 
 ## Configuration and setup
 
@@ -69,10 +69,10 @@ In order to configure the external OpenID provider login, go to the settings in 
 
 For a configuration guide for given provider, check one of the dedicated articles:
 
-* [Google](google.md#directory-synchronization)
+* [Google](google.md#obtaining-directory-synchronization-credentials)
 * [Microsoft](microsoft.md)
-* [Okta](okta.md#directory-synchronization)
-* [JumpCloud](jumpcloud.md#directory-synchronization)
+* [Okta](okta.md#obtaining-directory-synchronization-credentials)
+* [JumpCloud](jumpcloud.md#obtaining-directory-synchronization-credentials)
 * [Keycloak](keycloak.md)
 * [Zitadel](zitadel.md)
 * [Custom](custom.md)
@@ -83,7 +83,7 @@ When you configure your provider, the proxy will automatically allow enrolling u
 
 For this to work, make sure you have the following two things set:
 
-* Additional allowed redirect URI in your provider's configuration (see [#redirect-url](./#redirect-url "mention"))
+* Additional allowed redirect URI in your provider's configuration (see [#redirect-uri](./#redirect-uri "mention"))
 * A `DEFGUARD_PROXY_URL` environment variable set correctly for your proxy (not core). This variable needs to be set for your proxy and should be equal to the URL where users perform the enrollment process. This should be set automatically if you are using the one-line deployment script version `1.2.1` or above. E.g. if your enrollment URL is `https://enrollment.my-domain.net`, set `DEFGUARD_PROXY_URL` to `https://enrollment.my-domain.net`.
 
 #### Disabling automatic account creation

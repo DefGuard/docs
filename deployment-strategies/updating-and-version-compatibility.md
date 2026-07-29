@@ -33,7 +33,7 @@ Choose the guide that matches how you deployed Defguard:
 
 * [Docker / Docker Compose](docker-compose.md#upgrading)
 * [Standalone packages (DEB, RPM)](standalone-package-based-installation/#upgrading-packages)
-* [OVA / Virtual Appliance](ova.md#managing-and-updating-containers)
+* [OVA / Virtual Appliance](ova.md#upgrading)
 
 ### Official GitHub Releases
 

@@ -1,6 +1,6 @@
 # Connecting to Instance
 
-In this guide, you will learn how to connect to location. If you haven't added an instance yet, follow [this guide](instance-adding.md#adding-instance-during-the-enrollment).
+In this guide, you will learn how to connect to location. If you haven't added an instance yet, follow [this guide](instance-adding.md#adding-instance-in-defguard).
 
 ## Connecting to location without MFA
 
