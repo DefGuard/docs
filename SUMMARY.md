@@ -215,6 +215,7 @@
   * [Security concepts](in-depth/architecture/security-concepts.md)
   * [MFA Architecture](in-depth/architecture/architecture.md)
 * [Architecture Decision Records](in-depth/architecture-decision-records/README.md)
+  * [2.1](in-depth/architecture-decision-records/2.1.md)
   * [2.0](in-depth/architecture-decision-records/2.0.md)
   * [1.6](in-depth/architecture-decision-records/1.6.md)
   * [1.5](in-depth/architecture-decision-records/1.5.md)
