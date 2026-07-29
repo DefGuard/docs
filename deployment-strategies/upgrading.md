@@ -8,6 +8,10 @@ description: Notes on upgrading Defguard and its components
 Before doing any updates please remember to **backup your database.**
 {% endhint %}
 
+## 2.0.x -> 2.1.0
+
+No migration steps are required. Back up your database, then update Core, Edge and Gateway together as described in [updating-and-version-compatibility.md](updating-and-version-compatibility.md "mention").
+
 ## 1.6.x -> 2.0.0
 
 {% hint style="danger" %}
@@ -68,7 +72,7 @@ As mentioned in the Core migration section, this feature requires both Defguard 
 
 #### Service locations
 
-The [service-locations.md](../features/service-locations.md "mention") feature currently only works on the Windows Desktop Client. Locations in the service location mode won't be sent to clients that don't support them (either are older than 1.6.0 or are on a different platform than Windows).
+When 1.6.0 was released, the [service-locations.md](../features/service-locations.md "mention") feature worked only on the Windows Desktop Client - see that page for the platforms supported today. Locations in the service location mode won't be sent to clients that don't support them (either are older than 1.6.0 or are on a platform without support).
 
 To work properly, this feature requires the Desktop Client to be in version 1.6. Service locations won't show up or work in older clients.
 
