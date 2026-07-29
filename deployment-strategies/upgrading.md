@@ -19,9 +19,9 @@ The good news is that we have raised the limits for the free tier, and it now su
 {% hint style="warning" %}
 **Upgrading from 1.5.x?**
 
-We recommend upgrading to the latest **1.6.x** release before migrating to **2.x**.&#x20;
+We recommend upgrading to the latest **1.6.x** release before migrating to **2.x**.
 
-This ensures that all intermediate migrations and configuration changes are applied in the expected order, reducing the risk of upgrade-related issues.&#x20;
+This ensures that all intermediate migrations and configuration changes are applied in the expected order, reducing the risk of upgrade-related issues.
 
 Recommended upgrade path: **any → latest 1.6.x → 2.x.**
 {% endhint %}

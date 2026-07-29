@@ -16,6 +16,9 @@ Issues are grouped by component. Each linked page covers one specific problem.
 * [unable-to-sign-in-with-correct-credentials.md](core/unable-to-sign-in-with-correct-credentials.md "mention")
 * [user-lost-access-to-their-2fa-methods.md](core/user-lost-access-to-their-2fa-methods.md "mention")
 * [enrollment-url-changed.md](core/enrollment-url-changed.md "mention")
+* [failed-to-parse-duration.md](core/failed-to-parse-duration.md "mention")
+* [core-cannot-connect-to-gateway-or-edge-after-restart-on-single-host-deployments.md](core/core-cannot-connect-to-gateway-or-edge-after-restart-on-single-host-deployments.md "mention")
+* [lost-access.md](core/lost-access.md "mention")
 
 ### [desktop-client](desktop-client/ "mention")
 
@@ -33,6 +36,9 @@ Issues are grouped by component. Each linked page covers one specific problem.
 * [high-disk-usage.md](desktop-client/high-disk-usage.md "mention")
 * [mfa-location-disconnected-after-x-time.md](desktop-client/mfa-location-disconnected-after-x-time.md "mention")
 * [unix-socket-permission-error-on-connect-linux.md](desktop-client/unix-socket-permission-error-on-connect-linux.md "mention")
+* [could-not-start-mfa-process.md](desktop-client/could-not-start-mfa-process.md "mention")
+* [vpn-location-is-missing-from-client.md](desktop-client/vpn-location-is-missing-from-client.md "mention")
+* [client-crashes-immediately-on-launch-with-error-71-protocol-error-dispatching-to-wayland-display.md](desktop-client/client-crashes-immediately-on-launch-with-error-71-protocol-error-dispatching-to-wayland-display.md "mention")
 
 ### [mobile-client](mobile-client/ "mention")
 
@@ -52,3 +58,4 @@ Issues are grouped by component. Each linked page covers one specific problem.
 * [webauthn-security-keys.md](webauthn-security-keys.md "mention")
 * [can-access-vpn-but-not-local-network-or-internet.md](can-access-vpn-but-not-local-network-or-internet.md "mention")
 * [how-to-verify-the-vpn-is-working.md](how-to-verify-the-vpn-is-working.md "mention")
+* [testing-vpn-speed.md](testing-vpn-speed.md "mention")

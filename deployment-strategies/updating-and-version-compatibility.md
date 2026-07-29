@@ -4,7 +4,7 @@
 **Always back up your database before updating Core.** Core is the only component with persistent storage (PostgreSQL). See the [deployment overview](overview.md#backup) for backup instructions.
 {% endhint %}
 
-Defguard is composed of multiple components (Core, Edge, Gateway) that communicate over gRPC. Each component can be updated independently, provided the components remain compatible.&#x20;
+Defguard is composed of multiple components (Core, Edge, Gateway) that communicate over gRPC. Each component can be updated independently, provided the components remain compatible.
 
 When components attempt to establish a connection, Defguard automatically performs a version check. If an incompatibility is detected, the connection is refused.
 

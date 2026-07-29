@@ -77,7 +77,7 @@ john         | false
 peter        | false
 ```
 
-### &#x20;Check which group is admin
+### Check which group is admin
 
 ```bash
 defguard manage list-groups

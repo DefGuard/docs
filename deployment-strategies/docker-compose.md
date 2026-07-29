@@ -75,7 +75,7 @@ docker compose up
 
 Depending on your infrastructure, you may choose to keep the setup simple and let Defguard handle SSL termination for you. Learn more about this functionality [here](../tutorials/initial-setup-wizard-setting-up-from-scratch.md#configure-ssl-for-core). In that case skip stis step.
 
-Alternatively, you can place a reverse proxy in front of your Core service to manage SSL termination.&#x20;
+Alternatively, you can place a reverse proxy in front of your Core service to manage SSL termination.
 
 Here is an example [nginx](https://nginx.org/) configuration to provide SSL termination:
 
@@ -130,7 +130,7 @@ services:
 
 Depending on your infrastructure, you may choose to keep the setup simple and let Defguard handle SSL termination for you. Learn more about this functionality [here](../tutorials/initial-setup-wizard-setting-up-from-scratch.md#configure-ssl-for-edge). In that case skip stis step.
 
-Alternatively, you can place a reverse proxy in front of your Edge service to manage SSL termination.&#x20;
+Alternatively, you can place a reverse proxy in front of your Edge service to manage SSL termination.
 
 Here is an example [nginx](https://nginx.org/) configuration to provide SSL termination:
 

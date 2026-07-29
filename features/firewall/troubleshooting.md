@@ -66,7 +66,7 @@ Additionally, if multiple rules cover overlapping destinations, their combined f
 
 ### Connection issues with Docker installed
 
-If you have Docker installed on the same machine as your Gateway (or if you deployed Defguard using the one-line installation script) the firewall may not work properly due to Docker firewall rules interfering with your ACL rules.&#x20;
+If you have Docker installed on the same machine as your Gateway (or if you deployed Defguard using the one-line installation script) the firewall may not work properly due to Docker firewall rules interfering with your ACL rules.
 
 To verify this, execute `nft list ruleset` (may require sudo) on the machine on which your Gateway is installed:
 

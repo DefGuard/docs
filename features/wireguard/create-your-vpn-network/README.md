@@ -96,7 +96,7 @@ To simplify this, you can use an **Allowed IPs calculator** to generate the corr
 #### Generate Allowed IPs from Firewall Rules
 
 {% hint style="info" %}
-**Enterprise feature.** Requires an active Enterprise license.&#x20;
+**Enterprise feature.** Requires an active Enterprise license.
 {% endhint %}
 
 When enabled, IP addresses from [Firewall Rules](../../firewall/) that grant access to the given user are automatically added to the Allowed IPs list when a device config is generated. Manually entered Allowed IPs are always included.

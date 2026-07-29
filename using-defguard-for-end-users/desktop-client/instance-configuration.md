@@ -26,7 +26,7 @@ If you are looking for how to generate tokens for your users as an Administrator
 4.  Select **Client Activation** and click **Next**.<br>
 
     <figure><img src="../../.gitbook/assets/image (347).png" alt="" width="375"><figcaption></figcaption></figure>
-5. Afterwards, use **One-Click Configuration** or click **Show advanced configuration** and copy **URL** and **Token** manually.&#x20;
+5. Afterwards, use **One-Click Configuration** or click **Show advanced configuration** and copy **URL** and **Token** manually.
 
 <figure><img src="../../.gitbook/assets/defguard-add-instance-qr.png" alt="" width="375"><figcaption></figcaption></figure>
 

@@ -64,7 +64,7 @@ show container
 sudo podman ps -a
 ```
 
-At this point, the gateway container should be running on VyOS and ready to be adopted by Defguard Core service.&#x20;
+At this point, the gateway container should be running on VyOS and ready to be adopted by Defguard Core service.
 
 Adopt it by following [those steps](../tutorials/initial-setup-wizard-setting-up-from-scratch.md#adopt-the-gateway-component).
 

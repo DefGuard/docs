@@ -77,7 +77,7 @@ If this directory is missing or empty at startup, the component detects the abse
 Include the certificate directory in your server backup alongside your database if you want zero-downtime recovery - re-enrollment requires manual action in the admin UI for each affected Gateway and Edge instance.
 
 {% hint style="info" %}
-Because the CA is stored in the database, a restored Core can always re-issue new component certificates.&#x20;
+Because the CA is stored in the database, a restored Core can always re-issue new component certificates.
 
 Losing the local cert directory does not cause permanent data loss - it requires re-running the [setup flow](../tutorials/adding-edge-component.md) for that component.
 {% endhint %}
