@@ -40,7 +40,7 @@ Choose the guide that matches how you deployed Defguard:
 Check the GitHub repositories for each service to find their newest releases and release notes:
 
 * [Defguard Core](https://github.com/DefGuard/defguard/releases)
-* [Defguard Proxy](https://github.com/DefGuard/proxy/releases)
+* [Defguard Edge](https://github.com/DefGuard/proxy/releases)
 * [Defguard Gateway](https://github.com/DefGuard/gateway/releases)
 * [Defguard YubiBridge](https://github.com/DefGuard/YubiKey-Provision/releases)
 

@@ -3,10 +3,10 @@
 {% hint style="warning" %}
 **Availability**
 
-This feature is available from Business license. See the [pricing page](https://defguard.net/pricing/) for details.
+This feature is available in Business and Enterprise plans. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}
 
-Navigate to **Settings → Client behaviour.**
+Navigate to **Settings → General → Client behaviour.**
 
 <figure><img src="../../.gitbook/assets/image (309).png" alt=""><figcaption></figcaption></figure>
 
@@ -32,17 +32,27 @@ One of the unique features of Defguard desktop client is the ability for users t
 
 <figure><img src="../../.gitbook/assets/image (211).png" alt=""><figcaption></figcaption></figure>
 
-However, in some cases administrators may want to enforce a specific behavior - allowing access only to predefined traffic or requiring all traffic to pass through the VPN.
+However, in some cases administrators may want to enforce a specific behaviour - allowing access only to predefined traffic or requiring all traffic to pass through the VPN.
 
 <figure><img src="../../.gitbook/assets/image (312).png" alt="" width="563"><figcaption></figcaption></figure>
 
 \
-The **Client Traffic Policy** setting enables administrators to control this behavior as needed. The available options are:
+The **Client Traffic Policy** setting enables administrators to control this behaviour as needed. The available options are:
 
-* **None** - Users can freely choose between routing predefined traffic or all traffic through the VPN.
+* **No limitation** - Users can freely choose between routing predefined traffic or all traffic through the VPN.
 * **Disable all traffic** - Only predefined traffic is allowed, the "All traffic" option is disabled for users.
 * **Force all traffic** - All traffic is routed through the VPN, the "All traffic" option is enforced and cannot be changed by users.
 
 {% hint style="warning" %}
 Please note that this option is only client-side enforced, meaning the user may manually modify Wireguard interface to force all traffic to go through the VPN.
+{% endhint %}
+
+### Group-based policies
+
+In addition to the global **Client traffic policy**, you can define traffic rules for selected groups. Groups listed in this section use their own traffic rules instead of the global policy; any group that is not listed uses the global policy.
+
+The available options are the same as for the global policy - **No limitation**, **Disable all traffic** and **Force all traffic** - but they apply only to users in the selected groups.
+
+{% hint style="info" %}
+Group-based policies are useful when most of your users should keep the default behaviour, while a specific group - for example contractors or a set of managed workstations - must have all traffic forced through the VPN.
 {% endhint %}

@@ -106,7 +106,7 @@ The Firewall must be **enabled** for the location for this option to have any ef
 {% endhint %}
 
 * **Sources included:** Addresses entered directly in Rule manual settings or Aliases and pre-defined Destinations attached to the rule.
-* **Merge behavior:** Manual AllowedIPs are preserved. ACL-derived IPs are\
+* **Merge behaviour:** Manual AllowedIPs are preserved. ACL-derived IPs are\
   appended, deduplicated, and sorted.
 * **Any Address destinations:** Destinations marked as "Any Address" in ACL\
   rules are **not** added to Allowed IPs (the firewall still enforces them\

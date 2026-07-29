@@ -107,7 +107,7 @@ After enabling the LDAP integration, users will be able to log in to Defguard th
 
 ### Multiple nested OUs
 
-If you are using an older version of Defguard, using the integration with multiple nested organizational units may lead to unexpected behavior. The following issues are known to occur:
+If you are using an older version of Defguard, using the integration with multiple nested organizational units may lead to unexpected behaviour. The following issues are known to occur:
 
 * If you have duplicate user RDNs across multiple OUs, a database error may occur: `Duplicate key violates unique constraint 'unique_ldap_rdn'`, causing issues with two-way synchronization. This would happen in the following scenario:
   * `CN=user1,OU=ou1,OU=ou,DC=example`

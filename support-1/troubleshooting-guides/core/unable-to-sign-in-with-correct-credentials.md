@@ -2,7 +2,7 @@
 
 This error appears when the browser's session cookie cannot be set. The most common cause is a misconfigured `DEFGUARD_URL`.
 
-### In version 2.0
+### Instance URL setting
 
 `DEFGUARD_URL` is deprecated. The instance URL is now configured through the web UI. Go to **Settings** in the Defguard interface and verify the **Instance URL** field. It must match the URL you are accessing Defguard from, including the correct scheme (`https://` vs `http://`).
 

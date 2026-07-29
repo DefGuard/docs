@@ -74,7 +74,7 @@ Reasons:
 * Native UDP proxy support
 * Health checks with fine-grained timing controls
 * Proper backend ejection on failure
-* Production-grade L4 behavior
+* Production-grade L4 behaviour
 
 Recommended configuration characteristics:
 
@@ -108,7 +108,7 @@ Envoy has multiple health-check timing parameters:
 * healthy\_edge\_interval
 * unhealthy\_edge\_interval
 
-If only `interval` is configured, the effective behavior may differ depending on traffic state.
+If only `interval` is configured, the effective behaviour may differ depending on traffic state.
 
 Symptoms:
 
@@ -142,7 +142,7 @@ As a result:
 * Tunnel recovery may take up to the configured keepalive interval.
 * Shorter keepalive intervals result in faster failover recovery.
 
-#### Expected failover behavior
+#### Expected failover behaviour
 
 With proper configuration:
 

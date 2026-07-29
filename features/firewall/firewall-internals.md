@@ -102,7 +102,7 @@ As a shortcut, Defguard Gateway offers the `--masquerade` flag (or the `DEFGUARD
 ```
 
 {% hint style="warning" %}
-The `--masquerade` option applies masquerading between **all** interfaces on the gateway, which may be more permissive than necessary in some environments. While convenient, this broad behavior might not align with more restrictive or segmented network designs. For greater control and tighter security, we recommend that administrators configure masquerading manually between only the interfaces that require it.
+The `--masquerade` option applies masquerading between **all** interfaces on the gateway, which may be more permissive than necessary in some environments. While convenient, this broad behaviour might not align with more restrictive or segmented network designs. For greater control and tighter security, we recommend that administrators configure masquerading manually between only the interfaces that require it.
 {% endhint %}
 
 #### Forward chain priority

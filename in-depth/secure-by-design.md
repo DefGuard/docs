@@ -30,7 +30,7 @@ The choice of programming language and frameworks/libraries is fundamental, as i
 
 * Exposure to vulnerabilities
 * The likelihood of implementation errors
-* System behavior under failure conditions
+* System behaviour under failure conditions
 * The ability to detect and mitigate attacks
 
 Defguard is built in [Rust](https://rust-lang.org/) language, which is recommended by leading security organizations worldwide due to its strong memory safety guarantees and modern security model:

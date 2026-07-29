@@ -24,7 +24,7 @@ Update the instance configuration. See [Instance configuration](../../../using-d
 
 Refresh the instance screen manually or restart the app.
 
-See [Mobile Client](../../../using-defguard-for-end-users/mobile-client/) for mobile client behavior.
+See [Mobile Client](../../../using-defguard-for-end-users/mobile-client/) for mobile client behaviour.
 
 ### You do not have access to the location
 

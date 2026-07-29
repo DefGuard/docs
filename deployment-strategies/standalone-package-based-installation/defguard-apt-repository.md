@@ -57,7 +57,7 @@ Defguard Core:
 sudo apt install defguard
 ```
 
-Defguard Proxy:
+Defguard Edge:
 
 ```sh
 sudo apt install defguard-proxy

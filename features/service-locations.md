@@ -69,7 +69,7 @@ If you have enterprise features enabled, the Defguard Client periodically update
 ## Service location connection management in depth
 
 {% hint style="info" %}
-This section describes the current behavior of the Defguard Client on Windows.
+This section describes the current behaviour of the Defguard Client on Windows.
 {% endhint %}
 
 Service locations are managed by a background service (`defguard-service`) responsible for managing VPN connections. The background service is running independently from the Desktop Client and is always active. The service is responsible for establishing the connection on system boot and terminating/restarting it under specific circumstances (e.g. when user logs in if using the pre-logon mode).

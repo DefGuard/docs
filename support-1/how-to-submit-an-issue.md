@@ -34,7 +34,7 @@ The logs will automatically include:
 After reproducing the issue, gather logs from **all relevant components**.\
 Make sure to include **all of them** in your report.
 
-For UI components, also take screenshots if the issue affects layout, design, or visual behavior.
+For UI components, also take screenshots if the issue affects layout, design, or visual behaviour.
 
 {% hint style="warning" %}
 Please include only the log entries captured around the time the issue occurred and make sure the logs contain the actual error message.\
@@ -47,8 +47,8 @@ In addition to logs, clearly describe how the issue can be reproduced. Include:
 
 * Description of your deployment strategy
 * Exact steps you took
-* Expected behavior
-* Actual behavior
+* Expected behaviour
+* Actual behaviour
 
 ### 5. Submit your report
 

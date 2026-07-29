@@ -17,7 +17,7 @@ Depending on your setup, Defguard can be used in two main ways:
 * as an authentication layer that allows users to sign in with directory-backed credentials,
 * as a synchronization layer that exchanges user and group data between Defguard and your directory service.
 
-You can start with a simple connection and one-way propagation from Defguard to LDAP, and then move to two-way synchronization if you need Defguard and the external directory to stay aligned over time. This makes it possible to adopt the integration gradually and validate the configuration before enabling more powerful synchronization behavior.
+You can start with a simple connection and one-way propagation from Defguard to LDAP, and then move to two-way synchronization if you need Defguard and the external directory to stay aligned over time. This makes it possible to adopt the integration gradually and validate the configuration before enabling more powerful synchronization behaviour.
 
 This chapter covers all aspects of LDAP and AD integration, including:
 

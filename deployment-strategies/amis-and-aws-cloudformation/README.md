@@ -88,7 +88,7 @@ Make sure to also check the rest of the pre-filled parameters, as you may want t
 
 #### Stack options
 
-Next, select the behavior on deployment failure:
+Next, select the behaviour on deployment failure:
 
 <figure><img src="../../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
 

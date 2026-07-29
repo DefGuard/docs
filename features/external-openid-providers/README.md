@@ -123,7 +123,7 @@ The following configuration options are currently available in the directory syn
 * **Synchronization interval (600s by default):** How often to synchronize with your provider. Very low values may cause issues with the provider API. The user state is also synchronized on login.
 
 {% hint style="danger" %}
-If you want to delete your users based on the state of your provider we recommend trying out the "disable" behavior first to make sure everything works as expected. Always back up your database regularly.
+If you want to delete your users based on the state of your provider we recommend trying out the "disable" behaviour first to make sure everything works as expected. Always back up your database regularly.
 {% endhint %}
 
 * **User behaviour (Keep, Disable, Delete):** What to do with Defguard users who are absent from your provider's directory.
@@ -177,7 +177,7 @@ docker container ls
 
 ```
 CONTAINER ID   IMAGE                            COMMAND                  CREATED       STATUS          PORTS                                              NAMES
-42986c3e772j   postgres:15-alpine               "docker-entrypoint.s…"   10 days ago   Up 5 hours      0.0.0.0:5432->5432/tcp                             defguard-db-1
+42986c3e772j   postgres:18-alpine               "docker-entrypoint.s…"   10 days ago   Up 5 hours      0.0.0.0:5432->5432/tcp                             defguard-db-1
 c4000t32936a   ghcr.io/defguard/defguard:main   "./defguard"             4 weeks ago   Up 19 minutes   0.0.0.0:8000->8000/tcp, 0.0.0.0:50055->50055/tcp   defguard-core-1
 ```
 

@@ -1,7 +1,7 @@
 ---
 description: >-
   This feature is designed to help teams centralize visibility into user
-  actions, security events, and system behavior by integrating with tools they
+  actions, security events, and system behaviour by integrating with tools they
   already use for monitoring and incident response.
 ---
 
