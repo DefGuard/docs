@@ -264,14 +264,12 @@ This change requires a few changes if you are upgrading:
 1. Remove `DEFGUARD_PROXY_UPSTREAM_GRPC_URL` variable - since Proxy does not connect to Defguard Core any more.
 2. Proxy is now the server to which Defguard Core connects, so you may want to:
    1. Optional: configure non-default Proxy gRPC port with `DEFGUARD_PROXY_GRPC_PORT -` default value is **50051**
-   2. If you have a Proxy in a different network segment - eg. have a custom installation (not with one-line install/docker compose all on one server) - you may also consider exposing the gRPC port and reverse-proxy (nginx/treafik/...) the port with SSL/TLS.
-      1. (Optional) If you want to use SSL with Proxy gRPC server without revers-proxy (nginx/etc) configure `DEFGUARD_PROXY_GRPC_CERT` and `DEFGUARD_PROXY_GRPC_KEY` following the [SSL setup guide](configuration.md#deprecated-edge-deployment-parameters).
+   2. If you have a Proxy in a different network segment - eg. have a custom installation (not with one-line install/docker compose all on one server) - you may also consider exposing the gRPC port and reverse-proxy (nginx/traefik/...) the port with SSL/TLS.
    3. Also adjust your firewall config to open new Docker port mapping etc. Make sure Proxy gRPC server **can be reached from Core**.
 
 #### Core deployment configuration
 
 1. Add `DEFGUARD_PROXY_URL` variable to point to your Proxy gRPC server endpoint, for example `http://proxy:50051` when using Docker Compose - or any gRPC URL you have configured with your reverse proxy.
-2. (Optional) If using SSL configure `DEFGUARD_PROXY_GRPC_CA`
 
 #### Upgrade process
 
