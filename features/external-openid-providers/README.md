@@ -69,10 +69,10 @@ In order to configure the external OpenID provider login, go to the settings in 
 
 For a configuration guide for given provider, check one of the dedicated articles:
 
-* [Google](google.md#obtaining-directory-synchronization-credentials)
+* [Google](google.md)
 * [Microsoft](microsoft.md)
-* [Okta](okta.md#obtaining-directory-synchronization-credentials)
-* [JumpCloud](jumpcloud.md#obtaining-directory-synchronization-credentials)
+* [Okta](okta.md)
+* [JumpCloud](jumpcloud.md)
 * [Keycloak](keycloak.md)
 * [Zitadel](zitadel.md)
 * [Custom](custom.md)

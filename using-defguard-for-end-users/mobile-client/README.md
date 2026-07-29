@@ -8,7 +8,7 @@ Mobile applications are available in the official app stores for [Android](https
 
 These guides explain how to use the Defguard Mobile to connect securely to VPN locations within your Defguard instance. It covers the entire process, from installation, adding new instances, connecting to locations, to managing your VPN connection settings.
 
-* [Instance adding guide](instance-adding.md#adding-instance-in-defguard)
+* [Instance adding guide](instance-adding.md#adding-new-instance)
 * [Connecting to Instance guide](instance-connect.md#connecting-to-instance)
 * [Managing Instance guide](instance-manage.md#managing-your-instance)
 

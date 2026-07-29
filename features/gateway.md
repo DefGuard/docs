@@ -31,7 +31,7 @@ This instruction helps configure Defguard Gateway in OPNsense. This is based on 
 ### Configure Defguard Gateway plugin
 
 1. Go to **VPN → Defguard Gateway**
-2. Fill out the appropriate values in the form. You can read more about the available configuration options here: [#gateway-configuration](../deployment-strategies/configuration.md#gateway-deployment-parameters "mention")
+2. Fill out the appropriate values in the form. You can read more about the available configuration options here: [#gateway-deployment-parameters](../deployment-strategies/configuration.md#gateway-deployment-parameters "mention")
 3. Eventually, **Start/Restart** the service.
 
 ### Assign a network interface to Defguard
