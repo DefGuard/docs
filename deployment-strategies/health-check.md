@@ -1,8 +1,8 @@
 # Health check
 
-## Proxy
+## Edge
 
-[Proxy](https://github.com/defguard/proxy) provides health endpoint at `GET /api/v1/health` which checks whether the application is running.
+[Edge](https://github.com/defguard/proxy) provides health endpoint at `GET /api/v1/health` which checks whether the application is running.
 
 Example request:
 
@@ -12,9 +12,9 @@ curl https://enroll.example.com/api/v1/health
 
 Response:
 
-* `alive` with status code 200 – Proxy is working
+* `alive` with status code 200 – Edge is working
 
-To verify gRPC services for **Proxy** are alive, there is endpoint at `GET /api/v1/health-grpc` that verify it.
+To verify gRPC services for **Edge** are alive, there is endpoint at `GET /api/v1/health-grpc` that verify it.
 
 Example request:
 
@@ -24,8 +24,8 @@ curl https://enroll.example.com/api/v1/health-grpc
 
 Response:
 
-* `alive` with status code 200 – Proxy is working and is connected to Core
-* `Not connected to Defguard Core` with status code 503 – Proxy is working, but is not connected to Core
+* `alive` with status code 200 – Edge is working and is connected to Core
+* `Not connected to Defguard Core` with status code 503 – Edge is working, but is not connected to Core
 
 ## Core
 

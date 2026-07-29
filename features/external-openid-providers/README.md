@@ -79,7 +79,7 @@ For a configuration guide for given provider, check one of the dedicated article
 
 ### OpenID enrollment
 
-When you configure your provider, the proxy will automatically allow enrolling users through it. See [with-external-sso-google-microsoft-custom.md](../../using-defguard-for-end-users/enrollment/with-external-sso-google-microsoft-custom.md "mention") for the process from the user's point of view.
+When you configure your provider, Edge will automatically allow enrolling users through it. See [with-external-sso-google-microsoft-custom.md](../../using-defguard-for-end-users/enrollment/with-external-sso-google-microsoft-custom.md "mention") for the process from the user's point of view.
 
 For this to work, make sure you have the following two things set:
 

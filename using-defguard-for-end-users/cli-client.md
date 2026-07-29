@@ -23,7 +23,7 @@ Binary: [https://github.com/DefGuard/client/releases/download/v1.2.0/dg-linux-aa
 ### Requirements
 
 * Root access on a given machine
-* Defguard proxy running and accessible from the machine the CLI will be installed on
+* Defguard Edge running and accessible from the machine the CLI will be installed on
 * `resolvconf` and `ip` commands available
 
 ### Installation
@@ -68,7 +68,7 @@ Copy the command and proceed with [enrollment](cli-client.md#enrollment).
 
 #### Enrollment
 
-Execute the command obtained in the previous step to configure Defguard CLI on the machine of your choice. The enrollment command will pull all the information required to establish a connection from your Defguard instance (through the Defguard proxy, so make sure it can be accessed) and will save it in a configuration file. Run the `enroll` command only when you need to retrieve your network configuration and apply it to the CLI Client. If you have access to the enterprise features, the CLI should automatically handle this when running.
+Execute the command obtained in the previous step to configure Defguard CLI on the machine of your choice. The enrollment command will pull all the information required to establish a connection from your Defguard instance (through Defguard Edge, so make sure it can be accessed) and will save it in a configuration file. Run the `enroll` command only when you need to retrieve your network configuration and apply it to the CLI Client. If you have access to the enterprise features, the CLI should automatically handle this when running.
 
 #### Connecting
 

@@ -60,7 +60,7 @@ End users enjoy one-click VPN access via the Defguard apps, while admins gain gr
 
 #### 🧩 Modular and Scalable
 
-Each component (Core, Gateway, Proxy) can be deployed independently, allowing flexible scaling - from a single office setup to multi-region enterprise deployments.
+Each component (Core, Gateway, Edge) can be deployed independently, allowing flexible scaling - from a single office setup to multi-region enterprise deployments.
 
 #### 🧱 Security Built into the Development Process
 

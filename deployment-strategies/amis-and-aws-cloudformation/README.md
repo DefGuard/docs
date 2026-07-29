@@ -176,7 +176,7 @@ To login, use the default `admin` username and the password defined in `CoreDefa
 #### Edge Instance
 
 * `ProxyGrpcPort` (optional): The gRPC port for the Edge, default is `50051`.
-* `ProxyHttpPort` (optional): The HTTP port for the Edge, default is `8000`. This is where the Defguard Edge web UI will be accessible. The proxy UI is used for user enrollment.
+* `ProxyHttpPort` (optional): The HTTP port for the Edge, default is `8000`. This is where the Defguard Edge web UI will be accessible. The Edge UI is used for user enrollment.
 * `ProxyInstanceType` (optional): The instance type for the Edge, default is `t3.micro`.
 * `ProxyLogLevel` (optional): The log level for the Edge, default is `info`. You can also set it to `error`, `debug` or `trace`.
 * `ProxyUrl` (required): The URL where the Defguard Edge will be accessible (e.g., `https://proxy.defguard.example.com`). This should be the URL that users will use to access the Defguard Edge web UI.
