@@ -15,6 +15,7 @@
 ## Features
 
 * [Overview](features/overview.md)
+* [User management](features/user-management.md)
 * [Zero-Trust VPN with 2FA/MFA](features/wireguard/README.md)
   * [Create/Manage VPN Location](features/wireguard/create-your-vpn-network/README.md)
     * [Split Tunnel Configuration](features/wireguard/create-your-vpn-network/split-tunnel-configuration.md)
