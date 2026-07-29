@@ -3,7 +3,7 @@
 {% hint style="warning" %}
 **Availability**
 
-This feature is available Business and Enterprise plan.
+This feature is available in Business and Enterprise plans. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}
 
 When [External OIDC is enabled,](./) users have the possibility to [securely enroll (automatically create a Defguard account) and very easily configure their desktop client](../../using-defguard-for-end-users/enrollment/with-external-sso-google-microsoft-custom.md) just by logging in with the SSO provider.

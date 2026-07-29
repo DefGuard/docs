@@ -91,7 +91,7 @@ Your Instance will update immediately.
 Defguard Desktop stores all information locally and doesn't communicate with Defguard outside the registration process. This means that the information about an instance is a snapshot of the moment you registered it in the desktop client, and you might want to update it, for example when locations are added or removed.
 
 {% hint style="success" %}
-If you have an Enterprise License, all desktop clients and all instances are [synchronized automatically and in real-time.](../../features/remote-user-enrollment/automatic-real-time-desktop-client-configuration.md)
+If you have a Business or Enterprise plan, all desktop clients and all instances are [synchronized automatically and in real-time.](../../features/remote-user-enrollment/automatic-real-time-desktop-client-configuration.md)
 {% endhint %}
 
 ### Removing Instance

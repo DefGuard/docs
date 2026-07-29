@@ -3,7 +3,7 @@
 {% hint style="warning" %}
 **Availability**
 
-This feature requires a Business or Enterprise plan. See the [pricing page](https://defguard.net/pricing/) for details.
+This feature is available in Business and Enterprise plans. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}
 
 {% hint style="warning" %}

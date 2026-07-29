@@ -1,10 +1,6 @@
 # Terraform
 
 {% hint style="info" %}
-Terraform deployment works with Defguard Core version 1.3.2-alpha2 and later.
-{% endhint %}
-
-{% hint style="info" %}
 We've recently introduced this deployment method and are still actively improving it. If you encounter any issues or have suggestions, please open an issue in the [Defguard deployment repository](https://github.com/DefGuard/deployment/issues).
 {% endhint %}
 

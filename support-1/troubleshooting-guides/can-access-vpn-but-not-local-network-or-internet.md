@@ -25,5 +25,3 @@ echo 1 > /proc/sys/net/ipv4/ip_forward
 ```
 
 To persist across reboots, add `net.ipv4.ip_forward = 1` to `/etc/sysctl.conf`.
-
-A full step-by-step example for enabling internet access through the VPN is available in the [deployment tutorial](https://docs.defguard.net/2.0/tutorials/step-by-step-setting-up-a-vpn-server#enabling-to-access-internet-through-your-vpn).

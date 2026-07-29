@@ -15,10 +15,6 @@ After importing the image, make sure to:
 
 Once booted, the virtual machine will have all Defguard components pre-configured. To complete the setup, simply visit the Defguard Core dashboard: http://\<VM\_IP\_OR\_DOMAIN>:8000. Follow the on-screen wizard to finalize your configuration.
 
-{% hint style="info" %}
-For example setup walkthrough [see this guide](/broken/pages/nNsN8zKGZVhPboFEtp8E#example-setup).
-{% endhint %}
-
 If you would like to setup a reverse-proxy beforhand (which enables automated SSL Certificates with Let's Encrypt), [go to this section for more details](ova.md#setting-up-a-reverse-proxy).
 
 ### Accessing the VM

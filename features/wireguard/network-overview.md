@@ -4,7 +4,7 @@ Once your gateway service is up and users start connecting to the VPN, upload/do
 
 On the overview page, you'll see who is currently connected and how much data each connected user transferred. You'll also see overall network transfer charts.
 
-Since **version 1.4**, Defguard dashboard allows administrators to see:
+The Defguard dashboard allows administrators to see:
 
 * Current amount of active users / network devices
 * Active users / network devices during time period

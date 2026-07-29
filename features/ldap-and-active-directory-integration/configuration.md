@@ -18,10 +18,6 @@ The LDAP and Active Directory settings in Defguard control how the application:
 Before you begin, make sure you know your server URL, bind credentials, user and group search bases, username attribute, and whether your environment requires `ldaps` or StartTLS. If you are configuring Active Directory and expect Defguard to create users or set passwords, verify that encrypted LDAP communication is available.
 
 {% hint style="warning" %}
-Active Directory support is available since Defguard version 1.3.0.
-{% endhint %}
-
-{% hint style="warning" %}
 If you are using the integration across multiple nested organizational units, please read the [Multiple Nested OUs](configuration.md#multiple-nested-ous) section.
 {% endhint %}
 
@@ -110,8 +106,6 @@ After enabling the LDAP integration, users will be able to log in to Defguard th
 ## Known issues
 
 ### Multiple nested OUs
-
-Multiple nested organizational units are supported in Defguard 1.4.0 and above.
 
 If you are using an older version of Defguard, using the integration with multiple nested organizational units may lead to unexpected behavior. The following issues are known to occur:
 

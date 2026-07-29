@@ -102,10 +102,6 @@ If you choose not to enable this option, new users won't be able to automaticall
 
 ### Directory synchronization
 
-{% hint style="info" %}
-This feature is available only in Defguard v1.2.0 and above
-{% endhint %}
-
 Defguard supports synchronizing users' and groups' states based on the state of the external provider directory. The following things can be synchronized:
 
 * **User Groups**: Automatically create and assign user groups in Defguard to reflect them in Google Workspace.

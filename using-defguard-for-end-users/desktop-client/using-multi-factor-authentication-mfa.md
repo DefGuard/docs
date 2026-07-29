@@ -1,7 +1,6 @@
 # Using Multi-Factor Authentication (MFA)
 
-* Up to version 1.4, only internal MFA was supported, and a user could only use the MFA methods configured in their profile.
-* Since version 1.5 (currently in alpha), MFA can be configured per location, and administrators can choose whether a location will use internal MFA or an external OIDC/SSO provider.
+MFA is configured per location, and administrators choose whether a location uses internal MFA or an external OIDC/SSO provider.
 
 Depending on location settings, you may use:
 

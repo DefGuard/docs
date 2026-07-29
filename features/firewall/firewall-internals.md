@@ -125,7 +125,7 @@ If your hardware or environment is incompatible with Defguard's firewall managem
 ### Packet Filter (FreeBSD, NetBSD, macOS)
 
 {% hint style="info" %}
-Defguard Gateway supports Packet Filter (PF) firewall since version 1.4.0.
+Defguard Gateway supports the Packet Filter (PF) firewall.
 {% endhint %}
 
 Packet filter (PF) firewall, is a BSD-licensed stateful packet filtering software originally developed for OpenBSD and now ported to other BSD-based systems like FreeBSD, NetBSD, and macOS.

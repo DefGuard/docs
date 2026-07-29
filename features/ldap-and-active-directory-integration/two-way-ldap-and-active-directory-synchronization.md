@@ -3,11 +3,7 @@
 {% hint style="warning" %}
 **Availability**
 
-This feature is available in all plans, with usage limits. See the [pricing page](https://defguard.net/pricing/) for details.
-{% endhint %}
-
-{% hint style="warning" %}
-This feature is available since Defguard version 1.3.0.
+This feature is available in Business and Enterprise plans. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}
 
 {% hint style="danger" %}

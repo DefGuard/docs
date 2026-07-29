@@ -3,14 +3,7 @@
 {% hint style="warning" %}
 **Availability**
 
-This feature is available in all plans, with usage limits. See the [pricing page](https://defguard.net/pricing/) for details.
-{% endhint %}
-
-{% hint style="warning" %}
-API functionality:
-
-1. requires Defguard version 1.2.4+
-2. is also **available without enterprise license**, if your instance does not exceed the limits [described here](../../enterprise/license.md#enterprise-is-free-up-to-certain-limits).
+This feature is available in Business and Enterprise plans. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}
 
 ## REST API documentation
