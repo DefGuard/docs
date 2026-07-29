@@ -2,6 +2,26 @@
 
 Defguard is available as an open-source solution with additional paid features. Some functionalities are available only with a valid license or are subject to usage limits, depending on the selected plan. Details about feature availability, limits, and pricing are provided on the [Pricing page](https://defguard.net/pricing/).
 
+### Plans and limits
+
+Paid features are gated by two plan levels:
+
+* **Business** - unlocks the paid feature set, for example the REST API, LDAP and Active Directory integration, external OpenID providers, the firewall (ACL), activity log streaming and client behaviour customisation.
+* **Enterprise** - everything from Business, plus features intended for larger deployments, such as Service Locations, device posture verification, generating Allowed IPs from firewall rules, and component high availability.
+
+Every feature page in this documentation states which plans include it, in an **Availability** note at the top.
+
+{% hint style="info" %}
+Enterprise is a **higher** level than Business, so an Enterprise license also unlocks everything that a Business license unlocks.
+{% endhint %}
+
+Your license also carries **usage limits** - the number of users and the number of VPN locations, and optionally device counts.
+The current tier, expiry date, and how close you are to each limit are shown in **Settings → License**.
+
+{% hint style="success" %}
+Small deployments can use a **free Business license**: [https://defguard.net/get-free-business/](https://defguard.net/get-free-business/). The exact limits of the free plan are listed on that page and on the [Pricing page](https://defguard.net/pricing/).
+{% endhint %}
+
 ### Purchasing the license
 
 If you would like to purchase a license, we offer two types of licenses:
@@ -43,3 +63,13 @@ To configure Defguard with the received license, please go to **Settings** -> Li
 The license will be validated and detailed information about the license will be displayed.
 
 <figure><img src="../.gitbook/assets/image (226).png" alt=""><figcaption></figcaption></figure>
+
+### License expiry
+
+A **subscription** license is renewed automatically, so under normal circumstances you do not need to do anything. If a renewal does not go through - for example because Core temporarily cannot reach our licensing server - the license keeps working for a grace period of **14 days** past its expiry date, which gives you time to resolve the problem without losing access to paid features.
+
+An **offline** license has no grace period: it stops being valid on its expiry date, because there is no licensing server to renew it against.
+
+{% hint style="warning" %}
+If a license expires past the grace period paid features stop working. Your data, users, devices, and VPN locations are not removed.
+{% endhint %}
