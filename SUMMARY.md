@@ -15,7 +15,6 @@
 ## Features
 
 * [Overview](features/overview.md)
-* [User management](features/user-management.md)
 * [Zero-Trust VPN with 2FA/MFA](features/wireguard/README.md)
   * [Create/Manage VPN Location](features/wireguard/create-your-vpn-network/README.md)
     * [Split Tunnel Configuration](features/wireguard/create-your-vpn-network/split-tunnel-configuration.md)
@@ -82,6 +81,8 @@
 * [Certificate management](features/certificate-management.md)
 * [Device posture verification](features/device-posture-verification.md)
 * [Managing Defguard via CLI](features/managing-defguard-via-cli.md)
+* [User management](features/user-management.md)
+
 
 ## Deployment strategies
 
