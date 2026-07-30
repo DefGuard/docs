@@ -50,7 +50,7 @@ Now proceed enrollment with your Client app.
 
 <figure><img src="../../.gitbook/assets/client-activation.png" alt="" width="50%"><figcaption></figcaption></figure>
 
-5. After that you will QR Code. **Do not close this screen**, we will need it in next step.
+5. After that you will see a QR Code. **Do not close this screen**, we will need it in next step.
 
 <figure><img src="../../.gitbook/assets/client-activation-instance-configuration.png" alt="" width="50%"><figcaption></figcaption></figure>
 
@@ -64,6 +64,6 @@ Now proceed enrollment with your Client app.
 10. Confirm
 
 {% hint style="info" %}
-If you can't scan QR Code, select **Add Instance Manually** in **step 7**, go back to screen in **step 5**, click "Show advanced configuration copy URL and Token and then enter it in **Defguard Mobile**
+If you can't scan QR Code, select **Add Instance Manually** in **step 7**, go back to the screen in **step 5**, click "Show advanced configuration", copy **URL** and **Token** and then enter them in **Defguard Mobile**.
 <figure><img src="../../.gitbook/assets/advanced-configuration.png" alt="" width="50%"></figure>
 {% endhint %}

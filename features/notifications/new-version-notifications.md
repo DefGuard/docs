@@ -1,6 +1,6 @@
 # New version notifications
 
-Defguard will periodically (every 6 hours) check for a new version, If there is one that is newer than the current one, a toast will be displayed in the admin dashboard.
+Defguard will periodically (every 6 hours) check for a new version. If there is one that is newer than the current one, a toast will be displayed in the admin dashboard.
 
 <figure><img src="../../.gitbook/assets/new-version-snackbar.png" alt=""></figure>
 
