@@ -18,8 +18,6 @@ Tokens retain the same access permissions as their owner, so be careful when sha
 
 ## Generating API token
 
-## Setup
-
 Navigate to an user profile and open **API Tokens** tab, then click **Add new API token**.
 
 <figure><img src="../../.gitbook/assets/image (249).png" alt=""><figcaption></figcaption></figure>
