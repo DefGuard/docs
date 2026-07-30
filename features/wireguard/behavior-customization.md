@@ -51,8 +51,14 @@ Please note that this option is only client-side enforced, meaning the user may 
 
 In addition to the global **Client traffic policy**, you can define traffic rules for selected groups. Groups listed in this section use their own traffic rules instead of the global policy; any group that is not listed uses the global policy.
 
-The available options are the same as for the global policy - **No limitation**, **Disable all traffic** and **Force all traffic** - but they apply only to users in the selected groups.
+The available options are the same as for the global policy - **No limitations**, **Disable all traffic** and **Force all traffic** - but they apply only to users in the selected groups. Use the **Edit groups** button next to an option to choose which groups it applies to.
+
+<figure><img src="../../.gitbook/assets/group-based-policies.png"></figure>
+
+A group can be assigned to only one option. The **Groups** page shows the assigned policy in the **Traffic policy** column, or `-` when the group follows the global policy.
 
 {% hint style="info" %}
 Group-based policies are useful when most of your users should keep the default behaviour, while a specific group - for example contractors or a set of managed workstations - must have all traffic forced through the VPN.
 {% endhint %}
+
+When a user belongs to several groups with different policies, **Disable all traffic** wins, then **Force all traffic**, then **No limitations**.
