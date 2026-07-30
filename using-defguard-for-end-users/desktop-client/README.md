@@ -23,6 +23,14 @@ Guides:
 * [MTU Setting](mtu-setting.md)
 * [Command-line (defguard-cli)](command-line-defguard-cli.md)
 
+## Defguard Client 2.1
+
+Version 2.1 brings a completely redesigned Desktop Client. It now lives in the system tray, where a **compact view** lets you connect to and disconnect from locations, while the **full window** remains available for configuration, logs and settings.
+
+Version 2.1.0 is also **required for [device posture verification](../../features/device-posture-verification.md)**. Locations with posture checks assigned are not sent to older clients and do not appear in them.
+
+<figure><img src="../../.gitbook/assets/defguard-client-tray-view.png"></figure>
+
 ## Windows
 
 Download the Windows installer from the [download page](https://defguard.net/download/) (or from [GitHub releases](https://github.com/DefGuard/client/releases)) and run it. The `defguard-cli` command-line tool is installed alongside the client.
