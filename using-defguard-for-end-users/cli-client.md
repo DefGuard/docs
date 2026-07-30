@@ -2,23 +2,21 @@
 
 ### Downloading
 
-Latest release page: [https://github.com/DefGuard/client/releases/tag/v1.2.0](https://github.com/DefGuard/client/releases/tag/v1.2.0)
+Download the packages from the [latest release](https://github.com/DefGuard/client/releases/latest) page. The CLI Client ships as its own set of `dg-*` assets, next to the desktop client packages:
 
 #### Linux (AMD64)
 
-Deb: [https://github.com/DefGuard/client/releases/download/v1.2.0/dg-linux-x86\_64-v1.2.0-dg.deb](https://github.com/DefGuard/client/releases/download/v1.2.0/dg-linux-x86_64-v1.2.0-dg.deb)
-
-RPM: [https://github.com/DefGuard/client/releases/download/v1.2.0/dg-linux-x86\_64-v1.2.0-dg.rpm](https://github.com/DefGuard/client/releases/download/v1.2.0/dg-linux-x86_64-v1.2.0-dg.rpm)
-
-Binary: [https://github.com/DefGuard/client/releases/download/v1.2.0/dg-linux-x86\_64-v1.2.0-dg.tar.gz](https://github.com/DefGuard/client/releases/download/v1.2.0/dg-linux-x86_64-v1.2.0-dg.tar.gz)
+* Deb: `dg-linux-x86_64-v{x.x.x}.deb`
+* RPM: `dg-linux-x86_64-v{x.x.x}.rpm`, or `dg-linux-x86_64-v{x.x.x}-el9.rpm` for Enterprise Linux 9
+* Binary: `dg-linux-x86_64-v{x.x.x}.tar.gz`
+* Deb for Ubuntu 22.04 / Debian 12: `dg-linux-{x.x.x}_amd64_ubuntu-22-04-lts.deb`
 
 #### Linux (ARM64)
 
-Deb: [https://github.com/DefGuard/client/releases/download/v1.2.0/dg-linux-aarch64-v1.2.0-dg.deb](https://github.com/DefGuard/client/releases/download/v1.2.0/dg-linux-aarch64-v1.2.0-dg.deb)
-
-RPM: [https://github.com/DefGuard/client/releases/download/v1.2.0/dg-linux-aarch64-v1.2.0-dg.rpm](https://github.com/DefGuard/client/releases/download/v1.2.0/dg-linux-aarch64-v1.2.0-dg.rpm)
-
-Binary: [https://github.com/DefGuard/client/releases/download/v1.2.0/dg-linux-aarch64-v1.2.0-dg.tar.gz](https://github.com/DefGuard/client/releases/download/v1.2.0/dg-linux-aarch64-v1.2.0-dg.tar.gz)
+* Deb: `dg-linux-aarch64-v{x.x.x}.deb`
+* RPM: `dg-linux-aarch64-v{x.x.x}.rpm`
+* Binary: `dg-linux-aarch64-v{x.x.x}.tar.gz`
+* Deb for Ubuntu 22.04 / Debian 12: `dg-linux-{x.x.x}_arm64_ubuntu-22-04-lts.deb`
 
 ### Requirements
 
@@ -33,13 +31,13 @@ Installation is straightforward. As a root, install it as any other package of a
 #### Deb archive
 
 ```sh
-apt install ./dg-linux-x86_64-v1.5.0-dg.deb
+apt install ./dg-linux-x86_64-v{x.x.x}.deb
 ```
 
 #### DNF
 
 ```sh
-dnf install ./dg-linux-x86_64-v1.5.0-dg.rpm
+dnf install ./dg-linux-x86_64-v{x.x.x}.rpm
 ```
 
 #### Post install
