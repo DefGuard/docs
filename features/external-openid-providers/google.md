@@ -96,6 +96,9 @@ This feature is currently technically limited to 10000 members or groups. High u
 
 * **Admin email:** The email of the Google Workspace admin user on whose behalf Defguard will call the Google API
 * **Service Account Key:** JSON file used to authenticate your application with Google APIs using a service account
+* **Synchronize users only from specified groups:** Restricts synchronization to the members of the Google Workspace groups you list here, separated by commas. Leave it empty to allow all users. See [#directory-synchronization](./#directory-synchronization "mention") for details.
+
+<figure><img src="../../.gitbook/assets/synchronize-users-from-groups-google.png"></figure>
 
 6. Click "**Continue"**
 

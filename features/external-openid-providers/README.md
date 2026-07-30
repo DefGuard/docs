@@ -100,6 +100,18 @@ Defguard matches users with external sources by email. In order for users to be 
 
 If you choose not to enable this option, new users won't be able to automatically go through the enrollment. You will need to create their accounts by hand (with the same email address as the one they have set on your OIDC provider's side) and only then they will have an option to activate it by logging through the provider.
 
+#### Disabling password management
+
+Next to the account creation option there is **Disable password management**. Enable it when your provider is the only place where passwords should live: users sourced from it cannot then reset their password through Defguard, and they complete enrollment without setting one.
+
+<figure><img src="../../.gitbook/assets/oidc-disable-password-management.png"></figure>
+
+It only affects users who have **no Defguard password at all**.
+
+{% hint style="warning" %}
+Such users can only sign in through the provider. If it becomes unavailable, an administrator has to set a password for them.
+{% endhint %}
+
 ### Directory synchronization
 
 Defguard supports synchronizing users' and groups' states based on the state of the external provider directory. The following things can be synchronized:
@@ -128,6 +140,11 @@ If you want to delete your users based on the state of your provider we recommen
 
 * **User behaviour (Keep, Disable, Delete):** What to do with Defguard users who are absent from your provider's directory.
 * **Admin behaviour (Keep, Disable, Delete):** What to do with Defguard users with admin status (in Defguard) who are absent from your provider's directory.
+* **Synchronize users only from specified groups:** Limits synchronization to the members of the listed directory groups, separated by commas. Leave it empty to synchronize everyone. A group name that does not exist in the directory is skipped with a warning in the Core log.
+
+{% hint style="warning" %}
+Microsoft has a second, similar field, **Sync only matching memberships**, which limits which group memberships are mapped rather than which users are synchronized. If you use both, list the same groups in both, otherwise the members of the groups you filtered users by will not be recognised.
+{% endhint %}
 
 ## Known issues
 
