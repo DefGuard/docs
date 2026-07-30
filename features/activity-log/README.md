@@ -8,7 +8,7 @@ Activity log is available as a dedicated page in Defguard core Web UI that's use
 
 To access it, click the `Activity log` button in the navbar.
 
-<figure><img src="../../.gitbook/assets/image (255).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/activity-log-overview.png" alt=""><figcaption></figcaption></figure>
 
 ### Overview
 
@@ -27,12 +27,17 @@ Each entry in the list contains following fields:
 
 Events are grouped into modules based on the part of the system they are related to.
 
-Currently, there are four modules:
+Currently, there are following modules:
 
-* **Defguard** - operations performed in the core Web UI (e.g. adding users, modifying devices, managing groups etc.)
-* **Client** - actions performed by desktop client applications
-* **Enrollment** - events related to the [user enrollment](../../using-defguard-for-end-users/enrollment/) process
-* **VPN -** events related to VPN clients (e.g. client connecting to a location)
+* **defguard** - operations performed in the core Web UI (e.g. adding users, modifying devices, managing groups etc.)
+* **client** - actions performed by desktop client applications
+* **enrollment** - events related to the [user enrollment](../../using-defguard-for-end-users/enrollment/) process
+* **vpn -** events related to VPN clients (e.g. client connecting to a location)
+* **posture** - managing [device posture checks](../device-posture-verification.md) and the result of every evaluation
+* **active\_directory** and **ldap** - [LDAP and Active Directory](../ldap-and-active-directory-integration/) synchronization, in both directions
+* **oidc\_directory\_sync** - [directory synchronization](../external-openid-providers/#directory-synchronization) with an external OpenID provider
+
+LDAP synchronization events land in **active\_directory** or **ldap** depending on the `LDAP server is Active Directory` setting.
 
 ### Search
 
@@ -49,6 +54,14 @@ The search is case-insensitive and will match partial text.
 
 Note that filtering & searching are composable operations, so if you've already applied some filters the search will be performed only among those filtered events.
 
+### Filtering by date
+
+The `Select range` control next to the `Search` input limits the list to a period of time. Set **Start** and **End**, then click **Apply**; **Reset** clears the range.
+
+<figure><img src="../../.gitbook/assets/activity-log-date-range.png"></figure>
+
+Both ends of the range are inclusive. Timestamps are compared in UTC.
+
 ## Permissions
 
 Access to the Activity log is controlled by user permissions.
@@ -61,7 +74,7 @@ Additionally administrators can view events related to all users.
 
 At the moment following events are tracked in the Activity log:
 
-* **Defguard** module
+* **defguard** module
   * UserLogin
   * UserLoginFailed
   * UserLogout
@@ -80,12 +93,15 @@ At the moment following events are tracked in the Activity log:
   * MfaSecurityKeyAdded
   * MfaSecurityKeyRemoved
   * UserAdded
+  * UserImportBlocked
   * UserRemoved
   * UserModified
   * UserGroupsModified
-  * UserDeviceAdded
-  * UserDeviceRemoved
-  * UserDeviceModified
+  * UserEnabled
+  * UserDisabled
+  * DeviceAdded
+  * DeviceRemoved
+  * DeviceModified
   * NetworkDeviceAdded
   * NetworkDeviceRemoved
   * NetworkDeviceModified
@@ -107,6 +123,7 @@ At the moment following events are tracked in the Activity log:
   * SettingsUpdated
   * SettingsUpdatedPartial
   * SettingsDefaultBrandingRestored
+  * EnterpriseSettingsUpdated
   * GroupsBulkAssigned
   * GroupAdded
   * GroupModified
@@ -122,23 +139,67 @@ At the moment following events are tracked in the Activity log:
   * AuthenticationKeyRemoved
   * AuthenticationKeyRenamed
   * ClientConfigurationTokenAdded
+  * EnrollmentTokenAdded
   * UserSnatBindingAdded
   * UserSnatBindingRemoved
   * UserSnatBindingModified
-* **Enrollment** module
+  * GatewayModified
+  * GatewayDeleted
+  * GatewayConnected
+  * GatewayDisconnected
+  * ProxyModified
+  * ProxyDeleted
+  * ProxyConnected
+  * ProxyDisconnected
+* **enrollment** module
   * EnrollmentStarted
   * EnrollmentDeviceAdded
   * EnrollmentCompleted
   * PasswordResetRequested
   * PasswordResetStarted
   * PasswordResetCompleted
-  * TokenAdded
-* **VPN** module
-  * ConnectedToMfaLocation
-  * DisconnectedFromMfaLocation
-  * MfaFailed
-  * ConnectedToLocation
-  * DisconnectedFromLocation
+* **vpn** module
+  * VpnClientConnected
+  * VpnClientDisconnected
+  * VpnClientMfaConnected
+  * VpnClientMfaDisconnected
+  * VpnClientMfaSuccess
+  * VpnClientMfaFailed
+  * VpnClientSessionSuperseded
+  * VpnClientMfaSessionSuperseded
+* **posture** module
+  * DevicePostureCreated
+  * DevicePostureUpdated
+  * DevicePostureDeleted
+  * DevicePostureDuplicated
+  * DevicePostureLocationsAssigned
+  * LocationPosturesAssigned
+  * DevicePostureCheckPassed
+  * DevicePostureCheckFailed
+* **active\_directory** and **ldap** modules
+  * LdapSyncUserCreated
+  * LdapSyncUserDeleted
+  * LdapSyncUserModified
+  * LdapSyncUserEnabled
+  * LdapSyncUserDisabled
+  * LdapSyncGroupCreated
+  * LdapSyncGroupMemberAdded
+  * LdapSyncGroupMemberRemoved
+  * LdapSyncOutboundUserCreated
+  * LdapSyncOutboundUserDeleted
+  * LdapSyncOutboundUserModified
+  * LdapSyncOutboundUserEnabled
+  * LdapSyncOutboundUserDisabled
+  * LdapSyncOutboundGroupMemberAdded
+  * LdapSyncOutboundGroupMemberRemoved
+* **oidc\_directory\_sync** module
+  * OidcDirectorySyncUserCreated
+  * OidcDirectorySyncUserDeleted
+  * OidcDirectorySyncUserEnabled
+  * OidcDirectorySyncUserDisabled
+  * OidcDirectorySyncGroupCreated
+  * OidcDirectorySyncGroupMemberAdded
+  * OidcDirectorySyncGroupMemberRemoved
 
 ## Streaming to external SIEM systems
 
