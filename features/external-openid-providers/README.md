@@ -116,11 +116,15 @@ Such users can only sign in through the provider. If it becomes unavailable, an 
 
 Defguard supports synchronizing users' and groups' states based on the state of the external provider directory. The following things can be synchronized:
 
-* **User Groups**: Automatically create and assign user groups in Defguard to reflect them in Google Workspace.
+* **User Groups**: Automatically create and assign user groups in Defguard to reflect the groups in your provider's directory.
 * **User Deletion**: Removing a user from the provider's directory can also remove them from Defguard.
 * **User Status**: Disabling users in the provider's directory will disable them in Defguard.
 
-Defguard doesn't automatically create users based on the users in your provider's directory. They will have to manually log in to Defguard through your provider for their Defguard accounts to be created. Defguard is responsible only for synchronizing their later state.
+By default, Defguard doesn't create users based on the users in your provider's directory. They will have to manually log in to Defguard through your provider for their Defguard accounts to be created, and Defguard is responsible only for synchronizing their later state.
+
+{% hint style="info" %}
+Microsoft is the exception: enabling the **Import users from your Microsoft directory to Defguard** option creates the directory's users in Defguard during synchronization, without waiting for their first login. See [microsoft.md](microsoft.md "mention") for details.
+{% endhint %}
 
 After completing first step in wizard, you will have option to configure "**Directory Synchronization**".
 

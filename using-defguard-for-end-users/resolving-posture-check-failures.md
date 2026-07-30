@@ -126,9 +126,7 @@ The Windows device has not received a security update within the maximum allowed
 
 ### `device integrity check failed`
 
-Device integrity is required, but the device did not pass the integrity check. This applies to supported platforms such as macOS and Android.
-
-#### MacOS
+Device integrity is required, but the device did not pass the integrity check. On macOS this means System Integrity Protection is disabled.
 
 {% embed url="https://developer.apple.com/documentation/security/disabling-and-enabling-system-integrity-protection#Enable-System-Integrity-Protection" %}
 
