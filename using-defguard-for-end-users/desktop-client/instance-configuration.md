@@ -23,16 +23,20 @@ If you are looking for how to generate tokens for your users as an Administrator
 {% endhint %}
 
 1. Log in to your Defguard account.
-2. In account profile, open **Devices** tab.
-3.  Click **Add new device.**<br>
+2. Go to **My Profile** tab and select **Devices** tab.
+<figure><img src="../../.gitbook/assets/defguard-myprofile-tab-devices-tab-marked.png" alt="" width="50%"></figure>
 
-    <figure><img src="../../.gitbook/assets/image (187).png" alt="" width="563"><figcaption></figcaption></figure>
-4.  Select **Client Activation** and click **Next**.<br>
 
-    <figure><img src="../../.gitbook/assets/image (190).png" alt="" width="375"><figcaption></figcaption></figure>
-5. Afterwards, use **One-Click Configuration** or click **Show advanced configuration** and copy **URL** and **Token** manually.&#x20;
+3. Click **Add new device** button.
+<figure><img src="../../.gitbook/assets/defguard-devices-add-new.png" alt="" width="50%"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/defguard-add-instance-qr.png" alt="" width="375"><figcaption></figcaption></figure>
+4. Click **Client Activation**.
+
+<figure><img src="../../.gitbook/assets/client-activation.png" alt="" width="50%"><figcaption></figcaption></figure>
+
+5. Afterwards, use **One-Click Configuration** or click **Show advanced configuration** and copy **URL** and **Token** manually.
+
+<figure><img src="../../.gitbook/assets/client-activation-instance-configuration.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### Manually Adding Instance
 

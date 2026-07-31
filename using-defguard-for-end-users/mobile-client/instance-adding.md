@@ -46,20 +46,22 @@ Now proceed enrollment with your Client app.
 ## Adding Instance in Defguard
 
 1. Log in to your Defguard account.
-2. Go to **My Profile** tab.
-3. Click **Add new device** button inside **User Devices** list.
+2. Go to **My Profile** tab and select **Devices** tab.
+<figure><img src="../../.gitbook/assets/defguard-myprofile-tab-devices-tab-marked.png" alt="" width="50%"></figure>
 
-<figure><img src="../../.gitbook/assets/defguard-myprofile-add-device.png" alt="" width="50%"><figcaption></figcaption></figure>
 
-4. Select **Remote Device Activation** and click **Next**.
+3. Click **Add new device** button.
+<figure><img src="../../.gitbook/assets/defguard-devices-add-new.png" alt="" width="50%"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/defguard-add-new-device.png" alt="" width="50%"><figcaption></figcaption></figure>
+4.  Click **Client Activation**.
 
-5. After that you will see URL, Token and QR Code. **Take a screenshot of QR code**, we will need it in next step.
+<figure><img src="../../.gitbook/assets/client-activation.png" alt="" width="50%"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/defguard-add-instance-qr.png" alt="" width="50%"><figcaption></figcaption></figure>
+5. After that you will see a QR Code. **Do not close this screen**, we will need it in next step.
 
-6. Open Defguard Mobile on your smartphone
+<figure><img src="../../.gitbook/assets/client-activation-instance-configuration.png" alt="" width="50%"><figcaption></figcaption></figure>
+
+6. Open **Defguard Mobile** on your smartphone
 7. Click **Scan QR Code**
 
 <figure><img src="../../.gitbook/assets/defguard-mobile-add-instance.png" alt="" width="375"><figcaption></figcaption></figure>
@@ -69,5 +71,6 @@ Now proceed enrollment with your Client app.
 10. Confirm
 
 {% hint style="info" %}
-If you can't scan QR Code, select **Add Instance Manually** in **step 4** and enter URL and Token from **step 5**.
+If you can't scan QR Code, select **Add Instance Manually** in **step 7**, go back to the screen in **step 5**, click "Show advanced configuration", copy **URL** and **Token** and then enter them in **Defguard Mobile**.
+<figure><img src="../../.gitbook/assets/advanced-configuration.png" alt="" width="50%"></figure>
 {% endhint %}
