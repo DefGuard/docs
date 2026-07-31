@@ -98,7 +98,7 @@ Now you can click **"One-Click Configuration"** which will open **Desktop Client
 
 Entering URL/Token inside **Desktop Client** will trigger user enrollment process.
 
-<figure><img src="../../.gitbook/assets/image (221).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/client-enrollment-first-page.png" alt=""><figcaption></figcaption></figure>
 
 By following the **enrollment wizard** in **Desktop Client**, you'll be able to do the following:
 

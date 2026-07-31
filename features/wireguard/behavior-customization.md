@@ -28,9 +28,7 @@ This option disables ability to create native WireGuard configurations for users
 
 ### Client traffic rules
 
-One of the unique features of Defguard desktop client is the ability for users to choose whether to route only **predefined network traffic** or **all traffic** from their device through a connected VPN location.
-
-<figure><img src="../../.gitbook/assets/image (211).png" alt=""><figcaption></figcaption></figure>
+One of the unique features of **Defguard desktop client** is the ability for users to choose whether to route only **predefined network traffic** or **all traffic** from their device through a connected VPN location.
 
 However, in some cases administrators may want to enforce a specific behaviour - allowing access only to predefined traffic or requiring all traffic to pass through the VPN.
 
