@@ -23,7 +23,7 @@ Dashboard looks like this, if you want to see more details about location, proce
 
 ### Detailed location overview
 
-To access a dashboard with detailed information, you can click **Details** on each location.
+To access a dashboard with detailed information click **Details** on location.
 
 <figure><img src="../../.gitbook/assets/details-button-marked-vpn-overview.png" alt=""><figcaption></figcaption></figure>
 
