@@ -23,7 +23,7 @@ To avoid this issue you can deploy a **public** [Defguard Edge](https://github.c
 {% hint style="info" %}
 Edge is included when using the default [deployment instructions](../../deployment-strategies/overview.md).
 
-Please also see the relevant configuration options for [core](../../deployment-strategies/configuration.md#enrollment-configuration) and the [edge itself](../../deployment-strategies/configuration.md#enrollment-service).
+Please also see the relevant configuration options for [core](../../deployment-strategies/configuration.md#settings) and the [edge itself](../../deployment-strategies/configuration.md#edge-deployment-parameters).
 {% endhint %}
 
 ## How to initiate user secure enrollment

@@ -130,7 +130,7 @@ You are probably looking for `DEFGUARD_ENROLLMENT_URL` which is the URL needed t
 
 <figure><img src="../../.gitbook/assets/DEFGUARD_ENROLLMENT_URL (1).png" alt=""><figcaption></figcaption></figure>
 
-Please check [this article](../../deployment-strategies/configuration.md#enrollment-configuration).
+Please check [this article](../../deployment-strategies/configuration.md#settings).
 
 ## Enrollment URL has changed
 
@@ -155,7 +155,7 @@ After connecting to VPN you should be able to ping: 10.1.1.1.
 
 ### VPN Location settings changed
 
-Check if the VPN location configuration has changed. If it did, and you do not have Enterprise license where real-time config sync is automatic, the user needs to [update their client configuration by updating that instance manually.](../../using-defguard-for-end-users/desktop-client/instance-configuration.md#updating-instance)
+Check if the VPN location configuration has changed. If it did, and you do not have a Business or Enterprise plan where real-time config sync is automatic, the user needs to [update their client configuration by updating that instance manually.](../../using-defguard-for-end-users/desktop-client/instance-configuration.md#updating-instance)
 
 ### Conflicting networks
 
@@ -202,15 +202,15 @@ Then when the client / user connects it actually establishes **a secure tunnel b
 From there, what happens to this traffic is the **administrator role.** The most common scenarios to do are:
 
 * add routing rules, so that the traffic from that interface/VPN IP network gets routed to your network - this approach gives the advantage that users VPN ip persists in the network and the user is visible with it's VPN ip in your local network
-* Masquerade or NAT - a common use case is to masquerade or NAT the traffic - which is **actually required if you want users to access Internet from the VPN -** this process is [described in detailed in this tutorial](/broken/pages/MbleSplRWwmcWM2VEo3m#enabling-to-access-internet-through-your-vpn).
+* Masquerade or NAT - a common use case is to masquerade or NAT the traffic - which is **actually required if you want users to access Internet from the VPN.**
 
 ## Unable to sign in to your Defguard instance with correct credentials
 
 The user tries to sign in to a Defguard instance but gets a 401 response with message "Session is required".
 
-This issue is most likely caused by a misconfigured `DEFGUARD_URL` . Please have a look at the configuration options described in [General configuration](../../deployment-strategies/configuration.md#general-configuration) documentation.
+This issue is most likely caused by a misconfigured `DEFGUARD_URL` . Please have a look at the configuration options described in [Core deployment parameters](../../deployment-strategies/configuration.md#core-deployment-parameters) documentation.
 
-If you want to access your Defguard instance without TLS (using an `http://` URL), please also make sure you have everything configured according to [Auth cookies configuration](../../deployment-strategies/configuration.md#auth-cookies-configuration) documentation.
+If you want to access your Defguard instance without TLS (using an `http://` URL), please also make sure you have everything configured according to [Core deployment parameters](../../deployment-strategies/configuration.md#core-deployment-parameters) documentation.
 
 ## User lost access to their 2FA methods
 

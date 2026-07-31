@@ -53,8 +53,8 @@ _Defguard is not an official WireGuard project, and WireGuard is a registered tr
 
 ### Account Lifecycle Management:
 
-* Secure remote (over the internet) [user enrollment](https://defguard.gitbook.io/defguard/help/remote-user-enrollment)
-* User [onboarding after enrollment](https://defguard.gitbook.io/defguard/help/remote-user-enrollment/user-onboarding-after-enrollment)
+* Secure remote (over the internet) [user enrollment](../features/remote-user-enrollment/)
+* User [onboarding after enrollment](../features/remote-user-enrollment/user-onboarding-after-enrollment.md)
 * Self-service for password reset
 
 ### [Network devices](../features/network-devices.md)

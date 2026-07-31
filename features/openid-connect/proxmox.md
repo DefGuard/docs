@@ -9,7 +9,7 @@ metaLinks:
 # Proxmox
 
 {% hint style="warning" %}
-For Proxmox OIDC to work you'll have to run Defguard with [RSA signing key](../../deployment-strategies/docker-compose.md#openid-rsa-setup).
+For Proxmox OIDC to work you'll have to run Defguard with [RSA signing key](../../deployment-strategies/configuration.md#deprecated-core-deployment-parameters).
 {% endhint %}
 
 ## Add Proxmox app to Defguard

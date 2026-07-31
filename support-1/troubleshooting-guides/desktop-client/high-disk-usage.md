@@ -16,7 +16,7 @@ The fix for the original table-scan problem was introduced in **v1.5.2**.
 
 If the stats purge mechanism is not working correctly or heavy usage generates too much data, the database can grow very large.
 
-**Location of the DB file: `C:\Users<YOUR_USERNAME>\AppData\Roaming\net.defguard\defguard.db`**
+**Location of the DB file: `C:\Users\<YOUR_USERNAME>\AppData\Roaming\net.defguard\defguard.db`**
 
 **Typical sizes:**
 
@@ -43,7 +43,7 @@ This immediately reduces the DB size and disk I/O.
 **Option B — Remove the Database Entirely (quickest, but requires re-enrollment)**
 
 1. Close Defguard completely
-2. Delete the database file: `C:\Users<YOUR_USERNAME>\AppData\Roaming\net.defguard\defguard.db`
+2. Delete the database file: `C:\Users\<YOUR_USERNAME>\AppData\Roaming\net.defguard\defguard.db`
 3. Re-enroll your device in Defguard (you will need your enrollment link or admin setup)
 
 This is the nuclear option but works reliably.

@@ -22,10 +22,6 @@ The LDAP and Active Directory settings in Defguard control how the application:
 Before you begin, make sure you know your server URL, bind credentials, user and group search bases, username attribute, and whether your environment requires `ldaps` or StartTLS. If you are configuring Active Directory and expect Defguard to create users or set passwords, verify that encrypted LDAP communication is available.
 
 {% hint style="warning" %}
-Active Directory support is available since Defguard version 1.3.0.
-{% endhint %}
-
-{% hint style="warning" %}
 If you are using the integration across multiple nested organizational units, please read the [Multiple Nested OUs](configuration.md#multiple-nested-ous) section.
 {% endhint %}
 
@@ -44,7 +40,7 @@ This section defines how Defguard connects to your LDAP server and authenticates
 <figure><img src="../../.gitbook/assets/ldap-connection-settings.png" alt="LDAP Connection settings"><figcaption></figcaption></figure>
 
 * **Use StartTLS**: Enable this option for an encrypted connection to LDAP. StartTLS is an LDAP extended operation that begins with an unencrypted TCP connection on port 389, then sends a StartTLS request to initiate a TLS handshake without changing ports.
-* **LDAP server is Active Directory**: Enable this option for an Active Directory server. Active Directory (AD) is Microsoft’s directory service for managing users, computers, and resources in Windows networks. See [#example-active-directory-configuration](configuration.md#example-active-directory-configuration "mention") for a working example.
+* **LDAP server is Active Directory**: Enable this option for an Active Directory server. Active Directory (AD) is Microsoft’s directory service for managing users, computers, and resources in Windows networks. See [#example-active-directory-configuration](examples.md#example-active-directory-configuration "mention") for a working example.
 * **Verify TLS certificate**: Enable this option to validate the TLS certificate. For custom self-signed certificates, it may be reasonable to leave this option disabled.
 * **URL**: The LDAP server's URL. Use the `ldap:` schema for unencrypted connections or connections with StartTLS (this defaults to TCP port 389), or the `ldaps:` schema for SSL-encrypted connections (this defaults to TCP port 636).
 * **Bind username** and **Bind password**: These refer to the credentials used in an LDAP "bind" operation to authenticate a client to the directory server. The username field should contain a Distinguished Name (DN) for a service account that is able to manage LDAP entries.
@@ -115,9 +111,7 @@ After enabling the LDAP integration, users will be able to log in to Defguard th
 
 ### Multiple nested OUs
 
-Multiple nested organizational units are supported in Defguard 1.4.0 and above.
-
-If you are using an older version of Defguard, using the integration with multiple nested organizational units may lead to unexpected behavior. The following issues are known to occur:
+If you are using an older version of Defguard, using the integration with multiple nested organizational units may lead to unexpected behaviour. The following issues are known to occur:
 
 * If you have duplicate user RDNs across multiple OUs, a database error may occur: `Duplicate key violates unique constraint 'unique_ldap_rdn'`, causing issues with two-way synchronization. This would happen in the following scenario:
   * `CN=user1,OU=ou1,OU=ou,DC=example`

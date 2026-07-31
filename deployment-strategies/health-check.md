@@ -7,9 +7,9 @@ metaLinks:
 
 # Health check
 
-## Proxy
+## Edge
 
-[Proxy](https://github.com/defguard/proxy) provides health endpoint at `GET /api/v1/health` which checks whether the application is running.
+[Edge](https://github.com/defguard/proxy) provides health endpoint at `GET /api/v1/health` which checks whether the application is running.
 
 Example request:
 
@@ -19,9 +19,9 @@ curl https://enroll.example.com/api/v1/health
 
 Response:
 
-* `alive` with status code 200 – Proxy is working
+* `alive` with status code 200 – Edge is working
 
-To verify gRPC services for **Proxy** are alive, there is endpoint at `GET /api/v1/health-grpc` that verify it.
+To verify gRPC services for **Edge** are alive, there is endpoint at `GET /api/v1/health-grpc` that verify it.
 
 Example request:
 
@@ -31,8 +31,8 @@ curl https://enroll.example.com/api/v1/health-grpc
 
 Response:
 
-* `alive` with status code 200 – Proxy is working and is connected to Core
-* `Not connected to Defguard Core` with status code 503 – Proxy is working, but is not connected to Core
+* `alive` with status code 200 – Edge is working and is connected to Core
+* `Not connected to Defguard Core` with status code 503 – Edge is working, but is not connected to Core
 
 ## Core
 
@@ -70,9 +70,9 @@ In Gateway configuration, a health check port can be enabled by adding the follo
 health_port = 55003
 ```
 
-In this example, Gateway will open an additional HTTP port number 55003. Now we can use `GET /api/v1/health` endpoint to verify whether Gateway is working correctly.
+In this example, Gateway will open an additional HTTP port number 55003. Now we can use `GET /health` endpoint to verify whether Gateway is working correctly.
 
-If running in Docker you can also enable it by setting the `HEALTH_PORT` [environment variable](configuration.md#environmental-variables-arguments).
+If running in Docker you can also enable it by setting the `HEALTH_PORT` [environment variable](configuration.md#gateway-deployment-parameters).
 
 By default the HTTP server will listen on all interfaces, but if you prefer to bind only a specific IP you can set it by using the `http_bind_address` config option (or `DEFGUARD_HTTP_BIND_ADDRESS` environment variable). For example:
 
@@ -83,7 +83,7 @@ http_bind_address = 10.0.10.20
 Example request:
 
 ```sh
-curl http://gateway.example.com:55003/api/v1/health
+curl http://gateway.example.com:55003/health
 ```
 
 Response:

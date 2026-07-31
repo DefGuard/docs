@@ -13,7 +13,7 @@ metaLinks:
 This feature is available from Business license. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}
 
-Navigate to **Settings → Client behaviour.**
+Navigate to **Settings → General → Client behaviour.**
 
 <figure><img src="../../.gitbook/assets/image (313).png" alt=""><figcaption></figcaption></figure>
 
@@ -45,12 +45,12 @@ This option disables ability to create native WireGuard configurations for users
 
 One of the unique features of **Defguard desktop client** is the ability for users to choose whether to route only **predefined network traffic** or **all traffic** from their device through a connected VPN location.
 
-However, in some cases administrators may want to enforce a specific behavior - allowing access only to predefined traffic or requiring all traffic to pass through the VPN.
+However, in some cases administrators may want to enforce a specific behaviour - allowing access only to predefined traffic or requiring all traffic to pass through the VPN.
 
 <figure><img src="../../.gitbook/assets/image (316).png" alt="" width="563"><figcaption></figcaption></figure>
 
 \
-The **Client Traffic Policy** setting enables administrators to control this behavior as needed. The available options are:
+The **Client Traffic Policy** setting enables administrators to control this behaviour as needed. The available options are:
 
 * **None** - Users can freely choose between routing predefined traffic or all traffic through the VPN.
 * **Disable all traffic** - Only predefined traffic is allowed, the "All traffic" option is disabled for users.

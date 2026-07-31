@@ -17,5 +17,5 @@ curl -X POST 'https://defguard.example.com/api/v1/network/42/gateways/adopt' \
 
 Here, `ip_or_domain` is the address of the Gateway, and `grpc_port` is the Gateway gRPC port (`50066` by default). To authorize the request, first obtain an [API token](../features/integrations/api-tokens.md#generating-api-token) and replace `<your_api_token>` with it.
 
-For more information about using the Defguard API, see [REST API documentation](https://docs.defguard.net/features/integrations/api-tokens#rest-api-documentation).
+For more information about using the Defguard API, see [REST API documentation](../features/integrations/api-tokens.md#rest-api-documentation).
 

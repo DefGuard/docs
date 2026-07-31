@@ -12,7 +12,7 @@ At least two OPNsense machines are required for high availability. These machine
 
 In this setup, one node normally owns the virtual IP address and handles traffic. If that node fails, the secondary node can take over the same IP address, which helps keep the gateway reachable without changing the VPN endpoint configured on clients.
 
-To use CARP with Gateway on [OPNsense](https://opnsense.org/), first [install the Gateway package for OPNsense](https://github.com/DefGuard/docs/blob/v2.0/deployment-strategies/high-availability-and-failover/deployment-strategies/running-gateway-on-opnsense-firewall.md).
+To use CARP with Gateway on [OPNsense](https://opnsense.org/), first [install the Gateway package for OPNsense](../running-gateway-on-opnsense-firewall.md).
 
 In the OPNsense user interface, go to **Interfaces → Virtual IPs → Settings**, click "+" (plus), and create a new CARP Virtual IP:
 

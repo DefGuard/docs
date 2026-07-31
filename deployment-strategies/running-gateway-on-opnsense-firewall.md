@@ -95,4 +95,10 @@ sudo chmod +x gateway
 sudo mv gateway /usr/bin/
 ```
 
-3. Start gateway `gateway -g <CORE_GRPC_URL:GRPC_PORT> -t <DEFGUARD_TOKEN>`
+3. Start the gateway, pointing it at its configuration file:
+
+```sh
+gateway --config /etc/defguard/gateway.toml
+```
+
+4. Adopt the gateway in Defguard Core, as described in [Adopt the Gateway component](../tutorials/initial-setup-wizard-setting-up-from-scratch.md#adopt-the-gateway-component).
