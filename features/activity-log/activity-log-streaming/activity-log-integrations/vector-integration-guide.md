@@ -64,11 +64,7 @@ Click `Add log streaming` and choose `Vector` destination.
 
 <figure><img src="../../../../.gitbook/assets/image (256).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/image (119).png" alt=""><figcaption></figcaption></figure>
-
-Fill out `Name` and `Url` of the form and click `Submit`.
-
-If your `defguard` instance is running in the same Docker Compose network as Vector, use `http://vector:8001` as the URL instead of `http://127.0.0.1`, since services in the same Compose network communicate by container name.
+Fill out `Name` and `Url` of the form and click `Submit`. If your `defguard` instance is running in the same Docker Compose network as Vector, use `http://vector:8001` as the URL instead of `http://127.0.0.1`, since services in the same Compose network communicate by container name.
 
 <figure><img src="../../../../.gitbook/assets/image (257).png" alt=""><figcaption></figcaption></figure>
 
