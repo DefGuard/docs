@@ -12,6 +12,6 @@ And then define the networks in Allowed IPs:
 
 Now any time a user connects to VPN with Predefined Traffic option:
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2026-05-22 at 21.58.24.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/predefined-traffic-marked.png" alt="" width="563"><figcaption></figcaption></figure>
 
 traffic to those networks will go through the VPN, and all other traffic will use the user's default router or internet connection.

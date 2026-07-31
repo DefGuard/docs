@@ -184,4 +184,4 @@ On each location, you can choose if the Location should support our Internal MFA
 
 When enabled, on the desktop client when authenticating the user will be required on **each connection** to authenticate with the configured External OIDC/SSO:
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-07-29 at 12.20.01.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/auth-with-openid-modal.png"><figcaption></figcaption></figure>
