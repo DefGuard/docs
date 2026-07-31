@@ -122,6 +122,18 @@ cd /opt/stacks/defguard/
 docker compose logs
 ```
 
+Container logs are also persisted to the systemd journal with a per-component tag, so they survive container restarts/recreation and can be filtered per component:
+
+```sh
+journalctl -t defguard-core
+journalctl -t defguard-edge
+journalctl -t defguard-gateway
+journalctl -t defguard-db
+journalctl -t defguard-dockge   # only if Dockge is enabled
+```
+
+Add `-f` to follow, or `--since "10 min ago"` to bound the time range.
+
 #### Accessing logs via Dockage
 
 1. Enable[ Dockage (see chapter below).](ova.md#dockge)
@@ -146,17 +158,72 @@ Please make sure you don't expose Defguard Core publicly.
 
 If you still want to put your own reverse proxy in front of the OVA (for example to centralize TLS termination for several services), you can do so, but you'll need to deploy and manage it yourself; it is not part of the OVA image.
 
-### UPGRADING
+### Managing and updating containers
 
-{% hint style="warning" %}
-By default the docker compose config included by the OVA uses a floating Docker image tag pinned to the latest stable major version, for example `2`.
+OVA 2.1+ images ship with `dg-ctl`, a maintenance CLI installed at `/opt/defguard/dg-ctl` (also symlinked onto `$PATH`) that handles upgrades, backups, rollbacks and health checks for the OVA stack.
 
-This means that updating the containers like described below will fetch the latest release matching this major version, for example `2.1.2`, `2.3.1` or whatever is the latest release at the given time.
+{% hint style="info" %}
+Running an older OVA that predates `dg-ctl`? Install it with:
 
-If you'd like to explicitly control the component versions see the instructions [below](ova.md#using-specific-image-tags).
+```sh
+curl -fsSL https://raw.githubusercontent.com/DefGuard/deployment/main/ova/files/install-dg-ctl.sh | sudo bash
+```
+
 {% endhint %}
 
-Containers can be updated using the following commands in the `/opt/stacks/defguard` directory:
+#### Upgrading
+
+```sh
+sudo dg-ctl upgrade
+```
+
+This fetches the recommended image tags and compose template from the release manifest, creates a rollback point, updates `.env` and `docker-compose.yml`, pulls the new images, restarts the stack, and runs health checks. If the upgrade or its health checks fail, `dg-ctl` automatically attempts to restore the pre-upgrade backup; if that recovery fails, use `sudo dg-ctl rollback <backup-id>`.
+
+{% hint style="info" %}
+Some releases ship a structural migration (e.g. moving/renaming data under `/opt/stacks/defguard`) alongside the usual tag/template bump. `dg-ctl upgrade` fetches and runs these automatically after the pre-upgrade backup, while the stack is stopped. Failed migrations and upgrades trigger an automatic rollback when a backup is available. With `--no-backup`, no rollback point exists, although the stack is still stopped for migration safety.
+{% endhint %}
+
+#### Upgrading older OVAs
+
+OVAs that predate `dg-ctl` or the simplified OVA layout can be upgraded in place. After installation, run:
+
+```sh
+sudo dg-ctl upgrade
+```
+
+The upgrade detects the legacy layout, preserves the selected components and Dockge setting, and converts the host to the current `docker-compose.yml` and `/opt/stacks/defguard/init/` layout. It also preserves whether the host is a full all-in-one deployment or a segmented deployment. For safety, legacy upgrades require `/etc/systemd/system/defguard-init.service` so the startup unit can be included in the rollback point.
+
+Useful options:
+
+| Option                                           | Effect                                                                     |
+| ------------------------------------------------ | -------------------------------------------------------------------------- |
+| `--core-tag` / `--proxy-tag` / `--gateway-tag` T | override a component's tag instead of the manifest default                 |
+| `--ref REF`                                      | use the compose template from a specific branch/tag                        |
+| `-y`, `--yes`                                    | skip the confirmation prompt                                               |
+| `--no-backup`                                    | skip the pre-upgrade backup and automatic rollback point (not recommended) |
+| `--skip-tests`                                   | skip the post-upgrade health checks                                        |
+
+#### Backups and rollback
+
+```sh
+sudo dg-ctl backup [--label mylabel]      # take a cold backup of volumes, structure and config
+sudo dg-ctl list-backups                  # show local backups
+sudo dg-ctl rollback [--skip-tests] <id>  # restore a backup and bring the stack back up
+sudo dg-ctl self-update                   # refresh dg-ctl from the release manifest
+```
+
+Backups include the volumes, stack and OVA structure, `.env`, the generated Compose file, image digests, and the `defguard-init.service` unit when present. `dg-ctl upgrade` takes a backup automatically before making any changes, and prunes old ones afterward, keeping the 3 most recent (configurable with the `KEEP_BACKUPS` environment variable).
+
+#### Checking version and health
+
+```sh
+dg-ctl version   # installed vs. available versions for each component
+dg-ctl test      # run the same health checks used after an upgrade
+```
+
+#### Updating manually
+
+If you'd rather not use `dg-ctl`, you can still update containers by hand from the `/opt/stacks/defguard` directory:
 
 ```sh
 sudo docker compose pull
@@ -166,9 +233,7 @@ sudo docker compose up -d
 
 This can also be achieved without accessing the VM using the Dockge dashboard, refer to [this section](ova.md#dockge) for more information.
 
-#### Using specific image tags
-
-If you'd like to manually set the specific Docker image tags used by each component you can edit the `.env` file found in `/opt/stacks/defguard` and update the following environment variables:
+To pin specific component versions manually, edit the `.env` file found in `/opt/stacks/defguard`:
 
 ```
 DEFGUARD_CORE_TAG=2.0.0
@@ -217,6 +282,10 @@ Using different solution that Proxmox will require creating a custom cloud-init 
 The `write_files` snippet itself is standard `cloud-init` user-data and isn't Proxmox-specific. The same pattern works on AWS, Azure, or any other platform that supports cloud-init; only the way you deliver the user-data (a Proxmox snippet vs. a provider's user-data field) differs.
 {% endhint %}
 
+{% hint style="info" %}
+After first boot, the OVA records the applied profiles and deployment mode under `/opt/stacks/defguard/init/`. `dg-ctl upgrade` uses those records when regenerating Compose, so upgrades preserve the selected components and full/segmented network behavior.
+{% endhint %}
+
 {% hint style="warning" %}
 `active-profiles` is only read once, on first boot: the VM flattens it into `/opt/stacks/defguard/docker-compose.yml` and then deletes `active-profiles` (same for `enable-docker-management`, see [Dockge](ova.md#dockge)). Attach your cloud-init snippet **before** first boot. To change the selected components afterward, write the new `active-profiles` file yourself, then:
 
@@ -224,6 +293,7 @@ The `write_files` snippet itself is standard `cloud-init` user-data and isn't Pr
 sudo rm /opt/stacks/defguard/docker-compose.yml
 sudo systemctl restart defguard-init.service
 ```
+
 {% endhint %}
 
 {% hint style="info" %}
@@ -259,11 +329,14 @@ Once the variables are set you can scroll back up and click the `Deploy` button:
 
 ## Backup
 
-All state that needs backing up on the OVA lives under `/opt/stacks/defguard/`:
+The simplest way to back up or restore the OVA stack is `sudo dg-ctl backup` / `sudo dg-ctl rollback <id>`, see [Backups and rollback](ova.md#backups-and-rollback) above. If you back up manually, include the application state under `/opt/stacks/defguard/` as well as the OVA metadata and startup unit:
 
 - `.env` – generated secrets (database password, image tags). Losing this without a backup means the database password no longer matches unless you regenerate it consistently.
 - `.volumes/db` – the PostgreSQL database. Prefer a regular `pg_dump` over a filesystem-level copy, consistent with the general [backup strategy](hardware-os-network-and-firewall-recommendations.md#backup-strategy).
 - `.volumes/certs/*` – the SSL certificates used to secure and authenticate communication between Core, Edge, and Gateway. These are issued by Defguard's internal CA and are not stored in the database, so they must be backed up separately.
+- `/opt/defguard/state.json` – the installed OVA version, template reference, image tags and applied migrations used by `dg-ctl`.
+- `/opt/defguard/backups/` – local rollback points, if you rely on `dg-ctl rollback` after a failure.
+- `/etc/systemd/system/defguard-init.service` – the OVA startup unit, especially important when migrating a legacy layout.
 
 ## Troubleshooting
 
@@ -271,8 +344,12 @@ All state that needs backing up on the OVA lives under `/opt/stacks/defguard/`:
 
 **SSL certificate errors.** Confirm Edge's domain is set correctly in Core as described in [Setting up SSL](ova.md#setting-up-ssl), that DNS for that domain resolves to the VM, and that the automatic Let's Encrypt HTTP-01 challenge on port 80 isn't blocked by an upstream firewall.
 
-**Changed `active-profiles` but nothing happened.** It's only applied when `/opt/stacks/defguard/docker-compose.yml` doesn't exist yet (first boot). To change the running components afterward, remove `docker-compose.yml` and restart `defguard-init.service`, see [Selecting what components to run](ova.md#selecting-what-components-to-run-proxmox). Image tags in `.env` don't have this restriction, see [Using specific image tags](ova.md#using-specific-image-tags).
+**Changed `active-profiles` but nothing happened.** It's only applied when `/opt/stacks/defguard/docker-compose.yml` doesn't exist yet (first boot). To change the running components afterward, write the new `active-profiles` file, remove `docker-compose.yml`, and restart `defguard-init.service`, see [Selecting what components to run](ova.md#selecting-what-components-to-run-proxmox). `dg-ctl upgrade` preserves the profiles recorded under `init/.applied-profiles`; change the selection before the next upgrade. Image tags in `.env` don't have this restriction, see [Updating manually](ova.md#updating-manually).
 
 **Dockge dashboard isn't reachable at port 5001.** Dockge is opt-in: confirm the `enable-docker-management` file was written via cloud-init as described in [Dockge](ova.md#dockge), and that the VM has finished booting.
 
 **Dashboard doesn't come up after first boot, or `.env` looks wrong.** Check `/var/log/defguard-startup.log` for errors from secret generation or stack startup, and confirm `sudo docker ps` shows all expected containers.
+
+**`dg-ctl upgrade` fails health checks.** With the default settings, `dg-ctl` automatically attempts to restore the pre-upgrade backup. If automatic rollback fails, run `sudo dg-ctl rollback <backup-id>` manually. When `--no-backup` was used, no automatic rollback is possible; inspect the stack and logs (`journalctl -t defguard-core`, etc.) before retrying.
+
+**`dg-ctl: command not found`.** Your OVA predates `dg-ctl`; install it with the command in [Managing and updating containers](ova.md#managing-and-updating-containers) above.
