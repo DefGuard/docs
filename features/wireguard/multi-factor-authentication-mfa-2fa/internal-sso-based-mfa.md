@@ -31,7 +31,7 @@ When MFA configuration is changed, all clients must do an [Instance Update](../.
 
 If a VPN has MFA enabled, before connecting you will be asked to complete the authentication step first:
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2026-01-07 at 09.08.07.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/internal-mfa-screen.png" alt=""><figcaption></figcaption></figure>
 
 ### Supported MFA methods
 
@@ -49,9 +49,9 @@ Please remember to configure TOTP on you user account and/or SMTP settings for M
 
 After enabling MFA for a given VPN, users will need to enable MFA for their accounts to be able to connect. This process is described in [setting-up-2fa-mfa.md](../../../using-defguard-for-end-users/setting-up-2fa-mfa.md "mention"). For simplicity & security, the desktop client uses the same MFA methods as the Defguard server.
 
-An error message will be shown if users attempt to select an MFA method that has not been enabled for their accounts:
+An error message will be shown if users attempt to select an MFA method that has not been enabled for their accounts
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2026-01-07 at 09.11.38.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/mfa-options-screen.png" alt=""><figcaption></figcaption></figure>
 
 ### Successful authentication
 
