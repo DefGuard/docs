@@ -101,7 +101,7 @@ sudo mv gateway /usr/bin/
 gateway
 ```
 
-Unlike the package install, the binary archive does not place a configuration file on the system. Every Gateway option has a default, so the gateway starts without one. To change any of them - for example the WireGuard interface name or the statistics period - create a TOML file and pass it with `--config`, using the example in [Defguard Gateway](standalone-package-based-installation/gateway.md#configuration) as a reference.
+The binary archive does not include a configuration file, and every Gateway option has a default, so the gateway starts without one. To change any of them - for example the WireGuard interface name or the statistics period - create a TOML file and pass it with `--config`, using the example in [Defguard Gateway](standalone-package-based-installation/gateway.md#configuration) as a reference.
 
 {% hint style="warning" %}
 When you pass `--config`, the file becomes the only source of configuration - see [Config file](configuration.md#config-file).
