@@ -5,7 +5,7 @@ hidden: true
 # Matrix / Synapse
 
 {% hint style="warning" %}
-For Synapse OIDC to work you'll have to run Defguard with [RSA signing key](../../deployment-strategies/configuration.md#deprecated-core-deployment-parameters).
+Synapse requires ID tokens signed with RS256. Defguard uses RS256 by default, unless the deprecated [`--hmac` / `DEFGUARD_HMAC`](../../deployment-strategies/configuration.md#deprecated-core-deployment-parameters) flag is set.
 {% endhint %}
 
 ## Add Synapse app to Defguard

@@ -11,10 +11,6 @@ Paid features are gated by two plan levels:
 
 Every feature page in this documentation states which plans include it, in an **Availability** note at the top.
 
-{% hint style="info" %}
-Enterprise is a **higher** level than Business, so an Enterprise license also unlocks everything that a Business license unlocks.
-{% endhint %}
-
 Your license also carries **usage limits** - the number of users and the number of VPN locations, and optionally device counts.
 The current tier, expiry date, and how close you are to each limit are shown in **Settings → License**.
 
