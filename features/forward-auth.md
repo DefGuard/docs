@@ -7,7 +7,7 @@ In order for forward auth to work the services you are trying to protect must be
 
 For example if you are serving your Defguard UI at `id.yourdomain.com`, then your services must use other subdomains of `yourdomain.com`, e.g. ``app1.yourdomain.com, `service.yourdomain.com` etc``.
 
-Additionally you have to update your [Defguard config](../deployment-strategies/configuration.md#auth-cookies-configuration) to set the cookies domain to `yourdomain.com`.
+Additionally you have to update your [Defguard config](../deployment-strategies/configuration.md#core-deployment-parameters) to set the cookies domain to `yourdomain.com`.
 {% endhint %}
 
 ## Example configurations

@@ -17,22 +17,22 @@ Thus, the gateway needs to be configured to send statistics in that period.
 We recommend to set:
 
 * Gateway to send statistics every 30sec
-* Peer disconnect threshold we recommend it to be min. 300 (5 min)
+* Client disconnect threshold we recommend it to be min. 300 (5 min)
 {% endhint %}
 
 ### Testing MFA on Defguard client
 
 When a location has External MFA enabled, after clicking Connect in the Desktop client ([here you can find information about Mobile Client External MFA](../../../using-defguard-for-end-users/mobile-client/instance-connect.md#external-mfa)), there will be information displayed about authentication requirement:
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-07-29 at 17.32.51.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/auth-with-openid-modal.png" alt="" width="375"><figcaption></figcaption></figure>
 
 In order to authenticate the user will be prompted to click on Authenticate with your configured OIDC (like Authenticate with Google) - which will open the browser and start the authentication session with your OIDC/SSO provider by the [Defguard Enrollment ](../../../using-defguard-for-end-users/enrollment/)service (which is the only public component).
 
 After successful authentication, the user will be informed by the enrollment service like so:
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-07-29 at 17.33.21.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/auth-completed-openid.png" alt="" width="375"><figcaption></figcaption></figure>
 
-And the VPN should be connected.
+And the VPN connection will be established immediately.
 
 Video describing whole process:
 

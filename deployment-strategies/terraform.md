@@ -1,10 +1,6 @@
 # Terraform
 
 {% hint style="info" %}
-Terraform deployment works with Defguard Core version 1.3.2-alpha2 and later.
-{% endhint %}
-
-{% hint style="info" %}
 We've recently introduced this deployment method and are still actively improving it. If you encounter any issues or have suggestions, please open an issue in the [Defguard deployment repository](https://github.com/DefGuard/deployment/issues).
 {% endhint %}
 
@@ -14,10 +10,10 @@ To deploy Defguard using Terraform on AWS, you can use the Terraform configurati
 
 The terraform configuration includes the necessary resources to setup all components of Defguard.
 
-We recommend reading on the architecture of Defguard before proceeding with the deployment. You can find the documentation on the [Defguard architecture page](https://docs.defguard.net/in-depth/architecture). When configuring the networking, the most important thing is to keep in mind the following rules:
+We recommend reading on the architecture of Defguard before proceeding with the deployment. You can find the documentation on the [Defguard architecture page](../in-depth/architecture/). When configuring the networking, the most important thing is to keep in mind the following rules:
 
 * Defguard Core web UI should be accessible only from the internal network or through a secure VPN connection.
-* Defguard Proxy web UI should be publicly accessible, as it is used to securely pass messages to core from clients that are not connected to the VPN.
+* Defguard Edge web UI should be publicly accessible, as it is used to securely pass messages to core from clients that are not connected to the VPN.
 * Defguard Gateway UDP port should be publicly accessible, as clients use it to connect to the VPN.
 * All gRPC traffic must stay internal. gRPC ports should only be available for the two parties that communicate with each other, e.g. core and proxy, or core and gateway.
 
@@ -68,26 +64,26 @@ It accepts the following variables:
 * `cookie_insecure`: Set to `true` if you are using HTTP instead of HTTPS. This is not recommended for production environments.
 * `default_admin_password`: The default password for the admin user. This should be changed after the first login.
 * `proxy_grpc_port`: The gRPC port for Defguard Core to connect to the proxy. This must match the `grpc_port` variable in the proxy module.
-* `proxy_url`: The URL at which Defguard Proxy will be accessible. This must match the `proxy_url` variable in the proxy module. This will be displayed to the user in the web UI when adding a new device.
+* `proxy_url`: The URL at which Defguard Edge will be accessible. This must match the `proxy_url` variable in the proxy module. This will be displayed to the user in the web UI when adding a new device.
 * `vpn_networks`: A list of VPN networks that should be created. For every network, a new gateway will be created. See the [VPN networks configuration](terraform.md#vpn-networks-configuration) section for more details on how to configure the VPN networks.
 * `db_details`: A map containing the database configuration. It must contain the following:
   * `name`: The name of the PostgreSQL database to be created for Defguard.
   * `username`: The username for the PostgreSQL database.
   * `password`: The password for the PostgreSQL database user.
   * `port`: The port on which the PostgreSQL database will listen.
-* `proxy_address`: The IP address of the Defguard Proxy instance. Ideally this should be a private address, as it will be used for internal communication between the core and proxy components.
+* `proxy_address`: The IP address of the Defguard Edge instance. Ideally this should be a private address, as it will be used for internal communication between the core and proxy components.
 * `gateway_secret`: The secret used to authenticate the gateways with the core. This should be a random string of 64 characters. It is used to ensure that only authorized gateways can connect to the core instance. This secret must match the secret provided in the `gateway_secret` variable in the gateway module.
 * `network_interface_id`: The ID of the network interface that should be attached to the Defguard Core instance. This is used to ensure that the core instance has a private IP address in the same VPC as the proxy and gateways.
 
 #### Proxy module
 
-The proxy module is responsible for setting up the Defguard Proxy.
+The proxy module is responsible for setting up the Defguard Edge.
 
 It accepts the following variables:
 
-* `url`: The URL at which Defguard Proxy will be accessible.
-* `grpc_port`: The gRPC port for Defguard Proxy to communicate with core. This is used only for internal communication.
-* `http_port`: The HTTP port on which the Defguard Proxy web server will listen. Note that setting port to `80` is not possible out of the box, as the Defguard service would require root privileges on the host machine, which it does not have by default.
+* `url`: The URL at which Defguard Edge will be accessible.
+* `grpc_port`: The gRPC port for Defguard Edge to communicate with core. This is used only for internal communication.
+* `http_port`: The HTTP port on which the Defguard Edge web server will listen. Note that setting port to `80` is not possible out of the box, as the Defguard service would require root privileges on the host machine, which it does not have by default.
 
 #### Gateway module
 
@@ -197,7 +193,7 @@ The `basic` example can be directly downloaded using the following link: [basic/
 The example is a basic configuration that sets up all the components and a network that allows them to communicate with each other. It includes the following:
 
 * Defguard Core instance
-* Defguard Proxy instance
+* Defguard Edge instance
 * Defguard Gateway instance
 * A database instance (RDS) for Defguard Core.
 * A single VPC for all components.

@@ -7,11 +7,12 @@ This feature requires an Enterprise plan. See the [pricing page](https://defguar
 {% endhint %}
 
 {% hint style="warning" %}
-**Posture verification feature is available starting with Defguard Core v2.1 and Defguard Client v2.1.**
+**Posture verification requires Defguard Core 2.1 and a client that supports it:**
 
-Once posture checks are assigned to a location, that location does not appear in Defguard clients older than 2.1.
+* **Desktop Client 2.1.0 or newer** on Windows, macOS and Linux
+* **Mobile client 1.7.0 or newer** on iOS and Android
 
-Older clients do not support posture verification and cannot access posture-protected locations.
+Older clients do not receive the configuration for locations with posture checks assigned, so such a location does not appear in them. See [Desktop Client](../using-defguard-for-end-users/desktop-client/) for what changed in 2.1.
 {% endhint %}
 
 Posture checks let you verify the security state of a user’s device before allowing it to connect to a location. Instead of trusting only the user’s identity, Defguard can also evaluate device requirements such as:
@@ -29,7 +30,7 @@ Posture checks let you verify the security state of a user’s device before all
 * Linux disk encryption status
 * iOS version
 * Android version
-* Android device integrity status
+* Android security patch level age
 
 If a posture check fails, the user is shown a list of the unmet requirements:
 
@@ -37,7 +38,7 @@ If a posture check fails, the user is shown a list of the unmet requirements:
 
 ## Configuring posture checks
 
-You can view, edit, create, and assign posture checks to locations in the "Posture Checks" section:
+You can view, edit, create, and assign posture checks to locations in **Identity & Access → Posture Checks**:
 
 <figure><img src="../.gitbook/assets/image (350).png"><figcaption></figcaption></figure>
 
@@ -47,9 +48,13 @@ The section displays a table of all posture checks defined in the system. Clicki
 
 ### Creating a new posture check
 
-To create a new posture check, click the “Add new posture check” button above the posture checks table. This launches a wizard that guides you through the configuration step by step.
+To create a new posture check, click the "Add new posture check" button above the posture checks table.
 
-In the wizard, you can choose which operating systems the posture check applies to and define the requirements each device must meet. Depending on the selected platform, this can include minimum OS version, security update age, disk encryption, antivirus status, Active Directory membership, or device integrity. You can also set the minimum required Defguard client version and decide whether pre-release client versions are allowed.
+#### Step 1: Operating systems
+
+Click a system to add it to the check. Each system gets its own card, where you set the minimum accepted version and the **Security conditions** available on that platform.
+
+On Windows and Android you can additionally require the last security update to be no older than 30, 60, 90 or 180 days.
 
 {% hint style="warning" %}
 If you do not configure requirements for a specific operating system, devices running that operating system will not be allowed to connect to locations protected by this posture check.
@@ -59,9 +64,31 @@ For example, if a posture check only defines Windows and macOS requirements, Lin
 
 <figure><img src="../.gitbook/assets/image (352).png"><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (353).png"><figcaption></figcaption></figure>
+#### Step 2: Defguard client version
 
-Once the rules are configured, the posture check can be saved and [assigned to one or more locations](device-posture-verification.md#assigning-posture-check-to-locations).
+Set the minimum accepted client version, separately for **Desktop** and **Mobile**.
+
+Enable **Allow users who run pre-release versions of the Defguard client to access the system** if you have users on non-stable builds.
+
+<figure><img src="../.gitbook/assets/posture-check-defguard-client-version.png"><figcaption></figcaption></figure>
+
+#### Step 3: Name and description
+
+Give the check a name and, optionally, a description.
+
+<figure><img src="../.gitbook/assets/posture-check-name-and-description.png"></figure>
+
+#### Step 4: Summary
+
+Review the conditions the check will enforce, then click **Create posture check**.
+
+{% hint style="danger" %}
+Before the check is created, Defguard asks you to confirm that at least one System Administrator will still meet all the required conditions. If none does, admin access through the protected location can be lost.
+{% endhint %}
+
+<figure><img src="../.gitbook/assets/posture-check-summary.png"></figure>
+
+Once the check is saved, [assign it to one or more locations](device-posture-verification.md#assigning-posture-check-to-locations). A check that is not assigned to any location does nothing.
 
 ### Editing an existing posture check
 
@@ -73,16 +100,20 @@ To edit one of the existing posture checks, select the "Edit" menu item from the
 
 ### Assigning posture check to locations
 
-Posture checks can be assigned to locations in 4 ways:
+Posture checks can be assigned to locations in 5 ways:
 
 * "Assign to locations" action from the actions menu in the postures table
 * "Assign to locations" action from the "Actions" menu in the posture details drawer
-* [Edit posture form](device-posture-verification.md#editing-an-existing-posture-check)
 * "Posture Checks" section in the Location edit form
+* "Posture check" step of the wizard used when creating a new location
 
 <figure><img src="../.gitbook/assets/image (356).png"><figcaption></figcaption></figure>
 
 Once a posture check is assigned to a location, every client attempting to connect to that location is verified before access is granted. If multiple posture checks are assigned, the client must satisfy all requirements from all assigned posture checks. The connection is allowed only when every required check passes; if any requirement fails, the client is denied access.
+
+A location cannot have posture checks and be a [service location](service-locations.md) at the same time.
+
+<figure><img src="../.gitbook/assets/location-wizard-posture-check.png"></figure>
 
 ### Duplicating a posture check
 
@@ -90,6 +121,10 @@ If you want to create a posture check that is similar to an existing one, you ca
 
 To duplicate a posture check, use the “Duplicate” action from the posture checks table or from the action menu in the posture check details drawer.
 
-<figure><img src="../.gitbook/assets/image (357).png"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (357).png"></figure>
 
 The posture check is duplicated and saved immediately, then opened in the edit form. You can modify any settings that should differ from the original and assign the duplicated posture check to the appropriate locations. Duplicated posture checks are not assigned to any locations by default.
+
+### How checks are evaluated
+
+Operating system and kernel versions are compared by major version only. A requirement that cannot be evaluated counts as failed. Failed checks are recorded in the [activity log](activity-log/).

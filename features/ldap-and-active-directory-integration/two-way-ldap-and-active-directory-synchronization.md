@@ -3,11 +3,7 @@
 {% hint style="warning" %}
 **Availability**
 
-This feature is available in all plans, with usage limits. See the [pricing page](https://defguard.net/pricing/) for details.
-{% endhint %}
-
-{% hint style="warning" %}
-This feature is available since Defguard version 1.3.0.
+This feature is available in Business and Enterprise plans. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}
 
 {% hint style="danger" %}
@@ -146,7 +142,7 @@ Because some LDAP implementations require a password when a user is created, Def
 
 Defguard does not pull passwords from LDAP in any form. Instead, when a user tries to log in to Defguard and LDAP integration is enabled, a test login attempt is made against the LDAP server using the provided credentials. If the test login attempt succeeds, Defguard authenticates the user just as it would during a regular login.
 
-## Known issues and other unexpected behavior
+## Known issues and other unexpected behaviour
 
 ### General
 

@@ -4,7 +4,7 @@
 **Always back up your database before updating Core.** Core is the only component with persistent storage (PostgreSQL). See the [deployment overview](overview.md#backup) for backup instructions.
 {% endhint %}
 
-Defguard is composed of multiple components (Core, Edge, Gateway) that communicate over gRPC. Each component can be updated independently, provided the components remain compatible.&#x20;
+Defguard is composed of multiple components (Core, Edge, Gateway) that communicate over gRPC. Each component can be updated independently, provided the components remain compatible.
 
 When components attempt to establish a connection, Defguard automatically performs a version check. If an incompatibility is detected, the connection is refused.
 
@@ -33,14 +33,14 @@ Choose the guide that matches how you deployed Defguard:
 
 * [Docker / Docker Compose](docker-compose.md#upgrading)
 * [Standalone packages (DEB, RPM)](standalone-package-based-installation/#upgrading-packages)
-* [OVA / Virtual Appliance](ova.md#managing-and-updating-containers)
+* [OVA / Virtual Appliance](ova.md#upgrading)
 
 ### Official GitHub Releases
 
 Check the GitHub repositories for each service to find their newest releases and release notes:
 
 * [Defguard Core](https://github.com/DefGuard/defguard/releases)
-* [Defguard Proxy](https://github.com/DefGuard/proxy/releases)
+* [Defguard Edge](https://github.com/DefGuard/proxy/releases)
 * [Defguard Gateway](https://github.com/DefGuard/gateway/releases)
 * [Defguard YubiBridge](https://github.com/DefGuard/YubiKey-Provision/releases)
 

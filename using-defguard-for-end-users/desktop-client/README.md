@@ -10,7 +10,7 @@ Key capabilities:
 * **Multi-Factor Authentication** – supports internal MFA (Authenticator App, email) as well as external OIDC/SSO providers and mobile biometry. The desktop client is required for MFA, as standard WireGuard clients do not support it.
 * **Command-line control** – the [`defguard-cli`](command-line-defguard-cli.md) tool ships with the client for headless machines, remote sessions, and scripting.
 * **Automatic updates** – the client checks for new releases and notifies you when one is available (this can be disabled in settings).
-* **Real-time configuration sync** – with an Enterprise License, instances and locations stay [synchronized automatically](../../features/remote-user-enrollment/automatic-real-time-desktop-client-configuration.md).
+* **Real-time configuration sync** – with a Business or Enterprise plan, instances and locations stay [synchronized automatically](../../features/remote-user-enrollment/automatic-real-time-desktop-client-configuration.md).
 
 Download the latest release here: [https://defguard.net/download/](https://defguard.net/download/)
 
@@ -22,6 +22,14 @@ Guides:
 * [Using Multi-Factor Authentication](using-multi-factor-authentication-mfa.md)
 * [MTU Setting](mtu-setting.md)
 * [Command-line (defguard-cli)](command-line-defguard-cli.md)
+
+## Defguard Client 2.1
+
+Version 2.1 brings a completely redesigned Desktop Client. It now lives in the system tray, where a **compact view** lets you connect to and disconnect from locations, while the **full window** remains available for configuration, logs and settings.
+
+Version 2.1.0 is also **required for [device posture verification](../../features/device-posture-verification.md)**. Locations with posture checks assigned are not sent to older clients and do not appear in them.
+
+<figure><img src="../../.gitbook/assets/defguard-client-tray-view.png"></figure>
 
 ## Windows
 

@@ -4,7 +4,7 @@ Defguard Gateway supports a userspace WireGuard implementation based on BoringTu
 
 Using a userspace WireGuard implementation is useful on platforms where native kernel support is unavailable, limited, or impractical to use. It can also help in environments where running WireGuard entirely in user space better matches the operating model of the platform.
 
-On platforms where native WireGuard support exists, such as Linux or FreeBSD, using the kernel implementation is generally recommended. The kernel implementation usually provides better performance, lower overhead, and behavior that is closer to the standard WireGuard deployment model.
+On platforms where native WireGuard support exists, such as Linux or FreeBSD, using the kernel implementation is generally recommended. The kernel implementation usually provides better performance, lower overhead, and behaviour that is closer to the standard WireGuard deployment model.
 
 You can enable the userspace implementation in one of the following ways:
 

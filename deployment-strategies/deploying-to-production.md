@@ -39,7 +39,7 @@ Follow our [guide](production-deployment-verification-guide.md) to test if your 
 {% step %}
 **Configure features**
 
-Follow detailed descriptions of [Defguard’s features](https://github.com/DefGuard/docs/blob/v1.6/deployment-strategies/broken-reference/README.md). As you follow along, you can adjust the configuration directly within your instance.
+Follow detailed descriptions of [Defguard’s features](../features/overview.md). As you follow along, you can adjust the configuration directly within your instance.
 
 For a detailed list of all configurable things through environmental variables, options or configuration files follow [this reference](configuration.md).
 {% endstep %}

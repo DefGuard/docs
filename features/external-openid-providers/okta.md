@@ -17,7 +17,7 @@ If you already have them, please skip to [#configuring-okta-as-external-oidc-in-
 
 <figure><img src="../../.gitbook/assets/image-2.png" alt=""><figcaption></figcaption></figure>
 
-3. On the next page, configure the application. Make sure to set the correct Sign-in URIs, those will take the form of `<DEFGUARD_URL>/auth/callback` (dashboard login) and `<DEFGUARD_PUBLIC_URL>/openid/callback` (if you want to perform new user enrollment using Okta). Replace `<DEFGUARD_URL>` and `<DEFGUARD_PUBLIC_URL>` with the URLs of your Defguard dashboard and enrollment page (proxy) accordingly. If you access your Defguard dashboard at e.g., `https://defguard.example.net` your redirect URI will be `https://defguard.example.net/auth/callback`. If you want to use Okta as the MFA provider, also add `<DEFGUARD_PUBLIC_URL>/openid/mfa/callback` to the redirect URIs.
+3. On the next page, configure the application. Make sure to set the correct Sign-in URIs, those will take the form of `<DEFGUARD_URL>/auth/callback` (dashboard login) and `<DEFGUARD_PUBLIC_URL>/openid/callback` (if you want to perform new user enrollment using Okta). Replace `<DEFGUARD_URL>` and `<DEFGUARD_PUBLIC_URL>` with the URLs of your Defguard dashboard and enrollment page (Edge) accordingly. If you access your Defguard dashboard at e.g., `https://defguard.example.net` your redirect URI will be `https://defguard.example.net/auth/callback`. If you want to use Okta as the MFA provider, also add `<DEFGUARD_PUBLIC_URL>/openid/mfa/callback` to the redirect URIs.
 
 <figure><img src="../../.gitbook/assets/image-6.png" alt=""><figcaption></figcaption></figure>
 

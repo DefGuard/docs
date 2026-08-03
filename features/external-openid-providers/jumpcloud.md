@@ -32,7 +32,7 @@ If you already have them, please skip to [#configuring-jumpcloud-as-external-oid
 
     Make sure to set the correct Redirect URI and Login URL that will reflect your Defguard's setup.\
     If you access your Defguard dashboard at e.g., `https://defguard.example.net` your redirect URI will be `https://defguard.example.net/auth/callback` and the login URL `https://defguard.example.net/auth/login`.\
-    Additionally, if you are using a Defguard proxy to enroll users, you can also add another redirect URI in the form of `<DEFGUARD_PUBLIC_URL>/openid/callback` and `<DEFGUARD_PUBLIC_URL>/openid/mfa/callback` if you wish to use the [External MFA feature](../wireguard/multi-factor-authentication-mfa-2fa/#external-mfa) (`<DEFGUARD_PUBLIC_URL>` is the address at which your Proxy enrollment page is accessible).
+    Additionally, if you are using Defguard Edge to enroll users, you can also add another redirect URI in the form of `<DEFGUARD_PUBLIC_URL>/openid/callback` and `<DEFGUARD_PUBLIC_URL>/openid/mfa/callback` if you wish to use the [External MFA feature](../wireguard/multi-factor-authentication-mfa-2fa/external-sso-based-mfa.md) (`<DEFGUARD_PUBLIC_URL>` is the address at which your Edge enrollment page is accessible).
 9.  Next, select the profile scope and add an `email` user attribute mapping by hand, like so:
 
     <figure><img src="../../.gitbook/assets/image (88).png" alt=""><figcaption></figcaption></figure>

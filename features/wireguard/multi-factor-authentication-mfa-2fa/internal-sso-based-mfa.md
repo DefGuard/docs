@@ -5,21 +5,21 @@ Enabling Internal MFA for a desired VPN Location is done by:
 1. Going into Defguard to **VPN Overview**
 2. Selecting the VPN Location from the dropdown list, and pressing the **Edit Location** button in the top right corner of the page
 3. Check the "**Internal MFA**" checkbox under the **MFA requirement** section
-4. Set **peer disconnect threshold**, we recommend it to be min. 300 (5 min) - see chapter [below](internal-sso-based-mfa.md#peer-disconnect-threshold).
+4. Set **Client disconnect threshold (seconds)**, we recommend it to be min. 300 (5 min) - see chapter [below](internal-sso-based-mfa.md#client-disconnect-threshold).
 5. And **save changes**.
 
 <figure><img src="../../../.gitbook/assets/image (301).png" alt=""><figcaption></figcaption></figure>
 
 ### Client disconnect **threshold**
 
-When MFA is enabled on a location, Defguard periodically (currently every **1 minute**) checks statistics if a client is connected and if the period of inactivity (defined in Peer disconnect threshold option) is met, a client is disconnected.
+When MFA is enabled on a location, Defguard periodically (currently every **1 minute**) checks statistics if a client is connected and if the period of inactivity (defined in the Client disconnect threshold option) is met, a client is disconnected.
 
 Thus, the gateway needs to be configured to send statistics in that period.
 
 We recommend to set:
 
 * gateway to send statistics every 30sec
-* Peer disconnect threshold we recommend it to be min. 300 (5 min)
+* Client disconnect threshold we recommend it to be min. 300 (5 min)
 
 ### Client update after enabling MFA
 
@@ -31,7 +31,7 @@ When MFA configuration is changed, all clients must do an [Instance Update](../.
 
 If a VPN has MFA enabled, before connecting you will be asked to complete the authentication step first:
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2026-01-07 at 09.08.07.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/internal-mfa-screen.png" alt=""><figcaption></figcaption></figure>
 
 ### Supported MFA methods
 
@@ -49,9 +49,9 @@ Please remember to configure TOTP on you user account and/or SMTP settings for M
 
 After enabling MFA for a given VPN, users will need to enable MFA for their accounts to be able to connect. This process is described in [setting-up-2fa-mfa.md](../../../using-defguard-for-end-users/setting-up-2fa-mfa.md "mention"). For simplicity & security, the desktop client uses the same MFA methods as the Defguard server.
 
-An error message will be shown if users attempt to select an MFA method that has not been enabled for their accounts:
+An error message will be shown if users attempt to select an MFA method that has not been enabled for their accounts
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2026-01-07 at 09.11.38.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/mfa-options-screen.png" alt=""><figcaption></figcaption></figure>
 
 ### Successful authentication
 

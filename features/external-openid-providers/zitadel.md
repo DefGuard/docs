@@ -13,7 +13,7 @@ Refer to [Zitadel's documentation](https://zitadel.com/docs) on how to install i
 5.  Choose **Code** for authorization method.
 
     <figure><img src="../../.gitbook/assets/zitadel2.png" alt=""><figcaption></figcaption></figure>
-6.  Enter a redirect URI for your Defguard instance. The URI is in the form `<DEFGUARD_URL>/auth/callback`, for example `https://defguard.example.com/auth/callback`. (If Defguard has been launched on the _localhost_, select **Development Mode** and enter `http://localhost:8000/auth/callback`). If you'd like to use OpenID enrollment through proxy, make sure to enter an additional URI here in the form of `<DEFGUARD_PUBLIC_URL>/openid/callback`.
+6.  Enter a redirect URI for your Defguard instance. The URI is in the form `<DEFGUARD_URL>/auth/callback`, for example `https://defguard.example.com/auth/callback`. (If Defguard has been launched on the _localhost_, select **Development Mode** and enter `http://localhost:8000/auth/callback`). If you'd like to use OpenID enrollment through Edge, make sure to enter an additional URI here in the form of `<DEFGUARD_PUBLIC_URL>/openid/callback`.
 
     <figure><img src="../../.gitbook/assets/zitadel3.png" alt=""><figcaption></figcaption></figure>
 7. **Create** the application.

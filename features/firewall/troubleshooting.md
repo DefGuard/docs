@@ -66,7 +66,7 @@ Additionally, if multiple rules cover overlapping destinations, their combined f
 
 ### Connection issues with Docker installed
 
-If you have Docker installed on the same machine as your Gateway (or if you deployed Defguard using the one-line installation script) the firewall may not work properly due to Docker firewall rules interfering with your ACL rules.&#x20;
+If you have Docker installed on the same machine as your Gateway (or if you deployed Defguard using the one-line installation script) the firewall may not work properly due to Docker firewall rules interfering with your ACL rules.
 
 To verify this, execute `nft list ruleset` (may require sudo) on the machine on which your Gateway is installed:
 
@@ -84,7 +84,7 @@ table ip filter {
 
 If you have a FORWARD chain (managed by Docker) that has a default policy of drop and filter priority, this chain will interfere with Defguard rules (accept policy shouldn't be a problem).
 
-To fix this, set the [Defguard firewall priority](https://docs.defguard.net/features/access-control-list/firewall-internals#forward-chain-priority) to -1. This will make Defguard rules run before Docker rules.
+To fix this, set the [Defguard firewall priority](firewall-internals.md#forward-chain-priority) to -1. This will make Defguard rules run before Docker rules.
 
 Running `nft list ruleset` on the machine should then result in the following:
 

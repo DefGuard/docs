@@ -77,13 +77,13 @@ If this directory is missing or empty at startup, the component detects the abse
 Include the certificate directory in your server backup alongside your database if you want zero-downtime recovery - re-enrollment requires manual action in the admin UI for each affected Gateway and Edge instance.
 
 {% hint style="info" %}
-Because the CA is stored in the database, a restored Core can always re-issue new component certificates.&#x20;
+Because the CA is stored in the database, a restored Core can always re-issue new component certificates.
 
 Losing the local cert directory does not cause permanent data loss - it requires re-running the [setup flow](../tutorials/adding-edge-component.md) for that component.
 {% endhint %}
 
 ## Failover/High Availability/Clustering
 
-[Defguard Gateway](https://github.com/DefGuard/docs/blob/v2.0/deployment-strategies/gateway.md) can be deployed on multiple servers, firewalls, or routers for failover and high availability (HA). Even if the connection to the Core is lost, a Gateway continues to operate using its local cache and data, ensuring that the VPN remains functional. Conversely, if a Gateway becomes unavailable, other Core features such as OpenID continue to work normally.
+[Defguard Gateway](standalone-package-based-installation/gateway.md) can be deployed on multiple servers, firewalls, or routers for failover and high availability (HA). Even if the connection to the Core is lost, a Gateway continues to operate using its local cache and data, ensuring that the VPN remains functional. Conversely, if a Gateway becomes unavailable, other Core features such as OpenID continue to work normally.
 
 For details on deploying multiple Gateways, refer to the [High Availability and Failover](high-availability-and-failover/) documentation.

@@ -44,7 +44,7 @@ All gateways successfully connected to a location are displayed under the locati
 ### Gateway peer persistence if Core or Edge services fail
 
 1. For **VPN locations without MFA**, the peer configuration persists until the system reboots, _even if the gateway does not work_, because the gateway configures WireGuard "in kernel".
-2. For **VPN locations with MFA**, this depends on the _Peer Disconnect Threshold (seconds)_ setting in the VPN location settings. This setting specifies that if the peer is inactive for the defined number of seconds, the gateway should remove it from the configuration. Therefore, if the Edge or Core service is not operational, MFA authentication will fail, and the peer will not be added again after it is disconnected.
+2. For **VPN locations with MFA**, this depends on the _Client disconnect threshold (seconds)_ setting in the VPN location settings. This setting specifies that if the peer is inactive for the defined number of seconds, the gateway should remove it from the configuration. Therefore, if the Edge or Core service is not operational, MFA authentication will fail, and the peer will not be added again after it is disconnected.
 
 ## Edge high availability
 

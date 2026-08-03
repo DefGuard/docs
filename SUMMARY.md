@@ -68,7 +68,6 @@
 * [Integrations](features/integrations/README.md)
   * [Webhooks](features/integrations/webhooks.md)
   * [REST API](features/integrations/api-tokens.md)
-* [OPNSense Configuration](features/gateway.md)
 * [SSH Authentication](features/ssh-authentication.md)
 * [Forward auth](features/forward-auth.md)
 * [User SNAT bindings](features/user-snat-bindings.md)
@@ -82,6 +81,8 @@
 * [Certificate management](features/certificate-management.md)
 * [Device posture verification](features/device-posture-verification.md)
 * [Managing Defguard via CLI](features/managing-defguard-via-cli.md)
+* [User management](features/user-management.md)
+
 
 ## Deployment strategies
 
@@ -215,6 +216,7 @@
   * [Security concepts](in-depth/architecture/security-concepts.md)
   * [MFA Architecture](in-depth/architecture/architecture.md)
 * [Architecture Decision Records](in-depth/architecture-decision-records/README.md)
+  * [2.1](in-depth/architecture-decision-records/2.1.md)
   * [2.0](in-depth/architecture-decision-records/2.0.md)
   * [1.6](in-depth/architecture-decision-records/1.6.md)
   * [1.5](in-depth/architecture-decision-records/1.5.md)

@@ -30,6 +30,14 @@ _Defguard is not an official WireGuard project, and WireGuard is a registered tr
 * Allow or deny access based on users or groups
 * Changes are applied in **real time**
 
+### [Device posture verification](../features/device-posture-verification.md)
+
+* Check the security state of a device before it connects to a location
+* Minimum operating system, Linux kernel and Defguard client versions
+* Disk encryption, antivirus, Active Directory membership and device integrity conditions
+* Limits on the age of Windows security updates and Android security patches
+* Several checks can be assigned to one location, and a device has to satisfy all of them
+
 ### Identity Management:
 
 * [**OpenID Connect**](https://openid.net/developers/how-connect-works/) **based SSO**
@@ -47,8 +55,8 @@ _Defguard is not an official WireGuard project, and WireGuard is a registered tr
 
 ### Account Lifecycle Management:
 
-* Secure remote (over the internet) [user enrollment](https://defguard.gitbook.io/defguard/help/remote-user-enrollment)
-* User [onboarding after enrollment](https://defguard.gitbook.io/defguard/help/remote-user-enrollment/user-onboarding-after-enrollment)
+* Secure remote (over the internet) [user enrollment](../features/remote-user-enrollment/)
+* User [onboarding after enrollment](../features/remote-user-enrollment/user-onboarding-after-enrollment.md)
 * Self-service for password reset
 
 ### [Network devices](../features/network-devices.md)

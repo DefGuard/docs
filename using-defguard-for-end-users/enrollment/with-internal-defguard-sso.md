@@ -14,7 +14,7 @@ This process includes account setup and/or VPN configuration, since Defguard is 
 
 All done by a wizard:
 
-<figure><img src="https://github.com/DefGuard/docs/raw/docs/releases/0.7/enrollment.png?raw=true" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/client-enrollment-first-page.png" alt=""><figcaption></figcaption></figure>
 
 This can be done in **two ways** - either in the **browser** (web based) or by using a **Defguard desktop client**. For both ways, there is an email that is sent to the user with explanation and relevant URLs/tokens.
 
@@ -36,4 +36,4 @@ After the enrollment process, new users are provided with **any relevant company
 
 The onboarding messages will be shown on the **last step of the enrollment process and sent to the user via email**:
 
-<figure><img src="https://github.com/DefGuard/docs/raw/docs/releases/0.7/enrollment_msg.png?raw=true" alt=""><figcaption><p>Onboarding process</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/client-onboarding-message.png" alt=""><figcaption><p>Onboarding process</p></figcaption></figure>

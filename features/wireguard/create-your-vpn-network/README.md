@@ -1,6 +1,6 @@
 # Create/Manage VPN Location
 
-A VPN location is a VPN network to which users can connect to. Every location has a [dedicated gateway](/broken/pages/1KLINb5EeNCxbdWVydt1) (or [multiple gateways if you deploy a high-availability solution](../../../deployment-strategies/high-availability-and-failover/#gateway-high-availability)).
+A VPN location is a VPN network to which users can connect to. Every location has a [dedicated gateway](../../../deployment-strategies/standalone-package-based-installation/gateway.md) (or [multiple gateways if you deploy a high-availability solution](../../../deployment-strategies/high-availability-and-failover/#gateway-high-availability)).
 
 {% hint style="success" %}
 Defguard supports **multiple locations**, for each location to work you need to configure it and deploy a dedicated gateway.
@@ -19,10 +19,10 @@ This is the default option that creates an typical VPN network.
 #### Service location
 
 {% hint style="info" %}
-This feature is only for Windows platform.
+This feature is supported on Windows and Linux. The **Pre-logon** mode is Windows-only.
 {% endhint %}
 
-Service Location is a Windows-specific configuration that automates secure network connectivity for managed devices. It ensures that authorized clients establish a persistent VPN tunnel immediately upon system startup, rather than waiting for a user to log in.
+Service Location automates secure network connectivity for managed devices. It ensures that authorized clients establish a persistent VPN tunnel immediately upon system startup, rather than waiting for a user to log in. The tunnel is handled by a background service, so the location is not shown in the Defguard Client and requires no action from the user. See [Service locations](../../service-locations.md) for details.
 
 ## VPN Location configuration
 
@@ -82,7 +82,7 @@ It supports multiple networks separated with comma, e.g. 10.11.1.0/0, 192.168.1.
 {% hint style="danger" %}
 Right now Defguard only manages routing of Allowed IPs (adding to routing table the networks defined in Allowed IPs).
 
-If you want the _All Traffic_ to work in the desktop client you need to also configure MASQUARED/NAT for the VPN interface. [Example of that here.](/broken/pages/MbleSplRWwmcWM2VEo3m#enabling-to-access-internet-through-your-vpn)
+If you want the _All Traffic_ to work in the desktop client you need to also configure MASQUARED/NAT for the VPN interface.
 {% endhint %}
 
 {% hint style="info" %}
@@ -96,7 +96,7 @@ To simplify this, you can use an **Allowed IPs calculator** to generate the corr
 #### Generate Allowed IPs from Firewall Rules
 
 {% hint style="info" %}
-**Enterprise feature.** Requires an active Enterprise license.&#x20;
+**Enterprise feature.** Requires an active Enterprise license.
 {% endhint %}
 
 When enabled, IP addresses from [Firewall Rules](../../firewall/) that grant access to the given user are automatically added to the Allowed IPs list when a device config is generated. Manually entered Allowed IPs are always included.
@@ -106,7 +106,7 @@ The Firewall must be **enabled** for the location for this option to have any ef
 {% endhint %}
 
 * **Sources included:** Addresses entered directly in Rule manual settings or Aliases and pre-defined Destinations attached to the rule.
-* **Merge behavior:** Manual AllowedIPs are preserved. ACL-derived IPs are\
+* **Merge behaviour:** Manual AllowedIPs are preserved. ACL-derived IPs are\
   appended, deduplicated, and sorted.
 * **Any Address destinations:** Destinations marked as "Any Address" in ACL\
   rules are **not** added to Allowed IPs (the firewall still enforces them\
@@ -184,4 +184,4 @@ On each location, you can choose if the Location should support our Internal MFA
 
 When enabled, on the desktop client when authenticating the user will be required on **each connection** to authenticate with the configured External OIDC/SSO:
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-07-29 at 12.20.01.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/auth-with-openid-modal.png"><figcaption></figcaption></figure>

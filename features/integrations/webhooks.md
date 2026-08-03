@@ -16,14 +16,14 @@ On the form above, you'll see inputs like URL description token and triggers
 
 * **URL** is a URL on which data will be sent after certain triggers
 * **Description** short description of your webhook to remember its use case
-* **Secret token** is a token sent with request in authorization header, **Note** if receiver didn't implement any token check it'll do nothing
+* **Secret token** is a token sent with the request in the `Authorization` header, **Note** if receiver didn't implement any token check it'll do nothing
 * **Triggers** are events which will trigger the webhook
 
 ## Sample requests
 
 Below is a list of all triggering actions with their request header and sample JSON body which will be sent on URL given at webhook creation.
 
-**Note** all requests are using `GET` method and sends data in body of request in JSON format.
+**Note** all requests use the `POST` method and send data in the body of the request in JSON format. The secret token is sent as a bearer token, so the request carries `Authorization: Bearer <token>` next to the trigger header.
 
 ### New user created
 
@@ -37,16 +37,27 @@ Body example:
 
 ```json
 {
-"email":"janedoe@email.pl",
+"id":5,
+"username":"jdoe",
 "first_name":"jane",
 "last_name":"doe",
-"groups":[],
-"is_admin":false,
-"pgp_cert_id":"",
-"pgp_key":"",
+"name":"jane doe",
+"email":"janedoe@email.pl",
 "phone":"123456789",
-"ssh_key":"",
-"username":"jdoe"
+"mfa_enabled":false,
+"totp_enabled":false,
+"email_mfa_enabled":false,
+"mfa_method":"None",
+"groups":[],
+"authorized_apps":[],
+"devices":[],
+"is_active":true,
+"is_admin":false,
+"enrolled":false,
+"ldap_pass_requires_change":false,
+"password_management_disabled":false,
+"has_non_mfa_location_access":true,
+"has_non_posture_location_access":true
 }
 ```
 
@@ -54,26 +65,35 @@ Body example:
 
 Triggered after modifying user
 
-Webhook will be triggered on new user deletion sample request:
-
 Header
 
 `X-Defguard-Event: user_modified`
 
-Request body example:
+The body has the same shape as for `user_created` and carries the state of the user after the change:
 
 ```json
 {
-"email":"janedoe@email.pl",
+"id":5,
+"username":"jdoe",
 "first_name":"jane",
 "last_name":"doe",
-"groups":["admin"],
-"is_admin":false,
-"pgp_cert_id":"",
-"pgp_key":"",
+"name":"jane doe",
+"email":"janedoe@email.pl",
 "phone":"123456789",
-"ssh_key":"",
-"username":"jdoe"
+"mfa_enabled":true,
+"totp_enabled":true,
+"email_mfa_enabled":false,
+"mfa_method":"OneTimePassword",
+"groups":["admin"],
+"authorized_apps":[],
+"devices":[],
+"is_active":true,
+"is_admin":true,
+"enrolled":true,
+"ldap_pass_requires_change":false,
+"password_management_disabled":false,
+"has_non_mfa_location_access":true,
+"has_non_posture_location_access":true
 }
 ```
 
@@ -87,31 +107,28 @@ Header
 
 Request body example:
 
-`{ username: "jdoe"}`
+```json
+{
+"username":"jdoe"
+}
+```
 
 ### User YubiKey Provision
 
-Triggered after successfully provisioning YubiKey
+Triggered after successfully provisioning YubiKey. This is the only trigger with a different body: instead of the full user object it carries the provisioned keys.
 
 Header
 
 `X-Defguard-Event: user_keys`
 
-request body example:
+Request body example:
 
 ```json
 {
+"username":"jdoe",
 "email":"janedoe@email.pl",
-"first_name":"jane",
-"last_name":"doe",
-"groups":["admin"],
-"is_admin":false,
-"pgp_cert_id":"",
-"pgp_key":"",
-"phone":"123456789",
-"ssh_key":"",
-"username":"jdoe"
+"ssh_key":"ssh-rsa AAAAB3NzaC1yc2E…",
+"pgp_key":"-----BEGIN PGP PUBLIC KEY BLOCK-----…",
+"serial":"12345678"
 }
 ```
-
-**Note**

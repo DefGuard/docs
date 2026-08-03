@@ -70,4 +70,4 @@ Use this example if your deployment is based on a more traditional LDAP schema a
   * Group member attribute: `uniqueMember`
   * Group search base: for example `cn=groups,dc=ldap,dc=server,dc=name`
 
-After applying either example, save the settings and use the connection test in Defguard before enabling synchronization. A successful connection test confirms that Defguard can reach the directory and authenticate with the bind account, but you should still verify that user lookup, group lookup, and any intended synchronization behavior work as expected.
+After applying either example, save the settings and use the connection test in Defguard before enabling synchronization. A successful connection test confirms that Defguard can reach the directory and authenticate with the bind account, but you should still verify that user lookup, group lookup, and any intended synchronization behaviour work as expected.

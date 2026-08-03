@@ -3,14 +3,12 @@
 {% hint style="warning" %}
 **Availability**
 
-This feature requires a Business or Enterprise plan. See the [pricing page](https://defguard.net/pricing/) for details.
+This feature is available in Business and Enterprise plans. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}
 
 {% hint style="warning" %}
-Access Control List feature is available starting with Defguard Core v1.3.0 and Defguard Gateway v1.3.0.
-
-Defguard Gateway v1.3.0+ supports Linux machines with [NFTables](https://nftables.org/).\
-Defguard Gateway v1.4.0+ supports FreeBSD, NetBSD, and macOS machines with Packet Filter (PF).
+Defguard Gateway supports Linux machines with [NFTables](https://nftables.org/).\
+On FreeBSD, NetBSD, and macOS machines, Defguard Gateway uses Packet Filter (PF).
 {% endhint %}
 
 {% embed url="https://www.youtube.com/watch?v=Go4C4LWcVS4" %}

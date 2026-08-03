@@ -16,7 +16,7 @@ To avoid this issue you can deploy a **public** [Defguard Edge](https://github.c
 {% hint style="info" %}
 Edge is included when using the default [deployment instructions](../../deployment-strategies/overview.md).
 
-Please also see the relevant configuration options for [core](../../deployment-strategies/configuration.md#enrollment-configuration) and the [edge itself](../../deployment-strategies/configuration.md#enrollment-service).
+Please also see the relevant configuration options for [core](../../deployment-strategies/configuration.md#settings) and the [edge itself](../../deployment-strategies/configuration.md#edge-deployment-parameters).
 {% endhint %}
 
 ## How to initiate user secure enrollment
@@ -98,7 +98,7 @@ Now you can click **"One-Click Configuration"** which will open **Desktop Client
 
 Entering URL/Token inside **Desktop Client** will trigger user enrollment process.
 
-<figure><img src="../../.gitbook/assets/image (221).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/client-enrollment-first-page.png" alt=""><figcaption></figcaption></figure>
 
 By following the **enrollment wizard** in **Desktop Client**, you'll be able to do the following:
 

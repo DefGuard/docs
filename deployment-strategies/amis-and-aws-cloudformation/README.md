@@ -17,7 +17,7 @@ The template consists of the following main components:
 * **Defguard Edge**
 * **PostgreSQL Database**
 
-We recommend reading the [Architecture documentation](https://docs.defguard.net/in-depth/architecture) to understand how these components interact.
+We recommend reading the [Architecture documentation](../../in-depth/architecture/) to understand how these components interact.
 
 <figure><img src="../../.gitbook/assets/aws_cloudformation_v2.png" alt=""><figcaption><p>Diagram showing how the components are deployed using the template</p></figcaption></figure>
 
@@ -88,7 +88,7 @@ Make sure to also check the rest of the pre-filled parameters, as you may want t
 
 #### Stack options
 
-Next, select the behavior on deployment failure:
+Next, select the behaviour on deployment failure:
 
 <figure><img src="../../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
 
@@ -130,7 +130,7 @@ Use the token displayed in the `AdminFirstDeviceToken` CloudFormation output to 
 
 <figure><img src="../../.gitbook/assets/image (40).png" alt=""><figcaption></figcaption></figure>
 
-Check this [guide](https://docs.defguard.net/using-defguard-for-end-users/desktop-client/instance-configuration#adding-instance) on adding a new instance in the Desktop client, to learn more about the process. As the instance URL, use the URL you defined in your Defguard Edge instance configuration section of the CloudFormation template (`ProxyUrl`).
+Check this [guide](../../using-defguard-for-end-users/desktop-client/instance-configuration.md#manually-adding-instance) on adding a new instance in the Desktop client, to learn more about the process. As the instance URL, use the URL you defined in your Defguard Edge instance configuration section of the CloudFormation template (`ProxyUrl`).
 
 #### Accessing the dashboard
 
@@ -176,7 +176,7 @@ To login, use the default `admin` username and the password defined in `CoreDefa
 #### Edge Instance
 
 * `ProxyGrpcPort` (optional): The gRPC port for the Edge, default is `50051`.
-* `ProxyHttpPort` (optional): The HTTP port for the Edge, default is `8000`. This is where the Defguard Edge web UI will be accessible. The proxy UI is used for user enrollment.
+* `ProxyHttpPort` (optional): The HTTP port for the Edge, default is `8000`. This is where the Defguard Edge web UI will be accessible. The Edge UI is used for user enrollment.
 * `ProxyInstanceType` (optional): The instance type for the Edge, default is `t3.micro`.
 * `ProxyLogLevel` (optional): The log level for the Edge, default is `info`. You can also set it to `error`, `debug` or `trace`.
 * `ProxyUrl` (required): The URL where the Defguard Edge will be accessible (e.g., `https://proxy.defguard.example.com`). This should be the URL that users will use to access the Defguard Edge web UI.

@@ -8,9 +8,7 @@ Locations protected by posture checks require Defguard Client `2.1` or later.
 
 If your organization enabled posture checks on a location, that location does not appear in clients older than `2.1`.
 
-The same applies to service locations. They are hidden when the client does not support them, for example on non-Windows platforms or in older clients.
-
-**Fix:** Update Defguard to the latest version, then reopen the app. If the missing location is a service location, use Defguard Client for Windows.
+**Fix:** Update Defguard to the latest version, then reopen the app.
 
 ### Client configuration is outdated
 
@@ -24,7 +22,7 @@ Update the instance configuration. See [Instance configuration](../../../using-d
 
 Refresh the instance screen manually or restart the app.
 
-See [Mobile Client](../../../using-defguard-for-end-users/mobile-client/) for mobile client behavior.
+See [Mobile Client](../../../using-defguard-for-end-users/mobile-client/) for mobile client behaviour.
 
 ### You do not have access to the location
 
@@ -32,8 +30,10 @@ Administrators can restrict a location to specific users or groups.
 
 If other users can see the location but you cannot, contact your administrator.
 
-### The location is hidden by design
+### The location is a service location
 
-Some location types are not shown in the regular client list.
+[Service locations](../../../features/service-locations.md) are never shown in the Defguard Client. They are established and maintained by a background service, so there is no entry in the location list and nothing for the user to connect to. An **Always on** service location is connected even when the Client is closed.
 
-For example, Windows service locations run in the background and are hidden in the UI after configuration is applied.
+**Fix:** nothing to fix in the Client. To confirm the connection is up, check the network adapters on the machine or the client status in the Defguard Core web interface - see [Checking if connection is established](../../../features/service-locations.md#checking-if-connection-is-established).
+
+Service locations require Defguard Client for Windows or Linux; the **Pre-logon** mode is Windows-only. If a location was made a service location and the machine runs macOS or a mobile client, it will not be available there at all.

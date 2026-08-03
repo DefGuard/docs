@@ -46,10 +46,6 @@ Make sure the Redirect URL you insert here is correct. The full list of redirect
 
 ## Obtaining Directory Synchronization credentials
 
-{% hint style="info" %}
-This feature is available only in Defguard 1.2.1 and above
-{% endhint %}
-
 {% hint style="warning" %}
 This feature is currently technically limited to 10000 members or groups. High user or group counts may still trigger your provider API limits even below this threshold. If you have many users (200+), we recommend you test this feature first before you decide to turn on automatic user deletion.
 {% endhint %}

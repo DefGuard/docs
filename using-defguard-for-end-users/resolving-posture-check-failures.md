@@ -86,7 +86,7 @@ The posture check requires Windows Active Directory domain membership, but the d
 **Fix:** Join active directory.
 
 {% hint style="warning" %}
-To join a Windows device to Active Directory you'll need Windows Pro,&#x20;
+To join a Windows device to Active Directory you'll need Windows Pro,
 
 Enterprise or Education. Windows Home cannot join an AD domain.
 {% endhint %}
@@ -107,7 +107,7 @@ Enterprise or Education. Windows Home cannot join an AD domain.
 
 **Configure the domain**
 
-* Settings -> System -> About -> Domain or workgroup&#x20;
+* Settings -> System -> About -> Domain or workgroup
 * Click "Change" next to "Rename this computer or change its domain or workgroup"
 
 <figure><img src="../.gitbook/assets/image (365).png" alt="" width="352"><figcaption></figcaption></figure>
@@ -126,9 +126,7 @@ The Windows device has not received a security update within the maximum allowed
 
 ### `device integrity check failed`
 
-Device integrity is required, but the device did not pass the integrity check. This applies to supported platforms such as macOS and Android.
-
-#### MacOS
+Device integrity is required, but the device did not pass the integrity check. On macOS this means System Integrity Protection is disabled.
 
 {% embed url="https://developer.apple.com/documentation/security/disabling-and-enabling-system-integrity-protection#Enable-System-Integrity-Protection" %}
 

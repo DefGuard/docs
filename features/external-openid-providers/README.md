@@ -27,7 +27,7 @@ In order to configure this feature, the following information is needed to be ob
 * (for custom provider) Your provider's base URL
 * (for Microsoft as provider) Tenant ID
 
-If you don't know where to find those values, go to the [Examples](./#examples) section, where you will find an example setup for the built-in providers.
+If you don't know where to find those values, go to the [Examples](./#configuration-and-setup) section, where you will find an example setup for the built-in providers.
 
 ### Base URL
 
@@ -55,7 +55,7 @@ For example, if your Defguard main dashboard is accessible at `https://defguard.
 * `https://enrollment.my-domain.net/openid/callback`
 * `https://enrollment.my-domain.net/openid/mfa/callback`
 
-These URIs will need to be provided in your provider's configuration. See [#examples](./#examples "mention") to learn more.
+These URIs will need to be provided in your provider's configuration. See [#configuration-and-setup](./#configuration-and-setup "mention") to learn more.
 
 ## Configuration and setup
 
@@ -69,22 +69,22 @@ In order to configure the external OpenID provider login, go to the settings in 
 
 For a configuration guide for given provider, check one of the dedicated articles:
 
-* [Google](google.md#directory-synchronization)
+* [Google](google.md)
 * [Microsoft](microsoft.md)
-* [Okta](okta.md#directory-synchronization)
-* [JumpCloud](jumpcloud.md#directory-synchronization)
+* [Okta](okta.md)
+* [JumpCloud](jumpcloud.md)
 * [Keycloak](keycloak.md)
 * [Zitadel](zitadel.md)
 * [Custom](custom.md)
 
 ### OpenID enrollment
 
-When you configure your provider, the proxy will automatically allow enrolling users through it. See [with-external-sso-google-microsoft-custom.md](../../using-defguard-for-end-users/enrollment/with-external-sso-google-microsoft-custom.md "mention") for the process from the user's point of view.
+When you configure your provider, Edge will automatically allow enrolling users through it. See [with-external-sso-google-microsoft-custom.md](../../using-defguard-for-end-users/enrollment/with-external-sso-google-microsoft-custom.md "mention") for the process from the user's point of view.
 
 For this to work, make sure you have the following two things set:
 
-* Additional allowed redirect URI in your provider's configuration (see [#redirect-url](./#redirect-url "mention"))
-* A `DEFGUARD_PROXY_URL` environment variable set correctly for your proxy (not core). This variable needs to be set for your proxy and should be equal to the URL where users perform the enrollment process. This should be set automatically if you are using the one-line deployment script version `1.2.1` or above. E.g. if your enrollment URL is `https://enrollment.my-domain.net`, set `DEFGUARD_PROXY_URL` to `https://enrollment.my-domain.net`.
+* Additional allowed redirect URI in your provider's configuration (see [#redirect-uri](./#redirect-uri "mention"))
+* The public Edge URL set correctly in **Settings → General → Instance settings**. It should be equal to the URL where users perform the enrollment process, for example `https://enrollment.my-domain.net`.
 
 #### Disabling automatic account creation
 
@@ -100,19 +100,31 @@ Defguard matches users with external sources by email. In order for users to be 
 
 If you choose not to enable this option, new users won't be able to automatically go through the enrollment. You will need to create their accounts by hand (with the same email address as the one they have set on your OIDC provider's side) and only then they will have an option to activate it by logging through the provider.
 
-### Directory synchronization
+#### Disabling password management
 
-{% hint style="info" %}
-This feature is available only in Defguard v1.2.0 and above
+Next to the account creation option there is **Disable password management**. Enable it when your provider is the only place where passwords should live: users sourced from it cannot then reset their password through Defguard, and they complete enrollment without setting one.
+
+<figure><img src="../../.gitbook/assets/oidc-disable-password-management.png"></figure>
+
+It only affects users who have **no Defguard password at all**.
+
+{% hint style="warning" %}
+Such users can only sign in through the provider. If it becomes unavailable, an administrator has to set a password for them.
 {% endhint %}
+
+### Directory synchronization
 
 Defguard supports synchronizing users' and groups' states based on the state of the external provider directory. The following things can be synchronized:
 
-* **User Groups**: Automatically create and assign user groups in Defguard to reflect them in Google Workspace.
+* **User Groups**: Automatically create and assign user groups in Defguard to reflect the groups in your provider's directory.
 * **User Deletion**: Removing a user from the provider's directory can also remove them from Defguard.
 * **User Status**: Disabling users in the provider's directory will disable them in Defguard.
 
-Defguard doesn't automatically create users based on the users in your provider's directory. They will have to manually log in to Defguard through your provider for their Defguard accounts to be created. Defguard is responsible only for synchronizing their later state.
+By default, Defguard doesn't create users based on the users in your provider's directory. They will have to manually log in to Defguard through your provider for their Defguard accounts to be created, and Defguard is responsible only for synchronizing their later state.
+
+{% hint style="info" %}
+Microsoft is the exception: enabling the **Import users from your Microsoft directory to Defguard** option creates the directory's users in Defguard during synchronization, without waiting for their first login. See [microsoft.md](microsoft.md "mention") for details.
+{% endhint %}
 
 After completing first step in wizard, you will have option to configure "**Directory Synchronization**".
 
@@ -127,11 +139,16 @@ The following configuration options are currently available in the directory syn
 * **Synchronization interval (600s by default):** How often to synchronize with your provider. Very low values may cause issues with the provider API. The user state is also synchronized on login.
 
 {% hint style="danger" %}
-If you want to delete your users based on the state of your provider we recommend trying out the "disable" behavior first to make sure everything works as expected. Always back up your database regularly.
+If you want to delete your users based on the state of your provider we recommend trying out the "disable" behaviour first to make sure everything works as expected. Always back up your database regularly.
 {% endhint %}
 
 * **User behaviour (Keep, Disable, Delete):** What to do with Defguard users who are absent from your provider's directory.
 * **Admin behaviour (Keep, Disable, Delete):** What to do with Defguard users with admin status (in Defguard) who are absent from your provider's directory.
+* **Synchronize users only from specified groups:** Limits synchronization to the members of the listed directory groups, separated by commas. Leave it empty to synchronize everyone. A group name that does not exist in the directory is skipped with a warning in the Core log.
+
+{% hint style="warning" %}
+Microsoft has a second, similar field, **Sync only matching memberships**, which limits which group memberships are mapped rather than which users are synchronized. If you use both, list the same groups in both, otherwise the members of the groups you filtered users by will not be recognised.
+{% endhint %}
 
 ## Known issues
 
@@ -181,7 +198,7 @@ docker container ls
 
 ```
 CONTAINER ID   IMAGE                            COMMAND                  CREATED       STATUS          PORTS                                              NAMES
-42986c3e772j   postgres:15-alpine               "docker-entrypoint.s…"   10 days ago   Up 5 hours      0.0.0.0:5432->5432/tcp                             defguard-db-1
+42986c3e772j   postgres:18-alpine               "docker-entrypoint.s…"   10 days ago   Up 5 hours      0.0.0.0:5432->5432/tcp                             defguard-db-1
 c4000t32936a   ghcr.io/defguard/defguard:main   "./defguard"             4 weeks ago   Up 19 minutes   0.0.0.0:8000->8000/tcp, 0.0.0.0:50055->50055/tcp   defguard-core-1
 ```
 
