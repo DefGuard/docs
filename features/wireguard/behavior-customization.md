@@ -10,7 +10,7 @@ metaLinks:
 {% hint style="warning" %}
 **Availability**
 
-This feature is available from Business license. See the [pricing page](https://defguard.net/pricing/) for details.
+This feature is available in Business and Enterprise plans. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}
 
 Navigate to **Settings → General → Client behaviour.**

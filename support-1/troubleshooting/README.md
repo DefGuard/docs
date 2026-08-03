@@ -142,7 +142,7 @@ If for any reason the Enrollment URL has changed (eg. the domain from: _enroll.c
 
 In order to do so:
 
-* **The administrator** needs to send an update token to each person - [see this documentation page.](https://docs.defguard.net/features/remote-user-enrollment#restarting-enrollment-manually)
+* **The administrator** needs to send an update token to each person - [see this documentation page.](../../features/remote-user-enrollment/#restarting-enrollment-manually)
 * **The user** needs to update manually the Enrollment URL providing also the received token - [see this documentation page](../../using-defguard-for-end-users/desktop-client/).
 
 ## How to check if the VPN is working / my VPN is not working
