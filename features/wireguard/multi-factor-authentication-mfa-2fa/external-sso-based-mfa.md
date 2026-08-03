@@ -24,7 +24,7 @@ Thus, the gateway needs to be configured to send statistics in that period.
 We recommend to set:
 
 * Gateway to send statistics every 30sec
-* Peer disconnect threshold we recommend it to be min. 300 (5 min)
+* Client disconnect threshold we recommend it to be min. 300 (5 min)
 {% endhint %}
 
 ### Testing MFA on Defguard client

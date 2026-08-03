@@ -90,15 +90,21 @@ Use this method if you are not running the OPNsense plugin.
 2. Decompress and move to bin directory
 
 ```sh
-tar xcf ./gateway.tar.gz
+tar xzf ./gateway.tar.gz
 sudo chmod +x gateway
 sudo mv gateway /usr/bin/
 ```
 
-3. Start the gateway, pointing it at its configuration file:
+3. Start the gateway:
 
 ```sh
-gateway --config /etc/defguard/gateway.toml
+gateway
 ```
 
-4. Adopt the gateway in Defguard Core, as described in [Adopt the Gateway component](../tutorials/initial-setup-wizard-setting-up-from-scratch.md#adopt-the-gateway-component).
+Unlike the package install, the binary archive does not place a configuration file on the system. Every Gateway option has a default, so the gateway starts without one. To change any of them - for example the WireGuard interface name or the statistics period - create a TOML file and pass it with `--config`, using the example in [Defguard Gateway](standalone-package-based-installation/gateway.md#configuration) as a reference.
+
+{% hint style="warning" %}
+When you pass `--config`, the file becomes the only source of configuration - see [Config file](configuration.md#config-file).
+{% endhint %}
+
+4. Adopt the gateway in Defguard Core, as described in [Adopt the Gateway component](../tutorials/initial-setup-wizard-setting-up-from-scratch.md#adopt-the-gateway-component). Core connects to the gateway's gRPC port (`50066` by default) and issues its certificates during adoption, so no token or Core address needs to be configured on the gateway side.
