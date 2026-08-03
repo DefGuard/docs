@@ -28,6 +28,8 @@ Ensure that the letter casing in your Defguard settings matches exactly with you
 | Group Search Base                     | Relative Distinguished Name (RDN) of your group entries.                                                                                            | ou=groups,dc=example,dc=org               |
 | User RDN attribute                    | The attribute that is part of the user's DN (the leftmost component of the DN).                                                                     | Empty, defaults to the username attribute |
 | Limit synchronization to these groups | Limits all LDAP actions only to users belonging to one of the specified groups, both ways. Values should be provided as a list separated by commas. | Empty                                     |
+| Synchronize account disabled status   | Keeps the enabled/disabled state of an account in sync with Active Directory. Active Directory only. See below.                                      | Disabled                                  |
+| Synchronization interval (sec)        | How often Defguard pulls changes from the directory when two-way synchronization is enabled.                                                         | 300                                       |
 
 ## Settings in depth
 
@@ -55,3 +57,4 @@ To use this feature, your LDAP user entries must possess the `memberOf` attribut
   * Changes in Defguard will be propagated to LDAP only if a user belongs to a given group in Defguard.
   * If the two-way synchronization is enabled, only the users belonging to the specified groups will be fetched from the LDAP server.
   * Adding a user to one of the synchronization groups in Defguard will automatically create that user in LDAP if they do not exist yet. If they already exist, their LDAP data, e.g. the email address, will be overwritten with the data from Defguard if only one-way synchronization (Defguard → LDAP) is enabled. Otherwise, if two-way synchronization is enabled, the selected authority source will be respected.
+* `Synchronize account disabled status`: Maps the Active Directory `userAccountControl` flag onto the Defguard account state, in both directions. This option requires `LDAP server is Active Directory` to be enabled; on a plain LDAP server it has no effect. **With this option disabled, disabling a user in Defguard deletes their LDAP entry instead of flagging the account as disabled.**

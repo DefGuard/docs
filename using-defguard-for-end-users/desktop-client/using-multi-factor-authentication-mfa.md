@@ -7,8 +7,7 @@ metaLinks:
 
 # Using Multi-Factor Authentication (MFA)
 
-* Up to version 1.4, only internal MFA was supported, user could only use MFA methods configured in his profile.
-* Since version 1.5 (currently in alpha), MFA can be configured per location, and administrators can choose whether a location will use internal MFA or external OIDC/SSO provider.
+MFA is configured per location, and administrators choose whether a location uses internal MFA or an external OIDC/SSO provider.
 
 Depending on location settings, you may use:
 
@@ -48,7 +47,7 @@ If you don't know how to set up or use your **Authenticator App,** please check 
 <figure><img src="../../.gitbook/assets/mfa-modal.png" alt="" width="563"><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-If you need a guide explaining how to use Mobile Client as your MFA method, please [scroll down.](using-multi-factor-authentication-mfa.md#authenticating-via-biometry)
+If you need a guide explaining how to use Mobile Client as your MFA method, please [scroll down.](using-multi-factor-authentication-mfa.md#multi-factor-authentication-via-mobile-biometry)
 {% endhint %}
 
 3. After entering code, click **Verify**
@@ -78,6 +77,6 @@ Here is a video showcasing this process:
 
 {% embed url="https://www.youtube.com/watch?v=b-XC76k4KVU" %}
 
-And here you can see the whole flow done with multiple steps including the user, desktop (and mobile) the Proxy and Defguard Core and gateway in the final step:
+And here you can see the whole flow done with multiple steps including the user, desktop (and mobile) the Edge and Defguard Core and gateway in the final step:
 
 <figure><img src="../../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>

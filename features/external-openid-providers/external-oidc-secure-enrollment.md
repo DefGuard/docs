@@ -10,7 +10,7 @@ metaLinks:
 {% hint style="warning" %}
 **Availability**
 
-This feature is available Business and Enterprise plan.
+This feature is available in Business and Enterprise plans. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}
 
 When [External OIDC is enabled,](./) users have the possibility to [securely enroll (automatically create a Defguard account) and very easily configure their desktop client](../../using-defguard-for-end-users/enrollment/with-external-sso-google-microsoft-custom.md) just by logging in with the SSO provider.
@@ -33,7 +33,7 @@ For this to work, see [#openid-enrollment](./#openid-enrollment "mention").
 
 ### Sign in with External SSO section not visible after configuring the external SSO
 
-Make sure the External SSO is configured properly and reachable from the Defguard Core service.&#x20;
+Make sure the External SSO is configured properly and reachable from the Defguard Core service.
 
 After clicking the **Launch enrollment** button check the Core service logs. Look for error messages similar to:
 

@@ -23,9 +23,9 @@ The good news is that we have raised the limits for the free tier, and it now su
 {% hint style="warning" %}
 **Upgrading from 1.5.x?**
 
-We recommend upgrading to the latest **1.6.x** release before migrating to **2.x**.&#x20;
+We recommend upgrading to the latest **1.6.x** release before migrating to **2.x**.
 
-This ensures that all intermediate migrations and configuration changes are applied in the expected order, reducing the risk of upgrade-related issues.&#x20;
+This ensures that all intermediate migrations and configuration changes are applied in the expected order, reducing the risk of upgrade-related issues.
 
 Recommended upgrade path: **any → latest 1.6.x → 2.x.**
 {% endhint %}
@@ -78,7 +78,7 @@ To work properly, this feature requires the Desktop Client to be in version 1.6.
 
 #### Force all traffic
 
-1.6 introduces the ability to "Force all traffic" as a [Client traffic policy](../features/wireguard/behavior-customization.md#client-traffic-policy-selection). However, this policy only works with desktop and mobile clients ≥ 1.6.0. Older clients (<1.6.0) will not respect the policy and will allow the users to select the "Predefined traffic" option. As an alternative, administrators can enforce all traffic by setting allowed ips: `0.0.0.0/0, ::/0`.
+1.6 introduces the ability to "Force all traffic" as a [Client traffic policy](../features/wireguard/behavior-customization.md#client-traffic-rules). However, this policy only works with desktop and mobile clients ≥ 1.6.0. Older clients (<1.6.0) will not respect the policy and will allow the users to select the "Predefined traffic" option. As an alternative, administrators can enforce all traffic by setting allowed ips: `0.0.0.0/0, ::/0`.
 
 #### macOS Client changes
 
@@ -113,7 +113,7 @@ To resolve this, before upgrading, we recommend first uninstalling the old Clien
 
 **Force all traffic**
 
-1.6 introduces the ability to "Force all traffic" as a [Client traffic policy](https://app.gitbook.com/s/e86iamwJVSYnIRsyVEAV/features/wireguard/behavior-customization#client-traffic-policy-selection). However, this policy only works with desktop and mobile clients ≥ 1.6.0. Older clients (<1.6.0) will not respect the policy and will allow the users to select the "Predefined traffic" option. As an alternative, administrators can enforce all traffic by setting allowed ips: `0.0.0.0/0, ::/0`.
+1.6 introduces the ability to "Force all traffic" as a [Client traffic policy](../features/wireguard/behavior-customization.md#client-traffic-rules). However, this policy only works with desktop and mobile clients ≥ 1.6.0. Older clients (<1.6.0) will not respect the policy and will allow the users to select the "Predefined traffic" option. As an alternative, administrators can enforce all traffic by setting allowed ips: `0.0.0.0/0, ::/0`.
 
 ## 1.4.x -> 1.5.0
 
@@ -244,7 +244,7 @@ You will need to change a duplicate email address before the upgrade by hand via
 
 ### Desktop Client Real Time Sync
 
-From 1.0.0 we have introduced [Enterprise features](https://github.com/DefGuard/docs/blob/docs/deployment-strategies/broken-reference/README.md), and one of them is [automatic and real-time desktop client configuration synchronization](../features/remote-user-enrollment/automatic-real-time-desktop-client-configuration.md).
+From 1.0.0 we have introduced [Enterprise features](../enterprise/license.md), and one of them is [automatic and real-time desktop client configuration synchronization](../features/remote-user-enrollment/automatic-real-time-desktop-client-configuration.md).
 
 To enable this on an **already configured desktop client,** one must perform one time instance update, which will generate necessary tokens on the client to perform from now on automatic updates. In details:
 
@@ -268,14 +268,12 @@ This change requires a few changes if you are upgrading:
 1. Remove `DEFGUARD_PROXY_UPSTREAM_GRPC_URL` variable - since Proxy does not connect to Defguard Core any more.
 2. Proxy is now the server to which Defguard Core connects, so you may want to:
    1. Optional: configure non-default Proxy gRPC port with `DEFGUARD_PROXY_GRPC_PORT -` default value is **50051**
-   2. If you have a Proxy in a different network segment - eg. have a custom installation (not with one-line install/docker compose all on one server) - you may also consider exposing the gRPC port and reverse-proxy (nginx/treafik/...) the port with SSL/TLS.
-      1. (Optional) If you want to use SSL with Proxy gRPC server without revers-proxy (nginx/etc) configure `DEFGUARD_PROXY_GRPC_CERT` and `DEFGUARD_PROXY_GRPC_KEY` following the [SSL setup guide](docker-compose.md#grpc-ssl-setup).
+   2. If you have a Proxy in a different network segment - eg. have a custom installation (not with one-line install/docker compose all on one server) - you may also consider exposing the gRPC port and reverse-proxy (nginx/traefik/...) the port with SSL/TLS.
    3. Also adjust your firewall config to open new Docker port mapping etc. Make sure Proxy gRPC server **can be reached from Core**.
 
 #### Core deployment configuration
 
 1. Add `DEFGUARD_PROXY_URL` variable to point to your Proxy gRPC server endpoint, for example `http://proxy:50051` when using Docker Compose - or any gRPC URL you have configured with your reverse proxy.
-2. (Optional) If using SSL configure `DEFGUARD_PROXY_GRPC_CA`
 
 #### Upgrade process
 

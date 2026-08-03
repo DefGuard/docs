@@ -4,11 +4,11 @@ When Multi-Factor Authentication is enabled for a VPN location, the gateway oper
 
 As a result, there is a session lifetime tied to the MFA authentication.
 
-### Peer Disconnect Threshold
+### Client disconnect threshold
 
-Each location has a **Peer Disconnect Threshold** setting (in seconds). This value controls how long the gateway waits before removing an inactive peer from its configuration.
+Each location has a **Client disconnect threshold (seconds)** setting. This value controls how long the gateway waits before removing an inactive peer from its configuration.
 
-To find this setting: open the location in the Defguard web UI, go to the location's settings, and look for **Peer Disconnect Threshold**.
+To find this setting: open the location in the Defguard web UI, go to the location's settings, and look for **Client disconnect threshold (seconds)**.
 
 If you are being disconnected sooner than expected:
 

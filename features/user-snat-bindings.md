@@ -9,11 +9,7 @@ metaLinks:
 {% hint style="warning" %}
 **Availability**
 
-This feature is available in all plans, with usage limits. See the [pricing page](https://defguard.net/pricing/) for details.
-{% endhint %}
-
-{% hint style="info" %}
-This feature is available starting from version 1.5
+This feature is available in Business and Enterprise plans. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}
 
 **User SNAT bindings** allow administrators to assign specific public IP addresses to users for outbound traffic from Defguard VPN gateways in a given location. This provides fine-grained control over how user traffic appears to external networks.

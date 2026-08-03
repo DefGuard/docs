@@ -7,7 +7,7 @@ metaLinks:
 
 # Create/Manage VPN Location
 
-A VPN location is a VPN network to which users can connect to. Every location has a [dedicated gateway](/broken/pages/1KLINb5EeNCxbdWVydt1) (or [multiple gateways if you deploy a high-availability solution](../../../deployment-strategies/high-availability-and-failover/#gateway-high-availability)).
+A VPN location is a VPN network to which users can connect to. Every location has a [dedicated gateway](../../../deployment-strategies/standalone-package-based-installation/gateway.md) (or [multiple gateways if you deploy a high-availability solution](../../../deployment-strategies/high-availability-and-failover/#gateway-high-availability)).
 
 {% hint style="success" %}
 Defguard supports **multiple locations**, for each location to work you need to configure it and deploy a dedicated gateway.
@@ -29,7 +29,7 @@ This is the default option that creates an typical VPN network.
 This feature is only for Windows platform.
 {% endhint %}
 
-Service Location is a Windows-specific configuration that automates secure network connectivity for managed devices. It ensures that authorized clients establish a persistent VPN tunnel immediately upon system startup, rather than waiting for a user to log in.
+Service Location is a Windows-specific configuration that automates secure network connectivity for managed devices. It ensures that authorized clients establish a persistent VPN tunnel immediately upon system startup, rather than waiting for a user to log in. The tunnel is handled by a background service, so the location is not shown in the Defguard Client and requires no action from the user. See [Service locations](../../service-locations.md) for details.
 
 ## VPN Location configuration
 
@@ -89,7 +89,7 @@ It supports multiple networks separated with comma, e.g. 10.11.1.0/0, 192.168.1.
 {% hint style="danger" %}
 Right now Defguard only manages routing of Allowed IPs (adding to routing table the networks defined in Allowed IPs).
 
-If you want the _All Traffic_ to work in the desktop client you need to also configure MASQUARED/NAT for the VPN interface. [Example of that here.](/broken/pages/MbleSplRWwmcWM2VEo3m#enabling-to-access-internet-through-your-vpn)
+If you want the _All Traffic_ to work in the desktop client you need to also configure MASQUARED/NAT for the VPN interface.
 {% endhint %}
 
 {% hint style="info" %}

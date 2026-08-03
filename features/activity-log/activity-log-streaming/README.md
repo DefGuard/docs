@@ -1,7 +1,7 @@
 ---
 description: >-
   This feature is designed to help teams centralize visibility into user
-  actions, security events, and system behavior by integrating with tools they
+  actions, security events, and system behaviour by integrating with tools they
   already use for monitoring and incident response.
 metaLinks:
   alternates:
@@ -14,7 +14,7 @@ metaLinks:
 {% hint style="warning" %}
 **Availability**
 
-This feature is available in all plans, with usage limits. See the [pricing page](https://defguard.net/pricing/) for details.
+This feature is available in Business and Enterprise plans. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}
 
 **Activity Log Streaming** allows you to forward real-time activity logs from your system to external SIEM (Security Information and Event Management) platforms.

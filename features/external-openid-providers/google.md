@@ -45,7 +45,7 @@ Here is [full Google documentation](https://developers.google.com/identity/openi
 
     <figure><img src="../../.gitbook/assets/obraz (8).png" alt=""><figcaption></figcaption></figure>
 
-    Make sure to select "Web application" as the application type. The other thing to note here is the redirect URI. It is the URI to which the user will be redirected from the external provider's authorization. This URI is in the form of `<DEFGUARD_URL>/auth/callback`. Replace `<DEFGUARD_URL>` with the URL under which your dashboard is accessible, e.g., `https://defguard.example.com`. If you'd like to use OpenID enrollment through proxy (and MFA, make sure to enter an additional URIs here in the form of `<DEFGUARD_PUBLIC_URL>/openid/callback`, and if you use External MFA please add also: `<DEFGUARD_PUBLIC_URL>/openid/mfa/callback`
+    Make sure to select "Web application" as the application type. The other thing to note here is the redirect URI. It is the URI to which the user will be redirected from the external provider's authorization. This URI is in the form of `<DEFGUARD_URL>/auth/callback`. Replace `<DEFGUARD_URL>` with the URL under which your dashboard is accessible, e.g., `https://defguard.example.com`. If you'd like to use OpenID enrollment through Edge (and MFA, make sure to enter an additional URIs here in the form of `<DEFGUARD_PUBLIC_URL>/openid/callback`, and if you use External MFA please add also: `<DEFGUARD_PUBLIC_URL>/openid/mfa/callback`
 11. After you proceed further, you will be presented with a popup containing your `Client ID` and `Client Secret`, copy them as you will need them in Defguard
 
 ## Obtaining Directory Synchronization credentials

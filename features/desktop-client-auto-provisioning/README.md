@@ -61,7 +61,7 @@ These values are analogous to those used in the standard user enrollment process
 3. The user follows the standard enrollment process to finish setting up their account
 4. Once enrollment is complete, the user can connect to VPN locations and access protected resources
 5. If configured, the user receives a welcome email after completing enrollment. \
-   This behavior is controlled by the **Send welcome email** option in the **Enrollment** settings page.
+   This behaviour is controlled by the **Send welcome email** option in the **Enrollment** settings page.
 
 
 
