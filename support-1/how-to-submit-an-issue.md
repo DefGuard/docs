@@ -18,7 +18,7 @@ Here is how you can do it in each component
 * core: use `--log-level debug` option or set `DEFGUARD_LOG_LEVEL` environment variable to `debug`
 * gateway: use `--log-level debug` option or set `DEFGUARD_LOG_LEVEL` environment variable to `debug`
 * proxy: use `--log-level debug` option or set `DEFGUARD_PROXY_LOG_LEVEL` environment variable to `debug`
-* client: use `--log-level debug` option or set `DEFGUARD_LOG_LEVEL` environment variable to `debug`
+* client: follow [desktop-client.md](sending-support-information/desktop-client.md "mention") guide.
 * `mobile client: select "debug" in "View Application Logs" section`
 
 ### 2. Reproduce the problem
