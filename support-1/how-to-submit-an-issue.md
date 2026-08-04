@@ -25,6 +25,7 @@ Here is how you can do it in each component
 * core: use `--log-level debug` option or set `DEFGUARD_LOG_LEVEL` environment variable to `debug`
 * gateway: use `--log-level debug` option or set `DEFGUARD_LOG_LEVEL` environment variable to `debug`
 * proxy: use `--log-level debug` option or set `DEFGUARD_PROXY_LOG_LEVEL` environment variable to `debug`
+* desktop client: set logging threshold in settings to `debug`, and set log level to `debug`.
 * `mobile client: select "debug" in "View Application Logs" section`
 
 Check the [Sending support information](sending-support-information/) guide on where you can find the logs.
