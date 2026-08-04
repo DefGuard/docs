@@ -121,6 +121,10 @@ syslog_socket = "/var/run/log"
 
 # Optional: set the priority of the Defguard forward chain
 #fw_priority = 0
+
+# Optional: seconds to wait after losing the Defguard Core connection
+# before tearing down the interface (0 = tear down immediately)
+#core_disconnect_grace_period = 30
 ```
 
 ## Service

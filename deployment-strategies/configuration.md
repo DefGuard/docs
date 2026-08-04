@@ -112,6 +112,9 @@ To run multiple commands, create an appropriate shell script.
 * `--cert-dir` / `DEFGUARD_GATEWAY_CERT_DIR`: Directory where Gateway stores its certificate files.
 * `--adoption-timeout` / `DEFGUARD_ADOPTION_TIMEOUT`: Time limit for the auto-adoption process, in minutes.
 * `--clean-on-quit` / `DEFGUARD_CLEAN_ON_QUIT`: On quit, removes the network interface and the VPN configuration.
+*   `--core-disconnect-grace-period` / `DEFGUARD_CORE_DISCONNECT_GRACE_PERIOD`: Seconds to wait after losing the connection to Defguard Core before tearing down the WireGuard interface. Defaults to 30. Set to 0 to tear down immediately.<br>
+
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>During the grace period peers keep forwarding traffic while Core is unreachable, so revoked or expired sessions retain access until the window elapses. Lower or zero the value if you need revocations to take effect even while Core is down.</p></div>
 
 ### Config file
 
