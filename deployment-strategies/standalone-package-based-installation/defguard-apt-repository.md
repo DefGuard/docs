@@ -2,8 +2,11 @@
 
 ### Distribution
 
-Defguard APT repository provides packages for **Debian 12**, **Debian 13**, and **Ubuntu 22.04/24.04 LTS.**\
-Packages are available on the default `trixie` repository distribution.
+Defguard APT repository provides packages for **Debian 12**, **Debian 13**, and **Ubuntu 22.04/24.04 LTS.**
+
+{% hint style="warning" %}
+On **Debian 12** and **Ubuntu 22.04** you have to use the `bookworm` distribution due to a known issue with `GLIBC_2.39` .
+{% endhint %}
 
 ### Adding Defguard APT repository
 
@@ -24,7 +27,24 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/defguar
 sudo apt update
 ```
 
-Afterward running these commands, you can install and update Defguard via APT.&#x20;
+Or to use the `bookworm` distribution (on Debian 12 or Ubuntu 22.04):
+
+```sh
+sudo apt update 
+sudo apt install -y ca-certificates curl 
+#Add official Defguard public GPG key
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://apt.defguard.net/defguard.asc -o /etc/apt/keyrings/defguard.asc
+sudo chmod a+r /etc/apt/keyrings/defguard.asc
+
+#Add APT repository
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/defguard.asc] https://apt.defguard.net/ bookworm release" | \
+   sudo tee /etc/apt/sources.list.d/defguard.list > /dev/null 
+
+sudo apt update
+```
+
+Afterward running these commands, you can install and update Defguard via APT.
 
 After new release, simply use `sudo apt update` to update repository.
 
