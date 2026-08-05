@@ -83,7 +83,6 @@
 * [Managing Defguard via CLI](features/managing-defguard-via-cli.md)
 * [User management](features/user-management.md)
 
-
 ## Deployment strategies
 
 * [Overview](deployment-strategies/overview.md)
@@ -238,3 +237,16 @@
     * [Adding translations](for-developers/dev-env-setup/translations-web/adding-translations.md)
   * [Translations (client)](for-developers/dev-env-setup/translations-client/README.md)
     * [Adding translations](for-developers/dev-env-setup/translations-client/adding-translations.md)
+* [REST API](for-developers/rest-api/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: true
+      downloadLink: false
+      grouping: by-operation
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: defguard-2-1
+    ```
