@@ -55,7 +55,7 @@ If you don't know how to install AUR packages, please follow these guidelines:
 
 ### Ubuntu 22.04 / Debian 12
 
-Download `defguard-client_{x.x.x}_{arch}_ubuntu-22-04-lts.deb` from [releases](https://github.com/DefGuard/client/releases).
+Use the official [Defguard APT repository](../../deployment-strategies/standalone-package-based-installation/defguard-apt-repository.md) or download `defguard-client_{x.x.x}_{arch}_ubuntu-22-04-lts.deb` from [releases](https://github.com/DefGuard/client/releases).
 
 ### Client update
 
