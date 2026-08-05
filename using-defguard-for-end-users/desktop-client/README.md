@@ -27,9 +27,9 @@ Guides:
 
 Version 2.1 brings a completely redesigned Desktop Client. It now lives in the system tray, where a **compact view** lets you connect to and disconnect from locations, while the **full window** remains available for configuration, logs and settings.
 
-Version 2.1.0 is also **required for [device posture verification](../../features/device-posture-verification.md)**. Locations with posture checks assigned are not sent to older clients and do not appear in them.
+Version 2.1.0 is also **required for** [**device posture verification**](../../features/device-posture-verification.md). Locations with posture checks assigned are not sent to older clients and do not appear in them.
 
-<figure><img src="../../.gitbook/assets/defguard-client-tray-view.png"></figure>
+<figure><img src="../../.gitbook/assets/defguard-client-tray-view.png" alt=""><figcaption></figcaption></figure>
 
 ## Windows
 
@@ -40,13 +40,13 @@ Download the Windows installer from the [download page](https://defguard.net/dow
 There are two versions of the Desktop Client available to download:
 
 * [App Store](https://apps.apple.com/pl/app/defguard-desktop-client/id6754601166)
-* [Stand-alone application](https://github.com/DefGuard/client/releases/latest) – **Defguard_VERSION_universal.dmg**
+* [Stand-alone application](https://github.com/DefGuard/client/releases/latest) – **Defguard\_VERSION\_universal.dmg**
 
 These are the differences:
 
 |                                  | App Store version                       | Stand-alone application                                              |
-|----------------------------------|-----------------------------------------|----------------------------------------------------------------------|
-| Is available                     | in supported countries.                 | everywhere.                                                          | 
+| -------------------------------- | --------------------------------------- | -------------------------------------------------------------------- |
+| Is available                     | in supported countries.                 | everywhere.                                                          |
 | Desktop Client updates           | can be installed automatically.         | have to be installed manually.                                       |
 | VPN connection handler           | uses application extension.             | installs a system extension, which requires additional user consent. |
 | Disconnecting one VPN connection | also disconnects other VPN connections. | keeps other VPN connections open.                                    |
@@ -54,23 +54,23 @@ These are the differences:
 
 ### Stand-alone installation
 
-* Download **Defguard_VERSION_universal.dmg** from [releases](https://github.com/DefGuard/client/releases/latest).
+* Download **Defguard\_VERSION\_universal.dmg** from [releases](https://github.com/DefGuard/client/releases/latest).
 * Open the downloaded file – a disk image should mount.
 * In the opened window, drag **Defguard.app** to **Applications** folder.
 * Unmount the disk image.
-* Optionally, delete **Defguard_VERSION_universal.dmg**.
+* Optionally, delete **Defguard\_VERSION\_universal.dmg**.
 
 On the first launch of **Defguard.app**, you'll be asked to consent to VPN network extension installation.
 
 * Open **System Settings**.
 * Go to **General** → **Login Items & Extensions**.
 
-<figure><img src="../../.gitbook/assets/macos-login-items-and-extensions.png"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/macos-login-items-and-extensions.png" alt=""><figcaption></figcaption></figure>
 
 * Scroll down to **Extensions**.
 * Click on **Defguard** and enable its **Network Extension**.
 
-<figure><img src="../../.gitbook/assets/macos-defguard-extension.png"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/macos-defguard-extension.png" alt=""><figcaption></figcaption></figure>
 
 ## Linux
 
@@ -103,12 +103,11 @@ If you don't know how to install AUR packages, please follow these guidelines:
 
 ### Ubuntu 22.04 / Debian 12
 
-Download `defguard-client_{x.x.x}_{arch}_ubuntu-22-04-lts.deb` from [releases](https://github.com/DefGuard/client/releases/latest).
+Use the official [Defguard APT repository](../../deployment-strategies/standalone-package-based-installation/defguard-apt-repository.md) or download `defguard-client_{x.x.x}_{arch}_ubuntu-22-04-lts.deb` from [releases](https://github.com/DefGuard/client/releases).
 
 ## Client update
 
-Defguard Client regularly checks for updates. In order to do so, operating system name and installed application version are sent to the Defguard update service.
-This functionality can be turned off in the Client settings, so that no data is sent.
+Defguard Client regularly checks for updates. In order to do so, operating system name and installed application version are sent to the Defguard update service. This functionality can be turned off in the Client settings, so that no data is sent.
 
 To turn off automatic checking for updates:
 
@@ -116,7 +115,7 @@ To turn off automatic checking for updates:
 * Click **Settings** icon on the left pane.
 * Turn off **Check for updates automatically**.
 
-<figure><img src="../../.gitbook/assets/client-check-for-updates.png"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/client-check-for-updates.png" alt=""><figcaption></figcaption></figure>
 
 If a new version is available, a notification with a download button will be shown near the bottom of the menu.
 
@@ -125,7 +124,7 @@ If a new version is available, a notification with a download button will be sho
 Application data is stored in following locations:
 
 | Platform            | Storage directory                                |
-|---------------------|--------------------------------------------------|
+| ------------------- | ------------------------------------------------ |
 | Windows             | C:\Users\\\<USER>\AppData\Roaming\net.defguard   |
 | macOS (App Store)   | ${HOME}/Library/Containers/net.defguard          |
 | macOS (stand-alone) | ${HOME}/Library/Application Support/net.defguard |
@@ -135,12 +134,12 @@ Application data is stored in following locations:
 
 All relevant application logs are available in the client's Settings, where they can be filtered by source and log level:
 
-<figure><img src="../../.gitbook/assets/client-logging.png"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/client-logging.png" alt=""><figcaption></figcaption></figure>
 
 In case of unexpected issues, the log files themselves can be found in the following default locations:
 
 | Platform            | Client logs                                                            | Background service logs                                  |
-|---------------------|------------------------------------------------------------------------|----------------------------------------------------------|
+| ------------------- | ---------------------------------------------------------------------- | -------------------------------------------------------- |
 | Windows             | C:\Users\<USER>\AppData\Roaming\net.defguard\logs                      | C:\Logs\defguard-service                                 |
 | macOS (App Store)   | ${HOME}/Library/Containers/net.defguard/Data/Library/Logs/net.defguard | ${HOME}/Library/Group Containers/group.net.defguard/Logs |
 | macOS (stand-alone) | ${HOME}/Library/Logs/net.defguard                                      | ${HOME}/Library/Group Containers/group.net.defguard/Logs |
