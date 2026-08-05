@@ -15,7 +15,7 @@ This feature is available in Business and Enterprise plans. See the [pricing pag
 
 ## REST API documentation
 
-You can explore the Defguard REST API using [Swagger UI](https://swagger.io/tools/swagger-ui/) by going to `<YOUR_DEFGUARD_URL>/api-docs`.
+You can explore the Defguard REST API using [Swagger UI](https://swagger.io/tools/swagger-ui/) by going to `<YOUR_DEFGUARD_URL>/api-docs` or [core](../../for-developers/rest-api/core/ "mention") page.
 
 API specification JSON in OpenAPI format can also be fetched from `<YOUR_DEFGUARD_URL>/api/v1/api-docs`.
 
