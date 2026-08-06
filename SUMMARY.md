@@ -230,11 +230,11 @@
 * [REST API](for-developers/rest-api/README.md)
   * [Core](for-developers/rest-api/core/README.md)
     * ```yaml
-      type: builtin:openapi
       props:
         models: true
         downloadLink: false
         grouping: by-operation
+      type: builtin:openapi
       dependencies:
         spec:
           ref:
