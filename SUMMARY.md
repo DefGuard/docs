@@ -134,6 +134,7 @@
   * [Using Multi-Factor Authentication (MFA)](using-defguard-for-end-users/desktop-client/using-multi-factor-authentication-mfa.md)
   * [MTU Setting](using-defguard-for-end-users/desktop-client/mtu-setting.md)
   * [Command-line (defguard-cli)](using-defguard-for-end-users/desktop-client/command-line-defguard-cli.md)
+  * [Nightly builds](using-defguard-for-end-users/desktop-client/nightly-builds.md)
 * [CLI Client](using-defguard-for-end-users/cli-client.md)
 * [Other WireGuard® Clients](using-defguard-for-end-users/adding-wireguard-devices/README.md)
   * [Configuring a device for new VPN Location manually](using-defguard-for-end-users/adding-wireguard-devices/configuring-a-device-for-a-new-vpn-location.md)
