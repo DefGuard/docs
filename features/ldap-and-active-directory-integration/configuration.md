@@ -33,11 +33,15 @@ It is best to start with a basic working connection first. Once Defguard can con
 
 This section defines how Defguard connects to your LDAP server and authenticates against it.
 
-<figure><img src="../../.gitbook/assets/ldap-connection-settings.png" alt="LDAP Connection settings"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (369).png" alt=""><figcaption></figcaption></figure>
 
 * **Use StartTLS**: Enable this option for an encrypted connection to LDAP. StartTLS is an LDAP extended operation that begins with an unencrypted TCP connection on port 389, then sends a StartTLS request to initiate a TLS handshake without changing ports.
 * **LDAP server is Active Directory**: Enable this option for an Active Directory server. Active Directory (AD) is Microsoft’s directory service for managing users, computers, and resources in Windows networks. See [#example-active-directory-configuration](examples.md#example-active-directory-configuration "mention") for a working example.
 * **Verify TLS certificate**: Enable this option to validate the TLS certificate. For custom self-signed certificates, it may be reasonable to leave this option disabled.
+* **Disable password management**: Once enabled, LDAP-sourced users without\
+  a local Defguard password lose the change- and reset-password options in Defguard\
+  (both in their profile and on the Enrollment Service page). Administrators are\
+  always exempt so they cannot be locked out if the directory becomes unavailable.
 * **URL**: The LDAP server's URL. Use the `ldap:` schema for unencrypted connections or connections with StartTLS (this defaults to TCP port 389), or the `ldaps:` schema for SSL-encrypted connections (this defaults to TCP port 636).
 * **Bind username** and **Bind password**: These refer to the credentials used in an LDAP "bind" operation to authenticate a client to the directory server. The username field should contain a Distinguished Name (DN) for a service account that is able to manage LDAP entries.
 * **Limit synchronization to these groups**: specifies the groups of which members should be synchronized.

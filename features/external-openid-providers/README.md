@@ -86,7 +86,7 @@ For this to work, make sure you have the following two things set:
 * Additional allowed redirect URI in your provider's configuration (see [#redirect-uri](./#redirect-uri "mention"))
 * The public Edge URL set correctly in **Settings → General → Instance settings**. It should be equal to the URL where users perform the enrollment process, for example `https://enrollment.my-domain.net`.
 
-#### Disabling automatic account creation
+### Disabling automatic account creation
 
 {% hint style="warning" %}
 Defguard matches users with external sources by email. In order for users to be created in Defguard they must have the following attributes set:
@@ -100,17 +100,15 @@ Defguard matches users with external sources by email. In order for users to be 
 
 If you choose not to enable this option, new users won't be able to automatically go through the enrollment. You will need to create their accounts by hand (with the same email address as the one they have set on your OIDC provider's side) and only then they will have an option to activate it by logging through the provider.
 
-#### Disabling password management
+### Disabling password management
 
-Next to the account creation option there is **Disable password management**. Enable it when your provider is the only place where passwords should live: users sourced from it cannot then reset their password through Defguard, and they complete enrollment without setting one.
+Next to the account creation option there is **Disable password management** option. When enabled:
 
-<figure><img src="../../.gitbook/assets/oidc-disable-password-management.png"></figure>
+* Users sourced from this provider **who have no local Defguard password** can no longer change or reset their password through Defguard - the option is hidden in their profile and on the Enrollment Service page.
+* **Admins are always exempt.** An administrator can never be locked out this way, which protects against losing access if the external provider becomes unavailable.
+* Users who still have a local password set are unaffected.
 
-It only affects users who have **no Defguard password at all**.
-
-{% hint style="warning" %}
-Such users can only sign in through the provider. If it becomes unavailable, an administrator has to set a password for them.
-{% endhint %}
+<figure><img src="../../.gitbook/assets/oidc-disable-password-management.png" alt=""><figcaption></figcaption></figure>
 
 ### Directory synchronization
 
@@ -147,7 +145,7 @@ If you want to delete your users based on the state of your provider we recommen
 * **Synchronize users only from specified groups:** Limits synchronization to the members of the listed directory groups, separated by commas. Leave it empty to synchronize everyone. A group name that does not exist in the directory is skipped with a warning in the Core log.
 
 {% hint style="warning" %}
-Microsoft has a second, similar field, **Sync only matching memberships**, which limits which group memberships are mapped rather than which users are synchronized. If you use both, list the same groups in both, otherwise the members of the groups you filtered users by will not be recognised.
+Microsoft has a second, similar field, **Sync only matching memberships**, which limits which group memberships are mapped rather than which users are synchronized. If you use both, list the same groups in both, otherwise the members of the groups you filtered users by will not be recognized.
 {% endhint %}
 
 ## Known issues

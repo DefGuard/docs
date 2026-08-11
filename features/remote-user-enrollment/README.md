@@ -112,12 +112,13 @@ After completing enrolment process, you will be able to connect to the VPN.
 
 ## Enrollment settings
 
-As an admin, you can configure enrolment-related settings on the **Enrollment** page. This includes:
+As an admin, you can configure enrollment-related settings on the **Enrollment** page. This includes:
 
+* Customizing the [Edge UI settings](./#edge-ui-settings)
 * Setting token validity time
 * Enrollment session duration
 
-<figure><img src="../../.gitbook/assets/image (222).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (43).png" alt=""><figcaption></figcaption></figure>
 
 * Customizing the user [onboarding messages](user-onboarding-after-enrollment.md).
 
@@ -136,3 +137,20 @@ There are several **template tags** (similar to [Jinja2](https://jinja.palletspr
 * `{{ admin_email }}`- email of the administrator who initiated the enrollment process
 * `{{ defguard_url }}`- internal Defguard URL (your Defguard instance address)
 * `{{ defguard_version }}` - Defguard version
+
+#### Edge UI settings
+
+{% hint style="info" %}
+These options require an active **Business** subscription. Without a valid license both settings stay at their default (enabled) value.
+{% endhint %}
+
+The Defguard proxy (**Edge**) serves a small public web interface to end users - the same page reached through the enrollment / onboarding link, which also offers self-service password reset. On the **Enrollment** settings page, under **Edge UI Settings**, you can hide parts of that interface your organization does not need.
+
+| Option                                                                    | Default | Description                                                                                                                                                                                                                                               |
+| ------------------------------------------------------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Display the "Download client" page during enrollment                      | Enabled | Shows the step that lets users download the Defguard desktop client during enrollment. Disable it when the client is distributed centrally (for example via MDM or a software-distribution platform) so users are not prompted to download it themselves. |
+| Display the "Reset password" option on the Enrollment Service home screen | Enabled | Shows the self-service password reset entry on the Enrollment Service home screen. Disable it when authentication is handled entirely by an external SSO provider and Defguard's internal password reset is not needed.                                   |
+
+{% hint style="info" %}
+If your users are managed by an external identity provider, see also [disabling password management](../external-openid-providers/#disabling-password-management-1) for external OpenID and the [LDAP setting](../ldap-and-active-directory-integration/configuration.md#connection-settings) of the same name, which hide the password controls per user rather than for the whole instance.
+{% endhint %}

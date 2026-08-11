@@ -8,7 +8,7 @@ Go to AWS console and open the Certificate Manager service page.
 
 Request a new certificate (if you don’t have one already).
 
-<figure><img src="../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
 
 A public certificate is enough.
 
