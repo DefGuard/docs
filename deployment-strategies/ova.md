@@ -154,10 +154,6 @@ The installer is idempotent, seeds `/opt/defguard/state.json` from what is actua
 
 #### Updating containers manually
 
-{% hint style="warning" %}
-This only pulls new container images. It does not run OVA migrations and does not take a backup, so prefer `dg-ctl upgrade` unless you specifically want an image-only refresh.
-{% endhint %}
-
 {% hint style="info" %}
 By default the generated Compose config uses a floating Docker image tag pinned to the latest stable major version, for example `2`.
 
