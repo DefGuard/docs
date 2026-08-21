@@ -64,7 +64,9 @@ This feature is currently technically limited to 10000 members or groups. High u
 
     <figure><img src="../../.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
 12. Grant the `okta.groups.read` and `okta.users.read` scopes.
-13. Everything should be set now. Try testing your provider connection in Defguard directory synchronization settings.
+13. Open the "Admin roles" tab of the app integration and click "Edit assignments".
+14. Assign the "Read-only Administrator" role, or a custom role with "View users and their details" and "View groups and their details". Granting the scopes alone is not enough, Okta also requires an admin role on the app.
+15. Everything should be set now. Try testing your provider connection in Defguard directory synchronization settings.
 
 ## Configuring Okta as external OIDC in Defguard
 
