@@ -2,8 +2,8 @@
 
 Firstly, we need to obtain credentials such as
 
-* `Client ID`
-* `Client secret`
+- `Client ID`
+- `Client secret`
 
 If you already have them, please skip to [#configuring-okta-as-external-oidc-in-defguard](okta.md#configuring-okta-as-external-oidc-in-defguard "mention")
 
@@ -38,26 +38,33 @@ This feature is currently technically limited to 10000 members or groups. High u
 1.  Go to the Okta admin dashboard and navigate to the Applications menu
 
     <figure><img src="../../.gitbook/assets/image (76).png" alt=""><figcaption></figcaption></figure>
-2. Make a completely new app integration by clicking "Create App Integration". This app will be solely responsible for communicating with Okta API.
+
+2.  Make a completely new app integration by clicking "Create App Integration". This app will be solely responsible for communicating with Okta API.
 3.  Select "API services"
 
     <figure><img src="../../.gitbook/assets/image (77).png" alt=""><figcaption></figcaption></figure>
-4. Name your app integration, e.g. "Defguard directory sync"
+
+4.  Name your app integration, e.g. "Defguard directory sync"
 5.  Go to your newly created app integration settings and change the client authentication to "Public key / Private key"
 
     <figure><img src="../../.gitbook/assets/image (72).png" alt=""><figcaption></figcaption></figure>
-6. Next, click "Add key" and generate a new key pair.
-7. Copy the generated private key in the JSON format to your clipboard
-8. Paste the copied key in the Defguard Okta directory sync settings in the "Directory Sync Private Key" field.
-9. Go back to Okta again. Save your new Okta configuration along with the newly generated keys. Now, copy the app integration's client ID. Paste it in the "Directory Sync Client ID" field in Defguard Okta directory sync settings. Save your Defguard settings.
+
+6.  Next, click "Add key" and generate a new key pair.
+7.  Copy the generated private key in the JSON format to your clipboard
+8.  Paste the copied key in the Defguard Okta directory sync settings in the "Directory Sync Private Key" field.
+9.  Go back to Okta again. Save your new Okta configuration along with the newly generated keys. Now, copy the app integration's client ID. Paste it in the "Directory Sync Client ID" field in Defguard Okta directory sync settings. Save your Defguard settings.
 10. Return to Okta and under "General settings" turn off the "Require Demonstrating Proof of Possession (DPoP) header in token requests" option. Save your changes.
 
     <figure><img src="../../.gitbook/assets/image (74).png" alt=""><figcaption></figcaption></figure>
+
 11. Now, navigate to the Okta API scopes tab.
 
     <figure><img src="../../.gitbook/assets/image (73).png" alt=""><figcaption></figcaption></figure>
+
 12. Grant the `okta.groups.read` and `okta.users.read` scopes.
-13. Everything should be set now. Try testing your provider connection in Defguard directory synchronization settings.
+13. Open the "Admin roles" tab of the app integration and click "Edit assignments".
+14. Assign the "Read-only Administrator" role, or a custom role with "View users and their details" and "View groups and their details".
+15. Everything should be set now. Try testing your provider connection in Defguard directory synchronization settings.
 
 ## Configuring Okta as external OIDC in Defguard
 
