@@ -153,6 +153,7 @@
     * [Enrollment URL Changed](support-1/troubleshooting-guides/core/enrollment-url-changed.md)
     * [Failed to parse duration](support-1/troubleshooting-guides/core/failed-to-parse-duration.md)
     * [Core cannot connect to Gateway or Edge after restart on single-host deployments](support-1/troubleshooting-guides/core/core-cannot-connect-to-gateway-or-edge-after-restart-on-single-host-deployments.md)
+    * [Cannot save settings after deleting the default admin](support-1/troubleshooting-guides/core/settings-violate-foreign-key-constraint-fk-default-admin.md)
   * [Desktop Client](support-1/troubleshooting-guides/desktop-client/README.md)
     * [Unix socket permission error on connect (Linux)](support-1/troubleshooting-guides/desktop-client/unix-socket-permission-error-on-connect-linux.md)
     * [MFA location disconnected after X-time](support-1/troubleshooting-guides/desktop-client/mfa-location-disconnected-after-x-time.md)
