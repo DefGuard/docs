@@ -135,7 +135,6 @@
   * [MTU Setting](using-defguard-for-end-users/desktop-client/mtu-setting.md)
   * [Command-line (defguard-client)](using-defguard-for-end-users/desktop-client/command-line-defguard-cli.md)
   * [Nightly builds](using-defguard-for-end-users/desktop-client/nightly-builds.md)
-* [CLI Client](using-defguard-for-end-users/cli-client.md)
 * [Other WireGuard® Clients](using-defguard-for-end-users/adding-wireguard-devices/README.md)
   * [Configuring a device for new VPN Location manually](using-defguard-for-end-users/adding-wireguard-devices/configuring-a-device-for-a-new-vpn-location.md)
 * [Password change / Reset](using-defguard-for-end-users/changing-your-password.md)
@@ -241,11 +240,11 @@
 * [REST API](for-developers/rest-api/README.md)
   * [Core](for-developers/rest-api/core/README.md)
     * ```yaml
-      type: builtin:openapi
       props:
         models: true
         downloadLink: false
         grouping: by-operation
+      type: builtin:openapi
       dependencies:
         spec:
           ref:

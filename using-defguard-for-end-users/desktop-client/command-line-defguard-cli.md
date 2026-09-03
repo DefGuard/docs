@@ -5,7 +5,7 @@
 The CLI shares the configuration with the desktop client - the same instances and locations, the same background service for managing WireGuard interfaces. Any instance you add in the desktop app is immediately usable from the CLI.
 
 {% hint style="info" %}
-This page covers running the **desktop client** from the terminal. If you are looking for the standalone headless agent that enrolls a machine as a **network device** and runs as a polling service, see [CLI Client (dg)](../cli-client.md) instead - that is a different tool.
+This page covers running the **desktop client** from the terminal. If you are looking for the standalone headless agent that enrolls a machine as a **network device** and runs as a polling service, see [CLI Client (dg)](/broken/pages/yjUb0u49KJzUtjcXA4C6) instead - that is a different tool.
 {% endhint %}
 
 ### Requirements

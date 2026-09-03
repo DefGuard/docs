@@ -61,7 +61,7 @@ _Defguard is not an official WireGuard project, and WireGuard is a registered tr
 
 ### [Network devices](../features/network-devices.md)
 
-Like regular user devices but designed to be used with the [Defguard CLI client](../using-defguard-for-end-users/cli-client.md).
+Like regular user devices but designed to be used with the [Defguard CLI client](/broken/pages/yjUb0u49KJzUtjcXA4C6).
 
 ### [Service locations](../features/service-locations.md)
 
