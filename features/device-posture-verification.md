@@ -16,7 +16,7 @@ Older clients do not receive the configuration for locations with posture checks
 {% endhint %}
 
 {% hint style="warning" %}
-The disk encryption posture check requires the macOS client to be installed from a PKG package. It is unavailable in the App Store build. [See why](device-posture-verification.md#disk-encryption-posture-availability-on-macos).
+The disk encryption posture check requires the macOS client to be installed from a DMG package. It is unavailable in the App Store build. [See why](device-posture-verification.md#disk-encryption-posture-availability-on-macos).
 {% endhint %}
 
 Posture checks let you verify the security state of a user’s device before allowing it to connect to a location. Instead of trusting only the user’s identity, Defguard can also evaluate device requirements such as:
@@ -135,9 +135,9 @@ Operating system and kernel versions are compared by major version only. A requi
 
 ### Disk encryption posture availability on macOS
 
-Defguard Desktop Client for macOS can be installed from the official App Store or using PKG packages published in the release assets. The disk encryption posture check is only available in the PKG build.
+Defguard Desktop Client for macOS can be installed from the official App Store or using DMG packages published in the release assets. The disk encryption posture check is only available in the DMG build.
 
 Mac App Store apps must run inside Apple's App Sandbox, which isolates them from the rest of the system. Checking whether FileVault is enabled means reading system-level state that sits outside the sandbox, and Apple provides no permission that lets a sandboxed app do this. The App Store build therefore has no way to obtain the signal at all and **will report disk encryption as disabled**.
 
-The PKG installer is not subject to those restrictions. If your deployment relies on the disk encryption posture check, distribute the PKG build to macOS clients rather than the App Store version.
+The DMG installer is not subject to those restrictions. If your deployment relies on the disk encryption posture check, distribute the DMG build to macOS clients rather than the App Store version.
 
