@@ -23,7 +23,7 @@
     * [Internal SSO based MFA](features/wireguard/multi-factor-authentication-mfa-2fa/internal-sso-based-mfa.md)
     * [External SSO based MFA](features/wireguard/multi-factor-authentication-mfa-2fa/external-sso-based-mfa.md)
   * [Adding client device](features/wireguard/remote-desktop-activation.md)
-  * [Client behaviour customization](features/wireguard/behavior-customization.md)
+  * [Client behavior customization](features/wireguard/behavior-customization.md)
   * [DNS and domains](features/wireguard/dns-and-domains.md)
   * [Executing custom gateway commands](features/wireguard/executing-custom-gateway-commands.md)
 * [Remote user enrollment](features/remote-user-enrollment/README.md)
