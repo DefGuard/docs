@@ -70,6 +70,19 @@ Editing a flow changes it for every location it is assigned to. Afterwards, all 
 
 A flow in use cannot be deleted. Defguard names the locations that still depend on it and asks you to assign another flow, or to pick another default, first.
 
+### Client compatibility
+
+Multi-step flows need **Defguard client 2.2.0 or newer** on every platform, desktop and mobile alike. Older clients are not locked out of MFA, though: they can still use a flow whose shape has an equivalent in the pre-2.2 model, where a location was either Internal or External MFA.
+
+| The location's MFA configuration                                                                                              | A pre-2.2 client                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| MFA not enforced                                                                                                              | Connects as usual                                                                                                            |
+| One flow, one step, holding **Authenticator App**, **Email Verification Code**, **Biometrics** and **Defguard Mobile Client** | Connects, and behaves like the old Internal MFA. A **FIDO2 Security Key** factor in that step is ignored rather than offered |
+| One flow, one step, holding **External ID Provider** alone                                                                    | Connects, and behaves like the old External MFA                                                                              |
+| More than one step, more than one flow assigned, or a smaller set of factors in the single step                               | The location is not sent to the client at all                                                                                |
+
+A location withheld this way simply does not appear in the client, which is deliberate: an old client is never offered a location whose requirements it cannot present, and never connects to it without MFA. Users on such a client have to upgrade before they can reach the location.
+
 ### Checking that a device can prove biometrics
 
 A device with biometry configured as an MFA method shows a fingerprint icon next to the device name in the device list of the user's profile.

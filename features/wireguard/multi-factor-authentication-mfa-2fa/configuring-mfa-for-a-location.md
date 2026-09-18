@@ -67,7 +67,7 @@ The gateway therefore needs to send [statistics](../../../in-depth/architecture/
 When MFA configuration is changed, all clients must do an [Instance Update](../../../using-defguard-for-end-users/desktop-client/instance-configuration.md#updating-instance). Until a client updates, it does not know about the new flow.
 {% endhint %}
 
-A location whose flow has more than one step requires **Defguard client 2.2.0 or newer** on every platform. Older clients cannot represent a multi-step flow, so such a location is not offered to them and a connection attempt is rejected. An out-of-date client is never allowed to connect without MFA.
+A location whose flow has more than one step requires **Defguard client 2.2.0 or newer** on every platform. Older clients can still connect to a flow that has a pre-2.2 equivalent, and a location they cannot represent is withheld from them rather than offered without MFA. See [Client compatibility](mfa-flows-and-methods.md#client-compatibility) for which shapes still work.
 
 ### When a method cannot be used
 
