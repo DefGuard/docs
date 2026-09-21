@@ -228,6 +228,7 @@
   * [Product Development Procedure](in-depth/defguard-open-organisation/product-development-procedure.md)
   * [Roadmap](in-depth/defguard-open-organisation/roadmap.md)
 * [BoringTun](in-depth/boringtun.md)
+* [Performance and deployment sizing](in-depth/performance-and-deployment-sizing.md)
 
 ## For Developers
 
