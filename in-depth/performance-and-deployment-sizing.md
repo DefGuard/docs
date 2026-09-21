@@ -27,6 +27,12 @@ The tested environment sustained approximately:
 | Create a network with 20,000 devices    |   approximately 1 minute |
 | Readdress a network with 20,000 devices | approximately 45 seconds |
 
+<figure><img src="../.gitbook/assets/image (374).png" alt="Polling GPU utilization"><figcaption><p>CPU utilization during load-test</p></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (375).png" alt=""><figcaption><p>Memory usage during load-test</p></figcaption></figure>
+
+
+
 ### Tested system functions
 
 The tests covered the main operations used during normal system activity:
