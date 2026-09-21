@@ -36,7 +36,7 @@ Once a version reaches its end of support date, it no longer receives any update
 | 2.0       | 2026-04-30 | 2026-12-04     |
 | 2.1       | 2026-09-04 | -              |
 
-The table covers 6 latest major versions. Patch releases (such as 1.6.7 or 2.0.3) do not extend or change the end of support date of their version.
+The table covers latest major versions. Patch releases (such as 1.6.7 or 2.0.3) do not extend or change the end of support date of their version.
 
 ### Staying up to date
 
