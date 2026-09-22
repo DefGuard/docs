@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/e86iamwJVSYnIRsyVEAV/features/wireguard/dns-and-domains
+---
+
 # DNS and domains
 
 When a client connects to a location, Defguard can push DNS settings to it so that name resolution happens through the VPN tunnel. This lets clients resolve internal hostnames (for example `server.internal`) and, when a search domain is configured, use short names instead of fully qualified domain names.
