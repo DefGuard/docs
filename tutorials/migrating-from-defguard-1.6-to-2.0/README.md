@@ -35,7 +35,7 @@ After Core starts in version 2.0, open the Core UI.
 
 Defguard detects that the instance was upgraded from version 1.6 and starts the migration wizard automatically.
 
-<figure><img src="../.gitbook/assets/Screenshot 2026-04-30 at 15.00.34.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-30 at 15.00.34.png" alt=""><figcaption></figcaption></figure>
 
 ### Review detected configuration
 
@@ -53,7 +53,7 @@ Review the displayed parameters carefully.
 
 If the values are correct, continue.
 
-<figure><img src="../.gitbook/assets/Screenshot 2026-04-30 at 15.12.40.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-30 at 15.12.40.png" alt=""><figcaption></figcaption></figure>
 
 ### Create the internal Certificate Authority
 
@@ -68,7 +68,7 @@ In Defguard 1.x, this type of configuration had to be handled manually. In Defgu
 
 Provide the required Certificate Authority details, such as the administrator email address, and continue.
 
-<figure><img src="../.gitbook/assets/Screenshot 2026-04-30 at 15.13.00.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-30 at 15.13.00.png" alt=""><figcaption></figcaption></figure>
 
 You can also download the generated CA certificate if needed.
 
@@ -92,13 +92,13 @@ Then provide or confirm:
 
 Defguard may prefill these values from your previous Proxy configuration. Verify that they are correct and continue.
 
-<figure><img src="../.gitbook/assets/Screenshot 2026-04-30 at 15.15.36.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-30 at 15.15.36.png" alt=""><figcaption></figcaption></figure>
 
 Start the adoption process.
 
 During adoption, Defguard issues certificates for Edge and establishes secure communication between Core and Edge.
 
-<figure><img src="../.gitbook/assets/Screenshot 2026-04-30 at 15.16.09.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-30 at 15.16.09.png" alt=""><figcaption></figcaption></figure>
 
 After adoption succeeds, continue the migration.
 
@@ -117,7 +117,7 @@ Alternatively, Defguard can help configure SSL directly by:
 
 Choose the option that matches your deployment.
 
-<figure><img src="../.gitbook/assets/Screenshot 2026-04-30 at 15.19.20.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-30 at 15.19.20.png" alt=""><figcaption></figcaption></figure>
 
 If you keep an existing reverse proxy setup, confirm that the reverse proxy configuration is correct and continue.
 
@@ -133,7 +133,7 @@ For the Edge external URL, Defguard also supports obtaining a certificate automa
 
 When using Let’s Encrypt, make sure that the Edge external URL resolves to the Edge component and that the required HTTP and HTTPS ports are reachable by the certificate validation process.
 
-<figure><img src="../.gitbook/assets/Screenshot 2026-04-30 at 15.20.20.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-30 at 15.20.20.png" alt=""><figcaption></figcaption></figure>
 
 If SSL is already handled by a reverse proxy or load balancer, confirm that the configuration is correct and continue.
 
@@ -143,7 +143,7 @@ After this step, the initial system configuration is complete.
 
 The wizard then moves to Location migration.
 
-<figure><img src="../.gitbook/assets/Screenshot 2026-04-30 at 15.25.26.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-30 at 15.25.26.png" alt=""><figcaption></figcaption></figure>
 
 Defguard detects the existing VPN Locations from your 1.6 instance and guides you through upgrading them.
 
@@ -175,7 +175,7 @@ After updating firewall rules, confirm in the wizard that the Gateway firewall r
 
 For each migrated Location, Defguard guides you through upgrading and adopting the associated Gateway.
 
-<figure><img src="../.gitbook/assets/Screenshot 2026-04-30 at 15.33.10.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-30 at 15.33.10.png" alt=""><figcaption></figcaption></figure>
 
 Upgrade the Gateway component to Defguard 2.0 using your chosen deployment method.
 
@@ -194,7 +194,7 @@ Provide or confirm:
 * Gateway address reachable by Core
 * Gateway gRPC port
 
-<figure><img src="../.gitbook/assets/Screenshot 2026-04-30 at 15.33.47.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-30 at 15.33.47.png" alt=""><figcaption></figcaption></figure>
 
 Start the Gateway adoption process.
 
@@ -202,7 +202,7 @@ During adoption, Defguard issues certificates for Gateway and establishes secure
 
 After adoption succeeds, the Gateway is connected to the migrated Location.
 
-<figure><img src="../.gitbook/assets/Screenshot 2026-04-30 at 15.34.11.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-04-30 at 15.34.11.png" alt=""><figcaption></figcaption></figure>
 
 Repeat this process for each Location and Gateway if your deployment has more than one.
 

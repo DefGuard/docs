@@ -30,7 +30,7 @@ This ensures that all intermediate migrations and configuration changes are appl
 Recommended upgrade path: **any → latest 1.6.x → 2.x.**
 {% endhint %}
 
-As this is a major upgrade with breaking changes, we prepared a migration wizard to guide you through the migration. See [this article](../tutorials/migrating-from-defguard-1.6-to-2.0.md) with details on how to use it.
+As this is a major upgrade with breaking changes, we prepared a migration wizard to guide you through the migration. See [this article](../tutorials/migrating-from-defguard-1.6-to-2.0/) with details on how to use it.
 
 Cases not covered by the migration wizard are listed below.
 
