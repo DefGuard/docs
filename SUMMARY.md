@@ -20,10 +20,10 @@
     * [Split Tunnel Configuration](features/wireguard/create-your-vpn-network/split-tunnel-configuration.md)
   * [Network overview](features/wireguard/network-overview.md)
   * [Multi-Factor Authentication (MFA/2FA)](features/wireguard/multi-factor-authentication-mfa-2fa/README.md)
-    * [MFA flows and methods](features/wireguard/multi-factor-authentication-mfa-2fa/mfa-flows-and-methods.md)
-    * [Configuring MFA for a location](features/wireguard/multi-factor-authentication-mfa-2fa/configuring-mfa-for-a-location.md)
+    * [Internal SSO based MFA](features/wireguard/multi-factor-authentication-mfa-2fa/internal-sso-based-mfa.md)
+    * [External SSO based MFA](features/wireguard/multi-factor-authentication-mfa-2fa/external-sso-based-mfa.md)
   * [Adding client device](features/wireguard/remote-desktop-activation.md)
-  * [Client behaviour customization](features/wireguard/behavior-customization.md)
+  * [Client behavior customization](features/wireguard/behavior-customization.md)
   * [DNS and domains](features/wireguard/dns-and-domains.md)
   * [Executing custom gateway commands](features/wireguard/executing-custom-gateway-commands.md)
 * [Remote user enrollment](features/remote-user-enrollment/README.md)
@@ -120,7 +120,6 @@
 ## License <a href="#enterprise" id="enterprise"></a>
 
 * [Purchasing and using the license](enterprise/license.md)
-* [License limits](enterprise/license-limits.md)
 
 ## Using Defguard (for end users)
 
@@ -154,6 +153,7 @@
   * [Desktop Client](support-1/sending-support-information/desktop-client.md)
   * [Mobile client](support-1/sending-support-information/mobile-client.md)
 * [Using the Support Portal](support-1/using-the-support-portal.md)
+* [Server migration and licence transfer](support-1/server-migration-and-licence-transfer.md)
 * [Troubleshooting Guides](support-1/troubleshooting-guides/README.md)
   * [Core](support-1/troubleshooting-guides/core/README.md)
     * [h2 protocol error from reverse proxy](support-1/troubleshooting-guides/core/h2-protocol-error-from-reverse-proxy.md)
@@ -192,7 +192,6 @@
   * [Can access VPN but not local network or internet](support-1/troubleshooting-guides/can-access-vpn-but-not-local-network-or-internet.md)
   * [How to verify the VPN is working](support-1/troubleshooting-guides/how-to-verify-the-vpn-is-working.md)
   * [Testing VPN speed](support-1/troubleshooting-guides/testing-vpn-speed.md)
-* [Server migration and licence transfer](support-1/server-migration-and-licence-transfer.md)
 * [Troubleshooting Guide V1 legacy backup](support-1/troubleshooting/README.md)
   * [Sending support information](support-1/troubleshooting/sending-support-info.md)
   * [Client Windows installer exit codes](support-1/troubleshooting/windows-installer-exit-codes.md)
@@ -202,7 +201,8 @@
 ## Tutorials
 
 * [Initial Setup Wizard: setting up from scratch](tutorials/initial-setup-wizard-setting-up-from-scratch.md)
-* [Migrating from Defguard 1.6 to 2.0](tutorials/migrating-from-defguard-1.6-to-2.0.md)
+* [Migrating from Defguard 1.6 to 2.0](tutorials/migrating-from-defguard-1.6-to-2.0/README.md)
+  * [Migrating a 1.6 one-liner installation to 2.x](tutorials/migrating-from-defguard-1.6-to-2.0/migrating-a-1.6-one-liner-installation-to-2.x.md)
 * [Adding Edge component](tutorials/adding-edge-component.md)
 
 ## Compliance
@@ -229,7 +229,6 @@
   * [Product Development Procedure](in-depth/defguard-open-organisation/product-development-procedure.md)
   * [Roadmap](in-depth/defguard-open-organisation/roadmap.md)
 * [BoringTun](in-depth/boringtun.md)
-* [Performance and deployment sizing](in-depth/performance-and-deployment-sizing.md)
 
 ## For Developers
 
