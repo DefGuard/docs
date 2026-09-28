@@ -47,7 +47,9 @@ However, creating new locations/users will be blocked (depending on which limits
 
 <figure><img src="../.gitbook/assets/Screenshot 2026-09-24 at 15.09.59.png" alt=""><figcaption></figcaption></figure>
 
-## What to do after reaching license limits?
+If you want to increase your limits or modify existing license, contact sales@defguard.net
+
+## Can I exceed license limits?
 
 Defguard doesn't let you go over the user limit of your license. Once the limit is reached, you can't add new users, and no new accounts are created through LDAP or OpenID directory synchronization.
 
