@@ -54,3 +54,9 @@ If you want to increase your limits or modify existing license, contact sales@de
 Defguard doesn't let you go over the user limit of your license. Once the limit is reached, you can't add new users, and no new accounts are created through LDAP or OpenID directory synchronization.
 
 In rare edge cases the limit can still be exceeded. This shouldn't happen during normal use, but if it does, nothing is deleted or disabled and VPN connections keep working. However, Defguard stops treating the license as valid. All Business and Enterprise features are turned off, logging in through OpenID is not possible, LDAP synchronization is switched off in the settings, and Directory Sync stops running.
+
+### Disaster recovery&#x20;
+
+To get back within your license limit, disable or delete users you no longer need. Disabled users don't count toward the limit, so disabling is enough if you want to keep their accounts. Once you're under the limit, the license becomes valid again and Business/Enterprise features come back.
+
+If you can't access your instance through the web interface, you can manage it from the command line instead. See [managing-defguard-via-cli.md](../features/managing-defguard-via-cli.md "mention").
