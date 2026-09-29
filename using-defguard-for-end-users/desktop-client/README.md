@@ -37,10 +37,6 @@ Download the Windows installer from the [download page](https://defguard.net/dow
 
 ## macOS
 
-{% hint style="warning" %}
-The desktop client officially supports only the three most recent major macOS releases.
-{% endhint %}
-
 There are two versions of the Desktop Client available to download:
 
 * [App Store](https://apps.apple.com/pl/app/defguard-desktop-client/id6754601166)

@@ -1,10 +1,3 @@
----
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/e86iamwJVSYnIRsyVEAV/features/wireguard/dns-and-domains
----
-
 # DNS and domains
 
 When a client connects to a location, Defguard can push DNS settings to it so that name resolution happens through the VPN tunnel. This lets clients resolve internal hostnames (for example `server.internal`) and, when a search domain is configured, use short names instead of fully qualified domain names.
@@ -13,10 +6,6 @@ Two settings control this behaviour:
 
 * **DNS** – one or more DNS server IP addresses the client should use while the tunnel is up. Separate multiple addresses with commas (`,`). These are typically your internal resolvers, so private zones resolve correctly.
 * **Search domain** – a domain that is automatically appended to unqualified hostnames. For example, with a search domain of `internal`, resolving `server` is treated as `server.internal`.
-
-{% hint style="info" %}
-**Split DNS in 2.1.** On macOS (desktop client 2.1) and iOS (mobile client 1.7.0 or later), entering DNS server IP addresses together with domains gives split DNS: only names under those domains are resolved through the VPN, and all other names use the device's normal DNS. On Linux and Windows, desktop client 2.1 does not limit the location's DNS servers to the listed domains, so they can receive queries for any name. Split DNS on Linux and Windows arrives with desktop client 2.2.
-{% endhint %}
 
 ## Changing DNS settings
 
