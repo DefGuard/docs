@@ -83,7 +83,7 @@ Additionally, after being added to the group, the user must log out for the chan
 More details about the group and permissions can be found [here](../../support-1/troubleshooting-guides/desktop-client/unix-socket-permission-error-on-connect-linux.md)
 
 {% hint style="warning" %}
-On Linux the desktop client uses `resolvconf` to manage DNS servers. On newer distributions it should be a symbolic link to `resolvectl`, more details can be found on the [troubleshooting](../../support-1/troubleshooting-guides/desktop-client/resolvconf-not-found-debian.md) page.
+On Linux the desktop client configures DNS through `systemd-resolved` when it is running, and falls back to `resolvconf` otherwise. Split DNS requires `systemd-resolved`. More details can be found on the [troubleshooting](../../support-1/troubleshooting-guides/desktop-client/failed-to-configure-dns-linux.md) page.
 {% endhint %}
 
 {% hint style="warning" %}
