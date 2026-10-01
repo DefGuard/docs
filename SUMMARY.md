@@ -181,6 +181,7 @@
     * [Windows installer exit codes](support-1/troubleshooting-guides/desktop-client/windows-installer-exit-codes.md)
     * [VPN location is missing from client](support-1/troubleshooting-guides/desktop-client/vpn-location-is-missing-from-client.md)
     * [Client crashes immediately on launch with "Error 71 (Protocol error) dispatching to Wayland display"](support-1/troubleshooting-guides/desktop-client/client-crashes-immediately-on-launch-with-error-71-protocol-error-dispatching-to-wayland-display.md)
+    * [Desktop Client connectivity issues](support-1/troubleshooting-guides/desktop-client/desktop-client-connectivity-issues.md)
   * [Mobile Client](support-1/troubleshooting-guides/mobile-client/README.md)
     * [Android "Failed host lookup" error](support-1/troubleshooting-guides/mobile-client/android-failed-host-lookup-error.md)
   * [Edge Component](support-1/troubleshooting-guides/edge-component/README.md)
