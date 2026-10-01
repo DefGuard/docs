@@ -28,38 +28,24 @@ IT systems build authentication methods using those three areas and leverage the
 
 ## How Defguard handles MFA?
 
-MFA is configured per VPN location. An administrator builds an **MFA flow**, an ordered list of steps where each step holds the factors allowed to satisfy it, and then enforces that flow on a location. The user proves one factor per step, in order, and the VPN tunnel is established only after the last step succeeds.
+Defguard is a unique VPN solution that can be configured to use either:
 
-The available methods are:
+1. [**internal**](internal-sso-based-mfa.md) **- based on** [**built-in IdP/SSO**](../../openid-connect/) - where users in Defguard profile manage their MFA methods (TOTP, Email, Mobile Biometry) and then use them to establish a VPN connection,
+2. [**external**](external-sso-based-mfa.md) **- using** [**cloud IdP/SSO**](../../external-openid-providers/) **providers** such as [Google](../../external-openid-providers/google.md), [Microsoft](../../external-openid-providers/microsoft.md), [Okta](../../external-openid-providers/okta.md), [Jumpcloud](../../external-openid-providers/jumpcloud.md) (and others) to authorize each connection using those providers in Defguard desktop/mobile before the connection can be established.
 
-* **Authenticator app** - a time-based one-time code (TOTP) from the user's authenticator app.
-* **Email** - a one-time code sent to the user's email address.
-* **OpenID** - a sign-in with a [cloud IdP/SSO provider](../../external-openid-providers/) such as Google, Microsoft, Okta or Jumpcloud.
-* **Security key (FIDO2)** - a hardware security key registered in the user's profile.
-* **Biometrics** - the biometric prompt on the user's enrolled mobile device.
-* **Mobile Client** - a desktop connection approved from the user's enrolled mobile device by scanning a QR code.
+In addition, when establishing a VPN connection, **Defguard enforces extra security measures** (including additional MFA steps in the user has category). It first securely establishes session keys (WireGuard® pre-shared keys), and only then configures the VPN location (our VPN gateway). The connection is possible to establish only with a device that has successfully passed the full authorization flow, enabling it to connect using its WireGuard® private/public keys and session keys.
 
-Users manage their own authenticator app, email and security key factors in their Defguard profile, as described in [Setting up 2FA/MFA](../../../using-defguard-for-end-users/setting-up-2fa-mfa.md).
+Defguard also **supports multiple VPN locations (multiple VPNs), each of which can be configured independently to use either internal or external MFA**.
 
-A location is not limited to one flow. It always has a default flow, and selected groups can be given a different one, so contractors and staff can face different requirements on the same VPN.
+### Multi device MFA
 
-{% hint style="info" %}
-Before 2.2, each location was set to either Internal MFA or External MFA, and that choice decided the available methods. Version 2.2 replaces the two modes with flows, so OpenID is now one method among the others and a single location can require, for example, an authenticator code followed by a mobile biometric confirmation.
-{% endhint %}
-
-Defguard also **supports multiple VPN locations (multiple VPNs), each of which can be configured independently** with its own MFA flow.
-
-To set this up, start by [building a flow](mfa-flows-and-methods.md), then [enforce it on a location](configuring-mfa-for-a-location.md). Users connect as described in [Using Multi-Factor Authentication (MFA)](../../../using-defguard-for-end-users/desktop-client/using-multi-factor-authentication-mfa.md).
-
-#### Multi device MFA
-
-Some of Defguard's MFA methods are even more sophisticated, such as establishing a VPN connection using mobile biometric authentication in the desktop client. This is the **Mobile Client** method, and it requires:
+Some of Defguard’s MFA methods are even more sophisticated, such as establishing a VPN connection using mobile biometric authentication in the desktop client. This method requires:
 
 User prerequisites (something a user has in terms of MFA terminology):
 
 * A private WireGuard® key corresponding to the public key configured during the Defguard enrollment session.
 * A mobile device successfully enrolled and added to the user profile (as a second VPN device).
-* Private keys in the mobile device's secure key store, generated during the mobile device enrollment process, which are accessible only via the device's biometric authentication.
+* Private keys in the mobile device’s secure key store, generated during the mobile device enrollment process, which are accessible only via the device’s biometric authentication.
 
 Extended MFA flow using two devices:
 

@@ -152,14 +152,13 @@ Microsoft has a second, similar field, **Sync only matching memberships**, which
 
 ### Email conflict between user accounts
 
-In scenario where:
+Every Defguard account needs a unique username. When someone signs in through an external OpenID provider for the first time, Defguard creates their account with a username taken from the provider's `preferred_username` claim. If the provider doesn't send that claim, Defguard uses the part of the email address before @. The **Username handling** setting then removes or replaces any characters that aren't allowed in usernames.
 
-* User1 exists in Defguard
-* User2 has email: User1@domain
+If that username already belongs to another Defguard account, the new account isn't created and the user can't sign in. For example, if the derived username is `jsmith` and an account named `jsmith` already exists, the first sign-in fails.
 
-User2 will not be able to authenticate using OpenID.
+The same conflict can happen when directory sync imports users from Microsoft Entra ID. Imported usernames always come from the part of the email address before @, so two directory users such as `jsmith@example.com` and `jsmith@example.org` both get the username `jsmith`.
 
-This is not a system error, but an administrator’s negligence. The login (as well as the part of the company email corresponding to the login) must be unique, and the administrator is responsible for maintaining user data.
+To resolve a conflict, change the email address or username of one of the users at your identity provider, or remove the conflicting Defguard account. For directory import, you can also leave one of the accounts out using **Synchronize users only from specified groups**. Disabling the account in the directory isn't enough, because disabled accounts are imported too.
 
 ### JumpCloud
 
