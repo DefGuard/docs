@@ -18,18 +18,56 @@ Bridge mode is the current default, but in version 1.6 the compose file generate
 
 Unless you depend on the host networking being used (due to some custom routing setup or client IP requirements for example), we encourage you to switch to bridge mode. This provides better isolation and also enables the service name DNS resolution, so Core can connect to the Gateway by simply using the `gateway` hostname.
 
-To switch to bridge mode remove the `network_mode: host` line and add the host port mapping to expose the WireGuard UDP port:
+To switch to bridge mode, remove the `network_mode: host` line and publish the WireGuard UDP port. Use the gateway port of your existing VPN location, which was chosen when the 1.6 one-line script ran, on both sides of the mapping. For example, for a location using port `51820`:
 
 ```yaml
 ports:
     - "51820:51820/udp"
 ```
 
+The gateway listens on the port set in the location settings, so if the mapping uses a different port, clients cannot complete a handshake.
+
 If using the bridge mode you also have to enable masquerade in the gateway, otherwise responses to VPN traffic cannot be routed back to the container. To do that, add the following line to Gateway `env`:
 
 ```
 DEFGUARD_MASQUERADE=true
 ```
+
+### Clean up 1.6 host networking
+
+The 1.6 gateway ran in the host network namespace and does not remove its WireGuard interface when it stops. After switching to bridge mode, a leftover interface on the host can keep receiving VPN traffic meant for the new gateway container, so clients see the port as open but no handshake completes.
+
+After the 2.x gateway is running in bridge mode:
+
+1.  Make sure no 1.6 gateway container remains:
+
+    ```bash
+    docker ps -a
+    ```
+2.  Check for a leftover WireGuard interface on the host (outside any container) and remove it:
+
+    ```bash
+    ip link show wg0
+    sudo ip link del wg0
+    ```
+3.  Remove the firewall table left by the 1.6 gateway, if present:
+
+    ```bash
+    sudo nft list tables
+    sudo nft delete table inet DEFGUARD-wg0
+    ```
+4.  Clear connection tracking entries for the WireGuard port. Clients send keepalive packets, so entries created while the old interface was active may never expire and keep sending traffic to it instead of the container. This requires the `conntrack` tool:
+
+    ```bash
+    sudo conntrack -D -p udp --dport <GATEWAY_PORT>
+    ```
+5.  Restart the gateway:
+
+    ```bash
+    docker compose restart gateway
+    ```
+
+If you added a masquerade rule on the host for the 1.6 gateway (for example `iptables -t nat -A POSTROUTING -o <interface> -j MASQUERADE`), it is no longer needed in bridge mode, since `DEFGUARD_MASQUERADE=true` handles it inside the container. It does not conflict with the gateway, so you can remove it once VPN traffic works. If you persist host firewall rules with `netfilter-persistent` or `iptables-restore`, avoid reloading them on a running host: this flushes the rules Docker uses to forward published ports, and the WireGuard port stops reaching the container until Docker is restarted.
 
 ## Update storage volumes
 

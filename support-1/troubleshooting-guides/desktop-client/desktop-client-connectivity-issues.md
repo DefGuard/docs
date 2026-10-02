@@ -25,6 +25,10 @@ First, verify basic network connectivity to the gateway's public IP:
 ping <GATEWAY_PUBLIC_IP>
 ```
 
+{% hint style="info" %}
+Cloud providers such as AWS, GCP and Azure often block ICMP in security groups by default. If the gateway runs in the cloud, a failed ping does not by itself mean the gateway is unreachable. Allow ICMP temporarily for this test, or skip to the next step.
+{% endhint %}
+
 **Troubleshooting if IP is unreachable:**
 
 * Verify the IP address is correctly configured in [location settings](../../../features/wireguard/create-your-vpn-network/#gateway-address)
@@ -37,6 +41,45 @@ If the public IP is reachable, attempt to connect using the VPN client:
 
 * Initiate connection to the VPN location
 * If errors occur, check [client logs](../../../using-defguard-for-end-users/desktop-client/#log-files) for detailed information
+* Verify that the endpoint the client uses matches the [gateway address](../../../features/wireguard/create-your-vpn-network/#gateway-address) and [gateway port](../../../features/wireguard/create-your-vpn-network/#gateway-port) in location settings. With the WireGuard CLI installed, run `wg show` on the client machine and compare the `endpoint` value. If the location settings were changed after the device was added, reconnect so the client fetches the current configuration.
+
+## Check the gateway
+
+While a client is trying to connect, check whether the gateway sees the handshake. This tells you whether the client's packets reach the gateway at all.
+
+**Docker:**
+
+```bash
+docker compose exec gateway wg show
+```
+
+**Package or binary installation:**
+
+```bash
+sudo wg show
+```
+
+Look for the client's peer (identified by the device public key) and its `latest handshake` and `transfer` values:
+
+* **No `latest handshake`:** packets from the client do not reach the gateway's WireGuard interface. Check the port mapping and firewall rules described below.
+* **Handshake present, `transfer` only growing in one direction:** the tunnel works, so the problem is routing or firewall rules on the gateway. See [Can access VPN but not local network or internet](../can-access-vpn-but-not-local-network-or-internet.md).
+
+Also check the gateway logs for errors applying the configuration received from Core:
+
+```bash
+# Docker
+docker compose logs gateway
+# systemd
+journalctl -u defguard-gateway
+```
+
+### Docker port mapping
+
+When the gateway runs in a Docker bridge network (the default in the [one-line install script](../../../getting-started/one-line-install.md)), the published UDP port must match the [gateway port](https://app.gitbook.com/s/e86iamwJVSYnIRsyVEAV/features/wireguard/create-your-vpn-network#gateway-port) set in location settings. The gateway listens on the port configured in the location, not on a port set in the Compose file. The example Compose files publish `51820:51820/udp`. If your location uses a different port, for example `1194`, change the mapping to `"1194:1194/udp"` and use the same number on both sides.
+
+{% hint style="info" %}
+If you migrated a one-line installation from Defguard 1.6, the old host-network gateway may have left a WireGuard interface and firewall state on the host that intercepts VPN traffic. See [Clean up 1.6 host networking](../../../tutorials/migrating-from-defguard-1.6-to-2.0/migrating-a-1.6-one-liner-installation-to-2.x.md#clean-up-1.6-host-networking).
+{% endhint %}
 
 ## VPN Network Connectivity
 
@@ -50,7 +93,7 @@ ping <GATEWAY_VPN_SUBNET_IP>
 
 If you have the official [WireGuard CLI](https://www.wireguard.com/install/) installed you can also verify the VPN connection by checking for the latest handshake. If there's no handshake, a connection has not been established.<br>
 
-<figure><img src="../../../.gitbook/assets/image (376).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (371).png" alt=""><figcaption></figcaption></figure>
 
 **If gateway is unreachable within VPN subnet:**
 
@@ -63,6 +106,10 @@ If you have the official [WireGuard CLI](https://www.wireguard.com/install/) ins
 
 If you want to explicitly test if UDP traffic is allowed between the client and VPN server you can do the following:
 
+{% hint style="warning" %}
+Stop the gateway before running this test, because socat cannot listen on a port the gateway already uses. With Docker, also stop the gateway container (`docker compose stop gateway`), since Docker holds the published port on the host. A successful test proves that UDP traffic reaches the host, but not that Docker forwards it into the gateway container. Start the gateway again afterwards.
+{% endhint %}
+
 *   start a test UDP server on the gateway server:
 
     ```bash
@@ -74,6 +121,10 @@ If you want to explicitly test if UDP traffic is allowed between the client and 
      echo "Hello UDP test" | socat - UDP:<GW_PUBLIC_IP>:<UDP_PORT>
     ```
 * if UDP traffic is allowed, a message should appear in your server terminal
+
+{% hint style="info" %}
+Port scanners such as `nmap -sU` cannot confirm that a WireGuard port is reachable. WireGuard does not respond to packets that are not a valid handshake, so a scanner cannot tell an open port from a filtered one. Use the socat test above or check for a handshake on the gateway instead.
+{% endhint %}
 
 ### Loss of connection after network change
 

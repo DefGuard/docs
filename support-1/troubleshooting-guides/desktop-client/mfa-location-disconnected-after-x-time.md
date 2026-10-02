@@ -6,7 +6,7 @@ But when MFA is enabled, peers **are only added to the gateway** after successfu
 
 Also, there is a setting in the location named _Client disconnect threshold (seconds):_
 
-<figure><img src="../../../.gitbook/assets/image (377).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (247).png" alt=""><figcaption></figcaption></figure>
 
 This setting specifies that if the **peer is inactive for (defined seconds)**\_, the gateway **should remove it from the configuration** (as it should not be persistent since MFA is required).
 
