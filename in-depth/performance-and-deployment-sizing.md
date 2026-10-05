@@ -20,7 +20,7 @@ The tested environment sustained approximately:
 
 | Scenario                                |                   Result |
 | --------------------------------------- | -----------------------: |
-| VPN configuration polling               |           950 requests/s |
+| VPN configuration polling               |          1050 requests/s |
 | MFA authorization                       |     600 authorizations/s |
 | MFA authorization with posture checks   |     550 authorizations/s |
 | LDAP import of 20,000 users             |  approximately 4 minutes |
