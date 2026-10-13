@@ -14,6 +14,7 @@
 
 ## Features
 
+* [MTU settings](features/mtu-settings.md)
 * [Overview](features/overview.md)
 * [Zero-Trust VPN with 2FA/MFA](features/wireguard/README.md)
   * [Create/Manage VPN Location](features/wireguard/create-your-vpn-network/README.md)
