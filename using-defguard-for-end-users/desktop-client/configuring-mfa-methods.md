@@ -1,8 +1,10 @@
 # Configuring MFA methods
 
-In this guide, you will learn how to add new MFA methods in Defguard desktop client.
+In this guide, you will learn how to add new MFA methods in the Defguard desktop client.
 
 ## Starting from a location
+
+If a location requires an MFA method you haven't set up yet, you will see **Configure MFA** instead of **Connect VPN** on that location.
 
 ### Desktop client in tray view mode
 
@@ -22,7 +24,7 @@ In this guide, you will learn how to add new MFA methods in Defguard desktop cli
 
 ## Starting from the Add page
 
-1. If you don't have **Defguard** in full view mode, open **Defguard** from tray view, and click **Open Defguard**
+1. If you don't have **Defguard** in full view mode, open **Defguard** from tray view, and click **Open Defguard**.
 
 <figure><img src="../../.gitbook/assets/tray-view-open-defguard-marked.png" alt="" width="50%"></figure>
 
@@ -45,7 +47,7 @@ In this guide, you will learn how to add new MFA methods in Defguard desktop cli
 
 <figure><img src="../../.gitbook/assets/pen-icon-mfa-tray-view.png" alt=""></figure>
 
-2. Choose a method you haven't configured yet and click **Configure MFA**.
+2. Select a method marked **Not configured** and click **Configure MFA**.
 
 <figure><img src="../../.gitbook/assets/change-mfa-method-configure-button-tray-view.png" alt=""></figure>
 
@@ -57,7 +59,7 @@ In this guide, you will learn how to add new MFA methods in Defguard desktop cli
 
 <figure><img src="../../.gitbook/assets/full-view-pen-icon.png" alt=""></figure>
 
-2. Choose a method you haven't configured yet and click **Configure MFA**.
+2. Select a method marked **Not configured** and click **Configure MFA**.
 
 <figure><img src="../../.gitbook/assets/change-mfa-method-configure-button-full-view.png" alt=""></figure>
 
@@ -71,17 +73,17 @@ In this guide, you will learn how to add new MFA methods in Defguard desktop cli
 
 ## Confirming your identity
 
-Before adding a new method, Defguard asks you to confirm your identity with a method you have already set up.
+Before adding a new method, Defguard asks you to confirm your identity with a method you have already set up. If you don't have any MFA method yet, Defguard sends a verification code to your email instead.
 
 1. If you have more than one MFA method set up, choose the one you want to use and click **Continue**. If not, skip to step 2.
 
 <figure><img src="../../.gitbook/assets/additional-verification-required.png" alt=""></figure>
 
-2. Confirm your identity as described below, depending on your method.
+2. Confirm your identity as described below, depending on the method you use.
 
 ### Authenticator app
 
-1. Enter the 6-digit code from your Authenticator app and click **Verify**.
+1. Enter the 6-digit code from your authenticator app and click **Verify**.
 
 <figure><img src="../../.gitbook/assets/verify-authenticator-app.png" alt=""></figure>
 
@@ -123,7 +125,7 @@ If you can't scan the QR code, copy the code shown below it and enter it manuall
 ### Security key
 
 1. Insert your security key.
-2. Enter a name for the key, so you can recognise it later.
+2. Enter a name for the key so you can recognise it later.
 3. Enter the key's PIN if asked, and click **Register**.
 
 <figure><img src="../../.gitbook/assets/register-security-key.png" alt=""></figure>
@@ -134,7 +136,7 @@ If you can't scan the QR code, copy the code shown below it and enter it manuall
 
 ## Finishing the configuration
 
-1. At the **Download recovery codes** screen, click **Download codes** or **Copy to Clipboard**.
+1. If you see the **Download recovery codes** screen, click **Download codes** or **Copy to Clipboard**. If not, skip to step 3.
 
 {% hint style="warning" %}
 Recovery codes are your backup access if you lose your authenticator app. Store them securely, for example in a password manager.
