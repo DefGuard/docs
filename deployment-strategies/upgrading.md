@@ -54,6 +54,16 @@ For more details on the specific changes see [here](../in-depth/architecture-dec
 YubiKey provisioning is currently unavailable in version 2.0. This feature will be added back in a future update.
 {% endhint %}
 
+#### **Standalone packages**
+
+The 1.6 packages don't stop the running service during upgrade. After upgrading to 2.x restart each service on the host where it runs:
+
+```sh
+sudo systemctl restart defguard          # Core
+sudo systemctl restart defguard-proxy    # Edge
+sudo systemctl restart defguard-gateway  # Gateway
+```
+
 ## 1.5.x -> 1.6.0
 
 ### Core

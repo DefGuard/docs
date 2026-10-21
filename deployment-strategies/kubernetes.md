@@ -34,16 +34,16 @@ Examine available values for the Helm chart:
 helm show values defguard/defguard
 ```
 
-To set some values, either crate a file named **values.yaml**, or use `--set` option for `helm` command.
+To set some values, either create a file named **values.yaml**, or use `--set` option for `helm` command.
 
 {% hint style="warning" %}
-If use other ingress controller than [Traefik](https://doc.traefik.io/traefik/), the configuration for gRPC ingresses (which use HTTP/2) may need to be adjusted accordingly.
+If you use an ingress controller other than [Traefik](https://doc.traefik.io/traefik/), the configuration for gRPC ingresses (which use HTTP/2) may need to be adjusted accordingly.
 {% endhint %}
 
 Install the Helm chart in the namespace:
 
 ```sh
-helm install --wait=true --namespace defguard defguard defguard -f values.yaml
+helm install --wait=true --namespace defguard defguard defguard/defguard -f values.yaml
 ```
 
 ### Defguard Edge
