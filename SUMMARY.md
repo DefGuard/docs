@@ -234,6 +234,7 @@
   * [Roadmap](in-depth/defguard-open-organisation/roadmap.md)
 * [BoringTun](in-depth/boringtun.md)
 * [Performance and deployment sizing](in-depth/performance-and-deployment-sizing.md)
+* [Interface metrics on Windows](in-depth/windows-interface-metrics.md)
 
 ## For Developers
 
