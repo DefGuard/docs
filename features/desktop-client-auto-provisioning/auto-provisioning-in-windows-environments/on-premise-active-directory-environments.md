@@ -6,39 +6,58 @@ This guide describes an example desktop client provisioning scenario in an on-pr
 
 The guide assumes that our goal is to provision desktop clients for a set of users in a specific AD group.
 
-Please note that it is just a reference, you should adjust it to work with your specific environment and preferred tooling.
+Please note that this is just a reference; you should adjust it to work with your specific environment and preferred tooling.
 
 ## Generating enrollment tokens
 
-To automate the process as much as possible we've prepared an example PowerShell script which can be used to generate enrollment tokens for all users in a specified group. The script can be downloaded [here](https://github.com/DefGuard/client/blob/555fb727d3599264996ee1ac99f5124026083146/src-tauri/resources-windows/admin-scripts/GenerateEnrollmentTokensAD.ps1).
+In Defguard Core:
+
+- Open **Settings > External identity providers > LDAP and Active Directory**.
+- Under **User settings**, enter the name of the LDAP attribute that will hold the enrollment token.
+
+<figure><img src="../../../.gitbook/assets/ldap-enrollment-token-attribute.png"><figcaption></figcaption></figure>
+
+With the LDAP attribute name configured:
+- Go to **Users**.
+- Select the desired users.
+- Click **Bulk actions > Store enrollment token in LDAP**.
+- Confirm the action in the dialog that appears.
+
+<figure><img src="../../../.gitbook/assets/users-store-enrollment-token-in-ldap.png"><figcaption></figcaption></figure>
+
+The enrollment tokens should now be stored in LDAP under the specified attribute.
+
+### Using PowerShell
+
+To automate the process as much as possible, we've prepared an example PowerShell script that can be used to generate enrollment tokens for all users in a specified group. The script can be downloaded [here](https://github.com/DefGuard/client/blob/555fb727d3599264996ee1ac99f5124026083146/src-tauri/resources-windows/admin-scripts/GenerateEnrollmentTokensAD.ps1).
 
 ### Prerequisites
 
-* network access to both a Defguard instance and AD Domain controller
-* `ActiveDirectory` PowerShell module; to install you can run the following command in an admin shell: `Get-WindowsCapability -Name RSAT.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0 -Online | Add-WindowsCapability -Online`
+* Network access to both the Defguard instance and the AD domain controller
+* The `ActiveDirectory` PowerShell module; to install it, run the following command in an admin shell: `Get-WindowsCapability -Name RSAT.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0 -Online | Add-WindowsCapability -Online`
 
 ### Defguard authentication
 
-To securely access your Defguard instance's REST API you need to generate an [API Token](../../integrations/api-tokens.md#generating-api-token).
+To securely access your Defguard instance's REST API, you need to generate an [API token](../../integrations/api-tokens.md#generating-api-token).
 
 ### Active Directory authentication
 
-By default the script will use current user's credentials for AD authentication.
+By default, the script uses the current user's credentials for AD authentication.
 
-Alternatively if you specify a username by the `ADUsername` parameter you'll be prompted for a password.
+Alternatively, if you specify a username with the `ADUsername` parameter, you'll be prompted for a password.
 
 ### Required parameters
 
 * `Url` - URL of your Defguard instance
 * `ApiToken` - your API token for Defguard API access
-* `GroupName` - name of user group for which to generate enrollment tokens
-* `ADAttribute` - name of AD attribute where the provisioning config data will be stored
+* `GroupName` - name of the user group for which to generate enrollment tokens
+* `ADAttribute` - name of the AD attribute where the provisioning config data will be stored
 
 ### Optional parameters
 
 * `ADUsername` - username for domain controller authentication
 * `DomainController` - your AD domain controller URL
-* `EnrollmentTokenExpirationTime` - how long should the generated enrollment tokens be valid for (default is 24h); should be specified as human-readable string, e.g 24h, 1d, 2w etc
+* `EnrollmentTokenExpirationTime` - how long the generated enrollment tokens should be valid for (default is 24h); should be specified as a human-readable string, e.g. 24h, 1d, 2w, etc.
 
 ### Example script execution command
 
@@ -46,15 +65,15 @@ Alternatively if you specify a username by the `ADUsername` parameter you'll be 
 
 ## Client provisioning scenario
 
-1. **Setup target users**
-   * prepare a user group containing all the users you intend to perform client provisioning for
+1. **Set up target users**
+   * Prepare a user group containing all the users you intend to perform client provisioning for
 2. **User synchronization**
    * Configure two-way Active Directory synchronization as described [here](../../ldap-and-active-directory-integration/two-way-ldap-and-active-directory-synchronization.md)
 3. **Token Generation**
    * Generate enrollment tokens for users using the [helper script](on-premise-active-directory-environments.md#generating-enrollment-tokens)
 4. **Client Installation**
    * Install the `defguard-client` application on user machines using the [MSI installer](./#msi-installer-integration)
-   * Pass the `PROVISIONING=1` argument to execute provisioning script during installation
+   * Pass the `PROVISIONING=1` argument to execute the provisioning script during installation
    * Example command: `msiexec /i defguard-client.msi PROVISIONING=1 ADAttribute="description"`
 5. **Automatic Configuration**
    * During installation, the bundled script fetches [provisioning configuration](./#active-directory-configuration) from Active Directory
