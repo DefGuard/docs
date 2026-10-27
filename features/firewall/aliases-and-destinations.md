@@ -4,8 +4,8 @@ Aliases and Destinations are reusable destination definitions that can be shared
 
 They serve different purposes and behave differently when used in a rule:
 
-* An **Alias** contributes its parameters to a rule's manual destination settings. Its addresses, ports, and protocols are merged with whatever you have defined directly in the rule, forming a single combined destination.
-* A **Destination** acts as an independent target. When a rule references a Destination, that Destination generates its own separate **ALLOW** and **DENY** firewall rules on the gateway - with sources taken from the rule's Permissions - in addition to any rules generated from the rule's manual destination settings.
+- An **Alias** contributes its parameters to a rule's manual destination settings. Its addresses, ports, and protocols are merged with whatever you have defined directly in the rule, forming a single combined destination.
+- A **Destination** acts as an independent target. When a rule references a Destination, that Destination generates its own separate **ALLOW** and **DENY** firewall rules on the gateway - with sources taken from the rule's Permissions - in addition to any rules generated from the rule's manual destination settings.
 
 Use an **Alias** when you want to build a reusable component that adds to a rule's destination - for example, a standard set of ports for a well-known protocol. Use a **Destination** when you want to represent a specific named service or resource that should be independently protected - for example, a database server with a fixed address and port that multiple teams need access to under their own separate permission sets.
 
@@ -13,10 +13,10 @@ Use an **Alias** when you want to build a reusable component that adds to a rule
 
 <figure><img src="../../.gitbook/assets/image (7).png" alt="" width="563"><figcaption></figcaption></figure>
 
-* **Alias name** - a descriptive label used to identify the alias when selecting it in a rule's destination section.
-* **Addresses/Ranges** - one or more IPv4/IPv6 addresses, CIDR ranges, or IP ranges, comma-separated. Examples: `10.1.1.0/24`, `10.2.1.10-10.2.2.100`.
-* **Ports** - TCP/UDP ports or port ranges, comma-separated. Examples: `22`, `8000-9000`, `80, 443`.
-* **Protocols** - TCP, UDP, or ICMP.
+- **Alias name** - a descriptive label used to identify the alias when selecting it in a rule's destination section.
+- **Addresses/Ranges** - one or more IPv4/IPv6 addresses, CIDR ranges, or IP ranges, comma-separated. Examples: `10.1.1.0/24`, `10.2.1.10-10.2.2.100`.
+- **Ports** - TCP/UDP ports or port ranges, comma-separated. Examples: `22`, `8000-9000`, `80, 443`.
+- **Protocols** - TCP, UDP, or ICMP.
 
 At least one of addresses, ports, or protocols must be provided. The remaining fields are optional - an alias that defines only ports and protocols with no addresses is valid, as is one that defines only addresses with no port or protocol restriction.
 
@@ -30,10 +30,10 @@ Aliases always define explicit values. They do not have "any" toggles and cannot
 
 <figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
-* **Destination name** - a descriptive label that identifies the service or resource, used when selecting it in a rule's destination section.
-* **Addresses/Ranges** - one or more IPv4/IPv6 addresses, CIDR ranges, or IP ranges, comma-separated. Enable **Any address** to match all destinations.
-* **Ports** - TCP/UDP ports or port ranges, comma-separated. Enable **Any port** to match all ports.
-* **Protocols** - TCP, UDP, or ICMP. Enable **Any protocol** to match all protocols.
+- **Destination name** - a descriptive label that identifies the service or resource, used when selecting it in a rule's destination section.
+- **Addresses/Ranges** - one or more IPv4/IPv6 addresses, CIDR ranges, or IP ranges, comma-separated. Enable **Any address** to match all destinations.
+- **Ports** - TCP/UDP ports or port ranges, comma-separated. Enable **Any port** to match all ports.
+- **Protocols** - TCP, UDP, or ICMP. Enable **Any protocol** to match all protocols.
 
 All three fields are required. Each must either have explicit values entered or its **Any** toggle enabled.
 
@@ -53,8 +53,8 @@ A Destination is linked to every rule that uses it. Modifying a deployed Destina
 
 Both Aliases and Destinations have separate list views accessible from the **Aliases** and **Destinations** navigation items. Each list is split into:
 
-* **Deployed** - currently active and available for use in rules.
-* **Pending** - modifications to existing aliases or destinations awaiting deployment.
+- **Deployed** - currently active and available for use in rules.
+- **Pending** - modifications to existing aliases or destinations awaiting deployment.
 
 #### Creating
 
@@ -69,3 +69,19 @@ Editing a deployed Alias or Destination creates a **pending change**. The modifi
 An Alias or Destination can only be deleted if it is **not currently used by any rules**. If it is in use, the UI will show which rules reference it. Remove it from those rules first, then delete it.
 
 Deletion is immediate and does not require a deployment step.
+
+#### Bulk actions
+
+To change several Aliases or Destinations at once, select them with the checkboxes in the list. When at least one item is selected, a **Bulk actions** menu appears above the list. The available actions depend on the list:
+
+<figure><img src="../../.gitbook/assets/image (380).png" alt=""><figcaption></figcaption></figure>
+
+| List     | Actions        |
+| -------- | -------------- |
+| Deployed | Delete         |
+| Pending  | Deploy, Delete |
+
+- **Deploy** pushes only the selected pending modifications. Defguard updates every rule that references them and the firewall configuration on all affected gateways. Other pending modifications stay staged.
+- **Delete** removes the selected items immediately, without a deployment step. In the **Pending** list, it discards the selected modifications and the deployed version stays as it is.
+
+Delete skips each selected item that a rule still uses and deletes the rest. If rules use all selected items, Defguard shows a warning and deletes nothing. To delete an item that is in use, first remove it from the rules that reference it.
