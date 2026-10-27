@@ -134,7 +134,6 @@
 * [Desktop Client](using-defguard-for-end-users/desktop-client/README.md)
   * [Instance configuration](using-defguard-for-end-users/desktop-client/instance-configuration.md)
   * [Using Multi-Factor Authentication (MFA)](using-defguard-for-end-users/desktop-client/using-multi-factor-authentication-mfa.md)
-  * [Configuring MFA methods](using-defguard-for-end-users/desktop-client/configuring-mfa-methods.md)
   * [MTU Setting](using-defguard-for-end-users/desktop-client/mtu-setting.md)
   * [Command-line (defguard-client)](using-defguard-for-end-users/desktop-client/command-line-defguard-cli.md)
   * [Nightly builds](using-defguard-for-end-users/desktop-client/nightly-builds.md)

@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/e86iamwJVSYnIRsyVEAV/features/wireguard/dns-and-domains
+---
+
 # DNS and domains
 
 When a client connects to a location, Defguard can push DNS settings to it. This functionality can be used in two ways:
