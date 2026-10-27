@@ -22,3 +22,12 @@ Attempting to register an **unsupported** security key will result in an **error
 
 * Must support **passkey** registration and authentication (WebAuthn + FIDO2).
 * Must be capable of **user verification** (e.g., PIN entry, biometrics, or touch gestures).
+
+#### Security keys for VPN connections
+
+Security keys that the desktop client uses for VPN connections have two more requirements:
+
+* Defguard checks the key's attestation when the user registers the key in the desktop client. It accepts only certified hardware security keys from its built-in list, for example the YubiKey 5 series. For any other authenticator, such as a phone, Windows Hello, or a passkey in a password manager, registration fails with the message `security key is not a trusted hardware authenticator, update the client or use a certified security key`.
+* The key must have a PIN. On macOS and Linux, a key without a PIN fails with a message that contains `CTAP2_ERR_PIN_NOT_SET`.
+
+A passkey from the **Passkeys** section of the user's profile in the web app does not work for VPN connections. See [Using a security key (FIDO2)](../../using-defguard-for-end-users/desktop-client/using-a-security-key-fido2.md).

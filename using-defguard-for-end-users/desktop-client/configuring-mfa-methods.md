@@ -100,7 +100,7 @@ If you didn't receive the code, click **Resend code**.
 ### Security key
 
 1. Insert your security key.
-2. Enter its PIN if asked, and click **Verify**.
+2. On macOS and Linux, enter the key's PIN and click **Verify**. On Windows, click **Use security key** and enter the PIN in the Windows Security window.
 
 <figure><img src="../../.gitbook/assets/verify-security-key.png" alt=""></figure>
 
@@ -124,9 +124,13 @@ If you can't scan the QR code, copy the code shown below it and enter it manuall
 
 ### Security key
 
+{% hint style="info" %}
+The key must have a PIN. To set a PIN on a new key, and for the full walkthrough, see [Using a security key (FIDO2)](using-a-security-key-fido2.md).
+{% endhint %}
+
 1. Insert your security key.
 2. Enter a name for the key so you can recognise it later.
-3. Enter the key's PIN if asked, and click **Register**.
+3. On macOS and Linux, enter the key's PIN and click **Register**. On Windows, click **Register** and enter the PIN in the Windows Security window.
 
 <figure><img src="../../.gitbook/assets/register-security-key.png" alt=""></figure>
 
