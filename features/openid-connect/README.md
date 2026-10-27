@@ -24,8 +24,6 @@ This information is then sent to the third party application as an `ID Token` wh
 
 ### Defguard OpenID flow
 
-![OpenID flow](../../.gitbook/assets/openid-flow.svg)
-
 ### How to enable login with Defguard using OpenID?
 
 #### Client creation

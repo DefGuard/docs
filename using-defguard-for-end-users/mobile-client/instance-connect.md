@@ -6,33 +6,20 @@ In this guide, you will learn how to connect to location. If you haven't added a
 
 1. Open Defguard
 2. Click on Instance you want to connect to.
-
-<figure><img src="../../.gitbook/assets/defguard-instance-list.jpg" alt="" width="375"><figcaption></figcaption></figure>
-
 3. Click **"Connect"** next to location you want to use.
 
-<figure><img src="../../.gitbook/assets/defguard-mobile-connect-location-list.png" alt="" width="375"><figcaption></figcaption></figure>
-
-{% hint style="info" %}
-The first time you connect, app will ask whether you want to route **predefined traffic** or **all traffic**. You will see screen like this:
-
-<img src="../../.gitbook/assets/defguard-mobile-traffic-panel.png" alt="" data-size="original">
-
-* **Predefined traffic** will only route traffic specified by your administrator.
-* **All traffic** will route everything through VPN tunnel.
-
-You can select **Remember my choice** if you don't want to be asked again.
-
-If you want to change your traffic routing method after your first connection go to [this article](instance-manage.md#changing-traffic-routing-method-after-first-connection)
-{% endhint %}
+<figure><img src="../../.gitbook/assets/image (15).png" alt="" width="375"><figcaption></figcaption></figure>
 
 4. Choose your routing method
-5. Confirm
+
+<figure><img src="../../.gitbook/assets/image (16).png" alt="" width="375"><figcaption></figcaption></figure>
+
+4. Confirm
 
 {% hint style="warning" %}
 Your phone will need to add new VPN configuration, you will see popup like this:
 
-<img src="../../.gitbook/assets/defguard-mobile-new-vpn-configuration-ios.png" alt="" data-size="original">
+<p align="center"><img src="../../.gitbook/assets/defguard-mobile-new-vpn-configuration-ios.png" alt="" data-size="original"></p>
 
 Please click **Allow**, without this permission, Defguard cannot establish VPN connection.
 {% endhint %}
@@ -41,83 +28,91 @@ Please click **Allow**, without this permission, Defguard cannot establish VPN c
 If your location does not use MFA, your VPN connection should be established immediately after confirming your routing method.
 {% endhint %}
 
-{% hint style="info" %}
-Some VPN locations require extra security when connecting. This is called MFA (Multi-Factor Authentication). There are two types:
+### Connecting to MFA location
 
-* Internal MFA: You confirm your identity directly in the app, for example by entering a code from your Authenticator App or email.
-* External MFA: You are redirected to a secure login page (like Google or Microsoft) outside the app to confirm your identity.
-{% endhint %}
+Some locations ask you to confirm your identity before the VPN connects. This is called multi-factor authentication (MFA). Your administrator decides which locations require it and which methods you can use.
 
-{% hint style="warning" %}
-If your location is using MFA please go to [section 3.2 "Connecting to location with MFA](instance-connect.md#connecting-to-location-with-mfa)
-{% endhint %}
+#### Supported methods
 
-## Connecting to location with MFA
-
-1. Open Defguard
-2. Go to **Instances** and click **Connect** next to location you want to use.
-
-<figure><img src="../../.gitbook/assets/defguard-mobile-connecting-to-mfa-location.png" alt="" width="375"><figcaption></figcaption></figure>
+| Method             | What you do                                                                                                 |
+| ------------------ | ----------------------------------------------------------------------------------------------------------- |
+| Biometric          | Confirm with Face ID, Touch ID or your fingerprint.                                                         |
+| Authenticator App  | Enter the 6-digit code from your authenticator app.                                                         |
+| Email              | Enter the code sent to your email address.                                                                  |
+| OpenID             | Sign in with your identity provider in the browser. The app shows your provider's name instead of "OpenID". |
+| FIDO2 Security key | Enter the key's PIN and hold the key to your phone over NFC.                                                |
 
 {% hint style="info" %}
-The first time you connect, app will ask whether you want to route **predefined traffic** or **all traffic**. You will see screen like this:
-
-<img src="../../.gitbook/assets/defguard-mobile-traffic-panel.png" alt="" data-size="original">
-
-* **Predefined traffic** will only route traffic specified by your administrator.
-* **All traffic** will route everything through VPN tunnel.
-
-You can select **Remember my choice** if you don't want to be asked again.
-
-If you want to change your traffic routing method after your first connection go to [this article](instance-manage.md#changing-traffic-routing-method-after-first-connection)
+Biometric verification has to be enabled on the device first. You can turn it on when you add an instance, or later from the prompt the app shows when a location needs it.
 {% endhint %}
 
-3. Choose your routing method, and confirm.
+#### Connecting to a location with MFA
 
-Depending on your location settings you will need to authenticate with [external](instance-connect.md#external-mfa) or [internal](instance-connect.md#internal-mfa) MFA.
+1. Open your instance and tap the location you want to connect to.
+2. The **Connect** sheet opens and shows the MFA section.
+3. Check the method (or methods) and tap **Connect VPN**.
+4. Complete each verification screen. The tunnel starts once all of them pass.
 
-### External MFA
+<figure><img src="../../.gitbook/assets/image (18).png" alt="" width="372"><figcaption></figcaption></figure>
 
-If the VPN location requires OpenID for authentication (external MFA) you will see screen like this:
+#### What is the default path?
 
-<figure><img src="../../.gitbook/assets/defguard-mobile-openid-banner.png" alt="" width="375"><figcaption></figcaption></figure>
+The **default path** is the method the app uses for each verification step of a location. It is picked for you automatically, so in most cases you only tap **Connect VPN** and follow the prompts.
 
-Click **Authenticate with OpenID** and you will be redirected to a secure login page (for example Google/Microsoft). Follow the instructions on the screen to log in. After successful authentication please return to Defguard. In the app you will see screen like this:
+When you connect for the first time, the app takes the first method in each step that you can use on this phone. After that, it remembers your choice.
 
-<figure><img src="../../.gitbook/assets/defguard-mobile-openid-success.png" alt="" width="375"><figcaption></figcaption></figure>
+The default path is saved separately for every location and only on this device. Changing it on your phone does not change it in the desktop client or on another phone.
 
-After successful authentication, return to Defguard Mobile, your connection will be established automatically.
+If a saved method stops being usable, for example because your administrator removed it or you turned off biometrics, the app switches to the next available method in that step. You do not need to fix anything by hand.
 
-### Internal MFA
+#### Chainging the default path
 
-{% hint style="warning" %}
-When connecting with MFA for the first time, you will have the option to select **Remember my choice**. Select this option if you want to always use this method for this location.
-{% endhint %}
+After Clicking "Connect" on the location, click "Change default MFA methods".
 
-1. If you are connecting for first time, or if you have not clicked **Remember my choice** during previous connection, you will need to choose your MFA method.
+<figure><img src="../../.gitbook/assets/image (21).png" alt="" width="372"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/defguard-mobile-mfa-panel.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (19).png" alt="" width="372"><figcaption></figcaption></figure>
 
-2. Choose method configured for your account, and click **Connect**.
-   * If you're using "Email" method, please enter code sent to your email.
-   * If you're using "Authenticator App", please enter code generated within your authenticator app.
+#### Single-step locations
+
+A single-step location asks for one verification. The Connect sheet lists every method allowed for that location, and the current default is marked with a **Default** badge.
+
+* To use a different method, select it in the list before tapping **Connect VPN**.
+* The method you successfully connect with becomes the new default for this location.
+* A cancelled or failed attempt does not change the default.
+
+<figure><img src="../../.gitbook/assets/image (41).png" alt="" width="372"><figcaption></figcaption></figure>
+
+#### Multi-step locations
+
+A multi-step location asks for two or more verifications in a fixed order, for example an authenticator code first and then biometrics. Each step can allow several methods, and you need to pass one method from every step.
+
+The Connect sheet shows your default path as one method per step, labeled **Step 1**, **Step 2** and so on. During the connection, each verification screen shows which step you are on.
+
+Unlike single-step locations, choosing a method while connecting does not change your defaults. To change the default path:
+
+1. Open the Connect sheet for the location.
+2. Tap **Change default MFA methods**.
+3. Select one method under each step.
+4. Tap **Save changes**.
 
 {% hint style="info" %}
-If you don't know how to setup or use your **Authenticator App** please check [this article](../setting-up-2fa-mfa.md#setting-up-2famfa) for detailed information.
+**Change default MFA methods** only appears when at least one step offers more than one method you can use. If every step has a single option, there is nothing to choose.
 {% endhint %}
 
-3. After this step, your connection will be established immediately.
+### Methods that cannot be selected
 
-## Disconnecting from VPN
+Some methods in the list may be greyed out with a short note:
 
-To disconnect from a VPN location in Defguard:
+| Note           | Meaning                                                            |
+| -------------- | ------------------------------------------------------------------ |
+| Not configured | You have not set up this method in your Defguard account yet.      |
+| Not set up     | Biometric verification is not enabled on this device.              |
+| Desktop only   | The mobile app cannot perform this method. Use the desktop client. |
 
-1. Open Defguard.
-2. Go to the active instance
-3. Click **Disconnect** button next to the location you are currently connected to.
+If a step has no method you can use, tapping **Connect VPN** opens a dialog that explains why and what to do next:
 
-<figure><img src="../../.gitbook/assets/defguard-mobile-disconnect-button.png" alt="" width="375"><figcaption></figcaption></figure>
+* **Biometrics Required**: the location needs biometric verification, but it was not enabled when you added the instance. Add the instance again and enable biometrics during setup.
+* **Security Key Required**: register a security key from the Defguard desktop client, then try again.
+* **Location Not Supported**: the location needs a method that is not configured in your account or is only available in the desktop client.
 
-{% hint style="info" %}
-After disconnecting, your device will stop sending traffic through the VPN and return to your regular internet connection.
-{% endhint %}

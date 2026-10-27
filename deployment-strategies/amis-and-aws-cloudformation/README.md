@@ -213,15 +213,9 @@ You can customize the deployment by modifying the template or doing changes in t
 
 To modify an existing stack deployed from the template, you can use the AWS Console, navigate to the CloudFormation service, select your stack, click on "Update stack" and then choose "Create a change set".
 
-![alt text](../../.gitbook/assets/image-5.png)
-
 Next, select how you want to update the stack. If you want to modify the parameters, select "Use existing template".
 
-![alt text](../../.gitbook/assets/image-8.png)
-
 If you want to modify the template itself, the easiest way is to edit it in the Infrastructure Composer: select "Edit in Infrastructure Composer" and click the "Edit in Infrastructure Composer" button.
-
-![alt text](../../.gitbook/assets/image-9.png)
 
 ### Accessing the EC2 instances
 

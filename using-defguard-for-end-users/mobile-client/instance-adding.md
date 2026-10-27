@@ -18,7 +18,7 @@ If you are after the enrollment process, please follow [this guide](instance-add
 4. Open Defguard Mobile on your smartphone
 5. Click **Scan QR Code**
 
-<figure><img src="../../.gitbook/assets/defguard-mobile-add-instance.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (13).png" alt="" width="375"><figcaption></figcaption></figure>
 
 6. Scan QR generated in step 3.
 7. Enter the name of your device. For example "iPhone 11"
@@ -41,24 +41,24 @@ Now proceed enrollment with your Client app.
 1. Log in to your Defguard account.
 2. Go to **My Profile** tab and select **Devices** tab.
 
-<figure><img src="../../.gitbook/assets/defguard-myprofile-tab-devices-tab-marked.png" alt="" width="50%"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/defguard-myprofile-tab-devices-tab-marked.png" alt=""><figcaption></figcaption></figure>
 
 3. Click **Add new device** button.
 
-<figure><img src="../../.gitbook/assets/defguard-devices-add-new.png" alt="" width="50%"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/defguard-devices-add-new.png" alt=""><figcaption></figcaption></figure>
 
 4. Click **Client Activation**.
 
-<figure><img src="../../.gitbook/assets/client-activation.png" alt="" width="50%"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/client-activation.png" alt="" width="375"><figcaption></figcaption></figure>
 
 5. After that you will see a QR Code. **Do not close this screen**, we will need it in next step.
 
-<figure><img src="../../.gitbook/assets/client-activation-instance-configuration.png" alt="" width="50%"><figcaption></figcaption></figure>
+<div align="center"><figure><img src="../../.gitbook/assets/client-activation-instance-configuration.png" alt="" width="364"><figcaption></figcaption></figure></div>
 
 6. Open **Defguard Mobile** on your smartphone
 7. Click **Scan QR Code**
 
-<figure><img src="../../.gitbook/assets/defguard-mobile-add-instance.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (13).png" alt="" width="375"><figcaption></figcaption></figure>
 
 8. Scan QR generated in step 5.
 9. Enter the name of your device. For example "iPhone 11"
@@ -67,5 +67,5 @@ Now proceed enrollment with your Client app.
 {% hint style="info" %}
 If you can't scan QR Code, select **Add Instance Manually** in **step 7**, go back to the screen in **step 5**, click "Show advanced configuration", copy **URL** and **Token** and then enter them in **Defguard Mobile**.
 
-<img src="../../.gitbook/assets/advanced-configuration.png" alt="" data-size="original">
+<p align="center"><img src="../../.gitbook/assets/advanced-configuration.png" alt="" data-size="original"></p>
 {% endhint %}

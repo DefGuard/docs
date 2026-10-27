@@ -30,9 +30,6 @@ After successfully adding your app you can see it in the OpenID apps list. When 
 1. Log into your proxmox instance.
 2. Select `Datacenter`
 3. Select `Permissions -> Realms`
-
-![Proxmox Realm Settings](../../.gitbook/assets/proxmox-oidc-1.png)
-
 4. Select `Add -> OpenID Connect Server`
 5. Fill in the form:
 
@@ -51,8 +48,6 @@ Without `Autocreate users` option Proxmox won't be able to create new users, onl
 * Username claim: subject
 * Scopes: openid
 * Prompt: Auth-Provider Default
-
-![Proxmox OIDC Form](../../.gitbook/assets/proxmox-oidc-2.png)
 
 6. Save the form.
 

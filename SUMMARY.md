@@ -129,7 +129,6 @@
 * [Mobile Client](using-defguard-for-end-users/mobile-client/README.md)
   * [Adding new Instance](using-defguard-for-end-users/mobile-client/instance-adding.md)
   * [Connecting to Instance](using-defguard-for-end-users/mobile-client/instance-connect.md)
-  * [Managing your Instance](using-defguard-for-end-users/mobile-client/instance-manage.md)
   * [Using Biometry as MFA method](using-defguard-for-end-users/mobile-client/using-biometry-as-mfa-method.md)
 * [Desktop Client](using-defguard-for-end-users/desktop-client/README.md)
   * [Instance configuration](using-defguard-for-end-users/desktop-client/instance-configuration.md)

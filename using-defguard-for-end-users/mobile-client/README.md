@@ -10,7 +10,6 @@ These guides explain how to use the Defguard Mobile to connect securely to VPN l
 
 * [Instance adding guide](instance-adding.md#adding-new-instance)
 * [Connecting to Instance guide](instance-connect.md#connecting-to-instance)
-* [Managing Instance guide](instance-manage.md#managing-your-instance)
 
 ### Automatic configuration update
 
@@ -19,5 +18,6 @@ This is an intended behaviour.
 
 If you want to manually update your Instance perform:
 
-* **Manual pull-to-refresh** on the instance screen.
+* **Manual pull-to-refresh** on the instances screen.
+* **Manual pull-to-refresh** on the locations screen.
 * **Restart of the application** (reopening the app)
