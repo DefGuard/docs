@@ -10,7 +10,7 @@ If a location requires an MFA method you haven't set up yet, you will see **Conf
 
 1. Click **Configure MFA** on the location.
 
-<figure><img src="../../.gitbook/assets/configure-mfa-button-tray-view.png" alt=""></figure>
+<figure><img src="../../.gitbook/assets/configure-mfa-button-tray-view.png" alt=""><figcaption></figcaption></figure>
 
 2. Continue with [Selecting MFA methods](configuring-mfa-methods.md#selecting-mfa-methods).
 
@@ -18,7 +18,7 @@ If a location requires an MFA method you haven't set up yet, you will see **Conf
 
 1. Click **Configure MFA** on the location.
 
-<figure><img src="../../.gitbook/assets/configure-mfa-button-full-view.png" alt=""></figure>
+<figure><img src="../../.gitbook/assets/configure-mfa-button-full-view.png" alt=""><figcaption></figcaption></figure>
 
 2. Continue with [Selecting MFA methods](configuring-mfa-methods.md#selecting-mfa-methods).
 
@@ -26,16 +26,16 @@ If a location requires an MFA method you haven't set up yet, you will see **Conf
 
 1. If you don't have **Defguard** in full view mode, open **Defguard** from tray view, and click **Open Defguard**.
 
-<figure><img src="../../.gitbook/assets/tray-view-open-defguard-marked.png" alt="" width="50%"></figure>
+<figure><img src="../../.gitbook/assets/tray-view-open-defguard-marked.png" alt="" width="50%"><figcaption></figcaption></figure>
 
 2. Click the **+** icon in the navigation bar.
 3. Click **Add MFA** on the **Add new MFA method** card.
 
-<figure><img src="../../.gitbook/assets/add-new-mfa-method-card-marked.png" alt=""></figure>
+<figure><img src="../../.gitbook/assets/add-new-mfa-method-card-marked.png" alt=""><figcaption></figcaption></figure>
 
 4. Select the instance you want to configure MFA for and click **Continue**.
 
-<figure><img src="../../.gitbook/assets/select-mfa-instance.png" alt=""></figure>
+<figure><img src="../../.gitbook/assets/select-mfa-instance.png" alt=""><figcaption></figcaption></figure>
 
 5. Continue with [Selecting MFA methods](configuring-mfa-methods.md#selecting-mfa-methods).
 
@@ -45,11 +45,11 @@ If a location requires an MFA method you haven't set up yet, you will see **Conf
 
 1. Click the pen icon on the right side of the panel.
 
-<figure><img src="../../.gitbook/assets/pen-icon-mfa-tray-view.png" alt=""></figure>
+<figure><img src="../../.gitbook/assets/pen-icon-mfa-tray-view.png" alt=""><figcaption></figcaption></figure>
 
 2. Select a method marked **Not configured** and click **Configure MFA**.
 
-<figure><img src="../../.gitbook/assets/change-mfa-method-configure-button-tray-view.png" alt=""></figure>
+<figure><img src="../../.gitbook/assets/change-mfa-method-configure-button-tray-view.png" alt=""><figcaption></figcaption></figure>
 
 3. Continue with [Selecting MFA methods](configuring-mfa-methods.md#selecting-mfa-methods).
 
@@ -57,11 +57,11 @@ If a location requires an MFA method you haven't set up yet, you will see **Conf
 
 1. Click the pen icon on the right side of the panel.
 
-<figure><img src="../../.gitbook/assets/full-view-pen-icon.png" alt=""></figure>
+<figure><img src="../../.gitbook/assets/full-view-pen-icon.png" alt=""><figcaption></figcaption></figure>
 
 2. Select a method marked **Not configured** and click **Configure MFA**.
 
-<figure><img src="../../.gitbook/assets/change-mfa-method-configure-button-full-view.png" alt=""></figure>
+<figure><img src="../../.gitbook/assets/change-mfa-method-configure-button-full-view.png" alt=""><figcaption></figcaption></figure>
 
 3. Continue with [Selecting MFA methods](configuring-mfa-methods.md#selecting-mfa-methods).
 
@@ -69,7 +69,7 @@ If a location requires an MFA method you haven't set up yet, you will see **Conf
 
 1. Select the methods you want to set up and click **Continue**.
 
-<figure><img src="../../.gitbook/assets/configure-mfa-select-methods-location.png" alt=""></figure>
+<figure><img src="../../.gitbook/assets/configure-mfa-select-methods-location.png" alt=""><figcaption></figcaption></figure>
 
 ## Confirming your identity
 
@@ -77,7 +77,7 @@ Before adding a new method, Defguard asks you to confirm your identity with a me
 
 1. If you have more than one MFA method set up, choose the one you want to use and click **Continue**. If not, skip to step 2.
 
-<figure><img src="../../.gitbook/assets/additional-verification-required.png" alt=""></figure>
+<figure><img src="../../.gitbook/assets/image (384).png" alt=""><figcaption></figcaption></figure>
 
 2. Confirm your identity as described below, depending on the method you use.
 
@@ -85,7 +85,7 @@ Before adding a new method, Defguard asks you to confirm your identity with a me
 
 1. Enter the 6-digit code from your authenticator app and click **Verify**.
 
-<figure><img src="../../.gitbook/assets/verify-authenticator-app.png" alt=""></figure>
+<figure><img src="../../.gitbook/assets/image (379).png" alt=""><figcaption></figcaption></figure>
 
 ### Email
 
@@ -95,18 +95,18 @@ Before adding a new method, Defguard asks you to confirm your identity with a me
 If you didn't receive the code, click **Resend code**.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/verify-email.png" alt=""></figure>
+<figure><img src="../../.gitbook/assets/image (381).png" alt=""><figcaption></figcaption></figure>
 
 ### Security key
 
 1. Insert your security key.
+
+<figure><img src="../../.gitbook/assets/image (382).png" alt=""><figcaption></figcaption></figure>
+
 2. Enter its PIN if asked, and click **Verify**.
-
-<figure><img src="../../.gitbook/assets/verify-security-key.png" alt=""></figure>
-
 3. Touch your security key when it starts blinking.
 
-<figure><img src="../../.gitbook/assets/verify-security-key-touch.png" alt=""></figure>
+<figure><img src="../../.gitbook/assets/image (383).png" alt=""><figcaption></figcaption></figure>
 
 ## Setting up MFA methods
 
@@ -120,7 +120,7 @@ If you can't scan the QR code, copy the code shown below it and enter it manuall
 
 2. Enter the 6-digit code from your authenticator app and click **Configure**.
 
-<figure><img src="../../.gitbook/assets/configure-authenticator-app.png" alt=""></figure>
+<figure><img src="../../.gitbook/assets/configure-authenticator-app.png" alt=""><figcaption></figcaption></figure>
 
 ### Security key
 
@@ -128,11 +128,11 @@ If you can't scan the QR code, copy the code shown below it and enter it manuall
 2. Enter a name for the key so you can recognise it later.
 3. Enter the key's PIN if asked, and click **Register**.
 
-<figure><img src="../../.gitbook/assets/register-security-key.png" alt=""></figure>
+<figure><img src="../../.gitbook/assets/register-security-key.png" alt=""><figcaption></figcaption></figure>
 
 4. Touch your security key when it starts blinking.
 
-<figure><img src="../../.gitbook/assets/register-security-key-touch.png" alt=""></figure>
+<figure><img src="../../.gitbook/assets/register-security-key-touch.png" alt=""><figcaption></figcaption></figure>
 
 ## Finishing the configuration
 
@@ -142,11 +142,11 @@ If you can't scan the QR code, copy the code shown below it and enter it manuall
 Recovery codes are your backup access if you lose your authenticator app. Store them securely, for example in a password manager.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/recovery-codes.png" alt=""></figure>
+<figure><img src="../../.gitbook/assets/recovery-codes.png" alt=""><figcaption></figcaption></figure>
 
 2. Select **I have saved my codes** and click **Complete**.
 3. Click **Finish**.
 
-<figure><img src="../../.gitbook/assets/configure-mfa-finish.png" alt=""></figure>
+<figure><img src="../../.gitbook/assets/configure-mfa-finish.png" alt=""><figcaption></figcaption></figure>
 
 Your new MFA methods can be used immediately. To connect to a location with MFA, check out [this guide](using-multi-factor-authentication-mfa.md).
