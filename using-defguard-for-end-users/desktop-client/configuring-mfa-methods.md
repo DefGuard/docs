@@ -83,16 +83,16 @@ Before adding a new method, Defguard asks you to confirm your identity with a me
 
 ### Authenticator app
 
-1. Enter the 6-digit code from your authenticator app and click **Verify**.
+1. Enter the 6-digit code from your authenticator app and click **Continue**.
 
 <figure><img src="../../.gitbook/assets/verify-authenticator-app.png" alt=""></figure>
 
 ### Email
 
-1. Enter the 6-digit code sent to your email and click **Verify**.
+1. Enter the 6-digit code sent to your email and click **Continue**.
 
 {% hint style="info" %}
-If you didn't receive the code, click **Resend code**.
+If you didn't receive the code, click **Resend email**.
 {% endhint %}
 
 <figure><img src="../../.gitbook/assets/verify-email.png" alt=""></figure>
