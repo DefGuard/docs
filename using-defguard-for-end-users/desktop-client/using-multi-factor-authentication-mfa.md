@@ -47,6 +47,10 @@ Depending on location settings, you may use:
 
 ## Internal MFA
 
+{% hint style="info" %}
+To connect with a hardware security key, such as a YubiKey, see [Using a security key (FIDO2)](using-a-security-key-fido2.md).
+{% endhint %}
+
 ### Desktop client in tray view mode
 
 1. If you are connecting to a location for the first time, click the pen icon on the right side of the panel. If not, skip to step 3.

@@ -32,12 +32,12 @@ A step needs at least one factor, and a factor can appear only once per step.
 | **Authenticator App**       | [TOTP](../../../using-defguard-for-end-users/setting-up-2fa-mfa.md#one-time-password) enabled in their Defguard profile.                                                      | Yes            | Yes                          |
 | **Email Verification Code** | [Email MFA](../../../using-defguard-for-end-users/setting-up-2fa-mfa.md#email) enabled in their profile, and the instance needs working SMTP.                                 | Yes            | Yes                          |
 | **External ID Provider**    | Account linked to the configured [OpenID provider](../../external-openid-providers/). Requires a Business license.                                                            | Yes            | Yes                          |
-| **FIDO2 Security Key**      | A credential registered in the [Passkeys](../../../using-defguard-for-end-users/setting-up-2fa-mfa.md#passkeys) card of their profile, on a key the client machine can reach. | Yes            | No                           |
+| **FIDO2 Security Key**      | A certified hardware security key registered in the [desktop client](../../../using-defguard-for-end-users/desktop-client/using-a-security-key-fido2.md). Requires an Enterprise license.               | Yes            | No                           |
 | **Defguard Mobile Client**  | An enrolled mobile device with biometrics, which approves the desktop connection by scanning a QR code.                                                                       | Yes            | Not as the connecting client |
 | **Biometrics**              | An enrolled mobile device with biometrics. Marked **Mobile only** in the factor menu.                                                                                         | No             | Yes                          |
 
 {% hint style="info" %}
-**Passkeys** is the label in the user's own profile for registering a WebAuthn credential; **FIDO2 Security Key** is the label for the same credential family used as a VPN factor. A platform-bound passkey created inside a browser is not necessarily reachable by the desktop client, so test with a hardware security key.
+The **FIDO2 Security Key** factor accepts only keys that the user registered in the desktop client. At registration, Defguard checks that the key is a certified hardware security key. A passkey from the **Passkeys** card in the user's profile signs the user in to the web app, but it does not satisfy this factor. A user who has only such a passkey is blocked at this step until they register a key in the desktop client.
 {% endhint %}
 
 A factor can be part of a flow and still be unusable by a particular user or device. Defguard rechecks it when a connection starts and refuses a factor the user has not set up, so a step whose only factor some users lack will block them rather than let them through.
@@ -47,6 +47,7 @@ A factor can be part of a flow and still be unusable by a particular user or dev
 The factor menu splits factors into **Available in your plan** and **Available in higher plans**, and says what is missing:
 
 * _Upgrade your plan to Business to use this MFA method_ for **External ID Provider**;
+* _Upgrade your plan to Enterprise to use this MFA method_ for **FIDO2 Security Key**;
 * _Configure SMTP server in Settings (Notifications tab) to activate this MFA method_ for **Email Verification Code**;
 * _Upgrade your plan to Business to add more than one MFA step_ on the button that adds a step.
 
@@ -60,6 +61,7 @@ Saving is refused for the same reasons, so configure [SMTP](../../notifications/
 | More than one flow                           | Business         |
 | More than one step in a flow                 | Business         |
 | **External ID Provider** as a factor         | Business         |
+| **FIDO2 Security Key** as a factor           | Enterprise       |
 | Group-level MFA overrides on a location      | Enterprise       |
 
 See [Purchasing and using the license](../../../enterprise/license.md).

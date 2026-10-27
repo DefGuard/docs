@@ -12,6 +12,10 @@ Whatever the method you will choose to configure next, please be prepared to do 
 
 ### Passkeys
 
+{% hint style="warning" %}
+A passkey that you add here signs you in to the Defguard web app. The desktop client cannot use it to connect to a VPN location. To use a security key for VPN connections, register it in the desktop client as described in [Using a security key (FIDO2)](desktop-client/using-a-security-key-fido2.md).
+{% endhint %}
+
 Click on action button in Passkeys row.
 
 <figure><img src="../.gitbook/assets/image (330).png" alt=""><figcaption></figcaption></figure>
