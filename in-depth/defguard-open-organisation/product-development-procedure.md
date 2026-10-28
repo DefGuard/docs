@@ -110,6 +110,14 @@ New ideas and tasks included in the roadmap may originate from:
 * Security and compliance requirements
 * Technical maintenance needs
 
+#### Issue triage
+
+New issues in the backlog have status _New_. Issues in status New are in triage. The product team has to decide if they will be accepted for development.
+
+If an issue is accepted its status will change to Accepted. It should also have a high-level priority set.
+
+If an issue is rejected it gets closed with a "Close as not planned" status.
+
 #### Refinement process
 
 * Roadmap items are reviewed during a **weekly refinement session** with the team.
