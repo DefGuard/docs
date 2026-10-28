@@ -130,6 +130,7 @@
   * [Adding new Instance](using-defguard-for-end-users/mobile-client/instance-adding.md)
   * [Connecting to Instance](using-defguard-for-end-users/mobile-client/instance-connect.md)
   * [Using Biometry as MFA method](using-defguard-for-end-users/mobile-client/using-biometry-as-mfa-method.md)
+  * [Using a security key (FIDO2)](using-defguard-for-end-users/mobile-client/using-a-security-key-fido2.md)
 * [Desktop Client](using-defguard-for-end-users/desktop-client/README.md)
   * [Instance configuration](using-defguard-for-end-users/desktop-client/instance-configuration.md)
   * [Using Multi-Factor Authentication (MFA)](using-defguard-for-end-users/desktop-client/using-multi-factor-authentication-mfa.md)

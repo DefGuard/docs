@@ -1,15 +1,21 @@
 # Using a security key (FIDO2)
 
+{% hint style="warning" %}
+**Availability**
+
+This feature requires an Enterprise plan. See the [pricing page](https://defguard.net/pricing/) for details.
+{% endhint %}
+
 ## Before you start
 
 You need:
 
-- Defguard desktop client 2.2.0 or newer on Windows, macOS, or Linux. The mobile client and the command-line client do not support security keys.
+- Defguard desktop client 2.2.0 or newer on Windows, macOS, or Linux. The command-line client does not support security keys. After you register a key in the desktop client, you can also use it in the mobile client over NFC. See [Using a security key (FIDO2) in the mobile client](../mobile-client/using-a-security-key-fido2.md).
 - A FIDO2 security key that Defguard trusts. Defguard accepts certified hardware keys, for example the YubiKey 5 series, including the FIPS and CCN models. YubiKey 4, YubiKey NEO, and keys that support only U2F do not work. See [WebAuthn security keys](../../support-1/troubleshooting-guides/webauthn-security-keys.md).
 - A location that accepts **Security key** as an MFA method. Your administrator sets this up in the location's [MFA flow](../../features/wireguard/multi-factor-authentication-mfa-2fa/mfa-flows-and-methods.md).
 
 {% hint style="warning" %}
-Register the key in the desktop client. A passkey that you add in the **Passkeys** section of your profile in the Defguard web app signs you in to the web app, but the desktop client cannot use it to connect to a location.
+Register the key in the desktop client. A passkey that you add in the **Passkeys** section of your profile in the Defguard web app signs you in to the web app, but the desktop and mobile clients cannot use it to connect to a location.
 {% endhint %}
 
 ## Set a PIN on the key
