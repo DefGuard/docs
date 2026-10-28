@@ -19,6 +19,8 @@ Older clients do not receive the configuration for locations with posture checks
 The disk encryption posture check requires the macOS client to be installed from a DMG package. It is unavailable in the App Store build. [See why](device-posture-verification.md#disk-encryption-posture-availability-on-macos).
 {% endhint %}
 
+{% embed url="https://www.youtube.com/watch?v=22zmUil1Tjw" %}
+
 Posture checks let you verify the security state of a user’s device before allowing it to connect to a location. Instead of trusting only the user’s identity, Defguard can also evaluate device requirements such as:
 
 * Defguard client version
@@ -140,4 +142,3 @@ Defguard Desktop Client for macOS can be installed from the official App Store o
 Mac App Store apps must run inside Apple's App Sandbox, which isolates them from the rest of the system. Checking whether FileVault is enabled means reading system-level state that sits outside the sandbox, and Apple provides no permission that lets a sandboxed app do this. The App Store build therefore has no way to obtain the signal at all and **will report disk encryption as disabled**.
 
 The DMG installer is not subject to those restrictions. If your deployment relies on the disk encryption posture check, distribute the DMG build to macOS clients rather than the App Store version.
-

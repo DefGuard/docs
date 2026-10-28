@@ -1,6 +1,6 @@
 # About Defguard
 
-{% embed url="https://youtu.be/Nx1BGqnxPBw" %}
+{% embed url="https://youtu.be/-UrD3f2p6Rg?si=1fM_0sFHV5KWOgXj" %}
 
 ## What is Defguard?
 

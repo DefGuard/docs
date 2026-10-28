@@ -4,6 +4,8 @@
 MFA flows are new in 2.2, which is [currently in alpha](../../../deployment-strategies/pre-production-and-development-releases.md). Screens and labels may still change before release.
 {% endhint %}
 
+{% embed url="https://www.youtube.com/watch?v=oK8OILe8nbY" %}
+
 An **MFA flow** is a named, ordered list of steps. Each step holds the factors that are allowed to satisfy it, the user proves one factor per step, and the VPN tunnel is established only after the last step succeeds.
 
 Flows exist independently of locations. One flow can be reused by several locations, and a single location can have [several flows assigned to it](configuring-mfa-for-a-location.md). Build the flow first, then enforce it on a location.
@@ -27,14 +29,14 @@ A step needs at least one factor, and a factor can appear only once per step.
 
 ### Available factors
 
-| Factor                      | The user has to have                                                                                                                                                          | Desktop client | Mobile client                |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ---------------------------- |
-| **Authenticator App**       | [TOTP](../../../using-defguard-for-end-users/setting-up-2fa-mfa.md#one-time-password) enabled in their Defguard profile.                                                      | Yes            | Yes                          |
-| **Email Verification Code** | [Email MFA](../../../using-defguard-for-end-users/setting-up-2fa-mfa.md#email) enabled in their profile, and the instance needs working SMTP.                                 | Yes            | Yes                          |
-| **External ID Provider**    | Account linked to the configured [OpenID provider](../../external-openid-providers/). Requires a Business license.                                                            | Yes            | Yes                          |
-| **FIDO2 Security Key**      | A certified hardware security key registered in the [desktop client](../../../using-defguard-for-end-users/desktop-client/using-a-security-key-fido2.md). Requires an Enterprise license.               | Yes            | No                           |
-| **Defguard Mobile Client**  | An enrolled mobile device with biometrics, which approves the desktop connection by scanning a QR code.                                                                       | Yes            | Not as the connecting client |
-| **Biometrics**              | An enrolled mobile device with biometrics. Marked **Mobile only** in the factor menu.                                                                                         | No             | Yes                          |
+| Factor                      | The user has to have                                                                                                                                                                      | Desktop client | Mobile client                |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ---------------------------- |
+| **Authenticator App**       | [TOTP](../../../using-defguard-for-end-users/setting-up-2fa-mfa.md#one-time-password) enabled in their Defguard profile.                                                                  | Yes            | Yes                          |
+| **Email Verification Code** | [Email MFA](../../../using-defguard-for-end-users/setting-up-2fa-mfa.md#email) enabled in their profile, and the instance needs working SMTP.                                             | Yes            | Yes                          |
+| **External ID Provider**    | Account linked to the configured [OpenID provider](../../external-openid-providers/). Requires a Business license.                                                                        | Yes            | Yes                          |
+| **FIDO2 Security Key**      | A certified hardware security key registered in the [desktop client](../../../using-defguard-for-end-users/desktop-client/using-a-security-key-fido2.md). Requires an Enterprise license. | Yes            | No                           |
+| **Defguard Mobile Client**  | An enrolled mobile device with biometrics, which approves the desktop connection by scanning a QR code.                                                                                   | Yes            | Not as the connecting client |
+| **Biometrics**              | An enrolled mobile device with biometrics. Marked **Mobile only** in the factor menu.                                                                                                     | No             | Yes                          |
 
 {% hint style="info" %}
 The **FIDO2 Security Key** factor accepts only keys that the user registered in the desktop client. At registration, Defguard checks that the key is a certified hardware security key. A passkey from the **Passkeys** card in the user's profile signs the user in to the web app, but it does not satisfy this factor. A user who has only such a passkey is blocked at this step until they register a key in the desktop client.
