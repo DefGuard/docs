@@ -10,7 +10,7 @@ This feature requires an Enterprise plan. See the [pricing page](https://defguar
 
 You need:
 
-- Defguard desktop client 2.2.0 or newer on Windows, macOS, or Linux. The command-line client does not support security keys. After you register a key in the desktop client, you can also use it in the mobile client over NFC. See [Using a security key (FIDO2) in the mobile client](../mobile-client/using-a-security-key-fido2.md).
+- Defguard desktop client 2.2.0 or newer on Windows, macOS, or Linux. The command-line client does not support security keys. After you register a key in the desktop client, you can also use it in the mobile client over NFC. See [Using a security key (FIDO2) in the mobile client](../mobile-client/using-security-key-fido2-as-mfa-method.md).
 - A FIDO2 security key that Defguard trusts. Defguard accepts certified hardware keys, for example the YubiKey 5 series, including the FIPS and CCN models. YubiKey 4, YubiKey NEO, and keys that support only U2F do not work. See [WebAuthn security keys](../../support-1/troubleshooting-guides/webauthn-security-keys.md).
 - A location that accepts **Security key** as an MFA method. Your administrator sets this up in the location's [MFA flow](../../features/wireguard/multi-factor-authentication-mfa-2fa/mfa-flows-and-methods.md).
 

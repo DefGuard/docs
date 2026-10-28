@@ -40,7 +40,7 @@ Some locations ask you to confirm your identity before the VPN connects. This is
 | Authenticator App  | Enter the 6-digit code from your authenticator app.                                                         |
 | Email              | Enter the code sent to your email address.                                                                  |
 | OpenID             | Sign in with your identity provider in the browser. The app shows your provider's name instead of "OpenID". |
-| FIDO2 Security key | Enter the key's PIN and hold the key to your phone over NFC. See [Using a security key (FIDO2)](using-a-security-key-fido2.md). |
+| FIDO2 Security key | Enter the key's PIN and hold the key to your phone over NFC. See [Using security key (FIDO2) as MFA method](using-security-key-fido2-as-mfa-method.md). |
 
 {% hint style="info" %}
 Biometric verification has to be enabled on the device first. You can turn it on when you add an instance, or later from the prompt the app shows when a location needs it.
