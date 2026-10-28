@@ -45,26 +45,59 @@ The [GitHub Project](https://github.com/orgs/DefGuard/projects/5) provides three
 * [Sprints view](https://github.com/orgs/DefGuard/projects/5/views/8) (short-term planning)
 * [Board view](https://github.com/orgs/DefGuard/projects/5/views/2) (current sprint execution)
 
-### Issue workflow
+### Issue workflow (Status field)
 
 All work items (features, bugs, improvements, and technical tasks) follow a standardized workflow in GitHub Projects. The workflow is designed to make the current state of each item clear to both the team and the community.
 
 The following statuses are used:
 
-* **New** – The issue has been created and awaits initial triage.
-* **Refinement ready** – The item is ready to be discussed and detailed during the refinement session (scope, acceptance criteria, and technical approach may be clarified).
-* **Development ready** – The item is fully specified and can be planned into a sprint.
-* **In progress** – Active development is ongoing.
-* **Review** – Implementation is finished and waiting for code review and/or product review.
-* **Testing** – The item is being tested (manually and/or automatically).
-* **Ready to release** – Work is completed and the item is ready to be included in the next release.
+* **New** - The issue has been created and awaits initial triage.
+* **Accepted** - Issue accepted by the product team. Should be roughly scheduled using the Horizon field. Ready for analysis to prepare for the refinement with the dev team.
+* **Refinement ready** - The item is ready to be discussed and detailed during the refinement session (scope, acceptance criteria, and technical approach may be clarified).
+* **Development ready** - The item is fully specified and can be planned into a sprint.
+* **In progress** - Active development is ongoing.
+* **Review** - Implementation is finished and waiting for code review and/or product review.
+* **Testing** - The item is being tested (manually and/or automatically).
+* **Ready to release** - Work is completed and the item is ready to be included in the next release.
+
+### Other important fields
+
+The following paragraph describes important project fields that we use to inform about the progress of an issue.
+
+#### Sprint
+
+The issue was planned by the development team and will be developed in this sprint (development iteration). In our case iteration is one week long and always has a beginning and an end. An issue can be moved to a following sprint if it wasn't finished in the current one.
+
+#### Horizon
+
+A high-level priority set by the product team. Used to prioritize issues before they're selected for development and get a milestone assigned. Possible values for the Horizon field are:
+
+* Now - item selected for development in the nearest release. Should have a milestone set at this point. The milestone should not change.
+* Next - item selected for development in the next release. Might not have a milestone set yet. Should be selected for the following milestone but that might still change when we plan the scope of the milestone.
+* Later - item selected for development in some later release.
+* Icebox - item is low priority and most likely will be removed from the backlog.
+
+#### Milestone
+
+The name of the release that the item will be delivered in. The milestone should not change after it was set. In rare cases we might postpone the item and move to the following milestone, but we try to avoid that.
+
+#### Tier
+
+The procing tier that the functionality will be availabe in. Possible values are taken from our [pricing](https://defguard.net/pricing/):
+
+* Open Source
+* Business
+* Enterprise
 
 ### Roadmap planning
 
 #### Structure
 
 * The roadmap is managed in the [**Roadmap view**](https://github.com/orgs/DefGuard/projects/5/views/16) of the GitHub Project.
-* Each roadmap item is assigned to a **GitHub Milestone** representing a release version (e.g., `v1.6`, `v1.7`).
+* Items in tiage (not accepted for development yet stay in the _New_ status).
+* Items accepted by the product team have status _Accepted_ or above.
+* Items are prioritiezed by the Horizon field first (high level) and by the Milestone field (selected for developement in the given milestone/release).
+* Each roadmap item selected for development is assigned to a **GitHub Milestone** representing a release version (e.g., `v1.6`, `v1.7`).
 * Items without a milestone are considered unplanned or under evaluation.
 
 #### Sources of ideas
