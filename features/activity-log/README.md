@@ -151,6 +151,10 @@ At the moment following events are tracked in the Activity log:
   * ProxyDeleted
   * ProxyConnected
   * ProxyDisconnected
+  * MfaFlowCreated
+  * MfaFlowUpdated
+  * MfaFlowDeleted
+  * LocationMfaFlowsAssigned
 * **enrollment** module
   * EnrollmentStarted
   * EnrollmentDeviceAdded
@@ -165,8 +169,10 @@ At the moment following events are tracked in the Activity log:
   * VpnClientMfaDisconnected
   * VpnClientMfaSuccess
   * VpnClientMfaFailed
+  * VpnClientMfaAborted
   * VpnClientSessionSuperseded
   * VpnClientMfaSessionSuperseded
+  * VpnClientMfaLoginSuperseded
 * **posture** module
   * DevicePostureCreated
   * DevicePostureUpdated
@@ -195,6 +201,7 @@ At the moment following events are tracked in the Activity log:
 * **oidc\_directory\_sync** module
   * OidcDirectorySyncUserCreated
   * OidcDirectorySyncUserDeleted
+  * OidcDirectorySyncUserModified
   * OidcDirectorySyncUserEnabled
   * OidcDirectorySyncUserDisabled
   * OidcDirectorySyncGroupCreated
