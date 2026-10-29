@@ -104,11 +104,7 @@ The QR code shown by the desktop client must be scanned on the mobile device for
 1. Biometry authentication that enables access to device secure storage
 2. Additional validation with private/public key pair between mobile/desktop/core server. After that, our “normal” MFA flow (with session keys, WireGuard private/public keys) takes place.
 
-Here is a video showcasing this process:
-
-{% embed url="https://www.youtube.com/watch?v=b-XC76k4KVU" %}
-
-And here you can see the whole flow done with multiple steps including the user, desktop (and mobile), the Edge and Defguard Core and gateway in the final step:
+Here you can see the whole flow done with multiple steps including the user, desktop (and mobile), the Edge and Defguard Core and gateway in the final step:
 
 <figure><img src="../../.gitbook/assets/image (42).png" alt=""></figure>
 
