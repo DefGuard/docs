@@ -1,129 +1,163 @@
 # Using Multi-Factor Authentication (MFA)
 
-MFA is configured per location, and administrators choose whether a location uses internal MFA or an external OIDC/SSO provider.
+Some locations ask you to confirm your identity before the VPN connects. Your administrator sets this up for each location as an MFA flow: one or more steps that you complete in a fixed order. In each step you use one method, and if the step accepts several methods, you choose which one. The client connects after the last step.
 
-Depending on location settings, you may use:
+## Supported methods
 
-* Internal MFA - You must have at least one MFA method configured in your profile. For a detailed tutorial, [check out this article](../setting-up-2fa-mfa.md).
-* External MFA - You will be redirected to an external site, where authentication is handled by your OIDC provider, for example Google/Microsoft.
+| Method                                                                                        | What you do                                                               |
+| --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| [Authenticator app](using-multi-factor-authentication-mfa.md#authenticator-app-or-email-code) | Enter the 6-digit code from your authenticator app.                       |
+| [Email](using-multi-factor-authentication-mfa.md#authenticator-app-or-email-code)             | Enter the 6-digit code sent to your email address.                        |
+| [OpenID](using-multi-factor-authentication-mfa.md#openid)                                 | Sign in with your identity provider (Google, Entra, etc.) in the browser. |
+| [Security key](using-multi-factor-authentication-mfa.md#security-key-fido2)                   | Enter the key's PIN and touch the key.                                    |
+| [Mobile App Approval](using-multi-factor-authentication-mfa.md#mobile-app-approval)           | Scan a QR code with the Defguard mobile app and confirm with biometrics.  |
 
-## External MFA
+You can set up the authenticator app, email and security key in the desktop client. See [Configuring MFA methods](configuring-mfa-methods.md).
 
-### Desktop client in tray view mode
+{% hint style="info" %}
+Locations whose MFA flow has more than one step require Defguard desktop client 2.2.0 or newer. Older clients do not show these locations.
+{% endhint %}
 
-1. Click **Connect VPN** on the location with the **OpenID** label
-
-<figure><img src="../../.gitbook/assets/openid-label-marked-tray-view.png" alt=""><figcaption></figcaption></figure>
-
-2. Click **Auth with OpenID**, you will be redirected to a secure site where you will need to log in in order to confirm your identity. (Google, Microsoft, Okta, etc.)
-
-<figure><img src="../../.gitbook/assets/auth-with-openid-tray-view.png" alt=""><figcaption></figcaption></figure>
-
-3. After confirming your identity (logging in) you will see the "Authentication Completed" message.
-
-<figure><img src="../../.gitbook/assets/auth-completed-openid.png" alt=""><figcaption></figcaption></figure>
-
-4. Now you can close this window and go back to the Defguard Client. Your connection will be established immediately.
-
-<figure><img src="../../.gitbook/assets/tray-view-openid-location-connected.png" alt="" width="375"><figcaption></figcaption></figure>
+## Connecting to a location with MFA
 
 ### Desktop client in full view mode
 
-1. Click **Connect VPN** on the location with the **OpenID** label
+1. Click **Connect VPN** on the location.
 
-<figure><img src="../../.gitbook/assets/openid-marked-fullview.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/mfa-location-full-view.png" alt=""></figure>
 
-2. Click **Auth with OpenID**, you will be redirected to a secure site where you will need to log in in order to confirm your identity. (Google, Microsoft, Okta, etc.)
+2. Complete the first step. For what to do in each method, see [Completing a step](using-multi-factor-authentication-mfa.md#completing-a-step).
 
-<figure><img src="../../.gitbook/assets/auth-with-openid.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/mfa-step-1-full-view.png" alt=""></figure>
 
-3. After confirming your identity (logging in) you will see the "Authentication Completed" message.
+3. Complete the remaining steps the same way. After the last step, the client connects.
 
-<figure><img src="../../.gitbook/assets/auth-completed-openid.png" alt=""><figcaption></figcaption></figure>
-
-4. Now you can close this window and go back to the Defguard Client. Your connection will be established immediately.
-
-<figure><img src="../../.gitbook/assets/connected-openid.png" alt="" width="375"><figcaption></figcaption></figure>
-
-## Internal MFA
-
-{% hint style="info" %}
-To connect with a hardware security key, such as a YubiKey, see [Using a security key (FIDO2)](using-a-security-key-fido2.md).
-{% endhint %}
+<figure><img src="../../.gitbook/assets/mfa-connected-full-view.png" alt=""></figure>
 
 ### Desktop client in tray view mode
 
-1. If you are connecting to a location for the first time, click the pen icon on the right side of the panel. If not, skip to step 3.
+1. Click **Connect VPN** on the location.
 
-<figure><img src="../../.gitbook/assets/pen-icon-mfa-tray-view.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/mfa-location-tray-view.png" alt=""></figure>
 
-2. Choose the MFA method configured in your profile and click **Save changes**. If you haven't configured any of them, do it as described in [this guide](../setting-up-2fa-mfa.md#setting-up-2famfa).
+2. Complete the first step on the location card.
 
-{% hint style="info" %}
-If you need a guide explaining how to use Mobile Client as your MFA method, please [scroll down](using-multi-factor-authentication-mfa.md#multi-factor-authentication-via-mobile-biometry).
-{% endhint %}
+<figure><img src="../../.gitbook/assets/mfa-step-1-tray-view.png" alt=""></figure>
 
-<figure><img src="../../.gitbook/assets/mfa-methods-tray-view.png" alt=""><figcaption></figcaption></figure>
+3. Complete the remaining steps the same way. After the last step, the client connects.
 
-3. Click the **Connect VPN** button on the location.
+<figure><img src="../../.gitbook/assets/mfa-connected-tray-view.png" alt=""></figure>
 
-<figure><img src="../../.gitbook/assets/connect-vpn-internal-mfa.png" alt=""><figcaption></figcaption></figure>
+## Completing a step
 
-4. Enter the code from your Authenticator app or Email (depending on your choice in step 2) and click **Verify**.
+### Authenticator app or email code
 
-<figure><img src="../../.gitbook/assets/code-internal-mfa-tray-view.png" alt=""><figcaption></figcaption></figure>
+Set up the method first, in the desktop client, as described in [Configuring MFA methods](configuring-mfa-methods.md), or in your Defguard profile, as described in [Setting up 2FA/MFA](../setting-up-2fa-mfa.md).
 
-5. Your VPN connection will be established immediately.
+Enter the code from your authenticator app or email and click **Verify**.
 
-<figure><img src="../../.gitbook/assets/connected-mfa-tray-view.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/mfa-step-1-full-view.png" alt=""></figure>
 
-### Desktop client in full view mode
+If your code is rejected, see [TOTP / email codes for MFA do not work](../../support-1/troubleshooting-guides/totp-email-codes-for-mfa-do-not-work.md).
 
-1. If you are connecting to a location for the first time, click the pen icon on the right side of the panel. If not, skip to step 3.
+### OpenID
 
-<figure><img src="../../.gitbook/assets/full-view-pen-icon.png" alt=""><figcaption></figcaption></figure>
+1. Click **Authenticate with** and your provider's name, for example **Authenticate with Google**.
 
-2. Choose the MFA method configured in your profile and click **Save changes**. If you haven't configured any of them, do it as described in [this guide](../setting-up-2fa-mfa.md#setting-up-2famfa).
+<figure><img src="../../.gitbook/assets/mfa-openid-full-view.png" alt=""></figure>
 
-{% hint style="info" %}
-If you need a guide explaining how to use Mobile Client as your MFA method, please [scroll down](using-multi-factor-authentication-mfa.md#multi-factor-authentication-via-mobile-biometry).
-{% endhint %}
+2. Sign in with your provider. When you see **Authentication Completed**, close the browser window and go back to the client.
 
-<figure><img src="../../.gitbook/assets/mfa-methods-full-view.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/auth-completed-openid.png" alt=""></figure>
 
-3. Click the **Connect VPN** button on the location.
+### Security key (FIDO2)
 
-<figure><img src="../../.gitbook/assets/connect-mfa-vpn-full-view.png" alt=""><figcaption></figcaption></figure>
+To connect with a hardware security key, such as a YubiKey, see [Using a security key (FIDO2)](using-a-security-key-fido2.md#connect-with-the-key).
 
-4. Enter the code from your Authenticator app or Email (depending on your choice in step 2) and click **Verify**.
+### Mobile App Approval
 
-<figure><img src="../../.gitbook/assets/code-internal-mfa-full-view.png" alt=""><figcaption></figcaption></figure>
+With **Mobile App Approval**, you approve a desktop client connection from the Defguard mobile app.
 
-5. Your VPN connection will be established immediately.
+You need:
 
-<figure><img src="../../.gitbook/assets/connected-mfa-full-view.png" alt=""><figcaption></figcaption></figure>
+- The Defguard mobile app with the same instance added. See [Adding new Instance](../mobile-client/instance-adding.md).
+- Biometrics enabled for that instance in the mobile app. You can enable it only while adding the instance. See [Using Biometry as MFA method](../mobile-client/using-biometry-as-mfa-method.md#setting-up-biometry).
 
-## Multi-Factor Authentication via Mobile Biometry
+A device that can approve connections shows a fingerprint icon next to its name in the device list of your Defguard profile:
 
-After configuring VPN on your mobile device and [enabling Biometry](../mobile-client/using-biometry-as-mfa-method.md#setting-up-biometry), we not only enable Biometry based connecting on a mobile device, but add an extra security layer to have the most secure/sophisticated MFA method available.
+<figure><img src="../../.gitbook/assets/fingerprint-icon.png" alt="" width="563"></figure>
 
-After enabling Biometry we create an additional private/public key pair, with the private key stored in hardware/secure storage, and indicate in the UI that this device can now be used for MFA using Biometry on a desktop client:
+1. On your phone, open the Defguard mobile app, open the instance and tap the QR code button in the bottom right corner.
 
-<figure><img src="../../.gitbook/assets/fingerprint-icon.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/mobile-approval-qr-button.png" alt="" width="375"></figure>
 
-When you connect via desktop client to a location that has Internal MFA requirement, you can choose **“Mobile Client”** for MFA Method.
+2. Scan the QR code on your computer screen and confirm with biometrics.
 
-<figure><img src="../../.gitbook/assets/mobile-client-method.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/mfa-mobile-approval-full-view.png" alt=""></figure>
 
-After selecting this method, before each connection you will see a QR code.
+#### How it works
 
-<figure><img src="../../.gitbook/assets/qr-code-for-mobile-auth.png" alt="" width="375"><figcaption></figcaption></figure>
+After you [enable Biometry](../mobile-client/using-biometry-as-mfa-method.md#setting-up-biometry) on your mobile device, we not only enable Biometry-based connecting on a mobile device, but add an extra security layer to have the most secure/sophisticated MFA method available. We create an additional private/public key pair, with the private key stored in hardware/secure storage.
 
-This QR code must be scanned on the mobile device for additional MFA steps:
+The QR code shown by the desktop client must be scanned on the mobile device for additional MFA steps:
 
-1. Biometry authentication, that enables access to device secure storage
+1. Biometry authentication that enables access to device secure storage
 2. Additional validation with private/public key pair between mobile/desktop/core server. After that, our “normal” MFA flow (with session keys, WireGuard private/public keys) takes place.
 
-Here you can see the whole flow done with multiple steps including the user, desktop (and mobile) the Edge and Defguard Core and gateway in the final step:
+Here you can see the whole flow done with multiple steps including the user, desktop (and mobile), the Edge and Defguard Core and gateway in the final step:
 
-<figure><img src="../../.gitbook/assets/image (42).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (42).png" alt=""></figure>
+
+## Choosing MFA methods
+
+If a step accepts more than one method, the client uses your default method for that step. Defaults are saved for each location, on this computer only.
+
+### Setting default methods
+
+#### Desktop client in full view mode
+
+1. Click the pen icon next to the MFA method on the location. The icon is hidden while the location is connected.
+
+<figure><img src="../../.gitbook/assets/full-view-pen-icon.png" alt=""></figure>
+
+2. Under each step, select the method that you want to use by default and click **Save changes**.
+
+<figure><img src="../../.gitbook/assets/change-mfa-method-defaults-full-view.png" alt=""></figure>
+
+#### Desktop client in tray view mode
+
+1. Click the pen icon on the right side of the panel. The icon is hidden while the location is connected.
+
+<figure><img src="../../.gitbook/assets/pen-icon-mfa-tray-view.png" alt=""></figure>
+
+2. Under each step, select the method that you want to use by default and click **Save changes**.
+
+<figure><img src="../../.gitbook/assets/change-mfa-method-defaults-tray-view.png" alt=""></figure>
+
+{% hint style="info" %}
+To set up the authenticator app, email or security key from here, select the method marked **Not configured** and click **Configure MFA**. See [Configuring MFA methods](configuring-mfa-methods.md#starting-from-location-mfa-settings).
+{% endhint %}
+
+### Using another method for one connection
+
+If you cannot use the default method of a step, for example because you do not have your phone with you, choose another method while you connect.
+
+#### Desktop client in full view mode
+
+1. On the step, click **Other methods**. The button is shown only when the step accepts more than one method that you have set up.
+
+<figure><img src="../../.gitbook/assets/mfa-other-methods-full-view.png" alt=""></figure>
+
+2. Select the method and click **Continue**.
+
+<figure><img src="../../.gitbook/assets/change-mfa-method-once-full-view.png" alt=""></figure>
+
+#### Desktop client in tray view mode
+
+1. On the location card, click **Other methods**. The button is shown only when the step accepts more than one method that you have set up.
+
+<figure><img src="../../.gitbook/assets/mfa-other-methods-tray-view.png" alt=""></figure>
+
+2. Select the method and click **Continue**.
+
+<figure><img src="../../.gitbook/assets/change-mfa-method-once-tray-view.png" alt=""></figure>
