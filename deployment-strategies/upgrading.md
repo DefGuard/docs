@@ -8,6 +8,26 @@ description: Notes on upgrading Defguard and its components
 Before doing any updates please remember to **backup your database.**
 {% endhint %}
 
+## 2.1.x -> 2.2.0
+
+Back up your database, then update Core, Edge and Gateway together as described in [Updating and version compatibility](updating-and-version-compatibility.md).
+
+**Location MFA is converted to MFA flows**
+
+Version 2.2 replaces the per-location **Internal MFA** and **External MFA** setting with [MFA flows](../features/wireguard/multi-factor-authentication-mfa-2fa/mfa-flows-and-methods.md). The database migration converts existing locations automatically, and no manual step is needed:
+
+* every location that used Internal MFA gets a flow named **Default Internal MFA**, with one step that accepts Authenticator App, Email Verification Code, Biometrics and Defguard Mobile Client;
+* every location that used External MFA gets a flow named **Default External MFA**, with one step that accepts External ID Provider;
+* locations without MFA stay without MFA.
+
+Each flow is created only when at least one location used that mode, and it is shared by all such locations. You can rename or edit the flows afterwards; an edit applies to every location that uses the flow.
+
+On an instance without a Business license, the migration can leave two flows, one for each former mode. Both keep working, but creating a further flow requires a Business license. See [Licensing](../features/wireguard/multi-factor-authentication-mfa-2fa/mfa-flows-and-methods.md#licensing).
+
+**Client compatibility**
+
+The converted flows have the same shape as the old modes, so desktop and mobile clients older than 2.2.0 keep connecting to these locations as before. A location only stops appearing in a pre-2.2 client once you give it a configuration that client cannot represent, such as a second step or a group-level override. See [Client compatibility](../features/wireguard/multi-factor-authentication-mfa-2fa/mfa-flows-and-methods.md#client-compatibility) and update clients before making such changes.
+
 ## 2.0.x -> 2.1.0
 
 No migration steps are required. Back up your database, then update Core, Edge and Gateway together as described in [updating-and-version-compatibility.md](updating-and-version-compatibility.md "mention").
