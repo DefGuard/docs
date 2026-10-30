@@ -205,12 +205,14 @@ defguard-client connect office --code 123456
 
 # Or have a command produce it (e.g. from a secret manager).
 # The command receives DG_INSTANCE and DG_LOCATION in its environment.
+# For a multi-step location it runs once for each step that needs a code
+# and also receives DG_MFA_STEP, DG_MFA_STEP_COUNT and DG_MFA_METHOD
 defguard-client connect office --code-command "pass otp defguard"
 ```
 
 #### One-time login (OIDC)
 
-For locations that use an external identity provider, the CLI opens your default web browser to complete sign-in:
+When a verification step uses OpenID, the CLI opens your default web browser to complete sign-in with your identity provider. A location whose only method is OpenID uses it automatically. Otherwise, choose it like any other method, with `--mfa-method oidc` for a single-step location or `--mfa-step oidc` for that step of a multi-step location (see [How the method is chosen](command-line-defguard-cli.md#how-the-method-is-chosen))
 
 ```bash
 defguard-client connect office --mfa-method oidc
@@ -226,10 +228,12 @@ defguard-client connect office --qr-file /tmp/defguard-qr.png
 
 #### How the method is chosen
 
-You usually don't need to pick a method - the CLI infers it from how the location is configured on the server:
+A location's [MFA flow](../../features/wireguard/multi-factor-authentication-mfa-2fa/mfa-flows-and-methods.md) has one or more verification steps, and each step allows one or more methods. The CLI can run `totp`, `email`, `oidc` and `mobile`. It cannot run `fido2` (security key) or `biometric`; a step that allows only those fails with a message telling you to use the desktop or mobile client.
 
-* Locations that use **external (OIDC) MFA** always authenticate through your identity provider, so the CLI uses the OIDC browser flow.
-* Locations that use Defguard's **internal MFA** use whichever method that location is set to - TOTP, email, or mobile approval. If no specific method is set, the CLI uses **TOTP**.
+**Single-step locations.** You usually don't need to pick a method - the CLI infers it from the location:
+
+* A location whose only method is OpenID always authenticates through your identity provider, so the CLI uses the OIDC browser flow.
+* Other locations use the method saved for that location - TOTP, email, or mobile approval. If no method is saved, the CLI uses **TOTP**.
 
 You can override the inferred method for a single connection with `--mfa-method`:
 
@@ -237,13 +241,31 @@ You can override the inferred method for a single connection with `--mfa-method`
 defguard-client connect office --mfa-method email
 ```
 
-Valid values are `totp`, `email`, `oidc`, and `mobile`. The override has one restriction: `oidc` is only valid for locations that use external (OIDC) MFA - passing it for an internal-MFA location is rejected (exit code `7`).
+Valid values are `totp`, `email`, `oidc`, and `mobile`. Passing `oidc` for a location that does not use OpenID is rejected (exit code `7`).
 
-To change the default method a location remembers - so you don't have to repeat `--mfa-method` every time - use `location set` (this applies to internal-MFA locations; external locations always use OIDC):
+To change the method a location remembers - so you don't have to repeat `--mfa-method` every time - use `location set`:
 
 ```bash
 defguard-client location set office --mfa-method totp
 ```
+
+**Multi-step locations.** The CLI picks one method per step: a method given on the command line, else the method saved for that step, else the step's only method the CLI can run. When a step still has more than one candidate, the CLI asks you to choose in an interactive terminal, and fails with exit code `5` otherwise.
+
+Choose methods for one connection by repeating `--mfa-step` in step order. Steps you leave out are chosen as described above:
+
+```bash
+defguard-client connect office --mfa-step totp --mfa-step mobile
+```
+
+After an interactive choice, the CLI prints the `location set` command that saves it. Save a method for every step the same way:
+
+```bash
+defguard-client location set office --mfa-step totp --mfa-step mobile
+```
+
+`location set` also accepts `fido2` and `biometric`. The CLI cannot connect with them, but it saves them because the desktop client reads the same saved methods.
+
+`--mfa-method` works only for single-step locations and `--mfa-step` only for multi-step ones; using the wrong one is rejected. `--code` passes a single code, so for a multi-step location use `--code-command`, which runs once per step, or an interactive terminal.
 
 ### Scripting & automation
 
