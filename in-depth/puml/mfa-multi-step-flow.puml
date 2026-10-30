@@ -1,0 +1,43 @@
+@startuml mfa-multi-step-flow
+title VPN MFA authorization (2.2)
+actor User
+participant "Defguard Client" as Client
+participant Edge
+participant Core
+participant Gateway
+
+User -> Client: click "Connect VPN"
+Client -> Client: pick the saved method for each step
+Client -> Edge: start MFA (method plan, posture data)
+Edge -> Core: pass start request
+Core -> Core: check location, device, access and posture
+Core -> Core: resolve the user's MFA flow and validate the plan
+Core -> Core: start step 1 method and store the in-progress MFA session
+Core -> Edge: return session token and step attempt ID
+Edge -> Client: pass start response
+
+loop for each step
+  Client -> User: ask for the step's proof
+  User -> Client: enter code / sign in / touch key / approve on phone
+  Client -> Edge: send finish request (token, attempt ID, proof)
+  Edge -> Core: pass finish request
+  Core -> Core: verify proof
+  alt not the last step
+    Core -> Edge: step advanced (no pre-shared key)
+    Edge -> Client: pass response
+    Client -> Edge: start next step
+    Edge -> Core: pass step start request
+    Core -> Core: start next step method, issue new attempt ID
+    Core -> Edge: return attempt ID
+    Edge -> Client: pass step start response
+  else last step
+    Core -> Core: create VPN session and generate pre-shared key
+    Core -> Gateway: authorize peer
+    Core -> Edge: return completed result with pre-shared key
+    Edge -> Client: pass response
+  end
+end
+
+Client -> Client: configure interface with pre-shared key
+Client -> Gateway: establish connection
+@enduml
