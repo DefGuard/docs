@@ -30,7 +30,7 @@ The Location Configuration is a guided, step-by-step wizard.
 
 <figure><img src="../../../.gitbook/assets/image (297).png" alt=""><figcaption></figcaption></figure>
 
-#### Gateway VPN IP addresses and masks
+### Gateway VPN IP addresses and masks
 
 By providing the VPN IPs/masks, you are configuring both: **the VPN internal networks and VPN server IPs**. Every gateway will bind to these addresses, and Defguard will also generate and assign IP addresses for devices in this location from these networks.
 
@@ -55,7 +55,7 @@ Defguard assigns IP addresses to clients by sequentially scanning each defined s
    1. internal VPN networks will be: `192.168.8.0` with netmask `255.255.255.0` and `fc00::0` with netmask FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:0000
    2. VPN gateway internal IP addresses will be: 192.168.8.1 and fc00::1
 
-#### Gateway address
+### Gateway address
 
 It's the **public IP address** or **DNS domain** to which the remote peer's/users will connect to. This address is **will be shared in the configuration** for the clients, but Defguard gateways do **not bind to this address**.
 
@@ -69,11 +69,11 @@ This is very handy if you are setting up a **high availability active-active** s
 DNS domain is **very useful** for example is a setup uses Dynamic DNS (DDNS).
 {% endhint %}
 
-#### Gateway port
+### Gateway port
 
 Defguard **gateways bind to this port**, and this port is shared in configuration to any client.
 
-#### Allowed IPs
+### Allowed IPs
 
 Defines the IP ranges a device is allowed to route or communicate with.
 
@@ -93,7 +93,7 @@ If you use broad _Allowed IPs_ (for example `0.0.0.0/0`) and want to exclude spe
 To simplify this, you can use an **Allowed IPs calculator** to generate the correct set of CIDR blocks for your intended traffic routing.
 {% endhint %}
 
-#### Generate Allowed IPs from Firewall Rules
+### Generate Allowed IPs from Firewall Rules
 
 {% hint style="info" %}
 **Enterprise feature.** Requires an active Enterprise license.
@@ -114,13 +114,13 @@ The Firewall must be **enabled** for the location for this option to have any ef
 * **Changes take effect** on the next client config fetch - when the client\
   connects or the user manually downloads their config. No active push.
 
-#### DNS
+### DNS
 
 This specifies DNS resolvers and search domains. Supported format is by comma separation, e.g.:
 
 `IP, IP, search.domain.net, second.search.domain.com`
 
-#### Allowed groups
+### Allowed groups
 
 Here, you can specify **what groups (users assigned to those groups) have access to this VPN Location.**
 
@@ -132,41 +132,19 @@ By defining a group, assigning users to that group and then choosing this group(
 Users in groups marked as **admin group** always have their devices assigned to every VPN location.
 {% endhint %}
 
-### Multi-Factor Authentication for a Location
-
-#### Require MFA for this location
-
-By enabling this setting, this location **will require Multi-Factor Authentication** on each connection to this location.
-
-{% hint style="danger" %}
-This feature is only supported in [**Defguard Desktop Client**](../../../using-defguard-for-end-users/desktop-client/)**.**
-{% endhint %}
-
-Each connection in the client:
-
-1. Will require the user to provide either TOTP token or Email code.
-2. After authorizing, Defguard will do a key exchange and set up a pre-shared session key unique for this connection.
-
-{% hint style="warning" %}
-For this feature to work, the user must:
-
-1. configure their [TOTP settings in the profile](../../../using-defguard-for-end-users/setting-up-2fa-mfa.md#one-time-password)
-2. [SMTP settings needs to be set up](../../notifications/setting-up-smtp-for-email-notifications.md) and the user must enable Email tokens in their profile.
-{% endhint %}
-
-#### Keep alive interval
+### Keep alive interval
 
 Configurable time interval (in seconds) used to send periodic packets to ensure that the connection remains active. This is particularly useful in environments like NAT (Network Address Translation) or firewalls that may close idle connections.
 
-#### Maximum Transmission Unit (MTU)
+### Maximum Transmission Unit (MTU)
 
 It is the largest size of a data packet, measured in bytes, that a network device can transmit over a connection in a single transaction.
 
-#### Firewall Mark (FwMark)
+### Firewall Mark (FwMark)
 
 Firewall Mark is a numerical label attached to network packets by the kernel to help the system make specialized routing or filtering decisions. If unused leave 0.
 
-#### **Client disconnect threshold**
+### **Client disconnect threshold**
 
 Since Multi-Factor Authentication (MFA) is used to enforce zero-trust security, a peer (user) that remains inactive for a specified time interval (defined in seconds within the settings) will be disconnected. Additionally, the session configuration will be removed from the gateway. This ensures that when the peer reconnects, they must complete the MFA process again.
 
@@ -176,12 +154,17 @@ Minimal value for this setting is 120 (2 minutes).
 Recommended is more then 300.
 {% endhint %}
 
-#### Multi-Factor Authentication with external OIDC/SSO (Google/Microsoft/Okta/...)
+### Multi-Factor Authentication for a Location
 
-On each location, you can choose if the Location should support our Internal MFA (configured by each user in their own profile) or (if you have [external OIDC/SSO configured](../../external-openid-providers/)) external MFA:
+Turn on **Enforce Multi-Factor Authentication for this location** to require MFA on **each connection** to the location, then assign the location's default [MFA flow](../multi-factor-authentication-mfa-2fa/mfa-flows-and-methods.md). The flow defines the verification steps and the methods allowed in each step, such as an authenticator app, an email code, a FIDO2 security key, approval from the mobile app, or sign-in with an [external OIDC/SSO provider](../../external-openid-providers/).
 
-<figure><img src="../../../.gitbook/assets/image (299).png" alt=""><figcaption></figcaption></figure>
+A flow has to exist before it can be assigned. If there is none yet, create it as described in [MFA flows and methods](../multi-factor-authentication-mfa-2fa/mfa-flows-and-methods.md), or create the location without MFA and enforce it later. The location wizard assigns only the default flow; group-level MFA overrides are available in the location settings after the location is created. See [Configuring MFA for a location](../multi-factor-authentication-mfa-2fa/configuring-mfa-for-a-location.md).
 
-When enabled, on the desktop client when authenticating the user will be required on **each connection** to authenticate with the configured External OIDC/SSO:
+{% hint style="info" %}
+Users can connect to an MFA location only with the [Defguard desktop client](../../../using-defguard-for-end-users/desktop-client/) or the [mobile client](../../../using-defguard-for-end-users/mobile-client/). Standard WireGuard clients cannot complete MFA.
+{% endhint %}
 
-<figure><img src="../../../.gitbook/assets/auth-with-openid-modal.png" alt=""><figcaption></figcaption></figure>
+{% hint style="warning" %}
+MFA cannot be enforced on a [service location](../../service-locations.md). To enforce MFA, choose the **Regular location** type.
+{% endhint %}
+

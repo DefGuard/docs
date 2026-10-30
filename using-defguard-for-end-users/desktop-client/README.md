@@ -7,7 +7,7 @@ The Defguard Desktop Client provides an easy way to access the VPN locations of 
 Key capabilities:
 
 * **Multiple instances and locations** – add as many Defguard instances as you need and switch between their locations from one menu.
-* **Multi-Factor Authentication** – supports internal MFA (Authenticator App, email) as well as external OIDC/SSO providers and mobile biometry. The desktop client is required for MFA, as standard WireGuard clients do not support it.
+* **Multi-Factor Authentication** – supports single- and multi-step MFA flows with authenticator app, email, external OIDC/SSO providers, FIDO2 security keys and approval from the mobile app. The desktop client is required for MFA, as standard WireGuard clients do not support it.
 * **Command-line control** – the [`defguard-cli`](command-line-defguard-cli.md) tool ships with the client for headless machines, remote sessions, and scripting.
 * **Automatic updates** – the client checks for new releases and notifies you when one is available (this can be disabled in settings).
 * **Real-time configuration sync** – with a Business or Enterprise plan, instances and locations stay [synchronized automatically](../../features/remote-user-enrollment/automatic-real-time-desktop-client-configuration.md).

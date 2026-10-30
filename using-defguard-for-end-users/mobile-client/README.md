@@ -13,7 +13,7 @@ These guides explain how to use the Defguard Mobile to connect securely to VPN l
 
 ### Automatic configuration update
 
-When the configuration of an Instance is being updated (for e.g. switching from no-MFA → internal-MFA), mobile client **does** **not** refresh the Instance configuration automatically if the **app is opened**.\
+When the configuration of an Instance is being updated (for e.g. enforcing MFA on a location or changing its MFA flow), mobile client **does** **not** refresh the Instance configuration automatically if the **app is opened**.\
 This is an intended behaviour.
 
 If you want to manually update your Instance perform:
