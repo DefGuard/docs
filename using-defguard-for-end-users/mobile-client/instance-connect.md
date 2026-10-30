@@ -8,7 +8,7 @@ In this guide, you will learn how to connect to location. If you haven't added a
 2. Click on Instance you want to connect to.
 3. Click **"Connect"** next to location you want to use.
 
-<figure><img src="../../.gitbook/assets/image (15).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (14).png" alt="" width="375"><figcaption></figcaption></figure>
 
 4. Choose your routing method
 
@@ -19,7 +19,7 @@ In this guide, you will learn how to connect to location. If you haven't added a
 {% hint style="warning" %}
 Your phone will need to add new VPN configuration, you will see popup like this:
 
-<p align="center"><img src="../../.gitbook/assets/defguard-mobile-new-vpn-configuration-ios.png" alt="" data-size="original"></p>
+<img src="../../.gitbook/assets/defguard-mobile-new-vpn-configuration-ios.png" alt="" data-size="original">
 
 Please click **Allow**, without this permission, Defguard cannot establish VPN connection.
 {% endhint %}
@@ -34,12 +34,12 @@ Some locations ask you to confirm your identity before the VPN connects. This is
 
 #### Supported methods
 
-| Method             | What you do                                                                                                 |
-| ------------------ | ----------------------------------------------------------------------------------------------------------- |
-| Biometric          | Confirm with Face ID, Touch ID or your fingerprint.                                                         |
-| Authenticator App  | Enter the 6-digit code from your authenticator app.                                                         |
-| Email              | Enter the code sent to your email address.                                                                  |
-| OpenID             | Sign in with your identity provider in the browser. The app shows your provider's name instead of "OpenID". |
+| Method             | What you do                                                                                                                                             |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Biometric          | Confirm with Face ID, Touch ID or your fingerprint.                                                                                                     |
+| Authenticator App  | Enter the 6-digit code from your authenticator app.                                                                                                     |
+| Email              | Enter the code sent to your email address.                                                                                                              |
+| OpenID             | Sign in with your identity provider in the browser. The app shows your provider's name instead of "OpenID".                                             |
 | FIDO2 Security key | Enter the key's PIN and hold the key to your phone over NFC. See [Using security key (FIDO2) as MFA method](using-security-key-fido2-as-mfa-method.md). |
 
 {% hint style="info" %}
@@ -115,4 +115,3 @@ If a step has no method you can use, tapping **Connect VPN** opens a dialog that
 * **Biometrics Required**: the location needs biometric verification, but it was not enabled when you added the instance. Add the instance again and enable biometrics during setup.
 * **Security Key Required**: register a security key from the Defguard desktop client, then try again.
 * **Location Not Supported**: the location needs a method that is not configured in your account or is only available in the desktop client.
-
