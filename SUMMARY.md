@@ -223,7 +223,7 @@
   * [MFA Architecture](in-depth/architecture/architecture.md)
 * [Architecture Decision Records](in-depth/architecture-decision-records/README.md)
   * [2.3](in-depth/architecture-decision-records/2.3.md)
-  * [2.2](in-depth/architecture-decision-records/windows-interface-metrics.md)
+  * [2.2](in-depth/architecture-decision-records/2.2.md)
   * [2.1](in-depth/architecture-decision-records/2.1.md)
   * [2.0](in-depth/architecture-decision-records/2.0.md)
   * [1.6](in-depth/architecture-decision-records/1.6.md)
