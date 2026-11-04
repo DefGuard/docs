@@ -145,7 +145,7 @@
 * [Enrollment & Onboarding](using-defguard-for-end-users/enrollment/README.md)
   * [With internal Defguard SSO](using-defguard-for-end-users/enrollment/with-internal-defguard-sso.md)
   * [With external SSO (Google/Microsoft/Custom)](using-defguard-for-end-users/enrollment/with-external-sso-google-microsoft-custom.md)
-* [Setting up 2FA/MFA](using-defguard-for-end-users/setting-up-2fa-mfa.md)
+* [Managing user profile](using-defguard-for-end-users/setting-up-2fa-mfa.md)
 * [Resolving Posture Check Failures](using-defguard-for-end-users/resolving-posture-check-failures.md)
 
 ## Support

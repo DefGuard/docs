@@ -1,4 +1,10 @@
-# Setting up 2FA/MFA
+# Managing user profile
+
+## Accessing the profile page
+
+To open your profile, sign in to the Defguard web interface with your username and password, then go to **My Profile**. Your administrator gives you the address of the web interface. It's often included in the onboarding message you see at the end of enrollment, or in your welcome email. The web interface is usually available only from your company network or while you're connected to the VPN, so connect first if the page doesn't load.
+
+## Setting up 2FA/MFA
 
 On account profile you will find all available 2FA options in **Details** tab, under **Two-factor methods**.
 
