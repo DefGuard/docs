@@ -223,6 +223,7 @@
   * [MFA Architecture](in-depth/architecture/architecture.md)
 * [Architecture Decision Records](in-depth/architecture-decision-records/README.md)
   * [2.3](in-depth/architecture-decision-records/2.3.md)
+  * [2.2](in-depth/architecture-decision-records/windows-interface-metrics.md)
   * [2.1](in-depth/architecture-decision-records/2.1.md)
   * [2.0](in-depth/architecture-decision-records/2.0.md)
   * [1.6](in-depth/architecture-decision-records/1.6.md)
@@ -234,9 +235,7 @@
 * [Defguard Open Organisation](in-depth/defguard-open-organisation/README.md)
   * [Product Development Procedure](in-depth/defguard-open-organisation/product-development-procedure.md)
   * [Roadmap](in-depth/defguard-open-organisation/roadmap.md)
-* [BoringTun](in-depth/boringtun.md)
 * [Performance and deployment sizing](in-depth/performance-and-deployment-sizing.md)
-* [Interface metrics on Windows](in-depth/windows-interface-metrics.md)
 
 ## For Developers
 
