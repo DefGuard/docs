@@ -1,4 +1,4 @@
-# Using a security key (FIDO2)
+# Using a FIDO2 Security Key as MFA method in the Desktop Client
 
 {% hint style="warning" %}
 **Availability**
@@ -6,12 +6,12 @@
 This feature requires an Enterprise plan. See the [pricing page](https://defguard.net/pricing/) for details.
 {% endhint %}
 
-### Before you start
+## Before you start
 
 You need:
 
-* Defguard desktop client 2.2.0 or newer on Windows, macOS, or Linux. The command-line client does not support security keys. After you register a key in the desktop client, you can also use it in the mobile client over NFC. See Using a security key (FIDO2) in the mobile client.
-* A hardware FIDO2 security key. See the table below.
+* Defguard desktop client 2.2.0 or newer on Windows, macOS, or Linux. The command-line client does not support security keys.&#x20;
+* A hardware FIDO2 security key with a PIN set. See the table below for supported keys.
 * A location that accepts **Security key** as an MFA method. Your administrator sets this up in the location's MFA flow.
 
 #### Supported security keys
@@ -24,17 +24,21 @@ Defguard accepts only physical keys that support FIDO2.
 | Other FIDO2-certified hardware security keys                                  | Keys that support only U2F                                                    |
 |                                                                               | Windows Hello, Touch ID, your phone, or a passkey saved in a password manager |
 
-If you are not sure about your key, ask your administrator.
+## Register the FIDO2 Security Key in Defguard Desktop client
+
+Before you can use the FIDO2 Security key for authenticating to your VPN you have to add it to your profile. You can do that using the Defguard Desktop Client.&#x20;
 
 {% hint style="warning" %}
-Register the key in the desktop client. A passkey that you add in the **Passkeys** section of your profile in the Defguard web app signs you in to the web app, but the desktop and mobile clients cannot use it to connect to a location.
+A passkey that you add in the **Passkeys** section of [your profile](../setting-up-2fa-mfa.md) in the Defguard web app allows you to sign in to the web app, but the desktop and mobile clients cannot use it to connect to you VPN.&#x20;
 {% endhint %}
 
 {% hint style="info" %}
-Register the key in the desktop client as an MFA method. For the steps, see [#security-key-1](configuring-mfa-methods.md#security-key-1 "mention")
+Adding the security key using the Desktop client allows you to use the key for both signing in to the web app and while connecting to the VPN.
 {% endhint %}
 
-## Connect with the key
+Follow our separate guide on [configuring MFA methods in the Desktop Client](configuring-mfa-methods.md).
+
+## Connect with the FIDO2 Security Key
 
 {% hint style="info" %}
 On macOS and Linux, keep only one security key plugged in.

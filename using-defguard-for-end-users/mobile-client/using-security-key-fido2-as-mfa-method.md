@@ -1,4 +1,4 @@
-# Using security key (FIDO2) as MFA method
+# Using a FIDO2 Security Key as MFA method in the Mobile Client
 
 {% hint style="warning" %}
 **Availability**
@@ -10,24 +10,18 @@ A security key is a small physical device, like a YubiKey, that you tap against 
 
 ### What you need
 
-* A supported security key (see below) with a PIN set.
-* The key registered to your Defguard account from the **Defguard desktop client**.
 * A phone with NFC. On Android, NFC has to be turned on.
+* A supported Security Key registered [using the Defguard Desktop Client](../desktop-client/configuring-mfa-methods.md). Your key has to:&#x20;
+  * **Support FIDO2.** Older keys that only support U2F will not work.
+  * **Support NFC.** The app reads the key wirelessly, so keys that only plug in over USB or Lightning cannot be used on the phone.
+  * **Be a certified hardware key.** Defguard accepts physical keys certified by the FIDO Alliance. Passkeys saved in a password manager, on your phone or in your computer cannot be registered.
+  * **Have a PIN set.** If your key has no PIN yet, set one using your key maker's app (for example Yubico Authenticator).\
+    \
+    Common example is the YubiKey 5 NFC by Yubico. If you are not sure about your key, ask your administrator.
 
 {% hint style="info" %}
-You cannot register a security key in the mobile app. Register it in the desktop client, and you can then use it on your phone too.
+You cannot register a security key in the mobile app. [Register it in the desktop client](../desktop-client/configuring-mfa-methods.md), and you can then use it on your phone too.
 {% endhint %}
-
-### Supported keys
-
-Your key has to:
-
-* **Support FIDO2.** Older keys that only support U2F will not work.
-* **Support NFC.** The app reads the key wirelessly, so keys that only plug in over USB or Lightning cannot be used on the phone.
-* **Be a certified hardware key.** Defguard accepts physical keys certified by the FIDO Alliance. Passkeys saved in a password manager, on your phone or in your computer cannot be registered.
-* **Have a PIN set.** If your key has no PIN yet, set one using your key maker's app (for example Yubico Authenticator).
-
-Common example is the YubiKey 5 NFC by Yubico. If you are not sure about your key, ask your administrator.
 
 ### Connecting with your security key
 

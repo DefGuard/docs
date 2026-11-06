@@ -1,10 +1,18 @@
-# Configuring MFA methods
+# Configuring MFA methods in the Desktop Client
 
 In this guide, you will learn how to add new MFA methods in the Defguard Desktop client.&#x20;
+
+This process allows you to add the following MFA methods:
+
+* Email
+* Authenticator app
+* FIDO2 Security Key
 
 If you prefer a video guide watch the following.
 
 {% embed url="https://youtu.be/4-eSEm4IFwc" %}
+
+
 
 {% stepper %}
 {% step %}
