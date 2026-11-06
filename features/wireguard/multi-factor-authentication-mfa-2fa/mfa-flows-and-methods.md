@@ -10,6 +10,10 @@ An **MFA flow** is a named, ordered list of steps. Each step holds the factors t
 
 Flows exist independently of locations. One flow can be reused by several locations, and a single location can have [several flows assigned to it](configuring-mfa-for-a-location.md). Build the flow first, then enforce it on a location.
 
+If you prefer a video guide you might be interested in the following video:
+
+{% embed url="https://youtu.be/v4vKFLsVGp0" %}
+
 ### Create a flow
 
 1. Go to **Identity & Access** and open **MFA Flow**. Existing flows are listed under **All flows** with their steps.
