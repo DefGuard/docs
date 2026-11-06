@@ -11,7 +11,7 @@ A security key is a small physical device, like a YubiKey, that you tap against 
 ### What you need
 
 * A supported security key (see below) with a PIN set.
-* The key registered to your Defguard account from the **Defguard desktop client**. See [Register the key](../desktop-client/using-a-security-key-fido2.md#register-the-key).
+* The key registered to your Defguard account from the **Defguard desktop client**.
 * A phone with NFC. On Android, NFC has to be turned on.
 
 {% hint style="info" %}
@@ -25,7 +25,7 @@ Your key has to:
 * **Support FIDO2.** Older keys that only support U2F will not work.
 * **Support NFC.** The app reads the key wirelessly, so keys that only plug in over USB or Lightning cannot be used on the phone.
 * **Be a certified hardware key.** Defguard accepts physical keys certified by the FIDO Alliance. Passkeys saved in a password manager, on your phone or in your computer cannot be registered.
-* **Have a PIN set.** If your key has no PIN yet, set one using your key maker's app (for example Yubico Authenticator). See [Set a PIN on the key](../desktop-client/using-a-security-key-fido2.md#set-a-pin-on-the-key).
+* **Have a PIN set.** If your key has no PIN yet, set one using your key maker's app (for example Yubico Authenticator).
 
 Common example is the YubiKey 5 NFC by Yubico. If you are not sure about your key, ask your administrator.
 
@@ -48,7 +48,7 @@ Keep the key still and in place until the app moves on. Pulling it away too earl
 
 | What you see                                                                       | What to do                                                                                                                                                              |
 | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **FIDO2 Security key** shows "Not configured" or a "Security Key Required" message | Your account has no registered key yet. [Register one](../desktop-client/using-a-security-key-fido2.md#register-the-key) in the Defguard desktop client.                                                                                    |
+| **FIDO2 Security key** shows "Not configured" or a "Security Key Required" message | Your account has no registered key yet. [Register one](../desktop-client/using-a-security-key-fido2.md#register-the-key) in the Defguard desktop client.                |
 | **FIDO2 Security key** shows "Desktop only"                                        | Your Defguard server does not support security keys in the mobile app yet. Contact your administrator.                                                                  |
 | "Turn on NFC to use your security key."                                            | Tap **Turn on NFC** and enable NFC in your phone's settings, then return to the app.                                                                                    |
 | "This device has no NFC, so a security key cannot be used."                        | Your phone cannot read security keys. Use another method or the desktop client.                                                                                         |

@@ -167,6 +167,7 @@
     * [Core cannot connect to Gateway or Edge after restart on single-host deployments](support-1/troubleshooting-guides/core/core-cannot-connect-to-gateway-or-edge-after-restart-on-single-host-deployments.md)
     * [Lost access](support-1/troubleshooting-guides/core/lost-access.md)
   * [Desktop Client](support-1/troubleshooting-guides/desktop-client/README.md)
+    * [Set a PIN for  FIDO2 security key](support-1/troubleshooting-guides/desktop-client/set-a-pin-for-fido2-security-key.md)
     * [Unix socket permission error on connect (Linux)](support-1/troubleshooting-guides/desktop-client/unix-socket-permission-error-on-connect-linux.md)
     * [MFA location disconnected after X-time](support-1/troubleshooting-guides/desktop-client/mfa-location-disconnected-after-x-time.md)
     * [High disk usage](support-1/troubleshooting-guides/desktop-client/high-disk-usage.md)

@@ -1,30 +1,18 @@
 # Configuring MFA methods
 
-In this guide, you will learn how to add new MFA methods in the Defguard desktop client.
+In this guide, you will learn how to add new MFA methods in the Defguard Desktop client.&#x20;
+
+There a three ways you can configure MFA methods in the Defguard Dektop Client:
+
+1. [From the _Add Page_](configuring-mfa-methods.md#adding-an-mfa-method-from-the-add-page) - useful when you just want to add a new, more preferable MFA method.
+2. [From a location's MFA preferences](configuring-mfa-methods.md#adding-an-mfa-method-from-a-locations-mfa-preferences) - useful when you want to quickly add a new, more preferable method and set it as you default one.
+3. From a location's _Configure MFA_ button shown in place of the _Connect_ button - this happens after your administrator requires an MFA method you haven't configured. You won't be locked out. Just configure the missing method and you can Connect back again.
+
+If you prefer a video guide watch the following.
 
 {% embed url="https://youtu.be/4-eSEm4IFwc" %}
 
-## Starting from a location
-
-If a location requires an MFA method you haven't set up yet, you will see **Configure MFA** instead of **Connect VPN** on that location.
-
-### Desktop client in tray view mode
-
-1. Click **Configure MFA** on the location.
-
-<figure><img src="../../.gitbook/assets/configure-mfa-button-tray-view.png" alt=""><figcaption></figcaption></figure>
-
-2. Continue with [Selecting MFA methods](configuring-mfa-methods.md#selecting-mfa-methods).
-
-### Desktop client in full view mode
-
-1. Click **Configure MFA** on the location.
-
-<figure><img src="../../.gitbook/assets/configure-mfa-button-full-view.png" alt=""><figcaption></figcaption></figure>
-
-2. Continue with [Selecting MFA methods](configuring-mfa-methods.md#selecting-mfa-methods).
-
-## Starting from the Add page
+## Adding an MFA method from the Add page
 
 1. If you don't have **Defguard** in full view mode, open **Defguard** from tray view, and click **Open Defguard**.
 
@@ -41,9 +29,9 @@ If a location requires an MFA method you haven't set up yet, you will see **Conf
 
 5. Continue with [Selecting MFA methods](configuring-mfa-methods.md#selecting-mfa-methods).
 
-## Starting from location MFA settings
+## Adding an MFA method from a location's MFA preferences
 
-### Desktop client in tray view mode
+#### Desktop client in tray view mode
 
 1. Click the pen icon on the right side of the panel.
 
@@ -55,7 +43,7 @@ If a location requires an MFA method you haven't set up yet, you will see **Conf
 
 3. Continue with [Selecting MFA methods](configuring-mfa-methods.md#selecting-mfa-methods).
 
-### Desktop client in full view mode
+#### Desktop client in full view mode
 
 1. Click the pen icon on the right side of the panel.
 
@@ -66,6 +54,26 @@ If a location requires an MFA method you haven't set up yet, you will see **Conf
 <figure><img src="../../.gitbook/assets/change-mfa-method-configure-button-full-view.png" alt=""><figcaption></figcaption></figure>
 
 3. Continue with [Selecting MFA methods](configuring-mfa-methods.md#selecting-mfa-methods).
+
+## Adding a required MFA method you haven't configured
+
+If a location requires an MFA method you haven't set up yet, you will see **Configure MFA** instead of **Connect VPN** on that location.
+
+#### Desktop client in tray view mode
+
+1. Click **Configure MFA** on the location.
+
+<figure><img src="../../.gitbook/assets/configure-mfa-button-tray-view.png" alt=""><figcaption></figcaption></figure>
+
+2. Continue with [Selecting MFA methods](configuring-mfa-methods.md#selecting-mfa-methods).
+
+#### Desktop client in full view mode
+
+1. Click **Configure MFA** on the location.
+
+<figure><img src="../../.gitbook/assets/configure-mfa-button-full-view.png" alt=""><figcaption></figcaption></figure>
+
+2. Continue with [Selecting MFA methods](configuring-mfa-methods.md#selecting-mfa-methods).
 
 ## Selecting MFA methods
 
@@ -126,8 +134,8 @@ If you can't scan the QR code, copy the code shown below it and enter it manuall
 
 ### Security key
 
-{% hint style="info" %}
-The key must have a PIN. To set a PIN on a new key, and for the full walkthrough, see [Using a security key (FIDO2)](using-a-security-key-fido2.md).
+{% hint style="warning" %}
+For macos/linux platforms The key must have a PIN set for FIDO2 module before the process.
 {% endhint %}
 
 1. Insert your security key.
