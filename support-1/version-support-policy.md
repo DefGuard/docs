@@ -34,7 +34,8 @@ Once a version reaches its end of support date, it no longer receives any update
 | 1.5       | 2025-09-15 | 2026-03-19     |
 | 1.6 (LTS) | 2025-12-19 | 2026-10-30     |
 | 2.0       | 2026-04-30 | 2026-12-04     |
-| 2.1       | 2026-09-04 | -              |
+| 2.1       | 2026-09-04 | 2027-02-06     |
+| 2.2       | 2026-11-06 | -              |
 
 The table covers latest major versions. Patch releases (such as 1.6.7 or 2.0.3) do not extend or change the end of support date of their version.
 
