@@ -9,7 +9,7 @@ All source code of our app is located in three repositories
 * [Core:](https://github.com/DefGuard/defguard) backend and server for our app
 * [Gateway:](https://github.com/DefGuard/gateway) VPN client which connects core with WireGuard interface
 
-You can find how to set up your development environment in [the Environment setup article](dev-env-setup/).
+You can find how to set up your development environment in [the Environment setup article](dev-env-setup.md).
 
 We have a dedicated (closed only for developers) Matrix channel. If you publish a pull request, and it will be accepted, you will be invited to the developer's channel. For now, you can join our [General discussion](https://matrix.to/?ref=teonite.com#/#defguard:teonite.com).
 

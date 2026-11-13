@@ -231,12 +231,7 @@
 ## For Developers
 
 * [Contributing](for-developers/contributing.md)
-* [Environment setup](for-developers/dev-env-setup/README.md)
-  * [Translations (core/web)](for-developers/dev-env-setup/translations-web/README.md)
-    * [Switching language](for-developers/dev-env-setup/translations-web/switching-language.md)
-    * [Adding translations](for-developers/dev-env-setup/translations-web/adding-translations.md)
-  * [Translations (client)](for-developers/dev-env-setup/translations-client/README.md)
-    * [Adding translations](for-developers/dev-env-setup/translations-client/adding-translations.md)
+* [Environment setup](for-developers/dev-env-setup.md)
 * [REST API](for-developers/rest-api/README.md)
   * [Core](for-developers/rest-api/core/README.md)
     * ```yaml
