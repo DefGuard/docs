@@ -41,6 +41,6 @@ The table covers latest major versions. Patch releases (such as 1.6.7 or 2.0.3) 
 
 ### Staying up to date
 
-* Always run the latest patch release of the version you are on; it contains all security and bug fixes published for that version so far.
+* Always run the latest patch release of the version you are on; it contains all security and critical bug fixes published for that version so far.
 * Plan your upgrade during the overlap period, before the version you use reaches its end of support date.
 * New releases are announced on our [GitHub releases page](https://github.com/DefGuard/defguard/releases) and on our [blog](https://defguard.net/blog/).
