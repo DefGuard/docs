@@ -48,6 +48,7 @@ You can generate random strings for secrets with e.g.:
 * `DEFGUARD_LOG_FILE`: Log file path
 * `DEFGUARD_AUTH_COOKIE_TIMEOUT`: Cookie lifetime period, default: `7d` ([Humantime documentation](https://docs.rs/humantime/latest/humantime/struct.Duration.html))
 * `DEFGUARD_MFA_CODE_TIMEOUT`: Email code lifetime period, default: `60s` ([Humantime documentation](https://docs.rs/humantime/latest/humantime/struct.Duration.html))
+* `DEFGUARD_MAIL_TIMEZONE`: [IANA time zone name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (for example `Europe/Warsaw`) used for timestamps rendered in notification e-mails, default: `UTC`
 * `DEFGUARD_SESSION_TIMEOUT`: Session lifetime period, default: `7d` ([Humantime documentation](https://docs.rs/humantime/latest/humantime/struct.Duration.html))
 * `HTTP_BIND_ADDRESS`: The IP address that the HTTP should bind to (available since version 1.5.0)
 * `GRPC_BIND_ADDRESS`: The IP address that the gRPC should bind to (available since version 1.5.0)
