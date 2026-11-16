@@ -14,7 +14,6 @@
 
 ## Features
 
-* [MTU settings](features/mtu-settings.md)
 * [Overview](features/overview.md)
 * [Zero-Trust VPN with 2FA/MFA](features/wireguard/README.md)
   * [Create/Manage VPN Location](features/wireguard/create-your-vpn-network/README.md)
@@ -27,6 +26,7 @@
   * [Client behaviour customization](features/wireguard/behavior-customization.md)
   * [DNS and domains](features/wireguard/dns-and-domains.md)
   * [Executing custom gateway commands](features/wireguard/executing-custom-gateway-commands.md)
+  * [MTU settings](features/wireguard/mtu-settings.md)
 * [Remote user enrollment](features/remote-user-enrollment/README.md)
   * [User onboarding after enrollment](features/remote-user-enrollment/user-onboarding-after-enrollment.md)
   * [Automatic (real time) desktop client configuration & sync](features/remote-user-enrollment/automatic-real-time-desktop-client-configuration.md)

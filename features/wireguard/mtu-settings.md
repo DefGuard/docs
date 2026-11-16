@@ -4,7 +4,7 @@ Each VPN location has its own MTU (Maximum Transmission Unit) settings. You can 
 
 To change them, go to **Locations**, edit a location and find the **Maximum transfer unit (MTU) settings** section.
 
-<figure><img src="../.gitbook/assets/image (378).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (378).png" alt=""><figcaption></figcaption></figure>
 
 #### Gateway MTU
 
@@ -12,7 +12,7 @@ MTU of the WireGuard interface on the **gateways** serving this location.
 
 #### Client MTU
 
-This setting controls the MTU of the users [Defguard Desktop Client](../using-defguard-for-end-users/desktop-client/) for this location. There are two options:
+This setting controls the MTU of the users [Defguard Desktop Client](../../using-defguard-for-end-users/desktop-client/) for this location. There are two options:
 
 * **Use the MTU value configured on the user's client** - Defguard doesn't send any MTU value, the client uses its own.
 * **Assign custom MTU value for this location** - the value entered in **Default client MTU** is sent to all clients connecting to this location.
