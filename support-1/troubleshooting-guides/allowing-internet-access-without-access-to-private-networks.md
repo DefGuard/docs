@@ -1,6 +1,12 @@
 # Allowing internet access without access to private networks
 
-Use this guide when a location routes all client traffic through the VPN, its Firewall is set to **Default Deny**, and selected users or groups should reach the internet but not your internal networks.
+To give selected users internet access through the VPN without access to your internal networks, create an alias that contains public internet addresses only and use it as the destination of a firewall rule.
+
+Use this guide when all of these apply:
+
+- The location routes all client traffic through the VPN.
+- The location's Firewall is set to **Default Deny**.
+- Selected users or groups should reach the internet, but not your internal networks.
 
 {% hint style="info" %}
 This guide covers the firewall rule only. Internet access through the VPN also needs NAT or masquerading on the gateway. See [Can access VPN but not local network or internet](can-access-vpn-but-not-local-network-or-internet.md).
@@ -19,12 +25,12 @@ The alias contains all IPv4 addresses except the ranges below, and only the glob
 | Not in the alias        | Reserved for                                                   |
 | ----------------------- | -------------------------------------------------------------- |
 | `0.0.0.0/8`             | "This network"                                                 |
-| `10.0.0.0/8`            | Private networks                                               |
+| `10.0.0.0/8`            | Private networks (RFC 1918)                                    |
 | `100.64.0.0/10`         | Carrier-grade NAT                                              |
 | `127.0.0.0/8`           | Loopback                                                       |
 | `169.254.0.0/16`        | Link-local                                                     |
-| `172.16.0.0/12`         | Private networks                                               |
-| `192.168.0.0/16`        | Private networks                                               |
+| `172.16.0.0/12`         | Private networks (RFC 1918)                                    |
+| `192.168.0.0/16`        | Private networks (RFC 1918)                                    |
 | `224.0.0.0/3`           | Multicast and reserved                                         |
 | IPv6 outside `2000::/3` | Unique local (`fc00::/7`), link-local (`fe80::/10`), multicast |
 
@@ -114,3 +120,7 @@ After the deployment:
 ### Internal DNS servers
 
 If the location's DNS servers are in one of the blocked ranges, create a separate rule that allows access to them.
+
+### Keeping the alias up to date
+
+The reserved ranges in the table come from internet standards and rarely change. Your own networks can change, and Defguard does not update the alias automatically. When you add an internal network that uses public addresses, exclude it from the alias as described in [Excluding your own networks](allowing-internet-access-without-access-to-private-networks.md#excluding-your-own-networks). Changes to a deployed alias take effect only after you deploy them. See [Modifying](../../features/firewall/aliases-and-destinations.md#modifying).
