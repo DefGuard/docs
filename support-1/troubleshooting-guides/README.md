@@ -59,3 +59,4 @@ Issues are grouped by component. Each linked page covers one specific problem.
 * [can-access-vpn-but-not-local-network-or-internet.md](can-access-vpn-but-not-local-network-or-internet.md "mention")
 * [how-to-verify-the-vpn-is-working.md](how-to-verify-the-vpn-is-working.md "mention")
 * [testing-vpn-speed.md](testing-vpn-speed.md "mention")
+* [allowing-internet-access-without-access-to-private-networks.md](allowing-internet-access-without-access-to-private-networks.md "mention")
