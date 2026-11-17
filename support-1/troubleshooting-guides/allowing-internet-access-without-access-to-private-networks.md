@@ -1,6 +1,6 @@
 # Allowing internet access without access to private networks
 
-To give selected users internet access through the VPN without access to your internal networks, create an alias that contains public internet addresses only and use it as the destination of a firewall rule.
+To give selected users internet access through the VPN without access to your internal networks, create an alias that leaves out private and other local address ranges, and use it as the destination of a firewall rule.
 
 Use this guide when all of these apply:
 
@@ -16,7 +16,7 @@ This guide covers the firewall rule only. Internet access through the VPN also n
 
 A rule with **Any address** as its destination also allows your internal networks. A second rule that blocks them does not help, because Defguard applies the **ALLOW** part of every rule before any **DENY** part. See [How rules work](../../features/firewall/#how-rules-work).
 
-Instead, the rule's destination is an [Alias](../../features/firewall/aliases-and-destinations.md) that contains public addresses only.
+Instead, the rule's destination is an [Alias](../../features/firewall/aliases-and-destinations.md) that leaves out private and other local address ranges.
 
 ### What the alias blocks
 
@@ -34,8 +34,10 @@ The alias contains all IPv4 addresses except the ranges below, and only the glob
 | `224.0.0.0/3`           | Multicast and reserved                                         |
 | IPv6 outside `2000::/3` | Unique local (`fc00::/7`), link-local (`fe80::/10`), multicast |
 
+The alias still contains some special-purpose ranges that are not used on the internet, for example, `192.0.2.0/24`, `198.51.100.0/24`, `203.0.113.0/24`, `2001:db8::/32` and `3fff::/20`, and the benchmarking range `198.18.0.0/15`. For the full list, see the IANA [IPv4](https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml) and [IPv6](https://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry.xhtml) special-purpose address registries.
+
 {% hint style="warning" %}
-Compare this table with your own networks before you continue. An internal network that is not in the table, for example a public address block used internally, stays reachable. Remove it from the alias as described in [Excluding your own networks](allowing-internet-access-without-access-to-private-networks.md#excluding-your-own-networks).
+Compare this table with your own networks before you continue. An internal network that is not in the table, for example a public address block or a special-purpose range used internally, stays reachable. Remove it from the alias as described in [Excluding your own networks](allowing-internet-access-without-access-to-private-networks.md#excluding-your-own-networks).
 {% endhint %}
 
 ### Create the Internet alias
@@ -64,7 +66,7 @@ Compare this table with your own networks before you continue. An internal netwo
 
 #### Excluding your own networks
 
-Networks in private ranges, such as `10.0.0.0/24`, are already outside the alias. You only need this if one of your internal networks uses public addresses.
+Networks in private ranges, such as `10.0.0.0/24`, are already outside the alias. You only need this if one of your internal networks uses addresses inside the alias, such as a public address block or a special-purpose range.
 
 For example, your company's servers in a data centre use the public network `203.0.113.0/24`, which covers the addresses from `203.0.113.0` to `203.0.113.255`. This network is inside the alias range `192.169.0.0-223.255.255.255`, so the rule would let users reach these servers.
 
@@ -123,4 +125,4 @@ If the location's DNS servers are in one of the blocked ranges, create a separat
 
 ### Keeping the alias up to date
 
-The reserved ranges in the table come from internet standards and rarely change. Your own networks can change, and Defguard does not update the alias automatically. When you add an internal network that uses public addresses, exclude it from the alias as described in [Excluding your own networks](allowing-internet-access-without-access-to-private-networks.md#excluding-your-own-networks). Changes to a deployed alias take effect only after you deploy them. See [Modifying](../../features/firewall/aliases-and-destinations.md#modifying).
+The reserved ranges in the table come from internet standards and rarely change. Your own networks can change, and Defguard does not update the alias automatically. When you add an internal network that uses addresses inside the alias, exclude it from the alias as described in [Excluding your own networks](allowing-internet-access-without-access-to-private-networks.md#excluding-your-own-networks).
