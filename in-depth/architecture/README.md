@@ -1,5 +1,9 @@
 # Architecture
 
+## How Defguard Works?
+
+{% embed url="https://youtu.be/c2Vb8vfp4-Q" %}
+
 ## Design Principles
 
 Defguard is a zero-trust, VPN-centric access platform built on WireGuard®. Its design cleanly separates the control plane (Core) from the data plane (Gateways) and exposes a minimal public surface (Gateway for VPN; Edge for secure web flows). Administrative and identity-sensitive services remain off the public internet, behind controlled network boundaries.

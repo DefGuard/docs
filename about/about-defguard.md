@@ -1,8 +1,8 @@
 # About Defguard
 
-{% embed url="https://youtu.be/-UrD3f2p6Rg?si=1fM_0sFHV5KWOgXj" %}
-
 ## What is Defguard?
+
+{% embed url="https://youtu.be/-UrD3f2p6Rg?si=1fM_0sFHV5KWOgXj" %}
 
 Defguard is an enterprise-ready platform built on top of WireGuard®, designed to make private networking simple, scalable, and secure.
 
@@ -88,6 +88,8 @@ Our approach goes beyond code:
 Defguard’s openness ensures trust through verifiability, not promises — aligning with the principles of modern, transparent cybersecurity.
 
 ## How is Defguard built?
+
+{% embed url="https://youtu.be/c2Vb8vfp4-Q" %}
 
 Defguard consists of several modular services that can be deployed together or separately, depending on your architecture:
 
