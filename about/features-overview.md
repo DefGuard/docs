@@ -59,7 +59,7 @@ _Defguard is not an official WireGuard project, and WireGuard is a registered tr
 * User [onboarding after enrollment](../features/remote-user-enrollment/user-onboarding-after-enrollment.md)
 * Self-service for password reset
 
-### [Network devices](../features/network-devices.md)
+### [Network devices](../features/network-devices/README.md)
 
 Like regular user devices but designed to be used with the [Defguard CLI client](/broken/pages/yjUb0u49KJzUtjcXA4C6).
 

@@ -8,7 +8,7 @@ This feature is available in Business and Enterprise plans, starting with Defgua
 
 Defguard can sign in to Microsoft Entra ID with a certificate instead of a client secret. Use this page to set it up for a new Microsoft provider, switch an existing provider to it, and replace the certificate before it expires.
 
-## What it is and why you would use it
+## Overview
 
 When users sign in with Microsoft, and when [Directory synchronization](./#directory-synchronization) runs, Defguard talks to Microsoft on behalf of your app registration. Microsoft must first check that the request really comes from Defguard. Defguard can prove this in two ways:
 
