@@ -41,6 +41,7 @@
 * [External SSO/OpenID providers](features/external-openid-providers/README.md)
   * [Google](features/external-openid-providers/google.md)
   * [Microsoft](features/external-openid-providers/microsoft.md)
+  * [Microsoft certificate authentication](features/external-openid-providers/microsoft-certificate-authentication.md)
   * [Okta](features/external-openid-providers/okta.md)
   * [JumpCloud](features/external-openid-providers/jumpcloud.md)
   * [Keycloak](features/external-openid-providers/keycloak.md)

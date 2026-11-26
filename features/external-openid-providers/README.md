@@ -11,7 +11,7 @@ Defguard, [apart from being an identity provider itself](../openid-connect/), su
 Here are dedicated tutorials for most common SSO providers:
 
 * [Google](google.md)
-* [Microsoft](microsoft.md)
+* [Microsoft](microsoft.md) (with a client secret or a [certificate](microsoft-certificate-authentication.md))
 * [Zitadel](zitadel.md)
 * [Keycloak](keycloak.md)
 * [Okta](okta.md)

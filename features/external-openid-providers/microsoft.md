@@ -8,6 +8,10 @@ Firstly, we need to obtain credentials such as
 * `Client ID`
 * `Client secret`
 
+{% hint style="info" %}
+Instead of a client secret, Defguard can authenticate to Microsoft with a certificate and a private key. See [Microsoft certificate authentication](microsoft-certificate-authentication.md).
+{% endhint %}
+
 If you already have them, please skip to [#configuring-microsoft-as-external-oidc-in-defguard](microsoft.md#configuring-microsoft-as-external-oidc-in-defguard "mention")
 
 ## Obtaining basic credentials
