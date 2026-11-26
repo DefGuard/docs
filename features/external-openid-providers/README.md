@@ -11,7 +11,7 @@ Defguard, [apart from being an identity provider itself](../openid-connect/), su
 Here are dedicated tutorials for most common SSO providers:
 
 * [Google](google.md)
-* [Microsoft](microsoft.md) (with a client secret or a [certificate](microsoft-certificate-authentication.md))
+* [Microsoft](microsoft/README.md) (with a client secret or a [certificate](microsoft/certificate-authentication.md))
 * [Zitadel](zitadel.md)
 * [Keycloak](keycloak.md)
 * [Okta](okta.md)
@@ -70,7 +70,7 @@ In order to configure the external OpenID provider login, go to the settings in 
 For a configuration guide for given provider, check one of the dedicated articles:
 
 * [Google](google.md)
-* [Microsoft](microsoft.md)
+* [Microsoft](microsoft/README.md)
 * [Okta](okta.md)
 * [JumpCloud](jumpcloud.md)
 * [Keycloak](keycloak.md)
@@ -121,7 +121,7 @@ Defguard supports synchronizing users' and groups' states based on the state of 
 By default, Defguard doesn't create users based on the users in your provider's directory. They will have to manually log in to Defguard through your provider for their Defguard accounts to be created, and Defguard is responsible only for synchronizing their later state.
 
 {% hint style="info" %}
-Microsoft is the exception: enabling the **Import users from your Microsoft directory to Defguard** option creates the directory's users in Defguard during synchronization, without waiting for their first login. See [microsoft.md](microsoft.md "mention") for details.
+Microsoft is the exception: enabling the **Import users from your Microsoft directory to Defguard** option creates the directory's users in Defguard during synchronization, without waiting for their first login. See [microsoft.md](microsoft/README.md "mention") for details.
 {% endhint %}
 
 After completing first step in wizard, you will have option to configure "**Directory Synchronization**".

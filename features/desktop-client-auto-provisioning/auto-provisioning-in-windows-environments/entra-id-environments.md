@@ -56,7 +56,7 @@ It will present an interactive propmt for selecting a user account. If this fail
 1. **Setup target users**
    * prepare a user group containing all the users you intend to perform client provisioning for
 2. **User synchronization**
-   * Configure OpenID directory synchronization as described [here](../../external-openid-providers/microsoft.md)
+   * Configure OpenID directory synchronization as described [here](../../external-openid-providers/microsoft/README.md)
    * **IMPORTANT**: enable the `Prefetch users` option to create directory users in Defguard
 3. **Token Generation**
    * Generate enrollment tokens for users using the [helper script](entra-id-environments.md#generating-enrollment-tokens)

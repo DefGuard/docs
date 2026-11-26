@@ -10,7 +10,7 @@ Defguard can sign in to Microsoft Entra ID with a certificate instead of a clien
 
 ## Overview
 
-When users sign in with Microsoft, and when [Directory synchronization](./#directory-synchronization) runs, Defguard talks to Microsoft on behalf of your app registration. Microsoft must first check that the request really comes from Defguard. Defguard can prove this in two ways:
+When users sign in with Microsoft, and when [Directory synchronization](../#directory-synchronization) runs, Defguard talks to Microsoft on behalf of your app registration. Microsoft must first check that the request really comes from Defguard. Defguard can prove this in two ways:
 
 * **Client secret.** Microsoft generates a long password. You copy it into Defguard, and Defguard sends it to Microsoft with each request.
 * **Certificate.** You create a key pair: a **certificate** (the public part) and a **private key** (the secret part). You upload the certificate to Microsoft and both files to Defguard. Defguard uses the private key to sign a short proof (valid for 5 minutes) for each request. Microsoft checks the signature with the certificate. The private key is never sent to Microsoft.
@@ -32,10 +32,10 @@ Certificate authentication is available only for the **Microsoft** provider. It 
 
 You need:
 
-* An app registration in Microsoft Entra ID with the **Tenant ID**, **Client ID**, redirect URL and token claims set up. Follow [Obtaining basic credentials](microsoft.md#obtaining-basic-credentials), but skip the step that creates a client secret.
+* An app registration in Microsoft Entra ID with the **Tenant ID**, **Client ID**, redirect URL and token claims set up. Follow [Obtaining basic credentials](./#obtaining-basic-credentials), but skip the step that creates a client secret.
 * Permission to change the app registration in Microsoft Entra ID.
 * An admin account in Defguard.
-* To receive expiry reminders: [email notifications (SMTP)](../notifications/setting-up-smtp-for-email-notifications.md) set up in Defguard.
+* To receive expiry reminders: [email notifications (SMTP)](../../notifications/setting-up-smtp-for-email-notifications.md) set up in Defguard.
 
 ## Step 1: Create a certificate and a private key
 
@@ -82,59 +82,59 @@ openssl pkcs12 -in certificate.pfx -nocerts -nodes | openssl pkey -out defguard-
 1. Go to [https://portal.azure.com/](https://portal.azure.com) and open **Microsoft Entra ID**.
 2.  Click **Manage**, then **App registrations**. Open the **All applications** tab and click the app that you registered for Defguard. You can type its name in the search field to find it.
 
-    <figure><img src="../../.gitbook/assets/entra-cert-az-01-app-registrations.png" alt="App registrations list filtered to one app, with an arrow pointing at the app name"></figure>
+    <figure><img src="../../../.gitbook/assets/entra-cert-az-01-app-registrations.png" alt="App registrations list filtered to one app, with an arrow pointing at the app name"></figure>
 3.  In the menu on the left, open **Manage** and click **Certificates & secrets**.
 
-    <figure><img src="../../.gitbook/assets/entra-cert-az-02-certificates-menu.png" alt="App overview with an arrow pointing at Certificates &#x26; secrets in the Manage menu"></figure>
+    <figure><img src="../../../.gitbook/assets/entra-cert-az-02-certificates-menu.png" alt="App overview with an arrow pointing at Certificates &#x26; secrets in the Manage menu"></figure>
 4.  Click the **Certificates** tab.
 
-    <figure><img src="../../.gitbook/assets/entra-cert-az-03-certificates-tab.png" alt="Certificates &#x26; secrets page with an arrow pointing at the Certificates tab"></figure>
+    <figure><img src="../../../.gitbook/assets/entra-cert-az-03-certificates-tab.png" alt="Certificates &#x26; secrets page with an arrow pointing at the Certificates tab"></figure>
 5.  Click **Upload certificate**.
 
-    <figure><img src="../../.gitbook/assets/entra-cert-az-04-upload.png" alt="Certificates tab with an arrow pointing at Upload certificate"></figure>
+    <figure><img src="../../../.gitbook/assets/entra-cert-az-04-upload.png" alt="Certificates tab with an arrow pointing at Upload certificate"></figure>
 6.  Click the folder icon and select `defguard-entra.crt`. Enter a **Description**, for example `Defguard`, and click **Add**. Upload only the `.crt` file here, never the `.key` file.
 
-    <figure><img src="../../.gitbook/assets/entra-cert-az-05-select-and-add.png" alt="Upload certificate panel with arrows pointing at the folder icon and the Add button"></figure>
+    <figure><img src="../../../.gitbook/assets/entra-cert-az-05-select-and-add.png" alt="Upload certificate panel with arrows pointing at the folder icon and the Add button"></figure>
 7.  The certificate appears in the list with its **Thumbprint** and **Expires** date. The expiry date matches the **Valid until** date that Defguard shows later.
 
-    <figure><img src="../../.gitbook/assets/entra-cert-az-06-added.png" alt="Certificates list with the uploaded certificate and an arrow pointing at its Expires date"></figure>
+    <figure><img src="../../../.gitbook/assets/entra-cert-az-06-added.png" alt="Certificates list with the uploaded certificate and an arrow pointing at its Expires date"></figure>
 
 ## Step 3: Configure Defguard
 
 Follow the section that matches your setup:
 
-* [Add a new Microsoft provider](microsoft-certificate-authentication.md#add-a-new-microsoft-provider), if Microsoft is not connected to Defguard yet.
-* [Switch an existing Microsoft provider to a certificate](microsoft-certificate-authentication.md#switch-an-existing-microsoft-provider-to-a-certificate), if Microsoft already works with a client secret.
+* [Add a new Microsoft provider](certificate-authentication.md#add-a-new-microsoft-provider), if Microsoft is not connected to Defguard yet.
+* [Switch an existing Microsoft provider to a certificate](certificate-authentication.md#switch-an-existing-microsoft-provider-to-a-certificate), if Microsoft already works with a client secret.
 
 ### Add a new Microsoft provider
 
 1.  Go to **Settings** and open **External identity providers**. Click **Connect** in the **Microsoft** row.
 
-    <figure><img src="../../.gitbook/assets/entra-cert-01-providers.png" alt="External identity providers list with an arrow pointing at the Connect button in the Microsoft row"></figure>
+    <figure><img src="../../../.gitbook/assets/entra-cert-01-providers.png" alt="External identity providers list with an arrow pointing at the Connect button in the Microsoft row"></figure>
 2.  Fill in **Display name** and **Tenant ID**. Below **Tenant ID**, select **Upload certificate/private key**. Then fill in **Client ID**.
 
-    <figure><img src="../../.gitbook/assets/entra-cert-02-auth-method.png" alt="Client Settings step with an arrow pointing at the Upload certificate/private key option"></figure>
+    <figure><img src="../../../.gitbook/assets/entra-cert-02-auth-method.png" alt="Client Settings step with an arrow pointing at the Upload certificate/private key option"></figure>
 3.  Click **Upload certificate file** and select `defguard-entra.crt`. Then click **Upload key file** and select `defguard-entra.key`.
 
-    <figure><img src="../../.gitbook/assets/entra-cert-03-upload.png" alt="Client Settings step with arrows pointing at the Upload certificate file and Upload key file buttons"></figure>
-4.  The buttons change to **Certificate** and **Private key** rows. This means that both files are loaded. Set the other options as described in the [Microsoft guide](microsoft.md#configuring-microsoft-as-external-oidc-in-defguard) and click **Continue**.
+    <figure><img src="../../../.gitbook/assets/entra-cert-03-upload.png" alt="Client Settings step with arrows pointing at the Upload certificate file and Upload key file buttons"></figure>
+4.  The buttons change to **Certificate** and **Private key** rows. This means that both files are loaded. Set the other options as described in the [Microsoft guide](./#configuring-microsoft-as-external-oidc-in-defguard) and click **Continue**.
 
-    <figure><img src="../../.gitbook/assets/entra-cert-04-continue.png" alt="Client Settings step with the Certificate and Private key rows filled and an arrow pointing at Continue"></figure>
+    <figure><img src="../../../.gitbook/assets/entra-cert-04-continue.png" alt="Client Settings step with the Certificate and Private key rows filled and an arrow pointing at Continue"></figure>
 
-    If a file is wrong, an error appears under it. See [Troubleshooting](microsoft-certificate-authentication.md#troubleshooting).
-5.  Optionally, turn on **Directory synchronization** and fill in its settings (see [Obtaining Directory Synchronization credentials](microsoft.md#obtaining-directory-synchronization-credentials)). Directory synchronization uses the same certificate, so you do not need a client secret for it. Click **Continue**.
+    If a file is wrong, an error appears under it. See [Troubleshooting](certificate-authentication.md#troubleshooting).
+5.  Optionally, turn on **Directory synchronization** and fill in its settings (see [Obtaining Directory Synchronization credentials](./#obtaining-directory-synchronization-credentials)). Directory synchronization uses the same certificate, so you do not need a client secret for it. Click **Continue**.
 
-    <figure><img src="../../.gitbook/assets/entra-cert-05-directory-sync.png" alt="Directory synchronization step with an arrow pointing at Continue"></figure>
+    <figure><img src="../../../.gitbook/assets/entra-cert-05-directory-sync.png" alt="Directory synchronization step with an arrow pointing at Continue"></figure>
 6.  Defguard checks the certificate and the key and saves the provider. When you see **External ID provider successfully added**, click **Finish**.
 
-    <figure><img src="../../.gitbook/assets/entra-cert-06-finish.png" alt="Validation step showing External ID provider successfully added, with an arrow pointing at Finish"></figure>
+    <figure><img src="../../../.gitbook/assets/entra-cert-06-finish.png" alt="Validation step showing External ID provider successfully added, with an arrow pointing at Finish"></figure>
 7. Sign out and sign in with Microsoft to check that it works.
 
 ### Switch an existing Microsoft provider to a certificate
 
 1.  Go to **Settings** and open **External identity providers**. Click **Edit** in the **Microsoft** row.
 
-    <figure><img src="../../.gitbook/assets/entra-cert-07-edit.png" alt="External identity providers list with an arrow pointing at the Edit button of the active Microsoft provider"></figure>
+    <figure><img src="../../../.gitbook/assets/entra-cert-07-edit.png" alt="External identity providers list with an arrow pointing at the Edit button of the active Microsoft provider"></figure>
 2. Select **Upload certificate/private key**.
 3. Click **Upload certificate file** and select `defguard-entra.crt`. Then click **Upload key file** and select `defguard-entra.key`.
 4. Scroll down and click **Save changes**.
@@ -146,11 +146,11 @@ When you save, Defguard deletes the client secret that it stored before. After y
 
 Go to **Settings**, open **External identity providers**, and click **Edit** in the **Microsoft** row. The **Certificate** row shows **Valid until** with the expiry date.
 
-<figure><img src="../../.gitbook/assets/entra-cert-08-valid-until.png" alt="Edit external identity provider page with an arrow pointing at the Valid until date in the Certificate row"></figure>
+<figure><img src="../../../.gitbook/assets/entra-cert-08-valid-until.png" alt="Edit external identity provider page with an arrow pointing at the Valid until date in the Certificate row"></figure>
 
 When the certificate has expired, the row shows **Expired** in red instead.
 
-<figure><img src="../../.gitbook/assets/entra-cert-11-expired.png" alt="Certificate row showing Expired in red, with an arrow pointing at it"></figure>
+<figure><img src="../../../.gitbook/assets/entra-cert-11-expired.png" alt="Certificate row showing Expired in red, with an arrow pointing at it"></figure>
 
 {% hint style="danger" %}
 When the certificate expires, Microsoft rejects every request from Defguard. Users cannot sign in with Microsoft, and Directory synchronization stops. Replace the certificate before the expiry date.
@@ -158,21 +158,21 @@ When the certificate expires, Microsoft rejects every request from Defguard. Use
 
 ### Email reminders
 
-Defguard checks the certificate once a day. It emails all Defguard admins two weeks, one week, three days and one day before the certificate expires, and again when it expires. The emails are sent only when [email notifications (SMTP)](../notifications/setting-up-smtp-for-email-notifications.md) are set up.
+Defguard checks the certificate once a day. It emails all Defguard admins two weeks, one week, three days and one day before the certificate expires, and again when it expires. The emails are sent only when [email notifications (SMTP)](../../notifications/setting-up-smtp-for-email-notifications.md) are set up.
 
 ## Replace the certificate before it expires
 
 Microsoft Entra ID accepts more than one certificate for the same app. Add the new certificate in Microsoft before you change Defguard, and users can keep signing in during the change.
 
-1. Create a new certificate and private key, as in [Step 1](microsoft-certificate-authentication.md#step-1-create-a-certificate-and-a-private-key). Use different file names, for example `defguard-entra-2026.crt` and `defguard-entra-2026.key`.
-2. Upload the new certificate to Microsoft Entra ID, as in [Step 2](microsoft-certificate-authentication.md#step-2-upload-the-certificate-to-microsoft-entra-id). Do not delete the old certificate yet.
+1. Create a new certificate and private key, as in [Step 1](certificate-authentication.md#step-1-create-a-certificate-and-a-private-key). Use different file names, for example `defguard-entra-2026.crt` and `defguard-entra-2026.key`.
+2. Upload the new certificate to Microsoft Entra ID, as in [Step 2](certificate-authentication.md#step-2-upload-the-certificate-to-microsoft-entra-id). Do not delete the old certificate yet.
 3.  In Defguard, go to **Settings**, open **External identity providers**, and click **Edit** in the **Microsoft** row. Click the trash icon in the **Certificate** row and in the **Private key** row.
 
-    <figure><img src="../../.gitbook/assets/entra-cert-09-delete.png" alt="Edit page with arrows pointing at the trash icons in the Certificate and Private key rows"></figure>
+    <figure><img src="../../../.gitbook/assets/entra-cert-09-delete.png" alt="Edit page with arrows pointing at the trash icons in the Certificate and Private key rows"></figure>
 4. Click **Upload certificate file** and select the new certificate. Click **Upload key file** and select the new private key.
 5.  Click **Save changes**.
 
-    <figure><img src="../../.gitbook/assets/entra-cert-10-save.png" alt="Edit page with the new Certificate and Private key rows and an arrow pointing at Save changes"></figure>
+    <figure><img src="../../../.gitbook/assets/entra-cert-10-save.png" alt="Edit page with the new Certificate and Private key rows and an arrow pointing at Save changes"></figure>
 6. Click **Edit** in the **Microsoft** row again. Check that **Valid until** shows the date of the new certificate.
 7. Sign in with Microsoft to check that it works. Then delete the old certificate in Microsoft Entra ID.
 
@@ -194,7 +194,7 @@ Defguard deletes the stored certificate and private key when you save.
 
 | Message in Defguard                                                         | Cause                                                                                             | What to do                                                                                                   |
 | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| Invalid file format                                                         | The file is not a PEM certificate or PEM private key, or you selected the files in the wrong order. | Upload the `.crt` file as the certificate and the `.key` file as the key. Convert `.pfx` files as shown in [Step 1](microsoft-certificate-authentication.md#if-you-have-a-pfx-or-p12-file). |
+| Invalid file format                                                         | The file is not a PEM certificate or PEM private key, or you selected the files in the wrong order. | Upload the `.crt` file as the certificate and the `.key` file as the key. Convert `.pfx` files as shown in [Step 1](certificate-authentication.md#if-you-have-a-pfx-or-p12-file). |
 | The certificate or private key is invalid, or they don't match              | The key does not belong to the certificate, the key is not RSA, or the key is password-protected. | Upload the key that was created together with the certificate. Create a new RSA key pair if necessary.       |
 | The uploaded certificate has expired. Please upload a valid certificate.    | The expiry date of the certificate is in the past.                                                | Create a new certificate.                                                                                    |
 | The uploaded certificate is not valid yet                                   | The start date of the certificate is in the future, or the clock of the Defguard server is wrong. | Wait until the start date, or correct the server clock.                                                     |
